@@ -1,0 +1,30 @@
+{
+  "slug": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+  "productoId": "producto-edb1",
+  "estilo": "zack-d-films",
+  "familia": "voz-en-off",
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "usuario",
+    "texto": "1:50",
+    "segundos": 110
+  },
+  "voz": {
+    "id": "VmejBeYhbrcTPwDniox7",
+    "nombre": "Lina - Carefree & Fresh",
+    "auto": true,
+    "motivo": "voz femenina como la del video de referencia (tono medio de 286 Hz, expresiva) · «Lina - Carefree & Fresh»: voz femenina, habla español, acento colombiano, joven, cercana, hecha para narrar",
+    "elegida": "2026-11-20T15:16:49.418Z"
+  },
+  "continuidad": false,
+  "respuestas": {
+    "fondo": "Igual que en el video original: mismos escenarios y ambientes de cada toma",
+    "clonar": "subido:c570f0d47f74|2 - VTD TT.mp4",
+    "clonar_gancho": "No, conserva el gancho y el ángulo del original"
+  },
+  "opciones": {
+    "subestilo": null
+  },
+  "pedido": "Clonar el video adjunto TAL CUAL: misma estructura, mismo orden de escenas, mismo gancho, mismo ángulo, mismos tiempos y lo mismo que se dice, solo reemplazando el producto por AGUAJE COMPLEX 3 EN 1 (usar su investigación de mercado para adaptar los datos del producto). Lo único que cambia del estilo son los personajes, que van al estilo Zack D Films; los escenarios, encuadres y acciones se mantie",
+  "creado": "2026-11-20T15:07:50.450Z"
+}

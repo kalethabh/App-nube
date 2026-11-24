@@ -1,0 +1,33 @@
+{
+  "ad_info": {
+    "variation_id": "V07"
+  },
+  "global_identity": {
+    "color_palette": "the colors of the product's packaging",
+    "text_typography": "the typography of the reference ad"
+  },
+  "visual_prompt": "Product: VITALDROPS, for 18 a 55 (market: Colombia).\nSecondary texts: short and about the main benefit of the product.\nAngle: the SAME one as the reference ad (same body area, problem or desire, same hook). Only if the reference has no clear angle, use: Objeción de confianza.\nAdapt the color palette to the product's packaging, keeping the same contrast and hierarchy as the reference.\nThe reference is a TEMPLATE from another brand: keep its structure, composition, visual hierarchy, typography and the kind of image (person, body area, illustration or diagram), but nothing of its brand. If it shows a price, a discount, a quantity offer or an offer badge, put there a short benefit or call to action instead (no prices, no percentages, no \"2 x\"). Before and after, days and timelines only as the reference shows them, for this product.\nAll visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.",
+  "text_layers": [
+    {
+      "reference_function": "main headline",
+      "reference_position": "same place as the main headline of the reference",
+      "text": "Mi prima me pidió ser su madrina en marzo. El matrimonio era en diciembre. Y entonces…",
+      "text_style": "same style as the main headline of the reference"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo"
+  ],
+  "final_generation_exclusions": [
+    "any logo, brand name or text from the reference ad",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "the reference ad's brand, prices or claims"
+    ],
+    "detected_visual_blocks": []
+  },
+  "language_rule": "All visible text in Spanish.",
+  "app_rapido": "copiar"
+}

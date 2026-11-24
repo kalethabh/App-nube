@@ -1,0 +1,56 @@
+{
+  "nombre": "VITALABH Aguaje Complex 3 en 1",
+  "queEs": "Suplemento alimenticio en cápsulas a base de aguaje, fenogreco y maca negra, de triple acción.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio",
+    "Resultados rápidos y duraderos con el tratamiento completo de 3 frascos",
+    "Trae los tres componentes puros: aguaje, fenogreco y maca negra"
+  ],
+  "publico": "Mujeres adultas que quieren aumentar glúteos y piernas, y que ya compraron o están por comprar aguaje de otra marca.",
+  "dolor": "Compró aguaje de una marca que dice ser \"la original\" y no vio resultados, o los perdió al terminar el frasco. No sabe que lo que da resultados no es la marca, sino que tenga los componentes puros y hacer el tratamiento completo.",
+  "oferta": "",
+  "comoCompra": "",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "",
+  "probo": "Aguaje de otras marcas que dicen ser \"la original\" (como VITALCOM). Compró de a un frasco, le salió más caro y no tuvo resultados, porque nadie le dijo que lo ideal es el tratamiento completo de 3 unidades.",
+  "prueba": "",
+  "ingredientes": "Por porción de 2 cápsulas: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg. También trae vitamina A y vitamina E. Aguaje en polvo (fruto), fenogreco en polvo (semilla), maca negra en polvo (raíz), estearato de magnesio y cápsula de gelatina. Frasco de 60 cápsulas de 0.5 g cada una (contenido neto 30 g).",
+  "comoSeUsa": "Tomar 2 cápsulas al día, de preferencia con las comidas principales. Un frasco dura 30 días. Uso continuo por al menos 3 meses (tratamiento completo de 3 frascos) para resultados rápidos, duraderos y sin efecto rebote.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "El frasco en una mano, con la etiqueta de frente. Es una captura de un video: abajo se ve la barra del reproductor."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": false,
+      "nota": "Es el diseño plano de la etiqueta, con medidas de imprenta. No muestra el frasco, pero de aquí salen los ingredientes y el modo de uso."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "idioma",
+    "mercado"
+  ],
+  "falta": [
+    {
+      "campo": "oferta",
+      "pregunta": "¿Cuánto cuesta un frasco y cuánto el tratamiento completo de 3? ¿Tienes envío gratis o alguna promo?"
+    },
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿Cómo te compran: por tu página, por WhatsApp, con pago contra entrega?"
+    },
+    {
+      "campo": "pais",
+      "pregunta": "¿En qué país vendes?"
+    }
+  ]
+}

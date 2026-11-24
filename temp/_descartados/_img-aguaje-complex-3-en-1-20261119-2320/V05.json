@@ -1,0 +1,184 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "library format F22 (Flatlay de componentes)",
+    "reference_style": "Lush editorial top-down flatlay photo: the product lying diagonally in the center, framed by abundant piles of its real ingredients bleeding off the four corners, with small pill labels",
+    "angle_used": "Objeción de confianza: answers 'is this just a scam?' by showing the three real ingredients and their exact amounts in plain sight",
+    "ad_format": "Ingredients / Components Flatlay Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: clean pale blush background, the black-and-fuchsia bottle as hero, real natural ingredients photographed true to life, clean rounded pill labels.",
+    "visual_atmosphere": "Honest, calm, warm and trustworthy; soft window daylight, everything in plain sight.",
+    "graphic_language": "Rounded pills in hot fuchsia with white text, clean softly textured blush surface with generous negative space, no clutter, no glows, no sparkles, no particles, no petals.",
+    "text_typography": "Montserrat ExtraBold (uppercase, heavy) for the headline; Inter SemiBold for the four labels."
+  },
+  "creative_objective": "Remove the distrust of the woman who already lost money on pills sold online: show, from above and in plain sight, exactly what the bottle contains and how much of each ingredient, so the proof replaces the doubt. Same desire and brand as the rest of the batch; only the problem (distrust), the context (the home table) and the format (top-down ingredients) change.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The headline at the top. 2) The real bottle lying diagonally in the center. 3) The four abundant ingredient piles in the corners. 4) The four small fuchsia pill labels with the amounts. Only two text levels: headline and labels.",
+    "composition_style": "Strict top-down (90 degree overhead) organic frame composition. The bottle lies flat in the center rotated about 15-20 degrees off vertical, front label facing the camera. Four generous ingredient piles enter from the four corners and are cropped by the canvas edges, creating a natural, abundant frame around a calm, open central area. Piles are loose and organic (not aligned on a grid), with a few stray pieces drifting toward the bottle. The headline sits on clear surface at the top center.",
+    "spacing_and_structure": "Headline from about 4% to 15% of the canvas height and 8% to 92% of the width, centered, on clear surface. Bottle from about 32% to 68% of the width and 24% to 80% of the height. Piles bleeding off the edges: upper-left about 0-28% of the width and 18-44% of the height; upper-right about 72-100% and 18-44%; lower-left about 0-30% and 66-100%; lower-right about 70-100% and 66-100%. Upper labels just below their piles (about 45-50% of the height); lower labels just above their piles (about 59-64%); all labels within 4-28% or 72-96% of the width so they never touch the bottle. Calm, open blush surface around the bottle.",
+    "lighting_and_depth": "Soft, diffused window daylight falling gently from the upper left. Every object casts a short, soft shadow toward the lower right, consistent across the frame. Deep focus, everything sharp from edge to edge. Rich, true-to-life textures: the scaly reddish-brown skin and orange flesh of the aguaje fruit, the small golden fenugreek seeds, the dark rough maca root and its fine powder, the smooth capsules. No glow, no shine effects.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square top-down photo of a pale blush-pink softly textured plaster surface (the home table). The real bottle lies in the center on a slight diagonal, front label facing the camera. From the four corners, abundant piles of its real ingredients spill in and are cropped by the image edges: upper-left halved aguaje fruits, upper-right fenugreek seeds, lower-left black maca roots with a mound of maca powder, lower-right loose capsules. A few loose pieces drift toward the center. Each pile has a small rounded hot-fuchsia pill label facing the center: under the two upper piles and above the two lower piles. A short headline sits on clear surface at the top center. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background surface",
+        "position": "Full canvas, seen from directly above",
+        "visual_function": "Tactile, natural stage that makes the flatlay feel real, homely and premium",
+        "adaptation_rule": "Pale blush pink #FBE3EE matte plaster surface with a very subtle natural texture, like a painted home table. Never pure white.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top center, on clear surface, from about 4% to 15% of the canvas height",
+        "visual_function": "Turns the distrust into certainty: you know what you take",
+        "adaptation_rule": "Single line, centered, Montserrat ExtraBold uppercase in bottle black #0E0E10 with the word 'TOMAS' in hot fuchsia #E6177F.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "product",
+        "position": "Center, about 32-68% of the canvas width and 24-80% of the canvas height, rotated about 15-20 degrees off vertical",
+        "visual_function": "Main anchor; every ingredient around it explains it",
+        "adaptation_rule": "The attached bottle exactly as in the photo (same geometry, cap, pink band, label and colors), lying flat on the surface with its front label facing the camera so it reads from above.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "component pile upper-left",
+        "position": "About 0-28% of the canvas width and 18-44% of the canvas height, cropped by the left edge",
+        "visual_function": "Shows the first ingredient: aguaje",
+        "adaptation_rule": "An abundant, organic pile of whole and halved aguaje (moriche palm) fruits: small oval fruits with glossy reddish-brown scaly skin, the halved ones showing bright orange flesh, spilling in from outside the frame.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "component pile upper-right",
+        "position": "About 72-100% of the canvas width and 18-44% of the canvas height, cropped by the right edge",
+        "visual_function": "Shows the second ingredient: fenugreek",
+        "adaptation_rule": "An abundant, loose mound of small angular golden-ochre fenugreek seeds, similar visual weight to the other piles, spilling in from outside the frame.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "component pile lower-left",
+        "position": "About 0-30% of the canvas width and 66-100% of the canvas height, cropped by the left and bottom edges",
+        "visual_function": "Shows the third ingredient: black maca",
+        "adaptation_rule": "Several rough, round dark purplish-black maca roots next to a soft mound of fine beige-brown maca powder, spilling in from the corner.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "component pile lower-right",
+        "position": "About 70-100% of the canvas width and 66-100% of the canvas height, cropped by the right and bottom edges",
+        "visual_function": "Shows the capsules that carry the formula with vitamins A and E",
+        "adaptation_rule": "An abundant, loose pile of plain opaque two-piece supplement capsules with no printing, spilling in from the corner.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "stray pieces",
+        "position": "A few pieces drifting from the piles toward the center, in the open surface around the bottle",
+        "visual_function": "Connects the ingredients to the bottle and adds an organic, just-styled feel",
+        "adaptation_rule": "A handful of loose fenugreek seeds, a pinch of maca powder and two or three capsules, never on the bottle label or the text.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_09",
+        "block_type": "component labels",
+        "position": "Under the two upper piles (about 45-50% of the canvas height) and above the two lower piles (about 59-64%), within 4-28% or 72-96% of the canvas width",
+        "visual_function": "Names each ingredient and its exact amount so the viewer can check it",
+        "adaptation_rule": "Four small rounded pills in hot fuchsia #E6177F, about 18-24% of the canvas width each (sized to their text, the whole text always inside the pill), white text. Same size and style for all four. No leader lines.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Perspective, eye-level or angled camera views",
+      "Boxes, packaging lids, tissue paper or unboxing elements",
+      "Neat grid or knolling arrangement",
+      "More than four labels or any leader lines and arrows",
+      "CTA button",
+      "Price, discount or offer badge",
+      "Trust seals, guarantee, certification or sanitary registration badges",
+      "Rating stars, reviews or testimonials",
+      "Benefit icons or checklists",
+      "Subheadline or any text besides the headline and the four labels",
+      "Bottom bar or banner",
+      "People, hands or faces",
+      "Unrelated props (cups, phones, plants, notebooks, spoons, bowls) that are not part of the product",
+      "Logos or brand marks other than the real bottle label",
+      "Glows, sparkles, light flares, particles or petals",
+      "Collage, split panels or 'variant' labels"
+    ]
+  },
+  "visual_prompt": "Square 1:1 ingredients flatlay ad, one single photo. Strict top-down 90-degree overhead view of a pale blush-pink (#FBE3EE) matte plaster surface with a very subtle natural texture, like a painted home table; never pure white. In the center, about 32-68% of the width and 24-80% of the height, the product from the attached image lies flat on the surface, rotated about 15-20 degrees off vertical, its front label facing the camera and fully readable: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern and a solid hot-pink band wrapping the bottom fifth; the black label shows a small pink VITALABH emblem with the white word 'VITALABH', a huge bold white condensed word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a small white line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret it. From the four corners, four abundant, loose, organic piles of the real ingredients spill in and are cropped by the canvas edges, framing a calm open area around the bottle: upper-left (about 0-28% of the width, 18-44% of the height) whole and halved aguaje fruits, small oval fruits with glossy reddish-brown scaly skin, the halves showing bright orange flesh; upper-right (about 72-100%, 18-44%) a loose mound of small angular golden-ochre fenugreek seeds; lower-left (about 0-30%, 66-100%) several rough round dark purplish-black maca roots beside a soft mound of fine beige-brown maca powder; lower-right (about 70-100%, 66-100%) a loose pile of plain opaque unprinted two-piece capsules. A few stray fenugreek seeds, a pinch of maca powder and two or three capsules drift toward the center, never touching the bottle label or the text. Four small rounded hot-fuchsia (#E6177F) pill labels with white Inter SemiBold text face the center: two just below the upper piles (about 45-50% of the height) and two just above the lower piles (about 59-64%), all within 4-28% or 72-96% of the width, never touching the bottle, same size and style, no leader lines. At the top center, on clear surface between 4% and 15% of the height, a single-line headline in Montserrat ExtraBold uppercase, bottle black #0E0E10 with the word 'TOMAS' in hot fuchsia #E6177F, centered. Soft diffused window daylight from the upper left; every object casts a short soft shadow toward the lower right; deep focus, everything sharp; true-to-life natural colors and textures. Clean and calm, with generous negative space: no glows, sparkles, flares, particles or petals. Do not add CTA buttons, price badges, benefit lists, icons, trust seals, rating stars, testimonials, hands, people, extra props, bottom bars or any extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, on clear surface",
+      "text_style": "Montserrat ExtraBold, uppercase, about 7-7.5% of the canvas height, 1 line, centered, bottle black #0E0E10 with the word 'TOMAS' in hot fuchsia #E6177F",
+      "text": "SABES LO QUE TOMAS"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "component label 1",
+      "reference_position": "Inside the pill under the upper-left pile (aguaje fruits)",
+      "text_style": "Inter SemiBold, about 2.8% of the canvas height, 1 line, white, centered in a hot-fuchsia pill",
+      "text": "Aguaje 200 mg"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "component label 2",
+      "reference_position": "Inside the pill under the upper-right pile (fenugreek seeds)",
+      "text_style": "Same style as label 1: Inter SemiBold, about 2.8% of the canvas height, 1 line, white, centered",
+      "text": "Fenogreco 400 mg"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "component label 3",
+      "reference_position": "Inside the pill above the lower-left pile (black maca)",
+      "text_style": "Same style as label 1: Inter SemiBold, about 2.8% of the canvas height, 1 line, white, centered",
+      "text": "Maca negra 200 mg"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "component label 4",
+      "reference_position": "Inside the pill above the lower-right pile (capsules)",
+      "text_style": "Same style as label 1: Inter SemiBold, about 2.8% of the canvas height, 1 line, white, centered",
+      "text": "Vitaminas A y E"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Strict top-down overhead camera angle",
+    "The real bottle lying in the center on a slight diagonal, front label facing the camera",
+    "Four abundant ingredient piles entering from the corners and cropped by the canvas edges: aguaje fruits, fenugreek seeds, black maca roots with powder, capsules",
+    "Four small hot-fuchsia pill labels facing the center",
+    "A few stray ingredient pieces drifting toward the bottle",
+    "Pale blush-pink textured surface with consistent soft shadows"
+  ],
+  "final_generation_exclusions": [
+    "No hands, people or faces; no extra props such as bowls, spoons, cups or plants.",
+    "No price, sanitary registration, certification seals, ratings or customer counts.",
+    "No glows, sparkles, flares, particles or petals.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

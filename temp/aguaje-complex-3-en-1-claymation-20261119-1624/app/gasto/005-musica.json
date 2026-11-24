@@ -1,0 +1,17 @@
+{
+  "numero": 5,
+  "paso": "musica",
+  "comando": "node produccion/suno-retomable.js generar-musica.js temp/aguaje-complex-3-en-1-claymation-20261119-1624 --si",
+  "inicio": "2026-11-19T23:15:58.414Z",
+  "fin": "2026-11-19T23:16:27.121Z",
+  "codigo": 0,
+  "creditos": 12,
+  "dolares": 0.06,
+  "imagenes": [],
+  "videos": [],
+  "musica": {
+    "creditos": 12
+  },
+  "sinRegistro": [],
+  "elevenlabs": null
+}

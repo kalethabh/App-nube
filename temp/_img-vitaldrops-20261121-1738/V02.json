@@ -1,0 +1,120 @@
+{
+  "ad_info": {
+    "variation_id": "V02"
+  },
+  "global_identity": {
+    "color_palette": "the colors of the product's packaging",
+    "text_typography": "a heavy bold sans for the headline in ALL CAPS, a clean sans for the rest"
+  },
+  "visual_prompt": "PRODUCT: VITALDROPS. Its bottle reproduced with total fidelity to the attached photo (label, brand name letter by letter, colors).\nLAYOUT (us vs. them): a 2-column comparison table with the given rows, green ✅ for ours and red ❌ for the other; OUR bottle with its real label on top of our column, the \"other\" is a generic GREY bottle with no brand on top of the other column; Z1 is the comparative headline.\nMOOD: Mujer de 30 años en su cuarto, sentada en la cama, deja a un lado los frascos de gomitas que ya probó y sostiene su gotero. Mirada decidida, alivio de no botar más la plata..\nSETTING: a clean background in the palette of the packaging, the table on a light card.",
+  "text_layers": [
+    {
+      "reference_function": "Z1 headline",
+      "reference_position": "top 15-20% of the image",
+      "text": "MÁS CONFIANZA SIN PROMESAS MÁGICAS NI COBROS",
+      "text_style": "very bold, ALL CAPS, high contrast, the biggest text"
+    },
+    {
+      "reference_function": "table row 1, ours",
+      "reference_position": "our column",
+      "text": "✅ ✅ Gotas, una toma al día",
+      "text_style": "short, green check"
+    },
+    {
+      "reference_function": "table row 1, other",
+      "reference_position": "other column",
+      "text": "❌ ❌ Gomitas y pastillas a montones",
+      "text_style": "short, red cross, grey"
+    },
+    {
+      "reference_function": "table row 2, ours",
+      "reference_position": "our column",
+      "text": "✅ ✅ Pagas al recibir",
+      "text_style": "short, green check"
+    },
+    {
+      "reference_function": "table row 2, other",
+      "reference_position": "other column",
+      "text": "❌ ❌ Pagas por adelantado",
+      "text_style": "short, red cross, grey"
+    },
+    {
+      "reference_function": "table row 3, ours",
+      "reference_position": "our column",
+      "text": "✅ ✅ Sin suscripción",
+      "text_style": "short, green check"
+    },
+    {
+      "reference_function": "table row 3, other",
+      "reference_position": "other column",
+      "text": "❌ ❌ Cobros que no pediste",
+      "text_style": "short, red cross, grey"
+    },
+    {
+      "reference_function": "table row 4, ours",
+      "reference_position": "our column",
+      "text": "✅ ✅ Promesa honesta",
+      "text_style": "short, green check"
+    },
+    {
+      "reference_function": "table row 4, other",
+      "reference_position": "other column",
+      "text": "❌ ❌ Promesas mágicas",
+      "text_style": "short, red cross, grey"
+    },
+    {
+      "reference_function": "Z4 product seal",
+      "reference_position": "on or next to the bottle",
+      "text": "5 INGREDIENTES · 1 TOMA AL DÍA",
+      "text_style": "badge or seal"
+    },
+    {
+      "reference_function": "Z5 offer",
+      "reference_position": "badge or ribbon, bottom",
+      "text": "TRATAMIENTO COMPLETO X3",
+      "text_style": "highlighted but not exaggerated"
+    },
+    {
+      "reference_function": "Z5 offer (2)",
+      "reference_position": "inside or right below the offer",
+      "text": "Pagas al recibir",
+      "text_style": "smaller"
+    },
+    {
+      "reference_function": "Z6 CTA",
+      "reference_position": "a single short chip",
+      "text": "Escríbenos",
+      "text_style": "button chip"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo, at least 15% of the image"
+  ],
+  "final_generation_exclusions": [
+    "any text closer than 5% to the edges",
+    "more than 3 benefit bullets",
+    "more than one CTA",
+    "medical claims, guarantees or invented numbers",
+    "brands or logos other than the product",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "extra blocks of text",
+      "prices other than the given offer"
+    ],
+    "detected_visual_blocks": [
+      "Z1",
+      "Z2",
+      "Z3",
+      "Z4",
+      "Z5",
+      "Z6"
+    ]
+  },
+  "language_rule": "All visible text in Colombian Spanish, simple, perfectly spelled.",
+  "app_desde0": {
+    "formato": "nosotros-vs-ellos",
+    "plantilla_titular": "Más [zona/deseo] sin [sacrificio]"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "rechazos": {},
+  "extraRechazos": {},
+  "descartados": [],
+  "ganchos": {},
+  "persona": {
+    "sesion": {
+      "uuid": "af950a7c-5d26-4ecd-801a-d0be326b2411",
+      "usada": true
+    },
+    "pedidos": []
+  },
+  "actualizado": "2026-11-19T17:11:05.842Z",
+  "revision": {
+    "ronda": 1,
+    "medidas": {
+      "1": {
+        "huella": "5953265-1795107936600",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "2": {
+        "huella": "4933501-1795108244110",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "3": {
+        "huella": "5710113-1795108117331",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "4": {
+        "huella": "5111150-1795108108737",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "5": {
+        "huella": "4338440-1795108085351",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      }
+    },
+    "vistos": {},
+    "piezas": {
+      "toma-1": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-2": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-3": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-4": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-5": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      }
+    },
+    "pendientes": [],
+    "revisarTambien": [],
+    "sinRevisar": [],
+    "lugares": {},
+    "vuelta": null,
+    "sesion": {
+      "uuid": "5b1df3b7-fb3c-4d47-9787-0840c55efea0",
+      "usada": true
+    }
+  }
+}

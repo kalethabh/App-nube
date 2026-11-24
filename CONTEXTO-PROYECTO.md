@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-23 (diagnóstico y estrategia de agentes; la app conserva la versión 2026-11-23b).
+Última actualización: 2026-11-24 (Sistema S.E.P: pestañas de Objetivos y avance + Copiloto en la pantalla S.E.P; la app conserva la versión 2026-11-23b).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -14,6 +14,19 @@ los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté 
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
 
 ## Estado para retomar
+
+- **SISTEMA S.E.P (2026-11-24, hecho desde Cowork):** la pantalla S.E.P ahora tiene tres pestañas: «Anuncios de Meta»
+  (lo de siempre), «Objetivos y avance» y «Copiloto». Objetivos por producto (meta de pedidos/día y CPA máximo en pesos),
+  corte del día en 10 segundos (pedidos reales de Lucid/iComfly + gasto de Meta) con KPIs (progreso contra la meta, CPA
+  del día contra el tope, proyección de cierre con ventana 6 AM–12 AM, racha), guía horaria, barras de 14 días contra la
+  meta y bitácora de decisiones. El Copiloto es un chat con la IA de Ajustes (motor-ia) que SOLO aconseja con el método
+  del usuario (barrer anuncio → conjunto → campaña en 3/5/14 días, escalar duplicando y nunca +20 %, 1.2.5 y 1.5.5,
+  mínimo 3 días, sin cambios después de 8 PM) y lee objetivos, avance, bitácora y el último informe de Meta en caché.
+  Archivos: `app/server/lib/sep-plan.js` (nuevo), `app/server/rutas/sep.js` (rutas /api/sep/plan|objetivos|avance|
+  bitacora|copiloto), `app/src/pantallas/sep/plan.jsx` y `copiloto.jsx` (nuevos), `index.jsx` (pestañas) y `sep.css`.
+  Datos en `mis_archivos/sep/` (plan.json y copiloto.json), local. Probado: build de Vite OK y los endpoints en modo
+  prueba (objetivos, corte con KPIs y guía, bitácora). Sin probar en vivo: el copiloto con Claude Code real.
+  Pendiente posible (fase 2): llenar el corte del día solo, leyendo pedidos de iComfly (webhooks/API).
 
 - **PUBLICAR PARA LAS COPIAS INSTALADAS (Juanquín):** el repositorio público kalethabh/kads-studio publica solo con `publicar-solo.yml` (horario cada 10 min, que GitHub a veces deja de correr por horas). Desde 2026-11-19 también arranca al subir un cambio a `PUBLICAR.txt` (o al propio workflow) en ese repositorio: una sesión de Claude con el repositorio adjunto (add_repo con push) cambia PUBLICAR.txt y hace push a main (crear releases por la API está bloqueado en las sesiones). Usa la VERSION de la app si es más nueva que la última publicada (así la etiqueta coincide); `instalar/.github` no cuenta como cambio. v2026-11-19s se publicó así. La copia del workflow vive en `instalar/.github/workflows/` (npm run publicar la sube).
 - **Versión actual:** `2026-11-23b`: rediseño Ciudad creativa; ver sección siguiente.

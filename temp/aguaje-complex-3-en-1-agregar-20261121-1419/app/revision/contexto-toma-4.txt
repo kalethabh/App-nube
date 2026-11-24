@@ -1,0 +1,85 @@
+
+=== Contexto para rehacer el bloque 4 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    10s
+    referencias: 1) personaje  2) personaje-2  3) imagen   (Imagen 1, Imagen 2... del prompt)
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        objeción
+    linea:       "Te voy a preguntar directo. ¿Qué te hiciste? No me hice cirugía. Ni inyecciones. Entonces explícame lo que estoy viendo. Es natural. Llevo tres meses. ¿Tres meses? ¿Todo eso?"
+    viene de:    "Es falsa. Cirugía, inyecciones, algo. ¿Y qué si lo hizo? No voy a tener una mujer de plástico dándome nietos de plástico. O lo admite, o no es bienvenida."
+    lleva a:     "Son cápsulas. Dos al día, con la comida. Eso es ridículo. Aguaje, fenogreco y maca negra, con mi comida y mi rutina de pierna. Sin agujas y sin quirófano."
+
+  TRAMOS:
+    [0.0–2.6s] [personaje-2]  "Te voy a preguntar directo. ¿Qué te hiciste?"
+    [2.6–4.6s] [personaje]  "No me hice cirugía. Ni inyecciones."
+    [4.6–6.6s] [personaje-2]  "Entonces explícame lo que estoy viendo."
+    [6.6–8.4s] [personaje]  "Es natural. Llevo tres meses."
+    [8.4–10.0s] [personaje-2]  "¿Tres meses? ¿Todo eso?"
+
+  --- video ---
+Duración: 10s.
+
+REFERENCIAS:
+Imagen 1: Mariana. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.
+Imagen 2: la madre. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo ni su pose.
+Imagen 3: la escena de este bloque — empieza así: mismo encuadre, lugar, ropa y lugar de cada cosa.
+
+STYLE / MOOD:
+Drama corto tipo telenovela, tenso y elegante, como una escena real de una cena familiar. Video vertical 9:16, cámara en mano suave con leve movimiento, casi quieta y sin zoom, planos medios y cerrados que cortan seco entre quien habla y quien escucha, fondo levemente desenfocado. Color cálido y apagado (dorados, crema y rojo), contraste medio, nitidez natural. Personas ultra realistas: piel real con poros, textura e imperfecciones, pelo con mechones sueltos, ropa con arrugas naturales; nada de piel plástica ni cara de IA.
+
+LANGUAGE / VOICE:
+Español de Colombia, natural y cotidiano, con acento colombiano natural (natural Colombian Spanish accent), sin atarlo a una ciudad: ni neutro, ni mexicano, ni de España. Cada persona tiene su propia voz, distinta de las otras, y suena igual en todo el anuncio. MARIANA: voz femenina de una mujer de 27 años, timbre medio-agudo, cálido y limpio, ritmo ágil y seguro, firme y calmada, con un toque de ironía. LA MADRE: voz femenina de una mujer de 55 años, timbre grave y algo ronco, ritmo pausado y cortante, autoritaria y fría; se suaviza cuando pide perdón. SEBASTIÁN: voz masculina de un hombre de 30 años, grave de barítono, suave e incómodo. Ritmo de conversación real, sin sonar memorizado, nadie suena a locutor. Habla en español de Colombia.
+
+MAIN CHARACTERS:
+MARIANA (imagen 1): mujer colombiana adulta de 27 años, piel morena media con textura real, poros visibles y un brillo natural, cabello negro muy largo de rizos apretados, suelto, con mechones sueltos y baby hairs en la frente, cejas pobladas y arqueadas, ojos cafés oscuros, labios carnosos con brillo nude, maquillaje natural, aretes pequeños de argolla dorada, tatuaje de rosas en negro y gris en todo el brazo izquierdo; figura curvilínea de reloj de arena: cintura pequeña, caderas anchas y redondeadas, piernas gruesas. En este video Mariana lleva un vestido largo hasta la pantorrilla color café chocolate, de punto acanalado ajustado, con tiras delgadas y escote recto discreto, y sandalias de tacón transparentes.
+LA MADRE (imagen 2): mujer colombiana de 55 años, piel trigueña con líneas finas junto a los ojos y la boca y poros visibles, cabello negro ondulado y con volumen hasta los hombros, cejas definidas, ojos cafés, labios rojo vino, aretes grandes de argolla dorada, cadena dorada fina con una medalla redonda dorada; lleva un vestido rojo de manga larga con escote cuadrado discreto.
+
+SETTING:
+Comedor elegante de una casa grande, de noche: candelabro de cristal encendido en el techo, apliques dorados con velas en paredes color crema con molduras doradas, una mesa con mantel blanco, arreglos bajos de hortensias y rosas blancas, velas encendidas en vasos de vidrio dorado, copas con vino tinto, platos blancos con borde dorado y cubiertos dorados. La luz cálida y suave de las velas y del candelabro les da de frente a las personas, con brillos dorados en la piel y en el pelo; el fondo se ve levemente desenfocado. Todo se ve real y vivido, no un set. Sobre la mesa solo hay: el mantel blanco, los platos con carne y verduras, los cubiertos dorados, las copas de vino tinto, las velas en vasos dorados y los arreglos de flores blancas; no hay nada más.
+
+PERFORMANCE:
+Un interrogatorio cara a cara: la madre pregunta seca, inclinada hacia adelante; Mariana responde tranquila, sin bajar la mirada, segura de lo que dice. Gestos naturales de manos, cejas y cabeza, nada rígido. Sin sobreactuar.
+
+TIMESTAMPS:
+[0.0–2.6s]
+Plano cerrado de la madre, de frente, con las manos juntas sobre la mesa: se inclina hacia adelante y la mira fijo. Habla la madre.
+DIÁLOGO: “Te voy a preguntar directo. ¿Qué te hiciste?”
+[2.6–4.6s]
+Corte a plano cerrado de Mariana, de tres cuartos: niega despacio con la cabeza, tranquila. Habla Mariana.
+DIÁLOGO: “No me hice cirugía. Ni inyecciones.”
+[4.6–6.6s]
+Corte a plano cerrado de la madre: abre una mano hacia Mariana, señalándola de arriba abajo, incrédula. Habla la madre.
+DIÁLOGO: “Entonces explícame lo que estoy viendo.”
+[6.6–8.4s]
+Corte a plano cerrado de Mariana: levanta un poco la barbilla y sonríe apenas, segura. Habla Mariana.
+DIÁLOGO: “Es natural. Llevo tres meses.”
+[8.4–10.0s]
+Corte a plano cerrado de la madre: suelta una risa corta, sin creerle, y levanta las cejas; al terminar de hablar se queda quieta, mirándola, en silencio.
+DIÁLOGO: “¿Tres meses? ¿Todo eso?”
+
+AUDIO:
+Solo las voces de quienes hablan y el ambiente de un comedor amplio de noche: eco suave, roce de cubiertos sobre la porcelana, el tintineo de una copa. Ninguna otra voz. Sin música.
+
+*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. No debe verse ningún texto ni aparecer ninguna persona además de Mariana y la madre, y las caras no cambian entre planos.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with the front camera of a phone, like a casual reference selfie. Medium shot, from the waist up. An adult Colombian woman of 27 with adult features: warm medium-brown skin with real texture, visible pores, a few tiny marks and a natural sheen; very long loose black hair in tight spiral curls past her chest, with flyaway strands and baby hairs at the hairline; full arched brows; dark brown almond eyes; full lips with nude-brown gloss; soft natural makeup; small gold hoop earrings; a black-and-grey rose tattoo sleeve covering her whole left arm; slim waist. She wears a plain chocolate-brown fitted top with thin straps and a modest straight neckline, no prints, no logos. She stands in front of a plain cream wall at home, looking straight at the camera with a calm, slightly confident expression and her mouth closed, arms relaxed at her sides, hands empty. Soft natural light from a window in front of her. Authentic phone photo, no studio retouching, no plastic skin. A single frozen instant. No text, no logos, no watermarks, nothing in her hands.
+
+  --- referencia "personaje-2" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with the front camera of a phone, like a casual reference selfie. Medium shot, from the waist up. A Colombian woman of 55: tan olive skin with fine lines around her eyes and mouth, visible pores and real texture; voluminous shoulder-length wavy black hair with a few loose strands; defined brows; brown eyes; wine-red lipstick; large gold hoop earrings; a thin gold chain with a round gold coin pendant. She wears a plain red long-sleeve dress with a modest square neckline, no prints, no logos. She stands in front of a plain cream wall at home, looking straight at the camera with a serious, slightly suspicious expression, one eyebrow a little raised, mouth closed, arms relaxed at her sides, hands empty. Soft natural light from a window in front of her. Authentic phone photo, no studio retouching, no plastic skin. A single frozen instant. No text, no logos, no watermarks, nothing in her hands.
+
+  --- referencia "personaje-3" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with the front camera of a phone, like a casual reference selfie. Medium shot, from the waist up. A Colombian man of 30: light tan skin with real texture and visible pores; short black hair with a skin fade on the sides; thick dark brows; short stubble beard; athletic build; a black-and-grey tattoo sleeve on his right arm; a silver watch on his left wrist. He wears a plain navy-blue short-sleeve knit polo with thin white tipping on the collar and sleeves, no logos. He stands in front of a plain cream wall at home, looking straight at the camera with a calm, slightly uneasy expression, mouth closed, arms relaxed at his sides, hands empty. Soft natural light from a window in front of him. Authentic phone photo, no studio retouching. A single frozen instant. No text, no logos, no watermarks, nothing in his hands.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/aguaje-complex-3-en-1-agregar-20261121-1419 4
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/aguaje-complex-3-en-1-agregar-20261121-1419 --toma 4 --aplicar nuevos.json
+

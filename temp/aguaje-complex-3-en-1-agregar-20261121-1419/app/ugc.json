@@ -1,0 +1,162 @@
+{
+  "rechazos": {},
+  "extraRechazos": {},
+  "descartados": [],
+  "ganchos": {},
+  "persona": {
+    "sesion": {
+      "uuid": "5adfec3c-f880-430d-97b8-e8de1d96c939",
+      "usada": true
+    },
+    "pedidos": []
+  },
+  "actualizado": "2026-11-21T20:53:15.322Z",
+  "revision": {
+    "ronda": 1,
+    "medidas": {
+      "1": {
+        "huella": "6603240-1795294127980",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "2": {
+        "huella": "7694776-1795294118787",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "3": {
+        "huella": "7876944-1795294118771",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "4": {
+        "huella": "6442549-1795294099302",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "5": {
+        "huella": "8589158-1795294128572",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "6": {
+        "huella": "7509193-1795294158395",
+        "medido": true,
+        "limpio": false,
+        "motivo": "dijo «¿eh?» en vez de «ve.»"
+      },
+      "7": {
+        "huella": "5583294-1795294110906",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "8": {
+        "huella": "5075910-1795294127488",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "9": {
+        "huella": "4481130-1795294179496",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "10": {
+        "huella": "11315815-1795294139708",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "11": {
+        "huella": "6571673-1795294233313",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      }
+    },
+    "vistos": {},
+    "piezas": {
+      "toma-1": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-2": {
+        "motivos": [
+          "En el último plano, donde la mamá dice «Siéntate», sale una mujer que mezcla la cara de Mariana con la de la mamá y lleva el collar de la mamá."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-3": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-4": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-5": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-6": {
+        "motivos": [
+          "No dijo su parte tal cual: dijo «¿eh?» en vez de «ve.»."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-7": {
+        "motivos": [
+          "Aparecen dos frascos a la vez: uno en la mano de Mariana y otro sobre la mesa."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-8": {
+        "motivos": [
+          "En los planos de Mariana la cara cambia: se ve más delgada y mayor, como otra mujer."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-9": {
+        "motivos": [
+          "En el último plano sale la cara de la mamá con el vestido café y el tatuaje de Mariana, como si fueran la misma persona."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-10": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-11": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      }
+    },
+    "pendientes": [],
+    "revisarTambien": [],
+    "sinRevisar": [],
+    "lugares": {},
+    "vuelta": null,
+    "sesion": {
+      "uuid": "cceae9d6-b2f2-4291-8286-28931dc30ec8",
+      "usada": true
+    }
+  }
+}

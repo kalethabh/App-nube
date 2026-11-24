@@ -1,0 +1,36 @@
+{
+  "ad_info": {
+    "variation_id": "V08"
+  },
+  "global_identity": {
+    "color_palette": "the colors of the product's packaging",
+    "text_typography": "the typography of the reference ad"
+  },
+  "visual_prompt": "Product: VITALDROPS, for 18 a 55 (market: Colombia).\nSecondary texts: short and about the main benefit of the product.\nAngle: the SAME one as the reference ad (same body area, problem or desire, same hook). Only if the reference has no clear angle, use: Promesa emocional.\nWINNING CREATIVE CONCEPT of this reference (why it sells, in the owner's words; KEEP this concept, change only the execution details and the headline): Segunda tanda de variaciones del anuncio ganador de VITALDROPS: antes y después estilo 3D animado, chica de espaldas con vestido corto rosa, izquierda oscura (antes: sin curvas, sin confianza, la que nadie nota) y derecha rosa brillante (después: curvas naturales, más confianza, todos la notan), tit\nAdapt the color palette to the product's packaging, keeping the same contrast and hierarchy as the reference.\nAll visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.\nWHAT CHANGES IN THIS VARIATION (and only this, the rest stays like the reference): Chica de cabello negro con trenza larga, vestido rosa pastel, mirada coqueta con un guiño.\nThe headline PLAYS with the winning headline of the reference keeping its essence (same promise, same desire, same timeframe if it has one), never generic. If there is a before/after, the change must be obvious at first glance: two clearly different moments, the AFTER body visibly improved in the area of the angle. THE CLIENT ASKED: Igual a la ganadora: fondo limpio, titular bien grande y legible, nada que haga ruido. El antes y el después tienen que notarse de una: en el después el cambio en glúteos y caderas bien visible. La marca es MUNA: todo lo que diga AMUA cámbialo por MUNA, también en la etiqueta del frasco. Mantén el sello de 90 días de garantía y los íconos de abajo.",
+  "text_layers": [
+    {
+      "reference_function": "main headline",
+      "reference_position": "same place as the main headline of the reference",
+      "text": "ANTES: INVISIBLE. AHORA: INOLVIDABLE.",
+      "text_style": "same style as the main headline of the reference"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo"
+  ],
+  "final_generation_exclusions": [
+    "any logo, brand name or text from the reference ad",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "the reference ad's brand, prices or claims"
+    ],
+    "detected_visual_blocks": []
+  },
+  "language_rule": "All visible text in Spanish.",
+  "app_rapido": "copiar",
+  "app_chat": {
+    "cambio": "Chica de cabello negro con trenza larga, vestido rosa pastel, mirada coqueta con un guiño."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "resumen": "Las 5 variaciones copian tu anuncio ganador tal cual: fondo rosa, frasco con frutos de aguaje, 3 íconos, la modelo de espalda, la frase manuscrita y la franja de envío gratis y pago al recibir. Solo cambia el titular de arriba, y cada uno toca un dolor o deseo real de tu clienta: el miedo al quirófano, el jean que no horma, la rutina que no rinde, mirarse al espejo con ganas y lo fácil del plan. Por qué puede vender: la idea de «glúteos y piernas a la vez» con un producto natural y sin riesgo de pagar antes ya te funcionó; un titular nuevo le da aire sin perder lo que ya vende (es una apuesta, no una garantía).",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#D9572B", "nombre": "Naranja aguaje" }
+  ],
+  "tipografia": "La misma de tu anuncio: letra de palo muy gruesa y en mayúsculas para el titular, los íconos y la franja; la palabra grande del titular en fucsia con borde blanco y sombra; y letra a mano para las frases cortas con corazón.",
+  "estilo": "Anuncio de belleza premium: fondo rosa con pétalos suaves, frasco negro y fucsia al centro con frutos de aguaje, íconos a la izquierda, foto de la modelo de espalda a la derecha y franja magenta abajo.",
+  "beneficios": [
+    "Acompaña tu proceso de curvas junto con tu comida y tu rutina de pierna",
+    "Una opción natural, sin agujas ni quirófano",
+    "Fácil de cumplir: solo 2 cápsulas al día con tus comidas",
+    "Te ayuda a sentirte con más energía para tu rutina"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg",
+    "Con vitaminas A y E",
+    "60 cápsulas por frasco: un mes de uso",
+    "Envío gratis y pagas al recibir"
+  ],
+  "deseo_central": "Verse con más curvas y sentirse segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas",
+    "Ya compré pastillas por internet y no vi nada",
+    "Me comparo con las de Instagram y me siento plana"
+  ]
+}

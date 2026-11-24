@@ -1,0 +1,1889 @@
+{
+  "numero": 3,
+  "paso": "imagenes-y-videos",
+  "comando": "node produccion/producir.js temp/aguaje-complex-3-en-1-musical-20261120-1209 --si",
+  "inicio": "2026-11-20T17:27:48.814Z",
+  "fin": "2026-11-20T17:54:11.488Z",
+  "codigo": 1,
+  "creditos": 5004.4,
+  "dolares": 25.02,
+  "imagenes": [
+    {
+      "archivo": "protagonista.png",
+      "id": "protagonista",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "cuarto.png",
+      "id": "cuarto",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "cuerpo.png",
+      "id": "cuerpo",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "plantas.png",
+      "id": "plantas",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-1-inicial.png",
+      "id": "toma-1-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-2-inicial.png",
+      "id": "toma-2-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-3-inicial.png",
+      "id": "toma-3-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-4-inicial.png",
+      "id": "toma-4-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-4-final.png",
+      "id": "toma-4-final",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-5-inicial.png",
+      "id": "toma-5-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-5-final.png",
+      "id": "toma-5-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-6-inicial.png",
+      "id": "toma-6-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-8-inicial.png",
+      "id": "toma-8-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-9-inicial.png",
+      "id": "toma-9-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-10-inicial.png",
+      "id": "toma-10-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-11-inicial.png",
+      "id": "toma-11-inicial",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-12-inicial.png",
+      "id": "toma-12-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-13-inicial.png",
+      "id": "toma-13-inicial",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-13-final.png",
+      "id": "toma-13-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-14-inicial.png",
+      "id": "toma-14-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-14-final.png",
+      "id": "toma-14-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-15-inicial.png",
+      "id": "toma-15-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-16-inicial.png",
+      "id": "toma-16-inicial",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-16-final.png",
+      "id": "toma-16-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-17-inicial.png",
+      "id": "toma-17-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-17-final.png",
+      "id": "toma-17-final",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-18-inicial.png",
+      "id": "toma-18-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-19-inicial.png",
+      "id": "toma-19-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-20-inicial.png",
+      "id": "toma-20-inicial",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-20-final.png",
+      "id": "toma-20-final",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-21-inicial.png",
+      "id": "toma-21-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-21-final.png",
+      "id": "toma-21-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-22-inicial.png",
+      "id": "toma-22-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-23-inicial.png",
+      "id": "toma-23-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-24-inicial.png",
+      "id": "toma-24-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-24-final.png",
+      "id": "toma-24-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-25-inicial.png",
+      "id": "toma-25-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-26-inicial.png",
+      "id": "toma-26-inicial",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-26-final.png",
+      "id": "toma-26-final",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-27-inicial.png",
+      "id": "toma-27-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-28-inicial.png",
+      "id": "toma-28-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-29-inicial.png",
+      "id": "toma-29-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-30-inicial.png",
+      "id": "toma-30-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-31-inicial.png",
+      "id": "toma-31-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-31-final.png",
+      "id": "toma-31-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-32-inicial.png",
+      "id": "toma-32-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-33-inicial.png",
+      "id": "toma-33-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-34-inicial.png",
+      "id": "toma-34-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-35-inicial.png",
+      "id": "toma-35-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-36-inicial.png",
+      "id": "toma-36-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-36-final.png",
+      "id": "toma-36-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-37-inicial.png",
+      "id": "toma-37-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-37-final.png",
+      "id": "toma-37-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-38-inicial.png",
+      "id": "toma-38-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-39-inicial.png",
+      "id": "toma-39-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-39-final.png",
+      "id": "toma-39-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-40-inicial.png",
+      "id": "toma-40-inicial",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-41-inicial.png",
+      "id": "toma-41-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-42-inicial.png",
+      "id": "toma-42-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-43-inicial.png",
+      "id": "toma-43-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-43-final.png",
+      "id": "toma-43-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-44-inicial.png",
+      "id": "toma-44-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-45-inicial.png",
+      "id": "toma-45-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-45-final.png",
+      "id": "toma-45-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-46-inicial.png",
+      "id": "toma-46-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-47-inicial.png",
+      "id": "toma-47-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-48-inicial.png",
+      "id": "toma-48-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-49-inicial.png",
+      "id": "toma-49-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-50-inicial.png",
+      "id": "toma-50-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-51-inicial.png",
+      "id": "toma-51-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-52-inicial.png",
+      "id": "toma-52-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-53-inicial.png",
+      "id": "toma-53-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-54-inicial.png",
+      "id": "toma-54-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-54-final.png",
+      "id": "toma-54-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-55-inicial.png",
+      "id": "toma-55-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-55-final.png",
+      "id": "toma-55-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-56-inicial.png",
+      "id": "toma-56-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-56-final.png",
+      "id": "toma-56-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-57-inicial.png",
+      "id": "toma-57-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-58-inicial.png",
+      "id": "toma-58-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-59-inicial.png",
+      "id": "toma-59-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-60-inicial.png",
+      "id": "toma-60-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-61-inicial.png",
+      "id": "toma-61-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-62-inicial.png",
+      "id": "toma-62-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-62-final.png",
+      "id": "toma-62-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-63-inicial.png",
+      "id": "toma-63-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-63-final.png",
+      "id": "toma-63-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-64-inicial.png",
+      "id": "toma-64-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-64-final.png",
+      "id": "toma-64-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-65-inicial.png",
+      "id": "toma-65-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-65-final.png",
+      "id": "toma-65-final",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-66-inicial.png",
+      "id": "toma-66-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-67-inicial.png",
+      "id": "toma-67-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-68-inicial.png",
+      "id": "toma-68-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-69-inicial.png",
+      "id": "toma-69-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-70-inicial.png",
+      "id": "toma-70-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-71-inicial.png",
+      "id": "toma-71-inicial",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-72-inicial.png",
+      "id": "toma-72-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-73-inicial.png",
+      "id": "toma-73-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-74-inicial.png",
+      "id": "toma-74-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-75-inicial.png",
+      "id": "toma-75-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-76-inicial.png",
+      "id": "toma-76-inicial",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-76-final.png",
+      "id": "toma-76-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-77-inicial.png",
+      "id": "toma-77-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-78-inicial.png",
+      "id": "toma-78-inicial",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-78-final.png",
+      "id": "toma-78-final",
+      "modelo": "nano-banana-2",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 8
+    },
+    {
+      "archivo": "toma-79-inicial.png",
+      "id": "toma-79-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-80-inicial.png",
+      "id": "toma-80-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-81-inicial.png",
+      "id": "toma-81-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-81-final.png",
+      "id": "toma-81-final",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-82-inicial.png",
+      "id": "toma-82-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-83-inicial.png",
+      "id": "toma-83-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-84-inicial.png",
+      "id": "toma-84-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-85-inicial.png",
+      "id": "toma-85-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-86-inicial.png",
+      "id": "toma-86-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-87-inicial.png",
+      "id": "toma-87-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-88-inicial.png",
+      "id": "toma-88-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-89-inicial.png",
+      "id": "toma-89-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-90-inicial.png",
+      "id": "toma-90-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-91-inicial.png",
+      "id": "toma-91-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-92-inicial.png",
+      "id": "toma-92-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-93-inicial.png",
+      "id": "toma-93-inicial",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-5.png",
+      "id": "broll-5",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-17.png",
+      "id": "broll-17",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-34.png",
+      "id": "broll-34",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-41.png",
+      "id": "broll-41",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-45.png",
+      "id": "broll-45",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-49.png",
+      "id": "broll-49",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-56.png",
+      "id": "broll-56",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-60.png",
+      "id": "broll-60",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-78.png",
+      "id": "broll-78",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-81.png",
+      "id": "broll-81",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-84.png",
+      "id": "broll-84",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    }
+  ],
+  "videos": [
+    {
+      "archivo": "toma-1.mp4",
+      "id": "toma-1",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-2.mp4",
+      "id": "toma-2",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-3.mp4",
+      "id": "toma-3",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-4.mp4",
+      "id": "toma-4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-5.mp4",
+      "id": "toma-5",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 120.8
+    },
+    {
+      "archivo": "toma-6.mp4",
+      "id": "toma-6",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-8.mp4",
+      "id": "toma-8",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-9.mp4",
+      "id": "toma-9",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-10.mp4",
+      "id": "toma-10",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    },
+    {
+      "archivo": "toma-12.mp4",
+      "id": "toma-12",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-13.mp4",
+      "id": "toma-13",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-14.mp4",
+      "id": "toma-14",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-15.mp4",
+      "id": "toma-15",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-16.mp4",
+      "id": "toma-16",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-17.mp4",
+      "id": "toma-17",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 50
+    },
+    {
+      "archivo": "toma-18.mp4",
+      "id": "toma-18",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 90.6
+    },
+    {
+      "archivo": "toma-19.mp4",
+      "id": "toma-19",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-20.mp4",
+      "id": "toma-20",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-21.mp4",
+      "id": "toma-21",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-22.mp4",
+      "id": "toma-22",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-23.mp4",
+      "id": "toma-23",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-24.mp4",
+      "id": "toma-24",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-25.mp4",
+      "id": "toma-25",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-26.mp4",
+      "id": "toma-26",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-27.mp4",
+      "id": "toma-27",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-28.mp4",
+      "id": "toma-28",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-29.mp4",
+      "id": "toma-29",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-30.mp4",
+      "id": "toma-30",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-31.mp4",
+      "id": "toma-31",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    },
+    {
+      "archivo": "toma-32.mp4",
+      "id": "toma-32",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 90.6
+    },
+    {
+      "archivo": "toma-33.mp4",
+      "id": "toma-33",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-34.mp4",
+      "id": "toma-34",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    },
+    {
+      "archivo": "toma-35.mp4",
+      "id": "toma-35",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-36.mp4",
+      "id": "toma-36",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-37.mp4",
+      "id": "toma-37",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-38.mp4",
+      "id": "toma-38",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-39.mp4",
+      "id": "toma-39",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-41.mp4",
+      "id": "toma-41",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    },
+    {
+      "archivo": "toma-42.mp4",
+      "id": "toma-42",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-43.mp4",
+      "id": "toma-43",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-44.mp4",
+      "id": "toma-44",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-45.mp4",
+      "id": "toma-45",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    },
+    {
+      "archivo": "toma-46.mp4",
+      "id": "toma-46",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-47.mp4",
+      "id": "toma-47",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-48.mp4",
+      "id": "toma-48",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-49.mp4",
+      "id": "toma-49",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    },
+    {
+      "archivo": "toma-50.mp4",
+      "id": "toma-50",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-51.mp4",
+      "id": "toma-51",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-52.mp4",
+      "id": "toma-52",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 90.6
+    },
+    {
+      "archivo": "toma-53.mp4",
+      "id": "toma-53",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-54.mp4",
+      "id": "toma-54",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-55.mp4",
+      "id": "toma-55",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-56.mp4",
+      "id": "toma-56",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 50
+    },
+    {
+      "archivo": "toma-57.mp4",
+      "id": "toma-57",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-58.mp4",
+      "id": "toma-58",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-59.mp4",
+      "id": "toma-59",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 90.6
+    },
+    {
+      "archivo": "toma-60.mp4",
+      "id": "toma-60",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 50
+    },
+    {
+      "archivo": "toma-61.mp4",
+      "id": "toma-61",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-62.mp4",
+      "id": "toma-62",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-63.mp4",
+      "id": "toma-63",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-64.mp4",
+      "id": "toma-64",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-65.mp4",
+      "id": "toma-65",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-66.mp4",
+      "id": "toma-66",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-67.mp4",
+      "id": "toma-67",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-68.mp4",
+      "id": "toma-68",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-69.mp4",
+      "id": "toma-69",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-70.mp4",
+      "id": "toma-70",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-71.mp4",
+      "id": "toma-71",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 90.6
+    },
+    {
+      "archivo": "toma-72.mp4",
+      "id": "toma-72",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-73.mp4",
+      "id": "toma-73",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-74.mp4",
+      "id": "toma-74",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-75.mp4",
+      "id": "toma-75",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-76.mp4",
+      "id": "toma-76",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    },
+    {
+      "archivo": "toma-77.mp4",
+      "id": "toma-77",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-78.mp4",
+      "id": "toma-78",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    },
+    {
+      "archivo": "toma-79.mp4",
+      "id": "toma-79",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-80.mp4",
+      "id": "toma-80",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-81.mp4",
+      "id": "toma-81",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 50
+    },
+    {
+      "archivo": "toma-82.mp4",
+      "id": "toma-82",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 90.6
+    },
+    {
+      "archivo": "toma-83.mp4",
+      "id": "toma-83",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-84.mp4",
+      "id": "toma-84",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    },
+    {
+      "archivo": "toma-85.mp4",
+      "id": "toma-85",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-86.mp4",
+      "id": "toma-86",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-87.mp4",
+      "id": "toma-87",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    },
+    {
+      "archivo": "toma-88.mp4",
+      "id": "toma-88",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-89.mp4",
+      "id": "toma-89",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-90.mp4",
+      "id": "toma-90",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-91.mp4",
+      "id": "toma-91",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-92.mp4",
+      "id": "toma-92",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 50
+    },
+    {
+      "archivo": "toma-93.mp4",
+      "id": "toma-93",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 50
+    },
+    {
+      "archivo": "broll-5.mp4",
+      "id": "broll-5",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "broll-17.mp4",
+      "id": "broll-17",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "broll-34.mp4",
+      "id": "broll-34",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "broll-41.mp4",
+      "id": "broll-41",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "broll-45.mp4",
+      "id": "broll-45",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "broll-49.mp4",
+      "id": "broll-49",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "broll-56.mp4",
+      "id": "broll-56",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "broll-60.mp4",
+      "id": "broll-60",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "broll-78.mp4",
+      "id": "broll-78",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "broll-81.mp4",
+      "id": "broll-81",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "broll-84.mp4",
+      "id": "broll-84",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    }
+  ],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": null
+}

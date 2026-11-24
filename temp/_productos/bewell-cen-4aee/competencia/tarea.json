@@ -1,0 +1,31 @@
+{
+  "id": "e1fd003f-3888-4f1d-b2bb-4c921c96c12b",
+  "uuid": "e1fd003f-3888-4f1d-b2bb-4c921c96c12b",
+  "estado": "lista",
+  "enlace": "",
+  "producto": "",
+  "pais": "Colombia",
+  "brandtracker": false,
+  "buscar": true,
+  "progreso": [
+    "Claude está investigando a tu competencia en TrendTrack",
+    "Leyendo las instrucciones del estilo",
+    "Buscando en los archivos",
+    "Leyendo lo que contaste de tu producto",
+    "Mirando las fotos de tu producto",
+    "Leyendo",
+    "Guardando",
+    "Corrigiendo lo que faltaba",
+    "Guardando"
+  ],
+  "intentos": 1,
+  "inicio": "2026-11-20T01:56:52.496Z",
+  "error": null,
+  "fin": "2026-11-20T01:59:22.984Z",
+  "medida": {
+    "turnos": 28,
+    "duracionMs": 150485,
+    "motor": "claude"
+  },
+  "actualizado": "2026-11-20T01:59:22.984Z"
+}

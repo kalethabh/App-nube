@@ -1,0 +1,54 @@
+{
+  "fecha": "2026-11-18T22:54:28.482Z",
+  "cambios": [
+    {
+      "que": "broll",
+      "n": 2,
+      "toma": 3,
+      "antes": 3.5,
+      "despues": 5.4,
+      "necesita": 5.3
+    },
+    {
+      "que": "broll",
+      "n": 3,
+      "toma": 4,
+      "antes": 3,
+      "despues": 4.8,
+      "necesita": 4.7
+    },
+    {
+      "que": "broll",
+      "n": 4,
+      "toma": 5,
+      "antes": 2.5,
+      "despues": 3.6,
+      "necesita": 3.5
+    },
+    {
+      "que": "broll",
+      "n": 6,
+      "toma": 9,
+      "antes": 2.5,
+      "despues": 4.8,
+      "necesita": 4.7
+    },
+    {
+      "que": "broll",
+      "n": 8,
+      "toma": 11,
+      "antes": 2.5,
+      "despues": 3.7,
+      "necesita": 3.6
+    }
+  ],
+  "sinArreglo": [],
+  "brollFuera": [
+    {
+      "n": 7,
+      "toma": 10,
+      "porque": "corta",
+      "razon": "una toma de tipo A aguanta sola hasta 3.0 s"
+    }
+  ]
+}

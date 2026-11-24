@@ -1,0 +1,106 @@
+{
+  "ad_info": {
+    "variation_id": "V03"
+  },
+  "global_identity": {
+    "color_palette": "the colors of the product's packaging",
+    "text_typography": "a heavy bold sans for the headline in ALL CAPS, a clean sans for the rest"
+  },
+  "visual_prompt": "PRODUCT: AGUAJE COMPLEX 3 EN 1. Its bottle reproduced with total fidelity to the attached photo (label, brand name letter by letter, colors).\nLAYOUT (before/after): the image split in 2 halves; two clearly different moments of the SAME woman (different clothes, different pose, in some cases a different place); the body change is obvious at first glance in the body area of the angle; small labels ANTES / DESPUÉS; Z1 headline at the top; the bottle between the two photos or at the bottom; Z5 offer as a ribbon along the bottom.\nMODEL: a 41 years old woman, athletic, honey-brown skin, highlighted hair, ordinary and believable (not a fashion model), natural makeup. Emotion: Antes: duda y desánimo frente al espejo, sin ganas de medirse el jean. Después: la misma mujer segura y contenta con su ropa favorita, sin señalar su cuerpo..\nSETTING: a clothing store fitting room with a curtain and mirror. POSE AND FRAMING: mirror pose holding the phone, three-quarter view, thighs-up framing.",
+  "text_layers": [
+    {
+      "reference_function": "Z1 headline",
+      "reference_position": "top 15-20% of the image",
+      "text": "TUS CURVAS EN 3 MESES, DE FORMA NATURAL",
+      "text_style": "very bold, ALL CAPS, high contrast, the biggest text"
+    },
+    {
+      "reference_function": "label",
+      "reference_position": "small, on the before half",
+      "text": "ANTES",
+      "text_style": "small tag"
+    },
+    {
+      "reference_function": "label",
+      "reference_position": "small, on the after half",
+      "text": "DESPUÉS",
+      "text_style": "small tag"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Tu plan de 3 meses",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Apoyo para tu rutina",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Sin agujas ni quirófano",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z4 product seal",
+      "reference_position": "on or next to the bottle",
+      "text": "3 EN 1 · TRIPLE ACCIÓN",
+      "text_style": "badge or seal"
+    },
+    {
+      "reference_function": "Z5 offer",
+      "reference_position": "badge or ribbon, bottom",
+      "text": "TRATAMIENTO COMPLETO X3",
+      "text_style": "highlighted but not exaggerated"
+    },
+    {
+      "reference_function": "Z5 offer (2)",
+      "reference_position": "inside or right below the offer",
+      "text": "Pagas al recibir",
+      "text_style": "smaller"
+    },
+    {
+      "reference_function": "Z6 CTA",
+      "reference_position": "a single short chip",
+      "text": "Lo quiero",
+      "text_style": "button chip"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo, at least 15% of the image",
+    "the woman: a 41 years old woman, athletic, honey-brown skin, highlighted hair, ordinary and believable (not a fashion model), natural makeup"
+  ],
+  "final_generation_exclusions": [
+    "any text closer than 5% to the edges",
+    "more than 3 benefit bullets",
+    "more than one CTA",
+    "medical claims, guarantees or invented numbers",
+    "brands or logos other than the product",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "extra blocks of text",
+      "prices other than the given offer"
+    ],
+    "detected_visual_blocks": [
+      "Z1",
+      "Z2",
+      "Z3",
+      "Z4",
+      "Z5",
+      "Z6"
+    ]
+  },
+  "language_rule": "All visible text in Colombian Spanish, simple, perfectly spelled.",
+  "app_desde0": {
+    "formato": "antes-despues",
+    "modelo": "a 41 years old woman, athletic, honey-brown skin, highlighted hair, ordinary and believable (not a fashion model), natural makeup",
+    "escenario": "a clothing store fitting room with a curtain and mirror",
+    "pose": "mirror pose holding the phone, three-quarter view, thighs-up framing",
+    "plantilla_titular": "[Resultado deseado] en [tiempo], de forma natural"
+  }
+}

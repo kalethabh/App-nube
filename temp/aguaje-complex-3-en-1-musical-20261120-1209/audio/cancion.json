@@ -1,0 +1,5271 @@
+{
+  "generado": "2026-11-20T17:16:38.202Z",
+  "taskId": "7620085a93465e7c0368f33a8b86936c",
+  "audioId": "e98f6aea-bd19-4d49-8d96-a26d4b51d327",
+  "titulo": "Lo que nadie te dice del BBL",
+  "archivo": "audio/cancion.mp3",
+  "duracion": 224.832,
+  "estilo": "Latin R&B trap, intimate confident female rap-sung vocals, 92 BPM, storytelling mood, deep 808s, soft keys, sparse mix, clear spoken-word delivery",
+  "modelo": "V5_5",
+  "bloques": 1,
+  "vocalGender": null,
+  "letra": "[Verso 1]\nCuando te hacen un BBL,\nlos doctores literalmente\ntoman grasa de tu estómago,\ntu espalda, tu espalda.\nLuego la reinyectan\nen tu trasero y caderas.\nPero esto es de lo que\nnadie habla.\n\n[Verso 2]\nEl BBL no te da curvas, nena.\nSolo fuerza la grasa a un lugar\ndonde tu cuerpo nunca\naceptó naturalmente.\nEntonces, tu cuerpo ve esa grasa\ny dice: \"Esto no va aquí\".\nY empieza a descomponerla,\nreabsorberla, eliminarla.\n\n[Verso 3]\nY cuando subes de peso\ndespués de un BBL,\nno va a tus nuevas curvas.\nRegresa a tu estómago, tus brazos,\nlos mismos lugares de antes.\nEstás pagando millones\npara reacomodar grasa\nque tu cuerpo ya está\ntratando de devolver.\n\n[Pre-Coro]\nPero esto es lo que los científicos\ndescubrieron hace mucho tiempo.\n¿Qué tal si en lugar de mover la grasa,\nle dijeras a tu cuerpo\ndónde almacenarla\ndesde el principio?\n\n[Coro]\nEsos son los fitoestrógenos, nena.\nExtraídos de la raíz de maca,\nfenogreco y aguaje.\nEstas plantas contienen compuestos\nque imitan tu estrógeno natural.\nY el estrógeno es la hormona que decide\ndónde el cuerpo de una mujer\nalmacena su peso,\ntus caderas, tus muslos, tu trasero.\n\n[Verso 4]\nLos fitoestrógenos no mueven nada,\nseñalizan.\nLe dicen a tu cuerpo:\n\"Almacénalo aquí, no allá\".\nY tu cuerpo escucha.\nY creo que eso es lo más hermoso\nque alguien ha dicho sobre una planta.\n\n[Puente]\nLos, los mejores especialistas en hormonas\ncobraban una fortuna por sesión\npara recetar esto.\nLuego los doctores tuvieron esta idea.\n¿Qué, qué, qué tal si tomáramos\nlos mismos compuestos de fitoestrógenos\nde alta potencia\ny los concentráramos en Aguaje Complex 3 en 1,\ndos cápsulas al día?\nMismo ingrediente, sin agujas,\nsin gimnasio, sin cirugía.\nSolo tú y una pequeña botella\ncada mañana.\n\n[Verso 5]\nEl momento en que entra a tu sistema,\ntus receptores de estrógeno despiertan\ny empiezan a señalizar a tu cuerpo\nque envíe grasa a tu trasero.\nY aquí está la parte\nque me emociona cada vez.\nMujeres que nunca tuvieron curvas\nen toda su vida,\nen semanas sus jeans\ndejan de abrocharse pasando sus muslos.\nLos mismos jeans que antes\nse deslizaban sobre sus caderas.\n\n[Verso 6]\nEso no es grasa siendo forzada\na donde no pertenece.\nEs tu cuerpo finalmente almacenando peso\ndonde siempre debió ir.\nTu cuerpo construye las curvas por sí mismo\ny los resultados no desaparecen\ncuando dejas de tomarlas,\nporque el cambio ya sucedió desde adentro.\nLas mujeres empiezan a ver cambios\nen tan solo noventa días.\n\n[Outro]\nAguaje Complex 3 en 1\nestá disponible actualmente,\npero no durará mucho,\nasí que abastécete mientras puedas.\nSi todavía ves el enlace abajo,\ntodavía hay stock.\nConsigue las tuyas\nantes de que se agote este lote.",
+  "hootCer": 0.14659090909090908,
+  "palabras": [
+    {
+      "texto": "Cuando",
+      "inicio": 2.8,
+      "fin": 3.1
+    },
+    {
+      "texto": "te",
+      "inicio": 3.14,
+      "fin": 3.24
+    },
+    {
+      "texto": "hacen",
+      "inicio": 3.26,
+      "fin": 3.54
+    },
+    {
+      "texto": "un",
+      "inicio": 3.6,
+      "fin": 3.76
+    },
+    {
+      "texto": "BBL,",
+      "inicio": 3.82,
+      "fin": 4.46
+    },
+    {
+      "texto": "los",
+      "inicio": 5.58,
+      "fin": 5.7
+    },
+    {
+      "texto": "doctores",
+      "inicio": 5.74,
+      "fin": 6.2
+    },
+    {
+      "texto": "literalmente",
+      "inicio": 6.26,
+      "fin": 7.32
+    },
+    {
+      "texto": "toman",
+      "inicio": 7.74,
+      "fin": 8.02
+    },
+    {
+      "texto": "grasa",
+      "inicio": 8.06,
+      "fin": 8.36
+    },
+    {
+      "texto": "de",
+      "inicio": 8.4,
+      "fin": 8.48
+    },
+    {
+      "texto": "tu",
+      "inicio": 8.54,
+      "fin": 8.6
+    },
+    {
+      "texto": "estómago,",
+      "inicio": 8.64,
+      "fin": 9.34
+    },
+    {
+      "texto": "tu",
+      "inicio": 9.72,
+      "fin": 9.8
+    },
+    {
+      "texto": "espalda,",
+      "inicio": 9.84,
+      "fin": 10.5
+    },
+    {
+      "texto": "tu",
+      "inicio": 11,
+      "fin": 11.08
+    },
+    {
+      "texto": "espalda.",
+      "inicio": 11.12,
+      "fin": 11.82
+    },
+    {
+      "texto": "Luego",
+      "inicio": 13.26,
+      "fin": 13.58
+    },
+    {
+      "texto": "la",
+      "inicio": 13.62,
+      "fin": 13.74
+    },
+    {
+      "texto": "reinyectan",
+      "inicio": 13.78,
+      "fin": 14.58
+    },
+    {
+      "texto": "en",
+      "inicio": 14.78,
+      "fin": 14.86
+    },
+    {
+      "texto": "tu",
+      "inicio": 14.92,
+      "fin": 15
+    },
+    {
+      "texto": "trasero",
+      "inicio": 15.08,
+      "fin": 15.6
+    },
+    {
+      "texto": "y",
+      "inicio": 15.64,
+      "fin": 15.68
+    },
+    {
+      "texto": "caderas.",
+      "inicio": 15.76,
+      "fin": 16.54
+    },
+    {
+      "texto": "Pero",
+      "inicio": 17.54,
+      "fin": 17.7
+    },
+    {
+      "texto": "esto",
+      "inicio": 17.74,
+      "fin": 17.92
+    },
+    {
+      "texto": "es",
+      "inicio": 17.94,
+      "fin": 18.02
+    },
+    {
+      "texto": "de",
+      "inicio": 18.04,
+      "fin": 18.14
+    },
+    {
+      "texto": "lo",
+      "inicio": 18.2,
+      "fin": 18.26
+    },
+    {
+      "texto": "que",
+      "inicio": 18.36,
+      "fin": 18.48
+    },
+    {
+      "texto": "nadie",
+      "inicio": 18.52,
+      "fin": 18.84
+    },
+    {
+      "texto": "habla.",
+      "inicio": 18.96,
+      "fin": 19.36
+    },
+    {
+      "texto": "El",
+      "inicio": 19.98,
+      "fin": 20.08
+    },
+    {
+      "texto": "BBL",
+      "inicio": 20.12,
+      "fin": 20.64
+    },
+    {
+      "texto": "no",
+      "inicio": 20.78,
+      "fin": 20.9
+    },
+    {
+      "texto": "te",
+      "inicio": 20.96,
+      "fin": 21.08
+    },
+    {
+      "texto": "da",
+      "inicio": 21.16,
+      "fin": 21.28
+    },
+    {
+      "texto": "curvas,",
+      "inicio": 21.46,
+      "fin": 22
+    },
+    {
+      "texto": "nena.",
+      "inicio": 22.1,
+      "fin": 22.48
+    },
+    {
+      "texto": "Solo",
+      "inicio": 23.08,
+      "fin": 23.34
+    },
+    {
+      "texto": "fuerza",
+      "inicio": 23.4,
+      "fin": 23.68
+    },
+    {
+      "texto": "la",
+      "inicio": 23.74,
+      "fin": 23.82
+    },
+    {
+      "texto": "grasa",
+      "inicio": 23.86,
+      "fin": 24.1
+    },
+    {
+      "texto": "a",
+      "inicio": 24.12,
+      "fin": 24.16
+    },
+    {
+      "texto": "un",
+      "inicio": 24.16,
+      "fin": 24.24
+    },
+    {
+      "texto": "lugar",
+      "inicio": 24.28,
+      "fin": 24.68
+    },
+    {
+      "texto": "donde",
+      "inicio": 24.9,
+      "fin": 25.16
+    },
+    {
+      "texto": "tu",
+      "inicio": 25.22,
+      "fin": 25.32
+    },
+    {
+      "texto": "cuerpo",
+      "inicio": 25.36,
+      "fin": 25.68
+    },
+    {
+      "texto": "nunca",
+      "inicio": 25.76,
+      "fin": 26.1
+    },
+    {
+      "texto": "aceptó",
+      "inicio": 26.12,
+      "fin": 26.6
+    },
+    {
+      "texto": "naturalmente.",
+      "inicio": 26.7,
+      "fin": 27.8
+    },
+    {
+      "texto": "Entonces,",
+      "inicio": 28.52,
+      "fin": 28.9
+    },
+    {
+      "texto": "tu",
+      "inicio": 29.14,
+      "fin": 29.24
+    },
+    {
+      "texto": "cuerpo",
+      "inicio": 29.28,
+      "fin": 29.56
+    },
+    {
+      "texto": "ve",
+      "inicio": 29.62,
+      "fin": 29.72
+    },
+    {
+      "texto": "esa",
+      "inicio": 29.76,
+      "fin": 29.9
+    },
+    {
+      "texto": "grasa",
+      "inicio": 29.92,
+      "fin": 30.2
+    },
+    {
+      "texto": "y",
+      "inicio": 30.24,
+      "fin": 30.28
+    },
+    {
+      "texto": "dice:",
+      "inicio": 30.3,
+      "fin": 30.56
+    },
+    {
+      "texto": "\"Esto",
+      "inicio": 30.6,
+      "fin": 30.88
+    },
+    {
+      "texto": "no",
+      "inicio": 31,
+      "fin": 31.18
+    },
+    {
+      "texto": "va",
+      "inicio": 31.22,
+      "fin": 31.34
+    },
+    {
+      "texto": "aquí\".",
+      "inicio": 31.44,
+      "fin": 31.74
+    },
+    {
+      "texto": "Y",
+      "inicio": 32.659,
+      "fin": 32.7
+    },
+    {
+      "texto": "empieza",
+      "inicio": 32.74,
+      "fin": 33.28
+    },
+    {
+      "texto": "a",
+      "inicio": 33.3,
+      "fin": 33.3
+    },
+    {
+      "texto": "descomponerla,",
+      "inicio": 33.32,
+      "fin": 34.38
+    },
+    {
+      "texto": "reabsorberla,",
+      "inicio": 34.82,
+      "fin": 35.68
+    },
+    {
+      "texto": "eliminarla.",
+      "inicio": 36.02,
+      "fin": 37.26
+    },
+    {
+      "texto": "Y",
+      "inicio": 39.6,
+      "fin": 39.66
+    },
+    {
+      "texto": "cuando",
+      "inicio": 39.72,
+      "fin": 40
+    },
+    {
+      "texto": "subes",
+      "inicio": 40.08,
+      "fin": 40.38
+    },
+    {
+      "texto": "de",
+      "inicio": 40.44,
+      "fin": 40.58
+    },
+    {
+      "texto": "peso",
+      "inicio": 40.72,
+      "fin": 40.98
+    },
+    {
+      "texto": "después",
+      "inicio": 41.02,
+      "fin": 41.34
+    },
+    {
+      "texto": "de",
+      "inicio": 41.4,
+      "fin": 41.48
+    },
+    {
+      "texto": "un",
+      "inicio": 41.52,
+      "fin": 41.62
+    },
+    {
+      "texto": "BBL,",
+      "inicio": 41.68,
+      "fin": 42.42
+    },
+    {
+      "texto": "no",
+      "inicio": 43.14,
+      "fin": 43.24
+    },
+    {
+      "texto": "va",
+      "inicio": 43.28,
+      "fin": 43.34
+    },
+    {
+      "texto": "a",
+      "inicio": 43.38,
+      "fin": 43.4
+    },
+    {
+      "texto": "tus",
+      "inicio": 43.46,
+      "fin": 43.56
+    },
+    {
+      "texto": "nuevas",
+      "inicio": 43.62,
+      "fin": 43.92
+    },
+    {
+      "texto": "curvas.",
+      "inicio": 44.02,
+      "fin": 44.38
+    },
+    {
+      "texto": "Regresa",
+      "inicio": 44.46,
+      "fin": 44.9
+    },
+    {
+      "texto": "a",
+      "inicio": 44.92,
+      "fin": 45
+    },
+    {
+      "texto": "tu",
+      "inicio": 45.06,
+      "fin": 45.1
+    },
+    {
+      "texto": "estómago,",
+      "inicio": 45.14,
+      "fin": 45.68
+    },
+    {
+      "texto": "tus",
+      "inicio": 45.74,
+      "fin": 45.86
+    },
+    {
+      "texto": "brazos,",
+      "inicio": 45.94,
+      "fin": 46.32
+    },
+    {
+      "texto": "los",
+      "inicio": 46.38,
+      "fin": 46.52
+    },
+    {
+      "texto": "mismos",
+      "inicio": 46.6,
+      "fin": 46.96
+    },
+    {
+      "texto": "lugares",
+      "inicio": 47.02,
+      "fin": 47.62
+    },
+    {
+      "texto": "de",
+      "inicio": 47.7,
+      "fin": 47.88
+    },
+    {
+      "texto": "antes.",
+      "inicio": 48,
+      "fin": 48.48
+    },
+    {
+      "texto": "Estás",
+      "inicio": 48.74,
+      "fin": 49
+    },
+    {
+      "texto": "pagando",
+      "inicio": 49.04,
+      "fin": 49.6
+    },
+    {
+      "texto": "millones",
+      "inicio": 49.68,
+      "fin": 50.1
+    },
+    {
+      "texto": "para",
+      "inicio": 50.18,
+      "fin": 50.42
+    },
+    {
+      "texto": "reacomodar",
+      "inicio": 50.48,
+      "fin": 51.08
+    },
+    {
+      "texto": "grasa",
+      "inicio": 51.16,
+      "fin": 52.04
+    },
+    {
+      "texto": "que",
+      "inicio": 52.1,
+      "fin": 52.22
+    },
+    {
+      "texto": "tu",
+      "inicio": 52.28,
+      "fin": 52.38
+    },
+    {
+      "texto": "cuerpo",
+      "inicio": 52.46,
+      "fin": 52.9
+    },
+    {
+      "texto": "ya",
+      "inicio": 52.98,
+      "fin": 53.1
+    },
+    {
+      "texto": "está",
+      "inicio": 53.16,
+      "fin": 53.7
+    },
+    {
+      "texto": "tratando",
+      "inicio": 54.86,
+      "fin": 55.36
+    },
+    {
+      "texto": "de",
+      "inicio": 55.42,
+      "fin": 55.52
+    },
+    {
+      "texto": "devolver.",
+      "inicio": 55.56,
+      "fin": 56.64
+    },
+    {
+      "texto": "Pero",
+      "inicio": 57.36,
+      "fin": 57.62
+    },
+    {
+      "texto": "esto",
+      "inicio": 57.76,
+      "fin": 58.1
+    },
+    {
+      "texto": "es",
+      "inicio": 58.2,
+      "fin": 58.26
+    },
+    {
+      "texto": "lo",
+      "inicio": 58.32,
+      "fin": 58.42
+    },
+    {
+      "texto": "que",
+      "inicio": 58.46,
+      "fin": 58.58
+    },
+    {
+      "texto": "los",
+      "inicio": 58.62,
+      "fin": 58.74
+    },
+    {
+      "texto": "científicos",
+      "inicio": 58.78,
+      "fin": 59.9
+    },
+    {
+      "texto": "descubrieron",
+      "inicio": 59.94,
+      "fin": 60.58
+    },
+    {
+      "texto": "hace",
+      "inicio": 60.6,
+      "fin": 60.88
+    },
+    {
+      "texto": "mucho",
+      "inicio": 60.96,
+      "fin": 61.5
+    },
+    {
+      "texto": "tiempo.",
+      "inicio": 61.6,
+      "fin": 62.62
+    },
+    {
+      "texto": "¿Qué",
+      "inicio": 62.84,
+      "fin": 62.98
+    },
+    {
+      "texto": "tal",
+      "inicio": 63.04,
+      "fin": 63.16
+    },
+    {
+      "texto": "si",
+      "inicio": 63.22,
+      "fin": 63.26
+    },
+    {
+      "texto": "en",
+      "inicio": 63.3,
+      "fin": 63.36
+    },
+    {
+      "texto": "lugar",
+      "inicio": 63.42,
+      "fin": 63.82
+    },
+    {
+      "texto": "de",
+      "inicio": 63.88,
+      "fin": 63.98
+    },
+    {
+      "texto": "mover",
+      "inicio": 64.04,
+      "fin": 64.459
+    },
+    {
+      "texto": "la",
+      "inicio": 64.54,
+      "fin": 64.739
+    },
+    {
+      "texto": "grasa,",
+      "inicio": 64.8,
+      "fin": 65.319
+    },
+    {
+      "texto": "le",
+      "inicio": 65.8,
+      "fin": 65.92
+    },
+    {
+      "texto": "dijeras",
+      "inicio": 65.98,
+      "fin": 66.46
+    },
+    {
+      "texto": "a",
+      "inicio": 66.5,
+      "fin": 66.6
+    },
+    {
+      "texto": "tu",
+      "inicio": 66.66,
+      "fin": 66.84
+    },
+    {
+      "texto": "cuerpo",
+      "inicio": 66.88,
+      "fin": 67.4
+    },
+    {
+      "texto": "dónde",
+      "inicio": 67.48,
+      "fin": 67.66
+    },
+    {
+      "texto": "almacenarla",
+      "inicio": 67.7,
+      "fin": 68.82
+    },
+    {
+      "texto": "desde",
+      "inicio": 70.84,
+      "fin": 71.02
+    },
+    {
+      "texto": "el",
+      "inicio": 71.06,
+      "fin": 71.16
+    },
+    {
+      "texto": "principio?",
+      "inicio": 71.2,
+      "fin": 71.86
+    },
+    {
+      "texto": "Esos",
+      "inicio": 72.06,
+      "fin": 72.28
+    },
+    {
+      "texto": "son",
+      "inicio": 72.34,
+      "fin": 72.44
+    },
+    {
+      "texto": "los",
+      "inicio": 72.48,
+      "fin": 72.62
+    },
+    {
+      "texto": "fitoestrógenos,",
+      "inicio": 72.7,
+      "fin": 73.92
+    },
+    {
+      "texto": "nena.",
+      "inicio": 74,
+      "fin": 74.28
+    },
+    {
+      "texto": "Extraídos",
+      "inicio": 74.28,
+      "fin": 74.82
+    },
+    {
+      "texto": "de",
+      "inicio": 74.82,
+      "fin": 75.36
+    },
+    {
+      "texto": "la",
+      "inicio": 75.9,
+      "fin": 76
+    },
+    {
+      "texto": "raíz",
+      "inicio": 76.06,
+      "fin": 76.34
+    },
+    {
+      "texto": "de",
+      "inicio": 76.4,
+      "fin": 76.5
+    },
+    {
+      "texto": "maca,",
+      "inicio": 76.58,
+      "fin": 77
+    },
+    {
+      "texto": "fenogreco",
+      "inicio": 77.54,
+      "fin": 78.22
+    },
+    {
+      "texto": "y",
+      "inicio": 78.26,
+      "fin": 78.32
+    },
+    {
+      "texto": "aguaje.",
+      "inicio": 78.42,
+      "fin": 78.8
+    },
+    {
+      "texto": "Estas",
+      "inicio": 78.94,
+      "fin": 79.14
+    },
+    {
+      "texto": "plantas",
+      "inicio": 79.2,
+      "fin": 79.6
+    },
+    {
+      "texto": "contienen",
+      "inicio": 79.64,
+      "fin": 80.22
+    },
+    {
+      "texto": "compuestos",
+      "inicio": 80.26,
+      "fin": 80.88
+    },
+    {
+      "texto": "que",
+      "inicio": 80.92,
+      "fin": 80.98
+    },
+    {
+      "texto": "imitan",
+      "inicio": 81.02,
+      "fin": 81.52
+    },
+    {
+      "texto": "tu",
+      "inicio": 81.56,
+      "fin": 81.6
+    },
+    {
+      "texto": "estrógeno",
+      "inicio": 81.64,
+      "fin": 82.34
+    },
+    {
+      "texto": "natural.",
+      "inicio": 82.4,
+      "fin": 83.36
+    },
+    {
+      "texto": "Y",
+      "inicio": 83.4,
+      "fin": 83.42
+    },
+    {
+      "texto": "el",
+      "inicio": 83.48,
+      "fin": 83.54
+    },
+    {
+      "texto": "estrógeno",
+      "inicio": 83.58,
+      "fin": 84.26
+    },
+    {
+      "texto": "es",
+      "inicio": 84.76,
+      "fin": 84.82
+    },
+    {
+      "texto": "la",
+      "inicio": 84.86,
+      "fin": 84.9
+    },
+    {
+      "texto": "hormona",
+      "inicio": 84.92,
+      "fin": 85.3
+    },
+    {
+      "texto": "que",
+      "inicio": 85.36,
+      "fin": 85.46
+    },
+    {
+      "texto": "decide",
+      "inicio": 85.5,
+      "fin": 85.96
+    },
+    {
+      "texto": "dónde",
+      "inicio": 86.02,
+      "fin": 86.2
+    },
+    {
+      "texto": "el",
+      "inicio": 86.24,
+      "fin": 86.32
+    },
+    {
+      "texto": "cuerpo",
+      "inicio": 86.36,
+      "fin": 86.8
+    },
+    {
+      "texto": "de",
+      "inicio": 86.82,
+      "fin": 86.88
+    },
+    {
+      "texto": "una",
+      "inicio": 86.94,
+      "fin": 87.12
+    },
+    {
+      "texto": "mujer",
+      "inicio": 87.18,
+      "fin": 87.94
+    },
+    {
+      "texto": "almacena",
+      "inicio": 88.02,
+      "fin": 88.6
+    },
+    {
+      "texto": "su",
+      "inicio": 88.68,
+      "fin": 88.9
+    },
+    {
+      "texto": "peso,",
+      "inicio": 89,
+      "fin": 89.46
+    },
+    {
+      "texto": "tus",
+      "inicio": 89.92,
+      "fin": 90.06
+    },
+    {
+      "texto": "caderas,",
+      "inicio": 90.12,
+      "fin": 90.54
+    },
+    {
+      "texto": "tus",
+      "inicio": 91.24,
+      "fin": 91.42
+    },
+    {
+      "texto": "muslos,",
+      "inicio": 91.54,
+      "fin": 92
+    },
+    {
+      "texto": "tu",
+      "inicio": 92.36,
+      "fin": 92.46
+    },
+    {
+      "texto": "trasero.",
+      "inicio": 92.52,
+      "fin": 93.18
+    },
+    {
+      "texto": "Los",
+      "inicio": 93.68,
+      "fin": 93.78
+    },
+    {
+      "texto": "fitoestrógenos",
+      "inicio": 93.84,
+      "fin": 94.62
+    },
+    {
+      "texto": "no",
+      "inicio": 94.66,
+      "fin": 94.76
+    },
+    {
+      "texto": "mueven",
+      "inicio": 94.84,
+      "fin": 95.12
+    },
+    {
+      "texto": "nada,",
+      "inicio": 95.18,
+      "fin": 95.5
+    },
+    {
+      "texto": "señalizan.",
+      "inicio": 95.82,
+      "fin": 96.66
+    },
+    {
+      "texto": "Le",
+      "inicio": 97.1,
+      "fin": 97.22
+    },
+    {
+      "texto": "dicen",
+      "inicio": 97.28,
+      "fin": 97.58
+    },
+    {
+      "texto": "a",
+      "inicio": 97.62,
+      "fin": 97.7
+    },
+    {
+      "texto": "tu",
+      "inicio": 97.76,
+      "fin": 97.88
+    },
+    {
+      "texto": "cuerpo:",
+      "inicio": 97.94,
+      "fin": 98.36
+    },
+    {
+      "texto": "\"Almacénalo",
+      "inicio": 98.4,
+      "fin": 99.12
+    },
+    {
+      "texto": "aquí,",
+      "inicio": 99.22,
+      "fin": 99.68
+    },
+    {
+      "texto": "no",
+      "inicio": 100.38,
+      "fin": 100.52
+    },
+    {
+      "texto": "allá\".",
+      "inicio": 101.28,
+      "fin": 101.54
+    },
+    {
+      "texto": "Y",
+      "inicio": 102.34,
+      "fin": 102.38
+    },
+    {
+      "texto": "tu",
+      "inicio": 102.48,
+      "fin": 102.54
+    },
+    {
+      "texto": "cuerpo",
+      "inicio": 102.66,
+      "fin": 103.02
+    },
+    {
+      "texto": "escucha.",
+      "inicio": 103.1,
+      "fin": 103.68
+    },
+    {
+      "texto": "Y",
+      "inicio": 104.12,
+      "fin": 104.2
+    },
+    {
+      "texto": "creo",
+      "inicio": 104.26,
+      "fin": 104.48
+    },
+    {
+      "texto": "que",
+      "inicio": 104.6,
+      "fin": 104.7
+    },
+    {
+      "texto": "eso",
+      "inicio": 104.76,
+      "fin": 104.96
+    },
+    {
+      "texto": "es",
+      "inicio": 105,
+      "fin": 105.04
+    },
+    {
+      "texto": "lo",
+      "inicio": 105.08,
+      "fin": 105.2
+    },
+    {
+      "texto": "más",
+      "inicio": 105.26,
+      "fin": 105.48
+    },
+    {
+      "texto": "hermoso",
+      "inicio": 105.5,
+      "fin": 106.16
+    },
+    {
+      "texto": "que",
+      "inicio": 106.7,
+      "fin": 106.74
+    },
+    {
+      "texto": "alguien",
+      "inicio": 106.78,
+      "fin": 107.04
+    },
+    {
+      "texto": "ha",
+      "inicio": 107.06,
+      "fin": 107.16
+    },
+    {
+      "texto": "dicho",
+      "inicio": 107.22,
+      "fin": 107.5
+    },
+    {
+      "texto": "sobre",
+      "inicio": 107.68,
+      "fin": 107.9
+    },
+    {
+      "texto": "una",
+      "inicio": 107.96,
+      "fin": 108.08
+    },
+    {
+      "texto": "planta.",
+      "inicio": 108.2,
+      "fin": 108.66
+    },
+    {
+      "texto": "Los,",
+      "inicio": 108.88,
+      "fin": 109.2
+    },
+    {
+      "texto": "los",
+      "inicio": 109.52,
+      "fin": 109.62
+    },
+    {
+      "texto": "mejores",
+      "inicio": 109.68,
+      "fin": 110.08
+    },
+    {
+      "texto": "especialistas",
+      "inicio": 110.14,
+      "fin": 110.9
+    },
+    {
+      "texto": "en",
+      "inicio": 110.96,
+      "fin": 111.04
+    },
+    {
+      "texto": "hormonas",
+      "inicio": 111.08,
+      "fin": 111.64
+    },
+    {
+      "texto": "cobraban",
+      "inicio": 112.3,
+      "fin": 112.7
+    },
+    {
+      "texto": "una",
+      "inicio": 112.74,
+      "fin": 112.88
+    },
+    {
+      "texto": "fortuna",
+      "inicio": 112.94,
+      "fin": 113.38
+    },
+    {
+      "texto": "por",
+      "inicio": 113.44,
+      "fin": 113.58
+    },
+    {
+      "texto": "sesión",
+      "inicio": 113.62,
+      "fin": 114.2
+    },
+    {
+      "texto": "para",
+      "inicio": 114.26,
+      "fin": 114.5
+    },
+    {
+      "texto": "recetar",
+      "inicio": 114.56,
+      "fin": 114.96
+    },
+    {
+      "texto": "esto.",
+      "inicio": 115.04,
+      "fin": 115.34
+    },
+    {
+      "texto": "Luego",
+      "inicio": 116.4,
+      "fin": 116.58
+    },
+    {
+      "texto": "los",
+      "inicio": 116.62,
+      "fin": 116.72
+    },
+    {
+      "texto": "doctores",
+      "inicio": 116.74,
+      "fin": 117.24
+    },
+    {
+      "texto": "tuvieron",
+      "inicio": 117.3,
+      "fin": 117.6
+    },
+    {
+      "texto": "esta",
+      "inicio": 117.64,
+      "fin": 117.8
+    },
+    {
+      "texto": "idea.",
+      "inicio": 117.86,
+      "fin": 118.16
+    },
+    {
+      "texto": "¿Qué,",
+      "inicio": 118.3,
+      "fin": 118.48
+    },
+    {
+      "texto": "qué,",
+      "inicio": 118.82,
+      "fin": 118.94
+    },
+    {
+      "texto": "qué",
+      "inicio": 119.44,
+      "fin": 119.54
+    },
+    {
+      "texto": "tal",
+      "inicio": 119.58,
+      "fin": 119.72
+    },
+    {
+      "texto": "si",
+      "inicio": 119.78,
+      "fin": 119.86
+    },
+    {
+      "texto": "tomáramos",
+      "inicio": 119.92,
+      "fin": 120.5
+    },
+    {
+      "texto": "los",
+      "inicio": 120.94,
+      "fin": 121.04
+    },
+    {
+      "texto": "mismos",
+      "inicio": 121.08,
+      "fin": 121.34
+    },
+    {
+      "texto": "compuestos",
+      "inicio": 121.4,
+      "fin": 121.92
+    },
+    {
+      "texto": "de",
+      "inicio": 121.96,
+      "fin": 122.04
+    },
+    {
+      "texto": "fitoestrógenos",
+      "inicio": 122.1,
+      "fin": 123.1
+    },
+    {
+      "texto": "de",
+      "inicio": 123.14,
+      "fin": 123.18
+    },
+    {
+      "texto": "alta",
+      "inicio": 123.24,
+      "fin": 123.46
+    },
+    {
+      "texto": "potencia",
+      "inicio": 123.52,
+      "fin": 124.12
+    },
+    {
+      "texto": "y",
+      "inicio": 124.68,
+      "fin": 124.74
+    },
+    {
+      "texto": "los",
+      "inicio": 124.78,
+      "fin": 124.88
+    },
+    {
+      "texto": "concentráramos",
+      "inicio": 124.92,
+      "fin": 125.72
+    },
+    {
+      "texto": "en",
+      "inicio": 126.56,
+      "fin": 126.62
+    },
+    {
+      "texto": "Aguaje",
+      "inicio": 126.7,
+      "fin": 127.12
+    },
+    {
+      "texto": "Complex",
+      "inicio": 127.74,
+      "fin": 128.22
+    },
+    {
+      "texto": "3",
+      "inicio": 128.52,
+      "fin": 128.52
+    },
+    {
+      "texto": "en",
+      "inicio": 128.58,
+      "fin": 128.66
+    },
+    {
+      "texto": "1,",
+      "inicio": 128.9,
+      "fin": 128.919
+    },
+    {
+      "texto": "dos",
+      "inicio": 129.699,
+      "fin": 129.88
+    },
+    {
+      "texto": "cápsulas",
+      "inicio": 130.02,
+      "fin": 130.52
+    },
+    {
+      "texto": "al",
+      "inicio": 130.58,
+      "fin": 130.66
+    },
+    {
+      "texto": "día?",
+      "inicio": 130.72,
+      "fin": 130.94
+    },
+    {
+      "texto": "Mismo",
+      "inicio": 131.38,
+      "fin": 131.66
+    },
+    {
+      "texto": "ingrediente,",
+      "inicio": 131.72,
+      "fin": 132.3
+    },
+    {
+      "texto": "sin",
+      "inicio": 132.34,
+      "fin": 132.48
+    },
+    {
+      "texto": "agujas,",
+      "inicio": 132.58,
+      "fin": 132.96
+    },
+    {
+      "texto": "sin",
+      "inicio": 133,
+      "fin": 133.08
+    },
+    {
+      "texto": "gimnasio,",
+      "inicio": 133.12,
+      "fin": 133.84
+    },
+    {
+      "texto": "sin",
+      "inicio": 133.96,
+      "fin": 134.2
+    },
+    {
+      "texto": "cirugía.",
+      "inicio": 134.28,
+      "fin": 134.86
+    },
+    {
+      "texto": "Solo",
+      "inicio": 134.94,
+      "fin": 135.22
+    },
+    {
+      "texto": "tú",
+      "inicio": 135.3,
+      "fin": 135.54
+    },
+    {
+      "texto": "y",
+      "inicio": 136.54,
+      "fin": 136.58
+    },
+    {
+      "texto": "una",
+      "inicio": 136.66,
+      "fin": 136.9
+    },
+    {
+      "texto": "pequeña",
+      "inicio": 137.04,
+      "fin": 137.6
+    },
+    {
+      "texto": "botella",
+      "inicio": 137.66,
+      "fin": 138.32
+    },
+    {
+      "texto": "cada",
+      "inicio": 139.48,
+      "fin": 139.56
+    },
+    {
+      "texto": "mañana.",
+      "inicio": 139.64,
+      "fin": 140.12
+    },
+    {
+      "texto": "El",
+      "inicio": 140.18,
+      "fin": 140.26
+    },
+    {
+      "texto": "momento",
+      "inicio": 140.32,
+      "fin": 140.68
+    },
+    {
+      "texto": "en",
+      "inicio": 140.7,
+      "fin": 140.76
+    },
+    {
+      "texto": "que",
+      "inicio": 140.82,
+      "fin": 141.08
+    },
+    {
+      "texto": "entra",
+      "inicio": 141.2,
+      "fin": 141.72
+    },
+    {
+      "texto": "a",
+      "inicio": 141.76,
+      "fin": 141.76
+    },
+    {
+      "texto": "tu",
+      "inicio": 141.8,
+      "fin": 142
+    },
+    {
+      "texto": "sistema,",
+      "inicio": 142.12,
+      "fin": 142.84
+    },
+    {
+      "texto": "tus",
+      "inicio": 142.92,
+      "fin": 143
+    },
+    {
+      "texto": "receptores",
+      "inicio": 143.08,
+      "fin": 143.7
+    },
+    {
+      "texto": "de",
+      "inicio": 143.76,
+      "fin": 143.82
+    },
+    {
+      "texto": "estrógeno",
+      "inicio": 143.86,
+      "fin": 144.66
+    },
+    {
+      "texto": "despiertan",
+      "inicio": 144.72,
+      "fin": 145.5
+    },
+    {
+      "texto": "y",
+      "inicio": 145.52,
+      "fin": 145.56
+    },
+    {
+      "texto": "empiezan",
+      "inicio": 145.58,
+      "fin": 146.02
+    },
+    {
+      "texto": "a",
+      "inicio": 146.06,
+      "fin": 146.12
+    },
+    {
+      "texto": "señalizar",
+      "inicio": 146.2,
+      "fin": 147.14
+    },
+    {
+      "texto": "a",
+      "inicio": 147.2,
+      "fin": 147.28
+    },
+    {
+      "texto": "tu",
+      "inicio": 147.34,
+      "fin": 147.48
+    },
+    {
+      "texto": "cuerpo",
+      "inicio": 147.68,
+      "fin": 148.42
+    },
+    {
+      "texto": "que",
+      "inicio": 148.46,
+      "fin": 148.52
+    },
+    {
+      "texto": "envíe",
+      "inicio": 148.54,
+      "fin": 148.88
+    },
+    {
+      "texto": "grasa",
+      "inicio": 148.94,
+      "fin": 149.74
+    },
+    {
+      "texto": "a",
+      "inicio": 149.8,
+      "fin": 149.86
+    },
+    {
+      "texto": "tu",
+      "inicio": 149.92,
+      "fin": 150.02
+    },
+    {
+      "texto": "trasero.",
+      "inicio": 150.08,
+      "fin": 150.82
+    },
+    {
+      "texto": "Y",
+      "inicio": 151.04,
+      "fin": 151.08
+    },
+    {
+      "texto": "aquí",
+      "inicio": 151.12,
+      "fin": 151.28
+    },
+    {
+      "texto": "está",
+      "inicio": 151.34,
+      "fin": 151.82
+    },
+    {
+      "texto": "la",
+      "inicio": 151.86,
+      "fin": 152
+    },
+    {
+      "texto": "parte",
+      "inicio": 152.06,
+      "fin": 152.48
+    },
+    {
+      "texto": "que",
+      "inicio": 152.52,
+      "fin": 152.78
+    },
+    {
+      "texto": "me",
+      "inicio": 152.82,
+      "fin": 152.9
+    },
+    {
+      "texto": "emociona",
+      "inicio": 152.92,
+      "fin": 153.46
+    },
+    {
+      "texto": "cada",
+      "inicio": 153.52,
+      "fin": 153.78
+    },
+    {
+      "texto": "vez.",
+      "inicio": 153.82,
+      "fin": 153.96
+    },
+    {
+      "texto": "Mujeres",
+      "inicio": 154.02,
+      "fin": 154.44
+    },
+    {
+      "texto": "que",
+      "inicio": 154.48,
+      "fin": 154.6
+    },
+    {
+      "texto": "nunca",
+      "inicio": 154.66,
+      "fin": 154.94
+    },
+    {
+      "texto": "tuvieron",
+      "inicio": 154.98,
+      "fin": 155.42
+    },
+    {
+      "texto": "curvas",
+      "inicio": 155.5,
+      "fin": 155.92
+    },
+    {
+      "texto": "en",
+      "inicio": 156,
+      "fin": 156.1
+    },
+    {
+      "texto": "toda",
+      "inicio": 156.16,
+      "fin": 156.52
+    },
+    {
+      "texto": "su",
+      "inicio": 156.58,
+      "fin": 156.74
+    },
+    {
+      "texto": "vida,",
+      "inicio": 156.82,
+      "fin": 157.3
+    },
+    {
+      "texto": "en",
+      "inicio": 157.8,
+      "fin": 157.88
+    },
+    {
+      "texto": "semanas",
+      "inicio": 157.94,
+      "fin": 158.48
+    },
+    {
+      "texto": "sus",
+      "inicio": 158.54,
+      "fin": 158.7
+    },
+    {
+      "texto": "jeans",
+      "inicio": 158.8,
+      "fin": 159.54
+    },
+    {
+      "texto": "dejan",
+      "inicio": 160.04,
+      "fin": 160.3
+    },
+    {
+      "texto": "de",
+      "inicio": 160.34,
+      "fin": 160.38
+    },
+    {
+      "texto": "abrocharse",
+      "inicio": 160.42,
+      "fin": 161.12
+    },
+    {
+      "texto": "pasando",
+      "inicio": 161.18,
+      "fin": 161.76
+    },
+    {
+      "texto": "sus",
+      "inicio": 161.82,
+      "fin": 161.92
+    },
+    {
+      "texto": "muslos.",
+      "inicio": 161.96,
+      "fin": 162.66
+    },
+    {
+      "texto": "Los",
+      "inicio": 162.8,
+      "fin": 162.9
+    },
+    {
+      "texto": "mismos",
+      "inicio": 162.96,
+      "fin": 163.26
+    },
+    {
+      "texto": "jeans",
+      "inicio": 163.38,
+      "fin": 163.74
+    },
+    {
+      "texto": "que",
+      "inicio": 163.8,
+      "fin": 163.88
+    },
+    {
+      "texto": "antes",
+      "inicio": 164.06,
+      "fin": 164.64
+    },
+    {
+      "texto": "se",
+      "inicio": 164.74,
+      "fin": 164.86
+    },
+    {
+      "texto": "deslizaban",
+      "inicio": 164.9,
+      "fin": 165.78
+    },
+    {
+      "texto": "sobre",
+      "inicio": 165.92,
+      "fin": 166.12
+    },
+    {
+      "texto": "sus",
+      "inicio": 166.18,
+      "fin": 166.32
+    },
+    {
+      "texto": "caderas.",
+      "inicio": 166.4,
+      "fin": 166.98
+    },
+    {
+      "texto": "Eso",
+      "inicio": 167.26,
+      "fin": 167.48
+    },
+    {
+      "texto": "no",
+      "inicio": 167.54,
+      "fin": 167.66
+    },
+    {
+      "texto": "es",
+      "inicio": 167.74,
+      "fin": 167.78
+    },
+    {
+      "texto": "grasa",
+      "inicio": 167.84,
+      "fin": 168.42
+    },
+    {
+      "texto": "siendo",
+      "inicio": 168.52,
+      "fin": 168.78
+    },
+    {
+      "texto": "forzada",
+      "inicio": 168.86,
+      "fin": 169.78
+    },
+    {
+      "texto": "a",
+      "inicio": 169.88,
+      "fin": 169.92
+    },
+    {
+      "texto": "donde",
+      "inicio": 169.96,
+      "fin": 170.24
+    },
+    {
+      "texto": "no",
+      "inicio": 170.3,
+      "fin": 170.42
+    },
+    {
+      "texto": "pertenece.",
+      "inicio": 170.5,
+      "fin": 171.9
+    },
+    {
+      "texto": "Es",
+      "inicio": 172.12,
+      "fin": 172.2
+    },
+    {
+      "texto": "tu",
+      "inicio": 172.26,
+      "fin": 172.36
+    },
+    {
+      "texto": "cuerpo",
+      "inicio": 172.42,
+      "fin": 172.72
+    },
+    {
+      "texto": "finalmente",
+      "inicio": 172.8,
+      "fin": 173.54
+    },
+    {
+      "texto": "almacenando",
+      "inicio": 173.62,
+      "fin": 174.34
+    },
+    {
+      "texto": "peso",
+      "inicio": 174.46,
+      "fin": 175.28
+    },
+    {
+      "texto": "donde",
+      "inicio": 175.36,
+      "fin": 175.6
+    },
+    {
+      "texto": "siempre",
+      "inicio": 175.68,
+      "fin": 175.98
+    },
+    {
+      "texto": "debió",
+      "inicio": 176.02,
+      "fin": 176.32
+    },
+    {
+      "texto": "ir.",
+      "inicio": 176.48,
+      "fin": 177.06
+    },
+    {
+      "texto": "Tu",
+      "inicio": 177.48,
+      "fin": 177.58
+    },
+    {
+      "texto": "cuerpo",
+      "inicio": 177.66,
+      "fin": 178.04
+    },
+    {
+      "texto": "construye",
+      "inicio": 178.12,
+      "fin": 178.68
+    },
+    {
+      "texto": "las",
+      "inicio": 178.74,
+      "fin": 178.88
+    },
+    {
+      "texto": "curvas",
+      "inicio": 178.96,
+      "fin": 179.36
+    },
+    {
+      "texto": "por",
+      "inicio": 179.42,
+      "fin": 179.62
+    },
+    {
+      "texto": "sí",
+      "inicio": 179.7,
+      "fin": 179.84
+    },
+    {
+      "texto": "mismo",
+      "inicio": 179.94,
+      "fin": 181.04
+    },
+    {
+      "texto": "y",
+      "inicio": 181.06,
+      "fin": 181.06
+    },
+    {
+      "texto": "los",
+      "inicio": 181.1,
+      "fin": 181.2
+    },
+    {
+      "texto": "resultados",
+      "inicio": 181.24,
+      "fin": 181.8
+    },
+    {
+      "texto": "no",
+      "inicio": 181.9,
+      "fin": 181.98
+    },
+    {
+      "texto": "desaparecen",
+      "inicio": 182.02,
+      "fin": 183.1
+    },
+    {
+      "texto": "cuando",
+      "inicio": 183.16,
+      "fin": 183.44
+    },
+    {
+      "texto": "dejas",
+      "inicio": 183.48,
+      "fin": 183.9
+    },
+    {
+      "texto": "de",
+      "inicio": 183.9,
+      "fin": 183.9
+    },
+    {
+      "texto": "tomarlas,",
+      "inicio": 183.96,
+      "fin": 184.46
+    },
+    {
+      "texto": "porque",
+      "inicio": 185.16,
+      "fin": 185.32
+    },
+    {
+      "texto": "el",
+      "inicio": 185.36,
+      "fin": 185.42
+    },
+    {
+      "texto": "cambio",
+      "inicio": 185.48,
+      "fin": 185.74
+    },
+    {
+      "texto": "ya",
+      "inicio": 186.34,
+      "fin": 186.36
+    },
+    {
+      "texto": "sucedió",
+      "inicio": 186.44,
+      "fin": 186.9
+    },
+    {
+      "texto": "desde",
+      "inicio": 186.94,
+      "fin": 187.14
+    },
+    {
+      "texto": "adentro.",
+      "inicio": 187.2,
+      "fin": 187.72
+    },
+    {
+      "texto": "Las",
+      "inicio": 189.26,
+      "fin": 189.36
+    },
+    {
+      "texto": "mujeres",
+      "inicio": 189.42,
+      "fin": 189.78
+    },
+    {
+      "texto": "empiezan",
+      "inicio": 189.86,
+      "fin": 190.24
+    },
+    {
+      "texto": "a",
+      "inicio": 190.28,
+      "fin": 190.32
+    },
+    {
+      "texto": "ver",
+      "inicio": 190.34,
+      "fin": 190.5
+    },
+    {
+      "texto": "cambios",
+      "inicio": 190.56,
+      "fin": 191.12
+    },
+    {
+      "texto": "en",
+      "inicio": 192.12,
+      "fin": 192.22
+    },
+    {
+      "texto": "tan",
+      "inicio": 192.28,
+      "fin": 192.48
+    },
+    {
+      "texto": "solo",
+      "inicio": 192.56,
+      "fin": 192.78
+    },
+    {
+      "texto": "noventa",
+      "inicio": 192.84,
+      "fin": 193.26
+    },
+    {
+      "texto": "días.",
+      "inicio": 193.36,
+      "fin": 193.72
+    },
+    {
+      "texto": "Aguaje",
+      "inicio": 194.5,
+      "fin": 195.66
+    },
+    {
+      "texto": "Complex",
+      "inicio": 195.72,
+      "fin": 196.18
+    },
+    {
+      "texto": "3",
+      "inicio": 196.44,
+      "fin": 196.46
+    },
+    {
+      "texto": "en",
+      "inicio": 196.5,
+      "fin": 196.6
+    },
+    {
+      "texto": "1",
+      "inicio": 197.96,
+      "fin": 197.98
+    },
+    {
+      "texto": "está",
+      "inicio": 198.06,
+      "fin": 198.26
+    },
+    {
+      "texto": "disponible",
+      "inicio": 198.28,
+      "fin": 198.8
+    },
+    {
+      "texto": "actualmente,",
+      "inicio": 198.86,
+      "fin": 199.6
+    },
+    {
+      "texto": "pero",
+      "inicio": 200.8,
+      "fin": 201
+    },
+    {
+      "texto": "no",
+      "inicio": 201.04,
+      "fin": 201.14
+    },
+    {
+      "texto": "durará",
+      "inicio": 201.26,
+      "fin": 201.54
+    },
+    {
+      "texto": "mucho,",
+      "inicio": 201.62,
+      "fin": 202.24
+    },
+    {
+      "texto": "así",
+      "inicio": 203.3,
+      "fin": 203.5
+    },
+    {
+      "texto": "que",
+      "inicio": 203.54,
+      "fin": 203.62
+    },
+    {
+      "texto": "abastécete",
+      "inicio": 203.68,
+      "fin": 204.44
+    },
+    {
+      "texto": "mientras",
+      "inicio": 204.5,
+      "fin": 204.84
+    },
+    {
+      "texto": "puedas.",
+      "inicio": 204.9,
+      "fin": 205.34
+    },
+    {
+      "texto": "Si",
+      "inicio": 206.38,
+      "fin": 206.48
+    },
+    {
+      "texto": "todavía",
+      "inicio": 206.56,
+      "fin": 207
+    },
+    {
+      "texto": "ves",
+      "inicio": 207.04,
+      "fin": 207.22
+    },
+    {
+      "texto": "el",
+      "inicio": 207.28,
+      "fin": 207.36
+    },
+    {
+      "texto": "enlace",
+      "inicio": 207.42,
+      "fin": 207.78
+    },
+    {
+      "texto": "abajo,",
+      "inicio": 207.84,
+      "fin": 208.26
+    },
+    {
+      "texto": "todavía",
+      "inicio": 209.28,
+      "fin": 209.7
+    },
+    {
+      "texto": "hay",
+      "inicio": 209.72,
+      "fin": 209.84
+    },
+    {
+      "texto": "stock.",
+      "inicio": 209.88,
+      "fin": 210.46
+    },
+    {
+      "texto": "Consigue",
+      "inicio": 211.54,
+      "fin": 212.14
+    },
+    {
+      "texto": "las",
+      "inicio": 212.2,
+      "fin": 212.44
+    },
+    {
+      "texto": "tuyas",
+      "inicio": 212.52,
+      "fin": 212.96
+    },
+    {
+      "texto": "antes",
+      "inicio": 214.32,
+      "fin": 214.58
+    },
+    {
+      "texto": "de",
+      "inicio": 214.62,
+      "fin": 214.72
+    },
+    {
+      "texto": "que",
+      "inicio": 214.78,
+      "fin": 214.86
+    },
+    {
+      "texto": "se",
+      "inicio": 214.96,
+      "fin": 215.04
+    },
+    {
+      "texto": "agote",
+      "inicio": 215.12,
+      "fin": 215.44
+    },
+    {
+      "texto": "este",
+      "inicio": 215.54,
+      "fin": 215.82
+    },
+    {
+      "texto": "lote.",
+      "inicio": 215.88,
+      "fin": 216.42
+    }
+  ],
+  "calidadAlineacion": 0.9954545454545455,
+  "alignedWords": [
+    {
+      "word": "[Verso 1]\nCuando ",
+      "success": true,
+      "startS": 2.754,
+      "endS": 3.156,
+      "palign": 0
+    },
+    {
+      "word": "te ",
+      "success": true,
+      "startS": 3.223,
+      "endS": 3.29,
+      "palign": 0
+    },
+    {
+      "word": "hacen ",
+      "success": true,
+      "startS": 3.345,
+      "endS": 3.565,
+      "palign": 0
+    },
+    {
+      "word": "un ",
+      "success": true,
+      "startS": 3.6625,
+      "endS": 3.801,
+      "palign": 0
+    },
+    {
+      "word": "BBL,\n",
+      "success": true,
+      "startS": 3.985,
+      "endS": 5.57375,
+      "palign": 0
+    },
+    {
+      "word": "los ",
+      "success": true,
+      "startS": 5.6315,
+      "endS": 5.747,
+      "palign": 0
+    },
+    {
+      "word": "doctores ",
+      "success": true,
+      "startS": 5.805,
+      "endS": 6.25,
+      "palign": 0
+    },
+    {
+      "word": "literalmente\n",
+      "success": true,
+      "startS": 6.355,
+      "endS": 7.734,
+      "palign": 0
+    },
+    {
+      "word": "toman ",
+      "success": true,
+      "startS": 7.776,
+      "endS": 8.034,
+      "palign": 0
+    },
+    {
+      "word": "grasa ",
+      "success": true,
+      "startS": 8.1225,
+      "endS": 8.444,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 8.5165,
+      "endS": 8.589,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 8.6435,
+      "endS": 8.698,
+      "palign": 0
+    },
+    {
+      "word": "estómago,\n",
+      "success": true,
+      "startS": 8.706,
+      "endS": 9.803,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 9.86,
+      "endS": 9.917,
+      "palign": 0
+    },
+    {
+      "word": "espalda, ",
+      "success": true,
+      "startS": 9.99843,
+      "endS": 11.041,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 11.121,
+      "endS": 11.201,
+      "palign": 0
+    },
+    {
+      "word": "espalda.\n",
+      "success": true,
+      "startS": 11.28757,
+      "endS": 13.29767,
+      "palign": 0
+    },
+    {
+      "word": "Luego ",
+      "success": true,
+      "startS": 13.36433,
+      "endS": 13.631,
+      "palign": 0
+    },
+    {
+      "word": "la ",
+      "success": true,
+      "startS": 13.6935,
+      "endS": 13.756,
+      "palign": 0
+    },
+    {
+      "word": "reinyectan\n",
+      "success": true,
+      "startS": 13.80925,
+      "endS": 14.753,
+      "palign": 0
+    },
+    {
+      "word": "en ",
+      "success": true,
+      "startS": 14.8365,
+      "endS": 14.92,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 15,
+      "endS": 15.081,
+      "palign": 0
+    },
+    {
+      "word": "trasero ",
+      "success": true,
+      "startS": 15.19425,
+      "endS": 15.757,
+      "palign": 0
+    },
+    {
+      "word": "y ",
+      "success": true,
+      "startS": 15.823,
+      "endS": 15.823,
+      "palign": 0
+    },
+    {
+      "word": "caderas.\n",
+      "success": true,
+      "startS": 15.903,
+      "endS": 17.5866,
+      "palign": 0
+    },
+    {
+      "word": "Pero ",
+      "success": true,
+      "startS": 17.6342,
+      "endS": 17.777,
+      "palign": 0
+    },
+    {
+      "word": "esto ",
+      "success": true,
+      "startS": 17.8185,
+      "endS": 17.943,
+      "palign": 0
+    },
+    {
+      "word": "es ",
+      "success": true,
+      "startS": 17.9925,
+      "endS": 18.042,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 18.1105,
+      "endS": 18.179,
+      "palign": 0
+    },
+    {
+      "word": "lo ",
+      "success": true,
+      "startS": 18.259,
+      "endS": 18.359,
+      "palign": 0
+    },
+    {
+      "word": "que\n",
+      "success": true,
+      "startS": 18.428,
+      "endS": 18.566,
+      "palign": 0
+    },
+    {
+      "word": "nadie ",
+      "success": true,
+      "startS": 18.6656,
+      "endS": 19.064,
+      "palign": 0
+    },
+    {
+      "word": "habla.\n\n",
+      "success": true,
+      "startS": 19.144,
+      "endS": 19.94557,
+      "palign": 0
+    },
+    {
+      "word": "[Verso 2]\nEl ",
+      "success": true,
+      "startS": 19.95786,
+      "endS": 20.122,
+      "palign": 0
+    },
+    {
+      "word": "BBL ",
+      "success": true,
+      "startS": 20.188,
+      "endS": 20.808,
+      "palign": 0
+    },
+    {
+      "word": "no ",
+      "success": true,
+      "startS": 20.891,
+      "endS": 20.984,
+      "palign": 0
+    },
+    {
+      "word": "te ",
+      "success": true,
+      "startS": 21.064,
+      "endS": 21.18,
+      "palign": 0
+    },
+    {
+      "word": "da ",
+      "success": true,
+      "startS": 21.2965,
+      "endS": 21.441,
+      "palign": 0
+    },
+    {
+      "word": "curvas, ",
+      "success": true,
+      "startS": 21.525,
+      "endS": 22.1278,
+      "palign": 0
+    },
+    {
+      "word": "nena.\n",
+      "success": true,
+      "startS": 22.2266,
+      "endS": 23.0842,
+      "palign": 0
+    },
+    {
+      "word": "Solo ",
+      "success": true,
+      "startS": 23.1564,
+      "endS": 23.384,
+      "palign": 0
+    },
+    {
+      "word": "fuerza ",
+      "success": true,
+      "startS": 23.44483,
+      "endS": 23.749,
+      "palign": 0
+    },
+    {
+      "word": "la ",
+      "success": true,
+      "startS": 23.796,
+      "endS": 23.843,
+      "palign": 0
+    },
+    {
+      "word": "grasa ",
+      "success": true,
+      "startS": 23.9285,
+      "endS": 24.151,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 24.231,
+      "endS": 24.237,
+      "palign": 0
+    },
+    {
+      "word": "un ",
+      "success": true,
+      "startS": 24.304,
+      "endS": 24.371,
+      "palign": 0
+    },
+    {
+      "word": "lugar\n",
+      "success": true,
+      "startS": 24.4594,
+      "endS": 24.865,
+      "palign": 0
+    },
+    {
+      "word": "donde ",
+      "success": true,
+      "startS": 24.9406,
+      "endS": 25.243,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 25.3135,
+      "endS": 25.384,
+      "palign": 0
+    },
+    {
+      "word": "cuerpo ",
+      "success": true,
+      "startS": 25.46267,
+      "endS": 25.856,
+      "palign": 0
+    },
+    {
+      "word": "nunca\n",
+      "success": true,
+      "startS": 25.8786,
+      "endS": 25.969,
+      "palign": 0
+    },
+    {
+      "word": "aceptó ",
+      "success": true,
+      "startS": 26.108,
+      "endS": 26.731,
+      "palign": 0
+    },
+    {
+      "word": "naturalmente.\n",
+      "success": true,
+      "startS": 26.80943,
+      "endS": 28.609,
+      "palign": 0
+    },
+    {
+      "word": "Entonces, ",
+      "success": true,
+      "startS": 28.672,
+      "endS": 29.16567,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 29.21833,
+      "endS": 29.271,
+      "palign": 0
+    },
+    {
+      "word": "cuerpo ",
+      "success": true,
+      "startS": 29.33617,
+      "endS": 29.662,
+      "palign": 0
+    },
+    {
+      "word": "ve ",
+      "success": true,
+      "startS": 29.691,
+      "endS": 29.72,
+      "palign": 0
+    },
+    {
+      "word": "esa ",
+      "success": true,
+      "startS": 29.78133,
+      "endS": 29.904,
+      "palign": 0
+    },
+    {
+      "word": "grasa\n",
+      "success": true,
+      "startS": 29.9985,
+      "endS": 30.325,
+      "palign": 0
+    },
+    {
+      "word": "y ",
+      "success": true,
+      "startS": 30.379,
+      "endS": 30.379,
+      "palign": 0
+    },
+    {
+      "word": "dice: \"",
+      "success": true,
+      "startS": 30.45425,
+      "endS": 30.77433,
+      "palign": 0
+    },
+    {
+      "word": "Esto ",
+      "success": true,
+      "startS": 30.8215,
+      "endS": 30.963,
+      "palign": 0
+    },
+    {
+      "word": "no ",
+      "success": true,
+      "startS": 31.088,
+      "endS": 31.237,
+      "palign": 0
+    },
+    {
+      "word": "va ",
+      "success": true,
+      "startS": 31.3555,
+      "endS": 31.474,
+      "palign": 0
+    },
+    {
+      "word": "aquí\".\n",
+      "success": true,
+      "startS": 31.554,
+      "endS": 32.777,
+      "palign": 0
+    },
+    {
+      "word": "Y ",
+      "success": true,
+      "startS": 32.834,
+      "endS": 32.834,
+      "palign": 0
+    },
+    {
+      "word": "empieza ",
+      "success": true,
+      "startS": 32.89643,
+      "endS": 33.271,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 33.322,
+      "endS": 33.322,
+      "palign": 0
+    },
+    {
+      "word": "descomponerla,\n",
+      "success": true,
+      "startS": 33.36425,
+      "endS": 34.79667,
+      "palign": 0
+    },
+    {
+      "word": "reabsorberla, ",
+      "success": true,
+      "startS": 34.83433,
+      "endS": 35.90867,
+      "palign": 0
+    },
+    {
+      "word": "eliminarla.\n\n",
+      "success": true,
+      "startS": 35.91633,
+      "endS": 39.54131,
+      "palign": 0
+    },
+    {
+      "word": "[Verso 3]\nY ",
+      "success": true,
+      "startS": 39.54746,
+      "endS": 39.706,
+      "palign": 0
+    },
+    {
+      "word": "cuando ",
+      "success": true,
+      "startS": 39.76017,
+      "endS": 40.031,
+      "palign": 0
+    },
+    {
+      "word": "subes ",
+      "success": true,
+      "startS": 40.10433,
+      "endS": 40.471,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 40.5455,
+      "endS": 40.62,
+      "palign": 0
+    },
+    {
+      "word": "peso\n",
+      "success": true,
+      "startS": 40.68733,
+      "endS": 41.106,
+      "palign": 0
+    },
+    {
+      "word": "después ",
+      "success": true,
+      "startS": 41.12,
+      "endS": 41.428,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 41.4825,
+      "endS": 41.537,
+      "palign": 0
+    },
+    {
+      "word": "un ",
+      "success": true,
+      "startS": 41.584,
+      "endS": 41.631,
+      "palign": 0
+    },
+    {
+      "word": "BBL,\n",
+      "success": true,
+      "startS": 41.84,
+      "endS": 43.16,
+      "palign": 0
+    },
+    {
+      "word": "no ",
+      "success": true,
+      "startS": 43.227,
+      "endS": 43.298,
+      "palign": 0
+    },
+    {
+      "word": "va ",
+      "success": true,
+      "startS": 43.3625,
+      "endS": 43.427,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 43.486,
+      "endS": 43.486,
+      "palign": 0
+    },
+    {
+      "word": "tus ",
+      "success": true,
+      "startS": 43.52933,
+      "endS": 43.616,
+      "palign": 0
+    },
+    {
+      "word": "nuevas ",
+      "success": true,
+      "startS": 43.65633,
+      "endS": 43.956,
+      "palign": 0
+    },
+    {
+      "word": "curvas.\n",
+      "success": true,
+      "startS": 44.03267,
+      "endS": 44.55687,
+      "palign": 0
+    },
+    {
+      "word": "Regresa ",
+      "success": true,
+      "startS": 44.61375,
+      "endS": 44.955,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 45.053,
+      "endS": 45.076,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 45.12,
+      "endS": 45.164,
+      "palign": 0
+    },
+    {
+      "word": "estómago, ",
+      "success": true,
+      "startS": 45.19333,
+      "endS": 45.85525,
+      "palign": 0
+    },
+    {
+      "word": "tus ",
+      "success": true,
+      "startS": 45.8865,
+      "endS": 45.949,
+      "palign": 0
+    },
+    {
+      "word": "brazos,\n",
+      "success": true,
+      "startS": 46.02183,
+      "endS": 46.4365,
+      "palign": 0
+    },
+    {
+      "word": "los ",
+      "success": true,
+      "startS": 46.487,
+      "endS": 46.588,
+      "palign": 0
+    },
+    {
+      "word": "mismos ",
+      "success": true,
+      "startS": 46.618,
+      "endS": 47.034,
+      "palign": 0
+    },
+    {
+      "word": "lugares ",
+      "success": true,
+      "startS": 47.135,
+      "endS": 47.711,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 47.908,
+      "endS": 48.105,
+      "palign": 0
+    },
+    {
+      "word": "antes.\n",
+      "success": true,
+      "startS": 48.185,
+      "endS": 48.78017,
+      "palign": 0
+    },
+    {
+      "word": "Estás ",
+      "success": true,
+      "startS": 48.82033,
+      "endS": 48.981,
+      "palign": 0
+    },
+    {
+      "word": "pagando ",
+      "success": true,
+      "startS": 49.05133,
+      "endS": 49.629,
+      "palign": 0
+    },
+    {
+      "word": "millones\n",
+      "success": true,
+      "startS": 49.65975,
+      "endS": 50.211,
+      "palign": 0
+    },
+    {
+      "word": "para ",
+      "success": true,
+      "startS": 50.26275,
+      "endS": 50.418,
+      "palign": 0
+    },
+    {
+      "word": "reacomodar ",
+      "success": true,
+      "startS": 50.496,
+      "endS": 51.136,
+      "palign": 0
+    },
+    {
+      "word": "grasa\n",
+      "success": true,
+      "startS": 51.278,
+      "endS": 52.075,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 52.14633,
+      "endS": 52.289,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 52.369,
+      "endS": 52.453,
+      "palign": 0
+    },
+    {
+      "word": "cuerpo ",
+      "success": true,
+      "startS": 52.53117,
+      "endS": 52.922,
+      "palign": 0
+    },
+    {
+      "word": "ya ",
+      "success": true,
+      "startS": 53.0685,
+      "endS": 53.215,
+      "palign": 0
+    },
+    {
+      "word": "está\n",
+      "success": true,
+      "startS": 53.37775,
+      "endS": 54.732,
+      "palign": 0
+    },
+    {
+      "word": "tratando ",
+      "success": true,
+      "startS": 54.8025,
+      "endS": 55.407,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 55.46,
+      "endS": 55.513,
+      "palign": 0
+    },
+    {
+      "word": "devolver.\n\n",
+      "success": true,
+      "startS": 55.55733,
+      "endS": 57.40565,
+      "palign": 0
+    },
+    {
+      "word": "[Pre-Coro]\nPero ",
+      "success": true,
+      "startS": 57.42447,
+      "endS": 57.774,
+      "palign": 0
+    },
+    {
+      "word": "esto ",
+      "success": true,
+      "startS": 57.854,
+      "endS": 58.116,
+      "palign": 0
+    },
+    {
+      "word": "es ",
+      "success": true,
+      "startS": 58.194,
+      "endS": 58.272,
+      "palign": 0
+    },
+    {
+      "word": "lo ",
+      "success": true,
+      "startS": 58.352,
+      "endS": 58.439,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 58.488,
+      "endS": 58.586,
+      "palign": 0
+    },
+    {
+      "word": "los ",
+      "success": true,
+      "startS": 58.645,
+      "endS": 58.763,
+      "palign": 0
+    },
+    {
+      "word": "científicos\n",
+      "success": true,
+      "startS": 58.8175,
+      "endS": 60.027,
+      "palign": 0
+    },
+    {
+      "word": "descubrieron ",
+      "success": true,
+      "startS": 60.0728,
+      "endS": 60.669,
+      "palign": 0
+    },
+    {
+      "word": "hace ",
+      "success": true,
+      "startS": 60.7415,
+      "endS": 60.959,
+      "palign": 0
+    },
+    {
+      "word": "mucho ",
+      "success": true,
+      "startS": 61.0644,
+      "endS": 61.563,
+      "palign": 0
+    },
+    {
+      "word": "tiempo.\n¿",
+      "success": true,
+      "startS": 61.68317,
+      "endS": 62.9202,
+      "palign": 0
+    },
+    {
+      "word": "Qué ",
+      "success": true,
+      "startS": 62.9298,
+      "endS": 62.949,
+      "palign": 0
+    },
+    {
+      "word": "tal ",
+      "success": true,
+      "startS": 63.053,
+      "endS": 63.138,
+      "palign": 0
+    },
+    {
+      "word": "si ",
+      "success": true,
+      "startS": 63.218,
+      "endS": 63.338,
+      "palign": 0
+    },
+    {
+      "word": "en ",
+      "success": true,
+      "startS": 63.4125,
+      "endS": 63.487,
+      "palign": 0
+    },
+    {
+      "word": "lugar ",
+      "success": true,
+      "startS": 63.567,
+      "endS": 63.89,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 63.9425,
+      "endS": 63.995,
+      "palign": 0
+    },
+    {
+      "word": "mover ",
+      "success": true,
+      "startS": 64.084,
+      "endS": 64.538,
+      "palign": 0
+    },
+    {
+      "word": "la ",
+      "success": true,
+      "startS": 64.6685,
+      "endS": 64.799,
+      "palign": 0
+    },
+    {
+      "word": "grasa,\n",
+      "success": true,
+      "startS": 64.953,
+      "endS": 65.81767,
+      "palign": 0
+    },
+    {
+      "word": "le ",
+      "success": true,
+      "startS": 65.87533,
+      "endS": 66.006,
+      "palign": 0
+    },
+    {
+      "word": "dijeras ",
+      "success": true,
+      "startS": 66.0385,
+      "endS": 66.485,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 66.653,
+      "endS": 66.666,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 66.7745,
+      "endS": 66.883,
+      "palign": 0
+    },
+    {
+      "word": "cuerpo\n",
+      "success": true,
+      "startS": 66.963,
+      "endS": 67.425,
+      "palign": 0
+    },
+    {
+      "word": "dónde ",
+      "success": true,
+      "startS": 67.4816,
+      "endS": 67.708,
+      "palign": 0
+    },
+    {
+      "word": "almacenarla\n",
+      "success": true,
+      "startS": 67.749,
+      "endS": 70.808,
+      "palign": 0
+    },
+    {
+      "word": "desde ",
+      "success": true,
+      "startS": 70.8436,
+      "endS": 70.986,
+      "palign": 0
+    },
+    {
+      "word": "el ",
+      "success": true,
+      "startS": 71.066,
+      "endS": 71.186,
+      "palign": 0
+    },
+    {
+      "word": "principio?\n\n",
+      "success": true,
+      "startS": 71.266,
+      "endS": 72.07008,
+      "palign": 0
+    },
+    {
+      "word": "[Coro]\nEsos ",
+      "success": true,
+      "startS": 72.09162,
+      "endS": 72.307,
+      "palign": 0
+    },
+    {
+      "word": "son ",
+      "success": true,
+      "startS": 72.371,
+      "endS": 72.499,
+      "palign": 0
+    },
+    {
+      "word": "los ",
+      "success": true,
+      "startS": 72.553,
+      "endS": 72.661,
+      "palign": 0
+    },
+    {
+      "word": "fitoestrógenos, ",
+      "success": true,
+      "startS": 72.893,
+      "endS": 74.0494,
+      "palign": 0
+    },
+    {
+      "word": "nena.\n",
+      "success": true,
+      "startS": 74.1218,
+      "endS": 74.66467,
+      "palign": 0
+    },
+    {
+      "word": "Extraídos ",
+      "success": true,
+      "startS": 74.67633,
+      "endS": 75.735,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 75.815,
+      "endS": 75.899,
+      "palign": 0
+    },
+    {
+      "word": "la ",
+      "success": true,
+      "startS": 75.968,
+      "endS": 76.037,
+      "palign": 0
+    },
+    {
+      "word": "raíz ",
+      "success": true,
+      "startS": 76.0995,
+      "endS": 76.435,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 76.501,
+      "endS": 76.567,
+      "palign": 0
+    },
+    {
+      "word": "maca,\n",
+      "success": true,
+      "startS": 76.6815,
+      "endS": 77.531,
+      "palign": 0
+    },
+    {
+      "word": "fenogreco ",
+      "success": true,
+      "startS": 77.606,
+      "endS": 78.325,
+      "palign": 0
+    },
+    {
+      "word": "y ",
+      "success": true,
+      "startS": 78.437,
+      "endS": 78.437,
+      "palign": 0
+    },
+    {
+      "word": "aguaje.\n",
+      "success": true,
+      "startS": 78.504,
+      "endS": 79.01117,
+      "palign": 0
+    },
+    {
+      "word": "Estas ",
+      "success": true,
+      "startS": 79.04233,
+      "endS": 79.167,
+      "palign": 0
+    },
+    {
+      "word": "plantas ",
+      "success": true,
+      "startS": 79.27,
+      "endS": 79.633,
+      "palign": 0
+    },
+    {
+      "word": "contienen ",
+      "success": true,
+      "startS": 79.69833,
+      "endS": 80.283,
+      "palign": 0
+    },
+    {
+      "word": "compuestos\n",
+      "success": true,
+      "startS": 80.319,
+      "endS": 80.935,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 80.95933,
+      "endS": 81.008,
+      "palign": 0
+    },
+    {
+      "word": "imitan ",
+      "success": true,
+      "startS": 81.142,
+      "endS": 81.584,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 81.6195,
+      "endS": 81.655,
+      "palign": 0
+    },
+    {
+      "word": "estrógeno ",
+      "success": true,
+      "startS": 81.655,
+      "endS": 82.6,
+      "palign": 0
+    },
+    {
+      "word": "natural.\n",
+      "success": true,
+      "startS": 82.699,
+      "endS": 83.418,
+      "palign": 0
+    },
+    {
+      "word": "Y ",
+      "success": true,
+      "startS": 83.458,
+      "endS": 83.511,
+      "palign": 0
+    },
+    {
+      "word": "el ",
+      "success": true,
+      "startS": 83.5365,
+      "endS": 83.562,
+      "palign": 0
+    },
+    {
+      "word": "estrógeno ",
+      "success": true,
+      "startS": 83.562,
+      "endS": 84.66,
+      "palign": 0
+    },
+    {
+      "word": "es ",
+      "success": true,
+      "startS": 84.7205,
+      "endS": 84.781,
+      "palign": 0
+    },
+    {
+      "word": "la ",
+      "success": true,
+      "startS": 84.814,
+      "endS": 84.847,
+      "palign": 0
+    },
+    {
+      "word": "hormona ",
+      "success": true,
+      "startS": 84.886,
+      "endS": 85.334,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 85.43267,
+      "endS": 85.63,
+      "palign": 0
+    },
+    {
+      "word": "decide\n",
+      "success": true,
+      "startS": 85.69533,
+      "endS": 86.022,
+      "palign": 0
+    },
+    {
+      "word": "dónde ",
+      "success": true,
+      "startS": 86.0722,
+      "endS": 86.273,
+      "palign": 0
+    },
+    {
+      "word": "el ",
+      "success": true,
+      "startS": 86.323,
+      "endS": 86.373,
+      "palign": 0
+    },
+    {
+      "word": "cuerpo ",
+      "success": true,
+      "startS": 86.453,
+      "endS": 86.86,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 86.8835,
+      "endS": 86.907,
+      "palign": 0
+    },
+    {
+      "word": "una ",
+      "success": true,
+      "startS": 86.987,
+      "endS": 87.157,
+      "palign": 0
+    },
+    {
+      "word": "mujer\n",
+      "success": true,
+      "startS": 87.267,
+      "endS": 88.012,
+      "palign": 0
+    },
+    {
+      "word": "almacena ",
+      "success": true,
+      "startS": 88.0665,
+      "endS": 88.674,
+      "palign": 0
+    },
+    {
+      "word": "su ",
+      "success": true,
+      "startS": 88.7835,
+      "endS": 88.967,
+      "palign": 0
+    },
+    {
+      "word": "peso,\n",
+      "success": true,
+      "startS": 89.047,
+      "endS": 89.97525,
+      "palign": 0
+    },
+    {
+      "word": "tus ",
+      "success": true,
+      "startS": 90.0235,
+      "endS": 90.12,
+      "palign": 0
+    },
+    {
+      "word": "caderas, ",
+      "success": true,
+      "startS": 90.20533,
+      "endS": 91.275,
+      "palign": 0
+    },
+    {
+      "word": "tus ",
+      "success": true,
+      "startS": 91.335,
+      "endS": 91.485,
+      "palign": 0
+    },
+    {
+      "word": "muslos, ",
+      "success": true,
+      "startS": 91.56667,
+      "endS": 92.38033,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 92.43667,
+      "endS": 92.507,
+      "palign": 0
+    },
+    {
+      "word": "trasero.\n\n",
+      "success": true,
+      "startS": 92.62375,
+      "endS": 93.604,
+      "palign": 0
+    },
+    {
+      "word": "[Verso 4]\nLos ",
+      "success": true,
+      "startS": 93.618,
+      "endS": 93.786,
+      "palign": 0
+    },
+    {
+      "word": "fitoestrógenos ",
+      "success": true,
+      "startS": 93.933,
+      "endS": 94.658,
+      "palign": 0
+    },
+    {
+      "word": "no ",
+      "success": true,
+      "startS": 94.727,
+      "endS": 94.796,
+      "palign": 0
+    },
+    {
+      "word": "mueven ",
+      "success": true,
+      "startS": 94.856,
+      "endS": 95.208,
+      "palign": 0
+    },
+    {
+      "word": "nada,\n",
+      "success": true,
+      "startS": 95.288,
+      "endS": 95.80683,
+      "palign": 0
+    },
+    {
+      "word": "señalizan.\n",
+      "success": true,
+      "startS": 95.87467,
+      "endS": 97.09633,
+      "palign": 0
+    },
+    {
+      "word": "Le ",
+      "success": true,
+      "startS": 97.15467,
+      "endS": 97.269,
+      "palign": 0
+    },
+    {
+      "word": "dicen ",
+      "success": true,
+      "startS": 97.304,
+      "endS": 97.611,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 97.768,
+      "endS": 97.768,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 97.8505,
+      "endS": 97.947,
+      "palign": 0
+    },
+    {
+      "word": "cuerpo:\n\"",
+      "success": true,
+      "startS": 98.02583,
+      "endS": 98.4575,
+      "palign": 0
+    },
+    {
+      "word": "Almacénalo ",
+      "success": true,
+      "startS": 98.47625,
+      "endS": 99.298,
+      "palign": 0
+    },
+    {
+      "word": "aquí, ",
+      "success": true,
+      "startS": 99.40775,
+      "endS": 100.43933,
+      "palign": 0
+    },
+    {
+      "word": "no ",
+      "success": true,
+      "startS": 100.51367,
+      "endS": 100.588,
+      "palign": 0
+    },
+    {
+      "word": "allá\".\n",
+      "success": true,
+      "startS": 100.68825,
+      "endS": 102.31933,
+      "palign": 0
+    },
+    {
+      "word": "Y ",
+      "success": true,
+      "startS": 102.346,
+      "endS": 102.47,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 102.5615,
+      "endS": 102.673,
+      "palign": 0
+    },
+    {
+      "word": "cuerpo ",
+      "success": true,
+      "startS": 102.74733,
+      "endS": 103.119,
+      "palign": 0
+    },
+    {
+      "word": "escucha.\n",
+      "success": true,
+      "startS": 103.199,
+      "endS": 104.127,
+      "palign": 0
+    },
+    {
+      "word": "Y ",
+      "success": true,
+      "startS": 104.167,
+      "endS": 104.253,
+      "palign": 0
+    },
+    {
+      "word": "creo ",
+      "success": true,
+      "startS": 104.333,
+      "endS": 104.607,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 104.66033,
+      "endS": 104.767,
+      "palign": 0
+    },
+    {
+      "word": "eso ",
+      "success": true,
+      "startS": 104.767,
+      "endS": 104.961,
+      "palign": 0
+    },
+    {
+      "word": "es ",
+      "success": true,
+      "startS": 105.0075,
+      "endS": 105.054,
+      "palign": 0
+    },
+    {
+      "word": "lo ",
+      "success": true,
+      "startS": 105.162,
+      "endS": 105.27,
+      "palign": 0
+    },
+    {
+      "word": "más ",
+      "success": true,
+      "startS": 105.40767,
+      "endS": 105.683,
+      "palign": 0
+    },
+    {
+      "word": "hermoso\n",
+      "success": true,
+      "startS": 105.763,
+      "endS": 106.643,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 106.69867,
+      "endS": 106.81,
+      "palign": 0
+    },
+    {
+      "word": "alguien ",
+      "success": true,
+      "startS": 106.847,
+      "endS": 107.069,
+      "palign": 0
+    },
+    {
+      "word": "ha ",
+      "success": true,
+      "startS": 107.149,
+      "endS": 107.257,
+      "palign": 0
+    },
+    {
+      "word": "dicho ",
+      "success": true,
+      "startS": 107.285,
+      "endS": 107.598,
+      "palign": 0
+    },
+    {
+      "word": "sobre ",
+      "success": true,
+      "startS": 107.6658,
+      "endS": 107.937,
+      "palign": 0
+    },
+    {
+      "word": "una ",
+      "success": true,
+      "startS": 108.017,
+      "endS": 108.221,
+      "palign": 0
+    },
+    {
+      "word": "planta.\n\n",
+      "success": true,
+      "startS": 108.357,
+      "endS": 108.924,
+      "palign": 0
+    },
+    {
+      "word": "[Puente]\nLos, ",
+      "success": true,
+      "startS": 108.944,
+      "endS": 109.556,
+      "palign": 0
+    },
+    {
+      "word": "los ",
+      "success": true,
+      "startS": 109.597,
+      "endS": 109.679,
+      "palign": 0
+    },
+    {
+      "word": "mejores ",
+      "success": true,
+      "startS": 109.75767,
+      "endS": 110.166,
+      "palign": 0
+    },
+    {
+      "word": "especialistas ",
+      "success": true,
+      "startS": 110.21513,
+      "endS": 110.902,
+      "palign": 0
+    },
+    {
+      "word": "en ",
+      "success": true,
+      "startS": 110.982,
+      "endS": 111.086,
+      "palign": 0
+    },
+    {
+      "word": "hormonas\n",
+      "success": true,
+      "startS": 111.115,
+      "endS": 112.248,
+      "palign": 0
+    },
+    {
+      "word": "cobraban ",
+      "success": true,
+      "startS": 112.31675,
+      "endS": 112.701,
+      "palign": 0
+    },
+    {
+      "word": "una ",
+      "success": true,
+      "startS": 112.77267,
+      "endS": 112.916,
+      "palign": 0
+    },
+    {
+      "word": "fortuna ",
+      "success": true,
+      "startS": 112.996,
+      "endS": 113.509,
+      "palign": 0
+    },
+    {
+      "word": "por ",
+      "success": true,
+      "startS": 113.54767,
+      "endS": 113.625,
+      "palign": 0
+    },
+    {
+      "word": "sesión\n",
+      "success": true,
+      "startS": 113.67633,
+      "endS": 114.245,
+      "palign": 0
+    },
+    {
+      "word": "para ",
+      "success": true,
+      "startS": 114.30475,
+      "endS": 114.484,
+      "palign": 0
+    },
+    {
+      "word": "recetar ",
+      "success": true,
+      "startS": 114.52867,
+      "endS": 115.128,
+      "palign": 0
+    },
+    {
+      "word": "esto.\n",
+      "success": true,
+      "startS": 115.208,
+      "endS": 116.38367,
+      "palign": 0
+    },
+    {
+      "word": "Luego ",
+      "success": true,
+      "startS": 116.42833,
+      "endS": 116.607,
+      "palign": 0
+    },
+    {
+      "word": "los ",
+      "success": true,
+      "startS": 116.66467,
+      "endS": 116.78,
+      "palign": 0
+    },
+    {
+      "word": "doctores ",
+      "success": true,
+      "startS": 116.81,
+      "endS": 117.272,
+      "palign": 0
+    },
+    {
+      "word": "tuvieron ",
+      "success": true,
+      "startS": 117.30667,
+      "endS": 117.703,
+      "palign": 0
+    },
+    {
+      "word": "esta ",
+      "success": true,
+      "startS": 117.74125,
+      "endS": 117.856,
+      "palign": 0
+    },
+    {
+      "word": "idea.\n¿",
+      "success": true,
+      "startS": 117.9365,
+      "endS": 118.435,
+      "palign": 0
+    },
+    {
+      "word": "Qué, ",
+      "success": true,
+      "startS": 118.483,
+      "endS": 118.85675,
+      "palign": 0
+    },
+    {
+      "word": "qué, ",
+      "success": true,
+      "startS": 118.9175,
+      "endS": 119.42775,
+      "palign": 0
+    },
+    {
+      "word": "qué ",
+      "success": true,
+      "startS": 119.4705,
+      "endS": 119.556,
+      "palign": 0
+    },
+    {
+      "word": "tal ",
+      "success": true,
+      "startS": 119.59567,
+      "endS": 119.675,
+      "palign": 0
+    },
+    {
+      "word": "si ",
+      "success": true,
+      "startS": 119.853,
+      "endS": 119.92,
+      "palign": 0
+    },
+    {
+      "word": "tomáramos\n",
+      "success": true,
+      "startS": 119.972,
+      "endS": 120.869,
+      "palign": 0
+    },
+    {
+      "word": "los ",
+      "success": true,
+      "startS": 120.937,
+      "endS": 121.073,
+      "palign": 0
+    },
+    {
+      "word": "mismos ",
+      "success": true,
+      "startS": 121.103,
+      "endS": 121.374,
+      "palign": 0
+    },
+    {
+      "word": "compuestos ",
+      "success": true,
+      "startS": 121.41475,
+      "endS": 121.97,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 122.027,
+      "endS": 122.084,
+      "palign": 0
+    },
+    {
+      "word": "fitoestrógenos\n",
+      "success": true,
+      "startS": 122.234,
+      "endS": 123.135,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 123.1855,
+      "endS": 123.236,
+      "palign": 0
+    },
+    {
+      "word": "alta ",
+      "success": true,
+      "startS": 123.316,
+      "endS": 123.564,
+      "palign": 0
+    },
+    {
+      "word": "potencia\n",
+      "success": true,
+      "startS": 123.644,
+      "endS": 124.658,
+      "palign": 0
+    },
+    {
+      "word": "y ",
+      "success": true,
+      "startS": 124.738,
+      "endS": 124.742,
+      "palign": 0
+    },
+    {
+      "word": "los ",
+      "success": true,
+      "startS": 124.79333,
+      "endS": 124.896,
+      "palign": 0
+    },
+    {
+      "word": "concentráramos ",
+      "success": true,
+      "startS": 124.926,
+      "endS": 126.477,
+      "palign": 0
+    },
+    {
+      "word": "en ",
+      "success": true,
+      "startS": 126.562,
+      "endS": 126.647,
+      "palign": 0
+    },
+    {
+      "word": "Aguaje ",
+      "success": true,
+      "startS": 126.7135,
+      "endS": 127.769,
+      "palign": 0
+    },
+    {
+      "word": "Complex 3 ",
+      "success": true,
+      "startS": 127.87375,
+      "endS": 128.6295,
+      "palign": 0
+    },
+    {
+      "word": "en 1,\n",
+      "success": true,
+      "startS": 128.65175,
+      "endS": 129.753,
+      "palign": 0
+    },
+    {
+      "word": "dos ",
+      "success": true,
+      "startS": 129.813,
+      "endS": 129.96,
+      "palign": 0
+    },
+    {
+      "word": "cápsulas ",
+      "success": true,
+      "startS": 130.04,
+      "endS": 130.553,
+      "palign": 0
+    },
+    {
+      "word": "al ",
+      "success": true,
+      "startS": 130.643,
+      "endS": 130.733,
+      "palign": 0
+    },
+    {
+      "word": "día?\n",
+      "success": true,
+      "startS": 130.836,
+      "endS": 131.38133,
+      "palign": 0
+    },
+    {
+      "word": "Mismo ",
+      "success": true,
+      "startS": 131.43267,
+      "endS": 131.638,
+      "palign": 0
+    },
+    {
+      "word": "ingrediente, ",
+      "success": true,
+      "startS": 131.66367,
+      "endS": 132.374,
+      "palign": 0
+    },
+    {
+      "word": "sin ",
+      "success": true,
+      "startS": 132.42733,
+      "endS": 132.534,
+      "palign": 0
+    },
+    {
+      "word": "agujas,\n",
+      "success": true,
+      "startS": 132.5595,
+      "endS": 133.04325,
+      "palign": 0
+    },
+    {
+      "word": "sin ",
+      "success": true,
+      "startS": 133.0765,
+      "endS": 133.143,
+      "palign": 0
+    },
+    {
+      "word": "gimnasio, ",
+      "success": true,
+      "startS": 133.20433,
+      "endS": 133.926,
+      "palign": 0
+    },
+    {
+      "word": "sin ",
+      "success": true,
+      "startS": 133.99633,
+      "endS": 134.137,
+      "palign": 0
+    },
+    {
+      "word": "cirugía.\n",
+      "success": true,
+      "startS": 134.20333,
+      "endS": 134.983,
+      "palign": 0
+    },
+    {
+      "word": "Solo ",
+      "success": true,
+      "startS": 135.047,
+      "endS": 135.303,
+      "palign": 0
+    },
+    {
+      "word": "tú ",
+      "success": true,
+      "startS": 135.3885,
+      "endS": 136.493,
+      "palign": 0
+    },
+    {
+      "word": "y ",
+      "success": true,
+      "startS": 136.573,
+      "endS": 136.661,
+      "palign": 0
+    },
+    {
+      "word": "una ",
+      "success": true,
+      "startS": 136.74833,
+      "endS": 137.134,
+      "palign": 0
+    },
+    {
+      "word": "pequeña ",
+      "success": true,
+      "startS": 137.1932,
+      "endS": 137.704,
+      "palign": 0
+    },
+    {
+      "word": "botella\n",
+      "success": true,
+      "startS": 137.7865,
+      "endS": 138.69,
+      "palign": 0
+    },
+    {
+      "word": "cada ",
+      "success": true,
+      "startS": 138.7585,
+      "endS": 138.964,
+      "palign": 0
+    },
+    {
+      "word": "mañana.\n\n",
+      "success": true,
+      "startS": 139.044,
+      "endS": 140.16929,
+      "palign": 0
+    },
+    {
+      "word": "[Verso 5]\nEl ",
+      "success": true,
+      "startS": 140.17743,
+      "endS": 140.267,
+      "palign": 0
+    },
+    {
+      "word": "momento ",
+      "success": true,
+      "startS": 140.33371,
+      "endS": 140.734,
+      "palign": 0
+    },
+    {
+      "word": "en ",
+      "success": true,
+      "startS": 140.766,
+      "endS": 140.798,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 140.96567,
+      "endS": 141.301,
+      "palign": 0
+    },
+    {
+      "word": "entra ",
+      "success": true,
+      "startS": 141.356,
+      "endS": 141.576,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 141.704,
+      "endS": 141.792,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 141.866,
+      "endS": 142.014,
+      "palign": 0
+    },
+    {
+      "word": "sistema,\n",
+      "success": true,
+      "startS": 142.033,
+      "endS": 142.967,
+      "palign": 0
+    },
+    {
+      "word": "tus ",
+      "success": true,
+      "startS": 142.998,
+      "endS": 143.06,
+      "palign": 0
+    },
+    {
+      "word": "receptores ",
+      "success": true,
+      "startS": 143.0945,
+      "endS": 143.804,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 143.8355,
+      "endS": 143.867,
+      "palign": 0
+    },
+    {
+      "word": "estrógeno ",
+      "success": true,
+      "startS": 143.88,
+      "endS": 144.654,
+      "palign": 0
+    },
+    {
+      "word": "despiertan\n",
+      "success": true,
+      "startS": 144.707,
+      "endS": 145.508,
+      "palign": 0
+    },
+    {
+      "word": "y ",
+      "success": true,
+      "startS": 145.631,
+      "endS": 145.631,
+      "palign": 0
+    },
+    {
+      "word": "empiezan ",
+      "success": true,
+      "startS": 145.671,
+      "endS": 146.027,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 146.11,
+      "endS": 146.11,
+      "palign": 0
+    },
+    {
+      "word": "señalizar ",
+      "success": true,
+      "startS": 146.2506,
+      "endS": 147.164,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 147.293,
+      "endS": 147.333,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 147.4435,
+      "endS": 147.644,
+      "palign": 0
+    },
+    {
+      "word": "cuerpo\n",
+      "success": true,
+      "startS": 147.73317,
+      "endS": 148.483,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 148.50333,
+      "endS": 148.544,
+      "palign": 0
+    },
+    {
+      "word": "envíe ",
+      "success": true,
+      "startS": 148.5475,
+      "endS": 148.943,
+      "palign": 0
+    },
+    {
+      "word": "grasa ",
+      "success": true,
+      "startS": 149.061,
+      "endS": 149.748,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 149.853,
+      "endS": 149.888,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 149.9655,
+      "endS": 150.043,
+      "palign": 0
+    },
+    {
+      "word": "trasero.\n",
+      "success": true,
+      "startS": 150.174,
+      "endS": 151.103,
+      "palign": 0
+    },
+    {
+      "word": "Y ",
+      "success": true,
+      "startS": 151.143,
+      "endS": 151.163,
+      "palign": 0
+    },
+    {
+      "word": "aquí ",
+      "success": true,
+      "startS": 151.24525,
+      "endS": 151.492,
+      "palign": 0
+    },
+    {
+      "word": "está ",
+      "success": true,
+      "startS": 151.572,
+      "endS": 151.849,
+      "palign": 0
+    },
+    {
+      "word": "la ",
+      "success": true,
+      "startS": 151.9315,
+      "endS": 152.056,
+      "palign": 0
+    },
+    {
+      "word": "parte\n",
+      "success": true,
+      "startS": 152.1434,
+      "endS": 152.554,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 152.634,
+      "endS": 152.802,
+      "palign": 0
+    },
+    {
+      "word": "me ",
+      "success": true,
+      "startS": 152.8545,
+      "endS": 152.907,
+      "palign": 0
+    },
+    {
+      "word": "emociona ",
+      "success": true,
+      "startS": 152.973,
+      "endS": 153.548,
+      "palign": 0
+    },
+    {
+      "word": "cada ",
+      "success": true,
+      "startS": 153.6195,
+      "endS": 153.834,
+      "palign": 0
+    },
+    {
+      "word": "vez.\n",
+      "success": true,
+      "startS": 153.90633,
+      "endS": 154.10362,
+      "palign": 0
+    },
+    {
+      "word": "Mujeres ",
+      "success": true,
+      "startS": 154.15625,
+      "endS": 154.472,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 154.53733,
+      "endS": 154.668,
+      "palign": 0
+    },
+    {
+      "word": "nunca ",
+      "success": true,
+      "startS": 154.6828,
+      "endS": 154.742,
+      "palign": 0
+    },
+    {
+      "word": "tuvieron ",
+      "success": true,
+      "startS": 154.967,
+      "endS": 155.511,
+      "palign": 0
+    },
+    {
+      "word": "curvas\n",
+      "success": true,
+      "startS": 155.57367,
+      "endS": 155.964,
+      "palign": 0
+    },
+    {
+      "word": "en ",
+      "success": true,
+      "startS": 156.044,
+      "endS": 156.134,
+      "palign": 0
+    },
+    {
+      "word": "toda ",
+      "success": true,
+      "startS": 156.24375,
+      "endS": 156.574,
+      "palign": 0
+    },
+    {
+      "word": "su ",
+      "success": true,
+      "startS": 156.654,
+      "endS": 156.79,
+      "palign": 0
+    },
+    {
+      "word": "vida,\n",
+      "success": true,
+      "startS": 156.89375,
+      "endS": 157.72767,
+      "palign": 0
+    },
+    {
+      "word": "en ",
+      "success": true,
+      "startS": 157.76333,
+      "endS": 157.799,
+      "palign": 0
+    },
+    {
+      "word": "semanas ",
+      "success": true,
+      "startS": 157.9285,
+      "endS": 158.505,
+      "palign": 0
+    },
+    {
+      "word": "sus ",
+      "success": true,
+      "startS": 158.585,
+      "endS": 158.746,
+      "palign": 0
+    },
+    {
+      "word": "jeans\n",
+      "success": true,
+      "startS": 158.8386,
+      "endS": 159.963,
+      "palign": 0
+    },
+    {
+      "word": "dejan ",
+      "success": true,
+      "startS": 160.0324,
+      "endS": 160.31,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 160.3695,
+      "endS": 160.429,
+      "palign": 0
+    },
+    {
+      "word": "abrocharse ",
+      "success": true,
+      "startS": 160.4775,
+      "endS": 161.168,
+      "palign": 0
+    },
+    {
+      "word": "pasando ",
+      "success": true,
+      "startS": 161.25443,
+      "endS": 161.774,
+      "palign": 0
+    },
+    {
+      "word": "sus ",
+      "success": true,
+      "startS": 161.854,
+      "endS": 162.023,
+      "palign": 0
+    },
+    {
+      "word": "muslos.\n",
+      "success": true,
+      "startS": 162.096,
+      "endS": 162.80825,
+      "palign": 0
+    },
+    {
+      "word": "Los ",
+      "success": true,
+      "startS": 162.8495,
+      "endS": 162.932,
+      "palign": 0
+    },
+    {
+      "word": "mismos ",
+      "success": true,
+      "startS": 162.97567,
+      "endS": 163.309,
+      "palign": 0
+    },
+    {
+      "word": "jeans ",
+      "success": true,
+      "startS": 163.388,
+      "endS": 163.768,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 163.88167,
+      "endS": 164.109,
+      "palign": 0
+    },
+    {
+      "word": "antes\n",
+      "success": true,
+      "startS": 164.189,
+      "endS": 164.672,
+      "palign": 0
+    },
+    {
+      "word": "se ",
+      "success": true,
+      "startS": 164.7765,
+      "endS": 164.881,
+      "palign": 0
+    },
+    {
+      "word": "deslizaban ",
+      "success": true,
+      "startS": 164.918,
+      "endS": 165.782,
+      "palign": 0
+    },
+    {
+      "word": "sobre ",
+      "success": true,
+      "startS": 165.8536,
+      "endS": 166.14,
+      "palign": 0
+    },
+    {
+      "word": "sus ",
+      "success": true,
+      "startS": 166.22,
+      "endS": 166.392,
+      "palign": 0
+    },
+    {
+      "word": "caderas.\n\n",
+      "success": true,
+      "startS": 166.472,
+      "endS": 167.3182,
+      "palign": 0
+    },
+    {
+      "word": "[Verso 6]\nEso ",
+      "success": true,
+      "startS": 167.3348,
+      "endS": 167.549,
+      "palign": 0
+    },
+    {
+      "word": "no ",
+      "success": true,
+      "startS": 167.5815,
+      "endS": 167.614,
+      "palign": 0
+    },
+    {
+      "word": "es ",
+      "success": true,
+      "startS": 167.723,
+      "endS": 167.832,
+      "palign": 0
+    },
+    {
+      "word": "grasa ",
+      "success": true,
+      "startS": 167.9875,
+      "endS": 168.467,
+      "palign": 0
+    },
+    {
+      "word": "siendo ",
+      "success": true,
+      "startS": 168.5255,
+      "endS": 168.818,
+      "palign": 0
+    },
+    {
+      "word": "forzada\n",
+      "success": true,
+      "startS": 168.898,
+      "endS": 169.81,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 169.89,
+      "endS": 169.94,
+      "palign": 0
+    },
+    {
+      "word": "donde ",
+      "success": true,
+      "startS": 169.9996,
+      "endS": 170.238,
+      "palign": 0
+    },
+    {
+      "word": "no ",
+      "success": true,
+      "startS": 170.3255,
+      "endS": 170.439,
+      "palign": 0
+    },
+    {
+      "word": "pertenece.\n",
+      "success": true,
+      "startS": 170.519,
+      "endS": 172.12567,
+      "palign": 0
+    },
+    {
+      "word": "Es ",
+      "success": true,
+      "startS": 172.16133,
+      "endS": 172.197,
+      "palign": 0
+    },
+    {
+      "word": "tu ",
+      "success": true,
+      "startS": 172.2985,
+      "endS": 172.4,
+      "palign": 0
+    },
+    {
+      "word": "cuerpo ",
+      "success": true,
+      "startS": 172.45433,
+      "endS": 172.726,
+      "palign": 0
+    },
+    {
+      "word": "finalmente ",
+      "success": true,
+      "startS": 172.8036,
+      "endS": 173.624,
+      "palign": 0
+    },
+    {
+      "word": "almacenando ",
+      "success": true,
+      "startS": 173.672,
+      "endS": 174.45,
+      "palign": 0
+    },
+    {
+      "word": "peso\n",
+      "success": true,
+      "startS": 174.53,
+      "endS": 175.278,
+      "palign": 0
+    },
+    {
+      "word": "donde ",
+      "success": true,
+      "startS": 175.3384,
+      "endS": 175.58,
+      "palign": 0
+    },
+    {
+      "word": "siempre ",
+      "success": true,
+      "startS": 175.64357,
+      "endS": 176.025,
+      "palign": 0
+    },
+    {
+      "word": "debió ",
+      "success": true,
+      "startS": 176.0805,
+      "endS": 176.419,
+      "palign": 0
+    },
+    {
+      "word": "ir.\n",
+      "success": true,
+      "startS": 176.577,
+      "endS": 177.504,
+      "palign": 0
+    },
+    {
+      "word": "Tu ",
+      "success": true,
+      "startS": 177.559,
+      "endS": 177.646,
+      "palign": 0
+    },
+    {
+      "word": "cuerpo ",
+      "success": true,
+      "startS": 177.7155,
+      "endS": 178.063,
+      "palign": 0
+    },
+    {
+      "word": "construye ",
+      "success": true,
+      "startS": 178.127,
+      "endS": 178.739,
+      "palign": 0
+    },
+    {
+      "word": "las ",
+      "success": true,
+      "startS": 178.80633,
+      "endS": 178.941,
+      "palign": 0
+    },
+    {
+      "word": "curvas ",
+      "success": true,
+      "startS": 179.00833,
+      "endS": 179.427,
+      "palign": 0
+    },
+    {
+      "word": "por ",
+      "success": true,
+      "startS": 179.48733,
+      "endS": 179.608,
+      "palign": 0
+    },
+    {
+      "word": "sí ",
+      "success": true,
+      "startS": 179.7705,
+      "endS": 179.955,
+      "palign": 0
+    },
+    {
+      "word": "mismo\n",
+      "success": true,
+      "startS": 180.035,
+      "endS": 180.386,
+      "palign": 0
+    },
+    {
+      "word": "y ",
+      "success": true,
+      "startS": 180.54,
+      "endS": 181.024,
+      "palign": 0
+    },
+    {
+      "word": "los ",
+      "success": true,
+      "startS": 181.08033,
+      "endS": 181.193,
+      "palign": 0
+    },
+    {
+      "word": "resultados ",
+      "success": true,
+      "startS": 181.2725,
+      "endS": 181.86,
+      "palign": 0
+    },
+    {
+      "word": "no ",
+      "success": true,
+      "startS": 182.0785,
+      "endS": 182.297,
+      "palign": 0
+    },
+    {
+      "word": "desaparecen\n",
+      "success": true,
+      "startS": 182.34725,
+      "endS": 183.12,
+      "palign": 0
+    },
+    {
+      "word": "cuando ",
+      "success": true,
+      "startS": 183.17617,
+      "endS": 183.457,
+      "palign": 0
+    },
+    {
+      "word": "dejas ",
+      "success": true,
+      "startS": 183.5232,
+      "endS": 183.788,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 183.868,
+      "endS": 183.957,
+      "palign": 0
+    },
+    {
+      "word": "tomarlas,\n",
+      "success": true,
+      "startS": 184.0324,
+      "endS": 185.10457,
+      "palign": 0
+    },
+    {
+      "word": "porque ",
+      "success": true,
+      "startS": 185.15414,
+      "endS": 185.402,
+      "palign": 0
+    },
+    {
+      "word": "el ",
+      "success": true,
+      "startS": 185.435,
+      "endS": 185.468,
+      "palign": 0
+    },
+    {
+      "word": "cambio ",
+      "success": true,
+      "startS": 185.52183,
+      "endS": 185.791,
+      "palign": 0
+    },
+    {
+      "word": "ya ",
+      "success": true,
+      "startS": 185.9185,
+      "endS": 186.351,
+      "palign": 0
+    },
+    {
+      "word": "sucedió ",
+      "success": true,
+      "startS": 186.431,
+      "endS": 186.935,
+      "palign": 0
+    },
+    {
+      "word": "desde ",
+      "success": true,
+      "startS": 186.9898,
+      "endS": 187.209,
+      "palign": 0
+    },
+    {
+      "word": "adentro.\n",
+      "success": true,
+      "startS": 187.289,
+      "endS": 189.25625,
+      "palign": 0
+    },
+    {
+      "word": "Las ",
+      "success": true,
+      "startS": 189.2945,
+      "endS": 189.371,
+      "palign": 0
+    },
+    {
+      "word": "mujeres ",
+      "success": true,
+      "startS": 189.44171,
+      "endS": 189.866,
+      "palign": 0
+    },
+    {
+      "word": "empiezan ",
+      "success": true,
+      "startS": 189.9086,
+      "endS": 190.303,
+      "palign": 0
+    },
+    {
+      "word": "a ",
+      "success": true,
+      "startS": 190.324,
+      "endS": 190.324,
+      "palign": 0
+    },
+    {
+      "word": "ver ",
+      "success": true,
+      "startS": 190.39933,
+      "endS": 190.55,
+      "palign": 0
+    },
+    {
+      "word": "cambios\n",
+      "success": true,
+      "startS": 190.5976,
+      "endS": 192.005,
+      "palign": 0
+    },
+    {
+      "word": "en ",
+      "success": true,
+      "startS": 192.018,
+      "endS": 192.031,
+      "palign": 0
+    },
+    {
+      "word": "tan ",
+      "success": true,
+      "startS": 192.173,
+      "endS": 192.485,
+      "palign": 0
+    },
+    {
+      "word": "solo ",
+      "success": true,
+      "startS": 192.56725,
+      "endS": 192.835,
+      "palign": 0
+    },
+    {
+      "word": "noventa ",
+      "success": true,
+      "startS": 192.93433,
+      "endS": 193.331,
+      "palign": 0
+    },
+    {
+      "word": "días.\n\n",
+      "success": true,
+      "startS": 193.4215,
+      "endS": 194.4215,
+      "palign": 0
+    },
+    {
+      "word": "[Outro]\nAguaje ",
+      "success": true,
+      "startS": 194.43425,
+      "endS": 195.712,
+      "palign": 0
+    },
+    {
+      "word": "Complex 3 ",
+      "success": true,
+      "startS": 195.7645,
+      "endS": 196.414,
+      "palign": 0
+    },
+    {
+      "word": "en 1\n",
+      "success": true,
+      "startS": 196.554,
+      "endS": 198.051,
+      "palign": 0
+    },
+    {
+      "word": "está ",
+      "success": true,
+      "startS": 198.10825,
+      "endS": 198.28,
+      "palign": 0
+    },
+    {
+      "word": "disponible ",
+      "success": true,
+      "startS": 198.31625,
+      "endS": 198.906,
+      "palign": 0
+    },
+    {
+      "word": "actualmente,\n",
+      "success": true,
+      "startS": 198.914,
+      "endS": 200.7994,
+      "palign": 0
+    },
+    {
+      "word": "pero ",
+      "success": true,
+      "startS": 200.8458,
+      "endS": 200.985,
+      "palign": 0
+    },
+    {
+      "word": "no ",
+      "success": true,
+      "startS": 201.065,
+      "endS": 201.187,
+      "palign": 0
+    },
+    {
+      "word": "durará ",
+      "success": true,
+      "startS": 201.21167,
+      "endS": 201.773,
+      "palign": 0
+    },
+    {
+      "word": "mucho,\n",
+      "success": true,
+      "startS": 201.856,
+      "endS": 203.356,
+      "palign": 0
+    },
+    {
+      "word": "así ",
+      "success": true,
+      "startS": 203.416,
+      "endS": 203.577,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 203.59967,
+      "endS": 203.645,
+      "palign": 0
+    },
+    {
+      "word": "abastécete ",
+      "success": true,
+      "startS": 203.678,
+      "endS": 204.475,
+      "palign": 0
+    },
+    {
+      "word": "mientras ",
+      "success": true,
+      "startS": 204.53375,
+      "endS": 204.945,
+      "palign": 0
+    },
+    {
+      "word": "puedas.\n",
+      "success": true,
+      "startS": 205.025,
+      "endS": 206.356,
+      "palign": 0
+    },
+    {
+      "word": "Si ",
+      "success": true,
+      "startS": 206.425,
+      "endS": 206.521,
+      "palign": 0
+    },
+    {
+      "word": "todavía ",
+      "success": true,
+      "startS": 206.597,
+      "endS": 207.053,
+      "palign": 0
+    },
+    {
+      "word": "ves ",
+      "success": true,
+      "startS": 207.122,
+      "endS": 207.26,
+      "palign": 0
+    },
+    {
+      "word": "el ",
+      "success": true,
+      "startS": 207.329,
+      "endS": 207.398,
+      "palign": 0
+    },
+    {
+      "word": "enlace ",
+      "success": true,
+      "startS": 207.44,
+      "endS": 207.896,
+      "palign": 0
+    },
+    {
+      "word": "abajo,\n",
+      "success": true,
+      "startS": 207.976,
+      "endS": 209.27213,
+      "palign": 0
+    },
+    {
+      "word": "todavía ",
+      "success": true,
+      "startS": 209.33925,
+      "endS": 209.742,
+      "palign": 0
+    },
+    {
+      "word": "hay ",
+      "success": true,
+      "startS": 209.811,
+      "endS": 209.949,
+      "palign": 0
+    },
+    {
+      "word": "stock.\n",
+      "success": true,
+      "startS": 210.0358,
+      "endS": 211.568,
+      "palign": 0
+    },
+    {
+      "word": "Consigue ",
+      "success": true,
+      "startS": 211.632,
+      "endS": 212.214,
+      "palign": 0
+    },
+    {
+      "word": "las ",
+      "success": true,
+      "startS": 212.28667,
+      "endS": 212.432,
+      "palign": 0
+    },
+    {
+      "word": "tuyas\n",
+      "success": true,
+      "startS": 212.50933,
+      "endS": 214.351,
+      "palign": 0
+    },
+    {
+      "word": "antes ",
+      "success": true,
+      "startS": 214.4038,
+      "endS": 214.615,
+      "palign": 0
+    },
+    {
+      "word": "de ",
+      "success": true,
+      "startS": 214.6765,
+      "endS": 214.738,
+      "palign": 0
+    },
+    {
+      "word": "que ",
+      "success": true,
+      "startS": 214.78467,
+      "endS": 214.878,
+      "palign": 0
+    },
+    {
+      "word": "se ",
+      "success": true,
+      "startS": 214.93633,
+      "endS": 215.053,
+      "palign": 0
+    },
+    {
+      "word": "agote ",
+      "success": true,
+      "startS": 215.082,
+      "endS": 215.68,
+      "palign": 0
+    },
+    {
+      "word": "este ",
+      "success": true,
+      "startS": 215.72675,
+      "endS": 215.867,
+      "palign": 0
+    },
+    {
+      "word": "lote.\n\n",
+      "success": true,
+      "startS": 215.9805,
+      "endS": 216.264,
+      "palign": 0
+    }
+  ]
+}

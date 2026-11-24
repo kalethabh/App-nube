@@ -1,0 +1,28 @@
+{
+  "generado": "2026-11-19T18:54:38.430Z",
+  "segundos": 364,
+  "imagenes": [
+    {
+      "id": "personaje",
+      "archivo": "personaje.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "personaje-2",
+      "archivo": "personaje-2.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    }
+  ]
+}

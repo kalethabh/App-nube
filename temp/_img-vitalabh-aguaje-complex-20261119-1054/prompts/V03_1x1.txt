@@ -1,0 +1,47 @@
+The FIRST attached image is a REFERENCE AD. Create a new ad that is the same design made for a different product: keep its exact layout, composition, block structure, visual hierarchy, spacing, background treatment and graphic style, and keep its exact typography (same font style, weight, casing, relative sizes, text effects and text placement). Change only three things: (1) the product: replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle; (2) the texts: replace every text of the reference with the texts listed below, each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.
+
+FIRST, READ THE REFERENCE AD before designing anything: (a) its ANGLE: the exact body area, problem or desire it sells (for example glutes and curves, belly fat, swollen legs, cough and lungs, wrinkles, energy, sleep); (b) its HOOK: the idea that stops the scroll (a before/after, a big promise, a number or timeline, a question, a testimonial, a shocking fact, an us-vs-them comparison); (c) its FORMAT: what is shown and how (person, body close-up, split screen, product hero, chart, screenshot, collage). Your ad MUST sell the SAME angle with the SAME hook and format: if the reference is about glutes, yours is about glutes, shown the same way; never switch to another body area or another benefit.
+
+IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+
+SCENE DESCRIPTION (same composition as the reference):
+Square 1:1 before/after testimonial ad. TOP: two vertical photos side by side, separated by a thin white vertical line, both showing the SAME ultra-photorealistic Latina woman in her mid-20s (same face, long straight dark hair, same tattoos-free skin, same height). LEFT PHOTO (BEFORE): a phone mirror selfie in a simple bedroom with an unmade white bed behind, cool flat indoor light, her body turned 3/4 to the side; she wears a black ribbed crop top and loose gray cotton short shorts; her glutes are flat, her hips narrow and her thighs thin. A pale blush (#FBE3EE) rounded pill in the top-left corner with deep magenta (#B0105E) uppercase text 'ANTES'. RIGHT PHOTO (AFTER), occupying the full height of the right half: the same woman standing in a confident 3/4 side pose against a plain warm beige wall (no logos, no emblems), warm flattering light, wearing a fitted black top and very short fitted fuchsia (#E6177F) shorts, holding the product up near her shoulder with one hand; her glutes are now clearly fuller, rounder and lifted, her hips wider and her thighs thicker and toned, an obvious volume gain yet natural and believable, the glute-and-thigh area clearly visible. A pale blush rounded pill in the top-right corner with deep magenta uppercase text 'DESPUÉS'. Maximum realism in both photos: real skin texture with visible pores, natural creases, subtle skin tone variation, realistic fabric folds, real smartphone/full-frame photo quality; no plastic or airbrushed skin; tasteful, non-explicit fashion styling. BOTTOM-LEFT CORNER: the product standing upright on a rough natural beige stone pedestal with a few green tropical leaves behind it. Use the attached product image as the only source of truth for the product, and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink screw cap printed with a repeating small white 'VITALABH' pattern and a hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN', three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS'. The same bottle appears small in the after-woman's hand. LOWER AREA: a pale blush (#FBE3EE) panel with a soft wavy organic top edge rises from the bottom-left and covers the lower part of the left photo and the lower-left of the right photo, leaving the after-woman's legs visible on the right. On the panel, to the right of the bottle: a two-line quote in an elegant high-contrast black serif, then a line in Poppins Regular black where the product name is set in Poppins Bold white inside a fuchsia (#E6177F) highlight box. Below, a row of three thin black line icons (a leaf, a curvy hips silhouette, a sparkle), each with a short two-line label in Poppins Regular, separated by thin vertical gray dividers. Include only these elements and texts.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- label (top-left corner pill): "ANTES" — Poppins Regular uppercase, deep magenta on pale blush pill
+- label (top-right corner pill): "DESPUÉS" — Poppins Regular uppercase, deep magenta on pale blush pill
+- main headline (testimonial quote) (on the panel, first line): "Toda mi vida fui" — Elegant high-contrast serif, large, black
+- main headline (testimonial quote) (on the panel, second line): "“la amiga flaquita”" — Elegant high-contrast serif, large, black, with curly quotation marks
+- subtitle naming the product (on the panel, third line): "Hasta que descubrí AGUAJE COMPLEX" — Poppins Regular black, with 'AGUAJE COMPLEX' in Poppins Bold white inside a fuchsia highlight box
+- benefit (icon row, left): "Aguaje, fenogreco y maca negra" — Poppins Regular, small, black, two lines, centered
+- benefit (icon row, center): "Curvas donde las quieres" — Poppins Regular, small, black, two lines, centered
+- benefit (icon row, right): "Resultados naturales" — Poppins Regular, small, black, two lines, centered
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF.
+
+MANDATORY ELEMENTS:
+- Two side-by-side photos of the same ultra-realistic woman separated by a thin white line
+- Before: bedroom mirror selfie, loose gray short shorts, flat glutes and thin thighs
+- After: confident 3/4 pose, very short fitted fuchsia shorts, holding the bottle, visibly fuller glutes, hips and thighs
+- Blush pills ANTES and DESPUÉS in the top corners
+- The real product bottle on a rough stone pedestal with green leaves in the bottom-left corner
+- Pale blush wavy panel holding the quote and the icon row
+- Fuchsia highlight box behind the product name
+- Three thin line icons separated by thin vertical dividers
+
+STRICT EXCLUSIONS:
+- No logo, emblem or decoration on the wall behind the after photo
+- No brand logos other than the label on the bottle; no other supplement brands or dropper bottles
+- No prices, CTA buttons, stars, ratings or badges
+- No cartoonish, exaggerated or surgical-looking body proportions; no nudity
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: The gold emblem or any logo on the wall behind the after photo
+- Do not add: Any brand logo other than the label printed on the bottle
+- Do not add: Price, CTA buttons, stars, ratings, badges or offer boxes
+- Do not add: Any second product or a different bottle in the woman's hand
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

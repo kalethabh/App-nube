@@ -1,0 +1,71 @@
+{
+  "producto": "AGUAJE COMPLEX 3 EN 1",
+  "lote": "_img-aguaje-complex-3-en-1-20261121-1322",
+  "cantidad": 5,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "biblioteca",
+      "formato_id": "F17",
+      "formato_desde0": "testimonio",
+      "angulo_id": "prueba-social",
+      "angulo": "Testimonio UGC",
+      "concepto": "Toda mi vida fui [dolor en primera persona]",
+      "titular": "Toda mi vida fui la flaquita de piernas",
+      "escena": "a bathroom with a large mirror, warm light · standing, three-quarter back view, looking over her shoulder, full body framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V02",
+      "fuente": "biblioteca",
+      "formato_id": "G16",
+      "formato_desde0": "hero",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Referencia / hero",
+      "concepto": "[Producto/mecanismo]: [n] en 1 para [deseo]",
+      "titular": "Triple acción: 3 en 1 para tus curvas",
+      "escena": "a kitchen at home, natural light · standing with crossed legs, front view, knees-up framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V03",
+      "fuente": "biblioteca",
+      "formato_id": "F03",
+      "formato_desde0": "antes-despues",
+      "angulo_id": "transformacion",
+      "angulo": "Antes / después",
+      "concepto": "[Resultado deseado] en [tiempo], de forma natural",
+      "titular": "Tus curvas en 3 meses, de forma natural",
+      "escena": "a clothing store fitting room with a curtain and mirror · mirror pose holding the phone, three-quarter view, thighs-up framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V04",
+      "fuente": "biblioteca",
+      "formato_id": "F29",
+      "formato_desde0": "nota",
+      "angulo_id": "prueba-social",
+      "angulo": "Nota / recomendado",
+      "concepto": "No solo [beneficio obvio]: también [beneficio extra]",
+      "titular": "No solo curvas: también energía para tu rutina",
+      "escena": "her bedroom at home, unmade bed and soft window light · facing the camera, confident smile, waist-up framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V05",
+      "fuente": "biblioteca",
+      "formato_id": "F04",
+      "formato_desde0": "nosotros-vs-ellos",
+      "angulo_id": "objecion-confianza",
+      "angulo": "Nosotros vs. ellos",
+      "concepto": "Más [zona/deseo] sin [sacrificio]",
+      "titular": "Más curvas sin agujas ni quirófano",
+      "escena": "producto protagonista",
+      "camara": "la del formato"
+    }
+  ],
+  "desde0": true
+}

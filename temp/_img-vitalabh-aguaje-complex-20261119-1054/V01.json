@@ -1,0 +1,84 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "uploaded reference R01",
+    "reference_style": "Lifestyle product ad with icon column and trust bar (pink beauty-supplement style)",
+    "angle_used": "Beneficio principal",
+    "ad_format": "Lifestyle Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: glossy pink background, ultra-photorealistic woman in short fitted shorts, black-and-fuchsia bottle as hero, clean icon modules.",
+    "visual_atmosphere": "Feminine, confident, warm and aspirational; soft daylight; believable real-life result.",
+    "graphic_language": "Rounded pills and banners in fuchsia and deep magenta, thin-line white icons inside fuchsia circles, handwritten script accent with a small heart, soft pink petal shapes in the background.",
+    "text_typography": "Poppins Bold uppercase for headline and labels, Poppins Regular for supporting text, casual handwritten script for the emotional accent."
+  },
+  "creative_objective": "Expand the desire from glutes only to glutes, legs and hips, and prove it with a real woman seen from behind whose fuller glutes, hips and thighs fill the right half, while the bottle and three icons explain the benefit at a glance.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Stacked headline top-left with the giant last line. 2) The woman from behind on the right half. 3) The bottle at center-left. 4) Icon column, bottom bar and bottom pill.",
+    "composition_style": "Left column of text, icons and bottle; right half is the woman; two horizontal bands close the bottom across the width.",
+    "spacing_and_structure": "Headline block in the top-left 40% width; icon column hugs the left edge below the script line; bottle overlaps between icon column and woman; bottom bar and pill stacked with even gaps.",
+    "lighting_and_depth": "Soft diffused daylight on the woman, glossy studio highlight on the bottle, gentle drop shadows under the bottle and the bars, pink background with soft depth.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Pink background with soft petal shapes. Top-left: a deep magenta rounded pill with white uppercase text, under it a large white uppercase line and a giant deep-magenta uppercase last line. Under the headline, a handwritten fuchsia script phrase with a small heart. Left edge: a vertical column of 3 fuchsia circles with white line icons, each with a short uppercase label below. Center-left: the product bottle, large and upright, overlapping the area between the icons and the woman. Right half, from top to bottom: a real woman standing seen from behind, long dark hair, black crop top, short fitted shorts. Bottom: a wide deep-magenta rounded bar split in two cells by a thin vertical divider, each with a white icon and white uppercase text. Below it, a centered fuchsia rounded pill with a leaf icon at left, two-line text and an outline heart at right.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "background", "position": "full canvas", "visual_function": "Brand mood", "adaptation_rule": "Pink #FF8CC0 to blush #FBE3EE background with very soft, large translucent petal shapes", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "headline", "position": "top-left", "visual_function": "Expands the desire in three stacked lines", "adaptation_rule": "Pill + white line + giant deep-magenta line with the user's zones", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "handwritten accent", "position": "below headline, left", "visual_function": "Emotional touch", "adaptation_rule": "Fuchsia script with small heart", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "icon column", "position": "left edge, middle", "visual_function": "Three quick benefits", "adaptation_rule": "Three fuchsia circles with white line icons (glutes silhouette, leg silhouette, leaf) and uppercase labels", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product", "position": "center-left, middle to lower area", "visual_function": "Hero product", "adaptation_rule": "The user's bottle exactly as in the attached photo", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "person", "position": "right half, top to bottom bar", "visual_function": "Visual proof of the result", "adaptation_rule": "Ultra-realistic Latina woman from behind in short fitted shorts with visibly fuller glutes, hips and thighs", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "two-cell bar", "position": "bottom, full width", "visual_function": "Purchase ease", "adaptation_rule": "Deep magenta bar with two icon+text cells, truthful generic texts", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "closing pill", "position": "very bottom, centered", "visual_function": "Emotional tagline", "adaptation_rule": "Fuchsia pill with leaf icon, text and outline heart", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Any brand logo other than the label printed on the bottle",
+      "Price, discount, stars, ratings, testimonials or extra badges",
+      "CTA buttons beyond the existing bottom bar",
+      "Extra icons or benefit lines beyond the three in the column"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium supplement ad on a glossy pink background (bubblegum pink #FF8CC0 fading to pale blush #FBE3EE) with very soft, large translucent petal shapes. TOP-LEFT, stacked headline aligned left: a deep magenta (#B0105E) rounded pill with white bold uppercase text 'NO SOLO GLÚTEOS'; below it a big white bold uppercase line 'TAMBIÉN TUS' with a subtle shadow; below it the giant deep-magenta bold uppercase line 'PIERNAS Y CADERAS', the largest text in the ad. Under the headline, a fuchsia (#E6177F) handwritten script 'Tu mejor versión' with a small heart. LEFT EDGE, below the script, a vertical column of three fuchsia circles with thin white line icons (a rounded glutes silhouette, a leg silhouette, a leaf), each with a short bold uppercase label in deep magenta below it. CENTER-LEFT, large and upright, overlapping between the icon column and the woman: the product. Use the attached product image as the only source of truth for the product, and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink screw cap printed with a repeating small white 'VITALABH' pattern and a hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', the line 'A base de Aguaje, Fenogreco y Maca Negra', italic pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom; glossy highlight and a soft shadow. RIGHT HALF, from the top edge down to the bottom bar: an ultra-photorealistic real Latina woman in her mid-20s standing seen from behind, weight on one leg, long dark wavy hair down her back, black sports crop top, very short fitted sand-beige cotton shorts. Her glutes are clearly full, round and lifted, her hips wide and her thighs thick and toned, visibly voluminous yet natural and believable, not exaggerated; the glutes-and-thighs area fills about 60 percent of her half. Maximum realism: real skin texture with visible pores, fine natural creases, tiny moles, subtle natural skin tone variation, realistic fabric folds and stitching, soft natural daylight, shot on a full-frame camera with an 85mm lens; no plastic or airbrushed skin; tasteful, non-explicit fitness-fashion styling. BOTTOM, full width: a wide deep-magenta rounded bar split by a thin white vertical divider into two cells; left cell a white shopping-bag icon with white bold uppercase 'PÍDELO HOY', right cell a white house icon with white bold uppercase 'TE LLEGA A CASA'. Below it, centered: a fuchsia rounded pill with a white leaf icon at the left, the two-line text in white (first line Poppins Regular, second line bold) and a white outline heart at the right. Clean, high-contrast, scroll-stopping. Include only these elements and texts.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "headline pill", "reference_position": "top-left, first line", "text_style": "Poppins Bold uppercase, white on deep magenta rounded pill", "text": "NO SOLO GLÚTEOS" },
+    { "block_id": "text_block_02", "reference_function": "main headline", "reference_position": "top-left, second line", "text_style": "Poppins Bold uppercase, large, white with subtle shadow", "text": "TAMBIÉN TUS" },
+    { "block_id": "text_block_03", "reference_function": "main headline", "reference_position": "top-left, third line, the biggest", "text_style": "Poppins Bold uppercase, giant, deep magenta", "text": "PIERNAS Y CADERAS" },
+    { "block_id": "text_block_04", "reference_function": "handwritten accent", "reference_position": "below headline, left", "text_style": "Handwritten script, fuchsia, with small heart", "text": "Tu mejor versión" },
+    { "block_id": "text_block_05", "reference_function": "benefit label", "reference_position": "under first icon circle", "text_style": "Poppins Bold uppercase, small, deep magenta, two lines", "text": "GLÚTEOS CON MÁS VOLUMEN" },
+    { "block_id": "text_block_06", "reference_function": "benefit label", "reference_position": "under second icon circle", "text_style": "Poppins Bold uppercase, small, deep magenta, two lines", "text": "PIERNAS MÁS LLENAS" },
+    { "block_id": "text_block_07", "reference_function": "benefit label", "reference_position": "under third icon circle", "text_style": "Poppins Bold uppercase, small, deep magenta, two lines", "text": "3 EXTRACTOS NATURALES" },
+    { "block_id": "text_block_08", "reference_function": "trust item", "reference_position": "bottom bar, left cell", "text_style": "Poppins Bold uppercase, white", "text": "PÍDELO HOY" },
+    { "block_id": "text_block_09", "reference_function": "trust item", "reference_position": "bottom bar, right cell", "text_style": "Poppins Bold uppercase, white, two lines", "text": "TE LLEGA A CASA" },
+    { "block_id": "text_block_10", "reference_function": "emotional tagline", "reference_position": "bottom pill, centered", "text_style": "Poppins Regular first line, Poppins Bold second line, white, two lines", "text": "Curvas que se notan, naturalmente" }
+  ],
+  "mandatory_visual_elements": [
+    "Pink background with soft petal shapes",
+    "Deep magenta headline pill",
+    "Three fuchsia circles with white line icons in a left column",
+    "The real product bottle from the attached photo, large at center-left",
+    "Ultra-realistic woman from behind in very short fitted shorts on the right half, with visibly fuller glutes, hips and thighs",
+    "Deep magenta two-cell bottom bar with white icons and a thin divider",
+    "Fuchsia closing pill with leaf icon and outline heart"
+  ],
+  "final_generation_exclusions": [
+    "No brand logos other than the label on the bottle; no other supplement brands",
+    "No prices, discounts, stars, ratings or testimonials",
+    "No cartoonish, exaggerated or surgical-looking body proportions; no nudity",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia), perfectly spelled with accents."
+}

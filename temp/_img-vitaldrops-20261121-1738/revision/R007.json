@@ -1,0 +1,12 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V10_1x1",
+      "ok": false,
+      "problemas": [
+        "El titular queda muy pegado a los bordes: «SEMANAS» casi toca el borde izquierdo y «NATURAL» casi toca el derecho. Debe quedar al menos a un 5 % de cada borde."
+      ],
+      "correccion_en": "Make the headline \"GANAS DE COMER EN SEMANAS, DE FORMA NATURAL\" slightly smaller and centered so every letter stays at least 5% away from the left and right edges of the image. Keep all other texts as they are."
+    }
+  ]
+}

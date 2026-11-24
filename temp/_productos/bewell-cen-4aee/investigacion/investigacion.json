@@ -1,0 +1,751 @@
+{
+  "formato": "documento",
+  "producto": "BeWell Cen",
+  "pais": "Colombia",
+  "fecha": "19 de noviembre de 2026",
+  "color": "#4B3A6B",
+  "portada": {
+    "titulo": "BeWell Cen",
+    "subtitulo": "BeWell · tarro de 500 g (17 porciones de 30 g) · proteína de soya con isoflavonas, sabor vainilla",
+    "avatar": "Gloria Patricia, la que se despierta empapada a las 3 de la mañana",
+    "quien_compra": "Ella misma; a veces la hija se lo regala (Daniela, 30 años)",
+    "canal": "Meta Ads + WhatsApp · pago contra entrega · oferta x3"
+  },
+  "claves": {
+    "deseo_central": "Volver a sentirme yo: fresca, descansada y con ánimo, sin que los calorones, el mal genio y la barriga inflada manejen mi día",
+    "beneficio_principal": "Un desayuno con proteína de soya e isoflavonas que te ayuda a sentirte más fresca, llena y con energía en tu etapa de cambio",
+    "puntos_dolor": [
+      "Me da un calorón de la nada y quedo sudando delante de todo el mundo",
+      "Me despierto a las 3 de la mañana empapada y ya no vuelvo a dormir",
+      "Ando de mal genio por todo y después me siento culpable",
+      "La barriga se me infla y el jean ya no me cierra aunque como lo mismo",
+      "Vivo cansada, como sin pilas, y la cabeza se me nubla",
+      "Ya me tomé de todo y nada me sirvió",
+      "El médico me dijo que es normal y que me aguante"
+    ]
+  },
+  "secciones": [
+    {
+      "titulo": "Resumen ejecutivo",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "**BeWell Cen** es un alimento en polvo a base de **proteína de soya** con linaza, maca y stevia, sabor vainilla, en tarro de **500 g (17 porciones de 30 g)**. El empaque lo presenta como «un aliado natural en etapas de cambio», con isoflavonas de la soya, calcio y magnesio, sin azúcar añadida. La marca es colombiana (BeWell), vende por su tienda en línea y por WhatsApp, con pago contra entrega, a **$89.900 COP** el tarro (agotado en la web al revisar)." },
+        { "tipo": "parrafo", "texto": "El dolor es grande y está desatendido: en el Eje Cafetero, 7 de cada 10 mujeres en consulta ginecológica tenían síntomas de menopausia (sofocos, irritabilidad e insomnio, en ese orden). En Bogotá, **el 49 % de las mujeres no recibió acompañamiento médico** en esta etapa y 1 de cada 3 reduce, cambia o pausa su trabajo. La mujer de 45 a 58 años se siente sola, cansada y sin respuestas." },
+        { "tipo": "parrafo", "texto": "La evidencia de las isoflavonas para los sofocos es **modesta y mixta**: un metaanálisis encontró unos sofocos un 21 % menos frecuentes que con placebo (de 6 semanas a 12 meses de uso), mientras que otras revisiones no la ven concluyente. Por eso conviene vender el producto como **un desayuno o ritual de bienestar** para la etapa de cambio (más saciedad, energía y calma), y no como un tratamiento hormonal." },
+        { "tipo": "caja", "estilo": "recomendacion", "titulo": "Recomendación central", "texto": "Entra con el ángulo de **«el desayuno de tu etapa de cambio»**: un batido sabor vainilla que reemplaza el desayuno a las carreras, te deja llena hasta el almuerzo y te acompaña con proteína de soya e isoflavonas. Habla de calorones, noches cortadas, mal genio y barriga inflada con las palabras de ella, y cierra con pago contra entrega y oferta x3 (unas 7 semanas de uso, el tiempo en que muchas mujeres empiezan a notar cambios).", "items": [
+          "Avatar: Gloria Patricia, 47 a 55 años, trabajadora, estrato 3 y 4.",
+          "Primeros 3 ángulos: los calorones en público, las noches empapadas y la barriga inflada.",
+          "Cierre de todos los anuncios: pagas al recibir y te asesoramos por WhatsApp."
+        ], "pie": "" },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Alertas antes de pautar", "items": [
+          "**Confirma la etiqueta completa.** La web habla de 7 ingredientes y la foto muestra soya, linaza, maca y stevia. Falta la lista completa, los miligramos de isoflavonas y la proteína por porción.",
+          "**¿Con o sin edulcorante?** La foto lleva el sello «Contiene edulcorantes» y la web anuncia un «nuevo sabor sin edulcorantes». Confirma cuál vas a vender antes de hacer las fotos.",
+          "**Número de registro INVIMA.** La marca dice que tiene registro vigente: pide el número. La etiqueta dice «alimento», así que no se puede vender como medicamento ni como suplemento dietario.",
+          "**«Equilibrio hormonal» es un claim riesgoso.** Úsalo como «apoyo en tu etapa de cambio» o «te ayuda a sentirte…».",
+          "**Las cifras de la marca** (+45.000 clientas, +6.000 reseñas) solo se usan si se pueden demostrar.",
+          "**Seguridad:** antecedente de cáncer de mama, tamoxifeno, problemas de tiroides, alergia a la soya, embarazo y lactancia. Nunca presentarlo como reemplazo de la terapia hormonal.",
+          "**Inventario:** la tienda lo mostraba agotado. Asegura stock antes de pautar."
+        ] }
+      ]
+    },
+    {
+      "titulo": "Ficha del producto",
+      "bloques": [
+        { "tipo": "ficha", "filas": [
+          ["Nombre", "BeWell Cen"],
+          ["Marca", "BeWell (Colombia), tienda en línea colbewell.com y WhatsApp"],
+          ["Qué es, según la etiqueta", "Alimento en polvo a base de proteína de soya con linaza, maca y stevia"],
+          ["Presentación", "Tarro de 500 g · 17 porciones de 30 g"],
+          ["Sabor", "Idéntico al natural a vainilla"],
+          ["Ingredientes visibles", "Proteína de soya (fuente de isoflavonas), linaza, maca, stevia; con calcio y magnesio. La marca habla de 7 ingredientes: lista completa pendiente"],
+          ["Claims del empaque", "«Con isoflavonas de la soya, un aliado natural en etapas de cambio» · Sin azúcar añadida · Fuente de proteína vegetal · Con calcio y magnesio"],
+          ["Sello frontal", "«Contiene edulcorantes» (Minsalud)"],
+          ["Modo de uso", "1 porción de 30 g al día [confirmar en la etiqueta]. La marca envía un manual con la cantidad y los horarios"],
+          ["Duración por tarro", "Unos 17 días con 1 porción diaria (estimación según la etiqueta)"],
+          ["Precio en Colombia", "$89.900 COP el tarro en la tienda oficial · Combo con colágeno $149.900"],
+          ["Precio de referencia en EE. UU.", "No hay un equivalente exacto: pendiente"],
+          ["Registro sanitario", "La marca dice que tiene registro INVIMA vigente: número pendiente"],
+          ["Envío y pago", "1 a 4 días hábiles en ciudades principales, hasta 5 en el resto · contra entrega en casi todo el país"],
+          ["Lo que dice la marca", "+45.000 clientas y +6.000 reseñas de Cen (dato de la marca, sin verificar)"]
+        ], "nota": "Datos tomados de la foto del producto y de la tienda oficial. Lo marcado como pendiente se confirma con la ficha técnica." },
+        { "tipo": "subtitulo", "texto": "Nivel de evidencia de cada ingrediente" },
+        { "tipo": "tabla", "columnas": ["Ingrediente", "Lo que dice la evidencia", "Nivel"], "filas": [
+          ["Isoflavonas de soya", "Un metaanálisis encontró sofocos un 21 % menos frecuentes que con placebo, con 6 semanas a 12 meses de uso. Otras revisiones (Cochrane, Osakidetza) no lo ven concluyente. La dosis que se suele estudiar va de 40 a 80 mg al día", "Moderado y mixto"],
+          ["Proteína de soya", "Trae todos los aminoácidos esenciales. Ayuda a la saciedad. Para el músculo funciona mejor con ejercicio de fuerza; los ensayos son mixtos", "Moderado"],
+          ["Linaza", "Un ensayo no encontró menos sofocos que con placebo. Aporta fibra", "Bajo para sofocos"],
+          ["Maca", "Un estudio pequeño (29 mujeres) vio mejor ánimo y presión, sin cambios en las hormonas. Sin evidencia clara para sofocos", "Bajo"],
+          ["Calcio y magnesio", "Nutrientes conocidos para los huesos y los músculos. Cantidad por porción pendiente", "Respaldo nutricional"],
+          ["Stevia", "Endulzante sin calorías: permite «sin azúcar añadida»", "No aplica"]
+        ], "nota": "Lectura: el producto se sostiene como desayuno con proteína y apoyo en la etapa de cambio. Sus efectos se cuentan como experiencias, no como promesas." },
+        { "tipo": "subtitulo", "texto": "Seguridad" },
+        { "tipo": "tabla", "columnas": ["Situación", "Por qué importa", "Qué hacer"], "filas": [
+          ["Cáncer de mama o de útero (ahora o antes)", "Las isoflavonas tienen una acción parecida al estrógeno. Muchos expertos piden evitar los suplementos de soya en estos casos", "No venderlo sin el visto bueno del oncólogo"],
+          ["Tamoxifeno u otros tratamientos hormonales", "Puede interferir con el tratamiento", "Consultar al médico tratante"],
+          ["Hipotiroidismo (levotiroxina)", "La soya puede bajar la absorción de la pastilla si se toman juntas. La marca pide consultar al médico en este caso", "Consultar y separar las tomas varias horas"],
+          ["Anticoagulantes, antecedente de trombosis o eventos del corazón", "Se recomienda evitar suplementos de soya con estos antecedentes", "Consultar al médico"],
+          ["Alergia a la soya", "Es el ingrediente principal", "No consumir"],
+          ["Embarazo, lactancia y menores de edad", "No es la población del producto", "No recomendarlo"],
+          ["Diabetes o hipertensión", "La marca pide consultar al médico", "Consultar antes de usarlo"],
+          ["Terapia hormonal de reemplazo", "Puede tentar a dejar el tratamiento", "Decir claro: no reemplaza el tratamiento médico"]
+        ], "nota": "La interacción con la levotiroxina y con el tamoxifeno no se confirmó en las búsquedas: va como precaución general." }
+      ]
+    },
+    {
+      "titulo": "Panorama del mercado en Colombia",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "Tamaño del dolor" },
+        { "tipo": "tabla", "columnas": ["Indicador", "Dato", "Fuente"], "filas": [
+          ["Mujeres con síntomas de menopausia (consulta ginecológica, Eje Cafetero)", "71,9 % de 594 mujeres", "Universitas Medica (Javeriana), 2018–2020"],
+          ["Síntomas más frecuentes", "Sofocos 71,9 % · irritabilidad 63,1 % · insomnio 54,9 %", "Universitas Medica (Javeriana)"],
+          ["Mujeres de 45 a 59 años en Bogotá", "777.362 (18,7 % de las mujeres de la ciudad)", "Secretaría de la Mujer con proyecciones DANE 2025"],
+          ["Bogotanas que pasan o pasaron la menopausia", "24 % de las mujeres adultas", "Encuesta de Mujeres y Equidad de Género (Bogotá)"],
+          ["Sin acompañamiento médico en la menopausia", "49 % (y 16 % no sabía que podía pedirlo)", "Secretaría Distrital de la Mujer"],
+          ["Impacto en el trabajo", "1 de cada 3 reduce, cambia o pausa su trabajo; 1 de cada 5 ha pensado dejarlo", "El Tiempo, con la Secretaría de la Mujer y UNFPA"],
+          ["Ausencias ocultas", "3 de cada 10 han pedido incapacidad o han ocultado el motivo", "Kantar Insights 2025, citado por El Tiempo"],
+          ["Edad promedio de la menopausia en Colombia", "52,2 años", "Blu Radio"],
+          ["Mujeres de 30 a 49 ya en menopausia", "10,2 % (25 % entre 48 y 49 años)", "ENDS 2025, citada de forma secundaria (por confirmar)"]
+        ], "nota": "No hay una encuesta nacional única de síntomas. Las cifras regionales sirven como referencia del tamaño del dolor." },
+        { "tipo": "subtitulo", "texto": "Contexto cultural" },
+        { "tipo": "vinetas", "items": [
+          "**Tema del que se habla poco.** Según Ipsos, en la mayoría de los países de la región menos de la mitad de los adultos se siente bien informado sobre la menopausia.",
+          "**«Es normal, aguántese».** Casi la mitad no recibe acompañamiento médico; muchas se automedican o buscan lo natural.",
+          "**Miedo a las hormonas.** Persisten mitos y temores sobre la terapia hormonal, lo que abre espacio a lo natural.",
+          "**La barriga de la menopausia.** La prensa colombiana habla cada vez más de inflamación y grasa abdominal en esta etapa.",
+          "**Trabajo y familia.** Son mujeres que trabajan, cuidan a los hijos y a veces a los papás: no tienen tiempo para ellas.",
+          "**Temporada.** Diciembre (fotos, novenas, reuniones) y enero (propósitos) son buenos momentos para hablar de verse y sentirse bien."
+        ] },
+        { "tipo": "subtitulo", "texto": "E-commerce y pago contra entrega" },
+        { "tipo": "tabla", "columnas": ["Indicador", "Dato", "Fuente"], "filas": [
+          ["Ventas en línea en Colombia 2025", "$145,4 billones y más de 684 millones de transacciones", "Cámara Colombiana de Comercio Electrónico"],
+          ["Medio de pago dominante", "PSE, con 63,9 % de las transacciones (2.º trimestre 2025)", "CCCE / Bloomberg Línea"],
+          ["Efectivo y contra entrega", "2,7 % de las transacciones registradas (bajó de 5,2 %)", "Observatorio eCommerce MinTIC"],
+          ["Preferencia del comprador", "Los compradores prefieren pagar contra entrega", "Estudio de Rocketfy citado por Portafolio"],
+          ["Venta de la marca", "Web y WhatsApp, contra entrega en casi todo el país", "Tienda oficial BeWell"]
+        ], "nota": "Lectura: el contra entrega pesa poco en las cifras de pagos digitales, pero en el comercio por redes y WhatsApp sigue siendo lo que da confianza a la primera compra." },
+        { "tipo": "subtitulo", "texto": "Competencia" },
+        { "tipo": "tabla", "columnas": ["Producto", "Formato", "Precio", "Lectura"], "filas": [
+          ["BeWell Cen", "Polvo 500 g, 17 porciones", "$89.900", "El único en formato desayuno con proteína de soya"],
+          ["Isoretard (Defarma)", "Polvo 400 g, porción de 20 g", "$69.900 (Farmatodo, sin stock)", "Polvo con isoflavonas, maca y colágeno; pide fórmula médica"],
+          ["Menop Fórmula (Natural Systems)", "60 cápsulas", "$69.000 (Farmatodo)", "Prímula y vitaminas: otra pastilla"],
+          ["Fembalance (Vivein)", "60 discos masticables", "$50.400 (Farmatodo)", "Isoflavonas, omega 3, calcio y magnesio"],
+          ["Isoflavonas de soya 80 mg (Natural Systems)", "60 cápsulas blandas", "Pendiente", "Isoflavonas puras, sin proteína"],
+          ["Isofem", "30 tabletas, 25 mg de isoflavonas", "Pendiente", "De droguería, con calcio y vitamina D"],
+          ["Life Extension Soy Isoflavones", "30 cápsulas, importado", "$160.777 (Yaxa)", "Importado y caro"]
+        ], "nota": "Precios vistos en noviembre de 2026; pueden cambiar. Cen compite contra «otra pastilla»: su diferencia es que es un desayuno rico y que llena." }
+      ]
+    },
+    {
+      "titulo": "Problemas que resuelve",
+      "bloques": [
+        { "tipo": "ficha", "filas": [
+          ["Sensación física", "Calorones o sofocos, sudores en la noche, cansancio, sensación de barriga inflada"],
+          ["Descanso", "Despertarse en la madrugada, sueño cortado, amanecer sin pilas"],
+          ["Estético", "Barriga que crece, la ropa ya no cierra, sentirse «inflada» todo el día"],
+          ["Hormonal o ciclo de vida", "Perimenopausia y menopausia: la «etapa de cambio» de los 40 a los 60"],
+          ["Hábitos", "Salir sin desayunar, picar a media mañana, antojos de dulce y pan"],
+          ["Cuerpo a futuro", "Miedo a perder fuerza y músculo; huesos frágiles (calcio y magnesio)"],
+          ["Emocional y familiar", "Mal genio, irritabilidad, peleas con el esposo y los hijos, culpa"],
+          ["Trabajo", "Pasar pena con un calorón en una reunión, la cabeza nublada, olvidos"],
+          ["Económico", "Ya gastó en pastillas que no le sirvieron; quiere algo que rinda"]
+        ], "nota": "El producto apoya estas sensaciones como parte de una rutina; no trata enfermedades." }
+      ]
+    },
+    {
+      "titulo": "Problema y solución, con el sentimiento de las comunidades",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Problema", "Cómo lo dicen (parafraseado)", "Sentimiento", "Solución del producto"], "filas": [
+          ["Sofocos o calorones", "Me da un calor de la nada, me pongo roja y quedo sudando delante de todos", "Vergüenza, desespero", "Isoflavonas de soya, que en estudios se asocian con sofocos menos frecuentes"],
+          ["Sudores nocturnos e insomnio", "Me despierto empapada a las 3 a.m. y ya no vuelvo a dormir", "Agotamiento", "Ritual diario con isoflavonas; muchas cuentan que descansan mejor"],
+          ["Mal genio", "Exploto por cualquier cosa y después me siento culpable", "Culpa, frustración", "Rutina de cuidado propio; la maca se asocia con mejor ánimo en un estudio pequeño"],
+          ["Barriga inflada y peso", "Como lo mismo de siempre y la barriga sigue creciendo", "Impotencia, pena", "Proteína y fibra que llenan; reemplaza el desayuno de pan y tinto"],
+          ["Cansancio y cabeza nublada", "Vivo sin pilas, se me olvida todo y no me concentro", "Miedo a «no ser la misma»", "Desayuno con proteína vegetal para arrancar el día"],
+          ["Pérdida de fuerza", "Ya no tengo la fuerza de antes y me da miedo quedar frágil", "Miedo al futuro", "Proteína de soya, calcio y magnesio"],
+          ["Frustración con lo que probó", "Me tomé de todo y nada; las pastillas no me hicieron nada", "Desconfianza", "Otro formato: un batido rico que reemplaza una comida"],
+          ["Soledad frente al tema", "El médico me dijo que es normal, que me aguante", "Abandono", "Asesoría por WhatsApp y comunidad de mujeres en la misma etapa"]
+        ] },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Nota metodológica", "texto": "Reddit no devolvió hilos útiles en las búsquedas. Se revisaron foros abiertos (comunidad de MyFitnessPal de mujeres en menopausia), reseñas de batidos para la menopausia en Trustpilot y Reviews.io, la página de reseñas de WebMD (no cargó), la tienda oficial de BeWell (testimonios), y prensa y estudios colombianos (El Tiempo, Secretaría de la Mujer, Universitas Medica). No se encontraron reseñas independientes de BeWell Cen en Mercado Libre, TikTok ni Amazon. Todas las frases están parafraseadas; ninguna es una cita textual." }
+      ]
+    },
+    {
+      "titulo": "Barrido por plataformas",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Plataforma", "Qué dicen", "Insight para la venta"], "filas": [
+          ["Tienda oficial BeWell", "Testimonios de mujeres de 38 a 45 años: dormían mal y vivían agotadas; cuentan mejor descanso, menos hinchazón y más ánimo. La marca dice «no vendemos promesas»", "Los ángulos que ya conectan: descanso, hinchazón y energía"],
+          ["Foros (MyFitnessPal, menopausia)", "Lo que más les ayudó: terapia hormonal, menos alcohol, ejercicio. Quejas de peso que no baja y sudores de noche", "Hablar de hábitos + producto, nunca como reemplazo del médico"],
+          ["Trustpilot y Reviews.io (batidos para la menopausia en el Reino Unido)", "Quejas de sabor («sabe a tierra», «a jabón») y textura arenosa por las hierbas", "El sabor vainilla es un argumento: mostrar el batido rico, en vaso bonito"],
+          ["WebMD (soya)", "Experiencias mixtas: a unas les bajó la intensidad de los sofocos con 40 mg diarios; a otras no les hizo nada", "Usar «muchas mujeres notan» y nunca prometer"],
+          ["Farmatodo y droguerías", "La categoría es de cápsulas y tabletas de $50.000 a $70.000; un polvo con isoflavonas pide fórmula médica", "Cen se diferencia como desayuno y no como pastilla"],
+          ["Mercado Libre Colombia", "Cápsulas de isoflavonas y proteínas de soya genéricas, sin un batido para la menopausia", "Espacio libre para un batido de la etapa de cambio"],
+          ["TikTok e Instagram", "No se encontraron reseñas independientes de Cen. En prensa crece el tema de la «barriga de la menopausia» y la inflamación", "Formato UGC de mujer real hablando de sus calorones y su barriga"],
+          ["Prensa colombiana", "La menopausia como reto invisible en el trabajo; mitos sobre las hormonas", "Ángulo de la trabajadora que pasa pena en la oficina"]
+        ] }
+      ]
+    },
+    {
+      "titulo": "Puntos de dolor en las reseñas",
+      "bloques": [
+        { "tipo": "vinetas", "items": [
+          "**Dormir mal y amanecer agotada.** Es lo primero que cuentan los testimonios de la marca.",
+          "**Sentirse hinchada todo el día.** La barriga inflada aparece en testimonios y en la prensa.",
+          "**El ánimo por el piso.** Irritabilidad, mal genio y culpa con la familia.",
+          "**Sudores de noche que no dejan dormir.** Las sábanas mojadas y el ventilador prendido.",
+          "**El peso que no baja** aunque coma lo mismo o haga dieta.",
+          "**El sabor de los batidos para la menopausia.** A tierra, a jabón, textura arenosa.",
+          "**Probar y no sentir nada.** Suplementos que «no hicieron nada»; desconfianza.",
+          "**Precio.** No querer gastar otra vez en algo que no sirve."
+        ] }
+      ]
+    },
+    {
+      "titulo": "Impulso de compra",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Detonante", "Momento real", "Cómo activarlo en el anuncio"], "filas": [
+          ["Un calorón en público", "En una reunión, en el bus o en la fila del banco, roja y sudando", "Abrir con la escena: «¿Te pasa en plena reunión?»"],
+          ["Otra noche sin dormir", "3 a.m., empapada, con el ventilador prendido", "Anuncio nocturno: «Si estás viendo esto despierta…»"],
+          ["La ropa que ya no cierra", "Vistiéndose en la mañana o antes de una fiesta", "El jean que no cierra frente al espejo"],
+          ["Una pelea en casa", "Después de explotar con el esposo o los hijos", "Historia narrada con culpa y salida"],
+          ["La foto de diciembre", "Novenas, reuniones, fotos familiares", "«Que en las fotos de diciembre te veas como te sientes»"],
+          ["La quincena", "15 y 30 de cada mes", "Combo x3 con pago al recibir"],
+          ["La hija que la ve mal", "Visita a la mamá, Día de la Madre, Navidad", "«Regálale a tu mamá noches más frescas»"]
+        ] }
+      ]
+    },
+    {
+      "titulo": "Beneficios que evalúa el cliente (en orden de prioridad)",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["#", "Beneficio", "Por qué importa"], "filas": [
+          ["1", "Menos calorones y sudores", "Es el síntoma más frecuente y el que más pena da"],
+          ["2", "Dormir y descansar mejor", "Sin descanso todo lo demás empeora"],
+          ["3", "Menos barriga inflada y más saciedad", "Le afecta cómo se ve y cómo le queda la ropa"],
+          ["4", "Más calma y ánimo", "Quiere dejar de pelear y de sentirse culpable"],
+          ["5", "Energía y fuerza", "Rendir en el trabajo y cuidar a los suyos"],
+          ["6", "Natural y sin hormonas", "Miedo a la terapia hormonal"],
+          ["7", "Rico y fácil", "Que sepa bien y no sea otra pastilla"],
+          ["8", "Confianza", "Registro INVIMA, pago al recibir y asesoría"]
+        ] }
+      ]
+    },
+    {
+      "titulo": "Los 5 resultados deseados",
+      "bloques": [
+        { "tipo": "numerada", "items": [
+          "**Dejar de pasar pena con los calorones**, sobre todo en el trabajo y en la calle.",
+          "**Dormir la noche completa** sin despertarse empapada.",
+          "**Deshincharse y que la ropa vuelva a cerrar.**",
+          "**Volver a tener paciencia** con el esposo y los hijos.",
+          "**Tener energía y fuerza** para el trabajo, la casa y los nietos."
+        ] },
+        { "tipo": "cita", "estilo": "deseo", "texto": "Yo solo quiero volver a ser la de antes: dormir, no andar sudando y no explotar por todo" }
+      ]
+    },
+    {
+      "titulo": "Tiempos de transformación",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["#", "Resultado", "Cuándo lo notan muchas", "Base"], "filas": [
+          ["1", "Más llenita en la mañana, menos antojos", "Desde la primera semana", "Efecto de la proteína en el desayuno (estimación)"],
+          ["2", "Sensación de menos hinchazón", "Entre 1 y 2 semanas", "Testimonios de la marca (estimación)"],
+          ["3", "Mejor descanso y más ánimo", "Entre 3 y 4 semanas", "Testimonios de la marca (estimación)"],
+          ["4", "Calorones menos seguidos", "Entre 6 y 12 semanas", "Estudios de isoflavonas (6 semanas a 12 meses)"],
+          ["5", "La ropa ajusta mejor", "Entre 8 y 12 semanas, con alimentación y movimiento", "Estimación"]
+        ], "nota": "Son experiencias reportadas, no garantías. Cada mujer es distinta y los resultados varían. La oferta x3 (unas 7 semanas) da el tiempo para notar los cambios." }
+      ]
+    },
+    {
+      "titulo": "Avatar principal",
+      "bloques": [
+        { "tipo": "caja", "estilo": "avatar", "titulo": "Gloria Patricia, la que se despierta empapada a las 3 de la mañana", "texto": "Trabajadora de 51 años que siente que su cuerpo cambió de la noche a la mañana: calorones, noches cortadas, mal genio y una barriga que no reconoce. Nadie le explicó nada y ya probó pastillas que no le sirvieron." },
+        { "tipo": "tabla", "columnas": ["Dato", "Gloria Patricia (usuaria)", "Daniela (a veces quien compra)"], "filas": [
+          ["Edad", "47 a 55 años", "27 a 35 años"],
+          ["Sexo", "Mujer", "Mujer"],
+          ["Ciudades", "Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Pereira", "Las mismas; a veces vive en otra ciudad que la mamá"],
+          ["Estrato", "3 y 4", "3 y 4"],
+          ["Estado civil", "Casada o en unión libre; algunas separadas", "Soltera o recién casada"],
+          ["Hijos", "2, adolescentes o jóvenes", "Ninguno o uno pequeño"],
+          ["Ocupación", "Empleada de oficina, docente, comerciante, auxiliar de salud", "Profesional joven"],
+          ["Ingresos", "2 a 5 salarios mínimos en el hogar (estimación)", "2 a 4 salarios mínimos (estimación)"],
+          ["Educación", "Bachiller, técnica o profesional", "Profesional"],
+          ["Momento de vida", "Perimenopausia o menopausia; cuida a los hijos y a veces a sus papás", "Ve a la mamá cansada y de mal genio y quiere ayudarla"],
+          ["Historial", "Probó cápsulas de isoflavonas, té y remedios caseros; le tiene miedo a las hormonas", "Le ha regalado cremas y vitaminas"],
+          ["Medios", "Facebook, Instagram, WhatsApp, YouTube; algo de TikTok", "Instagram y TikTok"],
+          ["Cómo compra", "Por WhatsApp, pagando al recibir; en quincena", "En línea, con tarjeta o PSE; en fechas especiales"]
+        ] },
+        { "tipo": "subtitulo", "texto": "El dolor masivo que no la deja dormir" },
+        { "tipo": "cita", "estilo": "dolor", "texto": "Me despierto a las 3 de la mañana empapada, no vuelvo a dormir y al otro día soy un ogro con todo el mundo. Ya no me reconozco" },
+        { "tipo": "subtitulo", "texto": "Puntos de dolor" },
+        { "tipo": "vinetas", "items": [
+          "Los calorones en plena reunión o en el bus, roja y sudando.",
+          "Las noches cortadas y el ventilador prendido aunque el esposo tenga frío.",
+          "La barriga inflada y el jean que no cierra.",
+          "El mal genio que no puede controlar y la culpa después.",
+          "El cansancio y los olvidos en el trabajo.",
+          "Sentir que nadie la entiende: «es normal, aguántese»."
+        ] },
+        { "tipo": "subtitulo", "texto": "Puntos débiles y objeciones" },
+        { "tipo": "vinetas", "items": [
+          "«Eso es otro producto más que no sirve.»",
+          "«¿Y eso tiene hormonas? Me da miedo.»",
+          "«Seguro sabe horrible, como los batidos de dieta.»",
+          "«¿Y si me engorda?»",
+          "«Está caro para lo que dura.»",
+          "«¿Y si pago y no me llega?»"
+        ] },
+        { "tipo": "subtitulo", "texto": "Motivaciones" },
+        { "tipo": "vinetas", "items": [
+          "Volver a sentirse ella misma y en control de su cuerpo.",
+          "Verse bien en las fotos y en las reuniones de diciembre.",
+          "Tener paz en la casa.",
+          "Rendir en el trabajo sin pasar pena.",
+          "Cuidarse de forma natural, sin hormonas."
+        ] },
+        { "tipo": "subtitulo", "texto": "Resultado deseado en sus palabras" },
+        { "tipo": "cita", "estilo": "deseo", "texto": "Quiero dormir de corrido, dejar de sudar como si estuviera en Girardot y volver a ser la mamá alegre de antes" },
+        { "tipo": "subtitulo", "texto": "Lenguaje que usa" },
+        { "tipo": "vinetas", "items": [
+          "«Calorones», «bochornos», «me dio un calor», «quedé sopa».",
+          "«Ando inflada», «la barriga no me baja», «el jean no me cierra».",
+          "«Ando de mal genio», «estoy insoportable», «exploto por todo».",
+          "«Sin pilas», «la cabeza se me nubla», «se me olvida todo».",
+          "«La etapa», «el cambio», «la menopausia» (a veces le dice «la meno»)."
+        ] },
+        { "tipo": "subtitulo", "texto": "Avatares secundarios" },
+        { "tipo": "ficha", "filas": [
+          ["Sandra Milena, la del jean que ya no cierra", "41 a 46 años, perimenopausia, mamá de adolescentes. Se siente hinchada y cansada, el periodo se le volvió irregular y ya probó de todo para la barriga."],
+          ["Doña Luz Marina, la abuela que no quiere quedarse quieta", "56 a 64 años, posmenopausia. Le preocupa perder fuerza y los huesos; quiere seguir cargando a los nietos y caminando."],
+          ["Daniela, la hija que le regala a la mamá", "27 a 35 años. Ve a la mamá agotada y de mal genio; compra en diciembre o en el Día de la Madre."]
+        ] }
+      ]
+    },
+    {
+      "titulo": "Recomendaciones estratégicas",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "Posicionamiento" },
+        { "tipo": "ficha", "filas": [
+          ["Promesa", "El desayuno de tu etapa de cambio: te ayuda a sentirte más fresca, llena y con energía"],
+          ["Mecanismo único", "Proteína de soya con sus isoflavonas naturales, más linaza, maca, calcio y magnesio, en un batido sabor vainilla"],
+          ["Diferenciador", "No es otra pastilla: es un desayuno rico que llena, sin azúcar añadida y sin hormonas"],
+          ["Tono", "De mujer a mujer, sin miedo y con humor; la menopausia sin pena"]
+        ] },
+        { "tipo": "subtitulo", "texto": "Oferta escalonada" },
+        { "tipo": "tabla", "columnas": ["Oferta", "Precio", "Por unidad", "Para qué"], "filas": [
+          ["1 tarro (unos 17 días)", "$89.900", "$89.900", "Probar"],
+          ["2 tarros (unos 34 días)", "$159.900", "$79.950", "Un mes completo"],
+          ["3 tarros (unas 7 semanas) · recomendada", "$219.900", "$73.300", "El tiempo en que muchas notan cambios"]
+        ], "nota": "Los precios de 2 y 3 tarros son una propuesta: ajústalos a tu costo real y al envío. Envío gratis y pago al recibir en la oferta x3." },
+        { "tipo": "subtitulo", "texto": "Plan de entrada de 30 días" },
+        { "tipo": "ficha", "filas": [
+          ["Días 1 a 3", "Confirmar etiqueta, registro INVIMA, versión con o sin edulcorante y stock. Armar la landing y el guion de WhatsApp con preguntas de seguridad"],
+          ["Días 4 a 10", "Lanzar 1 campaña con 6 a 8 conceptos distintos (la matriz de la sección 15), segmentación amplia: mujeres de 40 a 60 en Colombia"],
+          ["Días 11 a 20", "Leer a qué concepto le invierte Meta y crear 3 conceptos vecinos. Medir el % de confirmación y de entrega por anuncio"],
+          ["Días 21 a 30", "Escalar el conjunto que funciona; preparar los conceptos de diciembre (fotos y regalos) y la recompra a los 15 días"]
+        ] },
+        { "tipo": "subtitulo", "texto": "Canales" },
+        { "tipo": "ficha", "filas": [
+          ["Meta Ads", "Canal principal: videos UGC, testimonio, realista con narrador e imágenes estáticas"],
+          ["WhatsApp", "Cierre con asesora, preguntas de seguridad y seguimiento de recompra a los 15 días"],
+          ["TikTok", "Videos de humor sobre los calorones; buen canal para la hija que compra"],
+          ["Mercado Libre", "Segunda vitrina para quien desconfía de comprar por redes"],
+          ["Alianzas", "Nutricionistas y entrenadoras de mujeres de más de 40; grupos de caminata"]
+        ] },
+        { "tipo": "subtitulo", "texto": "5 hooks" },
+        { "tipo": "numerada", "items": [
+          "«Me dio un calorón en plena reunión y todos se quedaron mirándome.»",
+          "«Si estás viendo esto a las 3 de la mañana, empapada… esto es para ti.»",
+          "«El jean ya no me cierra y no he cambiado nada de lo que como.»",
+          "«Ya me tomé de todo para la menopausia. Esto fue lo único distinto.»",
+          "«Mi mamá abre la nevera a las 2 a.m. para echarse fresco.»"
+        ] },
+        { "tipo": "subtitulo", "texto": "Cumplimiento: lo que se evita" },
+        { "tipo": "tabla", "estilo": "evita", "columnas": ["Evita", "Usa en su lugar"], "filas": [
+          ["«Equilibra tus hormonas»", "«Te acompaña en tu etapa de cambio»"],
+          ["«Elimina los sofocos»", "«Muchas mujeres notan los calorones menos seguidos»"],
+          ["«Trata la menopausia»", "«Pensado para mujeres en la etapa de cambio»"],
+          ["«Reemplaza la terapia hormonal»", "«No reemplaza tratamiento médico»"],
+          ["«Quema grasa abdominal»", "«Te ayuda a sentirte menos inflada y más llena»"],
+          ["«Resultados garantizados»", "«Los resultados varían»"],
+          ["«Suplemento dietario»", "«Alimento en polvo con proteína de soya» (como dice la etiqueta)"],
+          ["«+45.000 clientas» sin respaldo", "Solo cifras que puedas demostrar"]
+        ] },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Advertencias y preguntas de seguridad para WhatsApp", "texto": "Algunas mujeres pueden pensar en dejar la terapia hormonal o su medicamento por un producto natural. Hay que decir claro que Cen no reemplaza ningún tratamiento. Antes de cerrar la venta, la asesora pregunta:", "items": [
+          "¿Tienes o tuviste cáncer de mama, de útero o de ovario?",
+          "¿Tomas tamoxifeno, terapia hormonal o algún medicamento para la tiroides?",
+          "¿Tomas anticoagulantes o has tenido trombosis?",
+          "¿Eres alérgica a la soya?",
+          "¿Estás embarazada o lactando?",
+          "¿Tienes diabetes o presión alta?"
+        ], "pie": "Si responde sí a alguna: «Te recomendamos consultarlo primero con tu médico». En el caso de cáncer de mama o tamoxifeno, no se vende sin visto bueno médico." }
+      ]
+    },
+    {
+      "titulo": "Deseo central, propuestas de valor y copy para la landing",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "14.1 Deseo central" },
+        { "tipo": "cita", "estilo": "central", "texto": "Volver a sentirme yo: fresca, descansada y con ánimo, sin que los calorones, el mal genio y la barriga inflada manejen mi día" },
+        { "tipo": "parrafo", "texto": "El deseo de superficie es que se acaben los calorones, dormir y deshincharse. El deseo profundo es **no perderse a sí misma**: el miedo a volverse «otra», amargada, cansada y sin control de su cuerpo, justo cuando más la necesitan en la casa y en el trabajo. Cuando compra la hija, el deseo es ver a la mamá tranquila y contenta otra vez." },
+        { "tipo": "subtitulo", "texto": "14.2 Seis propuestas de valor" },
+        { "tipo": "propuesta", "titulo": "1. Los calorones en público", "dolor": "«Me da un calorón en plena reunión y quedo roja y sudando delante de todos.»", "propuesta": "«BeWell Cen trae las isoflavonas naturales de la soya en tu desayuno: una forma fácil de acompañar tu cuerpo en esta etapa para que los calorones no te tomen por sorpresa.»", "tiempo": "Muchas mujeres notan los calorones menos seguidos entre las 6 y las 12 semanas." },
+        { "tipo": "propuesta", "titulo": "2. Las noches empapadas", "dolor": "«Me despierto a las 3 de la mañana empapada y ya no vuelvo a dormir.»", "propuesta": "«Un batido al día con proteína de soya, isoflavonas, maca y magnesio, para que tu rutina te ayude a descansar mejor.»", "tiempo": "Muchas cuentan que descansan mejor entre la semana 3 y la 4." },
+        { "tipo": "propuesta", "titulo": "3. La barriga inflada", "dolor": "«Como lo mismo y la barriga sigue creciendo; el jean ya no me cierra.»", "propuesta": "«Cambia el pan y el tinto de la mañana por un batido con proteína vegetal y linaza que te deja llenita hasta el almuerzo y te ayuda a sentirte menos inflada.»", "tiempo": "Muchas notan menos antojos desde la primera semana y menos hinchazón entre 1 y 2 semanas." },
+        { "tipo": "propuesta", "titulo": "4. El mal genio y la culpa", "dolor": "«Exploto por todo con mi esposo y mis hijos y después me siento culpable.»", "propuesta": "«Regálate 1 minuto para ti cada mañana: un ritual rico que te acompaña en la etapa de cambio para que vuelvas a sentirte con más calma.»", "tiempo": "Muchas notan más ánimo entre la semana 3 y la 4." },
+        { "tipo": "propuesta", "titulo": "5. Sin pilas para el día", "dolor": "«Vivo cansada, sin fuerza, y se me olvida todo en el trabajo.»", "propuesta": "«Arranca el día con proteína vegetal, calcio y magnesio en un batido sabor vainilla, para que te rinda la mañana y cuides tu fuerza de los próximos años.»", "tiempo": "Muchas sienten más energía en las primeras 3 a 4 semanas." },
+        { "tipo": "propuesta", "titulo": "6. Ya probé de todo", "dolor": "«Me tomé de todo y nada me sirvió. No quiero botar más plata.»", "propuesta": "«Esta vez no es otra pastilla: es un desayuno rico, con registro INVIMA, y pagas solo cuando lo recibes en tu casa. Y una asesora te acompaña por WhatsApp.»", "tiempo": "Con el tratamiento x3 (unas 7 semanas) le das a tu cuerpo el tiempo para notar los cambios." },
+        { "tipo": "caja", "estilo": "recomendacion", "titulo": "Cómo usarlas", "items": [
+          "**Ángulos de prueba en Meta Ads:** la 1 (calorones en público, para la trabajadora de 47 a 55), la 2 (noches empapadas, anuncios de noche) y la 3 (barriga inflada, para la de 41 a 50).",
+          "**La 6 (desconfianza) va como cierre** de todos los anuncios y del guion de WhatsApp: pago al recibir, registro INVIMA y asesoría.",
+          "**Aviso legal:** «Los resultados varían. No reemplaza tratamiento médico.»"
+        ] },
+        { "tipo": "subtitulo", "texto": "14.3 Propuesta de valor encapsulada" },
+        { "tipo": "caja", "estilo": "encapsulada", "texto": "BeWell Cen es tu desayuno de la etapa de cambio para sentirte más fresca, descansar mejor y dejar de sentirte inflada, mientras vuelves a ser tú, con calma y energía para los tuyos. Sin azúcar añadida, con registro INVIMA y pagas al recibir." },
+        { "tipo": "vinetas", "items": [
+          "**«Más fresca»** → propuesta 1 (calorones).",
+          "**«Descansar mejor»** → propuesta 2 (noches empapadas).",
+          "**«Dejar de sentirte inflada»** → propuesta 3 (barriga).",
+          "**«Vuelves a ser tú, con calma»** → propuesta 4 (mal genio).",
+          "**«Energía para los tuyos»** → propuesta 5 (sin pilas).",
+          "**«Registro INVIMA y pagas al recibir»** → propuesta 6 (desconfianza)."
+        ] },
+        { "tipo": "subtitulo", "texto": "14.4 Títulos para el hero" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Vuelve a sentirte tú en 4 semanas: más fresca, descansada y sin sentirte inflada", "subtitulo": "El desayuno con proteína de soya e isoflavonas para tu etapa de cambio, sabor vainilla" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2 (más emocional)", "titulo": "En pocas semanas, vuelve la mujer alegre que eras antes de los calorones", "subtitulo": "Un ritual de 1 minuto cada mañana para acompañar tu cuerpo en esta etapa" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3 (para la hija que se lo regala)", "titulo": "Que tu mamá vuelva a dormir tranquila y se sienta ella misma en 4 semanas", "subtitulo": "El batido de su etapa de cambio, con isoflavonas de la soya y pago al recibir" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 4 (corta, para celular)", "titulo": "Más fresca y descansada en 4 semanas", "subtitulo": "Tu desayuno de la etapa de cambio" },
+        { "tipo": "nota", "texto": "Texto legal bajo el hero: «Muchas personas notan cambios desde las primeras semanas. Los resultados varían. No reemplaza tratamiento médico.»" },
+        { "tipo": "subtitulo", "texto": "14.5 Títulos para la sección de dolor (sección 2 de la landing)" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 1 (recomendada, identificación directa)", "titulo": "¿Te despiertas a las 3 de la mañana empapada y ya no vuelves a dormir?", "subtitulo": "No estás exagerando: es tu cuerpo pidiéndote apoyo en esta etapa" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 2 (la sensación física)", "titulo": "Ese calor que te sube de la nada y te deja roja y sudando", "subtitulo": "Los calorones no tienen por qué manejar tu día" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 3 (la hija que la ve mal)", "titulo": "¿Tu mamá anda cansada, acalorada y de mal genio?", "subtitulo": "No es mala actitud: está pasando por su etapa de cambio" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 4 (la culpa)", "titulo": "Explotas por todo y después te sientes culpable", "subtitulo": "No eres tú: es la etapa. Y puedes acompañarla mejor" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 5 (la limitación diaria)", "titulo": "El jean ya no cierra y vives inflada aunque comas lo mismo", "subtitulo": "Tu desayuno puede ser el primer cambio" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 6 (el entorno)", "titulo": "Un calorón en plena reunión, en el bus o en la fila del banco", "subtitulo": "Con el calor de la ciudad y el afán del día, todo se siente peor" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 7 (lo que ya probó)", "titulo": "Ya te tomaste de todo y nada te sirvió", "subtitulo": "Esta vez no es otra pastilla: es un desayuno que te acompaña" },
+        { "tipo": "nota", "texto": "Cómo armar la sección: usa la opción 1 como título principal. Debajo va el bloque «¿Te pasa esto?», la frase puente y la caja de cuidado." },
+        { "tipo": "caja", "estilo": "te-pasa", "titulo": "¿Te pasa esto?", "items": [
+          "Te da un calorón de la nada y quedas sudando.",
+          "Te despiertas en la madrugada y ya no vuelves a dormir.",
+          "Andas de mal genio por todo.",
+          "Te sientes inflada todo el día.",
+          "Vives cansada, sin pilas.",
+          "Se te olvidan las cosas y la cabeza se te nubla."
+        ], "pie": "Si marcaste 2 o más, tu cuerpo te está pidiendo apoyo en esta etapa. Y la respuesta puede empezar en tu desayuno." },
+        { "tipo": "caja", "estilo": "cuidado", "titulo": "Cuidado", "texto": "No nombres enfermedades (osteoporosis, depresión, síndrome metabólico, cáncer) ni hables de hormonas o daños en órganos. Solo síntomas que ella siente: calor, sudor, sueño, ánimo, hinchazón, cansancio." },
+        { "tipo": "subtitulo", "texto": "14.6 Sección de beneficios (texto corto para la imagen)" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Vuelve a sentirte tú, mañana tras mañana", "subtitulo": "Proteína de soya con isoflavonas para tus días y tus noches" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2", "titulo": "Un batido, cinco razones para sentirte mejor", "subtitulo": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3", "titulo": "Tu etapa de cambio, más fresca y tranquila", "subtitulo": "" },
+        { "tipo": "tabla", "columnas": ["#", "Beneficio (grande)", "Frase (mediana)"], "filas": [
+          ["1", "Más fresca", "Te acompaña cuando llegan los calorones"],
+          ["2", "Noches tranquilas", "Para descansar mejor y amanecer con pilas"],
+          ["3", "Menos inflada", "Llenita hasta el almuerzo, sin antojos"],
+          ["4", "Más calma", "Un ritual para ti cada mañana"],
+          ["5", "Natural y rico", "Proteína vegetal, sin azúcar añadida, vainilla"]
+        ] },
+        { "tipo": "franja", "etiqueta": "Franja inferior:", "texto": "Sin azúcar añadida · Proteína vegetal · Con calcio y magnesio · Pagas al recibir", "nota": "Si vendes la versión sin edulcorante, puedes agregar «Sin edulcorantes»; confírmalo primero." },
+        { "tipo": "nota", "texto": "Nota de diseño: título del beneficio grande y frase mediana. Si la imagen queda cargada, deja solo los 5 títulos con íconos. Fondo limpio lila claro, sin follaje." },
+        { "tipo": "subtitulo", "texto": "14.7 Modo de uso" },
+        { "tipo": "caja", "estilo": "pendiente", "titulo": "Pendiente", "texto": "La etiqueta muestra la porción (30 g) y 17 porciones por tarro, pero no la frecuencia ni el líquido. El modo de uso va con 1 porción al día en el desayuno; confírmalo con el manual de la marca." },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Solo 1 batido al día para sentirte más fresca de la mañana a la noche", "subtitulo": "Tu desayuno de la etapa de cambio, listo en 1 minuto" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2", "titulo": "1 minuto en tu desayuno, todo el día sintiéndote tú", "subtitulo": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3", "titulo": "Mezcla, toma y sigue tu día: así de fácil", "subtitulo": "" },
+        { "tipo": "tabla", "columnas": ["Momento", "Cómo tomarlo", "Valor de cada toma"], "filas": [
+          ["☀️ En el desayuno", "1 porción de 30 g [confirmar] en un vaso de agua o leche [confirmar], bien mezclada", "Te deja llenita hasta el almuerzo y te acompaña con isoflavonas de la soya en tu etapa de cambio"],
+          ["📅 Todos los días, sin falta", "La misma hora cada mañana", "La constancia es la clave: muchas notan más descanso y ánimo entre la semana 3 y 4, y los calorones menos seguidos entre la 6 y la 12"]
+        ] },
+        { "tipo": "nota", "texto": "Nota legal para la imagen: «Para mujeres adultas. No recomendado en embarazo, lactancia ni para menores de edad. Si tienes alergia a la soya, una condición médica o tomas medicamentos, consulta a tu médico. No reemplaza tratamiento médico.»" },
+        { "tipo": "franja", "etiqueta": "Franja inferior:", "texto": "Sabor vainilla · Listo en 1 minuto · Sin azúcar añadida", "nota": "Confirma con el producto cómo se disuelve y si sabe bien con agua." },
+        { "tipo": "nota", "texto": "Variante: si el manual indica 2 porciones al día, agrega una toma en la merienda de la tarde («para llegar a la cena sin antojos») y cambia el título a «Solo 2 batidos al día…»." },
+        { "tipo": "subtitulo", "texto": "14.8 Guía visual de la estructura de 4 mensajes" },
+        { "tipo": "tabla", "estilo": "azul", "columnas": ["Mensaje", "Objetivo", "Título"], "filas": [
+          ["1 · Hero", "Qué es, para quién y su valor", "Vuelve a sentirte tú en 4 semanas: más fresca, descansada y sin sentirte inflada"],
+          ["2 · Punto de dolor", "Conectar y mostrar la solución", "¿Te despiertas a las 3 de la mañana empapada y ya no vuelves a dormir?"],
+          ["3 · Beneficios", "Mostrar el valor para su vida", "Vuelve a sentirte tú, mañana tras mañana"],
+          ["4 · Modo de uso", "Explicar cómo usarlo, sin dudas", "Solo 1 batido al día para sentirte más fresca de la mañana a la noche"]
+        ] },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Antes de diseñar", "items": [
+          "Confirma la lista completa de ingredientes: en el hero solo van los reales.",
+          "Calificación y número de reseñas: usa solo los reales; si no, déjalos como [calificación] y [N].",
+          "Confirma la porción y si va con agua o leche.",
+          "Usa la foto real del tarro y el vaso con el batido; fondo limpio lila claro, sin follaje.",
+          "Texto grande y legible en el celular."
+        ] },
+        { "tipo": "guia-visual" }
+      ]
+    },
+    {
+      "titulo": "Conceptos para Meta (Andromeda)",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "15.1 Lo que cambió" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Lo que cambió en Meta", "items": [
+          "**El creativo es la segmentación.** Segmentación amplia (mujeres de 40 a 60, Colombia) y que el anuncio filtre: quién aparece y qué problema muestra le dice a Meta a quién mostrarlo.",
+          "**Diversidad real de conceptos.** De 6 a 10 conceptos por conjunto, no variaciones de un ganador: cambiar el color o el hook es el mismo anuncio.",
+          "**Señal de compra real.** En contra entrega, reporta la compra confirmada y la entrega, no solo el mensaje."
+        ] },
+        { "tipo": "subtitulo", "texto": "15.2 Facetas del cliente" },
+        { "tipo": "tabla", "columnas": ["Persona base", "Faceta", "Dolor en sus palabras", "Escenario visual"], "filas": [
+          ["Gloria Patricia", "La trabajadora de oficina", "Me dio un calorón en plena reunión y todos me miraron", "Sala de juntas, 10 a.m., abanicándose con una carpeta"],
+          ["Gloria Patricia", "La que no duerme", "Me despierto empapada a las 3 a.m. y no vuelvo a dormir", "Cuarto oscuro, ventilador prendido, el celular en la mano"],
+          ["Gloria Patricia", "La esposa de mal genio", "Exploto por todo y después lloro de la culpa", "Cocina en la noche, después de una discusión"],
+          ["Gloria Patricia", "La que sale sin desayunar", "Salgo a las 6 con un tinto y a las 10 me como lo que sea", "Bus o TransMilenio a las 6 a.m., con el tinto en la mano"],
+          ["Sandra Milena", "La mamá del jean que no cierra", "Como lo mismo y la barriga sigue creciendo", "Frente al espejo en la mañana, peleando con el botón del jean"],
+          ["Sandra Milena", "La que ya probó de todo", "Me tomé de todo y nada me sirvió", "Cajón lleno de frascos de pastillas a medio usar"],
+          ["Doña Luz Marina", "La abuela que quiere seguir fuerte", "No quiero ser la abuela que no puede alzar a los nietos", "Almuerzo familiar del domingo, alzando al nieto"],
+          ["Daniela", "La hija que se lo regala a la mamá", "Mi mamá anda acalorada y brava todo el tiempo", "Visita a la mamá en diciembre, la mamá con el ventilador en la novena"]
+        ], "nota": "Las facetas reales se confirman con los chats de WhatsApp de las asesoras: exporta 100 chats cerrados como venta y clasifica para quién compraba, qué frase usó y qué objeción puso. Salen de 4 a 7 facetas." },
+        { "tipo": "subtitulo", "texto": "15.3 Momentos y contexto" },
+        { "tipo": "tabla", "columnas": ["Momento", "Cómo está la persona", "Mensaje que conecta", "Formato"], "filas": [
+          ["Madrugada antes de salir (5 a 7 a.m.)", "Afanada, sin desayunar, cansada de la noche", "«Tu desayuno de 1 minuto para la etapa de cambio»", "Demostración, UGC selfie"],
+          ["Media mañana en el trabajo", "Acalorada, con hambre, con la cabeza nublada", "«¿Te pasa en plena reunión?»", "UGC, imagen estática"],
+          ["Almuerzo", "Comparando con las compañeras, pensando en la barriga", "«Llenita hasta el almuerzo, sin antojos»", "Antes y después, testimonio"],
+          ["Noche (scroll largo)", "Despierta, sudada, sola con su celular", "«Si estás viendo esto despierta a las 3 a.m.…»", "Historia narrada, realista con narrador"],
+          ["Quincena (15 y 30)", "Con plata para comprar", "«Tratamiento x3 con envío gratis»", "Imagen estática con la oferta"],
+          ["Mitad de mes", "Plata apretada", "«Pides hoy y pagas cuando te llegue»", "UGC con pago al recibir"],
+          ["Diciembre", "Fotos, novenas y regalos", "«Que en las fotos te veas como te sientes» · «Regálale a tu mamá»", "Sketch de comedia, historia, imagen de regalo"],
+          ["Enero", "Propósitos de año nuevo", "«Este año te cuidas tú primero»", "Testimonio, antes y después"]
+        ] },
+        { "tipo": "subtitulo", "texto": "15.4 Matriz de conceptos" },
+        { "tipo": "tabla", "columnas": ["#", "Faceta", "Problema", "Contexto", "Formato", "Hook"], "filas": [
+          ["1", "La trabajadora de oficina", "Síntoma visible: calorón en público", "Reunión de las 10 a.m.", "UGC selfie", "«Me dio un calorón en plena reunión y todos se quedaron mirándome»"],
+          ["2", "La que no duerme", "Síntoma: sudores e insomnio", "3 a.m. en la cama", "Realista con narrador", "«Otra vez despierta a las 3 de la mañana, empapada»"],
+          ["3", "La mamá del jean que no cierra", "Consecuencia social: la ropa, la barriga", "Vistiéndose en la mañana", "Antes y después (imagen)", "«El jean ya no me cierra y no he cambiado nada»"],
+          ["4", "La esposa de mal genio", "Consecuencia social: peleas y culpa", "Noche en la casa", "Historia narrada", "«Exploto por todo y después me siento culpable»"],
+          ["5", "La abuela que quiere seguir fuerte", "Miedo a futuro: perder fuerza", "Almuerzo familiar del domingo", "Testimonio", "«No quiero ser la abuela que no puede alzar a los nietos»"],
+          ["6", "La que ya probó de todo", "Frustración con lo que ya probó", "Mitad de mes, plata apretada", "Imagen estática (solo X vs. X + producto)", "«Ya me tomé de todo para la menopausia y nada»"],
+          ["7", "La hija que se lo regala a la mamá", "Consecuencia social: la mamá acalorada y brava", "Novena de diciembre", "Sketch de comedia", "«Mi mamá abre la nevera a las 2 a.m. para echarse fresco»"],
+          ["8", "La que sale sin desayunar", "No tiene tiempo", "Bus de las 6 a.m.", "Demostración", "«Salgo a las 6 sin desayunar y a las 10 me como lo que sea»"]
+        ], "nota": "Probar primero el 1, el 2 y el 3: son los tres dolores más frecuentes (calorones, noches, barriga), le hablan a facetas distintas y cubren mañana, noche y madrugada. El 7 se activa desde el 1 de diciembre." },
+        { "tipo": "subtitulo", "texto": "15.5 Estructura y señal" },
+        { "tipo": "ficha", "filas": [
+          ["Estructura", "Menos campañas y conjuntos. Segmentación amplia: Colombia, mujeres de 40 a 60. De 6 a 10 conceptos por conjunto. Escala el conjunto que funciona en vez de duplicarlo"],
+          ["Leer el gasto", "Si Meta no le invierte a un anuncio, es un veredicto: no apagues el que gasta ni saques el olvidado a otro conjunto. Mira a qué faceta y momento le habla el que se lleva más del 50 % del gasto y crea conceptos vecinos"],
+          ["Señal", "Envía a Meta la compra cuando el pedido se confirma en WhatsApp, con la API de Conversiones, y si puedes marca los entregados. En la landing, píxel + API de Conversiones con el pedido confirmado"],
+          ["Qué medir por anuncio", "El % de confirmación y el % de entrega, no solo el costo por mensaje"]
+        ] },
+        { "tipo": "subtitulo", "texto": "15.6 Prompt con contexto para la IA" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Plantilla llena para BeWell Cen", "texto": "Eres un copywriter de respuesta directa para Colombia. Vendes con pago contra entrega y el cierre es por WhatsApp. Producto: BeWell Cen, alimento en polvo con proteína de soya e isoflavonas, linaza, maca, calcio y magnesio, sabor vainilla, sin azúcar añadida, 500 g (17 porciones). Faceta: [elige una de la tabla 15.2]. Frases reales de clientas: «me da un calorón de la nada y quedo sopa»; «me despierto a las 3 a.m. empapada»; «ando de mal genio con todo el mundo»; «la barriga no me baja y el jean no me cierra»; «vivo sin pilas»; «ya me tomé de todo y nada»; «el médico me dijo que es normal». Contexto o momento: [de la tabla 15.3]. Objeción principal: «otro producto más que no sirve». Formato: [UGC, testimonio, historia…]. Reglas: lenguaje natural de Colombia; nada de curar ni de equilibrar hormonas; beneficios como experiencia («muchas mujeres notan»); menciona el pago contra entrega; CTA a WhatsApp. Entrega: 3 hooks + guion + texto principal.", "pie": "Las frases de clientas están parafraseadas de lo investigado: reemplázalas por las de los chats de WhatsApp." },
+        { "tipo": "caja", "estilo": "cuidado", "titulo": "Cuidado", "texto": "Los conceptos hablan de bienestar, rutina y experiencia, nunca de curar la menopausia, equilibrar hormonas ni de resultados garantizados. Además del riesgo legal, Meta rechaza o limita esos anuncios." }
+      ]
+    }
+  ],
+  "guia": {
+    "mensajes": [
+      {
+        "seccion": "Hero · Producto e ingredientes",
+        "titulo": "Vuelve a sentirte tú en 4 semanas: más fresca, descansada y sin sentirte inflada",
+        "subtitulo": "El desayuno con proteína de soya e isoflavonas para tu etapa de cambio, sabor vainilla",
+        "franja": { "beneficio": "Más fresca y sin sentirte inflada", "tiempo": "4 semanas", "deseo": "Volver a sentirte tú" },
+        "objetivo": "Que en 3 segundos entienda qué es (un batido para el desayuno), para quién es (la mujer en su etapa de cambio) y qué gana.",
+        "elementos": [
+          { "titulo": "Título principal", "texto": "Vuelve a sentirte tú en 4 semanas: más fresca, descansada y sin sentirte inflada" },
+          { "titulo": "Subtítulo", "texto": "El desayuno con proteína de soya e isoflavonas para tu etapa de cambio, sabor vainilla" },
+          { "titulo": "Avatar", "texto": "Mujer colombiana de unos 50 años, sonriente y fresca, con el vaso del batido en la mano" },
+          { "titulo": "Producto + validación", "texto": "[calificación real] · [N] clientas, encima del tarro y el vaso" },
+          { "titulo": "Ingredientes", "texto": "Proteína de soya: proteína vegetal que llena · Isoflavonas de soya: te acompañan en la etapa de cambio · Linaza: fibra · Maca: raíz andina · Calcio y magnesio: para huesos y músculos · Stevia: dulce sin azúcar añadida" },
+          { "titulo": "4 sellos", "texto": "Registro INVIMA · Sin azúcar añadida · Proteína vegetal · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "foto": "Mujer colombiana de unos 50 años, sonriente y fresca, con el vaso del batido de vainilla en la mano, fondo lila claro",
+          "validacion": "[calificación] · [N] clientas",
+          "ingredientes": ["Proteína de soya", "Isoflavonas", "Linaza", "Maca", "Calcio", "Magnesio", "Stevia"],
+          "sellos": ["Registro INVIMA", "Sin azúcar añadida", "Proteína vegetal", "Pagas al recibir"],
+          "oferta": "Tratamiento completo x3 $219.900"
+        }
+      },
+      {
+        "seccion": "Punto de dolor",
+        "titulo": "¿Te despiertas a las 3 de la mañana empapada y ya no vuelves a dormir?",
+        "subtitulo": "Muchas mujeres notan noches más tranquilas entre la semana 3 y la 4",
+        "franja": { "beneficio": "Noches más tranquilas", "tiempo": "3 a 4 semanas", "deseo": "Dormir de corrido otra vez" },
+        "objetivo": "Que se sienta identificada con su peor momento (la madrugada) y vea que hay una salida fácil.",
+        "elementos": [
+          { "titulo": "Título", "texto": "¿Te despiertas a las 3 de la mañana empapada y ya no vuelves a dormir?" },
+          { "titulo": "Subtítulo", "texto": "Muchas mujeres notan noches más tranquilas entre la semana 3 y la 4" },
+          { "titulo": "Imagen del dolor", "texto": "Mujer de 50 años sentada en la cama de madrugada, sudada, con el ventilador prendido" },
+          { "titulo": "Título secundario", "texto": "No es estrés: es tu etapa de cambio" },
+          { "titulo": "Mensaje descriptivo", "texto": "BeWell Cen trae las isoflavonas naturales de la soya en un batido de vainilla para tu desayuno. Un ritual de 1 minuto que acompaña tu cuerpo de día y de noche." },
+          { "titulo": "Producto", "texto": "El tarro de BeWell Cen grande, con el vaso del batido al lado" },
+          { "titulo": "4 sellos", "texto": "Registro INVIMA · Sin azúcar añadida · Proteína vegetal · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "foto": "Mujer de 50 años sentada en la cama de madrugada, sudada, con el ventilador prendido y el reloj marcando las 3:00",
+          "titulo2": "No es estrés: es tu etapa de cambio",
+          "descripcion": "BeWell Cen trae las isoflavonas naturales de la soya en un batido de vainilla para tu desayuno. Un ritual de 1 minuto que acompaña tu cuerpo de día y de noche.",
+          "sellos": ["Registro INVIMA", "Sin azúcar añadida", "Proteína vegetal", "Pagas al recibir"]
+        }
+      },
+      {
+        "seccion": "Beneficios",
+        "titulo": "Vuelve a sentirte tú, mañana tras mañana",
+        "subtitulo": "Proteína de soya con isoflavonas para tus días y tus noches",
+        "franja": { "beneficio": "Fresca, descansada y con calma", "tiempo": "Desde las primeras semanas", "deseo": "Volver a ser tú" },
+        "objetivo": "Mostrar cinco ventajas distintas para su vida diaria, no una lista de ingredientes.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Vuelve a sentirte tú, mañana tras mañana" },
+          { "titulo": "Subtítulo", "texto": "Proteína de soya con isoflavonas para tus días y tus noches" },
+          { "titulo": "Cinco beneficios", "texto": "1 Más fresca · 2 Noches tranquilas · 3 Menos inflada · 4 Más calma · 5 Natural y rico" },
+          { "titulo": "Imágenes de beneficios", "texto": "Mujer tranquila en una reunión · durmiendo de corrido · cerrando el jean · riendo con la familia · el vaso de batido de vainilla" },
+          { "titulo": "Producto central", "texto": "El tarro de BeWell Cen al centro, conectando los cinco beneficios" },
+          { "titulo": "4 sellos", "texto": "Registro INVIMA · Sin azúcar añadida · Proteína vegetal · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "beneficios": [
+            { "titulo": "Más fresca", "frase": "Te acompaña cuando llegan los calorones" },
+            { "titulo": "Noches tranquilas", "frase": "Para descansar mejor y amanecer con pilas" },
+            { "titulo": "Menos inflada", "frase": "Llenita hasta el almuerzo, sin antojos" },
+            { "titulo": "Más calma", "frase": "Un ritual para ti cada mañana" },
+            { "titulo": "Natural y rico", "frase": "Proteína vegetal, sin azúcar añadida, vainilla" }
+          ],
+          "sellos": ["Registro INVIMA", "Sin azúcar añadida", "Proteína vegetal", "Pagas al recibir"]
+        }
+      },
+      {
+        "seccion": "Modo de uso",
+        "titulo": "Solo 1 batido al día para sentirte más fresca de la mañana a la noche",
+        "subtitulo": "Tu desayuno de la etapa de cambio, listo en 1 minuto",
+        "franja": { "beneficio": "Fácil y rico", "tiempo": "1 minuto al día", "deseo": "Cuidarte sin complicarte" },
+        "objetivo": "Que vea que es tan fácil como prepararse un café y que la constancia es la clave.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Solo 1 batido al día para sentirte más fresca de la mañana a la noche" },
+          { "titulo": "Subtítulo", "texto": "Tu desayuno de la etapa de cambio, listo en 1 minuto" },
+          { "titulo": "Mensaje descriptivo", "texto": "Mezcla tu porción en agua o leche, tómala en el desayuno y repite todos los días. La constancia es la clave para notar los cambios." },
+          { "titulo": "Tres pasos", "texto": "1 Mezcla 30 g [confirmar] en tu vaso · 2 Tómalo en el desayuno · 3 Repite todos los días" },
+          { "titulo": "Producto", "texto": "El tarro de BeWell Cen grande y el vaso con el batido" },
+          { "titulo": "4 sellos", "texto": "Registro INVIMA · Sin azúcar añadida · Sabor vainilla · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "descripcion": "Mezcla tu porción en agua o leche, tómala en el desayuno y repite todos los días. La constancia es la clave para notar los cambios.",
+          "pasos": ["Mezcla 30 g [confirmar] en tu vaso", "Tómalo en el desayuno", "Repite todos los días"],
+          "sellos": ["Registro INVIMA", "Sin azúcar añadida", "Sabor vainilla", "Pagas al recibir"]
+        }
+      }
+    ]
+  },
+  "anuncios_imagen": [
+    { "plantilla": "pregunta-revelacion", "concepto": 2, "faceta": "La que no duerme", "angulo": "dolor", "contexto": "3 a.m. en la cama", "textos": {
+      "pregunta": "¿Otra vez despierta a las 3 a.m., empapada?",
+      "revelacion": "No es estrés: es tu etapa de cambio",
+      "cierre": "Proteína de soya con isoflavonas en tu desayuno",
+      "legal": "Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "antes-despues-plazo", "concepto": 3, "faceta": "La mamá del jean que no cierra", "angulo": "beneficio", "contexto": "Vistiéndose en la mañana", "textos": {
+      "titular": "MENOS HINCHAZÓN",
+      "plazo": "EN 2 SEMANAS",
+      "marca": "BeWell Cen",
+      "antes": "ANTES",
+      "despues": "2 SEMANAS DESPUÉS",
+      "legal": "Experiencias de clientas. Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "solo-vs-con", "concepto": 8, "faceta": "La que sale sin desayunar", "angulo": "mecanismo", "contexto": "Bus de las 6 a.m.", "textos": {
+      "sin": "Solo tinto",
+      "con": "Tinto + BeWell Cen",
+      "titular": "Llega a las 10 sin *antojos*",
+      "subtitulo": "Proteína vegetal con isoflavonas de la soya en tu desayuno, sabor vainilla.",
+      "boton": "Quiero mi desayuno",
+      "legal": "Alimento en polvo a base de proteína de soya. Los resultados varían."
+    } },
+    { "plantilla": "nosotros-vs-ellos", "concepto": 6, "faceta": "La que ya probó de todo", "angulo": "objeción", "contexto": "Mitad de mes, plata apretada", "textos": {
+      "titular": "¿Ya probaste de *todo*?",
+      "subtitulo": "Esta vez es un desayuno, no otra pastilla",
+      "nuestro": "BeWell Cen",
+      "ellos": "Las pastillas de siempre",
+      "nuestros": ["Batido rico sabor vainilla", "Proteína vegetal + isoflavonas", "Con calcio y magnesio"],
+      "suyos": ["Otra pastilla más al día", "No te llena en el desayuno", "Sabor a remedio"],
+      "legal": "No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "historia", "concepto": 4, "faceta": "La esposa de mal genio", "angulo": "deseo", "contexto": "Noche en la casa", "textos": {
+      "antes": "Explotaba",
+      "despues": "Más tranquila",
+      "frase": "Peleaba por todo y luego lloraba de la culpa… hasta que descubrí BeWell Cen",
+      "remate": "Volví a ser yo",
+      "iconos": ["Proteína de soya", "Isoflavonas", "Maca y linaza"],
+      "legal": "Experiencia de una clienta. Los resultados varían."
+    } },
+    { "plantilla": "zonas-semanas", "concepto": 1, "faceta": "La trabajadora de oficina", "angulo": "beneficio", "contexto": "Reunión de las 10 a.m.", "textos": {
+      "titular": "Tu etapa de cambio, *semana a semana*",
+      "pasos": [
+        { "ingrediente": "Semana 1", "beneficio": "Menos antojos a media mañana" },
+        { "ingrediente": "Semana 4", "beneficio": "Mejor descanso y más ánimo" },
+        { "ingrediente": "Semana 6 a 12", "beneficio": "Calorones menos seguidos" }
+      ],
+      "legal": "Experiencias reportadas, no garantías. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "foto-iconos", "concepto": 5, "faceta": "La abuela que quiere seguir fuerte", "angulo": "deseo", "contexto": "Almuerzo familiar del domingo", "textos": {
+      "titular": "No solo calorones: también tu *fuerza*",
+      "iconos": ["Proteína vegetal", "Calcio y magnesio", "Sin azúcar añadida"],
+      "nota": "Para alzar a los nietos",
+      "legal": "Alimento a base de proteína de soya. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "estado-vs-estado", "concepto": 2, "faceta": "La que duerme con ventilador", "angulo": "beneficio", "contexto": "Antes de dormir, 10 p.m.", "textos": {
+      "zona": "TUS NOCHES",
+      "mal": "EMPAPADA",
+      "bien": "DESCANSADA",
+      "sub_mal": "Despierta a las 3 a.m. sin sueño",
+      "sub_bien": "Noches más frescas y tranquilas",
+      "legal": "Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "dos-mitades", "concepto": 7, "faceta": "La hija que se lo regala a la mamá", "angulo": "deseo", "contexto": "Novena de diciembre", "textos": {
+      "titular": "Para mamá: menos calorones, *más calma*",
+      "pildora": "Muchas lo notan en 6 a 12 semanas",
+      "boton": "Regalárselo a mamá",
+      "marca": "BeWell Cen",
+      "legal": "Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "no-compres", "concepto": 6, "faceta": "La que ya probó de todo", "angulo": "objeción", "contexto": "Quincena", "textos": {
+      "titular": "No compres esto si…",
+      "texto": "…te da igual seguir con calorones, antojos y el jean apretado. A menos que quieras un desayuno con proteína de soya e isoflavonas para tu etapa de cambio.",
+      "legal": "Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "cuadricula-tiempo", "concepto": 8, "faceta": "La que sale sin desayunar", "angulo": "beneficio", "contexto": "Toda la jornada", "textos": {
+      "titular": "Del calorón a volver a *sentirte tú*",
+      "etapas": ["Antes", "1 semana", "4 semanas", "12 semanas"],
+      "legal": "Experiencias reportadas, no garantías. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "silueta-zonas", "concepto": 3, "faceta": "La mamá del jean que no cierra", "angulo": "dolor", "contexto": "Fotos de diciembre", "textos": {
+      "arriba": "Para las fotos de diciembre",
+      "titular": "Bye bye *barriga inflada*",
+      "izquierda": ["menos hinchazón", "menos antojos", "más saciedad"],
+      "derecha": ["más energía", "mejor descanso"],
+      "legal": "Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "beneficios-lados", "concepto": 1, "faceta": "La trabajadora de oficina", "angulo": "deseo", "contexto": "Jornada laboral completa", "textos": {
+      "titular": "Vuelve a *sentirte tú*",
+      "subtitulo": "también en tu etapa de cambio",
+      "antes": "Antes",
+      "despues": "Después",
+      "males": ["Calorones en el trabajo", "Antojos a media mañana", "Noches cortadas", "Mal genio sin razón"],
+      "bienes": ["Te sientes más fresca", "Llenita hasta el almuerzo", "Descansas mejor", "Más calma y ánimo"],
+      "sello": "Muchas lo notan en 4 semanas",
+      "atributos": ["Proteína vegetal", "Sin azúcar añadida", "Sabor vainilla"],
+      "legal": "Experiencias reportadas. Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "dias-producto", "concepto": 5, "faceta": "La abuela que quiere seguir fuerte", "angulo": "beneficio", "contexto": "Caminata de la mañana", "textos": {
+      "marca": "BeWell Cen",
+      "etapas": ["Día 1", "Día 14", "Día 30"],
+      "legal": "Experiencias reportadas. Los resultados varían."
+    } }
+  ],
+  "fuentes": [
+    { "titulo": "BeWell · tienda oficial: Cen, precio, envío, contra entrega y testimonios", "url": "https://www.colbewell.com/" },
+    { "titulo": "Universitas Medica (Javeriana) · síntomas de menopausia en el Eje Cafetero", "url": "https://revistas.javeriana.edu.co/index.php/vnimedica/article/view/34657/28609" },
+    { "titulo": "Alcaldía de Bogotá · cifras de menopausia en Bogotá", "url": "https://bogota.gov.co/mi-ciudad/mujer/bogota-presenta-cifras-sobre-la-menopausia-de-las-mujeres-en-la-ciudad" },
+    { "titulo": "El Tiempo · la menopausia, un reto invisible en la vida laboral", "url": "https://www.eltiempo.com/bogota/la-menopausia-un-reto-invisible-en-la-vida-laboral-una-de-cada-tres-mujeres-reduce-cambia-o-pausa-su-trabajo-en-esta-etapa-3552635" },
+    { "titulo": "Cambio · mitos y temores sobre la terapia hormonal (Ipsos)", "url": "https://cambiocolombia.com/salud-y-bienestar/articulo/2026/11/menopausia-sintomas-mitos-y-temores-sobre-la-terapia-hormonal-que-todavia-persisten" },
+    { "titulo": "Blu Radio · edad promedio de la menopausia en Colombia", "url": "https://www.bluradio.com/salud/esto-es-lo-que-no-se-habla-de-la-menopausia-y-podria-mejorar-la-calidad-de-vida-rs15" },
+    { "titulo": "Noticias RCN · inflamación y grasa abdominal en la menopausia", "url": "https://www.noticiasrcn.com/salud-y-bienestar/inflamacion-y-aumento-de-grasa-abdominal-los-efectos-metabolicos-de-la-menopausia-1001461" },
+    { "titulo": "PubMed · isoflavonas de soya frente a placebo en sofocos (metaanálisis)", "url": "https://pubmed.ncbi.nlm.nih.gov/20464785/" },
+    { "titulo": "PCRM · las isoflavonas de soya y los sofocos", "url": "https://pcrm.org/news/health-nutrition/soy-isoflavones-help-reduce-hot-flashes" },
+    { "titulo": "Osakidetza · resumen de evidencia de isoflavonas en la menopausia", "url": "https://www.euskadi.eus/contenidos/informacion/sanidad_alimentaria/es_1247/adjuntos/resumen isoflavonas-menopausia.pdf" },
+    { "titulo": "Breastcancer.org · compuestos de soya y cáncer de mama", "url": "https://www.breastcancer.org/es/research-news/compuestos-de-soja-recurrencia-del-cancer-de-mama" },
+    { "titulo": "IntraMed · la linaza no alivió los sofocos", "url": "https://www.intramed.net/content/semillas-de-lino-no-aplacarian-sofocos-en-menopausia" },
+    { "titulo": "PubMed · maca en mujeres posmenopáusicas", "url": "https://pubmed.ncbi.nlm.nih.gov/24931003/" },
+    { "titulo": "AARP · suplementos para la menopausia: ¿funcionan?", "url": "https://www.aarp.org/espanol/salud/farmacos-y-suplementos/info-2025/remedios-sintomas-menopausia.html" },
+    { "titulo": "Farmatodo · Isoretard, isoflavonas de soya en polvo", "url": "https://www.farmatodo.com.co/producto/500031703-isoflavones-de-soya-tarro-x-400-g-isoretard-tarro-x-400-g" },
+    { "titulo": "Farmatodo · Menop Fórmula Natural Systems", "url": "https://www.farmatodo.com.co/producto/500014296-menop-formula-x-60-natural-systems-frasco-x-60" },
+    { "titulo": "Farmatodo · Fembalance Vivein", "url": "https://www.farmatodo.com.co/producto/500029761-fembalance-x-60-discos-isoflavonas-de-soya--omega-3--carbonato-de-calcio--bisglicinato-de-magnesio-y-vitaminas-vivein-frasco-x-60-discos-x-60-discos" },
+    { "titulo": "Yaxa · Life Extension Soy Isoflavones en Colombia", "url": "https://store.yaxa.co/products/life-extension-soy-isoflavones-heart-bone-cellular-health-support-for-post-menopausal-women-gluten-free-non-gmo-vegetarian-30-capsules" },
+    { "titulo": "Reviews.io · reseñas de un batido para la menopausia (sabor y textura)", "url": "https://www.reviews.io/product-reviews/store/bomimo/MENOSHAKECHOCOLATE-500G-20SERV?page=2" },
+    { "titulo": "MyFitnessPal · comunidad de mujeres en menopausia", "url": "https://community.myfitnesspal.com/en/discussion/comment/46987789" },
+    { "titulo": "Observatorio eCommerce MinTIC · medios de pago", "url": "https://observatorioecommerce.mintic.gov.co/797/articles-428123_Article.pdf" },
+    { "titulo": "Bloomberg Línea · pagos digitales en Colombia (PSE)", "url": "https://www.bloomberglinea.com/latinoamerica/colombia/mas-del-60-de-pagos-digitales-que-se-hacen-en-colombia-son-via-pse/" },
+    { "titulo": "Portafolio · baja bancarización y preferencia por el contra entrega", "url": "https://www.portafolio.co/economia/baja-tasa-de-bancarizacion-un-desafio-del-e-commerce-550042" },
+    { "titulo": "INVIMA · Resolución 3096 de 2007 (rotulado y declaraciones)", "url": "https://normograma.invima.gov.co/compilacion/docs/resolucion_minproteccion_3096_2007.htm" },
+    { "titulo": "INVIMA · Resolución 333 de 2011 (derogada por la 2492 de 2022)", "url": "https://normograma.invima.gov.co/normograma/compilacion/docs/resolucion_minproteccion_0333_2011.htm" }
+  ],
+  "nota_fuentes": "Revisado el 19 de noviembre de 2026. Reddit, TikTok y Mercado Libre no mostraron reseñas de BeWell Cen; la ficha completa del producto en la web no cargó, por eso los ingredientes completos y la dosis quedan pendientes. Todas las frases de clientas están parafraseadas."
+}

@@ -1,0 +1,41 @@
+{
+  "resumen": "Las 10 variaciones repiten tu anuncio ganador: el antes y después animado, con la misma chica, el mismo orden y las mismas notas a mano. Solo cambia el titular, y cada uno toca un dolor real de tu clienta: el jean que no horma, la sentadilla que no rinde, el miedo al quirófano. Creemos que vende porque en un segundo cuenta una historia de cambio que ella quiere vivir, sin agujas y con pago al recibir (es una idea, no una garantía).",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#2B1226", "nombre": "Ciruela oscuro" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" }
+  ],
+  "tipografia": "La misma de tu anuncio: titular en letra gruesa y en mayúsculas, la primera parte en blanco y la segunda en negro; frase de apoyo en letra sencilla; notas a mano alrededor de la chica.",
+  "estilo": "Antes y después animado en 3D: lado oscuro y triste a la izquierda, lado fucsia y brillante a la derecha, con tu frasco abajo a la derecha, un sello de pago al recibir y tres íconos abajo.",
+  "beneficios": [
+    "Acompaña tu proceso de curvas junto con tu comida y tu rutina",
+    "Más energía y mejor ánimo para entrenar",
+    "Fácil: solo 2 cápsulas al día con tus comidas",
+    "Natural, sin agujas ni quirófano"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje, fenogreco y maca negra",
+    "Con vitaminas A y E",
+    "60 cápsulas por frasco: un mes",
+    "Pagas en efectivo al recibir"
+  ],
+  "deseo_central": "Verse con más curvas y sentirse segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Ya compré pastillas por internet y no vi nada",
+    "Me comparo con las de Instagram y me siento plana"
+  ],
+  "decisiones": [
+    "Tu anuncio tenía un sello de 90 días de garantía. Como no nos diste una garantía, ese sello ahora dice «Pagas al recibir», que sí es tu oferta.",
+    "Cambiamos «Resultados reales» por «2 cápsulas al día» para no prometer lo que no se puede probar.",
+    "El amarillo del titular pasó a negro, como tu frasco, para que se lea bien sobre el fucsia.",
+    "No agregamos precio ni botón porque tu anuncio no los tiene."
+  ]
+}

@@ -1,0 +1,43 @@
+
+=== Contexto para rehacer la toma 12 ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:        A
+    duracion:    3.2s
+    referencias: protagonista
+
+  QUE TIENE QUE TRANSMITIR ESTA TOMA:
+    linea:       "A los dos meses los cambios ya se notan."
+    viene de:    "ahora se te empieza a ir a la cola."
+    lleva a:     "Ya no se te va a la barriga,"
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen inicial ---
+Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A bright supermarket aisle with colorful shelves full of products under warm lights. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a white fitted t-shirt and light-blue high-waisted jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs filling the jeans. She pushes a shopping cart down the aisle in a three-quarter side view from head to feet, her face turned toward the camera with a happy smile. In the background a man in a green shirt and a woman shopper glance at her. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- video ---
+Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.
+Camera: smooth tracking shot moving with her at the same distance, she stays full body in frame, no zoom.
+Motion: she pushes the cart down the aisle with a little bounce in her step while the shoppers in the background turn to look at her.
+Lighting: warm cinematic glow
+
+  --- referencia "protagonista" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation character reference render in the cinematic look of a Zack D Films explainer short. Full body view, head to feet, of an adult Colombian woman in her late 20s with clearly adult facial features: soft oval face, defined cheekbones, full dark eyebrows, big warm brown eyes, small rounded nose, full lips with a friendly confident smile, long voluminous wavy dark brown hair falling past her shoulders, warm tan skin. She has a curvy hourglass figure: small waist, wide rounded hips about one and a half times wider than her waist, full thick thighs filling her jeans. She wears a plain white fitted short-sleeve t-shirt, light-blue high-waisted skinny jeans and white sneakers. She stands in a three-quarter side view with her face turned toward the camera over her shoulder, so her silhouette reads clearly. Background: a softly lit warm living room with a window, a plant and a beige sofa, slightly out of focus. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm cinematic lighting, expressive facial detail, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- referencia "protagonista-antes" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation character reference render in the cinematic look of a Zack D Films explainer short. Full body view, head to feet, of an adult Colombian woman in her late 20s with clearly adult facial features: soft oval face, defined cheekbones, full dark eyebrows, big warm brown eyes, small rounded nose, full lips with a friendly smile, long voluminous wavy dark brown hair falling past her shoulders, warm tan skin. She has a slim straight figure: narrow hips barely wider than her small waist, thin straight thighs, the jeans one size too big at the back with a baggy fold of extra denim below the seat and drooping back pockets, one straight flat vertical line from her lower back to her thighs. She wears a plain white fitted short-sleeve t-shirt, light-blue high-waisted skinny jeans and white sneakers. She stands in a three-quarter side view with her face turned toward the camera over her shoulder, so her silhouette reads clearly. Background: a softly lit warm living room with a window, a plant and a beige sofa, slightly out of focus. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm cinematic lighting, expressive facial detail, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, curvy hips, wide hips, thick thighs
+
+  --- referencia "amiga" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation character reference render in the cinematic look of a Zack D Films explainer short. Full body view, head to feet, of an adult Latina woman in her early 30s with clearly adult facial features: round face, thick arched eyebrows, big expressive dark eyes, wide mouth, light brown skin, black hair pulled up in a high messy bun with a few loose strands. She wears a cream chunky knit sweater, olive-green pants and white sneakers. She stands facing the camera with an amazed open-mouth expression, both hands raised in surprise. Background: a softly lit warm living room with a window, a plant and a beige sofa, slightly out of focus. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm cinematic lighting, expressive facial detail, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion.
+

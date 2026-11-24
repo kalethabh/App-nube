@@ -1,0 +1,88 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-21T23:03:59.661Z",
+  "variaciones": 10,
+  "archivos": 10,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 1,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V01_1x1",
+        "problemas": [
+          "El titular «TODA MI VIDA FUI» queda pegado al borde de arriba y la parte de arriba de las letras se corta. Regla del 5 % del borde: bájalo.",
+          "«Pagas al recibir» sale cortado por el borde de abajo y no se lee completo. Regla del 5 % del borde: súbelo.",
+          "El botón «Quiero el mío» y la cinta «TRATAMIENTO COMPLETO X3» quedan pegados al borde de abajo. Regla del 5 % del borde: súbelos."
+        ]
+      },
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "El titular queda muy pegado a los bordes: «COBROS» y «PROMESAS» quedan a menos del 5 % del borde. Hay que achicarlo un poco para que respire."
+        ]
+      },
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "El titular toca casi los bordes: «¿COMES» y «SUBES?» quedan a menos del 5 % del borde izquierdo y derecho.",
+          "Aparece un letrero inventado en el fondo que dice «Cafetería Universitaria»: ese texto no está en el anuncio y hay que quitarlo."
+        ]
+      },
+      {
+        "pieza": "V04_1x1",
+        "problemas": [
+          "Aparece una nota pegada en la nevera con el texto «Mami, no se le olviden sus gotas», que no está en los textos del anuncio. Sobra un bloque de texto: hay que quitarla."
+        ]
+      },
+      {
+        "pieza": "V05_1x1",
+        "problemas": [
+          "El titular sale cortado arriba, pegado al borde, y dice «MIVIDA» sin espacio: debe decir «TODA MI VIDA ME SALTABA EL DESAYUNO».",
+          "«Pagas al recibir» sale cortado abajo y no se lee: falta la frase de la oferta completa.",
+          "El botón «Pide el tuyo» queda cortado y pegado al borde de abajo.",
+          "Varios textos quedan a menos del 5 % del borde: hay que dejar margen arriba y abajo."
+        ]
+      },
+      {
+        "pieza": "V07_1x1",
+        "problemas": [
+          "El sello dice «INGREDIEITES»: cambió la N por una I. Debe decir «5 INGREDIENTES · 1 TOMA AL DÍA».",
+          "El titular de arriba queda pegado al borde superior, a menos del 5 %. Hay que bajarlo un poco."
+        ]
+      },
+      {
+        "pieza": "V08_1x1",
+        "problemas": [
+          "El botón «Pide el tuyo» queda pegado al borde de abajo: el texto está a menos del 5 % del borde. Hay que subirlo un poco.",
+          "El titular de arriba queda casi tocando el borde superior. Conviene bajarlo un poco para dejar al menos el 5 % de margen."
+        ]
+      },
+      {
+        "pieza": "V09_1x1",
+        "problemas": [
+          "El sello de «5 INGREDIENTES» tapa parte de la etiqueta del frasco: la S de «VITALDROPS» y el final de «Supplement» no se ven completos. El sello debe ir al lado del frasco, sin taparlo.",
+          "El titular de arriba queda pegado al borde superior, a menos del 5 %. Hay que bajarlo.",
+          "La etiqueta «DESPUÉS» queda muy cerca del borde derecho, a menos del 5 %. Hay que correrla hacia adentro."
+        ]
+      },
+      {
+        "pieza": "V10_1x1",
+        "problemas": [
+          "El titular queda muy pegado a los bordes: «SEMANAS» casi toca el borde izquierdo y «NATURAL» casi toca el derecho. Debe quedar al menos a un 5 % de cada borde."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

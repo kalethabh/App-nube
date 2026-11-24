@@ -1,0 +1,20 @@
+{
+  "numero": 4,
+  "paso": "montaje",
+  "comando": "node produccion/subtitulos-dialogo.js temp/aguaje-complex-3-en-1-agregar-20261121-1419",
+  "inicio": "2026-11-21T20:53:55.121Z",
+  "fin": "2026-11-21T20:54:00.407Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "scribe": {
+      "clips": 11,
+      "segundos": 97.8
+    }
+  }
+}

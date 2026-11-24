@@ -1,0 +1,52 @@
+The FIRST attached image is a REFERENCE AD. Create a new ad that is the same design made for a different product: keep its exact layout, composition, block structure, visual hierarchy, spacing, background treatment and graphic style, and keep its exact typography (same font style, weight, casing, relative sizes, text effects and text placement). Change only three things: (1) the product: replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle; (2) the texts: replace every text of the reference with the texts listed below, each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.
+
+FIRST, READ THE REFERENCE AD before designing anything: (a) its ANGLE: the exact body area, problem or desire it sells (for example glutes and curves, belly fat, swollen legs, cough and lungs, wrinkles, energy, sleep); (b) its HOOK: the idea that stops the scroll (a before/after, a big promise, a number or timeline, a question, a testimonial, a shocking fact, an us-vs-them comparison); (c) its FORMAT: what is shown and how (person, body close-up, split screen, product hero, chart, screenshot, collage). Your ad MUST sell the SAME angle with the SAME hook and format: if the reference is about glutes, yours is about glutes, shown the same way; never switch to another body area or another benefit.
+
+IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+
+SCENE DESCRIPTION (same composition as the reference):
+Square 1:1 premium supplement ad on a flat pale blush pink background (#FBE3EE). TOP ROW (top 38 percent): three equal full-body side-view photographs in a row of the SAME ultra-photorealistic Latina woman in her mid 20s, hair in a low messy bun, standing in profile facing left, both hands lifting a light nude crop top up to just under her chest, wearing very short fitted nude-beige shorts, barefoot, same studio light, same height and same framing in all three. Left figure: slim, flat glutes and thin thighs. Middle figure: slightly fuller, rounder glutes and thighs. Right figure: clearly fuller, rounder, lifted glutes and thicker toned thighs and hips. The progression is obvious but natural and believable. Maximum realism: real skin texture with visible pores, natural creases, subtle skin tone variation, realistic fabric texture, real photo quality; no plastic or airbrushed skin; tasteful, non-explicit fitness styling. Below each figure a small deep magenta (#B0105E) rounded label with white bold uppercase text: 'FRASCO 1', 'FRASCO 2', 'FRASCO 3'. MIDDLE-LEFT: a wide rounded deep magenta band spanning about 70 percent of the width with the bold uppercase headline 'TU CAMBIO,' in white followed by 'FRASCO A FRASCO' in bubblegum pink (#FF8CC0). Below the band, two benefit rows stacked: each a deep magenta circle with a thin white line icon (first: a pair of jeans; second: legs and hips silhouette), a short vertical deep magenta divider line, and two-line bold sentence-case text in deep magenta. MIDDLE-RIGHT, large, its top overlapping the right end of the band: the product. Use the attached product image as the only source of truth for the product, and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink screw cap printed with a repeating small white 'VITALABH' pattern and a hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN', three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS'. Glossy highlight and soft shadow. BOTTOM: a full-width rounded hot fuchsia (#E6177F) band; on its left two lines of white bold uppercase text, a thin white vertical divider, and on its right a big white bold uppercase value. A bubblegum pink ribbon centered and overlapping the bottom edge of the band with deep magenta bold italic uppercase text and small white spark lines at each side. Include only these elements and texts.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- label (below left figure): "FRASCO 1" — Poppins Bold uppercase, white on deep magenta rounded label
+- label (below middle figure): "FRASCO 2" — Poppins Bold uppercase, white on deep magenta rounded label
+- label (below right figure): "FRASCO 3" — Poppins Bold uppercase, white on deep magenta rounded label
+- main headline (headline band, first part): "TU CAMBIO," — Poppins Black uppercase, large, white
+- main headline (headline band, second part): "FRASCO A FRASCO" — Poppins Black uppercase, large, bubblegum pink
+- benefit (first benefit row): "Empiezas a llenar tus jeans" — Poppins Bold sentence case, two lines, deep magenta
+- benefit (second benefit row): "Piernas con más volumen natural" — Poppins Bold sentence case, two lines, deep magenta
+- treatment text (bottom band, left, two lines): "TRATAMIENTO COMPLETO X3 FRASCOS" — Poppins Bold uppercase, white, second line larger
+- treatment value (bottom band, right of the divider): "90 DÍAS" — Poppins Black uppercase, very large, white
+- ribbon (ribbon over the bottom edge of the band): "SIN EFECTO REBOTE" — Poppins Bold italic uppercase, deep magenta on bubblegum pink
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, aguaje orange #D9572B only for fruit accents.
+
+MANDATORY ELEMENTS:
+- Pale blush pink background
+- Three side-view photos of the same ultra-realistic woman lifting her top, in short nude shorts, with a progressive, visible but natural gain in glute, hip and thigh volume
+- Three deep magenta rounded stage labels
+- Wide deep magenta headline band
+- Two benefit rows with deep magenta icon circles and vertical dividers
+- The real product bottle from the attached photo on the right
+- Full-width hot fuchsia treatment band with a white vertical divider
+- Bubblegum pink ribbon with spark lines over the band's bottom edge
+
+STRICT EXCLUSIONS:
+- No price, currency symbol or discount
+- No brand logos other than the label on the bottle; no other supplement brands
+- No 'premium' seal, stars, ratings or testimonials
+- No illustration or drawing style; the three women must be real photographs
+- No cartoonish, exaggerated or surgical-looking body proportions; no nudity
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any brand logo other than the label printed on the bottle
+- Do not add: Price, currency, discount or offer badge
+- Do not add: Stars, ratings, testimonials or trust seals
+- Do not add: CTA button
+- Do not add: Extra benefits, icons or text lines beyond those listed
+- Do not add: A 'premium' seal on the bottle
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

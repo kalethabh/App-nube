@@ -1,0 +1,44 @@
+
+=== Contexto para rehacer la toma 10 ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:        A
+    duracion:    3.4s
+    referencias: protagonista_despues
+
+  QUE TIENE QUE TRANSMITIR ESTA TOMA:
+    linea:       "y el jean ya no le queda igual, no sé cómo."
+    viene de:    "por lo bien que le funcionó. Y eso que apenas va en su tercer frasco,"
+    lleva a:     "Hasta sus primas le empezaron a preguntar."
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen inicial ---
+Vertical 9:16. Pixar-Disney style 3D animation render, the woman from the reference image (Daniela): an adult Afro-Colombian woman in her late 20s with adult facial features, warm deep-brown satin skin with a tiny dark beauty mark on her left cheekbone, a huge voluminous mane of tight spiral curls past her shoulders, dark brown with copper-auburn highlights, small gold hoop earrings, a turquoise beaded bracelet on her right wrist, wearing a fitted cream off-white ribbed short-sleeve crew-neck t-shirt tucked into high-waisted light-wash blue skinny jeans, with a curvy hourglass figure: small waist, wide rounded hips and thick full thighs filling the jean legs. She stands facing the camera at a family party in a cozy home at night: colorful balloons, paper streamers, warm string lights and glowing lamps, a wooden table with snacks and blurred relatives in the background. She holds the waistband of her jeans with both hands and looks down at it, surprised, lips parted. Framed from her head to mid-thigh, eye level, warm lamp light, Pixar-Disney style 3D animation render, high-end 3D animated feature film look, soft subsurface scattering, glossy expressive eyes with catchlights, stylized curl detail, gentle shallow depth of field, muted warm creamy color grade with low-to-medium saturation and soft contrast, clean and sharp, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- video ---
+Pixar-Disney style 3D animation, image-to-video from the shot above, 3.4s. Vertical 9:16.
+Camera: a gentle tilt down to her hands on the jean waistband and back up to her face, always from her head to mid-thigh at most.
+Motion: she tugs the snug waistband with both hands, puzzled, then looks up with a sly delighted grin.
+Lighting: warm party lamp light, the balloons sway softly.
+She does not talk: no lip-sync, her mouth moves only with her expressions.
+
+  --- referencia "producto" (producto) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D render of the exact product in the reference photo, the bottle alone without the hand: a cylindrical glossy-black plastic supplement bottle about twice as tall as it is wide, with straight sides, short rounded shoulders and a wide magenta-pink screw cap about two-thirds the width of the body, covered by a pink shrink seal printed with small white 'VITALABH' logos; a black label that fades into a magenta-pink band at the bottom. Not a slim bottle and not a flat jar. Same shape, same proportions, same label design, colors and text as the photo. The label text must be copied exactly, letter for letter, from the photo, with no words changed, added or removed: 'VITALABH', 'AGUAJE', 'COMPLEX 3 EN 1', 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', 'A base de Aguaje, Fenogreco y Maca Negra', 'TRIPLE ACCIÓN', '200 mg AGUAJE', '400 mg FENOGRECO', '200 mg MACA NEGRA', '60 CÁPSULAS'. The bottle is closed. Rendered as a clean stylized 3D object standing upright on a warm oak bedside table in a softly sunlit cream bedroom, with a soft contact shadow, soft warm cinematic lighting, shallow depth of field, matte finish, no rainbow, no prism light, no lens flare. Only the closed bottle: no capsules, no pills, no hand, nothing else around it. The label text must be as sharp and legible as in the photo, reading correctly, never mirrored. The image is full-bleed and fills the entire frame edge to edge: no frame, no border, no vignette. No additional text, captions or watermarks.
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, altered label text, misspelled words, invented ingredients
+
+  --- referencia "protagonista_despues" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animated character reference: Daniela, an adult Afro-Colombian woman of 28 with adult facial features, a round sweet face with high cheekbones, big warm brown eyes with long lashes, soft arched brows, a small rounded nose and full lips with a wide confident smile, warm deep-brown satin skin with a tiny dark beauty mark on her left cheekbone, a huge voluminous mane of tight spiral curls past her shoulders, dark brown with copper-auburn highlights, small gold hoop earrings and a turquoise beaded bracelet on her right wrist. Curvy hourglass figure, clearly visible: her hips are about one and a half times wider than her small waist, round full hips that curve out well past her waist, thick full thighs that fill the jean legs and touch at the top. Wearing a fitted cream off-white ribbed short-sleeve crew-neck t-shirt tucked into high-waisted light-wash blue skinny jeans and white sneakers. Standing in a relaxed pose, three-quarter view turned slightly to the side so her silhouette reads clearly, face toward the camera, full body visible from head to feet, soft warm cinematic lighting, expressive Pixar face with subsurface scattering, plain warm cream-toned soft wall background with subtle texture in the same render style. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. No text, captions or watermarks.
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- referencia "protagonista_antes" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animated character reference: Daniela, the same woman as the first reference image; use the first reference image ONLY for her face, hair, skin, earrings and bracelet, never for her body or her jeans. An adult Afro-Colombian woman of 28 with adult facial features, a round sweet face with high cheekbones, big warm brown eyes with long lashes, soft arched brows, a small rounded nose and full lips, warm deep-brown satin skin with a tiny dark beauty mark on her left cheekbone, a huge voluminous mane of tight spiral curls past her shoulders, dark brown with copper-auburn highlights, small gold hoop earrings and a turquoise beaded bracelet on her right wrist. Slim straight figure, clearly visible: her hips are no wider than her waist, one straight flat vertical line from her waist down the side of her body, thin straight thighs with a wide gap between them. Wearing the same fitted cream off-white ribbed short-sleeve crew-neck t-shirt tucked into high-waisted dark indigo-wash skinny jeans one size too big, loose and baggy on her thin legs, a baggy fold of extra denim at the back of the legs, drooping back pockets, and white sneakers. Standing in a relaxed pose with a slightly unsure smile, three-quarter view turned slightly to the side so her silhouette reads clearly, face toward the camera, full body visible from head to feet, soft warm cinematic lighting, expressive Pixar face with subsurface scattering, plain warm cream-toned soft wall background with subtle texture in the same render style. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. No text, captions or watermarks.
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion.
+

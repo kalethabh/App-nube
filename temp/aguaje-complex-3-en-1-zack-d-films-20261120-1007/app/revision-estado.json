@@ -1,0 +1,42 @@
+{
+  "sesion": {
+    "uuid": "cc175163-1c4b-45b4-b287-397df1582a50",
+    "intentos": 1,
+    "hecha": true,
+    "fecha": "2026-11-20T16:00:01.705Z",
+    "ok": true
+  },
+  "pedidos": [
+    {
+      "toma": 10,
+      "motivo": "La línea habla de la grasa que se iba a la barriga, pero la imagen muestra un abdomen plano y caderas muy curvas: no se entiende el antes.",
+      "prompts": {
+        "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. On a wooden beach boardwalk at golden sunset, with the sea and palm trees softly blurred behind, the same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, stands in a strict side profile facing right, framed from her head to her knees. She wears a short pink sports crop top and loose grey jogger pants with a drawstring waist. She has her slim straight figure: narrow flat hips barely wider than her waist, a flat seat, thin straight thighs, and a small soft rounded tummy pooch that sticks out in front just above the waistband, clearly visible in profile. She looks down at her tummy with a slightly annoyed pout, one hand resting on it. A stream of small glowing golden sparkles flows from the air into her tummy and gathers there as a soft golden glow. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, pregnant belly, flat toned abs, six pack, curvy hips, wide hips, big round seat, thick thighs, arrows",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: the golden sparkles keep flowing into her tummy and the soft glow there pulses, while she pats her tummy, sighs and rolls her eyes playfully; her hips and seat stay flat.\nLighting: warm cinematic glow"
+      },
+      "fase": "aviso",
+      "resultado": "aviso"
+    },
+    {
+      "toma": 28,
+      "motivo": "El chat muestra la foto de una mujer, no la del ex, y la mano sale con una manga de suéter que no es de la protagonista.",
+      "prompts": {
+        "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short, a still frame from a Pixar animated feature film. Over-the-shoulder close-up inside a parked car at night, warm city lights blurred into bokeh through the windshield. A woman's hand with warm tan skin and a bare forearm, no sleeve, holds a smartphone up in front of the steering wheel. The phone screen shows a simple chat app: at the top a round contact photo of a cartoon adult man with short dark hair, light stubble and a sheepish grin, and below it one grey incoming message bubble on the left side, filled with soft blurred unreadable lines, plus a small cartoon emoji of a waving hand. Warm cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, readable text, letters, logos, woman in the contact photo, sweater sleeve, green outgoing bubble",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 2s. Vertical 9:16.\nCamera: slow gentle push-in toward the phone screen.\nMotion: a second grey message bubble pops up under the first one with a soft bounce, and three little typing dots appear and bounce below it.\nLighting: warm cinematic glow"
+      },
+      "fase": "aviso",
+      "resultado": "aviso"
+    },
+    {
+      "toma": 35,
+      "motivo": "Hay demasiados frascos pequeños y sus etiquetas salen deformes o con letras rotas; además no se ve la entrega en casa que dice la línea.",
+      "prompts": {
+        "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. At the open front door of a colorful Latin American house with a terracotta step, potted flowers and warm afternoon sun, a smiling adult delivery man in a plain blue cap and plain blue polo shirt with no logos stands outside, and a happy adult Latina woman with curly brown hair and a yellow blouse stands in the doorway. Between them, in the center foreground and close to the camera, the delivery man's hand passes ONE closed AGUAJE COMPLEX 3 EN 1 bottle from the product reference image into the woman's open hands, label facing the camera, about 40 percent of the frame height: a cylindrical bottle about 1.8 times taller than wide with straight sides and rounded shoulders, a short neck and a wide glossy hot-pink screw cap almost as wide as the bottle, a black label with the big white words AGUAJE COMPLEX 3 EN 1 and pink accents, and a hot-pink base band; not a slim bottle and not a flat jar; the label reads correctly, never mirrored; matte, no rainbow, no prism light, no lens flare. Fingers hold it by the sides without covering the label; no other bottles in the scene; no capsules, no pills. The woman beams with joy. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, capsules, pills, open bottle, amber pharmacy bottles, many bottles, second bottle, shelves of bottles, cardboard box with print, logos on clothes, letters on signs",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: the delivery man places the closed bottle in her hands, she hugs it to her chest with a happy little hop and waves thank you while he tips his cap and smiles. No loose capsules are visible and the bottle stays closed; the label always reads correctly, never mirrored.\nLighting: warm cinematic glow"
+      },
+      "fase": "aviso",
+      "resultado": "aviso"
+    }
+  ],
+  "descartados": []
+}

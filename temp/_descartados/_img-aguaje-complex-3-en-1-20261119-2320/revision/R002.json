@@ -1,0 +1,18 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V01_1x1",
+      "ok": true,
+      "problemas": []
+    },
+    {
+      "pieza": "V02_1x1",
+      "ok": false,
+      "problemas": [
+        "En el tercer círculo el cuerpo de la mujer cambia: se ve con más busto y con escote marcado que en el segundo. Parece un antes y después del cuerpo, y eso estaba prohibido. Además puede hacer que la red rechace el anuncio.",
+        "Ese círculo pone la atención en el pecho y no en la cara ni en el jean, que es lo que dice el texto «Segura con tu jean»."
+      ],
+      "correccion_en": "In circle 3, keep exactly the same body shape and bust size as in circles 1 and 2 (no visible body change). Dress her in a modest white fitted crew-neck t-shirt with no cleavage, and frame her waist up so the high-waisted jeans waistband is clearly visible; the focus is her confident smiling face and the jeans."
+    }
+  ]
+}

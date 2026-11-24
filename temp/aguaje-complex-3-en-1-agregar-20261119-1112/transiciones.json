@@ -1,0 +1,10 @@
+{
+  "efectos": {
+    "woosh": "efectos/woosh.mp3",
+    "deep-woosh": "efectos/deep-woosh.mp3"
+  },
+  "puntos": [
+    { "toma": 3, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada de la solución: el médico saca el frasco y lo recomienda" },
+    { "toma": 5, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada del llamado a la acción" }
+  ]
+}

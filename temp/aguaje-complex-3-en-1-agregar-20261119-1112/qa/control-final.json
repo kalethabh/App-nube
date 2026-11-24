@@ -1,0 +1,37 @@
+{
+  "generado": "2026-11-19T17:15:20.809Z",
+  "anuncio": "aguaje-complex-3-en-1-agregar-20261119-1112",
+  "limpio": true,
+  "codigo": 0,
+  "controles": {
+    "ok": true,
+    "motivo": null,
+    "congelado": true,
+    "movimiento": true,
+    "negro": true
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-3-en-1-agregar-20261119-1112_9x16_con-subtitulos.mp4",
+      "fecha": "2026-11-19T17:15:20.014Z",
+      "deEsteMontaje": true,
+      "duracion": 37.312,
+      "fps": 30,
+      "negros": [],
+      "congelados": []
+    }
+  ],
+  "musica": {
+    "medida": false,
+    "motivo": "se entrego solo la version completa: la version sin musica sale del editor"
+  },
+  "defectos": [],
+  "avisos": [],
+  "noMedido": [],
+  "soloCompleta": true,
+  "versionesEsperadas": [
+    "con-subtitulos"
+  ],
+  "rerenderAyuda": false
+}

@@ -1,0 +1,973 @@
+{
+  "video": "original.mp4",
+  "duracion": 287.14,
+  "formato": "720x1280",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 26.47,
+      "duracion": 26.47,
+      "fotograma": "tomas/toma-01.jpg",
+      "tira": "tomas/movimiento/tira-01.jpg",
+      "imagen": {
+        "brillo": 104.5,
+        "luz": "media",
+        "saturacion": 14.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.9,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Nina ¿Sí? Ven acá un segundo. Ay. Mete la barriga, bota el aire. Espérate, déjame probar el ganchito de arriba primero. Ay, Dios mío. Para, para. Ya paré. Esto me quedaba hace tres meses. Yo sé. Quince minutos, muchachas. Me caso en quince minutos con un vestido que no cierra.",
+      "eventos": [
+        "[resopla]",
+        "[suspira]",
+        "[llaman a la puerta]"
+      ],
+      "palabras_por_segundo": 1.89
+    },
+    {
+      "n": 2,
+      "desde": 26.47,
+      "hasta": 28.57,
+      "duracion": 2.1,
+      "fotograma": "tomas/toma-02.jpg",
+      "tira": "tomas/movimiento/tira-02.jpg",
+      "imagen": {
+        "brillo": 29.1,
+        "luz": "oscura",
+        "saturacion": 1.6,
+        "color": "apagado",
+        "temperatura": "neutra",
+        "movimiento": 15.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 3,
+      "desde": 28.57,
+      "hasta": 38.6,
+      "duracion": 10.03,
+      "fotograma": "tomas/toma-03.jpg",
+      "tira": "tomas/movimiento/tira-03.jpg",
+      "imagen": {
+        "brillo": 134.5,
+        "luz": "media",
+        "saturacion": 8.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Ay, mi amor, te ves bellísima. ¿Tú ta bien? Sí, bien.",
+      "eventos": [],
+      "palabras_por_segundo": 1.1
+    },
+    {
+      "n": 4,
+      "desde": 38.6,
+      "hasta": 50.07,
+      "duracion": 11.47,
+      "fotograma": "tomas/toma-04.jpg",
+      "tira": "tomas/movimiento/tira-04.jpg",
+      "imagen": {
+        "brillo": 52.6,
+        "luz": "oscura",
+        "saturacion": 11.5,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 5,
+      "desde": 50.07,
+      "hasta": 54.1,
+      "duracion": 4.03,
+      "fotograma": "tomas/toma-05.jpg",
+      "tira": "tomas/movimiento/tira-05.jpg",
+      "imagen": {
+        "brillo": 91.7,
+        "luz": "media",
+        "saturacion": 10.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Tengo que hacer algo con esto.",
+      "eventos": [
+        "[resopla]"
+      ],
+      "palabras_por_segundo": 1.49
+    },
+    {
+      "n": 6,
+      "desde": 54.1,
+      "hasta": 58.47,
+      "duracion": 4.37,
+      "fotograma": "tomas/toma-06.jpg",
+      "tira": "tomas/movimiento/tira-06.jpg",
+      "imagen": {
+        "brillo": 104.8,
+        "luz": "media",
+        "saturacion": 12.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 31.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[resopla]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 7,
+      "desde": 58.47,
+      "hasta": 62.43,
+      "duracion": 3.96,
+      "fotograma": "tomas/toma-07.jpg",
+      "tira": "tomas/movimiento/tira-07.jpg",
+      "imagen": {
+        "brillo": 97.5,
+        "luz": "media",
+        "saturacion": 17.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [
+        "[resopla]",
+        "[traga]",
+        "[música tranquila]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 8,
+      "desde": 62.43,
+      "hasta": 65.27,
+      "duracion": 2.84,
+      "fotograma": "tomas/toma-08.jpg",
+      "tira": "tomas/movimiento/tira-08.jpg",
+      "imagen": {
+        "brillo": 110.1,
+        "luz": "media",
+        "saturacion": 13.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [
+        "[música tranquila]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 9,
+      "desde": 65.27,
+      "hasta": 68.17,
+      "duracion": 2.9,
+      "fotograma": "tomas/toma-09.jpg",
+      "tira": "tomas/movimiento/tira-09.jpg",
+      "imagen": {
+        "brillo": 81.3,
+        "luz": "media",
+        "saturacion": 20.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 14.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 10,
+      "desde": 68.17,
+      "hasta": 70.2,
+      "duracion": 2.03,
+      "fotograma": "tomas/toma-10.jpg",
+      "tira": "tomas/movimiento/tira-10.jpg",
+      "imagen": {
+        "brillo": 16.5,
+        "luz": "oscura",
+        "saturacion": 0,
+        "color": "apagado",
+        "temperatura": "neutra",
+        "movimiento": 0.1,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 11,
+      "desde": 70.2,
+      "hasta": 72.53,
+      "duracion": 2.33,
+      "fotograma": "tomas/toma-11.jpg",
+      "tira": "tomas/movimiento/tira-11.jpg",
+      "imagen": {
+        "brillo": 99.2,
+        "luz": "media",
+        "saturacion": 22.5,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 0.9,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "Tú has estado callada toda la semana.",
+      "eventos": [],
+      "palabras_por_segundo": 3
+    },
+    {
+      "n": 12,
+      "desde": 72.53,
+      "hasta": 76.5,
+      "duracion": 3.97,
+      "fotograma": "tomas/toma-12.jpg",
+      "tira": "tomas/movimiento/tira-12.jpg",
+      "imagen": {
+        "brillo": 102,
+        "luz": "media",
+        "saturacion": 15.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Ayer me volví a probar el vestido. Sigo plana como una tabla.",
+      "eventos": [],
+      "palabras_por_segundo": 3.02
+    },
+    {
+      "n": 13,
+      "desde": 76.5,
+      "hasta": 79.1,
+      "duracion": 2.6,
+      "fotograma": "tomas/toma-13.jpg",
+      "tira": "tomas/movimiento/tira-13.jpg",
+      "imagen": {
+        "brillo": 83,
+        "luz": "media",
+        "saturacion": 16.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.5,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Rachel, ¿hace cuánto nos conocemos?",
+      "eventos": [],
+      "palabras_por_segundo": 1.92
+    },
+    {
+      "n": 14,
+      "desde": 79.1,
+      "hasta": 81.07,
+      "duracion": 1.97,
+      "fotograma": "tomas/toma-14.jpg",
+      "tira": "tomas/movimiento/tira-14.jpg",
+      "imagen": {
+        "brillo": 98.9,
+        "luz": "media",
+        "saturacion": 15.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Desde los nueve años.",
+      "eventos": [],
+      "palabras_por_segundo": 2.03
+    },
+    {
+      "n": 15,
+      "desde": 81.07,
+      "hasta": 87.03,
+      "duracion": 5.96,
+      "fotograma": "tomas/toma-15.jpg",
+      "tira": "tomas/movimiento/tira-15.jpg",
+      "imagen": {
+        "brillo": 99.4,
+        "luz": "media",
+        "saturacion": 22.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Tú sabes que yo no jugaría contigo ahorita. Y...",
+      "eventos": [],
+      "palabras_por_segundo": 1.51
+    },
+    {
+      "n": 16,
+      "desde": 87.03,
+      "hasta": 88.43,
+      "duracion": 1.4,
+      "fotograma": "tomas/toma-16.jpg",
+      "tira": "tomas/movimiento/tira-16.jpg",
+      "imagen": {
+        "brillo": 91.4,
+        "luz": "media",
+        "saturacion": 17,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 22.3,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Esto no son los batidos,",
+      "eventos": [],
+      "palabras_por_segundo": 3.57
+    },
+    {
+      "n": 17,
+      "desde": 88.43,
+      "hasta": 89.9,
+      "duracion": 1.47,
+      "fotograma": "tomas/toma-17.jpg",
+      "tira": "tomas/movimiento/tira-17.jpg",
+      "imagen": {
+        "brillo": 81.7,
+        "luz": "media",
+        "saturacion": 24.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.9,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "esto no es la faja.",
+      "eventos": [],
+      "palabras_por_segundo": 3.4
+    },
+    {
+      "n": 18,
+      "desde": 89.9,
+      "hasta": 91.23,
+      "duracion": 1.33,
+      "fotograma": "tomas/toma-18.jpg",
+      "tira": "tomas/movimiento/tira-18.jpg",
+      "imagen": {
+        "brillo": 102.8,
+        "luz": "media",
+        "saturacion": 16.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Qué es?",
+      "eventos": [],
+      "palabras_por_segundo": 1.5
+    },
+    {
+      "n": 19,
+      "desde": 91.23,
+      "hasta": 107.4,
+      "duracion": 16.17,
+      "fotograma": "tomas/toma-19.jpg",
+      "tira": "tomas/movimiento/tira-19.jpg",
+      "imagen": {
+        "brillo": 101.3,
+        "luz": "media",
+        "saturacion": 25.7,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Fitoestrógenos. Porque si quieres un culo grande, no se trata de comer más ni de entrenar más duro. Hay una señal, el estrógeno, que decide dónde tu cuerpo pone el peso. Caderas, muslos, cola. Algunas nunca tuvimos esa señal fuerte. Un gotero no me va a poner el culo grande. Eso es genética.",
+      "eventos": [],
+      "palabras_por_segundo": 3.28
+    },
+    {
+      "n": 20,
+      "desde": 107.4,
+      "hasta": 119.4,
+      "duracion": 12,
+      "fotograma": "tomas/toma-20.jpg",
+      "tira": "tomas/movimiento/tira-20.jpg",
+      "imagen": {
+        "brillo": 93,
+        "luz": "media",
+        "saturacion": 13.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Rachel, yo te conozco desde los nueve. Tú sabes cómo era yo toda la niñez, plana como una tabla. Maca root, fenigreco, ashwagandha me cambiaron eso en seis semanas. No el gym, no un BPE, fitoestrógenos.",
+      "eventos": [],
+      "palabras_por_segundo": 3
+    },
+    {
+      "n": 21,
+      "desde": 119.4,
+      "hasta": 121.13,
+      "duracion": 1.73,
+      "fotograma": "tomas/toma-21.jpg",
+      "tira": "tomas/movimiento/tira-21.jpg",
+      "imagen": {
+        "brillo": 122.9,
+        "luz": "media",
+        "saturacion": 15.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Seis semanas no es suficiente.",
+      "eventos": [],
+      "palabras_por_segundo": 2.89
+    },
+    {
+      "n": 22,
+      "desde": 121.13,
+      "hasta": 123.63,
+      "duracion": 2.5,
+      "fotograma": "tomas/toma-22.jpg",
+      "tira": "tomas/movimiento/tira-22.jpg",
+      "imagen": {
+        "brillo": 91.7,
+        "luz": "media",
+        "saturacion": 13.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Es más de lo que tú crees. Confía en mí.",
+      "eventos": [
+        "[abre el bote]"
+      ],
+      "palabras_por_segundo": 4
+    },
+    {
+      "n": 23,
+      "desde": 123.63,
+      "hasta": 128.3,
+      "duracion": 4.67,
+      "fotograma": "tomas/toma-23.jpg",
+      "tira": "tomas/movimiento/tira-23.jpg",
+      "imagen": {
+        "brillo": 51.4,
+        "luz": "oscura",
+        "saturacion": 13.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [
+        "[abre el bote]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 24,
+      "desde": 128.3,
+      "hasta": 131.1,
+      "duracion": 2.8,
+      "fotograma": "tomas/toma-24.jpg",
+      "tira": "tomas/movimiento/tira-24.jpg",
+      "imagen": {
+        "brillo": 128.6,
+        "luz": "media",
+        "saturacion": 20.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "",
+      "eventos": [
+        "[abre el bote]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 25,
+      "desde": 131.1,
+      "hasta": 134.97,
+      "duracion": 3.87,
+      "fotograma": "tomas/toma-25.jpg",
+      "tira": "tomas/movimiento/tira-25.jpg",
+      "imagen": {
+        "brillo": 93.1,
+        "luz": "media",
+        "saturacion": 12.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 8.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[abre el bote]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 26,
+      "desde": 134.97,
+      "hasta": 141.13,
+      "duracion": 6.16,
+      "fotograma": "tomas/toma-26.jpg",
+      "tira": "tomas/movimiento/tira-26.jpg",
+      "imagen": {
+        "brillo": 126.6,
+        "luz": "media",
+        "saturacion": 14.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 11.3,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[abre el bote]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 27,
+      "desde": 141.13,
+      "hasta": 153.17,
+      "duracion": 12.04,
+      "fotograma": "tomas/toma-27.jpg",
+      "tira": "tomas/movimiento/tira-27.jpg",
+      "imagen": {
+        "brillo": 76.4,
+        "luz": "media",
+        "saturacion": 17.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.5,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Espérate, ¿tú te has mirado últimamente? Te ves como otra persona. Digo, ¿sí? No, digo mirarte de verdad.",
+      "eventos": [
+        "[abre el bote]",
+        "[música tranquila]",
+        "[ríe]"
+      ],
+      "palabras_por_segundo": 1.5
+    },
+    {
+      "n": 28,
+      "desde": 153.17,
+      "hasta": 157.33,
+      "duracion": 4.16,
+      "fotograma": "tomas/toma-28.jpg",
+      "tira": "tomas/movimiento/tira-28.jpg",
+      "imagen": {
+        "brillo": 106.5,
+        "luz": "media",
+        "saturacion": 11.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "No es que no te sirva, es que te queda demasiado bien.",
+      "eventos": [
+        "[resopla]"
+      ],
+      "palabras_por_segundo": 2.88
+    },
+    {
+      "n": 29,
+      "desde": 157.33,
+      "hasta": 161.83,
+      "duracion": 4.5,
+      "fotograma": "tomas/toma-29.jpg",
+      "tira": "tomas/movimiento/tira-29.jpg",
+      "imagen": {
+        "brillo": 68.3,
+        "luz": "oscura",
+        "saturacion": 18.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Tengo quince minutos y no tengo vestido.",
+      "eventos": [
+        "[resopla]"
+      ],
+      "palabras_por_segundo": 1.56
+    },
+    {
+      "n": 30,
+      "desde": 161.83,
+      "hasta": 167.17,
+      "duracion": 5.34,
+      "fotograma": "tomas/toma-30.jpg",
+      "tira": "tomas/movimiento/tira-30.jpg",
+      "imagen": {
+        "brillo": 68.3,
+        "luz": "oscura",
+        "saturacion": 12.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Tienes quince minutos y el cuerpo que siempre quisiste. Lo del vestido lo resolvemos.",
+      "eventos": [
+        "[abre el bote]"
+      ],
+      "palabras_por_segundo": 2.62
+    },
+    {
+      "n": 31,
+      "desde": 167.17,
+      "hasta": 170.37,
+      "duracion": 3.2,
+      "fotograma": "tomas/toma-31.jpg",
+      "tira": "tomas/movimiento/tira-31.jpg",
+      "imagen": {
+        "brillo": 109.5,
+        "luz": "media",
+        "saturacion": 16.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [
+        "[abre el bote]",
+        "[suspira]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 32,
+      "desde": 170.37,
+      "hasta": 173.47,
+      "duracion": 3.1,
+      "fotograma": "tomas/toma-32.jpg",
+      "tira": "tomas/movimiento/tira-32.jpg",
+      "imagen": {
+        "brillo": 72.7,
+        "luz": "media",
+        "saturacion": 10.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [
+        "[suspira]",
+        "[música de tensión]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 33,
+      "desde": 173.47,
+      "hasta": 177.43,
+      "duracion": 3.96,
+      "fotograma": "tomas/toma-33.jpg",
+      "tira": "tomas/movimiento/tira-33.jpg",
+      "imagen": {
+        "brillo": 105.4,
+        "luz": "media",
+        "saturacion": 12.5,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 10,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[música de tensión]",
+        "[murmullo]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 34,
+      "desde": 177.43,
+      "hasta": 178.87,
+      "duracion": 1.44,
+      "fotograma": "tomas/toma-34.jpg",
+      "tira": "tomas/movimiento/tira-34.jpg",
+      "imagen": {
+        "brillo": 52.1,
+        "luz": "oscura",
+        "saturacion": 13.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1.4,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "",
+      "eventos": [
+        "[murmullo]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 35,
+      "desde": 178.87,
+      "hasta": 180.37,
+      "duracion": 1.5,
+      "fotograma": "tomas/toma-35.jpg",
+      "tira": "tomas/movimiento/tira-35.jpg",
+      "imagen": {
+        "brillo": 71,
+        "luz": "media",
+        "saturacion": 18.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [
+        "[murmullo]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 36,
+      "desde": 180.37,
+      "hasta": 182.33,
+      "duracion": 1.96,
+      "fotograma": "tomas/toma-36.jpg",
+      "tira": "tomas/movimiento/tira-36.jpg",
+      "imagen": {
+        "brillo": 75.2,
+        "luz": "media",
+        "saturacion": 18.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [
+        "[murmullo]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 37,
+      "desde": 182.33,
+      "hasta": 183.87,
+      "duracion": 1.54,
+      "fotograma": "tomas/toma-37.jpg",
+      "tira": "tomas/movimiento/tira-37.jpg",
+      "imagen": {
+        "brillo": 67.9,
+        "luz": "oscura",
+        "saturacion": 15,
+        "color": "apagado",
+        "temperatura": "neutra",
+        "movimiento": 3.5,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [
+        "[murmullo]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 38,
+      "desde": 183.87,
+      "hasta": 186.47,
+      "duracion": 2.6,
+      "fotograma": "tomas/toma-38.jpg",
+      "tira": "tomas/movimiento/tira-38.jpg",
+      "imagen": {
+        "brillo": 87.3,
+        "luz": "media",
+        "saturacion": 17.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 8.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "¿Qué le pasó?",
+      "eventos": [
+        "[murmullo]",
+        "[suspira]"
+      ],
+      "palabras_por_segundo": 1.15
+    },
+    {
+      "n": 39,
+      "desde": 186.47,
+      "hasta": 197.97,
+      "duracion": 11.5,
+      "fotograma": "tomas/toma-39.jpg",
+      "tira": "tomas/movimiento/tira-39.jpg",
+      "imagen": {
+        "brillo": 96.1,
+        "luz": "media",
+        "saturacion": 14.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 18.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[suspira]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 40,
+      "desde": 197.97,
+      "hasta": 204.83,
+      "duracion": 6.86,
+      "fotograma": "tomas/toma-40.jpg",
+      "tira": "tomas/movimiento/tira-40.jpg",
+      "imagen": {
+        "brillo": 90.1,
+        "luz": "media",
+        "saturacion": 20.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 11,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[suspira]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 41,
+      "desde": 204.83,
+      "hasta": 224.87,
+      "duracion": 20.04,
+      "fotograma": "tomas/toma-41.jpg",
+      "tira": "tomas/movimiento/tira-41.jpg",
+      "imagen": {
+        "brillo": 137.4,
+        "luz": "media",
+        "saturacion": 16.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Mira, yo no sé dónde tú estás ahorita. Tal vez te da miedo verte plana como una tabla en una boda. Tal vez estás cansada de mirarte en el espejo y no reconocer a la persona que ves. Tal vez has gastado cientos, hasta miles, en batidos y fajas que te prometieron to y no te dieron na.",
+      "eventos": [
+        "[suspira]"
+      ],
+      "palabras_por_segundo": 2.89
+    },
+    {
+      "n": 42,
+      "desde": 224.87,
+      "hasta": 242.93,
+      "duracion": 18.06,
+      "fotograma": "tomas/toma-42.jpg",
+      "tira": "tomas/movimiento/tira-42.jpg",
+      "imagen": {
+        "brillo": 112.7,
+        "luz": "media",
+        "saturacion": 18,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "No dejes que otra marca te vende otro invento que no arregla na. Las calorías de esos batidos, tu cuerpo no sabe pa dónde mandarlas. Se quedan donde sea, casi siempre en la vajija. Estás viendo tu dinero desaparecer.",
+      "eventos": [],
+      "palabras_por_segundo": 2.16
+    },
+    {
+      "n": 43,
+      "desde": 242.93,
+      "hasta": 265,
+      "duracion": 22.07,
+      "fotograma": "tomas/toma-43.jpg",
+      "tira": "tomas/movimiento/tira-43.jpg",
+      "imagen": {
+        "brillo": 129.1,
+        "luz": "media",
+        "saturacion": 14.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "AMUA Vital Drops es diferente. Fitoestrógenos, maca root, fenogrejo, ashwagandha, que trabajan con la señal de tu propio cuerpo diciéndole que mande la grasa a tus caderas, tus muslos, tu cola, no a tu barriga. Por eso funciona y por eso lo ves en tan solo seis semanas.",
+      "eventos": [],
+      "palabras_por_segundo": 2.17
+    },
+    {
+      "n": 44,
+      "desde": 265,
+      "hasta": 287.14,
+      "duracion": 22.14,
+      "fotograma": "tomas/toma-44.jpg",
+      "tira": "tomas/movimiento/tira-44.jpg",
+      "imagen": {
+        "brillo": 120.7,
+        "luz": "media",
+        "saturacion": 17.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Nina me dijo que ya casi se acaban otra vez. Te dejé el link abajo. Hay garantía de devolución de noventa días. Pero sinceramente, cuando tu vestido empieza a quedarte diferente, probablemente no la vas a necesitar. Seis semanas. Eso fue todo lo que me tomó",
+      "eventos": [
+        "[música suave]"
+      ],
+      "palabras_por_segundo": 2.08
+    }
+  ],
+  "texto": "Nina ¿Sí? Ven acá un segundo. Ay. Mete la barriga, bota el aire. Espérate, déjame probar el ganchito de arriba primero. Ay, Dios mío. Para, para. Ya paré. Esto me quedaba hace tres meses. Yo sé. Quince minutos, muchachas. Me caso en quince minutos con un vestido que no cierra. Ay, mi amor, te ves bellísima. ¿Tú ta bien? Sí, bien. Tengo que hacer algo con esto. Tú has estado callada toda la semana. Ayer me volví a probar el vestido. Sigo plana como una tabla. Rachel, ¿hace cuánto nos conocemos? Desde los nueve años. Tú sabes que yo no jugaría contigo ahorita. Y... Esto no son los batidos, esto no es la faja. ¿Qué es? Fitoestrógenos. Porque si quieres un culo grande, no se trata de comer más ni de entrenar más duro. Hay una señal, el estrógeno, que decide dónde tu cuerpo pone el peso. Caderas, muslos, cola. Algunas nunca tuvimos esa señal fuerte. Un gotero no me va a poner el culo grande. Eso es genética. Rachel, yo te conozco desde los nueve. Tú sabes cómo era yo toda la niñez, plana como una tabla. Maca root, fenigreco, ashwagandha me cambiaron eso en seis semanas. No el gym, no un BPE, fitoestrógenos. Seis semanas no es suficiente. Es más de lo que tú crees. Confía en mí. Espérate, ¿tú te has mirado últimamente? Te ves como otra persona. Digo, ¿sí? No, digo mirarte de verdad. No es que no te sirva, es que te queda demasiado bien. Tengo quince minutos y no tengo vestido. Tienes quince minutos y el cuerpo que siempre quisiste. Lo del vestido lo resolvemos. ¿Qué le pasó? Mira, yo no sé dónde tú estás ahorita. Tal vez te da miedo verte plana como una tabla en una boda. Tal vez estás cansada de mirarte en el espejo y no reconocer a la persona que ves. Tal vez has gastado cientos, hasta miles, en batidos y fajas que te prometieron to y no te dieron na. No dejes que otra marca te vende otro invento que no arregla na. Las calorías de esos batidos, tu cuerpo no sabe pa dónde mandarlas. Se quedan donde sea, casi siempre en la vajija. Estás viendo tu dinero desaparecer. AMUA Vital Drops es diferente. Fitoestrógenos, maca root, fenogrejo, ashwagandha, que trabajan con la señal de tu propio cuerpo diciéndole que mande la grasa a tus caderas, tus muslos, tu cola, no a tu barriga. Por eso funciona y por eso lo ves en tan solo seis semanas. Nina me dijo que ya casi se acaban otra vez. Te dejé el link abajo. Hay garantía de devolución de noventa días. Pero sinceramente, cuando tu vestido empieza a quedarte diferente, probablemente no la vas a necesitar. Seis semanas. Eso fue todo lo que me tomó",
+  "palabras_por_segundo": 1.62,
+  "eventos_de_audio": [
+    "[resopla]",
+    "[suspira]",
+    "[llaman a la puerta]",
+    "[traga]",
+    "[música tranquila]",
+    "[abre el bote]",
+    "[ríe]",
+    "[música de tensión]",
+    "[murmullo]",
+    "[música suave]"
+  ],
+  "voz": {
+    "f0": 190,
+    "genero": "femenina",
+    "variacion": 3.05,
+    "expresiva": true,
+    "ritmo": 1.62,
+    "muestras": 782
+  },
+  "aviso": null
+}

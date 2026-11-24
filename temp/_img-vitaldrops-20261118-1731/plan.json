@@ -1,0 +1,71 @@
+{
+  "producto": "VITALDROPS",
+  "lote": "_img-vitaldrops-20261118-1731",
+  "cantidad": 6,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "plantilla",
+      "plantilla": "foto-tiktok",
+      "angulo": "Dolor",
+      "formato": "Foto casera con subtítulos",
+      "titular": "Como y como y no me engorda nada",
+      "escena": false,
+      "cuadro": "entrada/cuadros/V01.png"
+    },
+    {
+      "id": "V02",
+      "fuente": "plantilla",
+      "plantilla": "antes-despues",
+      "angulo": "Antes y después",
+      "formato": "Antes y después",
+      "titular": "¿Piernas flacas aunque entrenas? Revisa primero cuánto estás comiendo.",
+      "escena": false,
+      "cuadro": "entrada/cuadros/V02.png"
+    },
+    {
+      "id": "V03",
+      "fuente": "plantilla",
+      "plantilla": "foto-titular",
+      "angulo": "Mecanismo",
+      "formato": "Foto con titular",
+      "titular": "Así funciona",
+      "escena": false,
+      "cuadro": "entrada/cuadros/V03.png"
+    },
+    {
+      "id": "V04",
+      "fuente": "plantilla",
+      "plantilla": "foto-tiktok",
+      "angulo": "Prueba social",
+      "formato": "Foto casera con subtítulos",
+      "titular": "—Tenemos que hablar. —¿De qué? —De por qué ya no me miras igual. (Diálogo actuado)",
+      "escena": false,
+      "cuadro": "entrada/cuadros/V04.png"
+    },
+    {
+      "id": "V05",
+      "fuente": "plantilla",
+      "plantilla": "foto-titular",
+      "angulo": "Ingrediente",
+      "formato": "Foto con titular",
+      "titular": "VITALDROPS",
+      "escena": false,
+      "cuadro": "entrada/cuadros/V05.png"
+    },
+    {
+      "id": "V06",
+      "fuente": "plantilla",
+      "plantilla": "foto-titular",
+      "angulo": "Producto",
+      "formato": "Foto con titular",
+      "titular": "VITALDROPS: VITALDROPS",
+      "escena": false,
+      "cuadro": "entrada/cuadros/V06.png"
+    }
+  ],
+  "plantillas": true
+}

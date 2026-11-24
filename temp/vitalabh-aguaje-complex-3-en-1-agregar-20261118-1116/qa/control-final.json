@@ -1,0 +1,37 @@
+{
+  "generado": "2026-11-18T23:18:07.075Z",
+  "anuncio": "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116",
+  "limpio": true,
+  "codigo": 0,
+  "controles": {
+    "ok": true,
+    "motivo": null,
+    "congelado": true,
+    "movimiento": true,
+    "negro": true
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116_9x16_con-subtitulos.mp4",
+      "fecha": "2026-11-18T23:18:05.407Z",
+      "deEsteMontaje": true,
+      "duracion": 64.064,
+      "fps": 30,
+      "negros": [],
+      "congelados": []
+    }
+  ],
+  "musica": {
+    "medida": false,
+    "motivo": "se entrego solo la version completa: la version sin musica sale del editor"
+  },
+  "defectos": [],
+  "avisos": [],
+  "noMedido": [],
+  "soloCompleta": true,
+  "versionesEsperadas": [
+    "con-subtitulos"
+  ],
+  "rerenderAyuda": false
+}

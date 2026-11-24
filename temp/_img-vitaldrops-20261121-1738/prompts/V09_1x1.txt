@@ -1,0 +1,38 @@
+MODE: NEW AD FROM ZERO, built with SIX ZONES (the visual order may change with the format, but all six exist): Z1 HOOK: the headline in the top 15-20% of the image, very bold, ALL CAPS, max 8 words. Z2 MAIN VISUAL: 45-55% of the image (the model, the before/after or the product, as the format says); the emotion lives here. Z3 BENEFITS: 2 or 3 bullets with a check icon, max 5 words each, never more than 3. Z4 PRODUCT: the bottle, faithful to the real label of the attached photo (brand name and label EXACT, letter by letter), never smaller than 15% of the image, with its differentiating seal. Z5 OFFER: a highlighted badge or ribbon, not exaggerated, with the offer text and "Pagas al recibir". Z6 CTA: one single short chip. GLOBAL RULES: simple Colombian Spanish, little text, legible on a phone at half screen; no text closer than 5% to any edge; soft claims only; never medical promises, invented numbers or guarantees; a clean, uncluttered, premium direct-response look. 
+
+WHAT TO MAKE:
+PRODUCT: VITALDROPS. Its bottle reproduced with total fidelity to the attached photo (label, brand name letter by letter, colors).
+LAYOUT (before/after): the image split in 2 halves; two clearly different moments of the SAME woman (different clothes, different pose, in some cases a different place); the body change is obvious at first glance in the body area of the angle; small labels ANTES / DESPUÉS; Z1 headline at the top; the bottle between the two photos or at the bottom; Z5 offer as a ribbon along the bottom.
+MODEL: a 41 years old woman, plus-size, medium brown skin, short curly hair, ordinary and believable (not a fashion model), natural makeup. Emotion: Antes y después de su energía, no de su cuerpo: chica del gym de 25 años que antes llegaba agotada después del trabajo y se sentaba en la banca; después, con su gotero en la maleta, entrenando pierna con cara de ánimo..
+SETTING: her bedroom at home, unmade bed and soft window light. POSE AND FRAMING: seated on the edge of a bed or bench, side view, full body framing.
+
+TEXTS (render each one EXACTLY as written, no spelling changes, in its zone and style):
+- Z1 headline (top 15-20% of the image): "NO SOLO PILA: TAMBIÉN GANAS DE ENTRENAR" — very bold, ALL CAPS, high contrast, the biggest text
+- label (small, on the before half): "ANTES" — small tag
+- label (small, on the after half): "DESPUÉS" — small tag
+- Z3 benefit bullet (stacked, near the visual): "✓ Energía para el gym" — check icon + short text
+- Z3 benefit bullet (stacked, near the visual): "✓ Apoyo a tu rutina" — check icon + short text
+- Z4 product seal (on or next to the bottle): "5 INGREDIENTES · 1 TOMA AL DÍA" — badge or seal
+- Z5 offer (badge or ribbon, bottom): "TRATAMIENTO COMPLETO X3" — highlighted but not exaggerated
+- Z5 offer (2) (inside or right below the offer): "Pagas al recibir" — smaller
+- Z6 CTA (a single short chip): "Lo quiero" — button chip
+
+BRAND IDENTITY:
+- color_palette: the colors of the product's packaging
+- text_typography: a heavy bold sans for the headline in ALL CAPS, a clean sans for the rest
+
+MANDATORY ELEMENTS:
+- the real product from the attached product photo, at least 15% of the image
+- the woman: a 41 years old woman, plus-size, medium brown skin, short curly hair, ordinary and believable (not a fashion model), natural makeup
+
+STRICT EXCLUSIONS:
+- any text closer than 5% to the edges
+- more than 3 benefit bullets
+- more than one CTA
+- medical claims, guarantees or invented numbers
+- brands or logos other than the product
+- misspelled words
+- Do not add: extra blocks of text
+- Do not add: prices other than the given offer
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

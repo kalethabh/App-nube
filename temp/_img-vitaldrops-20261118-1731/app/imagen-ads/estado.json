@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "siguiente": {
+    "E": 2,
+    "R": 1,
+    "A": 1,
+    "T": 1
+  },
+  "tandas": {
+    "E001": {
+      "tipo": "estrategia",
+      "ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V04",
+        "V05",
+        "V06"
+      ],
+      "uuid": null,
+      "motor": null,
+      "estado": "hecha",
+      "rapido": true
+    }
+  },
+  "variaciones": {
+    "V01": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V02": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V03": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V04": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V05": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V06": {
+      "prompt": "listo",
+      "tanda": "E001"
+    }
+  },
+  "piezas": {
+    "V01_1x1": {
+      "v": "V01",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null,
+      "local": true
+    },
+    "V02_1x1": {
+      "v": "V02",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null,
+      "local": true
+    },
+    "V03_1x1": {
+      "v": "V03",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null,
+      "local": true
+    },
+    "V04_1x1": {
+      "v": "V04",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null,
+      "local": true
+    },
+    "V05_1x1": {
+      "v": "V05",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null,
+      "local": true
+    },
+    "V06_1x1": {
+      "v": "V06",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null,
+      "local": true
+    }
+  },
+  "pedidos": {}
+}

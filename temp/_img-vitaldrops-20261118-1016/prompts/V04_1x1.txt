@@ -1,0 +1,38 @@
+Square 1:1 static ad, bold editorial typographic design. BACKGROUND: one flat, solid deep navy color (#1C305F) across the full canvas, with at most a barely visible paper grain; no photos, no patterns, no gradients. HEADLINE: a huge left-aligned headline in a thick condensed ultra-bold sans-serif (Anton), uppercase, pure white, set in four tightly stacked lines that start at the 7% top margin and end at about 67% of the canvas height, spanning from 7% to 93% of the width, so the type mass fills about two thirds of the canvas and reads as one solid block. The lines break by meaning, one punch per line. Only the last word of the headline, on the fourth line, is recolored in mustard yellow (#C0B116); everything else in the headline is white. FOOTER ZONE (about 72% to 93% of the height), separated from the headline by a clear empty gap of about 4-5% of the height: at the bottom left, aligned with the headline's left edge and kept within the left half of the canvas, a short two-line support sentence in white in a friendly handwritten font (Caveat, bold), its last line ending at about 92% of the height. At the bottom right, inside the margin, the product stands upright, front view, small, about 20% of the canvas height and less than 25% of the width, with its base at about 93% of the height, lit by soft studio light, with a crisp contact shadow and a faint drop shadow so it sits on the flat navy like a real object. The product is the amber glass dropper bottle with a black rubber-bulb dropper cap and a yellow-to-white label shown in the attached product image: use the attached product image as the only source of truth for the product and reproduce it exactly as it is, same shape, cap, label, colors and proportions; do not redesign, replace or reinterpret it. Do not reproduce the yellow circle with the text 60ml from the corner of the product photo. The product never overlaps the headline or the support line. Nothing else on the canvas: the empty navy background is part of the design. No people, no photos, no decorative shapes, no stickers, no arrows, no emojis, no icons, no CTA button, no price, no badges, no stars, no bottom bar, no logos.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top-left, from the 7% top margin to about 67% of the height, filling about 86% of the width): "A LA FLACA TODO EL MUNDO LE OPINA." — Anton, ultra-bold condensed uppercase with tight letter-spacing, huge: each line about 13-14% of the canvas height, 4 stacked lines, left-aligned, pure white on deep navy. Line breaks: A LA FLACA / TODO EL / MUNDO LE / OPINA. The key word OPINA with its final period in mustard yellow #C0B116.
+- support line (Bottom-left footer zone, aligned with the headline's left edge): "Gotas diarias que acompañan tu apetito y tu energía." — Caveat bold, about 4% of the canvas height, 2 lines, left-aligned, max about 50% of the canvas width, white
+
+BRAND IDENTITY:
+- color_palette: #C0B116 and #1C305F
+- text_typography: Anton + Caveat
+
+MANDATORY ELEMENTS:
+- Giant left-aligned white headline filling 60-70% of the canvas in 4 stacked lines
+- The single word OPINA highlighted in mustard yellow
+- Flat solid deep navy background
+- The product from the attached photo, small, in the bottom-right corner with a soft contact shadow
+
+STRICT EXCLUSIONS:
+- No people, no photos and no lifestyle scene
+- No second highlighted word
+- No yellow 60ml circle copied from the product photo
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Large or centered product
+- Do not add: Subheadline block directly under the headline
+- Do not add: CTA button
+- Do not add: Price, discount, offer or urgency badge
+- Do not add: Trust seals, guarantee or certification badges
+- Do not add: Benefit list or icons
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: People, lifestyle scenes or background photos
+- Do not add: Decorative shapes, stickers, arrows or emojis
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks
+- Do not add: The yellow circle with 60ml from the product photo
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

@@ -1,0 +1,56 @@
+{
+  "nombre": "Vitalabh Aguaje Complex 3 en 1",
+  "queEs": "Suplemento alimenticio en cápsulas a base de aguaje, fenogreco y maca negra, con vitaminas A y E, para aumentar glúteos y piernas.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio",
+    "Triple acción: aguaje, fenogreco y maca negra en una sola cápsula",
+    "Con el tratamiento completo los resultados son más rápidos y se quedan"
+  ],
+  "publico": "Mujeres adultas que quieren aumentar glúteos y piernas, y que ya vieron o compraron aguaje de otras marcas.",
+  "dolor": "Quiere más glúteos y piernas, pero compró un solo frasco del que le dijeron que era \"el original\" y no vio resultados.",
+  "oferta": "",
+  "comoCompra": "",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "El aguaje de otra marca que se vende como \"el original y el único que sirve\": caro, de a un solo frasco y sin explicarle el tratamiento completo. Por eso no vio resultados.",
+  "prueba": "",
+  "ingredientes": "Por porción (2 cápsulas): aguaje 200 mg, fenogreco 400 mg, maca negra 200 mg. También trae vitamina A y vitamina E. Otros componentes: estearato de magnesio y cápsula de gelatina. Frasco de 60 cápsulas de 0,5 g cada una (contenido neto 30 g).",
+  "comoSeUsa": "Tomar 2 cápsulas al día, de preferencia con las comidas principales. Uso continuo por varios meses para resultados rápidos, duraderos y sin efecto rebote. No pasar de la porción diaria recomendada.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "El frasco en la mano, con la etiqueta de frente. Es una captura de un video: abajo se ve la barra del reproductor."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": false,
+      "nota": "Es el diseño plano de la etiqueta con medidas de imprenta, no una foto del frasco. Sirvió para leer los datos."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "mercado",
+    "pais"
+  ],
+  "falta": [
+    {
+      "campo": "oferta",
+      "pregunta": "¿Cuánto cuesta un frasco y qué precio tiene el tratamiento completo?"
+    },
+    {
+      "campo": "comoSeUsa",
+      "pregunta": "¿De cuántos meses (o frascos) es el tratamiento completo?"
+    },
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿Cómo te compran: por WhatsApp, por la web, pago contra entrega?"
+    }
+  ]
+}

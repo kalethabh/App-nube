@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "modelo": "gpt-image-2-5-sunburst",
+  "resolucion": "2K",
+  "fondo": "opaco",
+  "producto": "entrada/producto.jpg",
+  "formatos": [
+    "1:1"
+  ],
+  "logo": null,
+  "fiel": false
+}

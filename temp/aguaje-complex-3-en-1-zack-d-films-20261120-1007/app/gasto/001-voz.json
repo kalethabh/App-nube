@@ -1,0 +1,17 @@
+{
+  "numero": 1,
+  "paso": "voz",
+  "comando": "node produccion/generar-audio.js temp/aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+  "inicio": "2026-11-20T15:47:30.351Z",
+  "fin": "2026-11-20T15:47:40.488Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "caracteres": 1489
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "slug": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+  "generado": "2026-11-20T16:08:04.053Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 99.89,
+    "estimada": 111.9,
+    "pedida": 110
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-3-en-1-zack-d-films-20261120-1007_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda la voz",
+      "detalle": "El video se adaptó a los 1:40 de la voz en off: ninguna frase se recortó para cuadrar. Pediste cerca de 1 min 50 s."
+    },
+    {
+      "id": "voz",
+      "icono": "voz",
+      "titulo": "La voz: Lina - Carefree & Fresh",
+      "detalle": "La eligió la app porque no elegiste una: voz femenina como la del video de referencia (tono medio de 286 Hz, expresiva) · «Lina - Carefree & Fresh»: voz femenina, habla español, acento colombiano, joven, cercana, hecha para narrar."
+    },
+    {
+      "id": "ventanas",
+      "icono": "ritmo",
+      "titulo": "2 escenas se pidieron un poco más largas",
+      "detalle": "La voz real dura más de lo calculado en esas frases: se pidió cada clip con el largo justo para que no falte imagen. Nunca se acortó ninguna."
+    },
+    {
+      "id": "ritmo",
+      "icono": "ritmo",
+      "titulo": "35 de 36 escenas, un poco más rápidas",
+      "detalle": "Los clips eran más largos que sus frases: en vez de cortarlos se aceleraron para seguir a la voz (la que más, 1,7 veces más rápida)."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:08."
+    },
+    {
+      "id": "transiciones",
+      "icono": "transicion",
+      "titulo": "4 transiciones con sonido",
+      "detalle": "Van solo donde la historia cambia de parte; el resto son cortes limpios."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "110 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    }
+  ],
+  "transiciones": [
+    {
+      "toma": 3,
+      "momento": 7.802,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    },
+    {
+      "toma": 10,
+      "momento": 29.338,
+      "animacion": "deslizar-derecha",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 19,
+      "momento": 52.651,
+      "animacion": "deslizar-izquierda",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 31,
+      "momento": 87.237,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    }
+  ],
+  "problemas": [
+    {
+      "id": "respaldo",
+      "tipo": "arreglado",
+      "titulo": "Un clip salió con el modelo de respaldo",
+      "detalle": "El modelo principal no lo pudo hacer y la app usó el de respaldo para no frenar el anuncio. Puede verse un poco distinto: míralo.",
+      "piezas": [
+        {
+          "n": 2,
+          "unidad": "toma",
+          "momento": 3.727,
+          "valor": "clip"
+        }
+      ]
+    },
+    {
+      "id": "voces-coladas",
+      "tipo": "arreglado",
+      "titulo": "3 clips traían una voz que no iba",
+      "detalle": "El modelo de video metió una frase que nadie escribió. Se le quitó el sonido a ese clip (la imagen queda igual); se pierde su sonido de ambiente.",
+      "piezas": [
+        {
+          "n": 20,
+          "unidad": "toma",
+          "momento": 56.436,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 34,
+          "unidad": "toma",
+          "momento": 94.796,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 35,
+          "unidad": "toma",
+          "momento": 96.398,
+          "valor": "sin sonido"
+        }
+      ]
+    },
+    {
+      "id": "revision-avisos",
+      "tipo": "revisar",
+      "titulo": "Lo que notó la revisión",
+      "detalle": "La revisión notó algo en 3 piezas y no se rehízo nada solo: míralas y, si quieres, regenéralas desde el proceso o el editor (con «Corregir esto» se usa lo que la revisión ya sugirió).",
+      "piezas": [
+        {
+          "n": null,
+          "unidad": "Escena 10 · imagen de inicio",
+          "momento": 29.338,
+          "valor": "La línea habla de la grasa que se iba a la barriga, pero la imagen muestra un abdomen plano y caderas muy curvas: no se entiende el antes.",
+          "clave": "img:toma-10-inicial",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Escena 28 · imagen de inicio",
+          "momento": 79.575,
+          "valor": "El chat muestra la foto de una mujer, no la del ex, y la mano sale con una manga de suéter que no es de la protagonista.",
+          "clave": "img:toma-28-inicial",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Escena 35 · imagen de inicio",
+          "momento": 96.398,
+          "valor": "Hay demasiados frascos pequeños y sus etiquetas salen deformes o con letras rotas; además no se ve la entrega en casa que dice la línea.",
+          "clave": "img:toma-35-inicial",
+          "sugerencia": true
+        }
+      ]
+    },
+    {
+      "id": "cortos",
+      "tipo": "revisar",
+      "titulo": "Un clip quedó un poco corto",
+      "detalle": "El clip dura menos que el momento que tenía que cubrir; el montaje sostuvo el último cuadro para no dejar un hueco.",
+      "piezas": [
+        {
+          "n": 33,
+          "unidad": "toma",
+          "momento": 91.928,
+          "valor": "faltan 0,3 s"
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 1871,
+    "dolares": 9.36,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 42,
+      "creditos": 420,
+      "dolares": 2.1
+    },
+    "videos": {
+      "piezas": 34,
+      "creditos": 1391,
+      "dolares": 6.96
+    },
+    "musica": {
+      "pistas": 0,
+      "creditos": 0,
+      "dolares": 0
+    },
+    "sinRegistro": {
+      "piezas": 2,
+      "creditosEstimados": 60
+    },
+    "estimado": true,
+    "elevenlabs": {
+      "caracteres": 1489,
+      "scribeSegundos": 133
+    },
+    "corridas": 3,
+    "respaldo": [
+      "toma-2.mp4"
+    ],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 42,
+        "creditos": 420,
+        "dolares": 2.1
+      },
+      {
+        "id": "videos",
+        "piezas": 36,
+        "creditos": 1451,
+        "dolares": 7.26,
+        "estimadas": 2
+      },
+      {
+        "id": "voz",
+        "caracteres": 1489
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 11011.1,
+      "saldoDespues": 9200.1,
+      "diferencia": 1811,
+      "coincide": false
+    },
+    "rehecho": false
+  }
+}

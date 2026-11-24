@@ -1,0 +1,48 @@
+{
+  "slug": "vitaldrops",
+  "nombre": "VITALDROPS",
+  "analisis": "Suplemento dietario líquido en gotero de 60 ml de la marca amua. Frasco de vidrio ámbar con gotero negro y etiqueta que va de amarillo limón a blanco. Trae cinco ingredientes vegetales (ashwagandha, maca, L-arginina, fenogreco y remolacha). Se vende a mujeres que están trabajando sus curvas con comida y ejercicio, como un ritual diario que acompaña el apetito y la energía.",
+  "tipo_producto": "nutraceutico",
+  "descripcion_visual_en": "A 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. When the source layout shows a carton, it is a tall rectangular lemon-yellow box, slightly taller than the bottle, with the lowercase black wordmark 'amua' at the top and 'VITALDROPS' in white uppercase letters running vertically along the front face.",
+  "foto_producto": "temp/_img-vitaldrops-20261117-1717/entrada/producto.jpg",
+  "datos": {
+    "angulo_preferido": "",
+    "publico": "18 a 55",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": ""
+  },
+  "identidad_visual": {
+    "color_palette": "Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, carton, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, plaque, panel borders, botanical sprig); near-black #111111 (headline and plaque text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad with a soft, polished semi-illustrated photographic rendering, tidy, warm and premium, exactly as in the brand's own reference creative.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; soft diffused daylight, no harsh shadows.",
+    "graphic_language": "Rounded-corner rectangular panels with a hairline pale-gold border, generous cream margins, a brushed metallic gold plaque with a thin inner border and rounded corners, a delicate pale-gold botanical sprig line drawing behind the product, soft contact shadows under the product.",
+    "text_typography": "Headline in a geometric sans-serif, extra-bold, all uppercase, tight leading (Montserrat ExtraBold / Gotham Black style), solid near-black, centered, two lines. Day labels in the same geometric sans, bold, uppercase, metallic gold, small. Plaque text: first line bold uppercase geometric sans; middle line much larger heavy condensed uppercase sans (Impact / Bebas style); third line regular-weight uppercase sans with wide letter spacing. No outlines and no drop shadows on the text.",
+    "art_direction": "Every ad of this batch keeps the exact brand world of the reference creative: warm cream canvas, a centered bold black uppercase headline, a 2x2 grid of rounded bedroom panels with gold day labels, the yellow carton and the amber dropper bottle bottom left with a gold sprig, and the brushed-gold offer plaque bottom right. Only the headline changes between variations."
+  },
+  "beneficios": [
+    "Acompaña tu apetito desde las primeras semanas",
+    "Más energía para trabajar, estudiar y entrenar",
+    "Un apoyo natural para tus curvas, sin agujas ni quirófano",
+    "El complemento diario de tu comida y tu rutina de pierna y cola"
+  ],
+  "caracteristicas": [
+    "5 ingredientes vegetales: ashwagandha, maca, L-arginina, fenogreco y remolacha",
+    "En gotas: una sola toma al día",
+    "Frasco de vidrio con gotero de 60 ml",
+    "Líquido y fácil de tomar, sin pastillas"
+  ],
+  "deseo_central": "Verme con curvas y llenar el jean sin operarme ni inyectarme nada, y dejar de sentirme la flaca del grupo.",
+  "beneficio_principal": "Un ritual diario de gotas que acompaña tu apetito y tu energía mientras trabajas tus curvas con comida y ejercicio.",
+  "puntos_dolor": [
+    "Como y como y no me engorda nada",
+    "Los jeans me quedan bailando en la cola",
+    "Voy al gym y no veo cambios en la pierna ni en la cola",
+    "Me da miedo el quirófano y más los biopolímeros",
+    "Se me olvida comer y me lleno con nada",
+    "Ya compré gomitas y pastillas y no vi nada"
+  ]
+}

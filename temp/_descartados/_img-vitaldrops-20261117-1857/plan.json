@@ -1,0 +1,56 @@
+{
+  "producto": "VITALDROPS",
+  "lote": "_img-vitaldrops-20261117-1857",
+  "cantidad": 5,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "plantilla",
+      "plantilla": "silueta-zonas",
+      "angulo": "Silueta con zonas (neón)",
+      "formato": "Silueta con zonas (neón)",
+      "titular": "¿Piernas flacas aunque entrenas? Revisa primero cuánto estás comiendo.",
+      "escena": true
+    },
+    {
+      "id": "V02",
+      "fuente": "plantilla",
+      "plantilla": "antes-despues",
+      "angulo": "Dolor y resultado",
+      "formato": "Antes y después",
+      "titular": "¿Piernas flacas aunque entrenas? Revisa primero cuánto estás comiendo.",
+      "escena": true
+    },
+    {
+      "id": "V03",
+      "fuente": "plantilla",
+      "plantilla": "solo-vs-con",
+      "angulo": "Solo X vs. X + tu producto",
+      "formato": "Solo X vs. X + tu producto",
+      "titular": "¿Piernas flacas aunque entrenas? Revisa primero cuánto estás comiendo.",
+      "escena": true
+    },
+    {
+      "id": "V04",
+      "fuente": "plantilla",
+      "plantilla": "producto-flechas",
+      "angulo": "Beneficio",
+      "formato": "Producto con flechas",
+      "titular": "¿Piernas flacas aunque entrenas? Revisa primero cuánto estás comiendo.",
+      "escena": false
+    },
+    {
+      "id": "V05",
+      "fuente": "plantilla",
+      "plantilla": "historia",
+      "angulo": "Historia con antes y después",
+      "formato": "Historia con antes y después",
+      "titular": "",
+      "escena": true
+    }
+  ],
+  "plantillas": true
+}

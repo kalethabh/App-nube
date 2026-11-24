@@ -1,0 +1,40 @@
+{
+  "pedidos": [
+    {
+      "id": "U0001",
+      "pieza": "V02_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T21:18:59.372Z"
+    },
+    {
+      "id": "U0002",
+      "pieza": "V04_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T21:19:01.918Z"
+    },
+    {
+      "id": "U0003",
+      "pieza": "V05_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T21:19:04.383Z"
+    },
+    {
+      "id": "U0004",
+      "pieza": "V04_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T21:53:27.941Z"
+    },
+    {
+      "id": "U0005",
+      "pieza": "V05_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T21:53:30.371Z"
+    },
+    {
+      "id": "U0006",
+      "pieza": "V05_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T22:05:49.869Z"
+    }
+  ]
+}

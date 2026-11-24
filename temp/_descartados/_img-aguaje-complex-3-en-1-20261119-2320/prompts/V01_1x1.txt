@@ -1,0 +1,43 @@
+Square 1:1 premium lifestyle supplement ad. Full-bleed photo of a softly blurred, tidy bedroom in blush pink (#FBE3EE) and deep magenta (#B0105E) tones with rosy daylight and a few subtle warm bokeh lights; the left third falls into a darker deep-magenta shade so white text reads clearly. In the center-right, from about 30% to 80% of the width, a photorealistic Colombian woman about 27 years old, warm tan skin with real texture, long dark wavy hair, shown from the shoulders up and cropped by the bottom edge, eyes closed, a serene and confident smile, one hand gently touching her neck, wearing a fitted hot-fuchsia (#E6177F) top; natural, elegant and respectful, no focus on her body. Top left, a two-line bold uppercase headline in Poppins Bold: line 1 in white at about 4-12% of the height, line 2 in a fuchsia-to-bubblegum-pink metallic gradient at about 14.5-22%, both left-aligned starting at about 3.5% of the width. Below it, a left column (about 3.5-34.5% of the width) of three benefit rows at about 26-38%, 43-54% and 58-69% of the height, separated by thin fuchsia-metallic lines fading to the right; each row has a thin fuchsia-metallic ring about 11% of the canvas holding a white line icon (row 1 heart, row 2 single capsule, row 3 shield with check) and short white Poppins Regular text starting at about 16% of the width. In the lower-right foreground, about 78-98% of the width and 35-96% of the height, the product from the attached image: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; the black label shows a small pink VITALABH emblem with the white word 'VITALABH', a huge bold white condensed word 'AGUAJE', the line 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a small white line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline, three small black rounded boxes outlined in pink joined by plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA', and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' at the bottom. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret it. The bottle stands upright, front view, studio-sharp, on a glossy surface with a soft reflection, overlapping the edge of the woman's shoulder without covering her face. Bottom left, about 3.5-76% of the width and 81-96.5% of the height, a wide rounded band (corner radius about 3%) in a satin pale-pink to bubblegum-pink metallic gradient with a thin lighter border and soft shadow; on its left a thin-ringed circle with a near-black truck line icon, a thin vertical divider, then two lines of near-black text. Clean, uncluttered, high contrast. Do not add CTA buttons, price badges, extra benefit items, trust seals, rating stars, testimonials, before/after images or any extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- headline line 1 (Top left, first line, about 4-12% of the canvas height): "CURVAS A TU MANERA" — Poppins Bold extra heavy, uppercase, about 8% of the canvas height, 1 line, left-aligned, white
+- headline line 2 (Top left, second line, about 14.5-22% of the canvas height): "Y SIN QUIRÓFANO" — Poppins Bold extra heavy, uppercase, about 7.5% of the canvas height, 1 line, left-aligned, fuchsia-to-bubblegum-pink metallic gradient
+- benefit 1 (Left column, first row, right of the heart icon): "Acompaña tu proceso de curvas" — Poppins Regular, sentence case, about 2.8% of the canvas height, max 3 lines, left-aligned, white
+- benefit 2 (Left column, second row, right of the capsule icon): "Solo 2 cápsulas al día" — Same style as benefit 1
+- benefit 3 (Left column, third row, right of the shield icon): "Natural, sin agujas ni recuperación" — Same style as benefit 1
+- delivery line (Inside the band, right of the vertical divider, top line): "LO RECIBES EN CASA" — Poppins Bold, uppercase, about 5% of the canvas height, 1 line, left-aligned, near-black #0E0E10
+- payment line (Inside the band, under the delivery line): "PAGAS AL RECIBIR" — Poppins Medium, uppercase, about 3.5% of the canvas height, 1 line, left-aligned, deep magenta #B0105E
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.
+- text_typography: Poppins Bold (uppercase, heavy) for headlines and labels, Poppins Regular for supporting text.
+
+MANDATORY ELEMENTS:
+- Full-bleed warm blush-pink lifestyle photo with a serene, confident Colombian woman (shoulders up) in the center-right
+- Two-line headline at the top left: white line over a fuchsia metallic line
+- Left column of three benefits with thin-ringed white line-icon circles separated by thin dividers
+- The real black-and-fuchsia bottle large in the lower-right foreground
+- Wide rounded pink-metallic delivery and payment band with a ringed truck icon at the bottom left
+
+STRICT EXCLUSIONS:
+- No close-ups of buttocks, hips or legs and no before/after or body comparison.
+- No price, sanitary registration, ratings or customer counts.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount or urgency badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Trust seals, guarantee, certification or sanitary registration badges
+- Do not add: Before/after images or body comparisons
+- Do not add: Close-ups of buttocks, hips or legs
+- Do not add: More than three benefits
+- Do not add: Numbers on the benefit rows
+- Do not add: Boxes or cards behind each benefit
+- Do not add: Cold or blue-toned lighting
+- Do not add: Heavy bubbles, sparkles, petals or flowers
+- Do not add: Logos or brand marks other than the real bottle label
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

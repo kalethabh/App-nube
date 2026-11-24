@@ -1,0 +1,53 @@
+The FIRST attached image is a REFERENCE AD. Create a new ad that is the same design made for a different product: keep its exact layout, composition, block structure, visual hierarchy, spacing, background treatment and graphic style, and keep its exact typography (same font style, weight, casing, relative sizes, text effects and text placement). Change only three things: (1) the product: replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle; (2) the texts: replace every text of the reference with the texts listed below, each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.
+
+FIRST, READ THE REFERENCE AD before designing anything: (a) its ANGLE: the exact body area, problem or desire it sells (for example glutes and curves, belly fat, swollen legs, cough and lungs, wrinkles, energy, sleep); (b) its HOOK: the idea that stops the scroll (a before/after, a big promise, a number or timeline, a question, a testimonial, a shocking fact, an us-vs-them comparison); (c) its FORMAT: what is shown and how (person, body close-up, split screen, product hero, chart, screenshot, collage). Your ad MUST sell the SAME angle with the SAME hook and format: if the reference is about glutes, yours is about glutes, shown the same way; never switch to another body area or another benefit.
+
+IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+
+SCENE DESCRIPTION (same composition as the reference):
+Square 1:1 premium beauty-supplement image ad. Use the attached reference only for its layout, block placement, hierarchy and typography, and the attached product photo as the only source of truth for the product: do not redesign, replace or reinterpret the bottle, and do not copy any brand, product or text from the reference. Background: glossy pink gradient, bubblegum pink #FF8CC0 to hot fuchsia #E6177F at the edges with a soft pale blush #FBE3EE glow in the center, faint translucent pink petal shapes and thin heart outlines in the top corners. TOP BAND (about 30% of the height), centered: a deep magenta #B0105E rounded pill containing a white uppercase heavy sans line; directly below, a big white uppercase heavy geometric sans line with a soft shadow; below it, one huge uppercase word in hot fuchsia #E6177F with a thick white outline and soft dark drop shadow, the largest text of the ad. MIDDLE BAND: on the far left, a narrow vertical column of three white thin-line icons, each inside a white-outlined circle, stacked with even spacing — a stylized rear glute silhouette with a small up arrow, a stylized leg silhouette, and a leaf — each with a two-line white uppercase bold label centered under it. In the center-left, large and upright, the product: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; the black label shows a small pink VITALABH emblem with the white word 'VITALABH', a huge bold white condensed word 'AGUAJE', the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red, a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a small white line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline, three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA', and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' at the bottom; sharp, soft studio light, small contact shadow. At the lower left of the bottle: real aguaje fruits (reddish-brown scaly whole fruits and one halved fruit showing bright orange flesh, #D9572B) with a few fresh green leaves. Above the bottle, to its right, a two-line handwritten brush script accent in deep magenta with a small drawn heart. On the right side, a tall rounded-corner photo frame with a thin white border, from just under the headline to just above the bottom bar: a photorealistic photo of a young Colombian woman with tan skin and long wavy brown hair, seen from behind with a slight three-quarter turn, wearing high-waisted light-wash fitted jeans and a short pink top, standing in front of the mirror of a warm-lit boutique fitting room, framed from the hips up to the shoulders and down to mid-thigh, natural athletic curves in glutes and legs, real skin texture, tasteful and non-explicit, face not shown. BOTTOM BAND: a deep magenta #B0105E rounded bar from the left edge to about two thirds of the width, with a white delivery-truck line icon and a white uppercase label, a thin white vertical divider, then a white hand-holding-a-coin line icon and a two-line white uppercase label. In the bottom right corner, outside the bar, a two-line handwritten brush script accent in deep magenta with a small drawn heart. Everything clean, high contrast and readable on a phone. No other elements.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- headline pill line (Top center, inside the deep magenta rounded pill): "TU PLAN NATURAL" — White, uppercase, heavy geometric sans (Montserrat Black look), medium-large, centered
+- main headline line 2 (Top center, directly under the pill): "PARA QUE EL JEAN" — White, uppercase, heavy geometric sans, large, centered, soft shadow
+- main headline accent word (Top center, under line 2, spanning most of the width): "HORME" — Hot fuchsia #E6177F fill, thick white outline, soft dark drop shadow, uppercase, heaviest geometric sans, the largest text in the ad, centered
+- emotional script accent (Above the bottle, to its right, between bottle and photo frame): 2 stacked lines: line 1: "Solo 2 cápsulas"; line 2: "al día" — Handwritten brush script, deep magenta #B0105E, sentence case, two lines, slight tilt, small drawn heart after the second line
+- benefit icon label 1 (Left column, under the first icon (glute silhouette)): 2 stacked lines: line 1: "GLÚTEOS"; line 2: "MÁS FIRMES" — White, uppercase, bold geometric sans, small, centered, two lines
+- benefit icon label 2 (Left column, under the second icon (leg silhouette)): 2 stacked lines: line 1: "PIERNAS"; line 2: "CON MÁS VOLUMEN" — White, uppercase, bold geometric sans, small, centered, two lines
+- benefit icon label 3 (Left column, under the third icon (leaf)): 2 stacked lines: line 1: "FÓRMULA"; line 2: "NATURAL" — White, uppercase, bold geometric sans, small, centered, two lines
+- offer bar label 1 (Bottom bar, left part, right of the truck icon): "ENVÍO GRATIS" — White, uppercase, heavy geometric sans, medium, one line
+- offer bar label 2 (Bottom bar, right part, right of the hand-with-coin icon): 2 stacked lines: line 1: "PAGA"; line 2: "AL RECIBIR" — White, uppercase, heavy geometric sans, medium, two lines
+- closing script accent (Bottom right corner, right of the offer bar): 2 stacked lines: line 1: "Natural,"; line 2: "a tu ritmo" — Handwritten brush script, deep magenta #B0105E, sentence case, two lines, slight tilt, small drawn heart
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents. Same logic as the reference: glossy pink gradient background, deep magenta solid modules, white type.
+
+MANDATORY ELEMENTS:
+- Glossy pink gradient background with faint petal and heart outline shapes
+- Deep magenta rounded headline pill
+- Huge fuchsia headline word with thick white outline and drop shadow
+- Three white thin-line icons in white-outlined circles in the left column (glute silhouette, leg silhouette, leaf)
+- The user's black bottle with hot-pink cap and base, identical to the product photo
+- Real aguaje fruits, one halved with orange flesh, with green leaves at the base of the bottle
+- Tall rounded-corner photo frame with thin white border showing a woman from behind
+- Deep magenta rounded bottom bar with white truck icon, thin divider and white hand-with-coin icon
+- Two handwritten script accents with small drawn hearts
+
+STRICT EXCLUSIONS:
+- No brand logo or brand name other than what is printed on the product label; do not copy the reference brand, bottle or texts.
+- No price, discount, stars, ratings, testimonials, certification seals or medals.
+- No nudity, no explicit or sexualized pose; no visible face of the woman.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Brand logos of any kind other than what is printed on the product label
+- Do not add: Price, discount, percentage or price badge
+- Do not add: CTA button
+- Do not add: Rating stars, reviews, testimonials or customer counts
+- Do not add: Trust seals, certification badges or 'premium' medals
+- Do not add: Extra benefit icons beyond the three
+- Do not add: Before/after images
+- Do not add: Any extra text block
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

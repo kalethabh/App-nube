@@ -1,0 +1,53 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-21T22:09:23.958Z",
+  "variaciones": 5,
+  "archivos": 5,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 1,
+    "rehechasPorTi": [
+      "V05_1x1"
+    ],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "Arriba la imagen queda cortada: falta la cinta con «SIÉNTETE SEGURA» y «CON TUS» sale cortado por el borde.",
+          "Abajo también queda cortada: no se ve la barra con «ENVÍO GRATIS» y «PAGA AL RECIBIR», ni sus íconos del camión y la mano con moneda.",
+          "La frase «Natural, a tu ritmo» sale cortada: solo se ve «Natural,» a medias y falta su corazoncito."
+        ]
+      },
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "El diseño no cabe en el cuadrado: arriba y abajo quedó cortado.",
+          "Falta la franja de arriba con «MÁS CURVAS SÍ,». No se ve.",
+          "«PERO SIN» sale cortado por arriba.",
+          "Falta la barra de abajo con el camión, la mano con moneda, «ENVÍO GRATIS» y «PAGA AL RECIBIR».",
+          "La frase de cierre solo muestra «Natural,» cortado. Falta «a tu ritmo» y su corazón."
+        ]
+      },
+      {
+        "pieza": "V04_1x1",
+        "problemas": [
+          "Falta la franja de arriba con «¿MESES DE SENTADILLAS?»: la imagen está cortada por arriba.",
+          "La línea «TU RUTINA PIDE UN» sale cortada por el borde de arriba.",
+          "Falta la barra de abajo con el camión, «ENVÍO GRATIS», la mano con moneda y «PAGA AL RECIBIR»: solo se ve su borde.",
+          "La frase «Natural, a tu ritmo» sale cortada: solo se ve parte de «Natural,» y falta «a tu ritmo» con su corazón."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

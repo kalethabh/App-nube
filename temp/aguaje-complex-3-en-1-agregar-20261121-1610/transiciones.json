@@ -1,0 +1,12 @@
+{
+  "efectos": {
+    "woosh": "efectos/woosh.mp3",
+    "deep-woosh": "efectos/deep-woosh.mp3"
+  },
+  "puntos": [
+    { "toma": 5, "animacion": "deslizar-derecha", "efecto": "woosh", "porque": "entrada del problema: está brava por toda la plata que botó en lo que no le sirvió" },
+    { "toma": 9, "animacion": "deslizar-izquierda", "efecto": "woosh", "porque": "entrada de la prueba: el giro frente al espejo, por lo bien que le funcionó" },
+    { "toma": 12, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada de la solución: los tres extractos y cómo la apoyaron" },
+    { "toma": 19, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada del cierre: ella lo recomienda y muestra el frasco" }
+  ]
+}

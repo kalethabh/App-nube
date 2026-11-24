@@ -1,0 +1,2003 @@
+{
+  "generado": "2026-11-21T19:03:55.797Z",
+  "reglas": {
+    "minPalabras": 2,
+    "maxPalabras": 3,
+    "maxCaracteres": 20,
+    "pausaQueCorta": 0.28,
+    "maxSegundos": 2.2,
+    "colaSeg": 0.12
+  },
+  "bloques": [
+    {
+      "inicio": 0,
+      "fin": 1.083,
+      "texto": "Cinco hombres me",
+      "palabras": [
+        {
+          "texto": "Cinco",
+          "inicio": 0,
+          "fin": 0.488
+        },
+        {
+          "texto": "hombres",
+          "inicio": 0.534,
+          "fin": 0.894
+        },
+        {
+          "texto": "me",
+          "inicio": 0.975,
+          "fin": 1.045
+        }
+      ]
+    },
+    {
+      "inicio": 1.103,
+      "fin": 1.756,
+      "texto": "rechazaron en",
+      "palabras": [
+        {
+          "texto": "rechazaron",
+          "inicio": 1.103,
+          "fin": 1.602
+        },
+        {
+          "texto": "en",
+          "inicio": 1.672,
+          "fin": 1.718
+        }
+      ]
+    },
+    {
+      "inicio": 1.776,
+      "fin": 2.639,
+      "texto": "televisión por no",
+      "palabras": [
+        {
+          "texto": "televisión",
+          "inicio": 1.776,
+          "fin": 2.31
+        },
+        {
+          "texto": "por",
+          "inicio": 2.368,
+          "fin": 2.485
+        },
+        {
+          "texto": "no",
+          "inicio": 2.531,
+          "fin": 2.601
+        }
+      ]
+    },
+    {
+      "inicio": 2.659,
+      "fin": 3.731,
+      "texto": "tener curvas.",
+      "palabras": [
+        {
+          "texto": "tener",
+          "inicio": 2.659,
+          "fin": 2.937
+        },
+        {
+          "texto": "curvas.",
+          "inicio": 3.007,
+          "fin": 3.611
+        }
+      ]
+    },
+    {
+      "inicio": 3.82,
+      "fin": 4.357,
+      "texto": "Lo que pasó",
+      "palabras": [
+        {
+          "texto": "Lo",
+          "inicio": 3.82,
+          "fin": 3.959
+        },
+        {
+          "texto": "que",
+          "inicio": 3.994,
+          "fin": 4.063
+        },
+        {
+          "texto": "pasó",
+          "inicio": 4.11,
+          "fin": 4.319
+        }
+      ]
+    },
+    {
+      "inicio": 4.377,
+      "fin": 5.541,
+      "texto": "tres meses después",
+      "palabras": [
+        {
+          "texto": "tres",
+          "inicio": 4.377,
+          "fin": 4.598
+        },
+        {
+          "texto": "meses",
+          "inicio": 4.667,
+          "fin": 4.946
+        },
+        {
+          "texto": "después",
+          "inicio": 4.981,
+          "fin": 5.433
+        }
+      ]
+    },
+    {
+      "inicio": 5.561,
+      "fin": 6.226,
+      "texto": "los dejó sin",
+      "palabras": [
+        {
+          "texto": "los",
+          "inicio": 5.561,
+          "fin": 5.735
+        },
+        {
+          "texto": "dejó",
+          "inicio": 5.793,
+          "fin": 6.002
+        },
+        {
+          "texto": "sin",
+          "inicio": 6.049,
+          "fin": 6.188
+        }
+      ]
+    },
+    {
+      "inicio": 6.246,
+      "fin": 7.086,
+      "texto": "palabras.",
+      "palabras": [
+        {
+          "texto": "palabras.",
+          "inicio": 6.246,
+          "fin": 6.966
+        }
+      ]
+    },
+    {
+      "inicio": 7.175,
+      "fin": 8.526,
+      "texto": "Programa de citas:",
+      "palabras": [
+        {
+          "texto": "Programa",
+          "inicio": 7.175,
+          "fin": 7.697
+        },
+        {
+          "texto": "de",
+          "inicio": 7.721,
+          "fin": 7.779
+        },
+        {
+          "texto": "citas:",
+          "inicio": 7.814,
+          "fin": 8.406
+        }
+      ]
+    },
+    {
+      "inicio": 8.916,
+      "fin": 9.384,
+      "texto": "si no te",
+      "palabras": [
+        {
+          "texto": "si",
+          "inicio": 8.916,
+          "fin": 9.079
+        },
+        {
+          "texto": "no",
+          "inicio": 9.137,
+          "fin": 9.218
+        },
+        {
+          "texto": "te",
+          "inicio": 9.288,
+          "fin": 9.358
+        }
+      ]
+    },
+    {
+      "inicio": 9.404,
+      "fin": 10.603,
+      "texto": "querían, reventaban",
+      "palabras": [
+        {
+          "texto": "querían,",
+          "inicio": 9.404,
+          "fin": 9.938
+        },
+        {
+          "texto": "reventaban",
+          "inicio": 10.112,
+          "fin": 10.553
+        }
+      ]
+    },
+    {
+      "inicio": 10.623,
+      "fin": 11.37,
+      "texto": "el globo.",
+      "palabras": [
+        {
+          "texto": "el",
+          "inicio": 10.623,
+          "fin": 10.693
+        },
+        {
+          "texto": "globo.",
+          "inicio": 10.762,
+          "fin": 11.25
+        }
+      ]
+    },
+    {
+      "inicio": 11.761,
+      "fin": 12.542,
+      "texto": "Me preguntaron el",
+      "palabras": [
+        {
+          "texto": "Me",
+          "inicio": 11.761,
+          "fin": 11.865
+        },
+        {
+          "texto": "preguntaron",
+          "inicio": 11.912,
+          "fin": 12.376
+        },
+        {
+          "texto": "el",
+          "inicio": 12.446,
+          "fin": 12.504
+        }
+      ]
+    },
+    {
+      "inicio": 12.562,
+      "fin": 13.668,
+      "texto": "nombre y, antes",
+      "palabras": [
+        {
+          "texto": "nombre",
+          "inicio": 12.562,
+          "fin": 12.98
+        },
+        {
+          "texto": "y,",
+          "inicio": 13.189,
+          "fin": 13.305
+        },
+        {
+          "texto": "antes",
+          "inicio": 13.328,
+          "fin": 13.642
+        }
+      ]
+    },
+    {
+      "inicio": 13.688,
+      "fin": 15.328,
+      "texto": "de decir Laura…",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 13.688,
+          "fin": 13.769
+        },
+        {
+          "texto": "decir",
+          "inicio": 13.886,
+          "fin": 14.408
+        },
+        {
+          "texto": "Laura…",
+          "inicio": 14.582,
+          "fin": 15.267
+        }
+      ]
+    },
+    {
+      "inicio": 15.348,
+      "fin": 16.13,
+      "texto": "¡pum!",
+      "palabras": [
+        {
+          "texto": "¡pum!",
+          "inicio": 15.348,
+          "fin": 16.01
+        }
+      ]
+    },
+    {
+      "inicio": 16.393,
+      "fin": 17.29,
+      "texto": "Dije mi edad,",
+      "palabras": [
+        {
+          "texto": "Dije",
+          "inicio": 16.393,
+          "fin": 16.637
+        },
+        {
+          "texto": "mi",
+          "inicio": 16.683,
+          "fin": 16.765
+        },
+        {
+          "texto": "edad,",
+          "inicio": 16.8,
+          "fin": 17.194
+        }
+      ]
+    },
+    {
+      "inicio": 17.31,
+      "fin": 18.348,
+      "texto": "veintisiete.",
+      "palabras": [
+        {
+          "texto": "veintisiete.",
+          "inicio": 17.31,
+          "fin": 18.228
+        }
+      ]
+    },
+    {
+      "inicio": 18.402,
+      "fin": 19.207,
+      "texto": "¡Pum!",
+      "palabras": [
+        {
+          "texto": "¡Pum!",
+          "inicio": 18.402,
+          "fin": 19.087
+        }
+      ]
+    },
+    {
+      "inicio": 19.412,
+      "fin": 20.066,
+      "texto": "Otro.",
+      "palabras": [
+        {
+          "texto": "Otro.",
+          "inicio": 19.412,
+          "fin": 19.946
+        }
+      ]
+    },
+    {
+      "inicio": 20.155,
+      "fin": 20.681,
+      "texto": "Que tengo mi",
+      "palabras": [
+        {
+          "texto": "Que",
+          "inicio": 20.155,
+          "fin": 20.283
+        },
+        {
+          "texto": "tengo",
+          "inicio": 20.352,
+          "fin": 20.538
+        },
+        {
+          "texto": "mi",
+          "inicio": 20.584,
+          "fin": 20.666
+        }
+      ]
+    },
+    {
+      "inicio": 20.701,
+      "fin": 21.435,
+      "texto": "propia tienda de",
+      "palabras": [
+        {
+          "texto": "propia",
+          "inicio": 20.701,
+          "fin": 20.968
+        },
+        {
+          "texto": "tienda",
+          "inicio": 21.026,
+          "fin": 21.327
+        },
+        {
+          "texto": "de",
+          "inicio": 21.351,
+          "fin": 21.397
+        }
+      ]
+    },
+    {
+      "inicio": 21.455,
+      "fin": 22.027,
+      "texto": "ropa.",
+      "palabras": [
+        {
+          "texto": "ropa.",
+          "inicio": 21.455,
+          "fin": 21.931
+        }
+      ]
+    },
+    {
+      "inicio": 22.047,
+      "fin": 22.782,
+      "texto": "¡Pum!",
+      "palabras": [
+        {
+          "texto": "¡Pum!",
+          "inicio": 22.047,
+          "fin": 22.732
+        }
+      ]
+    },
+    {
+      "inicio": 22.802,
+      "fin": 23.607,
+      "texto": "¡Pum!",
+      "palabras": [
+        {
+          "texto": "¡Pum!",
+          "inicio": 22.802,
+          "fin": 23.487
+        }
+      ]
+    },
+    {
+      "inicio": 23.696,
+      "fin": 24.361,
+      "texto": "Entonces la",
+      "palabras": [
+        {
+          "texto": "Entonces",
+          "inicio": 23.696,
+          "fin": 24.207
+        },
+        {
+          "texto": "la",
+          "inicio": 24.265,
+          "fin": 24.334
+        }
+      ]
+    },
+    {
+      "inicio": 24.381,
+      "fin": 25.127,
+      "texto": "presentadora les",
+      "palabras": [
+        {
+          "texto": "presentadora",
+          "inicio": 24.381,
+          "fin": 24.927
+        },
+        {
+          "texto": "les",
+          "inicio": 24.985,
+          "fin": 25.101
+        }
+      ]
+    },
+    {
+      "inicio": 25.147,
+      "fin": 26.196,
+      "texto": "preguntó por qué.",
+      "palabras": [
+        {
+          "texto": "preguntó",
+          "inicio": 25.147,
+          "fin": 25.507
+        },
+        {
+          "texto": "por",
+          "inicio": 25.565,
+          "fin": 25.704
+        },
+        {
+          "texto": "qué.",
+          "inicio": 25.786,
+          "fin": 26.076
+        }
+      ]
+    },
+    {
+      "inicio": 26.285,
+      "fin": 28.041,
+      "texto": "El primero: «Perdón,",
+      "palabras": [
+        {
+          "texto": "El",
+          "inicio": 26.285,
+          "fin": 26.447
+        },
+        {
+          "texto": "primero:",
+          "inicio": 26.517,
+          "fin": 27.156
+        },
+        {
+          "texto": "«Perdón,",
+          "inicio": 27.33,
+          "fin": 27.992
+        }
+      ]
+    },
+    {
+      "inicio": 28.061,
+      "fin": 28.471,
+      "texto": "pero a mí",
+      "palabras": [
+        {
+          "texto": "pero",
+          "inicio": 28.061,
+          "fin": 28.259
+        },
+        {
+          "texto": "a",
+          "inicio": 28.282,
+          "fin": 28.305
+        },
+        {
+          "texto": "mí",
+          "inicio": 28.351,
+          "fin": 28.444
+        }
+      ]
+    },
+    {
+      "inicio": 28.491,
+      "fin": 29.098,
+      "texto": "me gustan las",
+      "palabras": [
+        {
+          "texto": "me",
+          "inicio": 28.491,
+          "fin": 28.572
+        },
+        {
+          "texto": "gustan",
+          "inicio": 28.619,
+          "fin": 28.909
+        },
+        {
+          "texto": "las",
+          "inicio": 28.944,
+          "fin": 29.048
+        }
+      ]
+    },
+    {
+      "inicio": 29.118,
+      "fin": 29.876,
+      "texto": "curvas».",
+      "palabras": [
+        {
+          "texto": "curvas».",
+          "inicio": 29.118,
+          "fin": 29.756
+        }
+      ]
+    },
+    {
+      "inicio": 30.035,
+      "fin": 31.397,
+      "texto": "El segundo: «No",
+      "palabras": [
+        {
+          "texto": "El",
+          "inicio": 30.035,
+          "fin": 30.197
+        },
+        {
+          "texto": "segundo:",
+          "inicio": 30.29,
+          "fin": 30.987
+        },
+        {
+          "texto": "«No",
+          "inicio": 31.08,
+          "fin": 31.347
+        }
+      ]
+    },
+    {
+      "inicio": 31.417,
+      "fin": 31.977,
+      "texto": "te lo tomes",
+      "palabras": [
+        {
+          "texto": "te",
+          "inicio": 31.417,
+          "fin": 31.498
+        },
+        {
+          "texto": "lo",
+          "inicio": 31.544,
+          "fin": 31.614
+        },
+        {
+          "texto": "tomes",
+          "inicio": 31.66,
+          "fin": 31.916
+        }
+      ]
+    },
+    {
+      "inicio": 31.997,
+      "fin": 32.662,
+      "texto": "a mal, pero",
+      "palabras": [
+        {
+          "texto": "a",
+          "inicio": 31.997,
+          "fin": 32.02
+        },
+        {
+          "texto": "mal,",
+          "inicio": 32.078,
+          "fin": 32.369
+        },
+        {
+          "texto": "pero",
+          "inicio": 32.427,
+          "fin": 32.647
+        }
+      ]
+    },
+    {
+      "inicio": 32.682,
+      "fin": 33.289,
+      "texto": "me gustan con",
+      "palabras": [
+        {
+          "texto": "me",
+          "inicio": 32.682,
+          "fin": 32.752
+        },
+        {
+          "texto": "gustan",
+          "inicio": 32.798,
+          "fin": 33.077
+        },
+        {
+          "texto": "con",
+          "inicio": 33.135,
+          "fin": 33.251
+        }
+      ]
+    },
+    {
+      "inicio": 33.309,
+      "fin": 34.009,
+      "texto": "cuerpo».",
+      "palabras": [
+        {
+          "texto": "cuerpo».",
+          "inicio": 33.309,
+          "fin": 33.889
+        }
+      ]
+    },
+    {
+      "inicio": 34.168,
+      "fin": 35.333,
+      "texto": "El tercero:",
+      "palabras": [
+        {
+          "texto": "El",
+          "inicio": 34.168,
+          "fin": 34.342
+        },
+        {
+          "texto": "tercero:",
+          "inicio": 34.423,
+          "fin": 35.213
+        }
+      ]
+    },
+    {
+      "inicio": 35.596,
+      "fin": 36.47,
+      "texto": "«Yo quiero la",
+      "palabras": [
+        {
+          "texto": "«Yo",
+          "inicio": 35.596,
+          "fin": 36.026
+        },
+        {
+          "texto": "quiero",
+          "inicio": 36.095,
+          "fin": 36.328
+        },
+        {
+          "texto": "la",
+          "inicio": 36.374,
+          "fin": 36.444
+        }
+      ]
+    },
+    {
+      "inicio": 36.49,
+      "fin": 37.376,
+      "texto": "que todos voltean",
+      "palabras": [
+        {
+          "texto": "que",
+          "inicio": 36.49,
+          "fin": 36.56
+        },
+        {
+          "texto": "todos",
+          "inicio": 36.629,
+          "fin": 36.896
+        },
+        {
+          "texto": "voltean",
+          "inicio": 36.954,
+          "fin": 37.349
+        }
+      ]
+    },
+    {
+      "inicio": 37.396,
+      "fin": 38.026,
+      "texto": "a mirar».",
+      "palabras": [
+        {
+          "texto": "a",
+          "inicio": 37.396,
+          "fin": 37.419
+        },
+        {
+          "texto": "mirar».",
+          "inicio": 37.465,
+          "fin": 37.906
+        }
+      ]
+    },
+    {
+      "inicio": 38.115,
+      "fin": 39.373,
+      "texto": "Y yo, sonriendo",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 38.115,
+          "fin": 38.232
+        },
+        {
+          "texto": "yo,",
+          "inicio": 38.348,
+          "fin": 38.661
+        },
+        {
+          "texto": "sonriendo",
+          "inicio": 38.731,
+          "fin": 39.335
+        }
+      ]
+    },
+    {
+      "inicio": 39.393,
+      "fin": 40.372,
+      "texto": "como si nada.",
+      "palabras": [
+        {
+          "texto": "como",
+          "inicio": 39.393,
+          "fin": 39.578
+        },
+        {
+          "texto": "si",
+          "inicio": 39.613,
+          "fin": 39.718
+        },
+        {
+          "texto": "nada.",
+          "inicio": 39.776,
+          "fin": 40.252
+        }
+      ]
+    },
+    {
+      "inicio": 40.763,
+      "fin": 41.776,
+      "texto": "Quedaba uno:",
+      "palabras": [
+        {
+          "texto": "Quedaba",
+          "inicio": 40.763,
+          "fin": 41.157
+        },
+        {
+          "texto": "uno:",
+          "inicio": 41.239,
+          "fin": 41.656
+        }
+      ]
+    },
+    {
+      "inicio": 42.167,
+      "fin": 43.448,
+      "texto": "«Me caes bien,",
+      "palabras": [
+        {
+          "texto": "«Me",
+          "inicio": 42.167,
+          "fin": 42.55
+        },
+        {
+          "texto": "caes",
+          "inicio": 42.574,
+          "fin": 42.876
+        },
+        {
+          "texto": "bien,",
+          "inicio": 42.934,
+          "fin": 43.328
+        }
+      ]
+    },
+    {
+      "inicio": 43.479,
+      "fin": 44.749,
+      "texto": "eres divertida».",
+      "palabras": [
+        {
+          "texto": "eres",
+          "inicio": 43.479,
+          "fin": 43.746
+        },
+        {
+          "texto": "divertida».",
+          "inicio": 43.781,
+          "fin": 44.629
+        }
+      ]
+    },
+    {
+      "inicio": 45.232,
+      "fin": 46.711,
+      "texto": "«¿Haces ejercicio?»",
+      "palabras": [
+        {
+          "texto": "«¿Haces",
+          "inicio": 45.232,
+          "fin": 45.732
+        },
+        {
+          "texto": "ejercicio?»",
+          "inicio": 45.79,
+          "fin": 46.591
+        }
+      ]
+    },
+    {
+      "inicio": 46.869,
+      "fin": 47.883,
+      "texto": "Sí, llevo un",
+      "palabras": [
+        {
+          "texto": "Sí,",
+          "inicio": 46.869,
+          "fin": 47.299
+        },
+        {
+          "texto": "llevo",
+          "inicio": 47.415,
+          "fin": 47.74
+        },
+        {
+          "texto": "un",
+          "inicio": 47.763,
+          "fin": 47.868
+        }
+      ]
+    },
+    {
+      "inicio": 47.903,
+      "fin": 48.359,
+      "texto": "año en el",
+      "palabras": [
+        {
+          "texto": "año",
+          "inicio": 47.903,
+          "fin": 48.135
+        },
+        {
+          "texto": "en",
+          "inicio": 48.158,
+          "fin": 48.205
+        },
+        {
+          "texto": "el",
+          "inicio": 48.274,
+          "fin": 48.332
+        }
+      ]
+    },
+    {
+      "inicio": 48.379,
+      "fin": 49.079,
+      "texto": "gimnasio.",
+      "palabras": [
+        {
+          "texto": "gimnasio.",
+          "inicio": 48.379,
+          "fin": 48.959
+        }
+      ]
+    },
+    {
+      "inicio": 49.342,
+      "fin": 49.856,
+      "texto": "«¿Y no ha",
+      "palabras": [
+        {
+          "texto": "«¿Y",
+          "inicio": 49.342,
+          "fin": 49.551
+        },
+        {
+          "texto": "no",
+          "inicio": 49.667,
+          "fin": 49.737
+        },
+        {
+          "texto": "ha",
+          "inicio": 49.783,
+          "fin": 49.83
+        }
+      ]
+    },
+    {
+      "inicio": 49.876,
+      "fin": 51.343,
+      "texto": "cambiado nada?» Más",
+      "palabras": [
+        {
+          "texto": "cambiado",
+          "inicio": 49.876,
+          "fin": 50.248
+        },
+        {
+          "texto": "nada?»",
+          "inicio": 50.306,
+          "fin": 50.852
+        },
+        {
+          "texto": "Más",
+          "inicio": 51.061,
+          "fin": 51.293
+        }
+      ]
+    },
+    {
+      "inicio": 51.363,
+      "fin": 52.527,
+      "texto": "fuerza, sí…",
+      "palabras": [
+        {
+          "texto": "fuerza,",
+          "inicio": 51.363,
+          "fin": 51.804
+        },
+        {
+          "texto": "sí…",
+          "inicio": 51.85,
+          "fin": 52.407
+        }
+      ]
+    },
+    {
+      "inicio": 52.837,
+      "fin": 53.769,
+      "texto": "pero curvas,",
+      "palabras": [
+        {
+          "texto": "pero",
+          "inicio": 52.837,
+          "fin": 53.092
+        },
+        {
+          "texto": "curvas,",
+          "inicio": 53.15,
+          "fin": 53.673
+        }
+      ]
+    },
+    {
+      "inicio": 53.789,
+      "fin": 54.594,
+      "texto": "ninguna.",
+      "palabras": [
+        {
+          "texto": "ninguna.",
+          "inicio": 53.789,
+          "fin": 54.474
+        }
+      ]
+    },
+    {
+      "inicio": 54.846,
+      "fin": 56.835,
+      "texto": "«Qué lástima», dijo.",
+      "palabras": [
+        {
+          "texto": "«Qué",
+          "inicio": 54.846,
+          "fin": 55.205
+        },
+        {
+          "texto": "lástima»,",
+          "inicio": 55.252,
+          "fin": 56.03
+        },
+        {
+          "texto": "dijo.",
+          "inicio": 56.204,
+          "fin": 56.715
+        }
+      ]
+    },
+    {
+      "inicio": 56.959,
+      "fin": 57.775,
+      "texto": "¡Pum!",
+      "palabras": [
+        {
+          "texto": "¡Pum!",
+          "inicio": 56.959,
+          "fin": 57.655
+        }
+      ]
+    },
+    {
+      "inicio": 58.34,
+      "fin": 58.796,
+      "texto": "Ahí se fue",
+      "palabras": [
+        {
+          "texto": "Ahí",
+          "inicio": 58.34,
+          "fin": 58.514
+        },
+        {
+          "texto": "se",
+          "inicio": 58.561,
+          "fin": 58.63
+        },
+        {
+          "texto": "fue",
+          "inicio": 58.688,
+          "fin": 58.781
+        }
+      ]
+    },
+    {
+      "inicio": 58.816,
+      "fin": 59.609,
+      "texto": "el último.",
+      "palabras": [
+        {
+          "texto": "el",
+          "inicio": 58.816,
+          "fin": 58.886
+        },
+        {
+          "texto": "último.",
+          "inicio": 58.967,
+          "fin": 59.489
+        }
+      ]
+    },
+    {
+      "inicio": 59.861,
+      "fin": 60.642,
+      "texto": "Salí de ahí",
+      "palabras": [
+        {
+          "texto": "Salí",
+          "inicio": 59.861,
+          "fin": 60.209
+        },
+        {
+          "texto": "de",
+          "inicio": 60.279,
+          "fin": 60.36
+        },
+        {
+          "texto": "ahí",
+          "inicio": 60.407,
+          "fin": 60.592
+        }
+      ]
+    },
+    {
+      "inicio": 60.662,
+      "fin": 61.257,
+      "texto": "sin una sola",
+      "palabras": [
+        {
+          "texto": "sin",
+          "inicio": 60.662,
+          "fin": 60.801
+        },
+        {
+          "texto": "una",
+          "inicio": 60.871,
+          "fin": 60.987
+        },
+        {
+          "texto": "sola",
+          "inicio": 61.034,
+          "fin": 61.243
+        }
+      ]
+    },
+    {
+      "inicio": 61.277,
+      "fin": 61.885,
+      "texto": "cita.",
+      "palabras": [
+        {
+          "texto": "cita.",
+          "inicio": 61.277,
+          "fin": 61.765
+        }
+      ]
+    },
+    {
+      "inicio": 61.962,
+      "fin": 62.662,
+      "texto": "Así era yo",
+      "palabras": [
+        {
+          "texto": "Así",
+          "inicio": 61.962,
+          "fin": 62.288
+        },
+        {
+          "texto": "era",
+          "inicio": 62.334,
+          "fin": 62.473
+        },
+        {
+          "texto": "yo",
+          "inicio": 62.555,
+          "fin": 62.647
+        }
+      ]
+    },
+    {
+      "inicio": 62.682,
+      "fin": 63.894,
+      "texto": "hace tres meses.",
+      "palabras": [
+        {
+          "texto": "hace",
+          "inicio": 62.682,
+          "fin": 62.856
+        },
+        {
+          "texto": "tres",
+          "inicio": 62.914,
+          "fin": 63.123
+        },
+        {
+          "texto": "meses.",
+          "inicio": 63.193,
+          "fin": 63.774
+        }
+      ]
+    },
+    {
+      "inicio": 64.006,
+      "fin": 64.775,
+      "texto": "Y así estoy",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 64.006,
+          "fin": 64.075
+        },
+        {
+          "texto": "así",
+          "inicio": 64.192,
+          "fin": 64.424
+        },
+        {
+          "texto": "estoy",
+          "inicio": 64.493,
+          "fin": 64.749
+        }
+      ]
+    },
+    {
+      "inicio": 64.795,
+      "fin": 65.368,
+      "texto": "ahora.",
+      "palabras": [
+        {
+          "texto": "ahora.",
+          "inicio": 64.795,
+          "fin": 65.248
+        }
+      ]
+    },
+    {
+      "inicio": 65.747,
+      "fin": 66.575,
+      "texto": "Sí, soy la",
+      "palabras": [
+        {
+          "texto": "Sí,",
+          "inicio": 65.747,
+          "fin": 66.177
+        },
+        {
+          "texto": "soy",
+          "inicio": 66.247,
+          "fin": 66.432
+        },
+        {
+          "texto": "la",
+          "inicio": 66.479,
+          "fin": 66.537
+        }
+      ]
+    },
+    {
+      "inicio": 66.595,
+      "fin": 67.132,
+      "texto": "misma.",
+      "palabras": [
+        {
+          "texto": "misma.",
+          "inicio": 66.595,
+          "fin": 67.117
+        }
+      ]
+    },
+    {
+      "inicio": 67.152,
+      "fin": 68.154,
+      "texto": "¿Qué cambió?",
+      "palabras": [
+        {
+          "texto": "¿Qué",
+          "inicio": 67.152,
+          "fin": 67.454
+        },
+        {
+          "texto": "cambió?",
+          "inicio": 67.512,
+          "fin": 68.034
+        }
+      ]
+    },
+    {
+      "inicio": 68.267,
+      "fin": 69.187,
+      "texto": "Empecé a tomar",
+      "palabras": [
+        {
+          "texto": "Empecé",
+          "inicio": 68.267,
+          "fin": 68.615
+        },
+        {
+          "texto": "a",
+          "inicio": 68.638,
+          "fin": 68.661
+        },
+        {
+          "texto": "tomar",
+          "inicio": 68.719,
+          "fin": 69.091
+        }
+      ]
+    },
+    {
+      "inicio": 69.207,
+      "fin": 70.604,
+      "texto": "Aguaje Complex 3",
+      "palabras": [
+        {
+          "texto": "Aguaje",
+          "inicio": 69.207,
+          "fin": 69.578
+        },
+        {
+          "texto": "Complex",
+          "inicio": 69.636,
+          "fin": 70.112
+        },
+        {
+          "texto": "3",
+          "inicio": 70.321,
+          "fin": 70.484
+        }
+      ]
+    },
+    {
+      "inicio": 70.635,
+      "fin": 71.301,
+      "texto": "en 1.",
+      "palabras": [
+        {
+          "texto": "en",
+          "inicio": 70.635,
+          "fin": 70.739
+        },
+        {
+          "texto": "1.",
+          "inicio": 70.774,
+          "fin": 71.181
+        }
+      ]
+    },
+    {
+      "inicio": 71.413,
+      "fin": 72.426,
+      "texto": "Dos cápsulas al",
+      "palabras": [
+        {
+          "texto": "Dos",
+          "inicio": 71.413,
+          "fin": 71.657
+        },
+        {
+          "texto": "cápsulas",
+          "inicio": 71.715,
+          "fin": 72.214
+        },
+        {
+          "texto": "al",
+          "inicio": 72.284,
+          "fin": 72.376
+        }
+      ]
+    },
+    {
+      "inicio": 72.446,
+      "fin": 73.03,
+      "texto": "día con mis",
+      "palabras": [
+        {
+          "texto": "día",
+          "inicio": 72.446,
+          "fin": 72.667
+        },
+        {
+          "texto": "con",
+          "inicio": 72.713,
+          "fin": 72.841
+        },
+        {
+          "texto": "mis",
+          "inicio": 72.876,
+          "fin": 72.992
+        }
+      ]
+    },
+    {
+      "inicio": 73.05,
+      "fin": 74.69,
+      "texto": "comidas: aguaje,",
+      "palabras": [
+        {
+          "texto": "comidas:",
+          "inicio": 73.05,
+          "fin": 73.723
+        },
+        {
+          "texto": "aguaje,",
+          "inicio": 73.932,
+          "fin": 74.594
+        }
+      ]
+    },
+    {
+      "inicio": 74.71,
+      "fin": 76.083,
+      "texto": "fenogreco y maca",
+      "palabras": [
+        {
+          "texto": "fenogreco",
+          "inicio": 74.71,
+          "fin": 75.511
+        },
+        {
+          "texto": "y",
+          "inicio": 75.581,
+          "fin": 75.65
+        },
+        {
+          "texto": "maca",
+          "inicio": 75.743,
+          "fin": 76.045
+        }
+      ]
+    },
+    {
+      "inicio": 76.103,
+      "fin": 76.734,
+      "texto": "negra.",
+      "palabras": [
+        {
+          "texto": "negra.",
+          "inicio": 76.103,
+          "fin": 76.614
+        }
+      ]
+    },
+    {
+      "inicio": 76.788,
+      "fin": 77.523,
+      "texto": "El primer mes",
+      "palabras": [
+        {
+          "texto": "El",
+          "inicio": 76.788,
+          "fin": 76.928
+        },
+        {
+          "texto": "primer",
+          "inicio": 76.962,
+          "fin": 77.229
+        },
+        {
+          "texto": "mes",
+          "inicio": 77.299,
+          "fin": 77.45
+        }
+      ]
+    },
+    {
+      "inicio": 77.543,
+      "fin": 78.672,
+      "texto": "noté más energía",
+      "palabras": [
+        {
+          "texto": "noté",
+          "inicio": 77.543,
+          "fin": 77.798
+        },
+        {
+          "texto": "más",
+          "inicio": 77.88,
+          "fin": 78.112
+        },
+        {
+          "texto": "energía",
+          "inicio": 78.17,
+          "fin": 78.646
+        }
+      ]
+    },
+    {
+      "inicio": 78.692,
+      "fin": 79.195,
+      "texto": "y ganas de",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 78.692,
+          "fin": 78.715
+        },
+        {
+          "texto": "ganas",
+          "inicio": 78.762,
+          "fin": 79.006
+        },
+        {
+          "texto": "de",
+          "inicio": 79.029,
+          "fin": 79.075
+        }
+      ]
+    },
+    {
+      "inicio": 79.226,
+      "fin": 80.101,
+      "texto": "entrenar.",
+      "palabras": [
+        {
+          "texto": "entrenar.",
+          "inicio": 79.226,
+          "fin": 79.981
+        }
+      ]
+    },
+    {
+      "inicio": 80.225,
+      "fin": 81.226,
+      "texto": "El segundo mes,",
+      "palabras": [
+        {
+          "texto": "El",
+          "inicio": 80.225,
+          "fin": 80.364
+        },
+        {
+          "texto": "segundo",
+          "inicio": 80.411,
+          "fin": 80.747
+        },
+        {
+          "texto": "mes,",
+          "inicio": 80.805,
+          "fin": 81.13
+        }
+      ]
+    },
+    {
+      "inicio": 81.246,
+      "fin": 82.202,
+      "texto": "los jeans empezaron",
+      "palabras": [
+        {
+          "texto": "los",
+          "inicio": 81.246,
+          "fin": 81.444
+        },
+        {
+          "texto": "jeans",
+          "inicio": 81.502,
+          "fin": 81.664
+        },
+        {
+          "texto": "empezaron",
+          "inicio": 81.711,
+          "fin": 82.164
+        }
+      ]
+    },
+    {
+      "inicio": 82.222,
+      "fin": 83.491,
+      "texto": "a hormarme atrás.",
+      "palabras": [
+        {
+          "texto": "a",
+          "inicio": 82.222,
+          "fin": 82.245
+        },
+        {
+          "texto": "hormarme",
+          "inicio": 82.28,
+          "fin": 82.837
+        },
+        {
+          "texto": "atrás.",
+          "inicio": 82.86,
+          "fin": 83.371
+        }
+      ]
+    },
+    {
+      "inicio": 83.545,
+      "fin": 83.862,
+      "texto": "Y en el",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 83.545,
+          "fin": 83.615
+        },
+        {
+          "texto": "en",
+          "inicio": 83.673,
+          "fin": 83.731
+        },
+        {
+          "texto": "el",
+          "inicio": 83.801,
+          "fin": 83.847
+        }
+      ]
+    },
+    {
+      "inicio": 83.882,
+      "fin": 84.802,
+      "texto": "supermercado, de",
+      "palabras": [
+        {
+          "texto": "supermercado,",
+          "inicio": 83.882,
+          "fin": 84.66
+        },
+        {
+          "texto": "de",
+          "inicio": 84.695,
+          "fin": 84.764
+        }
+      ]
+    },
+    {
+      "inicio": 84.822,
+      "fin": 85.975,
+      "texto": "repente, me miraban",
+      "palabras": [
+        {
+          "texto": "repente,",
+          "inicio": 84.822,
+          "fin": 85.391
+        },
+        {
+          "texto": "me",
+          "inicio": 85.461,
+          "fin": 85.565
+        },
+        {
+          "texto": "miraban",
+          "inicio": 85.623,
+          "fin": 85.948
+        }
+      ]
+    },
+    {
+      "inicio": 85.995,
+      "fin": 86.788,
+      "texto": "diferente.",
+      "palabras": [
+        {
+          "texto": "diferente.",
+          "inicio": 85.995,
+          "fin": 86.668
+        }
+      ]
+    },
+    {
+      "inicio": 86.947,
+      "fin": 87.949,
+      "texto": "Al tercer mes,",
+      "palabras": [
+        {
+          "texto": "Al",
+          "inicio": 86.947,
+          "fin": 87.086
+        },
+        {
+          "texto": "tercer",
+          "inicio": 87.144,
+          "fin": 87.446
+        },
+        {
+          "texto": "mes,",
+          "inicio": 87.516,
+          "fin": 87.876
+        }
+      ]
+    },
+    {
+      "inicio": 87.969,
+      "fin": 88.517,
+      "texto": "mis jeans de",
+      "palabras": [
+        {
+          "texto": "mis",
+          "inicio": 87.969,
+          "fin": 88.189
+        },
+        {
+          "texto": "jeans",
+          "inicio": 88.224,
+          "fin": 88.41
+        },
+        {
+          "texto": "de",
+          "inicio": 88.433,
+          "fin": 88.491
+        }
+      ]
+    },
+    {
+      "inicio": 88.537,
+      "fin": 89.295,
+      "texto": "antes ya no",
+      "palabras": [
+        {
+          "texto": "antes",
+          "inicio": 88.537,
+          "fin": 88.897
+        },
+        {
+          "texto": "ya",
+          "inicio": 89.013,
+          "fin": 89.153
+        },
+        {
+          "texto": "no",
+          "inicio": 89.199,
+          "fin": 89.269
+        }
+      ]
+    },
+    {
+      "inicio": 89.315,
+      "fin": 90.039,
+      "texto": "me cerraban.",
+      "palabras": [
+        {
+          "texto": "me",
+          "inicio": 89.315,
+          "fin": 89.408
+        },
+        {
+          "texto": "cerraban.",
+          "inicio": 89.431,
+          "fin": 89.919
+        }
+      ]
+    },
+    {
+      "inicio": 90.198,
+      "fin": 91.048,
+      "texto": "Sin magia y",
+      "palabras": [
+        {
+          "texto": "Sin",
+          "inicio": 90.198,
+          "fin": 90.442
+        },
+        {
+          "texto": "magia",
+          "inicio": 90.511,
+          "fin": 90.883
+        },
+        {
+          "texto": "y",
+          "inicio": 90.952,
+          "fin": 90.999
+        }
+      ]
+    },
+    {
+      "inicio": 91.068,
+      "fin": 91.896,
+      "texto": "sin quirófano:",
+      "palabras": [
+        {
+          "texto": "sin",
+          "inicio": 91.068,
+          "fin": 91.196
+        },
+        {
+          "texto": "quirófano:",
+          "inicio": 91.243,
+          "fin": 91.881
+        }
+      ]
+    },
+    {
+      "inicio": 91.916,
+      "fin": 92.883,
+      "texto": "constancia.",
+      "palabras": [
+        {
+          "texto": "constancia.",
+          "inicio": 91.916,
+          "fin": 92.763
+        }
+      ]
+    },
+    {
+      "inicio": 93.007,
+      "fin": 93.556,
+      "texto": "Si te pasa",
+      "palabras": [
+        {
+          "texto": "Si",
+          "inicio": 93.007,
+          "fin": 93.158
+        },
+        {
+          "texto": "te",
+          "inicio": 93.216,
+          "fin": 93.286
+        },
+        {
+          "texto": "pasa",
+          "inicio": 93.332,
+          "fin": 93.541
+        }
+      ]
+    },
+    {
+      "inicio": 93.576,
+      "fin": 94.694,
+      "texto": "igual, míralo con",
+      "palabras": [
+        {
+          "texto": "igual,",
+          "inicio": 93.576,
+          "fin": 93.994
+        },
+        {
+          "texto": "míralo",
+          "inicio": 94.11,
+          "fin": 94.505
+        },
+        {
+          "texto": "con",
+          "inicio": 94.551,
+          "fin": 94.656
+        }
+      ]
+    },
+    {
+      "inicio": 94.714,
+      "fin": 95.89,
+      "texto": "calma aquí abajo.",
+      "palabras": [
+        {
+          "texto": "calma",
+          "inicio": 94.714,
+          "fin": 95.051
+        },
+        {
+          "texto": "aquí",
+          "inicio": 95.074,
+          "fin": 95.294
+        },
+        {
+          "texto": "abajo.",
+          "inicio": 95.341,
+          "fin": 95.77
+        }
+      ]
+    },
+    {
+      "inicio": 95.945,
+      "fin": 96.412,
+      "texto": "Esa es la",
+      "palabras": [
+        {
+          "texto": "Esa",
+          "inicio": 95.945,
+          "fin": 96.177
+        },
+        {
+          "texto": "es",
+          "inicio": 96.2,
+          "fin": 96.246
+        },
+        {
+          "texto": "la",
+          "inicio": 96.316,
+          "fin": 96.386
+        }
+      ]
+    },
+    {
+      "inicio": 96.432,
+      "fin": 97.178,
+      "texto": "mujer que ellos",
+      "palabras": [
+        {
+          "texto": "mujer",
+          "inicio": 96.432,
+          "fin": 96.711
+        },
+        {
+          "texto": "que",
+          "inicio": 96.781,
+          "fin": 96.873
+        },
+        {
+          "texto": "ellos",
+          "inicio": 96.92,
+          "fin": 97.14
+        }
+      ]
+    },
+    {
+      "inicio": 97.198,
+      "fin": 97.818,
+      "texto": "querían.",
+      "palabras": [
+        {
+          "texto": "querían.",
+          "inicio": 97.198,
+          "fin": 97.698
+        }
+      ]
+    },
+    {
+      "inicio": 97.942,
+      "fin": 98.769,
+      "texto": "Qué lástima, mi",
+      "palabras": [
+        {
+          "texto": "Qué",
+          "inicio": 97.942,
+          "fin": 98.092
+        },
+        {
+          "texto": "lástima,",
+          "inicio": 98.151,
+          "fin": 98.65
+        },
+        {
+          "texto": "mi",
+          "inicio": 98.673,
+          "fin": 98.754
+        }
+      ]
+    },
+    {
+      "inicio": 98.789,
+      "fin": 99.849,
+      "texto": "amor: ya no",
+      "palabras": [
+        {
+          "texto": "amor:",
+          "inicio": 98.789,
+          "fin": 99.23
+        },
+        {
+          "texto": "ya",
+          "inicio": 99.555,
+          "fin": 99.695
+        },
+        {
+          "texto": "no",
+          "inicio": 99.753,
+          "fin": 99.822
+        }
+      ]
+    },
+    {
+      "inicio": 99.869,
+      "fin": 100.22,
+      "texto": "me van a",
+      "palabras": [
+        {
+          "texto": "me",
+          "inicio": 99.869,
+          "fin": 99.938
+        },
+        {
+          "texto": "van",
+          "inicio": 99.973,
+          "fin": 100.089
+        },
+        {
+          "texto": "a",
+          "inicio": 100.159,
+          "fin": 100.182
+        }
+      ]
+    },
+    {
+      "inicio": 100.24,
+      "fin": 101.034,
+      "texto": "tener.",
+      "palabras": [
+        {
+          "texto": "tener.",
+          "inicio": 100.24,
+          "fin": 100.914
+        }
+      ]
+    }
+  ]
+}

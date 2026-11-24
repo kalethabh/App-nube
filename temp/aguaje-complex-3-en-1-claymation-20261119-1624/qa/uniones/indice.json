@@ -1,0 +1,344 @@
+{
+  "generado": "2026-11-19T23:15:19.095Z",
+  "nota": "Cada imagen: ultimo cuadro del clip | imagen a la que tenia que llegar | primer cuadro del siguiente. El montaje no recorta, asi que esto es lo que se ve en cada corte. \"parecido\" es SSIM (0 a 1): orientativo.",
+  "clips": [
+    "paso-1.mp4",
+    "paso-2.mp4",
+    "paso-3.mp4",
+    "paso-4.mp4",
+    "paso-5.mp4",
+    "paso-6.mp4",
+    "paso-7.mp4",
+    "paso-8.mp4",
+    "paso-9.mp4",
+    "paso-10.mp4",
+    "toma-11.mp4",
+    "paso-11.mp4",
+    "paso-12.mp4",
+    "paso-13.mp4",
+    "paso-14.mp4",
+    "paso-15.mp4",
+    "paso-16.mp4",
+    "toma-17.mp4"
+  ],
+  "faltan": [],
+  "uniones": [
+    {
+      "union": "00-inicio-paso-1.jpg",
+      "antes": null,
+      "imagen": "img/toma-1-inicial.png",
+      "despues": {
+        "clip": "paso-1.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": null,
+        "salida": 0.921
+      },
+      "tira": "qa/uniones/00-inicio-paso-1.jpg"
+    },
+    {
+      "union": "01-paso-1--paso-2.jpg",
+      "antes": {
+        "clip": "paso-1.mp4",
+        "cuadro": 71
+      },
+      "imagen": "img/toma-2-inicial.png",
+      "despues": {
+        "clip": "paso-2.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.925,
+        "salida": 0.903
+      },
+      "tira": "qa/uniones/01-paso-1--paso-2.jpg"
+    },
+    {
+      "union": "02-paso-2--paso-3.jpg",
+      "antes": {
+        "clip": "paso-2.mp4",
+        "cuadro": 93
+      },
+      "imagen": "img/toma-3-inicial.png",
+      "despues": {
+        "clip": "paso-3.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.906,
+        "salida": 0.821
+      },
+      "tira": "qa/uniones/02-paso-2--paso-3.jpg"
+    },
+    {
+      "union": "03-paso-3--paso-4.jpg",
+      "antes": {
+        "clip": "paso-3.mp4",
+        "cuadro": 71
+      },
+      "imagen": "img/toma-4-inicial.png",
+      "despues": {
+        "clip": "paso-4.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.915,
+        "salida": 0.921
+      },
+      "tira": "qa/uniones/03-paso-3--paso-4.jpg"
+    },
+    {
+      "union": "04-paso-4--paso-5.jpg",
+      "antes": {
+        "clip": "paso-4.mp4",
+        "cuadro": 71
+      },
+      "imagen": "img/toma-5-inicial.png",
+      "despues": {
+        "clip": "paso-5.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.89,
+        "salida": 0.892
+      },
+      "tira": "qa/uniones/04-paso-4--paso-5.jpg"
+    },
+    {
+      "union": "05-paso-5--paso-6.jpg",
+      "antes": {
+        "clip": "paso-5.mp4",
+        "cuadro": 71
+      },
+      "imagen": "img/toma-6-inicial.png",
+      "despues": {
+        "clip": "paso-6.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.929,
+        "salida": 0.937
+      },
+      "tira": "qa/uniones/05-paso-5--paso-6.jpg"
+    },
+    {
+      "union": "06-paso-6--paso-7.jpg",
+      "antes": {
+        "clip": "paso-6.mp4",
+        "cuadro": 93
+      },
+      "imagen": "img/toma-7-inicial.png",
+      "despues": {
+        "clip": "paso-7.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.944,
+        "salida": 0.936
+      },
+      "tira": "qa/uniones/06-paso-6--paso-7.jpg"
+    },
+    {
+      "union": "07-paso-7--paso-8.jpg",
+      "antes": {
+        "clip": "paso-7.mp4",
+        "cuadro": 71
+      },
+      "imagen": "img/toma-8-inicial.png",
+      "despues": {
+        "clip": "paso-8.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.924,
+        "salida": 0.914
+      },
+      "tira": "qa/uniones/07-paso-7--paso-8.jpg"
+    },
+    {
+      "union": "08-paso-8--paso-9.jpg",
+      "antes": {
+        "clip": "paso-8.mp4",
+        "cuadro": 71
+      },
+      "imagen": "img/toma-9-inicial.png",
+      "despues": {
+        "clip": "paso-9.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.918,
+        "salida": 0.91
+      },
+      "tira": "qa/uniones/08-paso-8--paso-9.jpg"
+    },
+    {
+      "union": "09-paso-9--paso-10.jpg",
+      "antes": {
+        "clip": "paso-9.mp4",
+        "cuadro": 71
+      },
+      "imagen": "img/toma-10-inicial.png",
+      "despues": {
+        "clip": "paso-10.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.914,
+        "salida": 0.907
+      },
+      "tira": "qa/uniones/09-paso-9--paso-10.jpg"
+    },
+    {
+      "union": "10-paso-10--toma-11.jpg",
+      "antes": {
+        "clip": "paso-10.mp4",
+        "cuadro": 142
+      },
+      "imagen": "img/toma-11-inicial.png",
+      "despues": {
+        "clip": "toma-11.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.93,
+        "salida": 0.931
+      },
+      "tira": "qa/uniones/10-paso-10--toma-11.jpg"
+    },
+    {
+      "union": "11-toma-11--paso-11.jpg",
+      "antes": {
+        "clip": "toma-11.mp4",
+        "cuadro": 167
+      },
+      "imagen": "img/toma-11-final.png",
+      "despues": {
+        "clip": "paso-11.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.925,
+        "salida": 0.922
+      },
+      "tira": "qa/uniones/11-toma-11--paso-11.jpg"
+    },
+    {
+      "union": "12-paso-11--paso-12.jpg",
+      "antes": {
+        "clip": "paso-11.mp4",
+        "cuadro": 71
+      },
+      "imagen": "img/toma-12-inicial.png",
+      "despues": {
+        "clip": "paso-12.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.947,
+        "salida": 0.938
+      },
+      "tira": "qa/uniones/12-paso-11--paso-12.jpg"
+    },
+    {
+      "union": "13-paso-12--paso-13.jpg",
+      "antes": {
+        "clip": "paso-12.mp4",
+        "cuadro": 71
+      },
+      "imagen": "img/toma-13-inicial.png",
+      "despues": {
+        "clip": "paso-13.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.939,
+        "salida": 0.922
+      },
+      "tira": "qa/uniones/13-paso-12--paso-13.jpg"
+    },
+    {
+      "union": "14-paso-13--paso-14.jpg",
+      "antes": {
+        "clip": "paso-13.mp4",
+        "cuadro": 93
+      },
+      "imagen": "img/toma-14-inicial.png",
+      "despues": {
+        "clip": "paso-14.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.84,
+        "salida": 0.996
+      },
+      "tira": "qa/uniones/14-paso-13--paso-14.jpg"
+    },
+    {
+      "union": "15-paso-14--paso-15.jpg",
+      "antes": {
+        "clip": "paso-14.mp4",
+        "cuadro": 120
+      },
+      "imagen": "img/toma-15-inicial.png",
+      "despues": {
+        "clip": "paso-15.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.992,
+        "salida": 0.858
+      },
+      "tira": "qa/uniones/15-paso-14--paso-15.jpg"
+    },
+    {
+      "union": "16-paso-15--paso-16.jpg",
+      "antes": {
+        "clip": "paso-15.mp4",
+        "cuadro": 71
+      },
+      "imagen": "img/toma-16-inicial.png",
+      "despues": {
+        "clip": "paso-16.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.941,
+        "salida": 0.927
+      },
+      "tira": "qa/uniones/16-paso-15--paso-16.jpg"
+    },
+    {
+      "union": "17-paso-16--toma-17.jpg",
+      "antes": {
+        "clip": "paso-16.mp4",
+        "cuadro": 93
+      },
+      "imagen": "img/toma-17-inicial.png",
+      "despues": {
+        "clip": "toma-17.mp4",
+        "cuadro": 0
+      },
+      "parecido": {
+        "llegada": 0.884,
+        "salida": 0.925
+      },
+      "tira": "qa/uniones/17-paso-16--toma-17.jpg"
+    },
+    {
+      "union": "18-toma-17-final.jpg",
+      "antes": {
+        "clip": "toma-17.mp4",
+        "cuadro": 189
+      },
+      "imagen": null,
+      "despues": null,
+      "parecido": {
+        "llegada": null,
+        "salida": null
+      },
+      "tira": "qa/uniones/18-toma-17-final.jpg"
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "uuid": "160e7a7f-c983-4074-9c4e-56aa4ada4697",
+  "estado": "aprobado",
+  "tipo": "cambios",
+  "intentos": 4,
+  "progreso": [
+    "Claude está leyendo tu pedido",
+    "Repasando el guion",
+    "Ajustando el guion",
+    "Marcando las transiciones",
+    "Revisando que el guion esté completo",
+    "Pasando el guion en limpio"
+  ],
+  "inicio": "2026-11-18T16:16:03.360Z",
+  "cambios": [
+    {
+      "pedido": "01\ngancho\nAquí no te vendemos el nombre. Aquí te mostramos lo que trae el frasco:\n\nUna mano con bata blanca toma un frasco de la estantería llena de frascos y lo gira hacia la cámara.\n\n02\nsolución\nAguaje, fenogreco y maca negra: los tres componentes puros.\n\nElla de perfil, con su planilla, lee la etiqueta de un frasco frente a las estanterías. Corte a los tres ingredientes junto al frasco.\n\n03\nsolución\nEso es lo que te da resultados rápidos en glúteos y piernas, sin efecto rebote. No la marca VITALCOM.\n\nElla anota en la planilla, mira los frascos y marca un visto bueno.\n\n04\nproblema\nDecir que son el original lo hace cualquiera. Por eso muchas compran y no ven cambios.\n\nElla de frente entre las estanterías, abrazando la planilla, niega con la cabeza y levanta una ceja.\n\n05\ngiro\nY lo que no te cuentan: para mantener el resultado y sin efecto rebote, lo ideal es el tratamiento completo de tres meses.\n\nElla detrás de la mesa de empaque acomoda tres frascos en fila y mira a la cámara.\n\n06\ngiro\nLes conviene que compres de a uno y te salga más caro.\n\nUn solo frasco, solito, en medio de la mesa vacía.\n\n07\ncierre\nPero con tu cuerpo no se juega.\n\nElla mete un frasco en una caja llena de frascos, con una sonrisa tranquila.\n\n08\ncierre\nEste aguaje tres en uno de Vitalabh: componentes puros y triple acción.\n\nElla de frente, en la zona de despacho, sonríe y muestra el frasco junto a su cara.",
+      "fecha": "2026-11-18T16:29:41.485Z",
+      "ok": true
+    },
+    {
+      "pedido": "Editaste a mano las partes 5, 6",
+      "aMano": true,
+      "fecha": "2026-11-18T22:25:31.986Z",
+      "ok": true
+    },
+    {
+      "pedido": "Editaste a mano las partes 1, 2, 4, 5, 7",
+      "aMano": true,
+      "fecha": "2026-11-18T22:41:43.018Z",
+      "ok": true
+    }
+  ],
+  "actualizado": "2026-11-18T22:54:19.504Z",
+  "error": null,
+  "inicioIntento": "2026-11-18T22:41:43.019Z",
+  "fin": "2026-11-18T22:45:23.698Z",
+  "limite": false,
+  "reinicio": null,
+  "medidas": [
+    {
+      "tipo": "guion",
+      "fecha": "2026-11-18T16:23:01.819Z",
+      "ok": true,
+      "turnos": 35,
+      "duracionMs": 376735,
+      "uso": {
+        "input_tokens": 14,
+        "cache_creation_input_tokens": 140660,
+        "cache_read_input_tokens": 520615,
+        "output_tokens": 44314,
+        "output_tokens_details": {
+          "thinking_tokens": 11810
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 140660,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 136113,
+            "cache_creation_input_tokens": 4547,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4547
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 4.127355,
+      "modelo": "claude-fable-5-2",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 1,
+      "motor": "claude"
+    },
+    {
+      "tipo": "cambios",
+      "fecha": "2026-11-18T16:30:33.713Z",
+      "ok": true,
+      "turnos": 16,
+      "duracionMs": 51882,
+      "uso": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 32854,
+        "cache_read_input_tokens": 449460,
+        "output_tokens": 6517,
+        "output_tokens_details": {
+          "thinking_tokens": 767
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 32854,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 166566,
+            "cache_creation_input_tokens": 6948,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 6948
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 5.003639,
+      "modelo": "claude-fable-5-2",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 0,
+      "motor": "claude"
+    },
+    {
+      "tipo": "cambios",
+      "fecha": "2026-11-18T22:27:55.462Z",
+      "ok": true,
+      "turnos": 23,
+      "duracionMs": 143470,
+      "uso": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 196721,
+        "cache_read_input_tokens": 368041,
+        "output_tokens": 16863,
+        "output_tokens_details": {
+          "thinking_tokens": 4800
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 196721,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 47,
+            "cache_read_input_tokens": 193050,
+            "cache_creation_input_tokens": 3671,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3671
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 8.8993512,
+      "modelo": "claude-fable-5-2",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 0,
+      "motor": "claude"
+    },
+    {
+      "tipo": "cambios",
+      "fecha": "2026-11-18T22:45:23.698Z",
+      "ok": true,
+      "turnos": 42,
+      "duracionMs": 220676,
+      "uso": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 31589,
+        "cache_read_input_tokens": 619938,
+        "output_tokens": 25394,
+        "output_tokens_details": {
+          "thinking_tokens": 9050
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 31589,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 224626,
+            "cache_creation_input_tokens": 3684,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3684
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 10.5445708,
+      "modelo": "claude-fable-5-2",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 0,
+      "motor": "claude"
+    }
+  ],
+  "ajustados": 0,
+  "pedido": "El usuario editó A MANO el guion. Pon EXACTAMENTE estos textos, palabra por palabra (no los mejores ni los acortes), y ajusta todo lo demás de esas tomas para que digan eso mismo: los tramos y sus tiempos, la duración, el prompt de video y los subtítulos. Donde trae «se ve», esa es la escena: rehaz el prompt de imagen y de video de esa toma para mostrar eso (con los mismos personajes, el mismo estilo y la misma continuidad del anuncio) y pon ese texto en `se_ve` de la hoja. No cambies las otras tomas.\n- Parte 1: dice «Aquí no te vendemos el nombre de una marca como lo hacen con Vitalcom. Aquí te mostramos lo que de verdad hará con el aguaje, el fenogreco y la maca juntos en sus extractos puros:»; se ve: Una mano con bata blanca toma un frasco de la estantería llena de frascos y lo gira despacio hacia la cámara, hasta que se ve de cerca la parte de la etiqueta con los tres ingredientes.\n- Parte 2: dice «Aguaje, fenogreco y maca negra: los tres extractos puros, los culpables de que tengas los resultados de verdad.»; se ve: Ella de perfil, con su planilla, lee la etiqueta del frasco frente a las estanterías. Corte al aguaje, el fenogreco y la maca negra junto al frasco, y ella los señala uno por uno con el lapicero.\n- Parte 4: dice «Decir que son el original lo hace cualquiera. Por eso muchas compran y no ven los camn.»; se ve: Ella de frente entre las estanterías, con la planilla abrazada, mira un frasco cualquiera que tiene en la mano, niega con la cabeza y lo deja a un lado.\n- Parte 5: dice «Y lo que no te cuentan: para que de verdad se vean rápidos, mantener el resultado y sin efecto rebote.»; se ve: Ella, detrás de la mesa de empaque, deja la planilla a un lado y pone tres frascos en fila, uno por uno, mirándolos con calma.\n- Parte 7: dice «Les conviene que compres de a uno y te salga más caro para ellos ganar más.»; se ve: Ella aparta dos de los tres frascos y deja uno solo, solito, en medio de la mesa de empaque. Lo mira con desconfianza y niega despacio con la cabeza.",
+  "respaldo": null,
+  "aprobado": "2026-11-18T22:54:19.504Z"
+}

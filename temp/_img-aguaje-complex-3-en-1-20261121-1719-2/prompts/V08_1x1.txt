@@ -1,0 +1,61 @@
+The FIRST attached image is a REFERENCE AD. Create a new ad that is the same design made for a different product: keep its exact layout, composition, block structure, visual hierarchy, spacing, background treatment and graphic style, and keep its exact typography (same font style, weight, casing, relative sizes, text effects and text placement). Change only three things: (1) the product: replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle; (2) the texts: replace every text of the reference with the texts listed below, each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.
+
+FIRST, READ THE REFERENCE AD before designing anything: (a) its ANGLE: the exact body area, problem or desire it sells (for example glutes and curves, belly fat, swollen legs, cough and lungs, wrinkles, energy, sleep); (b) its HOOK: the idea that stops the scroll (a before/after, a big promise, a number or timeline, a question, a testimonial, a shocking fact, an us-vs-them comparison); (c) its FORMAT: what is shown and how (person, body close-up, split screen, product hero, chart, screenshot, collage). Your ad MUST sell the SAME angle with the SAME hook and format: if the reference is about glutes, yours is about glutes, shown the same way; never switch to another body area or another benefit.
+
+IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+
+SCENE DESCRIPTION (same composition as the reference):
+Square 1:1 before/after split-screen ad in glossy 3D animated cartoon style (Pixar-like render), recreating exactly the winning reference composition. Clean backgrounds with no clutter. LEFT PANEL (left 37% of the width): dark plum-to-black gradient background, muted and gloomy; at the top center a translucent grey-plum rounded pill label; a small white hand-drawn scribble doodle at the top left; a 3D cartoon young Latina woman with light brown hair tied in a low ponytail, wearing an oversized baggy grey hoodie and loose wide grey sweatpants that hide her shape, seen from behind in three-quarter view, looking back over her shoulder with an insecure, sad expression, pulling the hoodie down with one hand, slim flat hips and thin legs; three short white handwritten marker notes stacked along the left edge, the first one with a small curved hand-drawn arrow pointing at her. A thick curved white arrow crosses from the left panel into the right panel at mid-height. RIGHT PANEL (remaining 63%): bright hot fuchsia background glowing to bubblegum pink, with white four-point sparkles and small outline hearts; a pale pink rounded pill label at the top near the split; the SAME 3D cartoon woman with the same face and the same light brown low ponytail, now wearing a fitted white knee-length bodycon dress, seen from behind in three-quarter view, confident, eyes closed with a soft happy smile, with clearly fuller, rounder glutes, wider hips and thicker shapely legs, an obvious change at first glance, tasteful and non-explicit, filling the center of the image from top to bottom. TOP RIGHT: a bold two-part uppercase headline block, left-aligned, first part in white, second part in bottle black, with a two-line white subheadline under it. MIDDLE RIGHT, between the woman and the bottle: a vertical column of three short handwritten notes in dark plum, each with a small outline heart. BOTTOM RIGHT: the product, large and clear — use the attached product photo as the only source of truth for the product and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern and a solid hot-pink band wrapping the bottom fifth; black label with a small pink VITALABH emblem, a huge bold white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh, three small pink-outlined boxes joined by plus signs, and '60 CÁPSULAS' at the bottom. The bottle stands upright, rendered photorealistically and sharp with a soft shadow, in front of a large soft pink flower with glowing petals. BOTTOM, left of the bottle: a round black seal with a thin fuchsia rim, three small stars on top and bold white uppercase text. BOTTOM RIGHT EDGE: a row of three thin-line white icons (a leaf, a capsule, a heart), each with a tiny white label below. Only the text listed in the exact visible text section; no other text, no extra modules.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- before label (Top center of the left panel, inside a rounded pill): "ANTES" — Bold uppercase sans-serif, small, white, on a translucent grey-plum pill
+- after label (Top of the right panel near the split, inside a rounded pill): "DESPUÉS" — Bold uppercase sans-serif, small, white, on a pale pink pill
+- main headline, first part (Top right, x 62–98%, first two lines of the headline block): "ANTES: ROPA ANCHA PARA ESCONDERSE." — Heavy geometric sans-serif (Montserrat Black look), ALL UPPERCASE, very large, white, tight leading, left-aligned, subtle drop shadow
+- main headline, second part (Top right, directly below the first part, last two or three lines of the headline block): "AHORA: VESTIDO PEGADO Y CON GANAS." — Heavy geometric sans-serif (Montserrat Black look), ALL UPPERCASE, very large, bottle black #0E0E10, tight leading, left-aligned
+- subheadline (Right below the headline, x 62–97%, y 27–35%): "Un apoyo natural para sus curvas, junto con su comida y su rutina." — Clean regular sans-serif (Poppins Regular look), medium size, white, sentence case, left-aligned, two lines
+- before note 1 (Left edge, y ~26–35%, with a small curved arrow pointing at the woman): "Siempre tapada" — Casual handwritten marker script, white, small, sentence case, two short lines
+- before note 2 (Left edge, y ~47–55%): "Ropa ancha" — Casual handwritten marker script, white, small, sentence case
+- before note 3 (Left edge, y ~61–69%): "Sin confianza" — Casual handwritten marker script, white, small, sentence case
+- after note 1 (Right panel, x 70–82%, y ~38–45%, with a small outline heart): "Vestido pegado" — Casual handwritten marker script, dark plum, small, sentence case
+- after note 2 (Right panel, x 70–82%, y ~50–57%, with a small outline heart): "Curvas al natural" — Casual handwritten marker script, dark plum, small, sentence case
+- after note 3 (Right panel, x 70–82%, y ~61–68%): "Más confianza" — Casual handwritten marker script, dark plum, small, sentence case
+- seal main text (Center of the round black seal, bottom, x 63–80%): "PAGAS" — Bold uppercase sans-serif, white, the largest text in the seal
+- seal secondary text (Inside the seal, below the main text): "AL RECIBIR" — Bold uppercase sans-serif, white, smaller
+- icon label 1 (Under the leaf icon, bottom row, left): "Ingredientes de origen vegetal" — Small regular sans-serif, white, centered, two lines
+- icon label 2 (Under the capsule icon, bottom row, center): "2 cápsulas al día" — Small regular sans-serif, white, centered, two lines
+- icon label 3 (Under the heart icon, bottom row, right): "Sin cirugía" — Small regular sans-serif, white, centered
+
+BRAND IDENTITY:
+- color_palette: Before panel: dark plum #2B1226 fading to bottle black #0E0E10. After panel: hot fuchsia #E6177F glowing to bubblegum pink #FF8CC0 with deep magenta #B0105E shading. Accents: white #FFFFFF, pale blush #FBE3EE, bottle black #0E0E10. Headline first part white, second part bottle black.
+
+MANDATORY ELEMENTS:
+- Vertical split: dark plum left panel and bright fuchsia right panel
+- The same 3D cartoon woman with a light brown low ponytail on both sides, seen from behind in three-quarter view
+- Oversized baggy grey hoodie and loose sweatpants, insecure expression and flat silhouette on the left; fitted white bodycon dress, confident smile and clearly fuller glutes, hips and legs on the right
+- Thick curved white arrow from left to right
+- White scribble doodle at top left and small hand-drawn arrows
+- White four-point sparkles and small outline hearts on the right panel
+- The real bottle from the attached photo at bottom right, large and clear, in front of a large soft pink flower
+- Round black seal with a thin fuchsia rim and three small stars
+- Row of three thin-line white icons (leaf, capsule, heart) at the bottom right
+
+STRICT EXCLUSIONS:
+- No brand logos other than the one printed on the bottle label
+- No clothing brand logos or prints on the hoodie
+- No realistic photographic people: the women must be 3D animated cartoon characters
+- No nudity, no explicit or sexualized poses
+- No mirrors, hangers or closet props
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price or discount
+- Do not add: Rating stars outside the seal
+- Do not add: Testimonials or quotes
+- Do not add: Extra badges or seals
+- Do not add: Clothing racks, hangers, mirrors or closet props
+- Do not add: Brand logo outside the bottle label
+- Do not add: Any text not listed in text_layers
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

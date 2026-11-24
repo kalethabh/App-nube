@@ -1,0 +1,38 @@
+
+=== 2026-11-16T01:07:37.653Z  node produccion/generar-imagen-ads.js temp/_img-vitaldrops-20261115-2001 --motor chatgpt --concurrencia 3
+
+=== Anuncios de imagen — _img-vitaldrops-20261115-2001 ===
+
+  Modelo: gpt-image (ChatGPT), con tu suscripcion (sin costo por imagen)
+  Hasta 3 a la vez; sale tras 20 s sin trabajo.
+
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  OK  V03_1x1 — 0 cr
+  OK  V01_1x1 — 0 cr
+  OK  V02_1x1 — 0 cr
+  ..  V04_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  OK  V04_1x1 — 0 cr
+
+  Listo en 225 s: 4 listas, 0 sin imagen, 0 ya estaban.
+  Gasto real: 0 creditos = US$0.00
+
+
+--- termino con codigo 0 en 397 s
+
+=== 2026-11-16T01:14:14.642Z  node produccion/generar-imagen-ads.js temp/_img-vitaldrops-20261115-2001 --motor chatgpt --concurrencia 3
+
+=== Anuncios de imagen — _img-vitaldrops-20261115-2001 ===
+
+  Modelo: gpt-image (ChatGPT), con tu suscripcion (sin costo por imagen)
+  Hasta 3 a la vez; sale tras 20 s sin trabajo.
+
+  ..  V05_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  OK  V05_1x1 — 0 cr
+
+  Listo en 139 s: 1 lista, 0 sin imagen, 0 ya estaban.
+  Gasto real: 0 creditos = US$0.00
+
+
+--- termino con codigo 0 en 140 s

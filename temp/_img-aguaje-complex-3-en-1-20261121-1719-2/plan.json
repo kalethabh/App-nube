@@ -1,0 +1,168 @@
+{
+  "producto": "aguaje-complex-3-en-1",
+  "lote": "_img-aguaje-complex-3-en-1-20261121-1719-2",
+  "cantidad": 10,
+  "proporciones": ["1:1"],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1719-2/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Antes / Después animado 3D en pantalla dividida",
+        "estructura": "Panel oscuro a la izquierda con la chica de espaldas triste y tres notas a mano; panel fucsia a la derecha con la misma chica segura y curvas, flecha curva que une los dos; titular en dos colores arriba a la derecha, frase de apoyo debajo, tres notas a mano con corazones, frasco con flor rosada abajo a la derecha, sello redondo negro y fila de tres íconos abajo.",
+        "por_que_funciona": "Cuenta una historia de cambio en un segundo: el contraste oscuro contra brillante y la chica animada frenan el scroll sin mostrar un cuerpo real, el titular en dos tiempos (antes/ahora) crea deseo y el sello y los íconos bajan el miedo a comprar."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Del jean que no horma al jean que sí le queda: el deseo número uno de la clienta.",
+      "titular": "ANTES: NADA LE HORMABA. AHORA: SU JEAN SÍ LE HORMA.",
+      "escena": "Igual a la referencia: split screen 3D animado, panel izquierdo ciruela oscuro, panel derecho fucsia con brillos y corazones.",
+      "camara": "Igual a la referencia: plano entero de la chica vista de espaldas en tres cuartos, a la altura de la cadera."
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1719-2/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Antes / Después animado 3D en pantalla dividida",
+        "estructura": "Igual que V01.",
+        "por_que_funciona": "Igual que V01; este titular le habla a la que ya entrena y no ve cambio."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "La sentadilla que no rendía ahora tiene un apoyo diario.",
+      "titular": "ANTES: SENTADILLAS SIN CAMBIO. AHORA: SU RUTINA POR FIN RINDE.",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1719-2/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Antes / Después animado 3D en pantalla dividida",
+        "estructura": "Igual que V01.",
+        "por_que_funciona": "Igual que V01; este titular usa el miedo al quirófano como contraste."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Del miedo a operarse a trabajar sus curvas sin agujas.",
+      "titular": "ANTES: MIEDO AL QUIRÓFANO. AHORA: CURVAS SIN AGUJAS.",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1719-2/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Antes / Después animado 3D en pantalla dividida",
+        "estructura": "Igual que V01.",
+        "por_que_funciona": "Igual que V01; este titular toca la comparación con las de redes y promete seguridad."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "De sentirse plana a sentirse segura con su cuerpo.",
+      "titular": "ANTES: SE SENTÍA PLANA. AHORA: SE SIENTE SEGURA.",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1719-2/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Antes / Después animado 3D en pantalla dividida",
+        "estructura": "Igual que V01.",
+        "por_que_funciona": "Igual que V01; este titular toca el evitar las fotos de cuerpo entero."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "De huir de las fotos a posar de perfil con gusto.",
+      "titular": "ANTES: HUÍA DE LAS FOTOS. AHORA: POSA DE PERFIL.",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    },
+    {
+      "id": "V06",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1719-2/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Antes / Después animado 3D en pantalla dividida",
+        "estructura": "Igual que V01.",
+        "por_que_funciona": "Igual que V01; este titular usa la energía, el beneficio que más rápido se siente."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "De llegar sin ganas a entrenar con toda.",
+      "titular": "ANTES: SIN GANAS DE ENTRENAR. AHORA: CON TODA EN SU RUTINA.",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    },
+    {
+      "id": "V07",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1719-2/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Antes / Después animado 3D en pantalla dividida",
+        "estructura": "Igual que V01.",
+        "por_que_funciona": "Igual que V01; este titular le habla a la que ya perdió plata en pastillas."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "De pastillas sueltas que no sirvieron a un plan completo de 3 meses.",
+      "titular": "ANTES: PASTILLAS QUE NO SIRVIERON. AHORA: UN PLAN DE 3 MESES.",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    },
+    {
+      "id": "V08",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1719-2/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Antes / Después animado 3D en pantalla dividida",
+        "estructura": "Igual que V01.",
+        "por_que_funciona": "Igual que V01; este titular toca la ropa pegada que evita."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "De esconderse en ropa ancha a ponerse el vestido pegado.",
+      "titular": "ANTES: ROPA ANCHA PARA ESCONDERSE. AHORA: VESTIDO PEGADO Y CON GANAS.",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    },
+    {
+      "id": "V09",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1719-2/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Antes / Después animado 3D en pantalla dividida",
+        "estructura": "Igual que V01.",
+        "por_que_funciona": "Igual que V01; este titular usa las palabras de la flaquita de toda la vida."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "De sentirse flaquita de piernas a mirarse al espejo con ganas.",
+      "titular": "ANTES: FLAQUITA DE PIERNAS. AHORA: SE MIRA CON GANAS.",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    },
+    {
+      "id": "V10",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1719-2/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Antes / Después animado 3D en pantalla dividida",
+        "estructura": "Igual que V01.",
+        "por_que_funciona": "Igual que V01; este titular toca la comparación con otras y el deseo de ser vista."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "De compararse con todas a ser ella la que mira todo el mundo.",
+      "titular": "ANTES: SE COMPARABA CON TODAS. AHORA: LA MIRAN A ELLA.",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    }
+  ]
+}

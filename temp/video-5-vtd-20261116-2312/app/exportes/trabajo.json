@@ -1,0 +1,31 @@
+{
+  "n": 1,
+  "estado": "listo",
+  "calidad": "1080",
+  "version": "completa",
+  "subtitulos": "sin",
+  "sinMusica": false,
+  "srt": false,
+  "guardar": false,
+  "creado": "2026-11-17T05:37:10.257Z",
+  "actualizado": "2026-11-17T06:03:45.310Z",
+  "avance": {
+    "etapa": "guardar",
+    "valor": 100,
+    "cuadro": 9293,
+    "total": 9293
+  },
+  "control": {
+    "limpio": false,
+    "codigo": 1,
+    "motivo": null,
+    "defectos": [
+      "7 cuadro(s) negro(s) en 72.9 s y el clip original se ve bien ahi",
+      "2 cuadro(s) negro(s) en 198.1 s y el clip original se ve bien ahi"
+    ],
+    "avisos": []
+  },
+  "archivo": "video-5-vtd-20261116-2312_editado-1.mp4",
+  "srtArchivo": null,
+  "terminado": "2026-11-17T06:03:45.062Z"
+}

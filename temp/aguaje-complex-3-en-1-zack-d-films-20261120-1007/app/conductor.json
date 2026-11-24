@@ -1,0 +1,126 @@
+{
+  "slug": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+  "familia": "voz-en-off",
+  "estado": "listo",
+  "paso": "informe",
+  "pasos": [
+    {
+      "id": "validar",
+      "nombre": "Revisar el guion",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T15:47:29.611Z",
+      "fin": "2026-11-20T15:47:29.713Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Mirar tu saldo de kie",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T15:47:29.713Z",
+      "fin": "2026-11-20T15:47:30.350Z"
+    },
+    {
+      "id": "voz",
+      "nombre": "Grabar la voz",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T15:47:30.350Z",
+      "fin": "2026-11-20T15:47:40.489Z"
+    },
+    {
+      "id": "ventanas",
+      "nombre": "Ajustar el largo de cada escena",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T15:47:40.489Z",
+      "fin": "2026-11-20T15:47:40.584Z",
+      "nota": "2 escena(s) se pidieron más largas para cubrir su frase."
+    },
+    {
+      "id": "imagenes-y-videos",
+      "nombre": "Crear las imágenes y los videos",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T15:47:40.584Z",
+      "fin": "2026-11-20T15:59:58.614Z"
+    },
+    {
+      "id": "revision-imagenes",
+      "nombre": "Revisar las imágenes",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T15:59:58.614Z",
+      "fin": "2026-11-20T16:01:30.876Z",
+      "nota": "La revisión dejó 3 avisos: míralos en el proceso."
+    },
+    {
+      "id": "voces",
+      "nombre": "Buscar voces que no van",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T16:01:30.876Z",
+      "fin": "2026-11-20T16:01:54.140Z",
+      "nota": "3 clip(s) traían una voz que no iba: van sin sonido."
+    },
+    {
+      "id": "musica",
+      "nombre": "Poner la música",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T16:01:54.140Z",
+      "fin": "2026-11-20T16:01:54.156Z"
+    },
+    {
+      "id": "montaje",
+      "nombre": "Armar el montaje y los subtítulos",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T16:01:54.157Z",
+      "fin": "2026-11-20T16:01:57.593Z"
+    },
+    {
+      "id": "render",
+      "nombre": "Exportar los videos",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T16:01:57.593Z",
+      "fin": "2026-11-20T16:07:45.308Z"
+    },
+    {
+      "id": "control-final",
+      "nombre": "Revisar el video terminado",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T16:07:45.308Z",
+      "fin": "2026-11-20T16:08:03.863Z",
+      "nota": "El control final encontró detalles que no se arreglan exportando otra vez: están en el informe."
+    },
+    {
+      "id": "informe",
+      "nombre": "Preparar el informe",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T16:08:03.863Z",
+      "fin": "2026-11-20T16:08:04.054Z"
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-20T15:47:29.610Z",
+  "aprobado": "2026-11-20T15:47:29.610Z",
+  "actualizado": "2026-11-20T16:08:04.054Z",
+  "saldoInicial": {
+    "creditos": 11011.1,
+    "fecha": "2026-11-20T15:47:30.350Z"
+  },
+  "costoPlan": {
+    "creditos": 1270,
+    "fecha": "2026-11-20T15:47:30.350Z"
+  },
+  "saldoFinal": {
+    "creditos": 9200.1,
+    "fecha": "2026-11-20T16:08:04.030Z"
+  },
+  "terminado": "2026-11-20T16:08:04.054Z"
+}

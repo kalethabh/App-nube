@@ -1,0 +1,96 @@
+{
+  "generado": "2026-11-18T19:01:07.203Z",
+  "segundos": 430,
+  "imagenes": [
+    {
+      "id": "V03_1x1",
+      "archivo": "V03_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a1f002-2f0a-7831-a2d3-7ae8203153f4"
+    },
+    {
+      "id": "V02_1x1",
+      "archivo": "V02_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a1f002-2f0a-7ba0-9ed2-d584ed87d90f"
+    },
+    {
+      "id": "V01_1x1",
+      "archivo": "V01_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a1f002-2f0a-7410-9f82-d5543f45d3b0"
+    },
+    {
+      "id": "V06_1x1",
+      "archivo": "V06_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a1f003-8f76-76d0-8036-8baf57e0c241"
+    },
+    {
+      "id": "V04_1x1",
+      "archivo": "V04_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a1f003-346b-7211-938a-e2a1e269e164"
+    },
+    {
+      "id": "V08_1x1",
+      "archivo": "V08_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a1f004-c13b-73d1-878d-8553f520377c"
+    },
+    {
+      "id": "V09_1x1",
+      "archivo": "V09_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a1f006-1aec-7ed2-a39c-2f1037efe336"
+    },
+    {
+      "id": "V05_1x1",
+      "archivo": "V05_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 3,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a1f006-46f0-7081-a14f-bf01ee50f267"
+    },
+    {
+      "id": "V10_1x1",
+      "archivo": "V10_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a1f007-1d98-7932-8143-f509565e4a8e"
+    }
+  ]
+}

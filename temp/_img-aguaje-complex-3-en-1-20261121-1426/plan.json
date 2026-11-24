@@ -1,0 +1,88 @@
+{
+  "producto": "aguaje-complex-3-en-1",
+  "lote": "_img-aguaje-complex-3-en-1-20261121-1426",
+  "cantidad": 5,
+  "proporciones": ["1:1"],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1426/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Product hero ad con íconos de beneficio y foto lifestyle enmarcada",
+        "estructura": "Titular de 3 líneas arriba (cinta magenta + línea blanca + palabra gigante fucsia), columna de 3 íconos a la izquierda, frasco al centro con frutos de aguaje, frase manuscrita sobre el frasco, foto enmarcada de la modelo de espalda a la derecha, franja magenta abajo con envío gratis y pago al recibir, frase manuscrita abajo a la derecha.",
+        "por_que_funciona": "Promete el deseo completo (glúteos y piernas) en un solo golpe de vista, muestra el resultado soñado en una mujer real, da confianza con fórmula natural y quita el riesgo con pago al recibir."
+      },
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Mismo anuncio ganador; el titular ataca el miedo al quirófano y promete curvas por la vía natural.",
+      "titular": "SIN AGUJAS NI QUIRÓFANO / TUS CURVAS, / AL NATURAL",
+      "escena": "Igual a la referencia: fondo rosa degradado con pétalos, frasco al centro con frutos de aguaje, modelo de espalda en short deportivo fucsia a la derecha.",
+      "camara": "Igual a la referencia: frasco de frente a la altura de los ojos; foto de la modelo a la altura de la cadera, de espalda."
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1426/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Product hero ad con íconos de beneficio y foto lifestyle enmarcada",
+        "estructura": "La misma de V01.",
+        "por_que_funciona": "El momento del jean que no horma es el detonante de compra más fuerte; el titular lo nombra como deseo, sin señalar el cuerpo."
+      },
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Mismo anuncio ganador; el titular promete el resultado que la hace comprar: que el jean le horme.",
+      "titular": "PARA QUE EL JEAN / POR FIN TE / HORME",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1426/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Product hero ad con íconos de beneficio y foto lifestyle enmarcada",
+        "estructura": "La misma de V01.",
+        "por_que_funciona": "Le habla a la que ya entrena y no ve cambios: presenta el producto como el apoyo que le faltaba, sin prometer que reemplaza el esfuerzo."
+      },
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Mismo anuncio ganador; el titular ataca la rutina que no rinde.",
+      "titular": "EL APOYO QUE LE FALTABA / A TU RUTINA DE / PIERNA",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1426/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Product hero ad con íconos de beneficio y foto lifestyle enmarcada",
+        "estructura": "La misma de V01.",
+        "por_que_funciona": "Toca el deseo profundo: sentirse segura y dejar de compararse; la palabra gigante «GANAS» es emoción pura."
+      },
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Mismo anuncio ganador; el titular promete volver a mirarse al espejo con seguridad.",
+      "titular": "VUELVE A MIRARTE / AL ESPEJO CON / GANAS",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1426/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Product hero ad con íconos de beneficio y foto lifestyle enmarcada",
+        "estructura": "La misma de V01.",
+        "por_que_funciona": "Quita la objeción de constancia: algo tan fácil como 2 cápsulas al día sí se cumple."
+      },
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Mismo anuncio ganador; el titular resalta lo fácil del plan.",
+      "titular": "SOLO 2 CÁPSULAS AL DÍA / PARA ACOMPAÑAR TUS / CURVAS",
+      "escena": "Igual a la referencia.",
+      "camara": "Igual a la referencia."
+    }
+  ]
+}

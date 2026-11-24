@@ -1,0 +1,60 @@
+{
+  "id": "T001",
+  "piezas": {
+    "V01_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1eb9a-654c-7100-a98e-a400a3d578bd",
+      "firma": "1750009-1794954219707",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V02_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1eb9a-654c-7b62-a586-3b0b714e3009",
+      "firma": "1760901-1794954238489",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V03_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 2,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1eb9c-1e79-7ad2-ac9c-02d0e7a540b9",
+      "ultimoMotivo": "contenido-chatgpt",
+      "firma": "1744133-1794954347802",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V04_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1eb9b-d0f9-7632-a071-9235db2f473d",
+      "firma": "1739040-1794954327252",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    }
+  },
+  "actualizado": "2026-11-17T22:25:47.804Z",
+  "terminado": true
+}

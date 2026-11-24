@@ -1,0 +1,101 @@
+{
+  "uuid": "13b8b765-2ce7-4d45-b9e1-91cbe73814a6",
+  "estado": "aprobado",
+  "tipo": "guion",
+  "intentos": 1,
+  "progreso": [
+    "Preparando la foto de tu producto",
+    "Analizando el video de referencia",
+    "Claude empezó a escribir tu guion",
+    "Leyendo las instrucciones del estilo",
+    "Revisando",
+    "Buscando en los archivos",
+    "Leyendo las instrucciones del estilo",
+    "Buscando en los archivos",
+    "Leyendo las instrucciones del estilo",
+    "Leyendo",
+    "Mirando las imágenes del anuncio",
+    "Mirando las fotos de tu producto",
+    "Mirando las imágenes del anuncio",
+    "Buscando en los archivos",
+    "Leyendo",
+    "Guardando",
+    "Escribiendo el guion y cada escena",
+    "Revisando que el guion esté completo",
+    "Revisando",
+    "Escribiendo el guion y cada escena",
+    "Revisando que el guion esté completo",
+    "Ajustando el guion",
+    "Revisando que el guion esté completo",
+    "Guardando",
+    "Marcando las transiciones",
+    "Guardando",
+    "Pasando el guion en limpio",
+    "La voz del narrador: Lina - Carefree & Fresh (la eligió la app)"
+  ],
+  "inicio": "2026-11-21T19:19:22.210Z",
+  "cambios": [],
+  "actualizado": "2026-11-21T20:39:32.814Z",
+  "error": null,
+  "inicioIntento": "2026-11-21T19:19:22.210Z",
+  "fin": "2026-11-21T19:36:58.898Z",
+  "limite": false,
+  "reinicio": null,
+  "medidas": [
+    {
+      "tipo": "guion",
+      "fecha": "2026-11-21T19:36:58.895Z",
+      "ok": true,
+      "turnos": 49,
+      "duracionMs": 1027537,
+      "uso": {
+        "input_tokens": 58,
+        "cache_creation_input_tokens": 294043,
+        "cache_read_input_tokens": 4983190,
+        "output_tokens": 133501,
+        "output_tokens_details": {
+          "thinking_tokens": 34186
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 294043,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 89,
+            "cache_read_input_tokens": 299129,
+            "cache_creation_input_tokens": 3457,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3457
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 6.019234,
+      "modelo": "claude-opus-5-5",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 3,
+      "motor": "claude"
+    }
+  ],
+  "ajustados": 0,
+  "aprobado": "2026-11-21T20:39:32.814Z"
+}

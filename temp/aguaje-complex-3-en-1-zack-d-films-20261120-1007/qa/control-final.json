@@ -1,0 +1,46 @@
+{
+  "generado": "2026-11-20T16:07:45.447Z",
+  "anuncio": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+  "limpio": false,
+  "codigo": 1,
+  "controles": {
+    "ok": true,
+    "motivo": null,
+    "congelado": true,
+    "movimiento": true,
+    "negro": true
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-3-en-1-zack-d-films-20261120-1007_9x16_con-subtitulos.mp4",
+      "fecha": "2026-11-20T16:07:43.463Z",
+      "deEsteMontaje": true,
+      "duracion": 99.947,
+      "fps": 30,
+      "negros": [],
+      "congelados": []
+    }
+  ],
+  "musica": {
+    "medida": false,
+    "motivo": "se entrego solo la version completa: la version sin musica sale del editor"
+  },
+  "defectos": [
+    {
+      "tipo": "corto",
+      "pieza": "toma 33",
+      "desde": 94.528,
+      "hasta": 94.796,
+      "detalle": "toma 33: el clip se acaba 0.3 s antes de que termine su momento (desde el segundo 94.5 se ve quieto)",
+      "rerender": false
+    }
+  ],
+  "avisos": [],
+  "noMedido": [],
+  "soloCompleta": true,
+  "versionesEsperadas": [
+    "con-subtitulos"
+  ],
+  "rerenderAyuda": false
+}

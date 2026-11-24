@@ -1,0 +1,13 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V08_1x1",
+      "ok": false,
+      "problemas": [
+        "El botón «Pide el tuyo» queda pegado al borde de abajo: el texto está a menos del 5 % del borde. Hay que subirlo un poco.",
+        "El titular de arriba queda casi tocando el borde superior. Conviene bajarlo un poco para dejar al menos el 5 % de margen."
+      ],
+      "correccion_en": "Move the \"Pide el tuyo\" CTA button up so its text sits at least 7% above the bottom edge, and move the headline \"VITALDROPS: 5 EN 1 PARA TRABAJAR TUS CURVAS\" slightly down so it sits at least 6% below the top edge. Keep all texts exactly as they are; shrink the offer ribbon slightly if needed to make room."
+    }
+  ]
+}

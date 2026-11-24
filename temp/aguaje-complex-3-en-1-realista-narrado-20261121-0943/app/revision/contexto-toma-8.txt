@@ -1,0 +1,45 @@
+
+=== Contexto para rehacer la toma 8 ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:        A
+    duracion:    3.2s
+    referencias: caro, producto
+
+  QUE TIENE QUE TRANSMITIR ESTA TOMA:
+    linea:       "«Esto no son los batidos. Esto no es la faja.»"
+    viene de:    "Hasta que Caro, mi amiga desde los nueve: «Tú sabes que yo no jugaría contigo»."
+    lleva a:     "«Es Aguaje Complex 3 en 1: aguaje, fenogreco y maca negra.»"
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen inicial ---
+Photorealistic vertical 9:16 smartphone photo, close-up on the round wooden kitchen table between two coffee mugs, morning window light. The hand of Caro, the woman in the olive-green long-sleeve top from the reference images, sets down the exact closed bottle from the product reference image: a wide-mouth cylindrical bottle about one and a half times taller than it is wide, straight sides, a hot-pink screw cap almost as wide as the body, a black label with large white 'AGUAJE' and 'COMPLEX 3 EN 1'; the bottle is about as tall as the coffee mugs. The label faces the camera and reads correctly, never mirrored. Matte, no rainbow, no prism light, no lens flare. No capsules, no pills, the bottle is closed. Real skin texture on her hand, slight handheld framing, shot on a phone, no studio lighting. No additional text, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark
+
+  --- video ---
+Photorealistic smartphone video, image-to-video from the shot above, 3.2s. Vertical 9:16. Camera: locked-off static camera, no zoom. Motion: Caro's hand places the closed bottle upright on the table with the label toward the camera, slides it a little forward and lets go. No loose capsules are visible and the bottle is never opened. The label always reads correctly, never mirrored. Lighting: soft morning window light. No text.
+
+  --- referencia "protagonista_antes" (personaje) — repetir palabra por palabra ---
+Photorealistic vertical 9:16 full-body reference photo of Valentina, an adult Colombian woman around 30 years old, light-brown trigueña skin, oval face, thick natural dark eyebrows, dark brown almond-shaped eyes, small straight nose, full lips, shoulder-length wavy dark brown hair worn loose with flyaway strands, small gold stud earrings. She wears a plain white ribbed tank top, light-blue straight-leg jeans and white sneakers. She stands relaxed almost in profile, her body turned to the side and her face turned toward the camera over her shoulder, so her silhouette reads clearly. Her figure is very slim and flat: narrow straight hips the same width as her waist, one straight flat vertical line from her lower back down to her thighs, thin straight thighs with space between them, the jeans one size too big at the back with a baggy fold of extra denim below the seat and drooping back pockets. Plain warm off-white painted wall of a home behind her, soft natural window light from the side, real skin texture with visible pores and small imperfections, slightly wrinkled clothes, no studio makeup, shot on a phone. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no border, no inset panel, no vignette. No text, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark
+
+  --- referencia "protagonista_despues" (personaje) — repetir palabra por palabra ---
+Photorealistic vertical 9:16 full-body reference photo of the same woman from the reference image, Valentina, an adult Colombian woman around 30 years old. Use the reference image ONLY for her face, hair, skin and clothes, never for her body. Same oval face, thick dark eyebrows, dark brown eyes, full lips, shoulder-length wavy dark brown hair with loose strands, small gold stud earrings, same plain white ribbed tank top, light-blue straight-leg jeans and white sneakers. She stands in a three-quarter side view, her face turned toward the camera over her shoulder with a proud, natural smile, one hand resting on her hip. Her body has clearly changed: a curvy hourglass figure, small waist, hips about one and a half times wider than her waist, a full rounded seat of the jeans that projects well behind her lower back, thick full thighs filling the jean legs and touching at the top; the jeans fit snug with no loose fabric anywhere. Natural, healthy and real, obvious at first glance. Plain warm off-white painted wall of a home behind her, soft natural window light from the side, real skin texture with visible pores and small imperfections, slightly wrinkled clothes, no studio makeup, shot on a phone. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no border, no inset panel, no vignette. No text, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark
+
+  --- referencia "caro" (personaje) — repetir palabra por palabra ---
+Photorealistic vertical 9:16 full-body reference photo of Caro, an adult Colombian woman around 31 years old, warm medium-brown skin, round face, wide bright smile, dark expressive eyes, big voluminous dark curly hair down to her shoulders, small gold hoop earrings. She wears an olive-green long-sleeve ribbed wrap top and medium-blue jeans with tan sandals. Curvy hourglass figure, confident relaxed posture. She stands in a relaxed three-quarter front view, full body visible from head to feet, against a plain warm off-white painted wall of a home, soft natural window light from the side, real skin texture with visible pores and small imperfections, slightly wrinkled clothes, no studio makeup, shot on a phone. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no border, no inset panel, no vignette. No text, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark
+
+  --- referencia "producto" (producto) — repetir palabra por palabra ---
+Photorealistic vertical 9:16 product photo of the exact closed bottle in the reference photo, standing alone: a wide-mouth cylindrical plastic supplement bottle about one and a half times taller than it is wide, straight sides, a hot-pink screw cap almost as wide as the body with a pink shrink band printed with the white VITALABH logo, a glossy black label with a magenta-pink band wrapping the bottom. Not a slim bottle and not a flat jar. Same shape, same proportions, same label design, colors and text as the photo. The label text must be copied exactly, letter for letter, from the photo, with no words changed, added or removed, from top to bottom: 'VITALABH', 'AGUAJE', 'COMPLEX 3 EN 1', 'SUPLEMENTO ALIMENTICIO EN CAPSULAS', 'A base de Aguaje, Fenogreco y Maca Negra', 'TRIPLE ACCIÓN', '200 mg AGUAJE', '+', '400 mg FENOGRECO', '+', '200 mg MACA NEGRA', '60 CAPSULAS', '0,5 g c/u Cont. Neto 30g'. 'AGUAJE' in large white bold letters, 'COMPLEX' in white and '3 EN 1' in pink, 'TRIPLE ACCIÓN' in pink italic. The bottle stays closed, with no capsules or pills anywhere and no hand. It rests on a warm wooden kitchen table with a soft contact shadow, soft natural window light, matte finish, no rainbow, no prism light, no lens flare, shallow depth of field. The label text must be as sharp and legible as in the photo and reads correctly, never mirrored. The image is full-bleed: no frame, no border, no vignette. No additional text, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark, altered label text, misspelled words, invented ingredients, capsules, pills, open bottle, hand
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion.
+

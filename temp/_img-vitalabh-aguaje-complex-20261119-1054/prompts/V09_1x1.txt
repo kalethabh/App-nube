@@ -1,0 +1,42 @@
+Square 1:1 premium supplement comparison ad on a flat deep magenta background (#B0105E) with a very soft darker vignette, frontal view. TOP CENTER (6-19 percent of the height): a bold uppercase headline in two lines, white, with the key words in bubblegum pink (#FF8CC0). BELOW: a three-column comparison table spanning about 88 percent of the width with four equal rows. LEFT COLUMN (about 40 percent of the table width): four short row labels in white semi-bold, left-aligned at the 6 percent margin, one per row, separated by thin low-contrast hairline dividers that run across the label and generic columns and pass behind the brand column. MIDDLE COLUMN: a tall rounded hot fuchsia (#E6177F) rectangle running from about 20 to 95 percent of the height, with a thin soft white edge glow and a soft drop shadow so it looks raised and clearly taller than the other column; at its top, seen slightly from above, with its top breaking slightly above the column edge and no wider than the column: the product. Use the attached product image as the only source of truth for the product, and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink screw cap printed with a repeating small white 'VITALABH' pattern and a hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN', three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS'. Studio light, crisp highlight, soft contact shadow. Directly below the bottle a short white bold header label. Then in each of the four rows a white check mark inside a small bubblegum pink circle, centered. RIGHT COLUMN: a shorter flat dark grey rounded rectangle from about 26 to 93 percent of the height, no shadow; at its top a plain unbranded grey plastic supplement bottle with a blank grey label and no readable text, desaturated and flat-lit; below it a short mid-grey header label; then in each row a muted red-grey X inside a small light grey circle, centered, same size as the checks. Include only these elements and texts.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, above the table): "¿AGUAJE SOLO O 3 EXTRACTOS EN 1?" — Poppins Black uppercase, each line about 6-7% of the canvas height, max 2 lines, centered, white with 'O 3 EXTRACTOS EN 1?' in bubblegum pink
+- brand column header label (Inside the top of the brand column, below the product): "AGUAJE COMPLEX" — Poppins Bold uppercase, about 3-3.5% of the canvas height, 1 line, white
+- generic column header label (Below the generic bottle): "AGUAJE SOLO" — Poppins Medium uppercase, same size as the brand header, 1 line, mid-grey
+- row label 1 (Left column, first row): "Fenogreco 400 mg" — Poppins SemiBold, about 3.5% of the canvas height, max 2 lines, left-aligned, white
+- row label 2 (Left column, second row): "Maca negra 200 mg" — Same style as row label 1
+- row label 3 (Left column, third row): "Vitaminas A y E" — Same style as row label 1
+- row label 4 (Left column, fourth row): "3 extractos en un frasco" — Same style as row label 1
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF.
+- text_typography: Poppins Bold (heavy, uppercase) for the headline and headers, Poppins SemiBold for row labels.
+
+MANDATORY ELEMENTS:
+- Three-column comparison table with 4 rows
+- Tall, raised hot fuchsia column topped by the real product bottle from the attached photo
+- Flat dark grey generic column topped by a plain unbranded grey supplement bottle
+- Check marks in every row of the brand column and crosses in every row of the generic column
+- Hairline dividers between rows
+
+STRICT EXCLUSIONS:
+- No readable text, logo or brand on the generic bottle
+- No people, fruits, capsules or lifestyle props
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price tags, discount, offer or urgency badges
+- Do not add: Trust seals, guarantee or certification badges
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Icons other than the check and cross marks
+- Do not add: Real competitor brands, logos or recognizable packaging
+- Do not add: More than 4 rows or a third compared option
+- Do not add: People or lifestyle scenes
+- Do not add: Subheadline or paragraph text
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

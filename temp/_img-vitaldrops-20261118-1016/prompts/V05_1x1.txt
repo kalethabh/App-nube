@@ -1,0 +1,45 @@
+Square 1:1 static ad: one full-bleed editorial lifestyle photograph, natural and believable, with text set directly on the photo. SCENE: a real, modest and tidy Colombian home kitchen in the morning, with soft natural window light coming from the left. Shot with a 50mm lens look at f/2.2, shallow depth of field, warm true-to-life color grading with gentle contrast leaning toward warm cream and mustard tones. RIGHT 55-60% OF THE FRAME: one realistic young Colombian woman, about 27, slim, warm brown skin, long dark hair loosely tied back, wearing a loose mustard-yellow (#C0B116) blouse, in a three-quarter medium shot from the waist up, camera at chest height. Her head sits at about 58-80% of the width and 10-40% of the height. She stands at a light kitchen counter, her body turned slightly toward the left of the frame, caught mid-action and not posing: in one hand, at chest height (about 62-78% of the width, 40-64% of the height), she holds the product upright with its label facing the camera, about 22-24% of the canvas height, sharp and fully inside the frame; with her other hand she holds the product's black rubber-bulb dropper with its glass pipette vertically a few centimeters above a tall clear glass of fresh orange juice, and one small amber drop is falling into the juice. Her eyes are on the glass and she has a small, relaxed, confident smile. Real skin texture, loose clothing, the framing does not emphasize her body. ON THE COUNTER: the glass of orange juice at about 44-58% of the width and 62-86% of the height; at the bottom right, partly visible, a simple homemade breakfast on a white plate (a round white arepa with scrambled eggs and a few slices of papaya), a deep navy (#1C305F) ceramic mug and a folded deep navy cloth napkin. Behind her on the right, softly blurred: a shelf with a clay pot, a small plant and a hanging dish towel. LEFT 40% OF THE FRAME: only a plain, bright, warm cream kitchen wall, softly blurred, calm and low in detail, lit by the window light. On this clean area, directly on the photo with no box, panel or shape behind it: a large left-aligned three-line headline in a thick condensed uppercase sans-serif (Anton), solid deep navy (#1C305F), within about 6-46% of the width and 8-31% of the height, each line about 6.5% of the canvas height; directly below it, at about 33-41% of the height and never past 46% of the width, a short left-aligned subheadline in a clean handwritten font (Caveat), deep navy, in two lines. No text touches her face, her hands, the glass or the product. Keep a 5% empty margin around the canvas. PRODUCT: it is the amber glass dropper bottle with a yellow-to-white label shown in the attached product image. Use the attached product image as the only source of truth for the product and reproduce it exactly as it is: same bottle shape, glass color, label design, colors and proportions; do not redesign, replace or reinterpret it. The only difference is that the bottle is open, because its black rubber-bulb dropper cap is in her other hand. Do not reproduce the yellow circle with the text 60ml from the corner of the product photo. Only one person. No needles, no syringes, no pills, no medical objects. No boxes behind the text, no CTA button, no price, no badges, no stars, no icons, no arrows or doodles, no split screen, no before/after, no bottom bar, no logos.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Upper left, in the clean wall area of the photo, about 6-46% of the width and 8-31% of the height): "TRABAJA TUS CURVAS. SIN AGUJAS." — Anton, extra bold condensed uppercase, each line about 6.5% of the canvas height, 3 lines, left-aligned, solid deep navy #1C305F on the bright cream wall. Line breaks: line 1 TRABAJA, line 2 TUS CURVAS. and line 3 SIN AGUJAS. Both periods are visible.
+- subtitle (Directly below the headline, left-aligned, about 33-41% of the height, within 6-46% of the width): "Unas gotas al día en tu jugo." — Caveat, clean and legible handwritten style, bold weight, about 4.2% of the canvas height per line, 2 lines, left-aligned, deep navy #1C305F. Line break after the word día.
+
+BRAND IDENTITY:
+- color_palette: #C0B116 and #1C305F
+- text_typography: Anton + Caveat
+
+MANDATORY ELEMENTS:
+- One real-looking young Colombian woman, waist up, mid-action, putting drops into a glass of orange juice
+- The product from the attached photo, sharp, in her hand, label facing the camera
+- The product's black dropper in her other hand above the glass, with one amber drop falling
+- A glass of orange juice and a simple breakfast on the kitchen counter
+- Clean, calm, softly blurred cream wall area on the left of the photo for the text
+- Natural morning window light from the left and shallow depth of field
+- Brand colors inside the photo: mustard-yellow blouse, deep navy mug and napkin
+
+STRICT EXCLUSIONS:
+- No needles, syringes, pills or medical objects, even as a comparison
+- No close-ups of the body, no tight clothing and no body comparison
+- No box, panel or color block behind the headline or the subheadline
+- No second bottle and no isolated product cut-out
+- No yellow 60ml circle copied from the product photo
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Boxes, panels, cards or solid color blocks behind the text
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonial quotes
+- Do not add: Benefit list, checkmarks or icons
+- Do not add: Split screen, collage or before/after
+- Do not add: Stickers, arrows or doodles
+- Do not add: Additional people as main subjects
+- Do not add: Studio backdrop or isolated product cut-out
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks
+- Do not add: Needles, syringes, pills or any medical object
+- Do not add: Close-ups of the body or tight clothing
+- Do not add: The yellow circle with 60ml from the product photo
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

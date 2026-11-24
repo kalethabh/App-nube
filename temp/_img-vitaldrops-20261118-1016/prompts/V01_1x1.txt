@@ -1,0 +1,49 @@
+Square 1:1 static ad, clean modern timeline layout on a flat mustard-yellow (#C0B116) background with a very subtle gradient that is slightly lighter at the top. TOP BAND (about 6% to 19% of the height): a bold centered two-line headline in a thick condensed sans-serif (Anton), deep navy (#1C305F), with the last three words in white. MIDDLE (about 30% to 62% of the height): three circular photographs side by side whose centers share one horizontal line at about 46% of the height and that GROW from left to right: the first circle is small (about 20% of the canvas width, centered at about 17% of the width), the second is medium (about 25%, centered at about 43%), the third is large (about 32%, centered at about 75%). A thin timeline line runs behind the circles through their centers from the left margin to the right margin, soft white on the left turning deep navy on the right, with one small chevron arrow pointing right in each gap between circles. All three circles show the SAME young Colombian woman (about 26 years old, slim face, long dark hair in a loose bun, plain white t-shirt), photographed from the shoulders up, seated at the same breakfast table by a window, same frontal eye-level camera angle, same crop, same morning window light. Circle 1 (smallest, slightly cool and muted tones): she looks sleepy and low on energy, chin resting on her hand, with only a small cup of coffee in front of her. Circle 2 (medium, neutral natural tones): she is awake and sitting upright with a soft smile, a glass of orange juice and a small bowl of fruit in front of her. Circle 3 (largest, warm and vibrant tones): she has a big genuine smile and holds a fork in front of a full Colombian breakfast with an arepa, scrambled eggs, fruit and juice. Her face and body shape are identical in the three circles; only her mood, her energy and the breakfast change. Each circle has a thin white outline and a soft drop shadow; the third circle also has a deep navy (#1C305F) ring about 1% of the canvas width thick and a faint glow. A small rounded pill label straddles the top edge of each circle, centered on it: the first two pills are white with navy text, the third pill is solid deep navy with white text. Under each circle, on one shared baseline at about 65% to 71% of the height, a short one-line caption in deep navy, in a friendly handwritten font (Caveat, bold). BOTTOM BAND (about 74% to 95% of the height): the product stands centered, front view, about 21% of the canvas height, with soft studio light from the upper left and a soft contact shadow. The product is the amber glass dropper bottle with a black rubber-bulb dropper cap and a yellow-to-white label shown in the attached product image: use the attached product image as the only source of truth for the product and reproduce it exactly as it is, same shape, cap, label, colors and proportions; do not redesign, replace or reinterpret it. Do not reproduce the yellow circle with the text 60ml from the corner of the product photo. Generous margins of about 6-7% on every side; nothing touches the edges and nothing overlaps the photos except the pill labels. No product inside the circles. No body or weight comparisons, no before/after split, no CTA button, no price, no badges, no stars, no icons, no benefit list, no bottom bar, no logos.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, first element of the canvas, 2 centered lines): "LO QUE MUCHAS NOTAN EN EL PRIMER MES" — Anton, extra bold condensed uppercase, each line about 7% of the canvas height, centered, deep navy #1C305F on the yellow background; the words EL PRIMER MES in white. Line break after NOTAN.
+- stage label 1 (Inside the pill on the top edge of circle 1): "DÍA 1" — Anton, uppercase, about 2.8% of the canvas height, 1 line, centered inside a white rounded pill, deep navy text
+- stage label 2 (Inside the pill on the top edge of circle 2): "SEMANA 2" — Anton, uppercase, about 2.8% of the canvas height, 1 line, centered inside a white rounded pill, deep navy text
+- stage label 3 (Inside the pill on the top edge of circle 3): "MES 1" — Anton, uppercase, about 3.2% of the canvas height, 1 line, centered inside a rounded pill filled with deep navy #1C305F, white text
+- caption stage 1 (Centered under circle 1, on the shared caption baseline): "Empiezas tu ritual" — Caveat bold, about 3.4% of the canvas height, 1 line, centered, deep navy
+- caption stage 2 (Centered under circle 2, on the shared caption baseline): "Más energía" — Caveat bold, about 3.4% of the canvas height, 1 line, centered, deep navy
+- caption stage 3 (Centered under circle 3, on the shared caption baseline): "Más ganas de comer" — Caveat bold, about 3.6% of the canvas height, 1 line, centered, deep navy
+
+BRAND IDENTITY:
+- color_palette: #C0B116 and #1C305F
+- text_typography: Anton + Caveat
+
+MANDATORY ELEMENTS:
+- Three circular photo frames growing in size from left to right (about 20%, 25% and 32% of the canvas width)
+- The same woman, crop and lighting in all three circles, shoulders up at a breakfast table, with a believable progression in mood and breakfast from cool and muted to warm and vibrant
+- Thin horizontal timeline track through the circle centers with a chevron arrow in each gap
+- Deep navy ring and faint glow on the largest circle
+- Rounded time-label pill on the top edge of each circle
+- The product from the attached photo centered in the bottom band with a soft contact shadow
+- Flat mustard-yellow brand background
+
+STRICT EXCLUSIONS:
+- No body, weight or figure comparisons; never show the woman below the shoulders
+- No fourth circle and no rectangular panels
+- No product inside the circles
+- No yellow 60ml circle copied from the product photo
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: A fourth stage or extra circles
+- Do not add: Rectangular photo panels or a two-panel before/after split
+- Do not add: Number badges (1, 2, 3) instead of time labels
+- Do not add: Charts, graphs, percentages or numeric data overlays
+- Do not add: Benefit list or icons
+- Do not add: The product repeated inside the circles
+- Do not add: Body, weight or medical before/after comparisons
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks
+- Do not add: Clinical or certification seals
+- Do not add: The yellow circle with 60ml from the product photo
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

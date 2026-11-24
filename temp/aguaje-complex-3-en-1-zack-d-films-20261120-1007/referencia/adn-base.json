@@ -1,0 +1,744 @@
+{
+  "video": "original.mp4",
+  "duracion": 92.37,
+  "formato": "720x1280",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 4.83,
+      "duracion": 4.83,
+      "fotograma": "tomas/toma-01.jpg",
+      "tira": "tomas/movimiento/tira-01.jpg",
+      "imagen": {
+        "brillo": 172.2,
+        "luz": "muy clara",
+        "saturacion": 33.5,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 13.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "La mayoría no tiene idea de lo rápido que funcionan los fitoestrógenos.",
+      "eventos": [],
+      "palabras_por_segundo": 2.48
+    },
+    {
+      "n": 2,
+      "desde": 4.83,
+      "hasta": 8.43,
+      "duracion": 3.6,
+      "fotograma": "tomas/toma-02.jpg",
+      "tira": "tomas/movimiento/tira-02.jpg",
+      "imagen": {
+        "brillo": 80.9,
+        "luz": "media",
+        "saturacion": 18.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 19.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Esto es lo que pasa dentro de tu cuerpo en los primeros catorce días.",
+      "eventos": [],
+      "palabras_por_segundo": 3.89
+    },
+    {
+      "n": 3,
+      "desde": 8.43,
+      "hasta": 9.93,
+      "duracion": 1.5,
+      "fotograma": "tomas/toma-03.jpg",
+      "tira": "tomas/movimiento/tira-03.jpg",
+      "imagen": {
+        "brillo": 90.8,
+        "luz": "media",
+        "saturacion": 36.1,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 7.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Desde tu primera gota, los",
+      "eventos": [],
+      "palabras_por_segundo": 3.33
+    },
+    {
+      "n": 4,
+      "desde": 9.93,
+      "hasta": 12.1,
+      "duracion": 2.17,
+      "fotograma": "tomas/toma-04.jpg",
+      "tira": "tomas/movimiento/tira-04.jpg",
+      "imagen": {
+        "brillo": 117.1,
+        "luz": "media",
+        "saturacion": 29.6,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 21.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "fitoestrógenos se ponen a trabajar",
+      "eventos": [],
+      "palabras_por_segundo": 2.3
+    },
+    {
+      "n": 5,
+      "desde": 12.1,
+      "hasta": 14.07,
+      "duracion": 1.97,
+      "fotograma": "tomas/toma-05.jpg",
+      "tira": "tomas/movimiento/tira-05.jpg",
+      "imagen": {
+        "brillo": 99,
+        "luz": "media",
+        "saturacion": 27.6,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 10.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "y activan la señal que le dice",
+      "eventos": [],
+      "palabras_por_segundo": 3.55
+    },
+    {
+      "n": 6,
+      "desde": 14.07,
+      "hasta": 16.33,
+      "duracion": 2.26,
+      "fotograma": "tomas/toma-06.jpg",
+      "tira": "tomas/movimiento/tira-06.jpg",
+      "imagen": {
+        "brillo": 110.9,
+        "luz": "media",
+        "saturacion": 29.8,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 25.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "a tu cuerpo dónde guardar la grasa.",
+      "eventos": [],
+      "palabras_por_segundo": 3.1
+    },
+    {
+      "n": 7,
+      "desde": 16.33,
+      "hasta": 19.3,
+      "duracion": 2.97,
+      "fotograma": "tomas/toma-07.jpg",
+      "tira": "tomas/movimiento/tira-07.jpg",
+      "imagen": {
+        "brillo": 141.1,
+        "luz": "media",
+        "saturacion": 31.6,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 6.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "A la semana tus jeans ya te quedan apretadísimos",
+      "eventos": [],
+      "palabras_por_segundo": 3.03
+    },
+    {
+      "n": 8,
+      "desde": 19.3,
+      "hasta": 22.63,
+      "duracion": 3.33,
+      "fotograma": "tomas/toma-08.jpg",
+      "tira": "tomas/movimiento/tira-08.jpg",
+      "imagen": {
+        "brillo": 129.8,
+        "luz": "media",
+        "saturacion": 30.4,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 30.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "y te das cuenta de que ya te toca comprarte unos nuevos.",
+      "eventos": [],
+      "palabras_por_segundo": 3.6
+    },
+    {
+      "n": 9,
+      "desde": 22.63,
+      "hasta": 24.63,
+      "duracion": 2,
+      "fotograma": "tomas/toma-09.jpg",
+      "tira": "tomas/movimiento/tira-09.jpg",
+      "imagen": {
+        "brillo": 130.5,
+        "luz": "media",
+        "saturacion": 47.7,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 18,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Esa es la señal haciendo efecto.",
+      "eventos": [],
+      "palabras_por_segundo": 3
+    },
+    {
+      "n": 10,
+      "desde": 24.63,
+      "hasta": 27.17,
+      "duracion": 2.54,
+      "fotograma": "tomas/toma-10.jpg",
+      "tira": "tomas/movimiento/tira-10.jpg",
+      "imagen": {
+        "brillo": 119.2,
+        "luz": "media",
+        "saturacion": 36.9,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 3.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Lo que antes se te iba directito a la panza,",
+      "eventos": [],
+      "palabras_por_segundo": 3.94
+    },
+    {
+      "n": 11,
+      "desde": 27.17,
+      "hasta": 29.43,
+      "duracion": 2.26,
+      "fotograma": "tomas/toma-11.jpg",
+      "tira": "tomas/movimiento/tira-11.jpg",
+      "imagen": {
+        "brillo": 144.8,
+        "luz": "media",
+        "saturacion": 33.4,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 25.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "ahora se te empieza a ir a las pompis.",
+      "eventos": [],
+      "palabras_por_segundo": 3.98
+    },
+    {
+      "n": 12,
+      "desde": 29.43,
+      "hasta": 31.8,
+      "duracion": 2.37,
+      "fotograma": "tomas/toma-12.jpg",
+      "tira": "tomas/movimiento/tira-12.jpg",
+      "imagen": {
+        "brillo": 143.5,
+        "luz": "media",
+        "saturacion": 36.9,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 19.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "A las dos semanas los cambios ya se notan.",
+      "eventos": [],
+      "palabras_por_segundo": 3.8
+    },
+    {
+      "n": 13,
+      "desde": 31.8,
+      "hasta": 33.47,
+      "duracion": 1.67,
+      "fotograma": "tomas/toma-13.jpg",
+      "tira": "tomas/movimiento/tira-13.jpg",
+      "imagen": {
+        "brillo": 131,
+        "luz": "media",
+        "saturacion": 37.2,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 7.5,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Ya no se te va la panza,",
+      "eventos": [],
+      "palabras_por_segundo": 4.19
+    },
+    {
+      "n": 14,
+      "desde": 33.47,
+      "hasta": 36.3,
+      "duracion": 2.83,
+      "fotograma": "tomas/toma-14.jpg",
+      "tira": "tomas/movimiento/tira-14.jpg",
+      "imagen": {
+        "brillo": 125.3,
+        "luz": "media",
+        "saturacion": 36.3,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 18.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "se te va a las caderas, las piernas y a las pompis,",
+      "eventos": [],
+      "palabras_por_segundo": 4.24
+    },
+    {
+      "n": 15,
+      "desde": 36.3,
+      "hasta": 37.73,
+      "duracion": 1.43,
+      "fotograma": "tomas/toma-15.jpg",
+      "tira": "tomas/movimiento/tira-15.jpg",
+      "imagen": {
+        "brillo": 146,
+        "luz": "media",
+        "saturacion": 35.1,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 20.9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "justo donde lo querías.",
+      "eventos": [],
+      "palabras_por_segundo": 2.8
+    },
+    {
+      "n": 16,
+      "desde": 37.73,
+      "hasta": 39.83,
+      "duracion": 2.1,
+      "fotograma": "tomas/toma-16.jpg",
+      "tira": "tomas/movimiento/tira-16.jpg",
+      "imagen": {
+        "brillo": 130.8,
+        "luz": "media",
+        "saturacion": 37.3,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 6.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Tu panza se queda plana",
+      "eventos": [],
+      "palabras_por_segundo": 2.38
+    },
+    {
+      "n": 17,
+      "desde": 39.83,
+      "hasta": 43.83,
+      "duracion": 4,
+      "fotograma": "tomas/toma-17.jpg",
+      "tira": "tomas/movimiento/tira-17.jpg",
+      "imagen": {
+        "brillo": 129,
+        "luz": "media",
+        "saturacion": 38,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 23.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "porque tu cuerpo ya no recibe la señal de guarda todo en la panza. Ahora",
+      "eventos": [],
+      "palabras_por_segundo": 3.75
+    },
+    {
+      "n": 18,
+      "desde": 43.83,
+      "hasta": 45.97,
+      "duracion": 2.14,
+      "fotograma": "tomas/toma-18.jpg",
+      "tira": "tomas/movimiento/tira-18.jpg",
+      "imagen": {
+        "brillo": 111.8,
+        "luz": "media",
+        "saturacion": 36.6,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 15.7,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "recibe la señal de curvas. A",
+      "eventos": [],
+      "palabras_por_segundo": 2.8
+    },
+    {
+      "n": 19,
+      "desde": 45.97,
+      "hasta": 49.1,
+      "duracion": 3.13,
+      "fotograma": "tomas/toma-19.jpg",
+      "tira": "tomas/movimiento/tira-19.jpg",
+      "imagen": {
+        "brillo": 133,
+        "luz": "media",
+        "saturacion": 41.7,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 4.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "las tres semanas tu amiga ya te está echando el ojo. ¿Te",
+      "eventos": [],
+      "palabras_por_segundo": 3.83
+    },
+    {
+      "n": 20,
+      "desde": 49.1,
+      "hasta": 52.87,
+      "duracion": 3.77,
+      "fotograma": "tomas/toma-20.jpg",
+      "tira": "tomas/movimiento/tira-20.jpg",
+      "imagen": {
+        "brillo": 111.3,
+        "luz": "media",
+        "saturacion": 38.3,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 8.6,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "hiciste un baby ele? No te ves en el espejo y es neta, es real. Y",
+      "eventos": [],
+      "palabras_por_segundo": 4.24
+    },
+    {
+      "n": 21,
+      "desde": 52.87,
+      "hasta": 55.47,
+      "duracion": 2.6,
+      "fotograma": "tomas/toma-21.jpg",
+      "tira": "tomas/movimiento/tira-21.jpg",
+      "imagen": {
+        "brillo": 132.5,
+        "luz": "media",
+        "saturacion": 38.6,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 15.6,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "tu seguridad cambia junto con tu cuerpo.",
+      "eventos": [],
+      "palabras_por_segundo": 2.69
+    },
+    {
+      "n": 22,
+      "desde": 55.47,
+      "hasta": 57.63,
+      "duracion": 2.16,
+      "fotograma": "tomas/toma-22.jpg",
+      "tira": "tomas/movimiento/tira-22.jpg",
+      "imagen": {
+        "brillo": 130.4,
+        "luz": "media",
+        "saturacion": 36.5,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 20.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Al mes tus curvas ya no se van.",
+      "eventos": [],
+      "palabras_por_segundo": 3.7
+    },
+    {
+      "n": 23,
+      "desde": 57.63,
+      "hasta": 59.2,
+      "duracion": 1.57,
+      "fotograma": "tomas/toma-23.jpg",
+      "tira": "tomas/movimiento/tira-23.jpg",
+      "imagen": {
+        "brillo": 115.3,
+        "luz": "media",
+        "saturacion": 39.4,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 10,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Esto no es algo temporal.",
+      "eventos": [],
+      "palabras_por_segundo": 3.18
+    },
+    {
+      "n": 24,
+      "desde": 59.2,
+      "hasta": 61.57,
+      "duracion": 2.37,
+      "fotograma": "tomas/toma-24.jpg",
+      "tira": "tomas/movimiento/tira-24.jpg",
+      "imagen": {
+        "brillo": 133.7,
+        "luz": "media",
+        "saturacion": 37.5,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 15.3,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Cuando tus estrógenos están en equilibrio, la",
+      "eventos": [],
+      "palabras_por_segundo": 2.95
+    },
+    {
+      "n": 25,
+      "desde": 61.57,
+      "hasta": 63.5,
+      "duracion": 1.93,
+      "fotograma": "tomas/toma-25.jpg",
+      "tira": "tomas/movimiento/tira-25.jpg",
+      "imagen": {
+        "brillo": 114.5,
+        "luz": "media",
+        "saturacion": 38.2,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 11.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "grasa se va donde tiene que ir. Los",
+      "eventos": [],
+      "palabras_por_segundo": 4.15
+    },
+    {
+      "n": 26,
+      "desde": 63.5,
+      "hasta": 67.17,
+      "duracion": 3.67,
+      "fotograma": "tomas/toma-26.jpg",
+      "tira": "tomas/movimiento/tira-26.jpg",
+      "imagen": {
+        "brillo": 107.7,
+        "luz": "media",
+        "saturacion": 38.1,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 21.6,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "hombres voltean a verte en cuanto entras a un lugar.",
+      "eventos": [],
+      "palabras_por_segundo": 2.72
+    },
+    {
+      "n": 27,
+      "desde": 67.17,
+      "hasta": 68.57,
+      "duracion": 1.4,
+      "fotograma": "tomas/toma-27.jpg",
+      "tira": "tomas/movimiento/tira-27.jpg",
+      "imagen": {
+        "brillo": 73.4,
+        "luz": "media",
+        "saturacion": 20.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Tu ex de la nada",
+      "eventos": [],
+      "palabras_por_segundo": 3.57
+    },
+    {
+      "n": 28,
+      "desde": 68.57,
+      "hasta": 71.3,
+      "duracion": 2.73,
+      "fotograma": "tomas/toma-28.jpg",
+      "tira": "tomas/movimiento/tira-28.jpg",
+      "imagen": {
+        "brillo": 97.7,
+        "luz": "media",
+        "saturacion": 24.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "encuentra un pretexto para escribirte.",
+      "eventos": [],
+      "palabras_por_segundo": 1.83
+    },
+    {
+      "n": 29,
+      "desde": 71.3,
+      "hasta": 74.8,
+      "duracion": 3.5,
+      "fotograma": "tomas/toma-29.jpg",
+      "tira": "tomas/movimiento/tira-29.jpg",
+      "imagen": {
+        "brillo": 111.4,
+        "luz": "media",
+        "saturacion": 37.7,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 9.3,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Tus amigas te preguntan qué hiciste diferente y",
+      "eventos": [],
+      "palabras_por_segundo": 2.29
+    },
+    {
+      "n": 30,
+      "desde": 74.8,
+      "hasta": 76.53,
+      "duracion": 1.73,
+      "fotograma": "tomas/toma-30.jpg",
+      "tira": "tomas/movimiento/tira-30.jpg",
+      "imagen": {
+        "brillo": 141.4,
+        "luz": "media",
+        "saturacion": 36.1,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 18,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "te sientes otra persona.",
+      "eventos": [],
+      "palabras_por_segundo": 2.31
+    },
+    {
+      "n": 31,
+      "desde": 76.53,
+      "hasta": 78.57,
+      "duracion": 2.04,
+      "fotograma": "tomas/toma-31.jpg",
+      "tira": "tomas/movimiento/tira-31.jpg",
+      "imagen": {
+        "brillo": 119.5,
+        "luz": "media",
+        "saturacion": 35.7,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 12.9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Ahorita puedes probarlo sin riesgo durante",
+      "eventos": [],
+      "palabras_por_segundo": 2.94
+    },
+    {
+      "n": 32,
+      "desde": 78.57,
+      "hasta": 80,
+      "duracion": 1.43,
+      "fotograma": "tomas/toma-32.jpg",
+      "tira": "tomas/movimiento/tira-32.jpg",
+      "imagen": {
+        "brillo": 110.5,
+        "luz": "media",
+        "saturacion": 37.6,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 3.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "noventa días y",
+      "eventos": [],
+      "palabras_por_segundo": 2.1
+    },
+    {
+      "n": 33,
+      "desde": 80,
+      "hasta": 82.83,
+      "duracion": 2.83,
+      "fotograma": "tomas/toma-33.jpg",
+      "tira": "tomas/movimiento/tira-33.jpg",
+      "imagen": {
+        "brillo": 112.5,
+        "luz": "media",
+        "saturacion": 45.4,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 9.7,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "con hasta setenta y cinco por ciento de descuento.",
+      "eventos": [],
+      "palabras_por_segundo": 3.18
+    },
+    {
+      "n": 34,
+      "desde": 82.83,
+      "hasta": 85.63,
+      "duracion": 2.8,
+      "fotograma": "tomas/toma-34.jpg",
+      "tira": "tomas/movimiento/tira-34.jpg",
+      "imagen": {
+        "brillo": 145.8,
+        "luz": "media",
+        "saturacion": 39.8,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 13,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Así que no te lo pierdas,",
+      "eventos": [],
+      "palabras_por_segundo": 2.14
+    },
+    {
+      "n": 35,
+      "desde": 85.63,
+      "hasta": 89.6,
+      "duracion": 3.97,
+      "fotograma": "tomas/toma-35.jpg",
+      "tira": "tomas/movimiento/tira-35.jpg",
+      "imagen": {
+        "brillo": 136.9,
+        "luz": "media",
+        "saturacion": 45.9,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 26,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "se agota seguido.",
+      "eventos": [],
+      "palabras_por_segundo": 0.76
+    },
+    {
+      "n": 36,
+      "desde": 89.6,
+      "hasta": 92.37,
+      "duracion": 2.77,
+      "fotograma": "tomas/toma-36.jpg",
+      "tira": "tomas/movimiento/tira-36.jpg",
+      "imagen": {
+        "brillo": 142.1,
+        "luz": "media",
+        "saturacion": 37.4,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 10.7,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "No te esperes.",
+      "eventos": [
+        "[música electrónica]"
+      ],
+      "palabras_por_segundo": 1.08
+    }
+  ],
+  "texto": "La mayoría no tiene idea de lo rápido que funcionan los fitoestrógenos. Esto es lo que pasa dentro de tu cuerpo en los primeros catorce días. Desde tu primera gota, los fitoestrógenos se ponen a trabajar y activan la señal que le dice a tu cuerpo dónde guardar la grasa. A la semana tus jeans ya te quedan apretadísimos y te das cuenta de que ya te toca comprarte unos nuevos. Esa es la señal haciendo efecto. Lo que antes se te iba directito a la panza, ahora se te empieza a ir a las pompis. A las dos semanas los cambios ya se notan. Ya no se te va la panza, se te va a las caderas, las piernas y a las pompis, justo donde lo querías. Tu panza se queda plana porque tu cuerpo ya no recibe la señal de guarda todo en la panza. Ahora recibe la señal de curvas. A las tres semanas tu amiga ya te está echando el ojo. ¿Te hiciste un baby ele? No te ves en el espejo y es neta, es real. Y tu seguridad cambia junto con tu cuerpo. Al mes tus curvas ya no se van. Esto no es algo temporal. Cuando tus estrógenos están en equilibrio, la grasa se va donde tiene que ir. Los hombres voltean a verte en cuanto entras a un lugar. Tu ex de la nada encuentra un pretexto para escribirte. Tus amigas te preguntan qué hiciste diferente y te sientes otra persona. Ahorita puedes probarlo sin riesgo durante noventa días y con hasta setenta y cinco por ciento de descuento. Así que no te lo pierdas, se agota seguido. No te esperes.",
+  "palabras_por_segundo": 3.02,
+  "eventos_de_audio": [
+    "[música electrónica]"
+  ],
+  "voz": {
+    "f0": 286,
+    "genero": "femenina",
+    "variacion": 8.71,
+    "expresiva": true,
+    "ritmo": 3.03,
+    "muestras": 461
+  },
+  "aviso": null
+}

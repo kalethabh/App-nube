@@ -1,0 +1,23 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V04_1x1",
+      "ok": false,
+      "problemas": [
+        "Aparece una nota pegada en la nevera con el texto «Mami, no se le olviden sus gotas», que no está en los textos del anuncio. Sobra un bloque de texto: hay que quitarla."
+      ],
+      "correccion_en": "Remove the pink sticky note with handwritten text from the fridge; no handwritten note or any extra text anywhere. Keep all other texts exactly as they are."
+    },
+    {
+      "pieza": "V05_1x1",
+      "ok": false,
+      "problemas": [
+        "El titular sale cortado arriba, pegado al borde, y dice «MIVIDA» sin espacio: debe decir «TODA MI VIDA ME SALTABA EL DESAYUNO».",
+        "«Pagas al recibir» sale cortado abajo y no se lee: falta la frase de la oferta completa.",
+        "El botón «Pide el tuyo» queda cortado y pegado al borde de abajo.",
+        "Varios textos quedan a menos del 5 % del borde: hay que dejar margen arriba y abajo."
+      ],
+      "correccion_en": "Move the headline down so it is fully visible with at least 5% margin from the top edge, and write it exactly as \"TODA MI VIDA ME SALTABA EL DESAYUNO\" with a space between \"MI\" and \"VIDA\". Move the offer ribbon and the CTA button up so both are fully visible with at least 5% margin from the bottom edge; write \"Pagas al recibir\" fully legible right below \"TRATAMIENTO COMPLETO X3\", and the button fully visible reading \"Pide el tuyo\"."
+    }
+  ]
+}

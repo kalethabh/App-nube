@@ -1,0 +1,14 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V01_1x1",
+      "ok": false,
+      "problemas": [
+        "El titular «TODA MI VIDA FUI» queda pegado al borde de arriba y la parte de arriba de las letras se corta. Regla del 5 % del borde: bájalo.",
+        "«Pagas al recibir» sale cortado por el borde de abajo y no se lee completo. Regla del 5 % del borde: súbelo.",
+        "El botón «Quiero el mío» y la cinta «TRATAMIENTO COMPLETO X3» quedan pegados al borde de abajo. Regla del 5 % del borde: súbelos."
+      ],
+      "correccion_en": "Keep every text at least 5% away from all edges: move the headline \"TODA MI VIDA FUI LA FLACA DEL GRUPO\" down so its letters are fully visible and not cut at the top; move the offer ribbon \"TRATAMIENTO COMPLETO X3\" with \"Pagas al recibir\" fully visible below it, and the single CTA chip \"Quiero el mío\", up from the bottom edge so nothing is cropped."
+    }
+  ]
+}

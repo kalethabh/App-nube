@@ -1,0 +1,76 @@
+
+=== Contexto para rehacer el bloque 3 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    8s
+    referencias: 1) personaje  2) producto  3) lugar-consultorio (fotograma del bloque 1, segundo 3.9)   (Imagen 1, Imagen 2... del prompt)
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        solución
+    linea:       "Por eso yo le recomiendo Aguaje Complex tres en uno. Trae aguaje, fenogreco y maca negra juntos. Dos cápsulas al día, con la comida."
+    viene de:    "Muchas me dicen: hago de todo y nada. Las piernas siguen flaquitas. Les falta darle al cuerpo el empujón."
+    lleva a:     "Le ayuda a ganar volumen en glúteos, piernas y caderas. Sin efecto rebote, no engorda. Y se ve natural."
+
+  TRAMOS:
+    [0.0–2.6s]  "Por eso yo le recomiendo Aguaje Complex tres en uno."
+    [2.6–5.4s]  "Trae aguaje, fenogreco y maca negra juntos."
+    [5.4–8.0s]  "Dos cápsulas al día, con la comida."
+
+  --- video ---
+Duración: 8s.
+
+REFERENCIAS:
+Imagen 1: the doctor. Use it only as an identity reference (same face, same hair, same beard, same glasses, same features and skin tone). It is not the first frame of the video: do not copy its background, its clothes or its pose.
+Imagen 2: the product. It is the exact reference of the bottle.
+Imagen 3: the office. It is the same medical office where he recorded at the start: use it only as a reference of the place (white vertical blinds, monitor with the blue molecule graphic, framed diplomas on the beige wall, wooden desk, daylight). Do not copy the person who appears, his clothes, his pose, or what is on the desk.
+
+STYLE / MOOD:
+Realistic direct-response UGC: a doctor talking straight to the viewer with calm authority and warmth, like a short clip he posts for his patients. Vertical 9:16 video recorded with a phone on a small tripod at chest height across the desk, slight micro-shake, hard cuts between shots like a video he edited on the phone: tight close-ups where he leans in toward the lens alternate with medium shots of him seated at the desk. Homemade and authentic, not a polished commercial.
+
+LANGUAGE / VOICE:
+Colombian Spanish with a natural Colombian accent (not neutral, not Mexican, not from Spain); he addresses the viewer as «usted». Male voice of a man about 48 years old, warm medium-low timbre, clear, confident and expressive, like a trusted doctor advising a patient in his office, not an announcer. Brisk conversational pace, about three words per second, with energy and short natural pauses, never slow or dragging, not memorized. Habla en español de Colombia.
+
+MAIN CHARACTER:
+The man in image 1, the doctor: a Latin American man about 48 years old, light olive skin with real texture, visible pores, fine lines on the forehead and around the eyes, a slightly shiny T-zone, no studio retouching; a rounded square face with a strong jaw, thick dark eyebrows, dark brown eyes, a straight medium nose; dark brown hair with grey at the temples, short on the sides, slightly wavy and swept back on top with a few loose strands falling on the forehead; a short salt-and-pepper boxed beard with a full mustache, grey on the chin; black rectangular thick-frame prescription glasses; average build; no visible tattoos. In this video he wears a white cotton lab coat with soft wrinkles at the elbows and lapels, a light-blue dress shirt, a plain dark navy tie, a black stethoscope around his neck with its silver chest piece resting on his chest, a silver wristwatch on his left wrist and a thin brown leather bracelet on his right wrist.
+
+SETTING:
+His medical office in the daytime. Behind him, a window with closed white vertical blinds lets in soft, even daylight, and a soft daylight fill comes from in front of him, so his face, his coat and anything he holds are evenly lit with soft-edged shadows, neutral white balance, no backlight. Behind him on the left, a computer monitor shows a glowing blue 3D molecule graphic with no readable text; on the right, a beige wall with two framed diplomas in dark wood frames and a small green potted plant; a small silver desk lamp and a second monitor softly out of focus in the background. He sits behind a warm wooden desk; on the desk there are only: a printed sheet with a red anatomical muscle-figure illustration, a black-and-silver pen and a small silver stethoscope; there is nothing else. Muted, low-saturation colors, clean and bright, slight phone-camera grain, the background softly out of focus as a phone camera does. Everything looks real and lived-in, not a set.
+
+PERFORMANCE:
+He talks to the camera the whole time with calm authority and warmth and uses his hands constantly: pointing at the lens, open palms, counting on his fingers, clasping his hands on the desk. Natural eyebrow and head movement, small nods, real expressions, nothing stiff. No overacting.
+
+PRODUCT / VISUAL KEY:
+The product is exactly the bottle in the product reference image: one closed plastic supplement bottle, cylindrical with straight sides and slightly rounded shoulders, about twice as tall as it is wide, wide-mouth with no neck, a short glossy hot-pink screw cap almost as wide as the body; a black label with a hot-pink band at the bottom; on the label the small brand «VITALABH», the big white word «AGUAJE», below it «COMPLEX 3 EN 1» with «3 EN 1» in pink, the words «TRIPLE ACCIÓN» in pink italics and three small pink-outlined boxes «200 mg» + «400 mg» + «200 mg». About as tall as his hand. Not a slim bottle, not a flat jar. Matte look, no rainbow, no prism light, no lens flare. It must look identical to the reference in every shot: same shape, same colors, same proportions, same legible label, and the label always reads the right way round, never mirrored. Only one bottle. It always stays closed: no capsules are seen, no loose capsules, the bottle is never opened. When it appears, the light hits it from the front and the label is lit, without backlight. In this video he holds it in his left hand beside his face, at the same distance from the camera as his face, his fingers on the sides, never covering the label; his right hand only gestures and holds nothing; no capsules, no pills.
+
+TIMESTAMPS:
+[0.0–2.6s]
+Medium shot at the desk: he lifts the closed bottle from below the frame with his left hand and brings it up beside his face, label facing the camera, convinced.
+DIÁLOGO: “Por eso yo le recomiendo Aguaje Complex tres en uno.”
+[2.6–5.4s]
+Corte a a closer chest-up shot: he keeps the bottle beside his face, the bottle about 40 percent of the frame height, and taps the label with his right index finger, eyebrows raised.
+DIÁLOGO: “Trae aguaje, fenogreco y maca negra juntos.”
+[5.4–8.0s]
+Corte a medium shot: still holding the bottle beside his face, he lifts two fingers of his right hand and smiles warmly; when he finishes speaking he stays still holding the bottle, in silence.
+DIÁLOGO: “Dos cápsulas al día, con la comida.”
+
+AUDIO:
+Only his voice and the ambient sound of a small medical office: closed, soft acoustics with no echo, the faint rustle of his coat and the soft hum of the computer. No other voice. No music.
+
+*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la referencia del producto. No debe aparecer otra persona ni un segundo frasco, y la cara de él no cambia entre planos. No se ven cápsulas sueltas ni el frasco abierto.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with the front camera of a phone, like a casual reference selfie. Medium shot from the waist up. A Latin American man about 48 years old, light olive skin with real texture, visible pores, fine lines on the forehead and around the eyes, a slightly shiny T-zone, no studio retouching; a rounded square face with a strong jaw, thick dark eyebrows, dark brown eyes, a straight medium nose; dark brown hair with grey at the temples, short on the sides, slightly wavy and swept back on top with a few loose strands falling on the forehead; a short salt-and-pepper boxed beard with a full mustache, grey on the chin; black rectangular thick-frame prescription glasses; average build; no visible tattoos. He wears a plain light-blue dress shirt with no logos. He stands in front of a plain light-grey wall at home, looks straight at the camera with a calm slight smile and his mouth closed, arms relaxed at his sides and hands empty. Soft natural light from a window in front of him. Authentic UGC look, phone image, no studio retouching. A single frozen instant. No text, no logos, no watermarks, no objects in his hands.
+
+  --- referencia "personaje-2" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with the front camera of a phone, like a casual reference selfie. Medium shot from the waist up. A Colombian woman about 28 years old, warm medium-tan skin with real texture and visible pores, a few small moles, no studio makeup, only a little mascara and natural lip color; an oval face, full dark eyebrows, dark brown eyes, a soft rounded nose; long dark brown wavy hair worn loose with flyaway strands; slim build; no visible tattoos. She wears a plain fitted white cotton crew-neck t-shirt with no logos. She stands in front of a plain light-grey wall at home, looks straight at the camera with a soft slight smile and her mouth closed, arms relaxed at her sides and hands empty. Soft natural light from a window in front of her. Authentic UGC look, phone image, no studio retouching. A single frozen instant. No text, no logos, no watermarks, no objects in her hands.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/aguaje-complex-3-en-1-agregar-20261119-1112 3
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/aguaje-complex-3-en-1-agregar-20261119-1112 --toma 3 --aplicar nuevos.json
+

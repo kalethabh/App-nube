@@ -1,0 +1,9 @@
+{
+  "efectos": { "woosh": "efectos/woosh.mp3", "deep-woosh": "efectos/deep-woosh.mp3" },
+  "puntos": [
+    { "toma": 3, "animacion": "zoom", "efecto": "deep-woosh", "porque": "la solución: primera vez que aparece el frasco y sus tres extractos" },
+    { "toma": 10, "animacion": "deslizar-derecha", "efecto": "woosh", "porque": "entrada del problema: lo que antes se te iba a la barriga" },
+    { "toma": 19, "animacion": "deslizar-izquierda", "efecto": "woosh", "porque": "la prueba: a los tres meses la amiga ya lo nota" },
+    { "toma": 31, "animacion": "zoom", "efecto": "deep-woosh", "porque": "el llamado a la acción: pedir el tratamiento de tres frascos" }
+  ]
+}

@@ -1,0 +1,77 @@
+
+=== Contexto para rehacer el bloque 1 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    10s
+    referencias: 1) personaje  2) personaje-2   (Imagen 1, Imagen 2... del prompt)
+    lugar:       este bloque es el origen de "lugar-podcast" (segundo 1.7); lo usan: bloque 2, bloque 3, bloque 4, bloque 5, bloque 6, bloque 7
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        gancho + problema
+    linea:       "O sea, yo me ponía un jean y por detrás, Dios mío!. Plana, plana, plana. Y ya no sabía ni qué ponerme, le juro."
+    viene de:    "(es la primera)"
+    lleva a:     "Ay, no me digas, yo estaba igualita. Hasta que mi tía me dijo que tomara aguaje, fenogreco y maca negra y me dijo: antes del bisturí, prueba lo natural."
+
+  TRAMOS:
+    [0.0–3.4s] [personaje]  "O sea, yo me ponía un jean y por detrás, Dios mío!."
+    [3.4–5.4s]  (sin dialogo)
+    [5.4–7.0s] [personaje]  "Plana, plana, plana."
+    [7.0–10.0s] [personaje]  "Y ya no sabía ni qué ponerme, le juro."
+
+  --- video ---
+Duración: 10s.
+
+REFERENCIAS:
+Image 1: the woman in the white t-shirt. Use it only as an identity reference (same face, same hair, same features and skin tone). It is not the first frame of the video: do not copy its background, clothes or pose.
+Image 2: the woman in the olive-green sweater. Use it only as an identity reference (same face, same hair, same features and skin tone). It is not the first frame of the video: do not copy its background, clothes or pose.
+
+STYLE / MOOD:
+Realistic UGC home podcast clip, honest and funny, like two friends confessing something that really happened to them. Vertical 9:16 video filmed with phones on small tripods, a slight natural micro-movement, dry cuts between shots like a clip edited on a phone. It feels homemade and authentic, not a polished commercial.
+
+LANGUAGE / VOICE:
+Colombian Spanish, natural and everyday, a casual chat between two friends on a home podcast. Voice of the woman in the white t-shirt: female, about 26, bright and slightly high-pitched, quick and expressive, a little dramatic and self-mocking, laughs at herself, natural Colombian Spanish accent. Voice of the woman in the olive-green sweater: female, about 31, warmer and slightly lower, relaxed, confident and knowing, laughs easily, natural Colombian Spanish accent. Two clearly different voices, never the same tone. Agile conversational pace, about three words per second, never slow, never like an announcer, never memorized. Habla en español de Colombia.
+
+MAIN CHARACTERS:
+The woman in the white t-shirt (image 1): Colombian woman about 26, light olive-tan skin with real texture, visible pores on the nose and cheeks, a slight shine on the forehead, a couple of tiny blemishes, no heavy makeup; oval face, thick dark eyebrows, dark brown eyes, straight nose, medium lips with nude balm; very long dark-brown wavy hair below the chest, center part, caramel balayage on the ends, loose strands and a little frizz; small thin gold hoop earrings; short nude nails; slim build; no visible tattoos. On the podcast she wears a fitted plain white short-sleeve crew-neck cotton t-shirt with soft wrinkles and light-blue jeans, hair loose.
+The woman in the olive-green sweater (image 2): Colombian woman about 31, warm medium-brown skin with real texture, visible pores and a soft shine on the nose bridge, minimal eyeliner; round face, thick dark eyebrows, brown eyes, full lips; black hair in a messy high bun with loose strands framing her face; large thin gold hoop earrings; no visible tattoos. On the podcast she wears an oversized chunky-knit olive-green crew-neck sweater and dark jeans. In this video only the woman in the white t-shirt is on screen.
+
+SETTING:
+A cozy apartment living room set up as a small home podcast, late afternoon. Both women sit on the same grey fabric sofa with a beige cushion, each with her own black podcast microphone on a black boom arm with a black cable in front of her, to one side of her face. Behind them: a warm beige wall with a small framed painting of a colonial house, a wooden wall shelf with framed family photos and trailing pothos plants, a tall wooden tripod floor lamp with a cream drum shade switched on, and sheer cream curtains glowing with daylight. Light: warm soft light from the lamp and the curtained window, from the side and front, diffused soft shadows, golden glints on the hair and cheekbones, the faces evenly lit. Colors muted and slightly washed out, warm golden tone, low contrast, phone-camera sharpness with the background slightly soft, faint digital noise. Camera: a static phone on a small tripod for each woman, medium close-up from the chest up, the microphone in the foreground to one side, almost no movement, no zoom. Everything looks real and lived-in, not a set.
+
+PERFORMANCE:
+The woman in the white t-shirt speaks with confessional, self-mocking energy: very wide eyes and both hands on her head in mock horror, raised eyebrows, glances at her friend off-camera and at the camera, a real laugh with a hand on her chest. Natural gestures of hands, eyebrows and head, nothing stiff. Not overacted.
+
+TIMESTAMPS:
+[0.0–3.4s]
+Medium close-up of the woman in the white t-shirt at her microphone, framed from the chest up, the living room clearly visible behind her with the trailing pothos plants on the shelf and the warm lamp light. Her hands start clasped on her lap; she looks at her friend off-camera while she talks, and on the last words she opens her eyes very wide and brings both hands up to her head, holding her head in mock horror.
+DIÁLOGO: “O sea, yo me ponía un jean y por detrás, Dios mío!.”
+[3.4–5.4s]
+Cut to a mirror selfie of the woman in the white t-shirt in her bedroom: a tall wooden-framed floor mirror against a white wall with a few small photos taped on it, a bed with beige sheets, a beige rug on a light wooden floor and a window with a city view; cool-neutral daylight from the window, soft shadows. She stands in full side profile close to the mirror, her face turned to her reflection, holding her phone at chest height with one hand so her face stays visible, the other arm relaxed. Framed from her head to her knees so the back of her jeans is big and clearly visible in the foreground of the frame: same white t-shirt tucked in, light-blue straight jeans one size too big at the back, sagging and drooping, a baggy fold of extra denim below the seat, drooping back pockets, her back and seat forming one straight flat vertical line, thin straight thighs with space inside the jean legs. Sharp, no motion blur, the flat loose jeans obvious at first glance. She looks at herself with a resigned half-smile. No dialogue; you hear a soft sigh and the quiet room.
+[5.4–7.0s]
+Cut back to her at the microphone, a closer shot: she slides one flat hand straight down through the air, eyebrows raised, deadpan.
+DIÁLOGO: “Plana, plana, plana.”
+[7.0–10.0s]
+Cut to a medium shot of her at the microphone: she puts a hand on her chest and laughs, squinting one eye shut; after speaking she keeps laughing quietly with her hand on her chest and stays still, smiling at her friend, in silence.
+DIÁLOGO: “Y ya no sabía ni qué ponerme, le juro.”
+
+AUDIO:
+Only the voice of the woman in the white t-shirt and the room tone of a furnished living room: warm, soft, no echo; her short real laugh at the end. No other voice. No music.
+
+*Do not add subtitles, captions, signs or on-screen text; the times in brackets are editing notes and are not written. No text may be visible. No person may appear besides the woman in the white t-shirt and the woman in the olive-green sweater, and their faces do not change between shots.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with a phone front camera, like a casual reference selfie. Medium shot from the waist up. Colombian woman about 26, light olive-tan skin with real texture, visible pores on the nose and cheeks, a slight shine on the forehead, a couple of tiny blemishes, no heavy makeup; oval face, thick dark eyebrows, dark brown eyes, straight nose, medium lips with nude balm; very long dark-brown wavy hair below the chest, center part, caramel balayage on the ends, loose strands and a little frizz; small thin gold hoop earrings; short nude nails; slim build; no visible tattoos. She wears a fitted plain white short-sleeve crew-neck cotton t-shirt with soft wrinkles, no prints, no logos. She stands in front of a plain warm beige wall at home, looks straight at the camera with a slight relaxed smile and her mouth closed, arms relaxed at her sides, hands empty. Soft natural daylight from a window in front of her. Authentic UGC look, phone image, no studio retouching, real skin. A single frozen instant. No text, no logos, no watermarks, nothing in her hands.
+
+  --- referencia "personaje-2" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with a phone front camera, like a casual reference selfie. Medium shot from the waist up. Colombian woman about 31, warm medium-brown skin with real texture, visible pores and a soft shine on the nose bridge, minimal eyeliner, no heavy makeup; round face, thick dark eyebrows, brown eyes, full lips; black hair in a messy high bun with loose strands framing her face; large thin gold hoop earrings; no visible tattoos. She wears an oversized chunky-knit olive-green crew-neck sweater, no prints, no logos. She stands in front of a plain warm beige wall at home, looks straight at the camera with a slight knowing smile and her mouth closed, arms relaxed at her sides, hands empty. Soft natural daylight from a window in front of her. Authentic UGC look, phone image, no studio retouching, real skin. A single frozen instant. No text, no logos, no watermarks, nothing in her hands.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/aguaje-complex-3-en-1-agregar-20261119-1208 1
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/aguaje-complex-3-en-1-agregar-20261119-1208 --toma 1 --aplicar nuevos.json
+

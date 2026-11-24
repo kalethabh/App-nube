@@ -1,0 +1,63 @@
+{
+  "fecha": "2026-11-21T21:24:18.975Z",
+  "cambios": [
+    {
+      "que": "toma",
+      "n": 2,
+      "toma": 2,
+      "antes": 3,
+      "despues": 3.4,
+      "necesita": 3.3
+    },
+    {
+      "que": "toma",
+      "n": 12,
+      "toma": 12,
+      "antes": 8.6,
+      "despues": 9.9,
+      "necesita": 9.8
+    },
+    {
+      "que": "toma",
+      "n": 15,
+      "toma": 15,
+      "antes": 2.6,
+      "despues": 3.3,
+      "necesita": 3.2
+    },
+    {
+      "que": "toma",
+      "n": 19,
+      "toma": 19,
+      "antes": 4,
+      "despues": 5.8,
+      "necesita": 5.7
+    },
+    {
+      "que": "toma",
+      "n": 20,
+      "toma": 20,
+      "antes": 2.6,
+      "despues": 3.4,
+      "necesita": 3.3
+    },
+    {
+      "que": "toma",
+      "n": 22,
+      "toma": 22,
+      "antes": 4.4,
+      "despues": 5.3,
+      "necesita": 5.2
+    },
+    {
+      "que": "toma",
+      "n": 23,
+      "toma": 23,
+      "antes": 7,
+      "despues": 7.3,
+      "necesita": 7.2
+    }
+  ],
+  "sinArreglo": [],
+  "brollFuera": []
+}

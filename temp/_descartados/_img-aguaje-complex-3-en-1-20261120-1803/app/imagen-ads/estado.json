@@ -1,0 +1,495 @@
+{
+  "version": 1,
+  "siguiente": {
+    "E": 3,
+    "R": 3,
+    "A": 1,
+    "T": 12
+  },
+  "tandas": {
+    "E001": {
+      "tipo": "estrategia",
+      "ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V04"
+      ],
+      "uuid": "40465d54-a4e0-4c02-bdb7-174fe0993b5c",
+      "motor": "claude",
+      "estado": "hecha"
+    },
+    "E002": {
+      "tipo": "prompts",
+      "uuid": "7dfc705a-9d04-433a-83a2-edb48f0de186",
+      "estado": "hecha",
+      "ids": [
+        "V05",
+        "V06",
+        "V07",
+        "V08",
+        "V09",
+        "V10"
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "7ff57644-50c6-4bad-a67f-b757ef254656",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V07_1x1",
+          "firma": "2441685-1795217120474",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "2372d180-e8b5-4d10-815d-131ad07f036b",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "2410406-1795217845917",
+          "ronda": "u"
+        }
+      ],
+      "empezada": true
+    }
+  },
+  "variaciones": {
+    "V01": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V02": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V03": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V04": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V05": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V06": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V07": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V08": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V09": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V10": {
+      "prompt": "listo",
+      "tanda": "E002"
+    }
+  },
+  "piezas": {
+    "V01_1x1": {
+      "v": "V01",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2410406-1795217845917",
+      "orden": null,
+      "intentosApi": 2,
+      "ronda": "u",
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R002",
+        "ronda": "u",
+        "ok": true,
+        "problemas": [],
+        "firma": "2410406-1795217845917"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-20T23:37:26.557Z",
+      "pedido": null,
+      "ultimaOrden": "U0001",
+      "fallo": null
+    },
+    "V02_1x1": {
+      "v": "V02",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "sin-imagen",
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": "u",
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "U0002",
+      "fallo": {
+        "orden": "U0002",
+        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
+    },
+    "V03_1x1": {
+      "v": "V03",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "sin-imagen",
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": "u",
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "U0003",
+      "fallo": {
+        "orden": "U0003",
+        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
+    },
+    "V04_1x1": {
+      "v": "V04",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "sin-imagen",
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": "u",
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": "fallo-de-chatgpt",
+      "mensaje": "ChatGPT no pudo hacer esta imagen",
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "U0010",
+      "fallo": {
+        "orden": "U0010",
+        "mensaje": "ChatGPT no pudo hacer esta imagen"
+      }
+    },
+    "V05_1x1": {
+      "v": "V05",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "sin-imagen",
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": "u",
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "U0009",
+      "fallo": {
+        "orden": "U0009",
+        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
+    },
+    "V06_1x1": {
+      "v": "V06",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "sin-imagen",
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": "u",
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": "fallo-de-chatgpt",
+      "mensaje": "ChatGPT no pudo hacer esta imagen",
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "U0005",
+      "fallo": {
+        "orden": "U0005",
+        "mensaje": "ChatGPT no pudo hacer esta imagen"
+      }
+    },
+    "V07_1x1": {
+      "v": "V07",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2441685-1795217120474",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2441685-1795217120474"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-20T23:25:21.749Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V08_1x1": {
+      "v": "V08",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "sin-imagen",
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": "u",
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "U0006",
+      "fallo": {
+        "orden": "U0006",
+        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
+    },
+    "V09_1x1": {
+      "v": "V09",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "sin-imagen",
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": "u",
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "U0007",
+      "fallo": {
+        "orden": "U0007",
+        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
+    },
+    "V10_1x1": {
+      "v": "V10",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "sin-imagen",
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": "u",
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "U0008",
+      "fallo": {
+        "orden": "U0008",
+        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
+    }
+  },
+  "pedidos": {
+    "U0001": {
+      "id": "U0001",
+      "pieza": "V01_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:32:56.281Z",
+      "estado": "listo",
+      "pasos": [
+        {
+          "pieza": "V01_1x1",
+          "orden": "U0001",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
+    },
+    "U0002": {
+      "id": "U0002",
+      "pieza": "V02_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:32:58.787Z",
+      "estado": "no-aplicado",
+      "pasos": [
+        {
+          "pieza": "V02_1x1",
+          "orden": "U0002",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no quiso hacer esta imagen por sus reglas de contenido."
+    },
+    "U0003": {
+      "id": "U0003",
+      "pieza": "V03_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:00.162Z",
+      "estado": "no-aplicado",
+      "pasos": [
+        {
+          "pieza": "V03_1x1",
+          "orden": "U0003",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no quiso hacer esta imagen por sus reglas de contenido."
+    },
+    "U0004": {
+      "id": "U0004",
+      "pieza": "V04_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:02.259Z",
+      "estado": "no-aplicado",
+      "pasos": [
+        {
+          "pieza": "V04_1x1",
+          "orden": "U0004",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no pudo hacer esta imagen."
+    },
+    "U0005": {
+      "id": "U0005",
+      "pieza": "V06_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:05.898Z",
+      "estado": "no-aplicado",
+      "pasos": [
+        {
+          "pieza": "V06_1x1",
+          "orden": "U0005",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no pudo hacer esta imagen."
+    },
+    "U0006": {
+      "id": "U0006",
+      "pieza": "V08_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:08.596Z",
+      "estado": "no-aplicado",
+      "pasos": [
+        {
+          "pieza": "V08_1x1",
+          "orden": "U0006",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no quiso hacer esta imagen por sus reglas de contenido."
+    },
+    "U0007": {
+      "id": "U0007",
+      "pieza": "V09_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:10.405Z",
+      "estado": "no-aplicado",
+      "pasos": [
+        {
+          "pieza": "V09_1x1",
+          "orden": "U0007",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no quiso hacer esta imagen por sus reglas de contenido."
+    },
+    "U0008": {
+      "id": "U0008",
+      "pieza": "V10_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:19.058Z",
+      "estado": "no-aplicado",
+      "pasos": [
+        {
+          "pieza": "V10_1x1",
+          "orden": "U0008",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no quiso hacer esta imagen por sus reglas de contenido."
+    },
+    "U0009": {
+      "id": "U0009",
+      "pieza": "V05_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:21.252Z",
+      "estado": "no-aplicado",
+      "pasos": [
+        {
+          "pieza": "V05_1x1",
+          "orden": "U0009",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no quiso hacer esta imagen por sus reglas de contenido."
+    },
+    "U0010": {
+      "id": "U0010",
+      "pieza": "V04_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T01:18:42.154Z",
+      "estado": "no-aplicado",
+      "pasos": [
+        {
+          "pieza": "V04_1x1",
+          "orden": "U0010",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no pudo hacer esta imagen."
+    }
+  }
+}

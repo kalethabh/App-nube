@@ -1,0 +1,125 @@
+{
+  "slug": "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116",
+  "familia": "voz-en-off",
+  "estado": "listo",
+  "paso": "informe",
+  "pasos": [
+    {
+      "id": "validar",
+      "nombre": "Revisar el guion",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T22:54:19.505Z",
+      "fin": "2026-11-18T22:54:19.764Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Mirar tu saldo de kie",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T22:54:19.764Z",
+      "fin": "2026-11-18T22:54:20.921Z"
+    },
+    {
+      "id": "voz",
+      "nombre": "Grabar la voz",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T22:54:20.921Z",
+      "fin": "2026-11-18T22:54:28.479Z"
+    },
+    {
+      "id": "ventanas",
+      "nombre": "Ajustar el largo de cada escena",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T22:54:28.479Z",
+      "fin": "2026-11-18T22:54:28.642Z",
+      "nota": "5 escena(s) se pidieron más largas para cubrir su frase. Un B-roll no entra en el video con esta voz: no se genera."
+    },
+    {
+      "id": "imagenes-y-videos",
+      "nombre": "Crear las imágenes y los videos",
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-18T22:54:28.643Z",
+      "retomado": true,
+      "fin": "2026-11-18T23:06:34.399Z"
+    },
+    {
+      "id": "revision-imagenes",
+      "nombre": "Revisar las imágenes",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:06:34.399Z",
+      "fin": "2026-11-18T23:07:06.684Z",
+      "nota": "Las imágenes pasaron la revisión."
+    },
+    {
+      "id": "voces",
+      "nombre": "Buscar voces que no van",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:07:06.684Z",
+      "fin": "2026-11-18T23:09:32.097Z"
+    },
+    {
+      "id": "musica",
+      "nombre": "Poner la música",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:09:32.098Z",
+      "fin": "2026-11-18T23:10:07.226Z"
+    },
+    {
+      "id": "montaje",
+      "nombre": "Armar el montaje y los subtítulos",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:10:07.227Z",
+      "fin": "2026-11-18T23:10:26.529Z"
+    },
+    {
+      "id": "render",
+      "nombre": "Exportar los videos",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:10:26.530Z",
+      "fin": "2026-11-18T23:18:06.860Z"
+    },
+    {
+      "id": "control-final",
+      "nombre": "Revisar el video terminado",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:18:06.861Z",
+      "fin": "2026-11-18T23:18:27.326Z"
+    },
+    {
+      "id": "informe",
+      "nombre": "Preparar el informe",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:18:27.326Z",
+      "fin": "2026-11-18T23:18:27.610Z"
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-18T22:54:19.505Z",
+  "aprobado": "2026-11-18T22:54:19.505Z",
+  "actualizado": "2026-11-18T23:18:27.610Z",
+  "saldoInicial": {
+    "creditos": 2657,
+    "fecha": "2026-11-18T22:54:20.920Z"
+  },
+  "costoPlan": {
+    "creditos": 779.5,
+    "fecha": "2026-11-18T22:54:20.921Z"
+  },
+  "saldoFinal": {
+    "creditos": 1020.1,
+    "fecha": "2026-11-18T23:18:27.581Z"
+  },
+  "terminado": "2026-11-18T23:18:27.610Z"
+}

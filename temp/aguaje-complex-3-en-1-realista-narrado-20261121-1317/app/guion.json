@@ -1,0 +1,308 @@
+{
+  "titulo": "Aguaje Complex 3 en 1 — «Cinco hombres me rechazaron en televisión»",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 105.1,
+  "de_que_va": "Laura cuenta cómo cinco hombres reventaron su globo en un programa de citas por no tener curvas, aunque llevaba un año en el gimnasio. Tres meses después muestra su cambio con Aguaje Complex 3 en 1 y cierra con una frase de revancha.",
+  "estructura": {
+    "id": "de-la-referencia",
+    "nombre": "La de tu video",
+    "porque": "Sigue los momentos de tu video en su orden: el gancho del rechazo, el programa de citas con los globos, el porqué de cada uno, el gimnasio que no alcanzó, el antes y el después, el producto, la línea de tiempo y la frase final que cierra el gancho."
+  },
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "Cinco hombres me rechazaron en televisión por no tener curvas.",
+      "se_ve": "Los cinco hombres en fila en el set rosado, con sus globos rojos; uno de polo crema mira de lado con desprecio.",
+      "segundos": 4.2
+    },
+    {
+      "n": 2,
+      "momento": "gancho",
+      "dice": "Lo que pasó tres meses después los dejó sin palabras.",
+      "se_ve": "Laura, en vestido rosado satinado, sonríe nerviosa y mira a los hombres.",
+      "segundos": 4.2
+    },
+    {
+      "n": 3,
+      "momento": "problema",
+      "dice": "Programa de citas: si no te querían, reventaban el globo.",
+      "se_ve": "Plano abierto del set: Laura entra caminando, la presentadora de rojo la recibe y los hombres sostienen sus globos.",
+      "segundos": 4.2
+    },
+    {
+      "n": 4,
+      "momento": "problema",
+      "dice": "Me preguntaron el nombre y, antes de decir Laura… ¡pum!",
+      "se_ve": "La presentadora le acerca el micrófono; Laura empieza a hablar y se sobresalta con un globo que revienta.",
+      "segundos": 4.2
+    },
+    {
+      "n": 5,
+      "momento": "problema",
+      "dice": "Dije mi edad, veintisiete. ¡Pum! Otro.",
+      "se_ve": "Las manos de un hombre de camisa blanca aprietan su globo rojo hasta que revienta.",
+      "segundos": 2.5
+    },
+    {
+      "n": 6,
+      "momento": "problema",
+      "dice": "Que tengo mi propia tienda de ropa. ¡Pum! ¡Pum!",
+      "se_ve": "Laura habla orgullosa al micrófono y se le congela la sonrisa con dos globos más.",
+      "segundos": 3.8
+    },
+    {
+      "n": 7,
+      "momento": "problema",
+      "dice": "Entonces la presentadora les preguntó por qué.",
+      "se_ve": "La presentadora camina hacia los hombres con el micrófono en la mano.",
+      "segundos": 2.9
+    },
+    {
+      "n": 8,
+      "momento": "problema",
+      "dice": "El primero: «Perdón, pero a mí me gustan las curvas».",
+      "se_ve": "El hombre de chaqueta de cuero se encoge de hombros con cara de culpa.",
+      "segundos": 4.2
+    },
+    {
+      "n": 9,
+      "momento": "problema",
+      "dice": "El segundo: «No te lo tomes a mal, pero me gustan con cuerpo».",
+      "se_ve": "El de chaqueta de jean levanta la mano como diciendo «sin ofender» y sonríe creído.",
+      "segundos": 5.4
+    },
+    {
+      "n": 10,
+      "momento": "problema",
+      "dice": "El tercero: «Yo quiero la que todos voltean a mirar».",
+      "se_ve": "El de camisa blanca habla muy seguro de sí, con la barbilla en alto.",
+      "segundos": 4.2
+    },
+    {
+      "n": 11,
+      "momento": "problema",
+      "dice": "Y yo, sonriendo como si nada.",
+      "se_ve": "Primer plano de Laura con una sonrisa forzada y los ojos brillantes.",
+      "segundos": 2.5
+    },
+    {
+      "n": 12,
+      "momento": "problema",
+      "dice": "Quedaba uno: «Me caes bien, eres divertida».",
+      "se_ve": "El último, de traje azul, todavía tiene su globo y le sonríe con amabilidad.",
+      "segundos": 2.9
+    },
+    {
+      "n": 13,
+      "momento": "problema",
+      "dice": "«¿Haces ejercicio?» Sí, llevo un año en el gimnasio.",
+      "se_ve": "Laura responde con esperanza y asiente.",
+      "segundos": 3.8
+    },
+    {
+      "n": 14,
+      "momento": "problema",
+      "dice": "«¿Y no ha cambiado nada?» Más fuerza, sí… pero curvas, ninguna.",
+      "se_ve": "Laura baja la mirada, avergonzada, y se encoge de hombros.",
+      "segundos": 4.6
+    },
+    {
+      "n": 15,
+      "momento": "problema",
+      "dice": "«Qué lástima», dijo. ¡Pum! Ahí se fue el último.",
+      "se_ve": "El de traje azul revienta su globo entre las manos y pide perdón con un gesto.",
+      "segundos": 3.8
+    },
+    {
+      "n": 16,
+      "momento": "problema",
+      "dice": "Salí de ahí sin una sola cita.",
+      "se_ve": "Laura sola en el centro del set, con la cabeza baja y pedazos de globo en el piso.",
+      "segundos": 2.9
+    },
+    {
+      "n": 17,
+      "momento": "giro",
+      "dice": "Así era yo hace tres meses.",
+      "se_ve": "Selfie en el espejo de su cuarto, de lado, con top blanco y short de jean que le queda suelto atrás.",
+      "segundos": 2.5
+    },
+    {
+      "n": 18,
+      "momento": "prueba",
+      "dice": "Y así estoy ahora. Sí, soy la misma.",
+      "se_ve": "En el mismo espejo y con la misma ropa, su figura cambia: más cadera, más cola y piernas que llenan el short.",
+      "segundos": 3.3
+    },
+    {
+      "n": 19,
+      "momento": "solución",
+      "dice": "¿Qué cambió? Empecé a tomar Aguaje Complex 3 en 1.",
+      "se_ve": "En su cocina, Laura sostiene el frasco cerrado junto a su cara y sonríe.",
+      "segundos": 4.2
+    },
+    {
+      "n": 20,
+      "momento": "solución",
+      "dice": "Dos cápsulas al día con mis comidas: aguaje, fenogreco y maca negra.",
+      "se_ve": "Desayuna una arepa con huevo; el frasco cerrado está en la mesa junto a su vaso de agua.",
+      "segundos": 5
+    },
+    {
+      "n": 21,
+      "momento": "prueba",
+      "dice": "El primer mes noté más energía y ganas de entrenar.",
+      "se_ve": "En el gimnasio hace sentadillas con una pesa y se ríe con energía.",
+      "segundos": 4.2
+    },
+    {
+      "n": 22,
+      "momento": "prueba",
+      "dice": "El segundo mes, los jeans empezaron a hormarme atrás.",
+      "se_ve": "En el probador de una tienda, se mira de lado: el jean nuevo le queda perfecto.",
+      "segundos": 3.8
+    },
+    {
+      "n": 23,
+      "momento": "prueba",
+      "dice": "Y en el supermercado, de repente, me miraban diferente.",
+      "se_ve": "Toma una caja de un estante y un hombre con su carrito voltea a mirarla.",
+      "segundos": 3.8
+    },
+    {
+      "n": 24,
+      "momento": "prueba",
+      "dice": "Al tercer mes, mis jeans de antes ya no me cerraban.",
+      "se_ve": "En su cuarto levanta su jean viejo, que ahora se ve chiquito, se ríe y lo tira a la cama.",
+      "segundos": 4.6
+    },
+    {
+      "n": 25,
+      "momento": "cierre",
+      "dice": "Sin magia y sin quirófano: constancia. Si te pasa igual, míralo con calma aquí abajo.",
+      "se_ve": "En el sofá de su sala, con el frasco cerrado junto a la cara, le habla a la cámara como a una amiga.",
+      "segundos": 6.3
+    },
+    {
+      "n": 26,
+      "momento": "cierre",
+      "dice": "Esa es la mujer que ellos querían.",
+      "se_ve": "Selfie de cerca: levanta una ceja y sonríe pícara.",
+      "segundos": 2.9
+    },
+    {
+      "n": 27,
+      "momento": "cierre",
+      "dice": "Qué lástima, mi amor: ya no me van a tener.",
+      "se_ve": "Camina hacia la puerta de su casa, mira hacia atrás, guiña un ojo y sale.",
+      "segundos": 4.2
+    }
+  ],
+  "broll": [
+    {
+      "n": 1,
+      "despues": 1,
+      "con": "cinco hombres me rechazaron",
+      "segundos": 3,
+      "se_ve": "Las manos de los hombres sostienen sus globos rojos en fila contra el pecho, con las mangas de cuero, de tejido crema y de jean. Detrás brillan los paneles rosados del set. Deja la sensación de un juicio a punto de empezar.",
+      "camara": "primer plano, la cámara recorre la fila de izquierda a derecha"
+    },
+    {
+      "n": 2,
+      "despues": 5,
+      "con": "¡pum! otro",
+      "segundos": 2.5,
+      "se_ve": "Pedazos de globo rojo reventado y unos pétalos de rosa sobre el piso blanco brillante, que refleja la luz rosada. Al fondo, borrosos, los zapatos de los hombres. Queda el silencio incómodo después del «pum».",
+      "camara": "plano bajo a ras del piso, acercamiento suave"
+    },
+    {
+      "n": 3,
+      "despues": 7,
+      "con": "les preguntó por qué",
+      "segundos": 2.5,
+      "se_ve": "La presentadora, de traje rojo, se lleva el micrófono a la barbilla y levanta una ceja mirando a los hombres. La luz rosada del set le da en la cara. Se siente la curiosidad de todo el público.",
+      "camara": "primer plano, cámara en mano casi quieta"
+    },
+    {
+      "n": 4,
+      "despues": 13,
+      "con": "llevo un año en el gimnasio",
+      "segundos": 2.5,
+      "se_ve": "Las manos de Laura, entrelazadas con fuerza frente a su vestido rosado satinado, se retuercen de nervios. La tela brilla con la luz del set. Se nota cuánto le está costando.",
+      "camara": "primerísimo plano, acercamiento suave"
+    },
+    {
+      "n": 5,
+      "despues": 16,
+      "con": "sin una sola cita",
+      "segundos": 3,
+      "se_ve": "Esa noche, Laura se sienta al borde de su cama, todavía con el vestido rosado y los tacones en el piso. Mira el celular con cara de cansancio bajo la luz de la lámpara, suspira y lo deja caer sobre la cama. Tristeza de quien se sintió poca cosa.",
+      "camara": "plano medio, cámara quieta"
+    },
+    {
+      "n": 6,
+      "despues": 19,
+      "con": "Aguaje Complex 3 en 1",
+      "segundos": 3,
+      "se_ve": "El frasco cerrado de Aguaje Complex 3 en 1, de pie sobre el mesón de madera de la cocina, con el sol de la mañana. La etiqueta negra y rosada se lee clarita. Una planta y baldosas blancas desenfocadas atrás.",
+      "camara": "primer plano del frasco, acercamiento suave"
+    },
+    {
+      "n": 7,
+      "despues": 20,
+      "con": "aguaje, fenogreco y maca negra",
+      "segundos": 3,
+      "se_ve": "Sobre una tabla de madera, frutos de aguaje con su cáscara rojiza de escamas (uno abierto, con la pulpa naranja), un tazón de semillas doradas de fenogreco y dos raíces de maca negra con un poco de tierra. Luz de la mañana y texturas reales.",
+      "camara": "vista desde arriba, acercamiento lento"
+    },
+    {
+      "n": 8,
+      "despues": 21,
+      "con": "más energía (los tres extractos juntos)",
+      "segundos": 3.5,
+      "se_ve": "Dentro de un canal de vidrio sobre fondo azul oscuro, tres corrientes de luz, ámbar, crema y violeta, se juntan en una sola corriente dorada. Es la triple acción de los tres extractos.",
+      "camara": "primerísimo plano, cámara quieta"
+    },
+    {
+      "n": 9,
+      "despues": 22,
+      "con": "los jeans empezaron a hormarme",
+      "segundos": 3,
+      "se_ve": "Laura sale del probador hacia la cámara con su top blanco y su jean nuevo, con una bolsa de compras en la mano. Camina segura entre los percheros, con la luz cálida de la tienda, y sonríe de oreja a oreja.",
+      "camara": "plano de la cabeza a las rodillas, cámara quieta"
+    },
+    {
+      "n": 10,
+      "despues": 24,
+      "con": "mis jeans de antes ya no me cerraban",
+      "segundos": 2.5,
+      "se_ve": "El jean viejo, angosto y azul claro, tirado sobre la cama destendida de sábanas blancas, con una pierna doblada. La luz de la ventana cae sobre la tela. Es el recuerdo de cómo era antes.",
+      "camara": "primer plano, acercamiento suave"
+    },
+    {
+      "n": 11,
+      "despues": 25,
+      "con": "constancia",
+      "segundos": 2.5,
+      "se_ve": "El frasco cerrado en la repisa blanca del baño, junto al vaso con el cepillo de dientes, con la luz de la mañana. La etiqueta mira a la cámara. Muestra que tomarlo es parte de su rutina de todos los días.",
+      "camara": "primer plano, acercamiento suave"
+    },
+    {
+      "n": 12,
+      "despues": 26,
+      "con": "la mujer que ellos querían",
+      "segundos": 3,
+      "se_ve": "Laura se ríe con dos amigas en la mesa de un café al aire libre, con jean y top blanco, segura y tranquila. Hay cafés helados en la mesa y árboles atrás, con la luz dorada de la tarde. Echa la cabeza hacia atrás de la risa.",
+      "camara": "plano medio, cámara en mano suave"
+    }
+  ],
+  "decisiones": [
+    "Clonado de: VTD 26 · 65 tomas · 186 s. Estructura: la de tu video. Lo recorté a 27 tomas y unos 100 s: mismos momentos y en el mismo orden. Quité los pasatiempos y a uno de los hombres que explicaban.",
+    "Narra la propia Laura (27 años), en primera persona, como en el final de tu video, y cita lo que le dijeron. Es la misma mujer en el antes (delgada, con el short suelto atrás) y en el después (con cadera, cola y piernas que llenan el jean). El antes y el después van en el mismo espejo, con short de jean corto, como pediste. No usé un subestilo: las escenas salen de tu video.",
+    "Ángulo: el rechazo por no tener curvas, aunque llevaba un año en el gimnasio. Aguaje Complex 3 en 1 es el apoyo que le faltaba a su rutina, sin quirófano. Cambié las semanas por meses, porque tu producto se usa varios meses, y en el primer mes puse más energía en vez de «hambre todo el tiempo».",
+    "Tu producto no tiene oferta ni forma de pago definidas, así que no van. Como es un testimonio, el cierre es una recomendación («si te pasa igual, míralo con calma aquí abajo») y no una venta. Quité las frases de «la química en la cama» y «de dónde agarrar» para que Meta no frene el anuncio.",
+    "Solo se ve el frasco cerrado, nunca cápsulas. 8 de los 12 apoyos visuales van quietos o salen de tu biblioteca (las tres corrientes de luz), y la toma de Laura sola en el set también va quieta."
+  ]
+}

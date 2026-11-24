@@ -1,0 +1,1383 @@
+{
+  "video": "original.mp4",
+  "duracion": 186.52,
+  "formato": "720x1280",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 1.67,
+      "duracion": 1.67,
+      "fotograma": "tomas/toma-01.jpg",
+      "tira": "tomas/movimiento/tira-01.jpg",
+      "imagen": {
+        "brillo": 119,
+        "luz": "media",
+        "saturacion": 18.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 18.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Este hombre la rechazó",
+      "eventos": [],
+      "palabras_por_segundo": 2.4
+    },
+    {
+      "n": 2,
+      "desde": 1.67,
+      "hasta": 3.97,
+      "duracion": 2.3,
+      "fotograma": "tomas/toma-02.jpg",
+      "tira": "tomas/movimiento/tira-02.jpg",
+      "imagen": {
+        "brillo": 153.5,
+        "luz": "media",
+        "saturacion": 19.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "solo porque no tenía curvas, pero lo que pasó",
+      "eventos": [],
+      "palabras_por_segundo": 3.91
+    },
+    {
+      "n": 3,
+      "desde": 3.97,
+      "hasta": 6,
+      "duracion": 2.03,
+      "fotograma": "tomas/toma-03.jpg",
+      "tira": "tomas/movimiento/tira-03.jpg",
+      "imagen": {
+        "brillo": 138.3,
+        "luz": "media",
+        "saturacion": 28.6,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 2.9,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "después te va a dejar sin palabras.",
+      "eventos": [],
+      "palabras_por_segundo": 3.45
+    },
+    {
+      "n": 4,
+      "desde": 6,
+      "hasta": 8.4,
+      "duracion": 2.4,
+      "fotograma": "tomas/toma-04.jpg",
+      "tira": "tomas/movimiento/tira-04.jpg",
+      "imagen": {
+        "brillo": 157.3,
+        "luz": "media",
+        "saturacion": 22.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 12.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[música alegre]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 5,
+      "desde": 8.4,
+      "hasta": 10.23,
+      "duracion": 1.83,
+      "fotograma": "tomas/toma-05.jpg",
+      "tira": "tomas/movimiento/tira-05.jpg",
+      "imagen": {
+        "brillo": 109.6,
+        "luz": "media",
+        "saturacion": 45,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Hola, bienvenida. ¿Cómo te llamas?",
+      "eventos": [
+        "[música alegre]"
+      ],
+      "palabras_por_segundo": 2.73
+    },
+    {
+      "n": 6,
+      "desde": 10.23,
+      "hasta": 11.4,
+      "duracion": 1.17,
+      "fotograma": "tomas/toma-06.jpg",
+      "tira": "tomas/movimiento/tira-06.jpg",
+      "imagen": {
+        "brillo": 112.7,
+        "luz": "media",
+        "saturacion": 26.6,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 14.7,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Hola, soy Ma--",
+      "eventos": [
+        "[globo explota]"
+      ],
+      "palabras_por_segundo": 2.56
+    },
+    {
+      "n": 7,
+      "desde": 11.4,
+      "hasta": 12.77,
+      "duracion": 1.37,
+      "fotograma": "tomas/toma-07.jpg",
+      "tira": "tomas/movimiento/tira-07.jpg",
+      "imagen": {
+        "brillo": 112.2,
+        "luz": "media",
+        "saturacion": 22.5,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 33,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[globo explota]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 8,
+      "desde": 12.77,
+      "hasta": 13.6,
+      "duracion": 0.83,
+      "fotograma": "tomas/toma-08.jpg",
+      "tira": "tomas/movimiento/tira-08.jpg",
+      "imagen": {
+        "brillo": 154.2,
+        "luz": "media",
+        "saturacion": 21.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "Soy María.",
+      "eventos": [
+        "[globo explota]"
+      ],
+      "palabras_por_segundo": 2.41
+    },
+    {
+      "n": 9,
+      "desde": 13.6,
+      "hasta": 15.8,
+      "duracion": 2.2,
+      "fotograma": "tomas/toma-09.jpg",
+      "tira": "tomas/movimiento/tira-09.jpg",
+      "imagen": {
+        "brillo": 137.5,
+        "luz": "media",
+        "saturacion": 29.7,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 6.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Y cuántos años tienes? Tengo veintiséis.",
+      "eventos": [],
+      "palabras_por_segundo": 2.73
+    },
+    {
+      "n": 10,
+      "desde": 15.8,
+      "hasta": 16.8,
+      "duracion": 1,
+      "fotograma": "tomas/toma-10.jpg",
+      "tira": "tomas/movimiento/tira-10.jpg",
+      "imagen": {
+        "brillo": 120.6,
+        "luz": "media",
+        "saturacion": 24,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 34.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[globo explota]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 11,
+      "desde": 16.8,
+      "hasta": 17.8,
+      "duracion": 1,
+      "fotograma": "tomas/toma-11.jpg",
+      "tira": "tomas/movimiento/tira-11.jpg",
+      "imagen": {
+        "brillo": 134.4,
+        "luz": "media",
+        "saturacion": 17,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1.9,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "",
+      "eventos": [
+        "[globo explota]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 12,
+      "desde": 17.8,
+      "hasta": 20.27,
+      "duracion": 2.47,
+      "fotograma": "tomas/toma-12.jpg",
+      "tira": "tomas/movimiento/tira-12.jpg",
+      "imagen": {
+        "brillo": 138.9,
+        "luz": "media",
+        "saturacion": 22.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 13.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "¿A qué te dedicas? Tengo",
+      "eventos": [
+        "[jadea]"
+      ],
+      "palabras_por_segundo": 2.02
+    },
+    {
+      "n": 13,
+      "desde": 20.27,
+      "hasta": 21.07,
+      "duracion": 0.8,
+      "fotograma": "tomas/toma-13.jpg",
+      "tira": "tomas/movimiento/tira-13.jpg",
+      "imagen": {
+        "brillo": 103.5,
+        "luz": "media",
+        "saturacion": 13.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 14.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "una,",
+      "eventos": [
+        "[globo explota]"
+      ],
+      "palabras_por_segundo": 1.25
+    },
+    {
+      "n": 14,
+      "desde": 21.07,
+      "hasta": 22.1,
+      "duracion": 1.03,
+      "fotograma": "tomas/toma-14.jpg",
+      "tira": "tomas/movimiento/tira-14.jpg",
+      "imagen": {
+        "brillo": 125.3,
+        "luz": "media",
+        "saturacion": 26.9,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 9.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[globo explota]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 15,
+      "desde": 22.1,
+      "hasta": 24.27,
+      "duracion": 2.17,
+      "fotograma": "tomas/toma-15.jpg",
+      "tira": "tomas/movimiento/tira-15.jpg",
+      "imagen": {
+        "brillo": 142.7,
+        "luz": "media",
+        "saturacion": 26.2,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "una agencia de marketing que me va muy bien.",
+      "eventos": [
+        "[globo explota]",
+        "[ríe]"
+      ],
+      "palabras_por_segundo": 4.15
+    },
+    {
+      "n": 16,
+      "desde": 24.27,
+      "hasta": 25.8,
+      "duracion": 1.53,
+      "fotograma": "tomas/toma-16.jpg",
+      "tira": "tomas/movimiento/tira-16.jpg",
+      "imagen": {
+        "brillo": 99.4,
+        "luz": "media",
+        "saturacion": 42.5,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 6.6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Y para divertirte, ¿qué te",
+      "eventos": [],
+      "palabras_por_segundo": 3.27
+    },
+    {
+      "n": 17,
+      "desde": 25.8,
+      "hasta": 27.77,
+      "duracion": 1.97,
+      "fotograma": "tomas/toma-17.jpg",
+      "tira": "tomas/movimiento/tira-17.jpg",
+      "imagen": {
+        "brillo": 142.2,
+        "luz": "media",
+        "saturacion": 26.5,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 7.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "gusta hacer? Me encanta viajar,",
+      "eventos": [],
+      "palabras_por_segundo": 2.54
+    },
+    {
+      "n": 18,
+      "desde": 27.77,
+      "hasta": 29.13,
+      "duracion": 1.36,
+      "fotograma": "tomas/toma-18.jpg",
+      "tira": "tomas/movimiento/tira-18.jpg",
+      "imagen": {
+        "brillo": 116.3,
+        "luz": "media",
+        "saturacion": 20.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 16.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "leer, salir con",
+      "eventos": [],
+      "palabras_por_segundo": 2.21
+    },
+    {
+      "n": 19,
+      "desde": 29.13,
+      "hasta": 30.87,
+      "duracion": 1.74,
+      "fotograma": "tomas/toma-19.jpg",
+      "tira": "tomas/movimiento/tira-19.jpg",
+      "imagen": {
+        "brillo": 121.8,
+        "luz": "media",
+        "saturacion": 17.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 27.9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "mis amigas. Bueno,",
+      "eventos": [],
+      "palabras_por_segundo": 1.72
+    },
+    {
+      "n": 20,
+      "desde": 30.87,
+      "hasta": 32.6,
+      "duracion": 1.73,
+      "fotograma": "tomas/toma-20.jpg",
+      "tira": "tomas/movimiento/tira-20.jpg",
+      "imagen": {
+        "brillo": 100.5,
+        "luz": "media",
+        "saturacion": 39.7,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 15.3,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "ya explotaron varios globos. Vamos a ver",
+      "eventos": [],
+      "palabras_por_segundo": 4.05
+    },
+    {
+      "n": 21,
+      "desde": 32.6,
+      "hasta": 33.47,
+      "duracion": 0.87,
+      "fotograma": "tomas/toma-21.jpg",
+      "tira": "tomas/movimiento/tira-21.jpg",
+      "imagen": {
+        "brillo": 133.3,
+        "luz": "media",
+        "saturacion": 26.5,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 21.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "por qué lo hicieron.",
+      "eventos": [],
+      "palabras_por_segundo": 4.6
+    },
+    {
+      "n": 22,
+      "desde": 33.47,
+      "hasta": 35.3,
+      "duracion": 1.83,
+      "fotograma": "tomas/toma-22.jpg",
+      "tira": "tomas/movimiento/tira-22.jpg",
+      "imagen": {
+        "brillo": 152.1,
+        "luz": "media",
+        "saturacion": 21.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 15.6,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "¿Por",
+      "eventos": [],
+      "palabras_por_segundo": 0.55
+    },
+    {
+      "n": 23,
+      "desde": 35.3,
+      "hasta": 37.53,
+      "duracion": 2.23,
+      "fotograma": "tomas/toma-23.jpg",
+      "tira": "tomas/movimiento/tira-23.jpg",
+      "imagen": {
+        "brillo": 108.4,
+        "luz": "media",
+        "saturacion": 32,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 18.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "qué explotaste tu globo?",
+      "eventos": [],
+      "palabras_por_segundo": 1.79
+    },
+    {
+      "n": 24,
+      "desde": 37.53,
+      "hasta": 41.97,
+      "duracion": 4.44,
+      "fotograma": "tomas/toma-24.jpg",
+      "tira": "tomas/movimiento/tira-24.jpg",
+      "imagen": {
+        "brillo": 111.4,
+        "luz": "media",
+        "saturacion": 19.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 11.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Es que... perdón, pero",
+      "eventos": [],
+      "palabras_por_segundo": 0.9
+    },
+    {
+      "n": 25,
+      "desde": 41.97,
+      "hasta": 43.67,
+      "duracion": 1.7,
+      "fotograma": "tomas/toma-25.jpg",
+      "tira": "tomas/movimiento/tira-25.jpg",
+      "imagen": {
+        "brillo": 127.9,
+        "luz": "media",
+        "saturacion": 21.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 7.6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "a mí me gustan las curvas.",
+      "eventos": [],
+      "palabras_por_segundo": 3.53
+    },
+    {
+      "n": 26,
+      "desde": 43.67,
+      "hasta": 45,
+      "duracion": 1.33,
+      "fotograma": "tomas/toma-26.jpg",
+      "tira": "tomas/movimiento/tira-26.jpg",
+      "imagen": {
+        "brillo": 113.9,
+        "luz": "media",
+        "saturacion": 17.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Se nota que eres una buena",
+      "eventos": [],
+      "palabras_por_segundo": 4.51
+    },
+    {
+      "n": 27,
+      "desde": 45,
+      "hasta": 46.53,
+      "duracion": 1.53,
+      "fotograma": "tomas/toma-27.jpg",
+      "tira": "tomas/movimiento/tira-27.jpg",
+      "imagen": {
+        "brillo": 124.1,
+        "luz": "media",
+        "saturacion": 17.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 24,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "persona y una gran mujer.",
+      "eventos": [],
+      "palabras_por_segundo": 3.27
+    },
+    {
+      "n": 28,
+      "desde": 46.53,
+      "hasta": 48.57,
+      "duracion": 2.04,
+      "fotograma": "tomas/toma-28.jpg",
+      "tira": "tomas/movimiento/tira-28.jpg",
+      "imagen": {
+        "brillo": 118.7,
+        "luz": "media",
+        "saturacion": 28.1,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 12.7,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Y tú, ¿por qué lo explotaste?",
+      "eventos": [],
+      "palabras_por_segundo": 2.94
+    },
+    {
+      "n": 29,
+      "desde": 48.57,
+      "hasta": 52.87,
+      "duracion": 4.3,
+      "fotograma": "tomas/toma-29.jpg",
+      "tira": "tomas/movimiento/tira-29.jpg",
+      "imagen": {
+        "brillo": 149.5,
+        "luz": "media",
+        "saturacion": 25.3,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 4.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Mira, no te lo tomes a mal, pero a mí",
+      "eventos": [],
+      "palabras_por_segundo": 2.33
+    },
+    {
+      "n": 30,
+      "desde": 52.87,
+      "hasta": 55.5,
+      "duracion": 2.63,
+      "fotograma": "tomas/toma-30.jpg",
+      "tira": "tomas/movimiento/tira-30.jpg",
+      "imagen": {
+        "brillo": 99.1,
+        "luz": "media",
+        "saturacion": 13.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "me gusta tener de dónde agarrar, ¿me entiendes?",
+      "eventos": [],
+      "palabras_por_segundo": 3.04
+    },
+    {
+      "n": 31,
+      "desde": 55.5,
+      "hasta": 59.43,
+      "duracion": 3.93,
+      "fotograma": "tomas/toma-31.jpg",
+      "tira": "tomas/movimiento/tira-31.jpg",
+      "imagen": {
+        "brillo": 124.1,
+        "luz": "media",
+        "saturacion": 28,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 4.9,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Pero eso soy yo. No es que no estés bonita. ¿Por",
+      "eventos": [],
+      "palabras_por_segundo": 2.8
+    },
+    {
+      "n": 32,
+      "desde": 59.43,
+      "hasta": 61.3,
+      "duracion": 1.87,
+      "fotograma": "tomas/toma-32.jpg",
+      "tira": "tomas/movimiento/tira-32.jpg",
+      "imagen": {
+        "brillo": 106.5,
+        "luz": "media",
+        "saturacion": 30.3,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 28.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "qué explotaste el tuyo?",
+      "eventos": [],
+      "palabras_por_segundo": 2.14
+    },
+    {
+      "n": 33,
+      "desde": 61.3,
+      "hasta": 64,
+      "duracion": 2.7,
+      "fotograma": "tomas/toma-33.jpg",
+      "tira": "tomas/movimiento/tira-33.jpg",
+      "imagen": {
+        "brillo": 105.1,
+        "luz": "media",
+        "saturacion": 17.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 7.5,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Yo creo mucho en la atracción física, ¿sabes?",
+      "eventos": [],
+      "palabras_por_segundo": 2.96
+    },
+    {
+      "n": 34,
+      "desde": 64,
+      "hasta": 65.2,
+      "duracion": 1.2,
+      "fotograma": "tomas/toma-34.jpg",
+      "tira": "tomas/movimiento/tira-34.jpg",
+      "imagen": {
+        "brillo": 112.3,
+        "luz": "media",
+        "saturacion": 18.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 7.6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Y eres bien bonita, pero",
+      "eventos": [],
+      "palabras_por_segundo": 4.17
+    },
+    {
+      "n": 35,
+      "desde": 65.2,
+      "hasta": 69.23,
+      "duracion": 4.03,
+      "fotograma": "tomas/toma-35.jpg",
+      "tira": "tomas/movimiento/tira-35.jpg",
+      "imagen": {
+        "brillo": 115.8,
+        "luz": "media",
+        "saturacion": 26.1,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 6.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "siento que la química en la cama no va a estar ahí, no sé por qué. Es por experiencia, ¿me entiendes?",
+      "eventos": [],
+      "palabras_por_segundo": 5.21
+    },
+    {
+      "n": 36,
+      "desde": 69.23,
+      "hasta": 73,
+      "duracion": 3.77,
+      "fotograma": "tomas/toma-36.jpg",
+      "tira": "tomas/movimiento/tira-36.jpg",
+      "imagen": {
+        "brillo": 96.4,
+        "luz": "media",
+        "saturacion": 31.3,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 5.5,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Y eso lo puedes saber nada más con verla? Sí, fue una corazonada,",
+      "eventos": [],
+      "palabras_por_segundo": 3.45
+    },
+    {
+      "n": 37,
+      "desde": 73,
+      "hasta": 75.07,
+      "duracion": 2.07,
+      "fotograma": "tomas/toma-37.jpg",
+      "tira": "tomas/movimiento/tira-37.jpg",
+      "imagen": {
+        "brillo": 128.4,
+        "luz": "media",
+        "saturacion": 19,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.9,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿sabes? Puede que me equivoque, pero eso sentí.",
+      "eventos": [],
+      "palabras_por_segundo": 3.86
+    },
+    {
+      "n": 38,
+      "desde": 75.07,
+      "hasta": 77.9,
+      "duracion": 2.83,
+      "fotograma": "tomas/toma-38.jpg",
+      "tira": "tomas/movimiento/tira-38.jpg",
+      "imagen": {
+        "brillo": 134.8,
+        "luz": "media",
+        "saturacion": 23.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 11.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "A ver, ¿por qué explotaste tu globo?",
+      "eventos": [],
+      "palabras_por_segundo": 2.47
+    },
+    {
+      "n": 39,
+      "desde": 77.9,
+      "hasta": 83.93,
+      "duracion": 6.03,
+      "fotograma": "tomas/toma-39.jpg",
+      "tira": "tomas/movimiento/tira-39.jpg",
+      "imagen": {
+        "brillo": 151.3,
+        "luz": "media",
+        "saturacion": 17.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Pues yo quiero una mujer que ocupe el espacio diferente, ¿me entiendes? Tú suena bien linda y tranquila, pero yo quiero",
+      "eventos": [],
+      "palabras_por_segundo": 3.48
+    },
+    {
+      "n": 40,
+      "desde": 83.93,
+      "hasta": 87.73,
+      "duracion": 3.8,
+      "fotograma": "tomas/toma-40.jpg",
+      "tira": "tomas/movimiento/tira-40.jpg",
+      "imagen": {
+        "brillo": 130.6,
+        "luz": "media",
+        "saturacion": 29.3,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 3.6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "la mujer que todos los demás hombres quieren para ellos, ¿sabes? Quizá suene",
+      "eventos": [],
+      "palabras_por_segundo": 3.42
+    },
+    {
+      "n": 41,
+      "desde": 87.73,
+      "hasta": 89.3,
+      "duracion": 1.57,
+      "fotograma": "tomas/toma-41.jpg",
+      "tira": "tomas/movimiento/tira-41.jpg",
+      "imagen": {
+        "brillo": 136.3,
+        "luz": "media",
+        "saturacion": 19.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1.8,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "loco, pero eso es lo que me gusta.",
+      "eventos": [],
+      "palabras_por_segundo": 5.1
+    },
+    {
+      "n": 42,
+      "desde": 89.3,
+      "hasta": 92.3,
+      "duracion": 3,
+      "fotograma": "tomas/toma-42.jpg",
+      "tira": "tomas/movimiento/tira-42.jpg",
+      "imagen": {
+        "brillo": 126.6,
+        "luz": "media",
+        "saturacion": 24.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 13.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Y tú todavía tienes tu globo. ¿Qué estás pensando?",
+      "eventos": [],
+      "palabras_por_segundo": 3
+    },
+    {
+      "n": 43,
+      "desde": 92.3,
+      "hasta": 98.4,
+      "duracion": 6.1,
+      "fotograma": "tomas/toma-43.jpg",
+      "tira": "tomas/movimiento/tira-43.jpg",
+      "imagen": {
+        "brillo": 96.7,
+        "luz": "media",
+        "saturacion": 18.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.5,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Te voy a hablar claro. Me caes bien. Eres divertida, eres inteligente y tienes buena vibra.",
+      "eventos": [],
+      "palabras_por_segundo": 2.62
+    },
+    {
+      "n": 44,
+      "desde": 98.4,
+      "hasta": 99.23,
+      "duracion": 0.83,
+      "fotograma": "tomas/toma-44.jpg",
+      "tira": "tomas/movimiento/tira-44.jpg",
+      "imagen": {
+        "brillo": 110,
+        "luz": "media",
+        "saturacion": 24.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 45,
+      "desde": 99.23,
+      "hasta": 101.47,
+      "duracion": 2.24,
+      "fotograma": "tomas/toma-45.jpg",
+      "tira": "tomas/movimiento/tira-45.jpg",
+      "imagen": {
+        "brillo": 114.9,
+        "luz": "media",
+        "saturacion": 18.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 17.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Pero déjame preguntarte algo. ¿Haces",
+      "eventos": [],
+      "palabras_por_segundo": 2.23
+    },
+    {
+      "n": 46,
+      "desde": 101.47,
+      "hasta": 104.17,
+      "duracion": 2.7,
+      "fotograma": "tomas/toma-46.jpg",
+      "tira": "tomas/movimiento/tira-46.jpg",
+      "imagen": {
+        "brillo": 122.3,
+        "luz": "media",
+        "saturacion": 29,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "ejercicio? La verdad, sí. Tengo como",
+      "eventos": [],
+      "palabras_por_segundo": 2.22
+    },
+    {
+      "n": 47,
+      "desde": 104.17,
+      "hasta": 105.9,
+      "duracion": 1.73,
+      "fotograma": "tomas/toma-47.jpg",
+      "tira": "tomas/movimiento/tira-47.jpg",
+      "imagen": {
+        "brillo": 118.2,
+        "luz": "media",
+        "saturacion": 18.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "un año yendo al gym. Un",
+      "eventos": [],
+      "palabras_por_segundo": 3.47
+    },
+    {
+      "n": 48,
+      "desde": 105.9,
+      "hasta": 108.77,
+      "duracion": 2.87,
+      "fotograma": "tomas/toma-48.jpg",
+      "tira": "tomas/movimiento/tira-48.jpg",
+      "imagen": {
+        "brillo": 107.2,
+        "luz": "media",
+        "saturacion": 18.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "año, okey. ¿Y comes bien, levantas pesas, todo eso?",
+      "eventos": [],
+      "palabras_por_segundo": 3.14
+    },
+    {
+      "n": 49,
+      "desde": 108.77,
+      "hasta": 110.33,
+      "duracion": 1.56,
+      "fotograma": "tomas/toma-49.jpg",
+      "tira": "tomas/movimiento/tira-49.jpg",
+      "imagen": {
+        "brillo": 122.7,
+        "luz": "media",
+        "saturacion": 29,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 7.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Sí, todo eso lo hago.",
+      "eventos": [],
+      "palabras_por_segundo": 3.21
+    },
+    {
+      "n": 50,
+      "desde": 110.33,
+      "hasta": 111.83,
+      "duracion": 1.5,
+      "fotograma": "tomas/toma-50.jpg",
+      "tira": "tomas/movimiento/tira-50.jpg",
+      "imagen": {
+        "brillo": 98,
+        "luz": "media",
+        "saturacion": 22.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.5,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Y no ha cambiado nada?",
+      "eventos": [],
+      "palabras_por_segundo": 3.33
+    },
+    {
+      "n": 51,
+      "desde": 111.83,
+      "hasta": 115.7,
+      "duracion": 3.87,
+      "fotograma": "tomas/toma-51.jpg",
+      "tira": "tomas/movimiento/tira-51.jpg",
+      "imagen": {
+        "brillo": 105.5,
+        "luz": "media",
+        "saturacion": 23.5,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 14.9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Pues sí, estoy un poquito más fuerte, pero no me han salido curvas,",
+      "eventos": [],
+      "palabras_por_segundo": 3.36
+    },
+    {
+      "n": 52,
+      "desde": 115.7,
+      "hasta": 120.33,
+      "duracion": 4.63,
+      "fotograma": "tomas/toma-52.jpg",
+      "tira": "tomas/movimiento/tira-52.jpg",
+      "imagen": {
+        "brillo": 100.9,
+        "luz": "media",
+        "saturacion": 23.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "perdón. Ay, qué lástima. Yo esperaba que eso fuera lo que faltaba.",
+      "eventos": [
+        "[globo explota]"
+      ],
+      "palabras_por_segundo": 2.59
+    },
+    {
+      "n": 53,
+      "desde": 120.33,
+      "hasta": 121.7,
+      "duracion": 1.37,
+      "fotograma": "tomas/toma-53.jpg",
+      "tira": "tomas/movimiento/tira-53.jpg",
+      "imagen": {
+        "brillo": 111.2,
+        "luz": "media",
+        "saturacion": 25,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 22.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Lo siento mucho,",
+      "eventos": [
+        "[globo explota]"
+      ],
+      "palabras_por_segundo": 2.19
+    },
+    {
+      "n": 54,
+      "desde": 121.7,
+      "hasta": 123.77,
+      "duracion": 2.07,
+      "fotograma": "tomas/toma-54.jpg",
+      "tira": "tomas/movimiento/tira-54.jpg",
+      "imagen": {
+        "brillo": 149.4,
+        "luz": "media",
+        "saturacion": 22.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1.2,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "María. Eres una mujer muy buena.",
+      "eventos": [],
+      "palabras_por_segundo": 2.9
+    },
+    {
+      "n": 55,
+      "desde": 123.77,
+      "hasta": 126.37,
+      "duracion": 2.6,
+      "fotograma": "tomas/toma-55.jpg",
+      "tira": "tomas/movimiento/tira-55.jpg",
+      "imagen": {
+        "brillo": 141.2,
+        "luz": "media",
+        "saturacion": 21.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 13.9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Así era yo hace tres meses.",
+      "eventos": [
+        "[sonido de cámara]"
+      ],
+      "palabras_por_segundo": 2.31
+    },
+    {
+      "n": 56,
+      "desde": 126.37,
+      "hasta": 127.13,
+      "duracion": 0.76,
+      "fotograma": "tomas/toma-56.jpg",
+      "tira": "tomas/movimiento/tira-56.jpg",
+      "imagen": {
+        "brillo": 151,
+        "luz": "media",
+        "saturacion": 30.7,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 0.2,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "",
+      "eventos": [
+        "[sonido de cámara]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 57,
+      "desde": 127.13,
+      "hasta": 133.33,
+      "duracion": 6.2,
+      "fotograma": "tomas/toma-57.jpg",
+      "tira": "tomas/movimiento/tira-57.jpg",
+      "imagen": {
+        "brillo": 127.6,
+        "luz": "media",
+        "saturacion": 16.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 21.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Y así estoy ahora.",
+      "eventos": [
+        "[sonido de cámara]",
+        "[spray]"
+      ],
+      "palabras_por_segundo": 0.65
+    },
+    {
+      "n": 58,
+      "desde": 133.33,
+      "hasta": 136.83,
+      "duracion": 3.5,
+      "fotograma": "tomas/toma-58.jpg",
+      "tira": "tomas/movimiento/tira-58.jpg",
+      "imagen": {
+        "brillo": 137.7,
+        "luz": "media",
+        "saturacion": 8.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 8.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "¿Y qué cambió? Empecé a tomar IMUA Vital Drops.",
+      "eventos": [
+        "[spray]",
+        "[líquido vertiéndose]"
+      ],
+      "palabras_por_segundo": 2.57
+    },
+    {
+      "n": 59,
+      "desde": 136.83,
+      "hasta": 140.83,
+      "duracion": 4,
+      "fotograma": "tomas/toma-59.jpg",
+      "tira": "tomas/movimiento/tira-59.jpg",
+      "imagen": {
+        "brillo": 141.2,
+        "luz": "media",
+        "saturacion": 18,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 10.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[líquido vertiéndose]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 60,
+      "desde": 140.83,
+      "hasta": 149,
+      "duracion": 8.17,
+      "fotograma": "tomas/toma-60.jpg",
+      "tira": "tomas/movimiento/tira-60.jpg",
+      "imagen": {
+        "brillo": 137.3,
+        "luz": "media",
+        "saturacion": 13.5,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Dos gotas debajo de la lengua cada mañana. La semana uno no vi ningún cambio, pero me daba hambre todo el tiempo.",
+      "eventos": [
+        "[líquido vertiéndose]",
+        "[ríe]"
+      ],
+      "palabras_por_segundo": 2.69
+    },
+    {
+      "n": 61,
+      "desde": 149,
+      "hasta": 158.5,
+      "duracion": 9.5,
+      "fotograma": "tomas/toma-61.jpg",
+      "tira": "tomas/movimiento/tira-61.jpg",
+      "imagen": {
+        "brillo": 125.7,
+        "luz": "media",
+        "saturacion": 11.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 11.9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "La semana dos, los jeans me quedaron apretados en las caderas. La semana tres, de repente los hombres en la cafetería",
+      "eventos": [
+        "[ríe]",
+        "[gruñe]"
+      ],
+      "palabras_por_segundo": 2.21
+    },
+    {
+      "n": 62,
+      "desde": 158.5,
+      "hasta": 173.33,
+      "duracion": 14.83,
+      "fotograma": "tomas/toma-62.jpg",
+      "tira": "tomas/movimiento/tira-62.jpg",
+      "imagen": {
+        "brillo": 115.7,
+        "luz": "media",
+        "saturacion": 12.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 12.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "y en el supermercado me veían diferente. Gracias. De nada. La semana cuatro, mis jeans de antes ya no abrochaban y los chicos me hablaban de la nada.",
+      "eventos": [
+        "[suspira]",
+        "[ríe]"
+      ],
+      "palabras_por_segundo": 1.89
+    },
+    {
+      "n": 63,
+      "desde": 173.33,
+      "hasta": 178.53,
+      "duracion": 5.2,
+      "fotograma": "tomas/toma-63.jpg",
+      "tira": "tomas/movimiento/tira-63.jpg",
+      "imagen": {
+        "brillo": 123.8,
+        "luz": "media",
+        "saturacion": 15.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 11.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Ahorita tienen compra dos y llévate uno gratis y una garantía de devolución de noventa días.",
+      "eventos": [],
+      "palabras_por_segundo": 3.08
+    },
+    {
+      "n": 64,
+      "desde": 178.53,
+      "hasta": 182.9,
+      "duracion": 4.37,
+      "fotograma": "tomas/toma-64.jpg",
+      "tira": "tomas/movimiento/tira-64.jpg",
+      "imagen": {
+        "brillo": 122.3,
+        "luz": "media",
+        "saturacion": 16.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.3,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Esa es la mujer que esos hombres querían. Qué lástima, mi amor, ya no me van a tener.",
+      "eventos": [
+        "[pasos]"
+      ],
+      "palabras_por_segundo": 4.12
+    },
+    {
+      "n": 65,
+      "desde": 182.9,
+      "hasta": 186.52,
+      "duracion": 3.62,
+      "fotograma": "tomas/toma-65.jpg",
+      "tira": "tomas/movimiento/tira-65.jpg",
+      "imagen": {
+        "brillo": 99.5,
+        "luz": "media",
+        "saturacion": 11.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 17.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [
+        "[pasos]"
+      ],
+      "palabras_por_segundo": 0
+    }
+  ],
+  "texto": "Este hombre la rechazó solo porque no tenía curvas, pero lo que pasó después te va a dejar sin palabras. Hola, bienvenida. ¿Cómo te llamas? Hola, soy Ma-- Soy María. ¿Y cuántos años tienes? Tengo veintiséis. ¿A qué te dedicas? Tengo una, una agencia de marketing que me va muy bien. Y para divertirte, ¿qué te gusta hacer? Me encanta viajar, leer, salir con mis amigas. Bueno, ya explotaron varios globos. Vamos a ver por qué lo hicieron. ¿Por qué explotaste tu globo? Es que... perdón, pero a mí me gustan las curvas. Se nota que eres una buena persona y una gran mujer. Y tú, ¿por qué lo explotaste? Mira, no te lo tomes a mal, pero a mí me gusta tener de dónde agarrar, ¿me entiendes? Pero eso soy yo. No es que no estés bonita. ¿Por qué explotaste el tuyo? Yo creo mucho en la atracción física, ¿sabes? Y eres bien bonita, pero siento que la química en la cama no va a estar ahí, no sé por qué. Es por experiencia, ¿me entiendes? ¿Y eso lo puedes saber nada más con verla? Sí, fue una corazonada, ¿sabes? Puede que me equivoque, pero eso sentí. A ver, ¿por qué explotaste tu globo? Pues yo quiero una mujer que ocupe el espacio diferente, ¿me entiendes? Tú suena bien linda y tranquila, pero yo quiero la mujer que todos los demás hombres quieren para ellos, ¿sabes? Quizá suene loco, pero eso es lo que me gusta. Y tú todavía tienes tu globo. ¿Qué estás pensando? Te voy a hablar claro. Me caes bien. Eres divertida, eres inteligente y tienes buena vibra. Pero déjame preguntarte algo. ¿Haces ejercicio? La verdad, sí. Tengo como un año yendo al gym. Un año, okey. ¿Y comes bien, levantas pesas, todo eso? Sí, todo eso lo hago. ¿Y no ha cambiado nada? Pues sí, estoy un poquito más fuerte, pero no me han salido curvas, perdón. Ay, qué lástima. Yo esperaba que eso fuera lo que faltaba. Lo siento mucho, María. Eres una mujer muy buena. Así era yo hace tres meses. Y así estoy ahora. ¿Y qué cambió? Empecé a tomar IMUA Vital Drops. Dos gotas debajo de la lengua cada mañana. La semana uno no vi ningún cambio, pero me daba hambre todo el tiempo. La semana dos, los jeans me quedaron apretados en las caderas. La semana tres, de repente los hombres en la cafetería y en el supermercado me veían diferente. Gracias. De nada. La semana cuatro, mis jeans de antes ya no abrochaban y los chicos me hablaban de la nada. Ahorita tienen compra dos y llévate uno gratis y una garantía de devolución de noventa días. Esa es la mujer que esos hombres querían. Qué lástima, mi amor, ya no me van a tener.",
+  "palabras_por_segundo": 2.5,
+  "eventos_de_audio": [
+    "[música alegre]",
+    "[globo explota]",
+    "[jadea]",
+    "[ríe]",
+    "[sonido de cámara]",
+    "[spray]",
+    "[líquido vertiéndose]",
+    "[gruñe]",
+    "[suspira]",
+    "[pasos]"
+  ],
+  "voz": {
+    "f0": 186,
+    "genero": "femenina",
+    "variacion": 5.79,
+    "expresiva": true,
+    "ritmo": 2.5,
+    "muestras": 754
+  },
+  "aviso": null
+}

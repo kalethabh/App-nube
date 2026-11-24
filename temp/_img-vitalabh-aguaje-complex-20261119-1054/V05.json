@@ -1,0 +1,89 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "uploaded reference R05",
+    "reference_style": "Three-stage progression ad with the same woman in side view, product name band, benefit icons, bottle and a wide treatment band",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Collage Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: ultra-photorealistic progression photos of the same woman in short nude shorts, the black-and-fuchsia bottle as hero, clean icon modules and bold bands.",
+    "visual_atmosphere": "Believable, hopeful and motivating; a gradual, natural change.",
+    "graphic_language": "Rounded deep magenta bands and pills, thin-line white icons inside deep magenta circles, a short vertical divider line next to each benefit, a bubblegum pink ribbon with small spark lines.",
+    "text_typography": "Poppins Bold (heavy, uppercase) for the band, labels and treatment band; Poppins Bold sentence case for the benefits."
+  },
+  "creative_objective": "Make the result believable by showing it in three stages (bottle 1, 2 and 3), with a visible but natural gain in glute, hip and thigh volume, and push the viewer toward the complete 3-bottle treatment.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The three side-view figures and their progression. 2) The deep magenta headline band. 3) The bottle on the right and the wide treatment band at the bottom. 4) The two benefits with icons and the ribbon.",
+    "composition_style": "Top 42%: three equal side-view photos of the same woman in a row, each with a small label below. Middle: a wide rounded band with the headline spanning the left 70%. Middle-left: two stacked benefit rows; middle-right: the bottle large, overlapping the band's right end. Bottom: a full-width rounded treatment band with a vertical divider and a ribbon overlapping its lower edge.",
+    "spacing_and_structure": "Figures occupy 3-38% of the height, evenly spaced across the width; labels at about 39-43%. Headline band about 45-53%. Benefits about 56-82% on the left 62%. Bottle about 46-84% height on the right 30%. Treatment band about 84-96%, ribbon centered and overlapping its bottom edge. Margins about 4%.",
+    "lighting_and_depth": "Soft even studio daylight on the three photos with the same light and framing; glossy highlight and soft shadow on the bottle; flat graphic bands with a subtle drop shadow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Light background. Top row: three full-body side-view figures of the same woman lifting her top with both hands, in short nude shorts, progressively fuller glutes and thighs, each with a small dark rounded label below. Middle-left: a wide rounded dark band with the headline in white with the last word in the accent color. Below it, two benefit rows, each a circular icon with a line drawing, a short vertical divider and a two-line bold text. Middle-right: the bottle large. Bottom: a full-width rounded colored band with a two-line treatment text on the left, a vertical divider and a big value on the right; a bright ribbon with spark lines overlapping its bottom edge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "background", "position": "full canvas", "visual_function": "Clean base for the photos", "adaptation_rule": "Pale blush pink #FBE3EE, flat, instead of white", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "three progression photos", "position": "top row, 3-38% height", "visual_function": "Proof of a gradual result", "adaptation_rule": "Same real woman, side view, lifting her top, short nude shorts, increasing but natural glute and thigh volume; photorealistic instead of illustration", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "stage labels", "position": "below each photo", "visual_function": "Name each stage", "adaptation_rule": "Deep magenta rounded labels with white text: bottle 1, 2, 3 instead of days", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "headline band", "position": "middle-left, wide", "visual_function": "Main message", "adaptation_rule": "Deep magenta rounded band with white text and the accent words in bubblegum pink", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "benefit rows", "position": "middle-left, two rows", "visual_function": "What changes", "adaptation_rule": "Deep magenta circles with white line icons (jeans, legs and hips), a vertical divider and two-line bold text in deep magenta", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "product", "position": "middle-right", "visual_function": "Hero product", "adaptation_rule": "The user's bottle exactly as in the attached photo", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "treatment band", "position": "bottom, full width", "visual_function": "Push the complete treatment", "adaptation_rule": "Hot fuchsia band with two-line treatment text, a white vertical divider and a big duration value in place of the price (no price given)", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "ribbon", "position": "overlapping the bottom edge of the treatment band, centered", "visual_function": "Reassurance", "adaptation_rule": "Bubblegum pink ribbon with deep magenta text and small white spark lines at each side", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Any brand logo other than the label printed on the bottle",
+      "Price, currency, discount or offer badge",
+      "Stars, ratings, testimonials or trust seals",
+      "CTA button",
+      "Extra benefits, icons or text lines beyond those listed",
+      "A 'premium' seal on the bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium supplement ad on a flat pale blush pink background (#FBE3EE). TOP ROW (top 38 percent): three equal full-body side-view photographs in a row of the SAME ultra-photorealistic Latina woman in her mid 20s, hair in a low messy bun, standing in profile facing left, both hands lifting a light nude crop top up to just under her chest, wearing very short fitted nude-beige shorts, barefoot, same studio light, same height and same framing in all three. Left figure: slim, flat glutes and thin thighs. Middle figure: slightly fuller, rounder glutes and thighs. Right figure: clearly fuller, rounder, lifted glutes and thicker toned thighs and hips. The progression is obvious but natural and believable. Maximum realism: real skin texture with visible pores, natural creases, subtle skin tone variation, realistic fabric texture, real photo quality; no plastic or airbrushed skin; tasteful, non-explicit fitness styling. Below each figure a small deep magenta (#B0105E) rounded label with white bold uppercase text: 'FRASCO 1', 'FRASCO 2', 'FRASCO 3'. MIDDLE-LEFT: a wide rounded deep magenta band spanning about 70 percent of the width with the bold uppercase headline 'TU CAMBIO,' in white followed by 'FRASCO A FRASCO' in bubblegum pink (#FF8CC0). Below the band, two benefit rows stacked: each a deep magenta circle with a thin white line icon (first: a pair of jeans; second: legs and hips silhouette), a short vertical deep magenta divider line, and two-line bold sentence-case text in deep magenta. MIDDLE-RIGHT, large, its top overlapping the right end of the band: the product. Use the attached product image as the only source of truth for the product, and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink screw cap printed with a repeating small white 'VITALABH' pattern and a hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN', three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS'. Glossy highlight and soft shadow. BOTTOM: a full-width rounded hot fuchsia (#E6177F) band; on its left two lines of white bold uppercase text, a thin white vertical divider, and on its right a big white bold uppercase value. A bubblegum pink ribbon centered and overlapping the bottom edge of the band with deep magenta bold italic uppercase text and small white spark lines at each side. Include only these elements and texts.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "label", "reference_position": "below left figure", "text_style": "Poppins Bold uppercase, white on deep magenta rounded label", "text": "FRASCO 1" },
+    { "block_id": "text_block_02", "reference_function": "label", "reference_position": "below middle figure", "text_style": "Poppins Bold uppercase, white on deep magenta rounded label", "text": "FRASCO 2" },
+    { "block_id": "text_block_03", "reference_function": "label", "reference_position": "below right figure", "text_style": "Poppins Bold uppercase, white on deep magenta rounded label", "text": "FRASCO 3" },
+    { "block_id": "text_block_04", "reference_function": "main headline", "reference_position": "headline band, first part", "text_style": "Poppins Black uppercase, large, white", "text": "TU CAMBIO," },
+    { "block_id": "text_block_05", "reference_function": "main headline", "reference_position": "headline band, second part", "text_style": "Poppins Black uppercase, large, bubblegum pink", "text": "FRASCO A FRASCO" },
+    { "block_id": "text_block_06", "reference_function": "benefit", "reference_position": "first benefit row", "text_style": "Poppins Bold sentence case, two lines, deep magenta", "text": "Empiezas a llenar tus jeans" },
+    { "block_id": "text_block_07", "reference_function": "benefit", "reference_position": "second benefit row", "text_style": "Poppins Bold sentence case, two lines, deep magenta", "text": "Piernas con más volumen natural" },
+    { "block_id": "text_block_08", "reference_function": "treatment text", "reference_position": "bottom band, left, two lines", "text_style": "Poppins Bold uppercase, white, second line larger", "text": "TRATAMIENTO COMPLETO X3 FRASCOS" },
+    { "block_id": "text_block_09", "reference_function": "treatment value", "reference_position": "bottom band, right of the divider", "text_style": "Poppins Black uppercase, very large, white", "text": "90 DÍAS" },
+    { "block_id": "text_block_10", "reference_function": "ribbon", "reference_position": "ribbon over the bottom edge of the band", "text_style": "Poppins Bold italic uppercase, deep magenta on bubblegum pink", "text": "SIN EFECTO REBOTE" }
+  ],
+  "mandatory_visual_elements": [
+    "Pale blush pink background",
+    "Three side-view photos of the same ultra-realistic woman lifting her top, in short nude shorts, with a progressive, visible but natural gain in glute, hip and thigh volume",
+    "Three deep magenta rounded stage labels",
+    "Wide deep magenta headline band",
+    "Two benefit rows with deep magenta icon circles and vertical dividers",
+    "The real product bottle from the attached photo on the right",
+    "Full-width hot fuchsia treatment band with a white vertical divider",
+    "Bubblegum pink ribbon with spark lines over the band's bottom edge"
+  ],
+  "final_generation_exclusions": [
+    "No price, currency symbol or discount",
+    "No brand logos other than the label on the bottle; no other supplement brands",
+    "No 'premium' seal, stars, ratings or testimonials",
+    "No illustration or drawing style; the three women must be real photographs",
+    "No cartoonish, exaggerated or surgical-looking body proportions; no nudity",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia), perfectly spelled with accents."
+}

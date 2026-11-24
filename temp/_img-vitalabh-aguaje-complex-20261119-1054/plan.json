@@ -1,0 +1,166 @@
+{
+  "producto": "VITALABH Aguaje Complex 3 en 1",
+  "lote": "_img-vitalabh-aguaje-complex-20261119-1054",
+  "cantidad": 10,
+  "proporciones": ["1:1"],
+  "decisiones": [
+    "El ángulo principal lo elegí yo: el deseo de tener más curvas en glúteos, piernas y caderas, de forma natural.",
+    "No diste precio ni forma de pago: donde la referencia tiene esos bloques, puse textos ciertos sin precio ni promesas de envío gratis o pago al recibir.",
+    "Las cifras de tiempo de las referencias (días, «en 1 mes») las cambié por los 3 frascos del tratamiento, para no prometer tiempos.",
+    "Las modelos van en shorts cortos, como pediste, y el antes y después muestra más volumen pero natural."
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitalabh-aguaje-complex-20261119-1054/entrada/referencias/R01.jpg",
+      "analisis_referencia": {
+        "formato": "Lifestyle de producto con columna de íconos y barra de confianza",
+        "estructura": "Titular apilado arriba a la izquierda (píldora + línea blanca + palabra gigante), frase a mano debajo, columna de 3 íconos circulares a la izquierda, frasco grande al centro-izquierda, mujer de espaldas en shorts ocupando la mitad derecha, barra inferior con dos celdas y píldora final con frase emotiva.",
+        "por_que_funciona": "Amplía el deseo (no solo glúteos, también piernas) y lo prueba con un cuerpo real de espaldas que llena media imagen; los íconos y la barra quitan dudas en un vistazo."
+      },
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "No solo glúteos: también piernas y caderas, con el frasco y una mujer de espaldas en shorts cortos.",
+      "titular": "No solo glúteos, también tus piernas y caderas",
+      "escena": "Fondo rosa con pétalos suaves; mujer de pie de espaldas en shorts cortos color arena y top negro; barra inferior con «Pídelo hoy» y «Te llega a casa» en lugar de envío gratis y pago al recibir.",
+      "camara": "Plano medio largo de espaldas, a la altura de la cadera, lente normal."
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitalabh-aguaje-complex-20261119-1054/entrada/referencias/R02.jpg",
+      "analisis_referencia": {
+        "formato": "Producto + foto enmarcada de resultado con íconos y barra de confianza",
+        "estructura": "Titular centrado arriba (píldora + línea blanca + palabra gigante), columna de 3 íconos a la izquierda, frasco al centro con frutas de aguaje en la base, foto enmarcada de la mujer de 3/4 de espaldas a la derecha con frase a mano encima, barra inferior izquierda de dos celdas y frase a mano abajo a la derecha.",
+        "por_que_funciona": "La foto enmarcada se siente como prueba real; el frasco y la fruta conectan el resultado con su origen natural."
+      },
+      "angulo_id": "beneficio-sin-sacrificio",
+      "angulo": "Beneficio sin sacrificio",
+      "concepto": "Más curvas en glúteos sin vivir en el gimnasio: 2 cápsulas al día.",
+      "titular": "Sin vivir en el gimnasio: más curvas en tus glúteos",
+      "escena": "Fondo fucsia; foto enmarcada de una mujer en casa de 3/4 de espaldas con shorts rosa de textura y top negro; frutas de aguaje con una abierta junto al frasco; barra inferior con «2 cápsulas al día» y «Te llega a casa».",
+      "camara": "Dentro del marco, plano de cintura a rodillas de 3/4 trasero, cámara a la altura de la cadera."
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitalabh-aguaje-complex-20261119-1054/entrada/referencias/R03.jpg",
+      "analisis_referencia": {
+        "formato": "Antes y después con testimonio en primera persona",
+        "estructura": "Dos fotos lado a lado con píldoras ANTES y DESPUÉS arriba; abajo a la izquierda el frasco sobre una piedra con hojas; un panel claro ondulado cubre el tercio inferior con la frase testimonio en letra con serifa, una línea que nombra el producto resaltada y 3 íconos con texto separados por líneas finas.",
+        "por_que_funciona": "La frase «la amiga flaquita» nombra una identidad que muchas viven; el cambio de la misma mujer lo hace creíble."
+      },
+      "angulo_id": "testimonio",
+      "angulo": "Testimonio",
+      "concepto": "Toda mi vida fui la amiga flaquita, hasta que descubrí Aguaje Complex.",
+      "titular": "Toda mi vida fui «la amiga flaquita»",
+      "escena": "Antes: selfie de espejo en la habitación, de lado, con shorts sueltos grises y top negro, cuerpo delgado. Después: la misma mujer de lado con shorts ajustados fucsia y top, sosteniendo el frasco, con más volumen en glúteos, caderas y muslos; pared lisa sin logos. Panel inferior en rosa pálido.",
+      "camara": "Dos fotos verticales de cuerpo casi entero, de 3/4 de lado, a la altura del pecho."
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitalabh-aguaje-complex-20261119-1054/entrada/referencias/R04.jpg",
+      "analisis_referencia": {
+        "formato": "Antes y después en dos fotos con producto, sellos y beneficios",
+        "estructura": "Titular gigante arriba a la izquierda con banda y frase a mano, fila de 3 sellos cuadrados, dos fotos de espejo de espaldas a la derecha unidas por una flecha con etiquetas ANTES y DESPUÉS, frasco grande abajo a la izquierda con frutas y cápsulas, 3 beneficios con íconos circulares y una píldora de modo de uso abajo.",
+        "por_que_funciona": "El antes y después de espaldas en selfie se ve real y el cambio se entiende al instante; el modo de uso quita la idea de que es complicado."
+      },
+      "angulo_id": "rapido-y-facil",
+      "angulo": "Rápido y fácil",
+      "concepto": "Glúteos y piernas con más volumen, así de fácil: 2 cápsulas al día con tus comidas.",
+      "titular": "Glúteos y piernas con más volumen, así de fácil",
+      "escena": "Selfies de espejo en una habitación, de espaldas: antes con shorts grises y top negro, después con shorts rosados y top blanco; frutas de aguaje, hojas de palma y cápsulas fucsia junto al frasco; sellos con datos reales del producto (3 extractos, vitaminas A y E, 60 cápsulas).",
+      "camara": "Fotos de espejo de 3/4 trasero a la altura del pecho; frasco en primer plano ligeramente desde abajo."
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitalabh-aguaje-complex-20261119-1054/entrada/referencias/R05.jpg",
+      "analisis_referencia": {
+        "formato": "Progresión en 3 etapas con beneficios y banda de tratamiento",
+        "estructura": "Tres figuras de la misma mujer de lado en fila con etiquetas de tiempo debajo, banda con el nombre del producto, dos beneficios con ícono a la izquierda, frasco a la derecha, y abajo una banda ancha de tratamiento completo con una cinta «sin efecto rebote».",
+        "por_que_funciona": "Ver el cambio por etapas hace creíble el resultado y empuja a hacer el tratamiento completo."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El cambio frasco a frasco: más volumen en el frasco 1, 2 y 3.",
+      "titular": "Tu cambio, frasco a frasco",
+      "escena": "La misma mujer real de lado, en shorts cortos nude y top levantado, sobre fondo claro; etiquetas «Frasco 1», «Frasco 2», «Frasco 3» en lugar de días; banda inferior «Tratamiento completo x3 frascos» sin precio y cinta «Sin efecto rebote». Fotos realistas en vez de ilustración, por tu pedido de realismo.",
+      "camara": "Tres planos de cuerpo entero de lado, misma altura y encuadre."
+    },
+    {
+      "id": "V06",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitalabh-aguaje-complex-20261119-1054/entrada/referencias/R06.jpg",
+      "analisis_referencia": {
+        "formato": "Lifestyle con mujer a la izquierda, frasco al centro y columna de 4 íconos",
+        "estructura": "Mujer de espaldas a sangre en la mitad izquierda, titular arriba a la derecha con línea a mano y píldora, frasco al centro-derecha con cápsulas y frutas, columna de 4 íconos con texto a la derecha, sello circular con frase a mano a la izquierda, fila de 3 sellos de confianza abajo y frase a mano en la esquina inferior derecha.",
+        "por_que_funciona": "El cuerpo real ocupa media imagen y frena el scroll; la columna de íconos explica por qué funciona."
+      },
+      "angulo_id": "mecanismo-unico",
+      "angulo": "Mecanismo único",
+      "concepto": "El secreto son 3 extractos juntos: aguaje, fenogreco y maca negra.",
+      "titular": "Glúteos y piernas con volumen natural",
+      "escena": "Habitación clara con planta; mujer de espaldas con shorts rosa viejo y top blanco; los 4 íconos nombran aguaje, fenogreco, maca negra y vitaminas A y E; píldora «El poder de 3 extractos en 1»; sellos de abajo con datos reales (2 cápsulas al día, 60 cápsulas, a base de plantas).",
+      "camara": "Plano medio de espaldas, cámara baja a la altura de la cadera."
+    },
+    {
+      "id": "V07",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitalabh-aguaje-complex-20261119-1054/entrada/referencias/R07.jpg",
+      "analisis_referencia": {
+        "formato": "Anuncio de temporada (Navidad) con modelo, íconos, mini antes y después y regalo",
+        "estructura": "Mujer arrodillada de espaldas con gorro navideño sosteniendo el frasco a la izquierda, árbol y regalos al fondo, titular de temporada arriba a la derecha, subtítulo, 4 íconos, frasco con sello, mini antes y después, tarjeta de regalo y franja inferior.",
+        "por_que_funciona": "Aprovecha la temporada: convierte la compra en un regalo para una misma."
+      },
+      "angulo_id": "regalo",
+      "angulo": "Ideal para regalar",
+      "concepto": "Esta Navidad regálate las curvas que sueñas.",
+      "titular": "Esta Navidad, regálate la figura que sueñas",
+      "escena": "Sala navideña con árbol y regalos; mujer con gorro navideño, shorts cortos blancos y top rojo; el sello del frasco dice «3 en 1» en lugar de «premium»; mini antes y después de espaldas en shorts.",
+      "camara": "Plano medio de 3/4 trasero, ella mirando a cámara por encima del hombro."
+    },
+    {
+      "id": "V08",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitalabh-aguaje-complex-20261119-1054/entrada/referencias/R08.jpg",
+      "analisis_referencia": {
+        "formato": "Fin de año con mujer de espaldas, frasco, taza con frase y fila de sellos",
+        "estructura": "Titular de temporada apilado arriba a la izquierda, 3 íconos con texto, mujer de espaldas a la derecha, frasco al centro con cápsulas, taza con frase a mano y frutas a la izquierda, frase a mano a la derecha y fila inferior de 3 sellos más un botón.",
+        "por_que_funciona": "Habla de identidad y propósito de año nuevo: invertir en ti misma."
+      },
+      "angulo_id": "identidad",
+      "angulo": "Identidad / aspiración",
+      "concepto": "Este fin de año invierte en ti: curvas naturales con disciplina y amor propio.",
+      "titular": "Este fin de año, invierte en ti",
+      "escena": "Habitación clara con manta rosa; mujer de espaldas con shorts de canalé rosa; taza con «Disciplina también es amor propio»; sellos inferiores con datos reales (a base de plantas, 60 cápsulas, 2 al día) en lugar de registro y envío a todo el país.",
+      "camara": "Plano medio de espaldas, cámara a la altura de la cadera."
+    },
+    {
+      "id": "V09",
+      "fuente": "biblioteca",
+      "formato_id": "F04",
+      "formato": "Nosotros vs. ellos",
+      "angulo_id": "comparacion",
+      "angulo": "Comparación con la alternativa",
+      "concepto": "Aguaje solo vs. Aguaje Complex 3 en 1: por qué no viste resultados con otro aguaje.",
+      "titular": "¿Aguaje solo o 3 extractos en 1?",
+      "escena": "Fondo magenta profundo; tabla de 4 filas: fenogreco 400 mg, maca negra 200 mg, vitaminas A y E, 3 extractos en un frasco; columna fucsia con el frasco y checks, columna gris con un frasco genérico sin marca y cruces.",
+      "camara": "Frontal, plano de producto levemente desde arriba."
+    },
+    {
+      "id": "V10",
+      "fuente": "biblioteca",
+      "formato_id": "F23",
+      "formato": "Pregunta y respuesta",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "¿Tomaste aguaje y no viste cambios? La respuesta: fórmula 3 en 1 y tratamiento completo de 3 frascos.",
+      "titular": "¿Tomaste aguaje y no viste cambios?",
+      "escena": "Mitad superior en magenta profundo con la pregunta enorme; mitad inferior rosa pálido con la respuesta y el frasco grande a la derecha sobre la línea que divide los colores.",
+      "camara": "Frontal, frasco a la altura de los ojos."
+    }
+  ]
+}

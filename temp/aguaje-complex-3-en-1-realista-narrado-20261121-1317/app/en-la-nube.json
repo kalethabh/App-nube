@@ -1,0 +1,1320 @@
+{
+  "carpeta": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317",
+  "archivos": [
+    "audio/voz.mp3",
+    "efectos/deep-woosh.mp3",
+    "efectos/woosh.mp3",
+    "img/broll-1.png",
+    "img/broll-10.png",
+    "img/broll-11.png",
+    "img/broll-2.png",
+    "img/broll-4.png",
+    "img/broll-6.png",
+    "img/broll-7.png",
+    "img/broll-8.png",
+    "img/broll-9.png",
+    "img/concursantes.png",
+    "img/presentadora.png",
+    "img/producto.png",
+    "img/protagonista_antes.png",
+    "img/protagonista_despues.png",
+    "img/toma-1-inicial.png",
+    "img/toma-10-inicial.png",
+    "img/toma-11-inicial.png",
+    "img/toma-12-inicial.png",
+    "img/toma-13-inicial.png",
+    "img/toma-14-inicial.png",
+    "img/toma-15-inicial.png",
+    "img/toma-16-inicial.png",
+    "img/toma-17-inicial.png",
+    "img/toma-18-final.png",
+    "img/toma-18-inicial.png",
+    "img/toma-19-inicial.png",
+    "img/toma-2-inicial.png",
+    "img/toma-20-inicial.png",
+    "img/toma-21-inicial.png",
+    "img/toma-22-inicial.png",
+    "img/toma-23-inicial.png",
+    "img/toma-24-inicial.png",
+    "img/toma-25-inicial.png",
+    "img/toma-26-inicial.png",
+    "img/toma-27-inicial.png",
+    "img/toma-3-inicial.png",
+    "img/toma-4-inicial.png",
+    "img/toma-5-inicial.png",
+    "img/toma-6-inicial.png",
+    "img/toma-7-inicial.png",
+    "img/toma-8-inicial.png",
+    "img/toma-9-inicial.png",
+    "musica/fondo-alternativa.mp3",
+    "musica/fondo.mp3",
+    "producto.png",
+    "referencia/audio-referencia.mp3",
+    "referencia/hoja-tomas.jpg",
+    "referencia/original.mp4",
+    "referencia/tomas/movimiento/tira-01.jpg",
+    "referencia/tomas/movimiento/tira-02.jpg",
+    "referencia/tomas/movimiento/tira-03.jpg",
+    "referencia/tomas/movimiento/tira-04.jpg",
+    "referencia/tomas/movimiento/tira-05.jpg",
+    "referencia/tomas/movimiento/tira-06.jpg",
+    "referencia/tomas/movimiento/tira-07.jpg",
+    "referencia/tomas/movimiento/tira-08.jpg",
+    "referencia/tomas/movimiento/tira-09.jpg",
+    "referencia/tomas/movimiento/tira-10.jpg",
+    "referencia/tomas/movimiento/tira-11.jpg",
+    "referencia/tomas/movimiento/tira-12.jpg",
+    "referencia/tomas/movimiento/tira-13.jpg",
+    "referencia/tomas/movimiento/tira-14.jpg",
+    "referencia/tomas/movimiento/tira-15.jpg",
+    "referencia/tomas/movimiento/tira-16.jpg",
+    "referencia/tomas/movimiento/tira-17.jpg",
+    "referencia/tomas/movimiento/tira-18.jpg",
+    "referencia/tomas/movimiento/tira-19.jpg",
+    "referencia/tomas/movimiento/tira-20.jpg",
+    "referencia/tomas/movimiento/tira-21.jpg",
+    "referencia/tomas/movimiento/tira-22.jpg",
+    "referencia/tomas/movimiento/tira-23.jpg",
+    "referencia/tomas/movimiento/tira-24.jpg",
+    "referencia/tomas/movimiento/tira-25.jpg",
+    "referencia/tomas/movimiento/tira-26.jpg",
+    "referencia/tomas/movimiento/tira-27.jpg",
+    "referencia/tomas/movimiento/tira-28.jpg",
+    "referencia/tomas/movimiento/tira-29.jpg",
+    "referencia/tomas/movimiento/tira-30.jpg",
+    "referencia/tomas/movimiento/tira-31.jpg",
+    "referencia/tomas/movimiento/tira-32.jpg",
+    "referencia/tomas/movimiento/tira-33.jpg",
+    "referencia/tomas/movimiento/tira-34.jpg",
+    "referencia/tomas/movimiento/tira-35.jpg",
+    "referencia/tomas/movimiento/tira-36.jpg",
+    "referencia/tomas/movimiento/tira-37.jpg",
+    "referencia/tomas/movimiento/tira-38.jpg",
+    "referencia/tomas/movimiento/tira-39.jpg",
+    "referencia/tomas/movimiento/tira-40.jpg",
+    "referencia/tomas/movimiento/tira-41.jpg",
+    "referencia/tomas/movimiento/tira-42.jpg",
+    "referencia/tomas/movimiento/tira-43.jpg",
+    "referencia/tomas/movimiento/tira-44.jpg",
+    "referencia/tomas/movimiento/tira-45.jpg",
+    "referencia/tomas/movimiento/tira-46.jpg",
+    "referencia/tomas/movimiento/tira-47.jpg",
+    "referencia/tomas/movimiento/tira-48.jpg",
+    "referencia/tomas/movimiento/tira-49.jpg",
+    "referencia/tomas/movimiento/tira-50.jpg",
+    "referencia/tomas/movimiento/tira-51.jpg",
+    "referencia/tomas/movimiento/tira-52.jpg",
+    "referencia/tomas/movimiento/tira-53.jpg",
+    "referencia/tomas/movimiento/tira-54.jpg",
+    "referencia/tomas/movimiento/tira-55.jpg",
+    "referencia/tomas/movimiento/tira-56.jpg",
+    "referencia/tomas/movimiento/tira-57.jpg",
+    "referencia/tomas/movimiento/tira-58.jpg",
+    "referencia/tomas/movimiento/tira-59.jpg",
+    "referencia/tomas/movimiento/tira-60.jpg",
+    "referencia/tomas/movimiento/tira-61.jpg",
+    "referencia/tomas/movimiento/tira-62.jpg",
+    "referencia/tomas/movimiento/tira-63.jpg",
+    "referencia/tomas/movimiento/tira-64.jpg",
+    "referencia/tomas/movimiento/tira-65.jpg",
+    "referencia/tomas/toma-01.jpg",
+    "referencia/tomas/toma-02.jpg",
+    "referencia/tomas/toma-03.jpg",
+    "referencia/tomas/toma-04.jpg",
+    "referencia/tomas/toma-05.jpg",
+    "referencia/tomas/toma-06.jpg",
+    "referencia/tomas/toma-07.jpg",
+    "referencia/tomas/toma-08.jpg",
+    "referencia/tomas/toma-09.jpg",
+    "referencia/tomas/toma-10.jpg",
+    "referencia/tomas/toma-11.jpg",
+    "referencia/tomas/toma-12.jpg",
+    "referencia/tomas/toma-13.jpg",
+    "referencia/tomas/toma-14.jpg",
+    "referencia/tomas/toma-15.jpg",
+    "referencia/tomas/toma-16.jpg",
+    "referencia/tomas/toma-17.jpg",
+    "referencia/tomas/toma-18.jpg",
+    "referencia/tomas/toma-19.jpg",
+    "referencia/tomas/toma-20.jpg",
+    "referencia/tomas/toma-21.jpg",
+    "referencia/tomas/toma-22.jpg",
+    "referencia/tomas/toma-23.jpg",
+    "referencia/tomas/toma-24.jpg",
+    "referencia/tomas/toma-25.jpg",
+    "referencia/tomas/toma-26.jpg",
+    "referencia/tomas/toma-27.jpg",
+    "referencia/tomas/toma-28.jpg",
+    "referencia/tomas/toma-29.jpg",
+    "referencia/tomas/toma-30.jpg",
+    "referencia/tomas/toma-31.jpg",
+    "referencia/tomas/toma-32.jpg",
+    "referencia/tomas/toma-33.jpg",
+    "referencia/tomas/toma-34.jpg",
+    "referencia/tomas/toma-35.jpg",
+    "referencia/tomas/toma-36.jpg",
+    "referencia/tomas/toma-37.jpg",
+    "referencia/tomas/toma-38.jpg",
+    "referencia/tomas/toma-39.jpg",
+    "referencia/tomas/toma-40.jpg",
+    "referencia/tomas/toma-41.jpg",
+    "referencia/tomas/toma-42.jpg",
+    "referencia/tomas/toma-43.jpg",
+    "referencia/tomas/toma-44.jpg",
+    "referencia/tomas/toma-45.jpg",
+    "referencia/tomas/toma-46.jpg",
+    "referencia/tomas/toma-47.jpg",
+    "referencia/tomas/toma-48.jpg",
+    "referencia/tomas/toma-49.jpg",
+    "referencia/tomas/toma-50.jpg",
+    "referencia/tomas/toma-51.jpg",
+    "referencia/tomas/toma-52.jpg",
+    "referencia/tomas/toma-53.jpg",
+    "referencia/tomas/toma-54.jpg",
+    "referencia/tomas/toma-55.jpg",
+    "referencia/tomas/toma-56.jpg",
+    "referencia/tomas/toma-57.jpg",
+    "referencia/tomas/toma-58.jpg",
+    "referencia/tomas/toma-59.jpg",
+    "referencia/tomas/toma-60.jpg",
+    "referencia/tomas/toma-61.jpg",
+    "referencia/tomas/toma-62.jpg",
+    "referencia/tomas/toma-63.jpg",
+    "referencia/tomas/toma-64.jpg",
+    "referencia/tomas/toma-65.jpg",
+    "video/broll-1.mp4",
+    "video/broll-10.mp4",
+    "video/broll-11.mp4",
+    "video/broll-2.mp4",
+    "video/broll-4.mp4",
+    "video/broll-6.mp4",
+    "video/broll-7.mp4",
+    "video/broll-8.mp4",
+    "video/broll-9.mp4",
+    "video/toma-1.mp4",
+    "video/toma-10.mp4",
+    "video/toma-11.mp4",
+    "video/toma-12.mp4",
+    "video/toma-13.mp4",
+    "video/toma-14.mp4",
+    "video/toma-15.mp4",
+    "video/toma-16.mp4",
+    "video/toma-17.mp4",
+    "video/toma-18.mp4",
+    "video/toma-19.mp4",
+    "video/toma-2.mp4",
+    "video/toma-20.mp4",
+    "video/toma-21.mp4",
+    "video/toma-22.mp4",
+    "video/toma-23.mp4",
+    "video/toma-24.mp4",
+    "video/toma-25.mp4",
+    "video/toma-26.mp4",
+    "video/toma-27.mp4",
+    "video/toma-3.mp4",
+    "video/toma-4.mp4",
+    "video/toma-5.mp4",
+    "video/toma-6.mp4",
+    "video/toma-7.mp4",
+    "video/toma-8.mp4",
+    "video/toma-9.mp4"
+  ],
+  "finales": [
+    "aguaje-complex-3-en-1-realista-narrado-20261121-1317_9x16_con-subtitulos.mp4"
+  ],
+  "ubicaciones": {
+    "audio/voz.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/audio/voz.mp3",
+      "bytes": 1615873,
+      "sha256": "63f432b39704e108fb13d2cb970d47ffffe68d9d8270e6051bb0bcc835af1846"
+    },
+    "efectos/deep-woosh.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/efectos/deep-woosh.mp3",
+      "bytes": 32023,
+      "sha256": "0e667f4e4254f61ddb1101189fc2abd2293222293d88981c7fffaca558d4b00f"
+    },
+    "efectos/woosh.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/efectos/woosh.mp3",
+      "bytes": 6946,
+      "sha256": "1f508a90d70fadf6870deebf65984994d1ef62090a616d0c7a7eeecd57ce1f0c"
+    },
+    "img/broll-1.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/broll-1.png",
+      "bytes": 2492133,
+      "sha256": "d6f3aec85607eddfd7b55dbe0582201a01020d3b182b7174091d96296c79b10c"
+    },
+    "img/broll-10.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/broll-10.png",
+      "bytes": 3068647,
+      "sha256": "13fe750d2a242823b2abe507790613dccbb0f863c548af10455577aa31e97279"
+    },
+    "img/broll-11.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/broll-11.png",
+      "bytes": 2225180,
+      "sha256": "0ffeed7c3f4f469c920beab36ca243355071bbd1f2d9f60f056564ac0c19a309"
+    },
+    "img/broll-2.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/broll-2.png",
+      "bytes": 2051719,
+      "sha256": "2a6413046facc91ee0c4a43780b4a5c38061ce17f4343fcf9510271d3fa1ea4c"
+    },
+    "img/broll-4.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/broll-4.png",
+      "bytes": 2255172,
+      "sha256": "b5ce66d18c3bc7f2923d839575f4a55349b948f11d805c1f4d7a8a57ce19275c"
+    },
+    "img/broll-6.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/broll-6.png",
+      "bytes": 2157030,
+      "sha256": "ad16816b9507fd3ea3d19f039e74e6f24e61518364d8416d01c59f15aa96492a"
+    },
+    "img/broll-7.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/broll-7.png",
+      "bytes": 3168317,
+      "sha256": "6e5ea44652c2bada0302241ec26cc509138d72c8f0ac5c6712998532024b4b6c"
+    },
+    "img/broll-8.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/broll-8.png",
+      "bytes": 2533090,
+      "sha256": "0ed8ad411db9270f0c60b8418d61f757d7e285fd0601a2556e8326068743ed26"
+    },
+    "img/broll-9.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/broll-9.png",
+      "bytes": 2385361,
+      "sha256": "4af2a3c671fc82d9365c6d19800e6c47c848acd6c5a84906f47fa4cb85c3fb7c"
+    },
+    "img/concursantes.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/concursantes.png",
+      "bytes": 2286830,
+      "sha256": "8ccf6ffd5657e0cb3f2f507863844132c90cf8e8914eeea44ebfa91b5aec86e7"
+    },
+    "img/presentadora.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/presentadora.png",
+      "bytes": 2179260,
+      "sha256": "e90ea3b15915fe69d39114a46aea6daa363de75d3823669dd59fcaaaa44c32a7"
+    },
+    "img/producto.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/producto.png",
+      "bytes": 2177433,
+      "sha256": "d1f5dcc2fa6c1bd6f021785e01a0769c4403b32e040af1fbbfc91bfe8f84babb"
+    },
+    "img/protagonista_antes.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/protagonista_antes.png",
+      "bytes": 2099747,
+      "sha256": "d4d987ef38f4f03bd78e77df879347de22ff1e20e83d5bdf271bb430e81deed7"
+    },
+    "img/protagonista_despues.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/protagonista_despues.png",
+      "bytes": 2183381,
+      "sha256": "c2aec96ef74093062514d5a72f78865c6a13917f63b7e92847cc3ac8b23a278f"
+    },
+    "img/toma-1-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-1-inicial.png",
+      "bytes": 2357415,
+      "sha256": "981cfa457aec4a37e20d4e2f29f7986f5676d4139060eeccdd308c296bbe8adb"
+    },
+    "img/toma-10-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-10-inicial.png",
+      "bytes": 1958102,
+      "sha256": "5e80f5ce33bc69e34207e20c75c179a42ccab693069d5754218942d23b985d26"
+    },
+    "img/toma-11-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-11-inicial.png",
+      "bytes": 2422082,
+      "sha256": "b7edbea91a9d1f7fb33e200c47cc5e6840db4617251e62dfc23861fe398ccb53"
+    },
+    "img/toma-12-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-12-inicial.png",
+      "bytes": 1968729,
+      "sha256": "e479250fbdcbeb08a214553cd578141b06d826e244662f44f46f0076c3913ee3"
+    },
+    "img/toma-13-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-13-inicial.png",
+      "bytes": 2448769,
+      "sha256": "c59e928ba50ec88e81293e2d6b0032150e8d56129c2398c0997364b2da98e4f0"
+    },
+    "img/toma-14-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-14-inicial.png",
+      "bytes": 2233101,
+      "sha256": "33f85aeb4d1569220335f8b602d6ea995040111c6a619d2770c7393ee1fda909"
+    },
+    "img/toma-15-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-15-inicial.png",
+      "bytes": 1927242,
+      "sha256": "23789384960545a2c516afa96e1e8343b09974b1d39dc96c41fe39d434b20bc1"
+    },
+    "img/toma-16-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-16-inicial.png",
+      "bytes": 2010697,
+      "sha256": "a33b7ca82bdda8e78ab8dcf46af3dbcabf1b5cf64eb5524fd3a8d0ff46061b92"
+    },
+    "img/toma-17-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-17-inicial.png",
+      "bytes": 2254839,
+      "sha256": "e6beaee8100aadd8350fb3e7b3acdb2c8909d90be49cf3b2442bab3c889428a5"
+    },
+    "img/toma-18-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-18-final.png",
+      "bytes": 2182657,
+      "sha256": "0c5df1e148d5d4b473d2ced3f9b6bd73d768bacac36b4398ea21255d444c4282"
+    },
+    "img/toma-18-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-18-inicial.png",
+      "bytes": 2254839,
+      "sha256": "e6beaee8100aadd8350fb3e7b3acdb2c8909d90be49cf3b2442bab3c889428a5"
+    },
+    "img/toma-19-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-19-inicial.png",
+      "bytes": 2938492,
+      "sha256": "e6db015b39e5b656d7aefea6741b9e94d96de112dfbbfa84952e638c71aa77b1"
+    },
+    "img/toma-2-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-2-inicial.png",
+      "bytes": 2495162,
+      "sha256": "629ebad1b007eb233f08df32fe8a808e4af80cf41e7573abf0826084f7b84608"
+    },
+    "img/toma-20-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-20-inicial.png",
+      "bytes": 2638526,
+      "sha256": "7b86ad1f27edfdcf4bab6285eb13cc17a381809ec95421c81775a2128faa9704"
+    },
+    "img/toma-21-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-21-inicial.png",
+      "bytes": 2591167,
+      "sha256": "315c0342458fb655ea2f7f4d861cd770641fb1d498e3db717e9246bbeb1334e6"
+    },
+    "img/toma-22-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-22-inicial.png",
+      "bytes": 2681844,
+      "sha256": "fab3a69d5569568530865220a9422bf4f39c670056f1070c47c27dc1724244c4"
+    },
+    "img/toma-23-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-23-inicial.png",
+      "bytes": 2696551,
+      "sha256": "8f8298faf4d73f54353cdde2785a7fb3217c2d2fd6a7b72381dc77125e0820f3"
+    },
+    "img/toma-24-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-24-inicial.png",
+      "bytes": 2811218,
+      "sha256": "0312bb80e4b5d69be27abce2a3a9ee9d3ac7160cb8af5762b650f1cd4101b91f"
+    },
+    "img/toma-25-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-25-inicial.png",
+      "bytes": 2777011,
+      "sha256": "e21719150e7412c290967b428c2e9ab7f3ff93e0ff19c928bf384bf1704aec86"
+    },
+    "img/toma-26-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-26-inicial.png",
+      "bytes": 2868713,
+      "sha256": "42919142ca16d08eaad0a5d039e18dbbb12349ff20283c8765f3f70c5476019b"
+    },
+    "img/toma-27-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-27-inicial.png",
+      "bytes": 2301654,
+      "sha256": "2652171766b0dce382529470034f2427f68c3efb27d5c482fa6b11153129d7dd"
+    },
+    "img/toma-3-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-3-inicial.png",
+      "bytes": 2441416,
+      "sha256": "eeb526a53f78351f90b472b13173626c7c27dbfa7f44c4b4f6d5e57a8853c47e"
+    },
+    "img/toma-4-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-4-inicial.png",
+      "bytes": 2313177,
+      "sha256": "c5c1e94961eaed027e3a2b788dd433b01f74b1b440dd17240fc642b489d46612"
+    },
+    "img/toma-5-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-5-inicial.png",
+      "bytes": 2160891,
+      "sha256": "46dba9ee80920cc8bf750b089e7237724f82cae72b0192e9bba67d724c4fe73a"
+    },
+    "img/toma-6-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-6-inicial.png",
+      "bytes": 2294689,
+      "sha256": "ca006564e7acd9e40f884d384bd5a71b3693421e12a9f3f9bebcfba2aa9fa205"
+    },
+    "img/toma-7-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-7-inicial.png",
+      "bytes": 2103085,
+      "sha256": "c51a12d6f0f6aa282a3258a33b29dbbb055cb9b3bc59c71bb9749875a6c10e12"
+    },
+    "img/toma-8-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-8-inicial.png",
+      "bytes": 2182460,
+      "sha256": "168752aa06e34027a62f79df8f06b56e06571f8841921b79aa3a29eb1bd0ab8e"
+    },
+    "img/toma-9-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/img/toma-9-inicial.png",
+      "bytes": 2430020,
+      "sha256": "73dd4afb6ac86658c6818afe8925428ec7b18870dc0fe5481c4e01d69bef86f5"
+    },
+    "musica/fondo-alternativa.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/musica/fondo-alternativa.mp3",
+      "bytes": 2521840,
+      "sha256": "6c1b84d6c7d8deda33251d10970476059b3dc820850058fe58e565eaea786470"
+    },
+    "musica/fondo.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/musica/fondo.mp3",
+      "bytes": 2527744,
+      "sha256": "5a5fedd503c75a2e7509d8d3a1273e1ce2b4530e031b2c7541c5cb685184ebdb"
+    },
+    "producto.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/producto.png",
+      "bytes": 718914,
+      "sha256": "724767856b82a67d008eccb847dc0f19d4dd6ccf45edd6f6e0258ea2174be1ca"
+    },
+    "referencia/audio-referencia.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/audio-referencia.mp3",
+      "bytes": 2983538,
+      "sha256": "6ed77aeee9c62c24635c8ebf077e266e78d24ee17c33cfa5616ac326523cf956"
+    },
+    "referencia/hoja-tomas.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/hoja-tomas.jpg",
+      "bytes": 460166,
+      "sha256": "58be0524cf0b2a49f14d182890d92215e1553ffbd79e90e958313c5c2ad90604"
+    },
+    "referencia/original.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/original.mp4",
+      "bytes": 19187289,
+      "sha256": "7a592b15c57fc0f12c6914213d9d0828648efac8b1bef750e96c8b236c7b8341"
+    },
+    "referencia/tomas/movimiento/tira-01.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-01.jpg",
+      "bytes": 91486,
+      "sha256": "d925526a25ce16ba79ad0c689aeea31f8d42942daa5b0e12eb7b8f8c42207b3c"
+    },
+    "referencia/tomas/movimiento/tira-02.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-02.jpg",
+      "bytes": 73014,
+      "sha256": "c05b69fd71273069eb429b6eec714342ac599684d4c49503178496037a0aa7ad"
+    },
+    "referencia/tomas/movimiento/tira-03.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-03.jpg",
+      "bytes": 64032,
+      "sha256": "71b773a1dcc08aead39fa0e2bcc3af63eb041933522d6ea421eb9a63f5ea1bca"
+    },
+    "referencia/tomas/movimiento/tira-04.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-04.jpg",
+      "bytes": 73849,
+      "sha256": "3d36641622ef7939af2f654e98881aa62be870a61918c951b2ebfd9b89b0fd44"
+    },
+    "referencia/tomas/movimiento/tira-05.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-05.jpg",
+      "bytes": 68187,
+      "sha256": "b7c4c3b2b4423f0deedf2b031bf09451c6d925f1e16317b1aa94658605a7c6d3"
+    },
+    "referencia/tomas/movimiento/tira-06.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-06.jpg",
+      "bytes": 55849,
+      "sha256": "9600aa0070e4e6930e3b7f2d9324abba8b6f61c663ee96bc521781b88a5e8c6f"
+    },
+    "referencia/tomas/movimiento/tira-07.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-07.jpg",
+      "bytes": 47778,
+      "sha256": "aee7a16f30dd8f1036761a29166b5bc5bc29d05573591b9a30497db3951b8aa8"
+    },
+    "referencia/tomas/movimiento/tira-08.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-08.jpg",
+      "bytes": 81379,
+      "sha256": "9e94e7b7add68b8d68a69444baeb70c020ee4c9b77b07295c1325718dbec3b32"
+    },
+    "referencia/tomas/movimiento/tira-09.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-09.jpg",
+      "bytes": 59049,
+      "sha256": "9f56d9d631fc53519eca8ef9c16cdf5f1491de2bdededa4c756b153625b15b10"
+    },
+    "referencia/tomas/movimiento/tira-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-10.jpg",
+      "bytes": 54957,
+      "sha256": "6fede8b7ab42465ef466a8d41012fca9c2acf7fe95f3a7f7d964e71641189a5f"
+    },
+    "referencia/tomas/movimiento/tira-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-11.jpg",
+      "bytes": 86803,
+      "sha256": "06b5fe986f324bf6b5581ac92e71d37f6fa101e006f74695ecde2ca4d649a2e7"
+    },
+    "referencia/tomas/movimiento/tira-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-12.jpg",
+      "bytes": 73435,
+      "sha256": "5b053cf72d4478fa9f44bfff82030aef4683c0ae484168567718209889d33049"
+    },
+    "referencia/tomas/movimiento/tira-13.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-13.jpg",
+      "bytes": 44346,
+      "sha256": "ba154211e17c378eaf091e3f414e7a6d39149abbaadd4b2b6431c95636213688"
+    },
+    "referencia/tomas/movimiento/tira-14.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-14.jpg",
+      "bytes": 48511,
+      "sha256": "447a0e2a8a6561f1d32031c1997f489b6090e58e5714df90cbe46d8a6bf683c5"
+    },
+    "referencia/tomas/movimiento/tira-15.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-15.jpg",
+      "bytes": 62652,
+      "sha256": "e671ea13f6f8d7a16cce2d9d8905686b5e1b8eab1e99ce57948930328341049e"
+    },
+    "referencia/tomas/movimiento/tira-16.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-16.jpg",
+      "bytes": 70771,
+      "sha256": "c0c2ebdd2235cf2c923c835a790550b2fe78c3c34b08632ea428fac8839f4746"
+    },
+    "referencia/tomas/movimiento/tira-17.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-17.jpg",
+      "bytes": 63301,
+      "sha256": "36ce3885744e128f2d42b454bd8e90c0758681d52dc41c4dbe813eec6bd6ec77"
+    },
+    "referencia/tomas/movimiento/tira-18.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-18.jpg",
+      "bytes": 68541,
+      "sha256": "80e85c0ad38f01c37c1f0680a643b8d3d72f441a167aae8f4768e44f94b53f0f"
+    },
+    "referencia/tomas/movimiento/tira-19.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-19.jpg",
+      "bytes": 91821,
+      "sha256": "f4b566228168221e17f774a9cea8cf73a781d2dd2c552718faab31269ec112b2"
+    },
+    "referencia/tomas/movimiento/tira-20.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-20.jpg",
+      "bytes": 68093,
+      "sha256": "d8ac7c8e826d020e8c8efe89262685b70765d121d3423342a4c95c6e65f6b717"
+    },
+    "referencia/tomas/movimiento/tira-21.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-21.jpg",
+      "bytes": 59694,
+      "sha256": "4d09f8ea067cde54891fcf15aaf607a54d7aa55766df16f60f4ca0ae97982d90"
+    },
+    "referencia/tomas/movimiento/tira-22.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-22.jpg",
+      "bytes": 74099,
+      "sha256": "6b5a07f5537ab72bb36a41c59d764a30ac3204aeb6cd9db833ba5ac4303473eb"
+    },
+    "referencia/tomas/movimiento/tira-23.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-23.jpg",
+      "bytes": 68296,
+      "sha256": "3a17228d3c064e620818948f9ad6d20b4218d832d712a688a6ea3fd01f4d5285"
+    },
+    "referencia/tomas/movimiento/tira-24.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-24.jpg",
+      "bytes": 65697,
+      "sha256": "33856e88eb11adcc7c119cba3ed7e89a5b18c4caf20b8b4d0d21d363bf286908"
+    },
+    "referencia/tomas/movimiento/tira-25.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-25.jpg",
+      "bytes": 58511,
+      "sha256": "fe849409e390a38a9bd109bc577ae4f7d9ac8b8022869fa5d23e2358ee3cdf8e"
+    },
+    "referencia/tomas/movimiento/tira-26.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-26.jpg",
+      "bytes": 83889,
+      "sha256": "c573f8e1d0c8d203699bc44cccfeb4a463d796ddecbb092e7f6bdb38ff92e8d6"
+    },
+    "referencia/tomas/movimiento/tira-27.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-27.jpg",
+      "bytes": 90136,
+      "sha256": "9df201bbc918e5978d7990307ebbb110feb044385c01af714e3e9992741d44b8"
+    },
+    "referencia/tomas/movimiento/tira-28.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-28.jpg",
+      "bytes": 68209,
+      "sha256": "a90f6b7064cb8c1f068a7c9e9085ad33ca750c754dc9a46b409fac8389d9b2ea"
+    },
+    "referencia/tomas/movimiento/tira-29.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-29.jpg",
+      "bytes": 71336,
+      "sha256": "0fbc701cc0fdff0d25fdeea06a1397c4bd267d82c23520d23c7c84528de7a7a9"
+    },
+    "referencia/tomas/movimiento/tira-30.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-30.jpg",
+      "bytes": 85953,
+      "sha256": "dc1b158c6e36d8b80ffb293165070d496448851381453774949c54ef916787bd"
+    },
+    "referencia/tomas/movimiento/tira-31.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-31.jpg",
+      "bytes": 56776,
+      "sha256": "59a45435110eea17621213249a2cca29b76b403b8525289db8e8bd417dc6763b"
+    },
+    "referencia/tomas/movimiento/tira-32.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-32.jpg",
+      "bytes": 88590,
+      "sha256": "a82f3f0e2cbb511cbc5f4d71dd931f167b06ac3a3210bfd40ecfa8cae65276cd"
+    },
+    "referencia/tomas/movimiento/tira-33.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-33.jpg",
+      "bytes": 74449,
+      "sha256": "9ed8cf04eb74a2d8abda35baf9e0fbdeaf3e718b32df05e3193aae06ee1edbc2"
+    },
+    "referencia/tomas/movimiento/tira-34.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-34.jpg",
+      "bytes": 71909,
+      "sha256": "016c06098b74bb0f37d1d3038ca229b50a579bce8554ae8282df485771747b1f"
+    },
+    "referencia/tomas/movimiento/tira-35.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-35.jpg",
+      "bytes": 64061,
+      "sha256": "2f45c22d6ee8977ca5e700958d533404a1fd72ead21aade38430c317f9c01bcd"
+    },
+    "referencia/tomas/movimiento/tira-36.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-36.jpg",
+      "bytes": 80636,
+      "sha256": "9238853f3c8da1b70759c04a98395a18596489562d848cb5135a89ae6cb540f6"
+    },
+    "referencia/tomas/movimiento/tira-37.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-37.jpg",
+      "bytes": 74233,
+      "sha256": "46cf0e7bff800c1d1ee8eab04640a3251c3e0e00a07487de695bfecacefc6fde"
+    },
+    "referencia/tomas/movimiento/tira-38.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-38.jpg",
+      "bytes": 84088,
+      "sha256": "b3e18b40f2d22fe0b0b837ac310e2a20ec5952735a14b3befe6185f898c2fe3e"
+    },
+    "referencia/tomas/movimiento/tira-39.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-39.jpg",
+      "bytes": 65910,
+      "sha256": "1a44e86b52584722bff2c04bb9c125ec8c62ec4e9e6c4e20a173a49fc504a7a6"
+    },
+    "referencia/tomas/movimiento/tira-40.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-40.jpg",
+      "bytes": 55103,
+      "sha256": "d212c6271ca185c3028e6fd6db8b455a608d7a51cfba7f95acb055a57329c09c"
+    },
+    "referencia/tomas/movimiento/tira-41.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-41.jpg",
+      "bytes": 88129,
+      "sha256": "82841600f096fff396c42fa47ec023f7ef2525d3238ec61305d01d1541104aaf"
+    },
+    "referencia/tomas/movimiento/tira-42.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-42.jpg",
+      "bytes": 86149,
+      "sha256": "437a196533ad1f7868197b5d9eddb9d10ee22c26bd6d14fac7929362778b9e2b"
+    },
+    "referencia/tomas/movimiento/tira-43.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-43.jpg",
+      "bytes": 59100,
+      "sha256": "bba8cffc0f6eb80f9c839c22ba1ef1ca87c3cb2a7af57fd1be8b601f67ba75b2"
+    },
+    "referencia/tomas/movimiento/tira-44.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-44.jpg",
+      "bytes": 54460,
+      "sha256": "780f4479e886b6258dd9fba82ce8d3790b2d2f223ed9ef35cd0993f1725d945f"
+    },
+    "referencia/tomas/movimiento/tira-45.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-45.jpg",
+      "bytes": 75178,
+      "sha256": "2c51019a2533dc0682dcc884e0a170929f4ee6fce61cf81971a1ea3f0899d48c"
+    },
+    "referencia/tomas/movimiento/tira-46.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-46.jpg",
+      "bytes": 58007,
+      "sha256": "fd8483d66982137da76476f6f65e292d9a037994a52db50c1c318aff6500a6c8"
+    },
+    "referencia/tomas/movimiento/tira-47.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-47.jpg",
+      "bytes": 83889,
+      "sha256": "7aae23b651bfbb2f5305867fb9c60ab635b8827e1c958d1d9ff35906a36a8672"
+    },
+    "referencia/tomas/movimiento/tira-48.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-48.jpg",
+      "bytes": 63097,
+      "sha256": "04b351fca25aea30e9ceb81274c17a7d44ff9c8e1f5b4aed44c71b34a267dbb5"
+    },
+    "referencia/tomas/movimiento/tira-49.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-49.jpg",
+      "bytes": 55640,
+      "sha256": "cdac1c823e9b85cc2cdcb42a9f179b41b55e742cb8258e1a7291c09064f1796e"
+    },
+    "referencia/tomas/movimiento/tira-50.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-50.jpg",
+      "bytes": 59680,
+      "sha256": "92e6f0da2b7b8025143214f07589fee2edb8d9cc40070327eb79c47a6b17b95a"
+    },
+    "referencia/tomas/movimiento/tira-51.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-51.jpg",
+      "bytes": 57467,
+      "sha256": "a1e0d72d9c4323ff392c5944984c881628890ec0ab1f515555204b0116e6c3d4"
+    },
+    "referencia/tomas/movimiento/tira-52.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-52.jpg",
+      "bytes": 62674,
+      "sha256": "3040ab19251e9e26b17e30fa5a4946a67f6c23a5ca01c81b8859ccddacd9f70d"
+    },
+    "referencia/tomas/movimiento/tira-53.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-53.jpg",
+      "bytes": 48713,
+      "sha256": "7655e0b751e20f8f0a6a56b5608436313b114b474f9b1d7c3815b487b7c0573b"
+    },
+    "referencia/tomas/movimiento/tira-54.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-54.jpg",
+      "bytes": 86568,
+      "sha256": "14d2519934d911831baa9787d8a552e2a98cf709da6d12ca4e1cff59ed02d92d"
+    },
+    "referencia/tomas/movimiento/tira-55.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-55.jpg",
+      "bytes": 55740,
+      "sha256": "784259bf620c748b6a2ded34ebf1ea0ebe391da7ddc31cdc451626853099dfbc"
+    },
+    "referencia/tomas/movimiento/tira-56.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-56.jpg",
+      "bytes": 53008,
+      "sha256": "c54cde61fa7c02b16eab35919524576e2b7abf1d8ea276bfab90204b0b3b4a5e"
+    },
+    "referencia/tomas/movimiento/tira-57.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-57.jpg",
+      "bytes": 63175,
+      "sha256": "dd2351bb22b3400a00a2d01820bd1333df0abf86d063a560f5aae344769bd94b"
+    },
+    "referencia/tomas/movimiento/tira-58.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-58.jpg",
+      "bytes": 63415,
+      "sha256": "fea78b920ae1d8bfe6d934ae07f2a08c4969d3b4e72e7ecbea13af212f2edb09"
+    },
+    "referencia/tomas/movimiento/tira-59.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-59.jpg",
+      "bytes": 47343,
+      "sha256": "b18ef4e6d0e6105c1de5f2a1f1a2a9647b314af8d946f4366ab40dc745de59c6"
+    },
+    "referencia/tomas/movimiento/tira-60.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-60.jpg",
+      "bytes": 79610,
+      "sha256": "daffbc2219f64591f6a0d90f23c4de19f7d99ed2c51c318cd5481c80df2e674c"
+    },
+    "referencia/tomas/movimiento/tira-61.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-61.jpg",
+      "bytes": 76424,
+      "sha256": "64fe140009853f24e63dbd9f4e75d32e764c72140473e6653530b4e6675202eb"
+    },
+    "referencia/tomas/movimiento/tira-62.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-62.jpg",
+      "bytes": 78937,
+      "sha256": "8135637d635bc701f244b6fe5212b40d96fdb2156749b361a88d36f23db67e1a"
+    },
+    "referencia/tomas/movimiento/tira-63.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-63.jpg",
+      "bytes": 88019,
+      "sha256": "f6f10eea9195cc366724b780ea83bd52a8a030b4b2ce306663e2efbf39773aa8"
+    },
+    "referencia/tomas/movimiento/tira-64.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-64.jpg",
+      "bytes": 73051,
+      "sha256": "f39685c9f0ba32fc014421866b0a85a37327d8784733280ca6ff7b681b0108c6"
+    },
+    "referencia/tomas/movimiento/tira-65.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/movimiento/tira-65.jpg",
+      "bytes": 31940,
+      "sha256": "6de346685471e0017d5a531cf1f80904d1853f9cee470ad7f7a8ef9e51d3e425"
+    },
+    "referencia/tomas/toma-01.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-01.jpg",
+      "bytes": 81001,
+      "sha256": "05b8f070306479d094f513ef1d2c5b6a1361d9a3515eaedad88c1e1cb55890e5"
+    },
+    "referencia/tomas/toma-02.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-02.jpg",
+      "bytes": 67527,
+      "sha256": "0a5ecdbfac005d325c51b26adba6becf2c7578f6c282c44c88fb916d987c3fe5"
+    },
+    "referencia/tomas/toma-03.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-03.jpg",
+      "bytes": 60113,
+      "sha256": "530823ba81fd51e7ad8e1f0aa540428b25cd770418e7d64afc4910a4d08a85dc"
+    },
+    "referencia/tomas/toma-04.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-04.jpg",
+      "bytes": 65431,
+      "sha256": "f1601d0fd8a0ef51537bb9e9d8621f5741a54b63da17a3198da253e524b06b25"
+    },
+    "referencia/tomas/toma-05.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-05.jpg",
+      "bytes": 63144,
+      "sha256": "2fa6b3410981818f45583c4ccf5620bc2d2a9f63750f8dbf69b1f93201f71969"
+    },
+    "referencia/tomas/toma-06.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-06.jpg",
+      "bytes": 52640,
+      "sha256": "296497117ef91ad955ed0dca1495c44d3dba813fc67e075f2592caedbc9c5721"
+    },
+    "referencia/tomas/toma-07.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-07.jpg",
+      "bytes": 48096,
+      "sha256": "856722781b162f590d617a310eea9f5511c9f0d46f364eac680b8b5dc65632cc"
+    },
+    "referencia/tomas/toma-08.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-08.jpg",
+      "bytes": 72146,
+      "sha256": "78433180170132bd4489012ff545b609dce0a9299ed7e3b7bbd316d488c891a2"
+    },
+    "referencia/tomas/toma-09.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-09.jpg",
+      "bytes": 55089,
+      "sha256": "60f8ed94a0397f884ccd84eb8d2228a10379effcd866cf4ac64825b045212e40"
+    },
+    "referencia/tomas/toma-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-10.jpg",
+      "bytes": 45018,
+      "sha256": "d4f01ddc5226c2fb33e894360ffd43e6983e1edf8a382edad7192d6c2eddf6eb"
+    },
+    "referencia/tomas/toma-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-11.jpg",
+      "bytes": 75202,
+      "sha256": "6b0eeaf93dab8648d3fe73cc4ac41270285760c10d25c4631ef20a6d4bedfd2d"
+    },
+    "referencia/tomas/toma-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-12.jpg",
+      "bytes": 74780,
+      "sha256": "e6dfde4f773d7d99fd6b917029856bf79844c53f9830e7b159acd345753613e6"
+    },
+    "referencia/tomas/toma-13.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-13.jpg",
+      "bytes": 43711,
+      "sha256": "ab5481c25d5ad2ed34e7e804c184274192b9b38cc02cb72b92df6169d5a69278"
+    },
+    "referencia/tomas/toma-14.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-14.jpg",
+      "bytes": 46652,
+      "sha256": "e5467aed64732876ee98cb291acfcfed688391d6ea9c079c5085a3d87f0f6a62"
+    },
+    "referencia/tomas/toma-15.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-15.jpg",
+      "bytes": 64196,
+      "sha256": "f36d2d197001700c04c7dd0498d9116e03cf1888a56b6d92be015375c3b81fa6"
+    },
+    "referencia/tomas/toma-16.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-16.jpg",
+      "bytes": 64927,
+      "sha256": "0d28dc34e620ef9daa9368a111985f3f86a403b833468f7a1b2d32d5767b0573"
+    },
+    "referencia/tomas/toma-17.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-17.jpg",
+      "bytes": 57832,
+      "sha256": "95b04215b6dbd890e545f61fe4636424395ba934389ac84d374c262623f7eacb"
+    },
+    "referencia/tomas/toma-18.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-18.jpg",
+      "bytes": 69116,
+      "sha256": "6b7aed43aceec63ca466ac8548ea1de13fc0a558bd725b6fdf2f3397634b53fb"
+    },
+    "referencia/tomas/toma-19.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-19.jpg",
+      "bytes": 80797,
+      "sha256": "ee1616b0f5d815144a5a68b364a611d2872704077332e8e2f6ee46da5c187a0c"
+    },
+    "referencia/tomas/toma-20.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-20.jpg",
+      "bytes": 64949,
+      "sha256": "00831c3606a6c03bf8f0b576707d318309234601ee5debedb1056d2146941089"
+    },
+    "referencia/tomas/toma-21.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-21.jpg",
+      "bytes": 58705,
+      "sha256": "d041b3cb841fc67137559b5bcee3523990c044d8e73861ee26abdf71dd24a843"
+    },
+    "referencia/tomas/toma-22.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-22.jpg",
+      "bytes": 66799,
+      "sha256": "5de7f1097f86e819f5fddc69a5c9c09c3886ccda6fcf8ef77b34db231022bb72"
+    },
+    "referencia/tomas/toma-23.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-23.jpg",
+      "bytes": 66198,
+      "sha256": "88284dcb24ed9d7d7fdf3f27e6da7c7c56973712c1f2d1ae03b9ee6df4fa2702"
+    },
+    "referencia/tomas/toma-24.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-24.jpg",
+      "bytes": 64791,
+      "sha256": "f4bab338e6333dfb74a8a1c4f35afa6731c2ba17bb20ff04e49618af63144539"
+    },
+    "referencia/tomas/toma-25.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-25.jpg",
+      "bytes": 56475,
+      "sha256": "bc1ff787f859504b933792eab68ecc477f0e98877ec0c4054fa8c10c32f8502d"
+    },
+    "referencia/tomas/toma-26.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-26.jpg",
+      "bytes": 78627,
+      "sha256": "dcf8d00a1943f6ae19ff2cbc86154367d593087e03bf724da33c1c95d5bd420d"
+    },
+    "referencia/tomas/toma-27.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-27.jpg",
+      "bytes": 81013,
+      "sha256": "c7b5a4e7688f5a804a37e48141982593795a05e33280787279b9c3bf36d04770"
+    },
+    "referencia/tomas/toma-28.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-28.jpg",
+      "bytes": 61151,
+      "sha256": "ecec87a1798614e24f1f887af56e11002c65c5513251821f11057551e5293583"
+    },
+    "referencia/tomas/toma-29.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-29.jpg",
+      "bytes": 69407,
+      "sha256": "f9b942c6782ed16d9329f5ae8478ff8fe3ad2a99222ac2e31796089f84922494"
+    },
+    "referencia/tomas/toma-30.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-30.jpg",
+      "bytes": 80728,
+      "sha256": "23785b023301407ea273844bfd522212706c6e2ce29f38702e5d9e210cd280aa"
+    },
+    "referencia/tomas/toma-31.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-31.jpg",
+      "bytes": 54168,
+      "sha256": "4ba4dd22b2ac971345da06a2f5081b0ca2a5f371317e6d28348d291358bb3100"
+    },
+    "referencia/tomas/toma-32.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-32.jpg",
+      "bytes": 78035,
+      "sha256": "7363c1c11e41bee259632384239c387777d3fd75bcaeecb019d6e16f08cc13a9"
+    },
+    "referencia/tomas/toma-33.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-33.jpg",
+      "bytes": 71448,
+      "sha256": "27cc0ee645207c1c713c66a767c8f7c0ff6f74b9fcc5bc0d2b341cc2c6d27624"
+    },
+    "referencia/tomas/toma-34.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-34.jpg",
+      "bytes": 64625,
+      "sha256": "1bba02463863085e493be43b4e1744a508f595ea13fc13f7be770b42e6904201"
+    },
+    "referencia/tomas/toma-35.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-35.jpg",
+      "bytes": 64415,
+      "sha256": "cb81efd0cacc98be5cf526b1142324159bfea034c3842976cba67f3d0a0a6bf1"
+    },
+    "referencia/tomas/toma-36.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-36.jpg",
+      "bytes": 75960,
+      "sha256": "84ee885f57b03de400d3b8c0a78b51a71263e65a477f7fbfe65206c5ddb1a067"
+    },
+    "referencia/tomas/toma-37.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-37.jpg",
+      "bytes": 70416,
+      "sha256": "0ea2d9374318474b81e622c05c6059338079cc259c0de5c134dd561d1b1570ef"
+    },
+    "referencia/tomas/toma-38.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-38.jpg",
+      "bytes": 78231,
+      "sha256": "21e4c21873485935eb924a2abba8a63d307dfbaea83bf22d9572858df4bf3562"
+    },
+    "referencia/tomas/toma-39.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-39.jpg",
+      "bytes": 61246,
+      "sha256": "56860c7574ae507aa28950de20ef8afe5146387c42a241832f136c433786229f"
+    },
+    "referencia/tomas/toma-40.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-40.jpg",
+      "bytes": 51896,
+      "sha256": "8ce92e02a16cea41d78602b90ca13df91a8e5992346862c9971ae5aad42ccb8d"
+    },
+    "referencia/tomas/toma-41.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-41.jpg",
+      "bytes": 77417,
+      "sha256": "c0016631836a0408fbbbd42630dd9b816141fb2d6d763d1898a203a58e06497a"
+    },
+    "referencia/tomas/toma-42.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-42.jpg",
+      "bytes": 79228,
+      "sha256": "373b339aa849cb1734d2ff807b807245e2c76e20dbfee39016052a6f0ed920e0"
+    },
+    "referencia/tomas/toma-43.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-43.jpg",
+      "bytes": 54968,
+      "sha256": "8380ddd432587418a3d3b1123dd3a3e2747d18b649993eb7461a75cc2902ca48"
+    },
+    "referencia/tomas/toma-44.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-44.jpg",
+      "bytes": 51698,
+      "sha256": "05b3af81091e19a55f40e643f08b4c3cb81221dcf8e5f618c8fff2de61fc16ec"
+    },
+    "referencia/tomas/toma-45.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-45.jpg",
+      "bytes": 62349,
+      "sha256": "d93c7df26d53f8d83354e4cab80459abce7be3a9c8fa34730cbbbe20a3fb0b2d"
+    },
+    "referencia/tomas/toma-46.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-46.jpg",
+      "bytes": 50297,
+      "sha256": "32d4905086ce7e1a92798011a34fda069e489fed2a5e3e41edb461f92095d2b5"
+    },
+    "referencia/tomas/toma-47.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-47.jpg",
+      "bytes": 79097,
+      "sha256": "7e4879f368aa8b96a588ccb5705ea6571e388275908bf80df37c47486f73d176"
+    },
+    "referencia/tomas/toma-48.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-48.jpg",
+      "bytes": 61297,
+      "sha256": "747ca1370a0175cc71d20bc0b01d0fad3c0000e7ee1fbaacca362da56045ff07"
+    },
+    "referencia/tomas/toma-49.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-49.jpg",
+      "bytes": 50982,
+      "sha256": "3bc1fdb706fcffb2052789fe6f32c5cdf29c71aa0f313670d448beb5a96cb4eb"
+    },
+    "referencia/tomas/toma-50.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-50.jpg",
+      "bytes": 54370,
+      "sha256": "a8ec7d5117079ea63215044b4cb208ae9511c461fe34679af8fb5a7f96c5179b"
+    },
+    "referencia/tomas/toma-51.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-51.jpg",
+      "bytes": 56936,
+      "sha256": "3a90fef0b1944c786df5d23da32b69aceba4f0977def19686a46d0edd9e10981"
+    },
+    "referencia/tomas/toma-52.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-52.jpg",
+      "bytes": 53929,
+      "sha256": "053155b2cea584d50bb61b1851d6c967ffab2e8d0477e996279c6393fec803b3"
+    },
+    "referencia/tomas/toma-53.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-53.jpg",
+      "bytes": 43961,
+      "sha256": "4ad1d663f6d12c4236a8ef91da4f63db744f9fe13fc00ab2d0e248292bf645e4"
+    },
+    "referencia/tomas/toma-54.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-54.jpg",
+      "bytes": 77889,
+      "sha256": "c8235fdda1a344f9714b51c188fa49d74c22be31457dd29e0b1080eb999dc33d"
+    },
+    "referencia/tomas/toma-55.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-55.jpg",
+      "bytes": 50034,
+      "sha256": "1ac84ea5c8a0246ecfdc3c5fde9d528b26b0c690c9c492b2805100058f101591"
+    },
+    "referencia/tomas/toma-56.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-56.jpg",
+      "bytes": 48199,
+      "sha256": "d27deb5b891d4da10851a0c0d10df3d7a3bda5b8c249945f902e426ea6322266"
+    },
+    "referencia/tomas/toma-57.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-57.jpg",
+      "bytes": 62764,
+      "sha256": "bd3ccb4b9eb90f1ab4e67fe6ce31f7fea56a926aae07a9f6512e80dd646184ae"
+    },
+    "referencia/tomas/toma-58.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-58.jpg",
+      "bytes": 61094,
+      "sha256": "86ae5ed85aae9b936b55dcbe2eecc2f1c2b13ce6995cfc663447201e578f91ca"
+    },
+    "referencia/tomas/toma-59.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-59.jpg",
+      "bytes": 46448,
+      "sha256": "8cb43a4c2e47e1f7bfe4ed6ca97bd6796c9ee53e2ded5d665235a2a0c9aa2f16"
+    },
+    "referencia/tomas/toma-60.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-60.jpg",
+      "bytes": 84736,
+      "sha256": "48987cb1092db19de90281de13e8303a2c7792fe0612b05b2fae4319ad43e422"
+    },
+    "referencia/tomas/toma-61.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-61.jpg",
+      "bytes": 72731,
+      "sha256": "b7c1372d765b8dd22fbd130025e16f6ab2c80785d265e6b4986ddf76cd5b1d95"
+    },
+    "referencia/tomas/toma-62.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-62.jpg",
+      "bytes": 57158,
+      "sha256": "e84028ecb14770c20cfc510ab6887a05a2b794733c4c58b3cd6b9263132d9c46"
+    },
+    "referencia/tomas/toma-63.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-63.jpg",
+      "bytes": 83291,
+      "sha256": "f53db9094a4b156ffaa85b626856ab20c3d810db3adfa891fdf7952e51abc74f"
+    },
+    "referencia/tomas/toma-64.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-64.jpg",
+      "bytes": 65773,
+      "sha256": "22cf72bd6be526202c8d1ab6c55a3a13570752c862aa08fa93d0c284030045ac"
+    },
+    "referencia/tomas/toma-65.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/referencia/tomas/toma-65.jpg",
+      "bytes": 35850,
+      "sha256": "713e5576d8a350616bcdfacf849fd3293e114c44c6946bd51e1d14a6baaf62d9"
+    },
+    "video/broll-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/broll-1.mp4",
+      "bytes": 881241,
+      "sha256": "56ed52c667c6079d9f6bf50c03ab5c4654f8b67ee116a6d8dec378a6f4b6fd47"
+    },
+    "video/broll-10.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/broll-10.mp4",
+      "bytes": 1241932,
+      "sha256": "10ff42b50314bb2b5f12574c113e4fc62c00f1160b6e515200b3e03d49338126"
+    },
+    "video/broll-11.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/broll-11.mp4",
+      "bytes": 1346405,
+      "sha256": "54200f053e5c876fe126d01132aa533154c94a15816b931824d34593c591b415"
+    },
+    "video/broll-2.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/broll-2.mp4",
+      "bytes": 638004,
+      "sha256": "3c05c131060f924974416afdfa23af053a41f984995ad8a1068132109755b09c"
+    },
+    "video/broll-4.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/broll-4.mp4",
+      "bytes": 694378,
+      "sha256": "bf959a6cb2c3479631855bc90dbf8967be21e1bf7ac0faaf4421f6bf691617c9"
+    },
+    "video/broll-6.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/broll-6.mp4",
+      "bytes": 1313247,
+      "sha256": "27de7bf37cf820ebb7638728f7a96e3f126b0c76173f311c68375904725fb5b9"
+    },
+    "video/broll-7.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/broll-7.mp4",
+      "bytes": 1580395,
+      "sha256": "8723024a6a1c2735f52b7ecd6541da724e4e5d0f2f1114a0ae9ac7393eb1ffb4"
+    },
+    "video/broll-8.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/broll-8.mp4",
+      "bytes": 3619642,
+      "sha256": "7335742a5b8f8c9cbceb6ff1f9315e7289649836caf79982ef52f604f69bb3a6"
+    },
+    "video/broll-9.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/broll-9.mp4",
+      "bytes": 3136907,
+      "sha256": "1885ce5c90804e38f804cc659fc0519d4449c1546ac8d374bb468dc060d69ec7"
+    },
+    "video/toma-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-1.mp4",
+      "bytes": 5486540,
+      "sha256": "cae90afcd1581a37b00b1ccf9acd95eff6ea95471419559e36237fec9f439018"
+    },
+    "video/toma-10.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-10.mp4",
+      "bytes": 3376936,
+      "sha256": "dec2741b848c2ae9730ea7fa413d7a39b6c741c25f823f536b9c557b5d186328"
+    },
+    "video/toma-11.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-11.mp4",
+      "bytes": 3132421,
+      "sha256": "ee4448fe5aa38edfcfc7a952f47b016592637f76234e3586c08f44b98ece75c1"
+    },
+    "video/toma-12.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-12.mp4",
+      "bytes": 3019742,
+      "sha256": "a1486803f92de95f7cee2d9f6a1c97a25e4c4b48c4ddc45f5a7c27130077ee96"
+    },
+    "video/toma-13.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-13.mp4",
+      "bytes": 4840555,
+      "sha256": "dbb43d199ebf614e841f6901c4e8aa2e48f7ca1f871c211409149503f82e9e58"
+    },
+    "video/toma-14.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-14.mp4",
+      "bytes": 5946345,
+      "sha256": "31dd20e0d4977990ed1a73fc9757c91d26f95243d5ab90f407a02427ab50c785"
+    },
+    "video/toma-15.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-15.mp4",
+      "bytes": 3182144,
+      "sha256": "68d652175ee9ec9363cba415899adc0cd09d243f4395c479c8192e6d971b4bb9"
+    },
+    "video/toma-16.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-16.mp4",
+      "bytes": 743557,
+      "sha256": "b4acd3c558006978ed3a3150b89812b423023b44bda01a7a71513de13347418d"
+    },
+    "video/toma-17.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-17.mp4",
+      "bytes": 2649941,
+      "sha256": "0861e0ded298d71410be0a5d53ffc74ad585f2ff993f0b30a1d9288aae732cab"
+    },
+    "video/toma-18.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-18.mp4",
+      "bytes": 4869124,
+      "sha256": "37b1bf3af7548c75153e80daafac9361965d0fdfcba1ffa9c32a9fc23d9070db"
+    },
+    "video/toma-19.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-19.mp4",
+      "bytes": 15541891,
+      "sha256": "b7553e438c456d27df60b30d85a9aa3eca9013026665183a6fd3a914ced7eaff"
+    },
+    "video/toma-2.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-2.mp4",
+      "bytes": 5974139,
+      "sha256": "616ea82cf72943d9acb97e0985054fda390b35454d6b3ea971d97e3951baa260"
+    },
+    "video/toma-20.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-20.mp4",
+      "bytes": 6339235,
+      "sha256": "024082ae9c5d1303f71c03dc061b431171355833b44d326a4eb4dabe8cd0395c"
+    },
+    "video/toma-21.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-21.mp4",
+      "bytes": 6170135,
+      "sha256": "6f8e477e93401206d3da61a3646ac52ed9ac268e6eca3fd86e296d7fbba58ce2"
+    },
+    "video/toma-22.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-22.mp4",
+      "bytes": 10842974,
+      "sha256": "9bca77e108b154f8cfbae385916595ec3c28e4f1520f31f5a00879df669ab4a5"
+    },
+    "video/toma-23.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-23.mp4",
+      "bytes": 9431567,
+      "sha256": "7b208fe86d1ffc05431e09c5c0d62fbcce637bec24263757433614c175111b99"
+    },
+    "video/toma-24.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-24.mp4",
+      "bytes": 5960936,
+      "sha256": "5ba9bb475f225fa5acd413d9ccfc49e110bed33bab3bfa38ac273a96d8c6d9c9"
+    },
+    "video/toma-25.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-25.mp4",
+      "bytes": 9477320,
+      "sha256": "e8ae2c8c68fe94d447f0549a291f3ded99471f23ff85cc03e557baf6cc161cfa"
+    },
+    "video/toma-26.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-26.mp4",
+      "bytes": 4776785,
+      "sha256": "7b3ff7c0b98c71eec9583cc0b28cb106c5723ed43238b74f84b5156dd25d31fe"
+    },
+    "video/toma-27.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-27.mp4",
+      "bytes": 9778993,
+      "sha256": "a009c75dcbfd4715feb5ce878f42978d88c90d84ab688e5c6c81cffd4414d920"
+    },
+    "video/toma-3.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-3.mp4",
+      "bytes": 4697851,
+      "sha256": "4916c381f34f3cc8681677c58a2ec42a16f1d880100bb0ddeff545ccd69d6988"
+    },
+    "video/toma-4.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-4.mp4",
+      "bytes": 4043613,
+      "sha256": "c6f9c7a5c606eb87b1762e8d95d9f5d93c3d8a607278e85efd8329e86dcfb375"
+    },
+    "video/toma-5.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-5.mp4",
+      "bytes": 2684591,
+      "sha256": "da7639db85fdfa75f4240202740675b0b7526a8b2877ff82931b697c8b4f8a4e"
+    },
+    "video/toma-6.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-6.mp4",
+      "bytes": 4005755,
+      "sha256": "9e92cb623756e1330385c5ece94a306913bddd6be03e4159a2cdb861f55878e4"
+    },
+    "video/toma-7.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-7.mp4",
+      "bytes": 3426050,
+      "sha256": "c1d60e121797033d36f73d7ed44a7bd95d613d8d47e2e3fe965325cd6008b888"
+    },
+    "video/toma-8.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-8.mp4",
+      "bytes": 5038445,
+      "sha256": "bcb40d6f855aeac1b80f9cde24cc173d7969d65a55e4f0b36d13c881f1d988af"
+    },
+    "video/toma-9.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-realista-narrado-20261121-1317/video/toma-9.mp4",
+      "bytes": 8480186,
+      "sha256": "6efb586fba8aa1fb4932a64c63cd4536543c8902c78a9ea3daf9d7e8c9dd11d9"
+    }
+  },
+  "ubicacionesFinales": {
+    "aguaje-complex-3-en-1-realista-narrado-20261121-1317_9x16_con-subtitulos.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/videos-finales/aguaje-complex-3-en-1-realista-narrado-20261121-1317_9x16_con-subtitulos.mp4",
+      "bytes": 114332854,
+      "sha256": "392044278d20d179dd1c87a42e5b1a4a5c433d4ae2cfdd0bc35a17e958fc18a8"
+    }
+  },
+  "fecha": "2026-11-21T19:13:42.628Z"
+}

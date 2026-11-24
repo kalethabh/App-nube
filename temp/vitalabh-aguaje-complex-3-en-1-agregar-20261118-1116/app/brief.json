@@ -1,0 +1,53 @@
+{
+  "slug": "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116",
+  "productoId": "producto-edb1",
+  "estilo": "agregar",
+  "familia": "voz-en-off",
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": {
+    "id": "VmejBeYhbrcTPwDniox7",
+    "nombre": "Lina - Carefree & Fresh",
+    "auto": true,
+    "motivo": "voz femenina como la del video de referencia (tono medio de 211 Hz, expresiva) · «Lina - Carefree & Fresh»: voz femenina, habla español, acento colombiano, joven, cercana, natural, hecha para narrar",
+    "elegida": "2026-11-18T18:34:37.111Z"
+  },
+  "continuidad": false,
+  "respuestas": {
+    "clonar": "subido:mwmbof4zdaa43d|AQNNGKDYc5vuJ2hWAwJZ2F8FKffXp11fl9enNJCHInbmbW7-47_TQxXL1T15gJ9EA5t79mPzncVewlbI",
+    "pedido": "El mismo video para mi producto",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {},
+  "creado": "2026-11-18T16:16:03.359Z",
+  "agregar": {
+    "pedido": "El mismo video para mi producto",
+    "plan": {
+      "estilo": "agregar",
+      "estiloNombre": "El mismo look de tu video",
+      "formato": "Una voz cuenta sobre escenas",
+      "duracion": "0:42",
+      "idioma": "es",
+      "resumen": "Voy a rehacer ese video para tu Aguaje Complex: la misma bodega llena de frascos y una mujer de bata que los revisa, con una voz que explica que lo que da resultados son los tres componentes puros y el tratamiento completo de tres frascos, no la marca.",
+      "conserva": [
+        "la estructura: gancho → lo que trae el frasco → el giro contra \"el original\" → remate → cierre con la marca",
+        "el gancho: la mano que toma un frasco de la estantería y la frase \"Aquí no… Aquí…\"",
+        "el look: bodega con estanterías llenas, bata blanca, planilla, la caja que se llena y el frasco hacia la cámara al final",
+        "la frase clave del remate, adaptada: \"con tu cuerpo no se juega\"",
+        "la voz: mujer joven, firme y cercana, con acento colombiano"
+      ],
+      "cambia": [
+        "el producto: todos los frascos son tu Aguaje Complex 3 en 1, siempre cerrados",
+        "el ángulo: en vez de \"somos el original\", lo que importa son los componentes puros (aguaje, fenogreco y maca negra)",
+        "se agrega lo del tratamiento completo de tres frascos, y por eso dura unos 42 segundos en vez de 28",
+        "la persona es nueva (no se copia la cara del video) y no se nombra a la otra marca",
+        "no lleva precio ni forma de compra porque no los tengo"
+      ],
+      "porque": "No pediste otro estilo, así que va con el mismo look del video. En el original casi todo el tiempo habla una voz sobre las escenas, por eso lo hago con voz en off.",
+      "pedido": "El mismo video para mi producto"
+    }
+  },
+  "produccion": "voz-en-off"
+}

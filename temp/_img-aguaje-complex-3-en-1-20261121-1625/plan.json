@@ -1,0 +1,56 @@
+{
+  "producto": "aguaje-complex-3-en-1",
+  "lote": "_img-aguaje-complex-3-en-1-20261121-1625",
+  "cantidad": 3,
+  "proporciones": ["1:1"],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1625/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Anuncio de estilo de vida navideño con modelo y producto protagonista",
+        "estructura": "Modelo a la izquierda arrodillada de espaldas en una habitación navideña, con gorro de Papá Noel y el frasco en la mano. Arriba a la derecha: frase a mano, palabra gigante fucsia, línea negra y subtítulo. En el centro derecho: cuatro íconos fucsia con texto. A la derecha, el frasco grande con sello dorado y cápsulas. Abajo en el centro: cuadro de dos fotos con etiquetas. Abajo a la derecha: regalo con etiqueta escrita a mano. A la izquierda: nota a mano en blanco. Abajo: barra fucsia con frase.",
+        "por_que_funciona": "Une una fecha emocional con un deseo fuerte y lo plantea como un regalo para sí misma, lo que quita culpa a la compra. La modelo real con el frasco da confianza y los íconos explican el producto en segundos."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Esta Navidad regálate las curvas que sueñas: el deseo central como regalo para ti.",
+      "titular": "Esta Navidad REGÁLATE LAS CURVAS QUE SUEÑAS",
+      "escena": "La misma de la referencia: habitación navideña acogedora, árbol con luces a la izquierda, alfombra blanca peluda y regalos con lazo rojo. Otra modelo.",
+      "camara": "La misma de la referencia: plano a la altura de los ojos, modelo arrodillada de perfil y espaldas mirando por encima del hombro."
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1625/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Anuncio de estilo de vida navideño con modelo y producto protagonista",
+        "estructura": "Igual a V01: misma composición, mismos bloques y misma tipografía; solo cambia el titular.",
+        "por_que_funciona": "Mismo mecanismo de V01, pero el titular nombra el dolor más vendedor de la investigación: el jean que no horma atrás."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Esta Navidad, que el jean por fin te horme: el dolor del jean suelto convertido en deseo.",
+      "titular": "Esta Navidad QUE EL JEAN POR FIN TE HORME",
+      "escena": "La misma de la referencia y de V01.",
+      "camara": "La misma de la referencia y de V01."
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1625/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Anuncio de estilo de vida navideño con modelo y producto protagonista",
+        "estructura": "Igual a V01: misma composición, mismos bloques y misma tipografía; solo cambia el titular.",
+        "por_que_funciona": "Mismo mecanismo de V01, pero el titular usa el miedo al quirófano como contraste, la puerta de entrada más fuerte en Colombia."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Esta Navidad, curvas sin quirófano ni agujas: el deseo sin el miedo a la cirugía.",
+      "titular": "Esta Navidad CURVAS SIN QUIRÓFANO NI AGUJAS",
+      "escena": "La misma de la referencia y de V01.",
+      "camara": "La misma de la referencia y de V01."
+    }
+  ]
+}

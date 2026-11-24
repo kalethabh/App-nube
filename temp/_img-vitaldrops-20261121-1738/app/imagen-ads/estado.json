@@ -1,0 +1,464 @@
+{
+  "version": 1,
+  "siguiente": {
+    "E": 2,
+    "R": 8,
+    "A": 1,
+    "T": 2
+  },
+  "tandas": {
+    "E001": {
+      "tipo": "estrategia",
+      "ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V04",
+        "V05",
+        "V06",
+        "V07",
+        "V08",
+        "V09",
+        "V10"
+      ],
+      "uuid": null,
+      "motor": null,
+      "estado": "hecha"
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "ad09aff9-8bbe-4618-a501-743e0b40c00c",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "1858610-1795301956552",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "dd73e000-eb9d-4e73-9d92-3f1705f64e1b",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V02_1x1",
+          "firma": "2092666-1795301964696",
+          "ronda": 1
+        },
+        {
+          "pieza": "V03_1x1",
+          "firma": "2114036-1795301958502",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "b00d6b92-94f6-4941-b28f-c0ab6547eecf",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V04_1x1",
+          "firma": "1980778-1795302044367",
+          "ronda": 1
+        },
+        {
+          "pieza": "V05_1x1",
+          "firma": "1908068-1795302043215",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "63c8e918-a7f3-48e1-9603-30bd5db175cf",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V06_1x1",
+          "firma": "2397192-1795302054791",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R005": {
+      "tipo": "revision",
+      "uuid": "cd904c64-cc0b-4703-97d5-668760431c3f",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V08_1x1",
+          "firma": "2044204-1795302130296",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R006": {
+      "tipo": "revision",
+      "uuid": "7a807170-d61a-4aed-8b95-cf2235f89adc",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V07_1x1",
+          "firma": "2315006-1795302133367",
+          "ronda": 1
+        },
+        {
+          "pieza": "V09_1x1",
+          "firma": "2323183-1795302143812",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R007": {
+      "tipo": "revision",
+      "uuid": "cd65e94f-ce84-490b-bd00-7c191446aef3",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V10_1x1",
+          "firma": "2172409-1795302219630",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    }
+  },
+  "variaciones": {
+    "V01": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V02": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V03": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V04": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V05": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V06": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V07": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V08": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V09": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V10": {
+      "prompt": "listo",
+      "tanda": "E001"
+    }
+  },
+  "piezas": {
+    "V01_1x1": {
+      "v": "V01",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1858610-1795301956552",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular «TODA MI VIDA FUI» queda pegado al borde de arriba y la parte de arriba de las letras se corta. Regla del 5 % del borde: bájalo.",
+          "«Pagas al recibir» sale cortado por el borde de abajo y no se lee completo. Regla del 5 % del borde: súbelo.",
+          "El botón «Quiero el mío» y la cinta «TRATAMIENTO COMPLETO X3» quedan pegados al borde de abajo. Regla del 5 % del borde: súbelos."
+        ],
+        "firma": "1858610-1795301956552",
+        "correccion_en": "Keep every text at least 5% away from all edges: move the headline \"TODA MI VIDA FUI LA FLACA DEL GRUPO\" down so its letters are fully visible and not cut at the top; move the offer ribbon \"TRATAMIENTO COMPLETO X3\" with \"Pagas al recibir\" fully visible below it, and the single CTA chip \"Quiero el mío\", up from the bottom edge so nothing is cropped."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:59:17.964Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V02_1x1": {
+      "v": "V02",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2092666-1795301964696",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular queda muy pegado a los bordes: «COBROS» y «PROMESAS» quedan a menos del 5 % del borde. Hay que achicarlo un poco para que respire."
+        ],
+        "firma": "2092666-1795301964696",
+        "correccion_en": "Make the headline \"MÁS CONFIANZA SIN PROMESAS MÁGICAS NI COBROS\" slightly smaller so every letter stays at least 6% away from the left and right edges. Keep everything else the same."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:59:26.330Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V03_1x1": {
+      "v": "V03",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2114036-1795301958502",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular toca casi los bordes: «¿COMES» y «SUBES?» quedan a menos del 5 % del borde izquierdo y derecho.",
+          "Aparece un letrero inventado en el fondo que dice «Cafetería Universitaria»: ese texto no está en el anuncio y hay que quitarlo."
+        ],
+        "firma": "2114036-1795301958502",
+        "correccion_en": "Make the headline \"¿COMES Y COMES Y NO SUBES?\" smaller so every letter stays at least 6% away from the left and right edges. Remove the background sign that reads \"Cafetería Universitaria\"; no text in the background at all."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:59:20.148Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V04_1x1": {
+      "v": "V04",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1980778-1795302044367",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Aparece una nota pegada en la nevera con el texto «Mami, no se le olviden sus gotas», que no está en los textos del anuncio. Sobra un bloque de texto: hay que quitarla."
+        ],
+        "firma": "1980778-1795302044367",
+        "correccion_en": "Remove the pink sticky note with handwritten text from the fridge; no handwritten note or any extra text anywhere. Keep all other texts exactly as they are."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T23:00:44.579Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V05_1x1": {
+      "v": "V05",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1908068-1795302043215",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular sale cortado arriba, pegado al borde, y dice «MIVIDA» sin espacio: debe decir «TODA MI VIDA ME SALTABA EL DESAYUNO».",
+          "«Pagas al recibir» sale cortado abajo y no se lee: falta la frase de la oferta completa.",
+          "El botón «Pide el tuyo» queda cortado y pegado al borde de abajo.",
+          "Varios textos quedan a menos del 5 % del borde: hay que dejar margen arriba y abajo."
+        ],
+        "firma": "1908068-1795302043215",
+        "correccion_en": "Move the headline down so it is fully visible with at least 5% margin from the top edge, and write it exactly as \"TODA MI VIDA ME SALTABA EL DESAYUNO\" with a space between \"MI\" and \"VIDA\". Move the offer ribbon and the CTA button up so both are fully visible with at least 5% margin from the bottom edge; write \"Pagas al recibir\" fully legible right below \"TRATAMIENTO COMPLETO X3\", and the button fully visible reading \"Pide el tuyo\"."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T23:00:44.579Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V06_1x1": {
+      "v": "V06",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2397192-1795302054791",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2397192-1795302054791"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T23:00:54.815Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V07_1x1": {
+      "v": "V07",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2315006-1795302133367",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R006",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El sello dice «INGREDIEITES»: cambió la N por una I. Debe decir «5 INGREDIENTES · 1 TOMA AL DÍA».",
+          "El titular de arriba queda pegado al borde superior, a menos del 5 %. Hay que bajarlo un poco."
+        ],
+        "firma": "2315006-1795302133367",
+        "correccion_en": "Write the seal text exactly as \"5 INGREDIENTES · 1 TOMA AL DÍA\" (INGREDIENTES spelled with N, not I). Move the headline down so it keeps at least 5% margin from the top edge."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T23:02:14.826Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V08_1x1": {
+      "v": "V08",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2044204-1795302130296",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El botón «Pide el tuyo» queda pegado al borde de abajo: el texto está a menos del 5 % del borde. Hay que subirlo un poco.",
+          "El titular de arriba queda casi tocando el borde superior. Conviene bajarlo un poco para dejar al menos el 5 % de margen."
+        ],
+        "firma": "2044204-1795302130296",
+        "correccion_en": "Move the \"Pide el tuyo\" CTA button up so its text sits at least 7% above the bottom edge, and move the headline \"VITALDROPS: 5 EN 1 PARA TRABAJAR TUS CURVAS\" slightly down so it sits at least 6% below the top edge. Keep all texts exactly as they are; shrink the offer ribbon slightly if needed to make room."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T23:02:10.616Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V09_1x1": {
+      "v": "V09",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2323183-1795302143812",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R006",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El sello de «5 INGREDIENTES» tapa parte de la etiqueta del frasco: la S de «VITALDROPS» y el final de «Supplement» no se ven completos. El sello debe ir al lado del frasco, sin taparlo.",
+          "El titular de arriba queda pegado al borde superior, a menos del 5 %. Hay que bajarlo.",
+          "La etiqueta «DESPUÉS» queda muy cerca del borde derecho, a menos del 5 %. Hay que correrla hacia adentro."
+        ],
+        "firma": "2323183-1795302143812",
+        "correccion_en": "Place the \"5 INGREDIENTES · 1 TOMA AL DÍA\" seal next to the bottle without covering its label, so \"VITALDROPS\" and \"All-In-One Multi-Herbal Supplement\" are fully visible. Move the headline down to keep at least 5% margin from the top edge, and move the \"DESPUÉS\" tag inward to keep at least 5% margin from the right edge."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T23:02:25.000Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V10_1x1": {
+      "v": "V10",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2172409-1795302219630",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R007",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular queda muy pegado a los bordes: «SEMANAS» casi toca el borde izquierdo y «NATURAL» casi toca el derecho. Debe quedar al menos a un 5 % de cada borde."
+        ],
+        "firma": "2172409-1795302219630",
+        "correccion_en": "Make the headline \"GANAS DE COMER EN SEMANAS, DE FORMA NATURAL\" slightly smaller and centered so every letter stays at least 5% away from the left and right edges of the image. Keep all other texts as they are."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T23:03:41.074Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    }
+  },
+  "pedidos": {}
+}

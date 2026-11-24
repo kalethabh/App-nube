@@ -1,0 +1,146 @@
+{
+  "slug": "aguaje-complex-3-en-1-claymation-20261119-1624",
+  "generado": "2026-11-19T23:22:02.308Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 59.91,
+    "estimada": 63.4,
+    "pedida": null
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-3-en-1-claymation-20261119-1624_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda la voz",
+      "detalle": "El video se adaptó a los 1:00 de la voz en off: ninguna frase se recortó para cuadrar."
+    },
+    {
+      "id": "voz",
+      "icono": "voz",
+      "titulo": "La voz: Valentina - Conversational Medellin",
+      "detalle": "Es la que elegiste para este estilo."
+    },
+    {
+      "id": "continuidad",
+      "icono": "continuidad",
+      "titulo": "16 pasos encadenados, sin cortes",
+      "detalle": "Cada video va de una escena a la siguiente y el montaje no corta ninguno: solo cambia su velocidad para que cada imagen llegue con su frase."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:21."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "68 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    }
+  ],
+  "transiciones": [],
+  "problemas": [
+    {
+      "id": "respaldo",
+      "tipo": "arreglado",
+      "titulo": "Un clip salió con el modelo de respaldo",
+      "detalle": "El modelo principal no lo pudo hacer y la app usó el de respaldo para no frenar el anuncio. Puede verse un poco distinto: míralo.",
+      "piezas": [
+        {
+          "n": 14,
+          "unidad": "paso",
+          "momento": 40.914,
+          "valor": "clip"
+        }
+      ]
+    },
+    {
+      "id": "voces-coladas",
+      "tipo": "arreglado",
+      "titulo": "Un clip traía una voz que no iba",
+      "detalle": "El modelo de video metió una frase que nadie escribió. Se le quitó el sonido a ese clip (la imagen queda igual); se pierde su sonido de ambiente.",
+      "piezas": [
+        {
+          "n": 11,
+          "unidad": "toma",
+          "momento": 28.7,
+          "valor": "sin sonido"
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 993,
+    "dolares": 4.97,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 22,
+      "creditos": 160,
+      "dolares": 0.8
+    },
+    "videos": {
+      "piezas": 6,
+      "creditos": 401,
+      "dolares": 2.01
+    },
+    "musica": {
+      "pistas": 1,
+      "creditos": 12,
+      "dolares": 0.06
+    },
+    "sinRegistro": {
+      "piezas": 12,
+      "creditosEstimados": 420
+    },
+    "estimado": true,
+    "elevenlabs": {
+      "caracteres": 988,
+      "scribeSegundos": 71.6
+    },
+    "corridas": 5,
+    "respaldo": [
+      "paso-14.mp4"
+    ],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 22,
+        "creditos": 160,
+        "dolares": 0.8
+      },
+      {
+        "id": "videos",
+        "piezas": 18,
+        "creditos": 821,
+        "dolares": 4.11,
+        "estimadas": 12
+      },
+      {
+        "id": "musica",
+        "piezas": 1,
+        "creditos": 12,
+        "dolares": 0.06
+      },
+      {
+        "id": "voz",
+        "caracteres": 988
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 2016.1,
+      "saldoDespues": 1011.1,
+      "diferencia": 1005,
+      "coincide": false
+    },
+    "rehecho": false
+  }
+}

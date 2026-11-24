@@ -1,0 +1,247 @@
+{
+  "version": 1,
+  "siguiente": {
+    "E": 3,
+    "R": 6,
+    "A": 1,
+    "T": 3
+  },
+  "tandas": {
+    "E001": {
+      "tipo": "estrategia",
+      "ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V04"
+      ],
+      "uuid": "56f3034f-3515-4730-b3af-da278c918d4e",
+      "motor": "claude",
+      "estado": "hecha"
+    },
+    "E002": {
+      "tipo": "prompts",
+      "uuid": "8446c13c-5fb1-4621-af1c-7d0a8f08916e",
+      "estado": "hecha",
+      "ids": [
+        "V05"
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "2b0d342d-77fb-4317-bcf0-fb9c62061402",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "1743914-1795209890630",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "78835d23-bd0d-49e5-988a-354380fd799c",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V02_1x1",
+          "firma": "1615812-1795209898278",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "d6d7a20d-3f4b-4d80-b514-8cd2d1015f2c",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V03_1x1",
+          "firma": "2350162-1795209908756",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "628b0433-443e-4ca1-beaf-d7caa2920b94",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V04_1x1",
+          "firma": "2071454-1795209988065",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R005": {
+      "tipo": "revision",
+      "uuid": "bbb85aa3-a7de-44ff-8962-5d6137ba18bd",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "1640094-1795210007649",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    }
+  },
+  "variaciones": {
+    "V01": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V02": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V03": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V04": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V05": {
+      "prompt": "listo",
+      "tanda": "E002"
+    }
+  },
+  "piezas": {
+    "V01_1x1": {
+      "v": "V01",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1743914-1795209890630",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1743914-1795209890630"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-20T21:24:52.411Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V02_1x1": {
+      "v": "V02",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1615812-1795209898278",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1615812-1795209898278"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-20T21:24:59.100Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V03_1x1": {
+      "v": "V03",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2350162-1795209908756",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2350162-1795209908756"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-20T21:25:08.995Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V04_1x1": {
+      "v": "V04",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2071454-1795209988065",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2071454-1795209988065"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-20T21:26:28.378Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V05_1x1": {
+      "v": "V05",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1640094-1795210007649",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1640094-1795210007649"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-20T21:26:48.333Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    }
+  },
+  "pedidos": {}
+}

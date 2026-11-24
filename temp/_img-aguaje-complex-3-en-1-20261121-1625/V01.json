@@ -1,0 +1,257 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "uploaded reference (R01.png, Christmas lifestyle supplement ad)",
+    "reference_style": "Festive lifestyle product ad with model and product hero, Christmas bedroom scene, icon benefit list",
+    "angle_used": "Transformation / result framed as a Christmas gift to yourself",
+    "ad_format": "Lifestyle Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Keep the reference color logic (bright warm festive photo, black and fuchsia text, solid fuchsia graphic accents, white text on fuchsia bar) mapped to the brand: hot fuchsia #E6177F and deep magenta #B0105E for the key headline word, icon circles, pill labels and bottom bar; bottle black #0E0E10 for the second headline line and script; dark charcoal #2A2A2E for small body text; white #FFFFFF; pale blush pink #FBE3EE and bubblegum pink #FF8CC0 in background bokeh. Christmas red #C8102E and warm gold #C9A24A only in props (Santa hat, ribbons, ornaments, seal).",
+    "visual_style": "Premium Latin American beauty-supplement Christmas ad: realistic cozy holiday bedroom photo with a decorated tree, a confident woman holding the black-and-fuchsia bottle, the bottle as hero on the right, clean fuchsia icon modules and a rounded fuchsia bottom bar.",
+    "visual_atmosphere": "Feminine, confident, warm and festive; soft warm daylight mixed with fairy-light bokeh, believable and natural.",
+    "graphic_language": "Solid fuchsia circles with thin-line white icons, rounded fuchsia pill labels and bottom bar, handwritten script accents with small hearts, a round gold seal, soft pink bokeh, gifts with red ribbons.",
+    "text_typography": "Exactly the reference typography: opening line in an elegant black handwritten brush script, slightly tilted upward; key word in a huge ultra-bold geometric sans-serif, all uppercase (Montserrat Black look), fuchsia; second headline line in a bold geometric sans-serif, all uppercase, black, about 40% the height of the key word; subtitle in a clean regular sans-serif (Poppins Regular look), sentence case, dark charcoal, with a small solid fuchsia heart; icon labels in the same regular sans, sentence case, dark charcoal, small; left emotional note in a casual white handwritten script with a small outline heart; gift tag note in a black handwritten script; pill labels and bottom bar in white uppercase medium sans-serif with one bold word."
+  },
+  "creative_objective": "Recreate the user's winning Christmas ad with the same composition, blocks, hierarchy and typography, with a new model, and a headline promising the central desire as a Christmas gift to herself: the curves she dreams of, naturally and without surgery.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "First: the woman on the left and the huge fuchsia headline word top right. Second: the big bottle hero on the right and the black second headline line. Third: the four fuchsia icon rows, the DÍA 1 / MES 3 panel, the handwritten notes and the fuchsia bottom bar.",
+    "composition_style": "Asymmetric split: the woman occupies the left half, the text stack and product occupy the right half; the bottom bar spans the lower center-right.",
+    "spacing_and_structure": "Tight right column: headline stack at top, icon list below it on the left side of the right half, bottle to its right, small two-photo panel under the icon list, gift box in the bottom-right corner, bar at the very bottom. Breathing room around the headline.",
+    "lighting_and_depth": "Warm soft indoor daylight, golden fairy-light bokeh from the tree, shallow depth of field on the background, natural soft shadows under the woman and the bottle, realistic skin texture.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square festive ad. Left half (x 0-50%): a woman kneeling on a white fluffy rug, shown from behind in three-quarter profile facing right, torso turned and looking over her shoulder at the camera, wearing a red-and-white Santa hat, a red fitted top, white fitted knit shorts with a small red bow, red-and-white Nordic knee socks; her raised hand holds the product bottle next to her face (upper center, x 38-50%, y 14-32%). Behind her on the left: a decorated Christmas tree with warm lights and red/gold ornaments, wrapped gifts at its base. Top right (x 45-97%, y 4-30%): headline stack: black script line, huge fuchsia uppercase word, black uppercase line, two-line subtitle. Middle right column (x 52-72%, y 34-66%): four rows, each a solid fuchsia circle with a white thin-line icon and a two-line label to its right. Right (x 72-97%, y 34-78%): large standing product bottle with a round gold PREMIUM seal overlapping its upper right, and a few pink capsules lying on the rug in front. Left middle (x 2-22%, y 43-60%): white handwritten note over the tree area. Lower middle (x 50-70%, y 66-86%): small panel of two rounded-corner photos side by side with fuchsia pill labels on top and a white curved arrow between them. Bottom right corner (x 80-100%, y 80-98%): wrapped gift box with red ribbon and a hanging kraft tag with handwritten text. Bottom center (x 38-84%, y 93-99%): rounded fuchsia pill bar with white uppercase text. No price, no CTA button, no logo.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Festive emotional context that ties the purchase to Christmas",
+        "adaptation_rule": "Cozy bright bedroom with decorated Christmas tree and warm fairy lights on the left, gifts with red ribbons, white fluffy rug, soft cream wall with pink bokeh on the right",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "person",
+        "position": "Left half, kneeling, looking over her shoulder at camera, holding the bottle up near her face",
+        "visual_function": "Aspirational, relatable model showing the desired curvy athletic figure and endorsing the product",
+        "adaptation_rule": "A different model from the reference: Colombian woman around 27, warm tan skin, long wavy dark-brown hair with soft caramel highlights, natural makeup, warm smile; natural athletic curves in glutes and thighs; same pose, outfit type and Santa hat; tasteful, not explicit",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "product (in hand)",
+        "position": "Held by the woman next to her face, upper center",
+        "visual_function": "Connects the model with the product",
+        "adaptation_rule": "The user's bottle, identical to the attached photo, label facing camera",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "headline stack",
+        "position": "Top right",
+        "visual_function": "Main hook: script opener, huge key word, second line, subtitle",
+        "adaptation_rule": "Same structure and typography; only the key word and the second line change to this variation's headline",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "icon benefit list (4 rows)",
+        "position": "Middle right column, left of the bottle",
+        "visual_function": "Quick explanation of what the product does",
+        "adaptation_rule": "Same four fuchsia circles with white thin-line icons (curvy peach silhouette, leg silhouette, lightning bolt, leaf) and compliant labels",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "product hero",
+        "position": "Right side, large, standing on the rug",
+        "visual_function": "Product recognition and premium feel",
+        "adaptation_rule": "The user's bottle, identical to the attached photo, large and sharp, with a few pink capsules lying in front",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "gold seal",
+        "position": "Overlapping the upper right shoulder of the hero bottle",
+        "visual_function": "Premium quality cue",
+        "adaptation_rule": "Round metallic gold seal with small stars and the single word PREMIUM",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "handwritten emotional note",
+        "position": "Left middle, over the tree area",
+        "visual_function": "Emotional gift framing",
+        "adaptation_rule": "Same white handwritten script note with a small outline heart",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_09",
+        "block_type": "two-photo progress panel",
+        "position": "Lower middle, under the icon list",
+        "visual_function": "Shows progress of the plan",
+        "adaptation_rule": "Two small rounded-corner photos of the same woman from behind at hip level in fitted shorts (left grey shorts, right pink shorts, natural subtle difference, nothing exaggerated), fuchsia pill labels on top, white curved arrow between them",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_10",
+        "block_type": "gift box with tag",
+        "position": "Bottom right corner",
+        "visual_function": "Christmas prop that carries a motivational handwritten line",
+        "adaptation_rule": "Wrapped gift box with a red satin ribbon and a kraft paper tag with black handwritten text",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_11",
+        "block_type": "bottom pill bar",
+        "position": "Bottom center",
+        "visual_function": "Emotional closing line",
+        "adaptation_rule": "Rounded fuchsia pill bar with white uppercase text and a small white heart",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Any brand logo in the top right corner or anywhere else (the reference logo is removed; leave background)",
+      "Price, discount or offer boxes",
+      "CTA buttons",
+      "Rating stars outside the gold seal, reviews, testimonials or customer counts",
+      "Extra benefit lists, badges or trust seals",
+      "Any additional text not listed in text_layers"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium Christmas lifestyle supplement ad, photorealistic. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. The product is a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; its black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom. SCENE: a cozy bright bedroom at Christmas; on the left a decorated Christmas tree with warm golden fairy lights and red and gold ornaments, wrapped gifts with red ribbons at its base; a soft cream wall with blush-pink bokeh on the right; a thick white fluffy rug on the floor; warm soft daylight. LEFT HALF: a Colombian woman around 27 with warm tan skin, long wavy dark-brown hair with soft caramel highlights, natural makeup and a warm confident smile, wearing a red-and-white Santa hat, a red fitted top, white fitted ribbed knit shorts with a small red bow on the side, and red-and-white Nordic knee socks; she kneels on the rug seen from behind in three-quarter profile facing right, torso turned, looking over her shoulder at the camera, showing natural athletic curves in glutes and thighs, tasteful and not explicit; her raised hand holds the product bottle next to her face with the label facing the camera. Real skin texture, natural light. TOP RIGHT: the headline stack aligned left inside the right half: a black handwritten brush-script line slightly tilted upward, below it a huge ultra-bold uppercase geometric sans-serif word in fuchsia #E6177F, below it a bold uppercase black line, below it a two-line regular sans-serif subtitle in dark charcoal ending with a small fuchsia heart. MIDDLE RIGHT COLUMN: four stacked rows, each a solid fuchsia circle with a thin-line white icon (1 a curvy peach silhouette, 2 a leg silhouette, 3 a lightning bolt, 4 a leaf) and a small two-line dark charcoal label to its right. RIGHT SIDE: the same product bottle shown large and standing on the rug, sharp and identical to the photo, slightly angled, with a round metallic gold seal with small stars reading PREMIUM overlapping its upper right shoulder, and a few glossy pink capsules lying on the rug in front of it. LEFT MIDDLE over the tree area: a short white handwritten script note in four short lines with a small outline heart. LOWER MIDDLE under the icon list: a small panel of two rounded-corner photos side by side showing the same woman from behind at hip level in fitted shorts (left in grey shorts, right in pink shorts, a natural subtle difference), each with a small fuchsia pill label on top with white uppercase text, and a white curved arrow between them. BOTTOM RIGHT CORNER: a wrapped gift box with a red satin ribbon and a hanging kraft paper tag with black handwritten text. BOTTOM CENTER: a rounded fuchsia pill bar with white uppercase text and a small white heart. The top right corner stays as clean background (no logo). Render all text exactly as given, sharp and legible on a phone. Do not add CTA buttons, price badges, extra benefit lists, extra icons, trust badges, extra rating stars, discount labels, testimonials, logos or any extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "headline opener (script)",
+      "reference_position": "Top right, first line of the headline stack, slightly tilted upward",
+      "text_style": "Elegant black handwritten brush script, medium-large, left-aligned in the right half",
+      "text": "Esta Navidad"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "main headline key word",
+      "reference_position": "Top right, second line of the headline stack, the largest text in the ad",
+      "text_style": "Huge ultra-bold geometric sans-serif, all uppercase, fuchsia #E6177F, very tight letter spacing",
+      "text": "REGÁLATE"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "main headline second line",
+      "reference_position": "Top right, directly under the key word",
+      "text_style": "Bold geometric sans-serif, all uppercase, black, about 40% the height of the key word",
+      "text": "LAS CURVAS QUE SUEÑAS"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "subtitle",
+      "reference_position": "Top right, under the headline, two centered lines",
+      "text_style": "Regular sans-serif, sentence case, dark charcoal, small-medium, ends with a small solid fuchsia heart",
+      "text": "Acompaña tus curvas, tus piernas y una versión más segura de ti ♥"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit (icon row 1)",
+      "reference_position": "Middle right column, row 1, right of the first fuchsia circle",
+      "text_style": "Regular sans-serif, sentence case, dark charcoal, small, two lines",
+      "text": "Acompaña tus curvas de forma natural"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "benefit (icon row 2)",
+      "reference_position": "Middle right column, row 2",
+      "text_style": "Regular sans-serif, sentence case, dark charcoal, small, two lines",
+      "text": "Apoyo para tu rutina de pierna"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "benefit (icon row 3)",
+      "reference_position": "Middle right column, row 3",
+      "text_style": "Regular sans-serif, sentence case, dark charcoal, small, two lines",
+      "text": "Más energía cada día"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "benefit (icon row 4)",
+      "reference_position": "Middle right column, row 4",
+      "text_style": "Regular sans-serif, sentence case, dark charcoal, small, two lines",
+      "text": "Con aguaje, fenogreco y maca negra"
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "badge (gold seal)",
+      "reference_position": "On the round gold seal over the upper right shoulder of the hero bottle",
+      "text_style": "Bold uppercase serif-like lettering in dark brown on metallic gold, small",
+      "text": "PREMIUM"
+    },
+    {
+      "block_id": "text_block_10",
+      "reference_function": "other (handwritten emotional note)",
+      "reference_position": "Left middle, over the tree area, four short lines",
+      "text_style": "Casual white handwritten script, medium, slightly tilted, with a small white outline heart at the end",
+      "text": "Tu mejor regalo también puede ser tu cuerpo ♡"
+    },
+    {
+      "block_id": "text_block_11",
+      "reference_function": "label (left photo)",
+      "reference_position": "Fuchsia pill on top of the left photo of the two-photo panel",
+      "text_style": "White uppercase medium sans-serif, small",
+      "text": "DÍA 1"
+    },
+    {
+      "block_id": "text_block_12",
+      "reference_function": "label (right photo)",
+      "reference_position": "Fuchsia pill on top of the right photo of the two-photo panel",
+      "text_style": "White uppercase medium sans-serif, small",
+      "text": "MES 3"
+    },
+    {
+      "block_id": "text_block_13",
+      "reference_function": "other (handwritten gift tag)",
+      "reference_position": "Kraft tag hanging on the gift box, bottom right corner, three short lines",
+      "text_style": "Black handwritten script, small, slightly tilted",
+      "text": "Disciplina hoy, resultados mañana"
+    },
+    {
+      "block_id": "text_block_14",
+      "reference_function": "other (closing line in bottom bar)",
+      "reference_position": "Bottom center, inside the rounded fuchsia pill bar",
+      "text_style": "White uppercase medium sans-serif with the word NAVIDAD in bold, ends with a small white heart",
+      "text": "UNA NAVIDAD MÁS SEGURA, MÁS FUERTE, MÁS TÚ ♥"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Decorated Christmas tree with warm fairy lights on the left and wrapped gifts with red ribbons",
+    "White fluffy rug",
+    "The woman kneeling seen from behind, looking over her shoulder, with Santa hat, red top, white knit shorts and Nordic knee socks, holding the bottle near her face",
+    "Large hero product bottle on the right, identical to the attached photo",
+    "Round metallic gold seal with small stars on the hero bottle",
+    "A few glossy pink capsules on the rug in front of the bottle",
+    "Four solid fuchsia circles with white thin-line icons (peach silhouette, leg, lightning bolt, leaf)",
+    "Two-photo panel with fuchsia pill labels and a white curved arrow",
+    "Gift box with red ribbon and kraft tag in the bottom right corner",
+    "Rounded fuchsia bottom pill bar"
+  ],
+  "final_generation_exclusions": [
+    "No logo in the top right corner or anywhere else; no brand other than the one printed on the user's bottle.",
+    "Do not show the reference product or its label; only the user's bottle.",
+    "No nudity, no explicit or vulgar pose; keep it tasteful.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

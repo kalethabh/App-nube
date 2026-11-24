@@ -1,0 +1,18 @@
+{
+  "id": "T005",
+  "piezas": {
+    "V04_1x1": {
+      "orden": "U0004",
+      "estado": "sin-imagen",
+      "intentosApi": 3,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": null,
+      "ultimoMotivo": "fallo-de-chatgpt",
+      "motivo": "fallo-de-chatgpt",
+      "mensaje": "ChatGPT no pudo hacer esta imagen"
+    }
+  },
+  "actualizado": "2026-11-20T23:44:10.655Z",
+  "terminado": true
+}

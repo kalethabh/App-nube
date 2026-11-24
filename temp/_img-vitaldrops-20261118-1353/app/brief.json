@@ -1,0 +1,58 @@
+{
+  "slug": "_img-vitaldrops-20261118-1353",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "VITALDROPS",
+  "productoId": "vitaldrops-d183",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "VITALDROPS",
+    "publico": "18 a 55",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "",
+    "angulo": null
+  },
+  "cantidad": 10,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.jpg",
+    "entrada/referencias/R02.jpg",
+    "entrada/referencias/R03.jpg",
+    "entrada/referencias/R04.jpg",
+    "entrada/referencias/R05.jpg",
+    "entrada/referencias/R06.jpg",
+    "entrada/referencias/R07.jpg",
+    "entrada/referencias/R08.jpg",
+    "entrada/referencias/R09.jpg",
+    "entrada/referencias/R10.jpg"
+  ],
+  "modo": "nuevos",
+  "referenciasPropias": [],
+  "fiel": true,
+  "elegirTitulos": false,
+  "rapido": true,
+  "investigacion": "entrada/investigacion.md",
+  "desdePlantillas": true,
+  "logo": null,
+  "creado": "2026-11-18T18:53:57.132Z",
+  "investigacionDelProducto": true,
+  "plantillasReferencia": [
+    "p01",
+    "p10",
+    "p04",
+    "p17",
+    "p28",
+    "p23",
+    "p11",
+    "p12",
+    "p14",
+    "p05"
+  ],
+  "ganchos": "entrada/ganchos.json"
+}

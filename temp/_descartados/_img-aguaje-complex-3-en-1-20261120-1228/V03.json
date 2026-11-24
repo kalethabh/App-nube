@@ -1,0 +1,202 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format G19 (Tres columnas: producto, beneficios y persona)",
+    "reference_style": "Warm, high-key LATAM direct-response ad: a one-line pain question headline, a highlighter brush stroke with the 'try + solution concept' proposal, the product on a round side table at the left, a check benefit list in the middle, a smiling woman at the right and a brush-stroke strip along the bottom",
+    "angle_used": "Dolor / problema: training legs for months and the jeans still look the same",
+    "ad_format": "Three-Column Pain Question Ad (Product, Benefit Checklist and Smiling User)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: clean pink and blush backgrounds, ultra-photorealistic Colombian women photographed naturally and respectfully, the black-and-fuchsia bottle as hero, clean icon modules.",
+    "visual_atmosphere": "Feminine, confident, warm and aspirational; soft daylight, believable real-life moments.",
+    "graphic_language": "Rounded pills and banners in fuchsia and deep magenta, thin-line white icons inside fuchsia circles, handwritten script accents used sparingly, clean flat or softly graded backgrounds with minimal decoration (no clutter, no excess particles, petals or sparkles).",
+    "text_typography": "Poppins Bold (uppercase, heavy) for headlines and labels, Poppins Regular for supporting text, and a casual handwritten script for short emotional accents."
+  },
+  "creative_objective": "Speak to the woman who already trains legs and does not see the change. Open with her frustration as a question, answer with the bottle as the natural support her routine was missing, list four benefits and close with the cash-on-delivery condition, all in one glance.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The pain question headline. 2) The bottle on the left and the smiling woman on the right framing the layout. 3) The pink highlighter stroke with the proposal. 4) The subtitle and the four checked benefits in the middle. 5) The bottom strip with the payment condition.",
+    "composition_style": "Centered text stack across the top, then a three-column body: left (5-35% of width) the bottle on a round side table; middle (33-62%) subtitle, thin divider and checklist; right (55-100%) the woman, cropped by the right edge, her head higher than the bottle. A full-width strip closes the bottom and overlaps the lower part of the woman and the table.",
+    "spacing_and_structure": "Headline one line 5.5-12% of the height. Highlighter 14-20% of the height, 5-64% of the width. Bottle 25-86% of the height, 8-32% of the width, on a round table top at 82-90%. Subtitle 24-31%, divider at 32%, four benefit rows centered at about 38%, 46%, 54% and 62%. Woman from 55% of the width to the edge, head top at about 16%. Bottom strip 90-98.5% of the height.",
+    "lighting_and_depth": "Warm soft window light from the upper right, high-key creamy tones; softly blurred bright living room with shallow depth of field. Bottle tack-sharp with soft contact shadow on the marble table. Text and checks flat; highlighter and bottom strip with a painted dry-brush edge.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas filled with a warm, softly blurred bright living room (light walls, sofa, a rolled pink exercise mat and a small plant). Top: a one-line question headline in bottle black, centered. Under it, left-weighted, a bubblegum pink highlighter brush stroke with the proposal. Three columns: left, the bottle large and upright on a round light marble side table with a few fresh green leaves at its base; middle, a two-line subtitle, a thin divider and four benefit rows with solid fuchsia check circles; right, a smiling Colombian woman in sportswear holding a water bottle, from the waist up, cropped by the right edge. A full-width fuchsia brush-stroke strip at the bottom carries the payment condition in white. No stars and no customer count.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "lifestyle background",
+        "position": "Full canvas, behind every element",
+        "visual_function": "Places the moment at home just after her leg workout",
+        "adaptation_rule": "Softly blurred bright living room with light walls, a sofa, a rolled pink exercise mat on the floor and one potted plant, warm window light, shallow depth of field. Calm and light behind the headline and the middle column.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top center, one line, 5.5-12% of the height, 7-85% of the width",
+        "visual_function": "Stops the scroll by naming her frustration as a question",
+        "adaptation_rule": "One line, extra bold, bottle black, with opening and closing question marks.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "highlighter brush stroke",
+        "position": "Under the headline, 14-20% of the height, 5-64% of the width (left-weighted)",
+        "visual_function": "Highlights the answer: a natural support for her routine",
+        "adaptation_rule": "One horizontal painted brush stroke in bubblegum pink #FF8CC0 with rough dry-brush ends, sized to its text. Flat, no shadow.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "Left column, 8-32% of the width, 25-86% of the height, standing on the side table",
+        "visual_function": "Shows exactly what supports her routine",
+        "adaptation_rule": "The user's bottle exactly as in the attached photo, front view, upright, label facing the camera, soft contact shadow on the table top.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "side table with fresh leaves",
+        "position": "Bottom-left, round table top spanning 0-53% of the width at 82-90% of the height",
+        "visual_function": "Grounds the bottle in the room with a fresh natural feel",
+        "adaptation_rule": "Small round light marble side table seen slightly from above, with a few fresh green leaves at both sides of the bottle base. Nothing covers the label.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "thin divider line",
+        "position": "Middle column, at about 32% of the height, 33-60% of the width",
+        "visual_function": "Separates the subtitle from the benefit list",
+        "adaptation_rule": "Hairline in light pink, low contrast.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "benefit check icons (4)",
+        "position": "Middle column, left of each benefit row, 34-38% of the width, rows at 38%, 46%, 54% and 62% of the height",
+        "visual_function": "Marks each benefit and makes the list scannable",
+        "adaptation_rule": "Solid hot fuchsia #E6177F circles about 4% of the canvas in diameter with a bold white check, all identical.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "smiling woman holding a water bottle",
+        "position": "Right column, 55% of the width to the right edge, head top at about 16% of the height, torso continuing behind the bottom strip",
+        "visual_function": "Puts a relatable, happy face on the solution",
+        "adaptation_rule": "Ultra-photorealistic Colombian woman about 25 years old, medium-brown skin with real texture, dark hair in a high ponytail, light sheen of post-workout glow, wearing a fuchsia sports bra under an open light grey zip jacket, smiling warmly at the camera, from the waist up, holding a reusable water bottle at chest height. Never a second unit of the product. Body not emphasized or posed toward the camera.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_09",
+        "block_type": "bottom brush-stroke strip",
+        "position": "Full width, 90-98.5% of the height",
+        "visual_function": "Closes the ad with a trust condition",
+        "adaptation_rule": "Wide painted brush stroke in hot fuchsia #E6177F with subtle dry-brush texture and soft ragged ends, overlapping the lower part of the woman and the table, carrying one white line of text centered. No stars.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Rating stars or a customer count (removed: there are no real figures)",
+      "CTA button",
+      "Price, discount, offer or shipping badge",
+      "Trust seals, guarantee or certification badges",
+      "Testimonial quotes or review cards",
+      "Arrows or callout lines",
+      "Icon tiles or illustrated icons on the benefits (only the fuchsia checks)",
+      "Numbers on the benefit rows",
+      "Cards or panels behind the columns",
+      "More than one person",
+      "A second unit of the product",
+      "Logos or brand marks other than those printed on the product label",
+      "Close-ups of hips, legs or buttocks"
+    ]
+  },
+  "visual_prompt": "Square 1:1 warm high-key direct-response ad. Full background: a softly blurred bright living room with light walls, a sofa, a rolled pink exercise mat on the floor and one potted plant, warm window light from the upper right, shallow depth of field, calm and light behind the text. Top center, one line from about 5.5% to 12% of the height: a bold question headline in Poppins Bold, bottle black #0E0E10, with opening and closing question marks. Under it, left-weighted from about 5% to 64% of the width and 14% to 20% of the height: one painted bubblegum pink #FF8CC0 highlighter brush stroke with rough dry-brush ends, carrying the proposal in bottle black (first word regular, the rest extra bold uppercase). Three-column body. LEFT column (about 8-32% of the width, 25-86% of the height): the product bottle large and upright on a small round light marble side table seen slightly from above (table top spanning about 0-53% of the width at 82-90% of the height), with a few fresh green leaves at both sides of its base. The bottle must be reproduced exactly from the attached product image (the only source of truth; do not redesign, replace or reinterpret it): a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Front view, label to the camera, tack-sharp, soft contact shadow. MIDDLE column (about 33-62% of the width): a two-line left-aligned subtitle (first line regular bottle black, second line bold hot fuchsia #E6177F) from 24% to 31% of the height, a light pink hairline divider at 32%, then four benefit rows centered at about 38%, 46%, 54% and 62% of the height, each starting with a solid hot fuchsia circle with a bold white check followed by a semi-bold bottle black text. RIGHT column (from about 55% of the width to the right edge): an ultra-photorealistic Colombian woman about 25 years old, medium-brown skin with real texture and pores, dark hair in a high ponytail, light healthy post-workout glow, wearing a fuchsia sports bra under an open light grey zip jacket, smiling warmly at the camera, shown from the waist up, holding a reusable water bottle at chest height, top of her head at about 16% of the height, cropped by the right edge, natural relaxed posture. BOTTOM: a full-width painted hot fuchsia brush-stroke strip from about 90% to 98.5% of the height with soft ragged ends, overlapping the lower part of the woman and the table, with one centered line of white bold text. No stars, no customer count, no CTA button, no price, no badges, no extra people.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline (pain question)",
+      "reference_position": "Top center, one line",
+      "text_style": "Poppins Bold, line about 6.5% of the canvas height, 1 line, centered, bottle black, with opening and closing question marks",
+      "text": "¿Mucha sentadilla y el jean igual?"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "proposal on the highlighter stroke",
+      "reference_position": "Centered on the pink highlighter brush stroke",
+      "text_style": "Poppins, about 4.5% of the canvas height, 1 line, bottle black; 'Suma' in regular weight and 'APOYO NATURAL' in extra bold uppercase",
+      "text": "Suma APOYO NATURAL"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "subtitle (what the product is)",
+      "reference_position": "Middle column, top, above the divider, left-aligned",
+      "text_style": "Two lines, left-aligned: line 1 Poppins Regular about 2.8% of the height in bottle black ('Aguaje, fenogreco y maca negra'); line 2 Poppins Bold about 3.5% in hot fuchsia ('en 2 cápsulas al día')",
+      "text": "Aguaje, fenogreco y maca negra en 2 cápsulas al día"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 1",
+      "reference_position": "Middle column, first row, right of the first check",
+      "text_style": "Poppins SemiBold, about 3% of the canvas height per line, max 2 lines, left-aligned, bottle black",
+      "text": "Acompaña tu rutina de pierna"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 2",
+      "reference_position": "Middle column, second row",
+      "text_style": "Same style as benefit 1",
+      "text": "Energía para entrenar"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "benefit 3",
+      "reference_position": "Middle column, third row",
+      "text_style": "Same style as benefit 1",
+      "text": "Sin agujas ni quirófano"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "benefit 4",
+      "reference_position": "Middle column, fourth row",
+      "text_style": "Same style as benefit 1",
+      "text": "Plan completo de 3 meses"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "payment condition (bottom strip)",
+      "reference_position": "Centered inside the bottom fuchsia strip",
+      "text_style": "Poppins Bold, about 4% of the canvas height, 1 line, centered, white on the fuchsia strip",
+      "text": "Pagas en efectivo cuando lo recibes"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Warm, softly blurred living-room background with window light and a rolled pink exercise mat",
+    "One-line pain question headline at the top",
+    "Bubblegum pink highlighter brush stroke with the invitation verb + bold uppercase solution concept",
+    "The user's bottle, large, on a round light marble side table with fresh leaves, in the left column",
+    "Two-line subtitle, thin divider and four benefits with solid fuchsia check circles in the middle column",
+    "Smiling woman in sportswear from the waist up, holding a water bottle, cropped by the right edge",
+    "Full-width fuchsia brush-stroke strip at the bottom with the payment condition"
+  ],
+  "final_generation_exclusions": [
+    "No rating stars and no customer count anywhere.",
+    "No close-ups or emphasis on hips, legs or buttocks.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

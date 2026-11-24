@@ -1,0 +1,23 @@
+{
+  "ad_info": {
+    "variation_id": "V01"
+  },
+  "visual_prompt": "A glowing neon line-art outline drawing of the full body of a person of the audience, standing, back three-quarter view, thin bright neon lines in the color #1C305F with a soft glow, on a PURE BLACK background, no fill, no facial details. The outline emphasizes the body area of the result (the shape clearly defined and attractive), sneakers on, sporty fitted outfit drawn as lines. The figure is centered and occupies the central 45% of the width and 90% of the height; everything else is pure black #000000 (the app adds labels and lines on both sides). Elegant, minimal, premium. Not explicit. Do NOT show the product. Product context (Spanish, from the product sheet): product: «VITALDROPS»; audience: «18 a 55»; problem: «Como y como y no me engorda nada»; result: «».",
+  "text_layers": [],
+  "mandatory_visual_elements": [],
+  "final_generation_exclusions": [],
+  "language_rule": "No visible text at all: the app adds every text.",
+  "app_plantilla": {
+    "id": "silueta-zonas",
+    "escena": true,
+    "textos": {
+      "arriba": "Por fin",
+      "titular": "¿Piernas flacas aunque entrenas? Revisa primero cuánto estás comiendo.",
+      "izquierda": [],
+      "derecha": [],
+      "legal": "Ilustración."
+    },
+    "k": 0,
+    "fecha": "2026-11-17T23:57:36.972Z"
+  }
+}

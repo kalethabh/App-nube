@@ -1,0 +1,85 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "uploaded reference R02",
+    "reference_style": "Product ad with framed result photo, icon column and trust bar (pink beauty-supplement style)",
+    "angle_used": "Beneficio sin sacrificio",
+    "ad_format": "Lifestyle Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: glossy pink background, ultra-photorealistic woman in short fitted shorts, black-and-fuchsia bottle as hero, clean icon modules.",
+    "visual_atmosphere": "Feminine, confident, warm and aspirational; believable real-life result.",
+    "graphic_language": "Rounded pills and banners in fuchsia and deep magenta, thin-line icons inside white-outlined circles, handwritten script accents with small hearts, soft leaf shapes in the background, real aguaje fruits with halved orange flesh.",
+    "text_typography": "Poppins Bold uppercase for headline and labels, Poppins Regular for supporting text, casual handwritten script for emotional accents."
+  },
+  "creative_objective": "Promise more curves in the glutes without living in the gym, proven by a framed real-looking photo of a woman's fuller glutes and thighs next to the bottle and its natural fruit.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Centered stacked headline with the giant last word. 2) Framed photo of the woman on the right. 3) The bottle with aguaje fruits. 4) Icons, bottom bar and script lines.",
+    "composition_style": "Centered headline across the top; below, three zones left to right: icon column, bottle, framed photo; bottom row with a two-cell bar on the left and script text on the right.",
+    "spacing_and_structure": "Headline occupies the top 30%; framed photo on the right 45% of the width from below the headline to just above the bottom; bottle center-left; generous gaps around the icons.",
+    "lighting_and_depth": "Glossy highlight on the bottle, natural indoor light inside the framed photo, soft shadows under the bottle, fruits and frame.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Fuchsia-to-pink background with soft leaf shapes. Top center: a deep magenta rounded pill with white uppercase text, under it a large white uppercase line, under it a giant fuchsia uppercase word with a thick white outline. Left column: three outlined circles with line icons, each with a short uppercase label. Center-left: the product bottle large and upright, with fresh aguaje fruits (one cut in half showing orange flesh) and green leaves at its lower-left base. Right: a vertical photo with rounded corners and a thin white border showing a woman from a 3/4 rear view from waist to knees in textured pink short shorts; above the photo a handwritten two-line script with a small heart. Bottom-left: a deep magenta rounded bar with two cells (icon + uppercase text) separated by a thin divider. Bottom-right: a handwritten two-line script.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "background", "position": "full canvas", "visual_function": "Brand mood", "adaptation_rule": "Fuchsia #E6177F to bubblegum pink #FF8CC0 with soft lighter leaf shapes", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "headline", "position": "top center", "visual_function": "Benefit without sacrifice", "adaptation_rule": "Pill + white line + giant outlined word", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "icon column", "position": "left edge", "visual_function": "Three quick benefits", "adaptation_rule": "Three white-outlined circles with white line icons and uppercase labels", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "product", "position": "center-left", "visual_function": "Hero product", "adaptation_rule": "The user's bottle exactly as in the attached photo", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "fruit prop", "position": "lower-left base of the bottle", "visual_function": "Natural origin", "adaptation_rule": "Real aguaje fruits (scaly reddish-brown skin), one halved with orange flesh, and green leaves", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "framed photo of person", "position": "right side", "visual_function": "Visual proof of the result", "adaptation_rule": "Ultra-realistic woman, 3/4 rear view waist to knees, short textured pink shorts, fuller glutes and thighs", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "handwritten accent", "position": "above the framed photo", "visual_function": "Emotional touch", "adaptation_rule": "Deep magenta script with small heart", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "two-cell bar", "position": "bottom-left", "visual_function": "Ease of use and purchase", "adaptation_rule": "Deep magenta bar with two icon+text cells, truthful texts", "present_in_reference": true },
+      { "block_id": "block_09", "block_type": "handwritten accent", "position": "bottom-right", "visual_function": "Credibility line", "adaptation_rule": "Deep magenta script, two lines", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Any brand logo other than the label printed on the bottle",
+      "Price, discount, stars, ratings, testimonials or extra badges",
+      "Extra icons or benefit lines beyond the three in the column",
+      "Additional photos or a before/after"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium supplement ad on a fuchsia (#E6177F) to bubblegum pink (#FF8CC0) background with soft lighter leaf shapes. TOP CENTER, stacked and centered: a deep magenta (#B0105E) rounded pill with white bold uppercase text 'SIN VIVIR EN EL GIMNASIO'; below it a large white bold uppercase line 'MÁS CURVAS EN TUS'; below it the giant bold uppercase word 'GLÚTEOS' in fuchsia with a thick white outline and a soft shadow, the largest text in the ad. LEFT EDGE, below the headline: a vertical column of three circles outlined in white with thin white line icons (a rounded glutes silhouette, a leg silhouette, a leaf), each with a short white bold uppercase label below. CENTER-LEFT, large and upright: the product. Use the attached product image as the only source of truth for the product, and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink screw cap printed with a repeating small white 'VITALABH' pattern and a hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', the line 'A base de Aguaje, Fenogreco y Maca Negra', italic pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom. At the bottle's lower-left base: three fresh real aguaje fruits with shiny scaly reddish-brown skin, one cut in half showing bright orange flesh (#D9572B), and a few green leaves. RIGHT SIDE, from below the headline almost to the bottom: a vertical photo with rounded corners and a thin white border. Inside it, an ultra-photorealistic real Latina woman in her late 20s photographed at home from a 3/4 rear view, framed from the waist to the knees, wearing very short textured (scrunch) dusty-pink fitted shorts and a black top; her glutes are clearly full, round and lifted and her thighs thick and toned, visibly voluminous yet natural and believable, filling about 65 percent of the photo. Maximum realism: real skin texture with visible pores, fine natural creases, subtle skin tone variation, realistic fabric texture, soft window daylight, shot on a full-frame camera; no plastic or airbrushed skin; tasteful, non-explicit fitness-fashion styling. Above the framed photo, a deep magenta handwritten script in two lines with a small heart. BOTTOM-LEFT: a deep magenta rounded bar with two cells separated by a thin white divider: left a white capsule icon with white bold uppercase text, right a white house icon with white bold uppercase text. BOTTOM-RIGHT: a deep magenta handwritten script in two lines. Include only these elements and texts.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "headline pill", "reference_position": "top center, first line", "text_style": "Poppins Bold uppercase, white on deep magenta rounded pill", "text": "SIN VIVIR EN EL GIMNASIO" },
+    { "block_id": "text_block_02", "reference_function": "main headline", "reference_position": "top center, second line", "text_style": "Poppins Bold uppercase, large, white", "text": "MÁS CURVAS EN TUS" },
+    { "block_id": "text_block_03", "reference_function": "main headline", "reference_position": "top center, third line, the biggest", "text_style": "Poppins Bold uppercase, giant, fuchsia with thick white outline", "text": "GLÚTEOS" },
+    { "block_id": "text_block_04", "reference_function": "benefit label", "reference_position": "under first icon circle", "text_style": "Poppins Bold uppercase, small, white, two lines", "text": "MÁS VOLUMEN NATURAL" },
+    { "block_id": "text_block_05", "reference_function": "benefit label", "reference_position": "under second icon circle", "text_style": "Poppins Bold uppercase, small, white, two lines", "text": "PIERNAS Y CADERAS CON FORMA" },
+    { "block_id": "text_block_06", "reference_function": "benefit label", "reference_position": "under third icon circle", "text_style": "Poppins Bold uppercase, small, white, two lines", "text": "A BASE DE PLANTAS" },
+    { "block_id": "text_block_07", "reference_function": "handwritten accent", "reference_position": "above the framed photo", "text_style": "Handwritten script, deep magenta, two lines, small heart", "text": "Tu mejor versión, más cerca" },
+    { "block_id": "text_block_08", "reference_function": "trust item", "reference_position": "bottom bar, left cell", "text_style": "Poppins Bold uppercase, white, two lines", "text": "2 CÁPSULAS AL DÍA" },
+    { "block_id": "text_block_09", "reference_function": "trust item", "reference_position": "bottom bar, right cell", "text_style": "Poppins Bold uppercase, white, two lines", "text": "TE LLEGA A CASA" },
+    { "block_id": "text_block_10", "reference_function": "handwritten accent", "reference_position": "bottom-right", "text_style": "Handwritten script, deep magenta, two lines", "text": "Curvas reales, resultados naturales" }
+  ],
+  "mandatory_visual_elements": [
+    "Fuchsia-to-pink background with soft leaf shapes",
+    "Deep magenta headline pill and giant white-outlined word",
+    "Three white-outlined circles with line icons in a left column",
+    "The real product bottle from the attached photo at center-left",
+    "Real aguaje fruits, one halved with orange flesh, and green leaves at the bottle base",
+    "Rounded white-bordered vertical photo of an ultra-realistic woman from a 3/4 rear view in very short textured pink shorts, with visibly fuller glutes and thighs",
+    "Deep magenta two-cell bottom bar with white icons"
+  ],
+  "final_generation_exclusions": [
+    "No brand logos other than the label on the bottle; no other supplement brands",
+    "No prices, discounts, stars, ratings or testimonials",
+    "No cartoonish, exaggerated or surgical-looking body proportions; no nudity",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia), perfectly spelled with accents."
+}

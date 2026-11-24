@@ -1,0 +1,265 @@
+{
+  "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-1317",
+  "generado": "2026-11-21T19:10:08.903Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 100.91,
+    "estimada": 109.1,
+    "pedida": 100
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-3-en-1-realista-narrado-20261121-1317_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda la voz",
+      "detalle": "El video se adaptó a los 1:41 de la voz en off: ninguna frase se recortó para cuadrar. Pediste cerca de 1 min 40 s."
+    },
+    {
+      "id": "voz",
+      "icono": "voz",
+      "titulo": "La voz: Lina - Carefree & Fresh",
+      "detalle": "La eligió la app porque no elegiste una: voz femenina como la del video de referencia (tono medio de 186 Hz, expresiva) · «Lina - Carefree & Fresh»: voz femenina, habla español, acento colombiano, joven, cercana, natural, hecha para narrar."
+    },
+    {
+      "id": "ventanas",
+      "icono": "ritmo",
+      "titulo": "4 escenas se pidieron un poco más largas",
+      "detalle": "La voz real dura más de lo calculado en esas frases: se pidió cada clip con el largo justo para que no falte imagen. Nunca se acortó ninguna."
+    },
+    {
+      "id": "ritmo",
+      "icono": "ritmo",
+      "titulo": "Todas las escenas, un poco más rápidas",
+      "detalle": "Los clips eran más largos que sus frases: en vez de cortarlos se aceleraron para seguir a la voz (la que más, 1,6 veces más rápida)."
+    },
+    {
+      "id": "broll",
+      "icono": "broll",
+      "titulo": "9 imágenes de apoyo en el video",
+      "detalle": "Quedaron 3 fuera porque su frase era corta y la escena aguantaba sola. No se generaron, así que no costaron nada."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 1:07; se repite para cubrir todo el video."
+    },
+    {
+      "id": "transiciones",
+      "icono": "transicion",
+      "titulo": "4 transiciones con sonido",
+      "detalle": "Van solo donde la historia cambia de parte; el resto son cortes limpios."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "105 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    }
+  ],
+  "transiciones": [
+    {
+      "toma": 3,
+      "momento": 7.175,
+      "animacion": "deslizar-derecha",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 17,
+      "momento": 61.962,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    },
+    {
+      "toma": 21,
+      "momento": 76.788,
+      "animacion": "deslizar-izquierda",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 25,
+      "momento": 90.198,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    }
+  ],
+  "problemas": [
+    {
+      "id": "respaldo",
+      "tipo": "arreglado",
+      "titulo": "5 clips salieron con el modelo de respaldo",
+      "detalle": "El modelo principal no lo pudo hacer y la app usó el de respaldo para no frenar el anuncio. Puede verse un poco distinto: míralo.",
+      "piezas": [
+        {
+          "n": 18,
+          "unidad": "toma",
+          "momento": 64.006,
+          "valor": "clip"
+        },
+        {
+          "n": 19,
+          "unidad": "toma",
+          "momento": 67.303,
+          "valor": "clip"
+        },
+        {
+          "n": 22,
+          "unidad": "toma",
+          "momento": 80.225,
+          "valor": "clip"
+        },
+        {
+          "n": 23,
+          "unidad": "toma",
+          "momento": 83.545,
+          "valor": "clip"
+        },
+        {
+          "n": 27,
+          "unidad": "toma",
+          "momento": 97.942,
+          "valor": "clip"
+        }
+      ]
+    },
+    {
+      "id": "voces-coladas",
+      "tipo": "arreglado",
+      "titulo": "9 clips traían una voz que no iba",
+      "detalle": "El modelo de video metió una frase que nadie escribió. Se le quitó el sonido a ese clip (la imagen queda igual); se pierde su sonido de ambiente.",
+      "piezas": [
+        {
+          "n": 10,
+          "unidad": "toma",
+          "momento": 34.168,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 12,
+          "unidad": "toma",
+          "momento": 40.763,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 13,
+          "unidad": "toma",
+          "momento": 45.43,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 25,
+          "unidad": "toma",
+          "momento": 90.198,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 3,
+          "unidad": "toma",
+          "momento": 7.175,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 6,
+          "unidad": "toma",
+          "momento": 20.155,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 7,
+          "unidad": "toma",
+          "momento": 23.696,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 8,
+          "unidad": "toma",
+          "momento": 26.285,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 9,
+          "unidad": "toma",
+          "momento": 30.035,
+          "valor": "sin sonido"
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 1926.4,
+    "dolares": 9.63,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 41,
+      "creditos": 0,
+      "dolares": 0
+    },
+    "videos": {
+      "piezas": 27,
+      "creditos": 1664.4,
+      "dolares": 8.32
+    },
+    "musica": {
+      "pistas": 1,
+      "creditos": 12,
+      "dolares": 0.06
+    },
+    "sinRegistro": {
+      "piezas": 8,
+      "creditosEstimados": 250
+    },
+    "estimado": true,
+    "elevenlabs": {
+      "caracteres": 1372,
+      "scribeSegundos": 144.3
+    },
+    "corridas": 4,
+    "respaldo": [
+      "toma-18.mp4",
+      "toma-19.mp4",
+      "toma-22.mp4",
+      "toma-23.mp4",
+      "toma-27.mp4"
+    ],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 41,
+        "creditos": 0,
+        "dolares": 0
+      },
+      {
+        "id": "videos",
+        "piezas": 35,
+        "creditos": 1914.4,
+        "dolares": 9.57,
+        "estimadas": 8
+      },
+      {
+        "id": "musica",
+        "piezas": 1,
+        "creditos": 12,
+        "dolares": 0.06
+      },
+      {
+        "id": "voz",
+        "caracteres": 1372
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 2681.8,
+      "saldoDespues": 1005.4,
+      "diferencia": 1676.4,
+      "coincide": false
+    },
+    "rehecho": false
+  }
+}

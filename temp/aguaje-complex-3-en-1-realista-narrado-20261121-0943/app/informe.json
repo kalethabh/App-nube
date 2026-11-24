@@ -1,0 +1,229 @@
+{
+  "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
+  "generado": "2026-11-21T18:05:54.369Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 104.49,
+    "estimada": 93.8,
+    "pedida": 100
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-3-en-1-realista-narrado-20261121-0943_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda la voz",
+      "detalle": "El video se adaptó a los 1:44 de la voz en off: ninguna frase se recortó para cuadrar. Pediste cerca de 1 min 40 s."
+    },
+    {
+      "id": "voz",
+      "icono": "voz",
+      "titulo": "La voz: Lina - Carefree & Fresh",
+      "detalle": "La eligió la app porque no elegiste una: voz femenina como la del video de referencia (tono medio de 190 Hz, expresiva) · «Lina - Carefree & Fresh»: voz femenina, habla español, acento colombiano, joven, cálida, cercana, natural, hecha para narrar."
+    },
+    {
+      "id": "ventanas",
+      "icono": "ritmo",
+      "titulo": "8 escenas se pidieron un poco más largas",
+      "detalle": "La voz real dura más de lo calculado en esas frases: se pidió cada clip con el largo justo para que no falte imagen. Nunca se acortó ninguna."
+    },
+    {
+      "id": "ritmo",
+      "icono": "ritmo",
+      "titulo": "Todas las escenas, un poco más rápidas",
+      "detalle": "Los clips eran más largos que sus frases: en vez de cortarlos se aceleraron para seguir a la voz (la que más, 2 veces más rápida)."
+    },
+    {
+      "id": "broll",
+      "icono": "broll",
+      "titulo": "17 imágenes de apoyo en el video",
+      "detalle": "Quedaron 7 fuera porque su frase era corta y la escena aguantaba sola. No se generaron, así que no costaron nada."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:33."
+    },
+    {
+      "id": "transiciones",
+      "icono": "transicion",
+      "titulo": "4 transiciones con sonido",
+      "detalle": "Van solo donde la historia cambia de parte; el resto son cortes limpios."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "102 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    }
+  ],
+  "transiciones": [
+    {
+      "toma": 3,
+      "momento": 10.194,
+      "animacion": "deslizar-derecha",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 8,
+      "momento": 32.519,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    },
+    {
+      "toma": 15,
+      "momento": 62.914,
+      "animacion": "deslizar-izquierda",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 22,
+      "momento": 87.283,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    }
+  ],
+  "problemas": [
+    {
+      "id": "respaldo",
+      "tipo": "arreglado",
+      "titulo": "2 clips y 1 imagen salieron con el modelo de respaldo",
+      "detalle": "El modelo principal no lo pudo hacer y la app usó el de respaldo para no frenar el anuncio. Puede verse un poco distinto: míralo.",
+      "piezas": [
+        {
+          "n": 15,
+          "unidad": "toma",
+          "momento": 62.914,
+          "valor": "clip"
+        },
+        {
+          "n": 1,
+          "unidad": "B-roll",
+          "momento": 2,
+          "valor": "clip"
+        },
+        {
+          "n": 11,
+          "unidad": "toma",
+          "momento": 45.708,
+          "valor": "imagen"
+        }
+      ]
+    },
+    {
+      "id": "voces-coladas",
+      "tipo": "arreglado",
+      "titulo": "Un clip traía una voz que no iba",
+      "detalle": "El modelo de video metió una frase que nadie escribió. Se le quitó el sonido a ese clip (la imagen queda igual); se pierde su sonido de ambiente.",
+      "piezas": [
+        {
+          "n": 16,
+          "unidad": "toma",
+          "momento": 66.13,
+          "valor": "sin sonido"
+        }
+      ]
+    },
+    {
+      "id": "cortos",
+      "tipo": "revisar",
+      "titulo": "3 clips quedaron un poco cortos",
+      "detalle": "El clip dura menos que el momento que tenía que cubrir; el montaje sostuvo el último cuadro para no dejar un hueco.",
+      "piezas": [
+        {
+          "n": 3,
+          "unidad": "B-roll",
+          "momento": 12.694,
+          "valor": "faltan 0,6 s"
+        },
+        {
+          "n": 6,
+          "unidad": "B-roll",
+          "momento": 23.966,
+          "valor": "faltan 0,8 s"
+        },
+        {
+          "n": 9,
+          "unidad": "B-roll",
+          "momento": 38.49,
+          "valor": "faltan 0,4 s"
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 1841.4,
+    "dolares": 9.21,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 47,
+      "creditos": 18,
+      "dolares": 0.09
+    },
+    "videos": {
+      "piezas": 31,
+      "creditos": 1471.4,
+      "dolares": 7.36
+    },
+    "musica": {
+      "pistas": 1,
+      "creditos": 12,
+      "dolares": 0.06
+    },
+    "sinRegistro": {
+      "piezas": 10,
+      "creditosEstimados": 340
+    },
+    "estimado": true,
+    "elevenlabs": {
+      "caracteres": 1404,
+      "scribeSegundos": 157.6
+    },
+    "corridas": 4,
+    "respaldo": [
+      "toma-11-inicial.png",
+      "toma-15.mp4",
+      "broll-1.mp4"
+    ],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 47,
+        "creditos": 18,
+        "dolares": 0.09
+      },
+      {
+        "id": "videos",
+        "piezas": 41,
+        "creditos": 1811.4,
+        "dolares": 9.06,
+        "estimadas": 10
+      },
+      {
+        "id": "musica",
+        "piezas": 1,
+        "creditos": 12,
+        "dolares": 0.06
+      },
+      {
+        "id": "voz",
+        "caracteres": 1404
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 4183.2,
+      "saldoDespues": 2681.8,
+      "diferencia": 1501.4,
+      "coincide": false
+    },
+    "rehecho": false
+  }
+}

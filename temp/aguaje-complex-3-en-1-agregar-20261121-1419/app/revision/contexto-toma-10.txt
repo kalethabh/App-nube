@@ -1,0 +1,79 @@
+
+=== Contexto para rehacer el bloque 10 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    10s
+    referencias: 1) personaje  2) producto  3) imagen   (Imagen 1, Imagen 2... del prompt)
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        testimonio
+    linea:       "La mamá de mi novio me hizo dar la vuelta en plena cena. Me dijo falsa. No me operé: encontré algo que me funcionó. Aguaje Complex, tres en uno."
+    viene de:    "Por favor. Revise su celular. ¿Todo bien? Es una buena elección. Cosas de mujeres."
+    lleva a:     "Si te sientes plana como yo me sentía, míralo con calma. El link está aquí abajo."
+
+  TRAMOS:
+    [0.0–3.8s] [personaje]  "La mamá de mi novio me hizo dar la vuelta en plena cena."
+    [3.8–7.4s] [personaje]  "Me dijo falsa. No me operé: encontré algo que me funcionó."
+    [7.4–10.0s] [personaje]  "Aguaje Complex, tres en uno."
+
+  --- video ---
+Duración: 10s.
+
+REFERENCIAS:
+Imagen 1: Mariana. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.
+Imagen 2: el producto. Es la referencia exacta del envase.
+Imagen 3: la escena de este bloque — empieza así: mismo encuadre, lugar, ropa y lugar de cada cosa.
+
+STYLE / MOOD:
+Testimonio honesto a cámara, como alguien que cuenta algo que de verdad le pasó. Video vertical 9:16 grabado con la cámara frontal del celular por ella misma, en mano, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Imagen clara de celular, cálida y un poco lavada. Persona ultra realista: piel real con poros, textura e imperfecciones, pelo con mechones sueltos, ropa con arrugas naturales; nada de piel plástica ni cara de IA.
+
+LANGUAGE / VOICE:
+Español de Colombia, natural y cotidiano, con acento colombiano natural (natural Colombian Spanish accent), sin atarlo a una ciudad: ni neutro, ni mexicano, ni de España. Cada persona tiene su propia voz, distinta de las otras, y suena igual en todo el anuncio. MARIANA: voz femenina de una mujer de 27 años, timbre medio-agudo, cálido y limpio, ritmo ágil y seguro, firme y calmada, con un toque de ironía. LA MADRE: voz femenina de una mujer de 55 años, timbre grave y algo ronco, ritmo pausado y cortante, autoritaria y fría; se suaviza cuando pide perdón. SEBASTIÁN: voz masculina de un hombre de 30 años, grave de barítono, suave e incómodo. Ritmo de conversación real, sin sonar memorizado, nadie suena a locutor. Habla en español de Colombia.
+
+MAIN CHARACTERS:
+MARIANA (imagen 1): mujer colombiana adulta de 27 años, piel morena media con textura real, poros visibles y un brillo natural, cabello negro muy largo de rizos apretados, suelto, con mechones sueltos y baby hairs en la frente, cejas pobladas y arqueadas, ojos cafés oscuros, labios carnosos con brillo nude, maquillaje natural, aretes pequeños de argolla dorada, tatuaje de rosas en negro y gris en todo el brazo izquierdo; figura curvilínea de reloj de arena: cintura pequeña, caderas anchas y redondeadas, piernas gruesas. En este video, en su casa, lleva una camiseta de tiras gris claro de algodón, sencilla y con escote discreto, y el cabello suelto.
+
+SETTING:
+Su sala, de día: sofá gris de tela con cojines grises y, detrás, una cocina abierta con gabinetes blancos y un microondas plateado, paredes claras. La luz suave de una ventana le da de frente a ella y al frasco. Sobre la mesa de madera frente al sofá solo hay el frasco cerrado; no hay nada más. Todo se ve real y vivido, no un set.
+
+PERFORMANCE:
+Cuenta lo que le pasó con una mezcla de indignación y humor, negando con la cabeza al recordarlo, y luego muestra el frasco con orgullo tranquilo. Gestos naturales de manos, cejas y cabeza, nada rígido. Sin sobreactuar.
+
+PRODUCT / VISUAL KEY:
+El producto es exactamente el frasco de la imagen 2: frasco plástico de boca ancha y lados rectos, una vez y media más alto que ancho, sin cuello, con tapa de rosca rosada fucsia casi tan ancha como el cuerpo; cuerpo negro con la base rosada fucsia; etiqueta negra mate con «AGUAJE» en letras blancas grandes, «COMPLEX 3 EN 1» debajo en blanco y rosado y «TRIPLE ACCIÓN» en rosado. Del tamaño de la palma de una mano: ni botella delgada ni pote chato. Mate, sin arcoíris ni reflejos de prisma. Siempre cerrado: no se ven cápsulas sueltas ni el frasco abierto. La etiqueta se lee siempre al derecho, nunca en espejo. Debe verse idéntico a la referencia en todos los planos. Solo hay un frasco. Cuando aparece, la luz le da de frente y la etiqueta queda iluminada, sin contraluz. En este video está sobre la mesa de madera, fuera del cuadro, en los dos primeros tramos; en el último tramo ella lo toma y lo sostiene junto a su cara, a la misma distancia de la cámara que ella, con los dedos por los costados y sin tapar la etiqueta; su otra mano sostiene el celular.
+
+TIMESTAMPS:
+[0.0–3.8s]
+Selfie del pecho para arriba, sentada en el sofá gris: mira a cámara y niega con la cabeza al recordarlo. Habla Mariana.
+DIÁLOGO: “La mamá de mi novio me hizo dar la vuelta en plena cena.”
+[3.8–7.4s]
+Corte a selfie un poco más cerca: suelta una risa incrédula y luego se pone seria, sincera. Habla Mariana.
+DIÁLOGO: “Me dijo falsa. No me operé: encontré algo que me funcionó.”
+[7.4–10.0s]
+Corte a selfie del pecho para arriba: toma el frasco cerrado de la mesa y lo sostiene junto a su cara, de frente y adelantado, al 40 % de la altura del cuadro, con la etiqueta sin tapar; al terminar de hablar sonríe y se queda quieta, sosteniendo el frasco, en silencio.
+DIÁLOGO: “Aguaje Complex, tres en uno.”
+
+AUDIO:
+Solo la voz de ella y el sonido ambiente de una sala de día: tono cálido, espacio amoblado, sin eco. Ninguna otra voz. Sin música.
+
+*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la imagen 2. No debe aparecer otra persona ni un segundo frasco, no se ven cápsulas sueltas ni el frasco abierto, y la cara de Mariana no cambia entre planos.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with the front camera of a phone, like a casual reference selfie. Medium shot, from the waist up. An adult Colombian woman of 27 with adult features: warm medium-brown skin with real texture, visible pores, a few tiny marks and a natural sheen; very long loose black hair in tight spiral curls past her chest, with flyaway strands and baby hairs at the hairline; full arched brows; dark brown almond eyes; full lips with nude-brown gloss; soft natural makeup; small gold hoop earrings; a black-and-grey rose tattoo sleeve covering her whole left arm; slim waist. She wears a plain chocolate-brown fitted top with thin straps and a modest straight neckline, no prints, no logos. She stands in front of a plain cream wall at home, looking straight at the camera with a calm, slightly confident expression and her mouth closed, arms relaxed at her sides, hands empty. Soft natural light from a window in front of her. Authentic phone photo, no studio retouching, no plastic skin. A single frozen instant. No text, no logos, no watermarks, nothing in her hands.
+
+  --- referencia "personaje-2" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with the front camera of a phone, like a casual reference selfie. Medium shot, from the waist up. A Colombian woman of 55: tan olive skin with fine lines around her eyes and mouth, visible pores and real texture; voluminous shoulder-length wavy black hair with a few loose strands; defined brows; brown eyes; wine-red lipstick; large gold hoop earrings; a thin gold chain with a round gold coin pendant. She wears a plain red long-sleeve dress with a modest square neckline, no prints, no logos. She stands in front of a plain cream wall at home, looking straight at the camera with a serious, slightly suspicious expression, one eyebrow a little raised, mouth closed, arms relaxed at her sides, hands empty. Soft natural light from a window in front of her. Authentic phone photo, no studio retouching, no plastic skin. A single frozen instant. No text, no logos, no watermarks, nothing in her hands.
+
+  --- referencia "personaje-3" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with the front camera of a phone, like a casual reference selfie. Medium shot, from the waist up. A Colombian man of 30: light tan skin with real texture and visible pores; short black hair with a skin fade on the sides; thick dark brows; short stubble beard; athletic build; a black-and-grey tattoo sleeve on his right arm; a silver watch on his left wrist. He wears a plain navy-blue short-sleeve knit polo with thin white tipping on the collar and sleeves, no logos. He stands in front of a plain cream wall at home, looking straight at the camera with a calm, slightly uneasy expression, mouth closed, arms relaxed at his sides, hands empty. Soft natural light from a window in front of him. Authentic phone photo, no studio retouching. A single frozen instant. No text, no logos, no watermarks, nothing in his hands.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/aguaje-complex-3-en-1-agregar-20261121-1419 10
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/aguaje-complex-3-en-1-agregar-20261121-1419 --toma 10 --aplicar nuevos.json
+

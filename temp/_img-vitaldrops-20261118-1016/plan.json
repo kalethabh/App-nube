@@ -1,0 +1,68 @@
+{
+  "producto": "vitaldrops",
+  "lote": "_img-vitaldrops-20261118-1016",
+  "cantidad": 5,
+  "proporciones": ["1:1"],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "biblioteca",
+      "formato_id": "F26",
+      "formato": "Línea de tiempo",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El primer mes del ritual contado en tres etapas: empiezas, notas más energía, comes con más ganas. El avance se ve en su cara y en su desayuno, no en su cuerpo.",
+      "titular": "LO QUE MUCHAS NOTAN EN EL PRIMER MES",
+      "escena": "Fondo amarillo mostaza liso. Tres fotos circulares de la misma mujer joven colombiana en la mesa del desayuno, de hombros para arriba: primero con sueño y solo un café, después más despierta con jugo y fruta, al final sonriendo frente a un desayuno completo. Frasco centrado abajo.",
+      "camara": "Retrato frontal a la altura de los ojos, mismo encuadre de hombros para arriba en los tres círculos, luz de ventana de mañana."
+    },
+    {
+      "id": "V02",
+      "fuente": "biblioteca",
+      "formato_id": "G20",
+      "formato": "Mapa de causas del problema sobre la persona",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "Un mapa de los hábitos que hacen que comas y no subas: se te olvida comer, te llenas con nada, vives de afán. El frasco aparece al lado como el apoyo diario.",
+      "titular": "¿COMES Y COMES Y NO SUBES?",
+      "escena": "Sala clara y luminosa. Una mujer joven sentada en un sofá blanco, de la cintura para arriba, con un plato casi lleno en las piernas y cara de no tener hambre. A la izquierda, cinco hábitos con íconos azules y líneas punteadas hacia ella. Frasco grande a la derecha con unas gotas ámbar en la base. Abajo, una píldora azul y amarilla con «Sin agujas» y «Sin pastillas» (no hay datos de envío ni de pago).",
+      "camara": "Plano medio frontal, ligeramente desde arriba, luz de día muy clara y suave."
+    },
+    {
+      "id": "V03",
+      "fuente": "biblioteca",
+      "formato_id": "F08",
+      "formato": "Beneficios con íconos",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "El frasco como protagonista y, al lado, los cuatro beneficios que sí se pueden decir: apetito, energía, días pesados y gotas fáciles de tomar.",
+      "titular": "TU RITUAL DIARIO PARA TRABAJAR TUS CURVAS",
+      "escena": "Fondo en degradado suave de crema a amarillo claro. A la izquierda, un arco alto azul noche con el frasco grande delante. A la derecha, cuatro beneficios con baldosas amarillas e íconos blancos. Sin personas.",
+      "camara": "Foto de estudio del producto, de frente y a la altura del frasco, luz suave desde arriba a la izquierda."
+    },
+    {
+      "id": "V04",
+      "fuente": "biblioteca",
+      "formato_id": "F02",
+      "formato": "Titular gigante",
+      "angulo_id": "identidad",
+      "angulo": "Identidad / aspiración",
+      "concepto": "Una frase que toda mujer delgada ha vivido en su familia. Solo la frase, enorme, y el frasco firmando abajo.",
+      "titular": "A LA FLACA TODO EL MUNDO LE OPINA.",
+      "escena": "Fondo liso azul noche. Titular blanco gigante en cuatro líneas con la palabra «OPINA» en amarillo mostaza. Abajo a la izquierda, una línea corta de apoyo; abajo a la derecha, el frasco pequeño. Sin personas ni fotos.",
+      "camara": "Diseño gráfico plano; el frasco de frente con una sombra suave."
+    },
+    {
+      "id": "V05",
+      "fuente": "biblioteca",
+      "formato_id": "F16",
+      "formato": "Lifestyle en uso",
+      "angulo_id": "beneficio-sin-sacrificio",
+      "angulo": "Beneficio sin sacrificio",
+      "concepto": "Para la que quiere curvas pero le da miedo el quirófano y las inyecciones: su ritual de la mañana son unas gotas en el jugo, sin agujas.",
+      "titular": "TRABAJA TUS CURVAS. SIN AGUJAS.",
+      "escena": "Foto a toda la imagen en una cocina colombiana con luz de mañana. Una mujer joven, de la cintura para arriba, pone sus gotas en un vaso de jugo de naranja junto a su desayuno, con el frasco en la mano. El titular y un subtítulo corto van sobre la pared clara y desenfocada. Detalles en amarillo y azul de la marca.",
+      "camara": "Plano medio en tres cuartos, a la altura del pecho, fondo desenfocado, luz natural lateral de ventana."
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "pedidos": [
+    {
+      "id": "U0001",
+      "pieza": "V01_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:32:56.281Z"
+    },
+    {
+      "id": "U0002",
+      "pieza": "V02_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:32:58.787Z"
+    },
+    {
+      "id": "U0003",
+      "pieza": "V03_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:00.162Z"
+    },
+    {
+      "id": "U0004",
+      "pieza": "V04_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:02.259Z"
+    },
+    {
+      "id": "U0005",
+      "pieza": "V06_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:05.898Z"
+    },
+    {
+      "id": "U0006",
+      "pieza": "V08_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:08.596Z"
+    },
+    {
+      "id": "U0007",
+      "pieza": "V09_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:10.405Z"
+    },
+    {
+      "id": "U0008",
+      "pieza": "V10_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:19.058Z"
+    },
+    {
+      "id": "U0009",
+      "pieza": "V05_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-20T23:33:21.252Z"
+    },
+    {
+      "id": "U0010",
+      "pieza": "V04_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T01:18:42.154Z"
+    }
+  ]
+}

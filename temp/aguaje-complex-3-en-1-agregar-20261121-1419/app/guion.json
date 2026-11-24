@@ -1,0 +1,119 @@
+{
+  "titulo": "Aguaje Complex 3 en 1 — «La muchacha de la foto no tenía ese cuerpo»",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 98,
+  "de_que_va": "En una cena elegante, la mamá del novio no cree que el cuerpo de Mariana sea natural: la hace pararse, la llama falsa y la interroga. Ella cuenta que no se operó, que toma Aguaje Complex con su comida y su rutina, y al final la suegra, plana de toda la vida, le pide el link.",
+  "estructura": {
+    "id": "de-la-referencia",
+    "nombre": "La de tu video",
+    "porque": "Tiene los mismos momentos de tu video en su orden: la acusación con la foto, el «párate y date la vuelta», la sospecha de cirugía, el interrogatorio, el producto, la confesión de la suegra, el link y el testimonio final. La investigación dice que el miedo al quirófano es el dolor más fuerte, y la historia gira justo en eso."
+  },
+  "personajes": [
+    {
+      "nombre": "Mariana",
+      "como_es": "Colombiana de 27 años, piel morena, rizos negros muy largos, tatuaje de rosas en el brazo, vestido café ajustado; calmada, firme y con un toque de ironía."
+    },
+    {
+      "nombre": "La madre",
+      "como_es": "Colombiana de 55 años, cabello negro ondulado, labios rojos, aretes dorados y vestido rojo; fría y desconfiada, hasta que se ablanda."
+    },
+    {
+      "nombre": "Sebastián",
+      "como_es": "El novio, de 30 años, barba corta, polo azul oscuro y tatuaje en el brazo; incómodo, habla poco."
+    }
+  ],
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "La muchacha de la foto que me mostraste no tenía ese cuerpo. Mamá, guarda el celular. Esa soy yo. La cara sí. Lo demás, quiero comprobarlo.",
+      "se_ve": "En la cena, la madre levanta el celular con la foto de antes de Mariana, delgada y en short de jean corto; el novio le pide que lo guarde y Mariana responde que es ella.",
+      "segundos": 10
+    },
+    {
+      "n": 2,
+      "momento": "problema",
+      "dice": "Párate. ¿Perdón? Dije que te pares. Mamá, ¿qué estás haciendo? Tengo derecho a saber a quién trae mi hijo. Date la vuelta. Mhm. Siéntate.",
+      "se_ve": "La madre le ordena pararse; Mariana se levanta junto a la mesa y gira de perfil con su vestido café ajustado, y se ven sus curvas. La madre la manda a sentarse.",
+      "segundos": 10
+    },
+    {
+      "n": 3,
+      "momento": "problema",
+      "dice": "Es falsa. Cirugía, inyecciones, algo. ¿Y qué si lo hizo? No voy a tener una mujer de plástico dándome nietos de plástico. O lo admite, o no es bienvenida.",
+      "se_ve": "La madre se lleva al hijo a un rincón oscuro del comedor y le dice en voz baja que ella es falsa; él la defiende con los brazos cruzados.",
+      "segundos": 10
+    },
+    {
+      "n": 4,
+      "momento": "problema",
+      "dice": "Te voy a preguntar directo. ¿Qué te hiciste? No me hice cirugía. Ni inyecciones. Entonces explícame lo que estoy viendo. Es natural. Llevo tres meses. ¿Tres meses? ¿Todo eso?",
+      "se_ve": "Cara a cara en la mesa, la madre la interroga y Mariana responde tranquila, sin bajar la mirada.",
+      "segundos": 10
+    },
+    {
+      "n": 5,
+      "momento": "solución",
+      "dice": "Son cápsulas. Dos al día, con la comida. Eso es ridículo. Aguaje, fenogreco y maca negra, con mi comida y mi rutina de pierna. Sin agujas y sin quirófano.",
+      "se_ve": "Mariana muestra el frasco cerrado junto a su cara, le cuenta qué toma y lo deja sobre la mesa, junto a su plato.",
+      "segundos": 10
+    },
+    {
+      "n": 6,
+      "momento": "giro",
+      "dice": "Sebastián, danos un minuto. ¿Mariana? Tranquilo, ve. Yo he sido plana toda mi vida. Mi mamá también, y mi abuela. Pensé que así éramos. ¿Cómo se llama?",
+      "se_ve": "La madre manda al hijo a la cocina, baja la mirada, confiesa que siempre ha sido plana y pregunta cómo se llama.",
+      "segundos": 10
+    },
+    {
+      "n": 7,
+      "momento": "prueba",
+      "dice": "Usted me dijo falsa. Dijo que no era bienvenida aquí. Estaba equivocada. Perdóname. ¿Cómo se llama? Aguaje Complex, tres en uno.",
+      "se_ve": "Mariana le reclama lo que dijo; la madre le pide perdón, y Mariana levanta el frasco y le dice el nombre.",
+      "segundos": 8
+    },
+    {
+      "n": 8,
+      "momento": "prueba",
+      "dice": "¿Y de verdad funciona? Usted misma me hizo dar la vuelta. Dígame usted. Mándame el link. Pídalo más bonito.",
+      "se_ve": "La madre pregunta si funciona, Mariana le recuerda que ella misma la vio, y la madre toma su celular para pedirle el link.",
+      "segundos": 8
+    },
+    {
+      "n": 9,
+      "momento": "cierre",
+      "dice": "Por favor. Revise su celular. ¿Todo bien? Es una buena elección. Cosas de mujeres.",
+      "se_ve": "Mariana le manda el link, el novio vuelve confundido desde la puerta de la cocina y las dos se ríen cómplices.",
+      "segundos": 6
+    },
+    {
+      "n": 10,
+      "momento": "prueba",
+      "dice": "La mamá de mi novio me hizo dar la vuelta en plena cena. Me dijo falsa. No me operé: encontré algo que me funcionó. Aguaje Complex, tres en uno.",
+      "se_ve": "De día, sola en el sofá gris de su sala, Mariana se graba con el celular, cuenta lo de la cena y toma el frasco cerrado de la mesa.",
+      "segundos": 10
+    },
+    {
+      "n": 11,
+      "momento": "cierre",
+      "dice": "Si te sientes plana como yo me sentía, míralo con calma. El link está aquí abajo.",
+      "se_ve": "Con el frasco junto a su cara, Mariana lo recomienda como a una amiga y mira hacia abajo, donde está el link.",
+      "segundos": 6
+    }
+  ],
+  "decisiones": [
+    "Rehecho de: VTD 20 - 1791986305417117.mp4 · 84 tomas · 217,7 s · formato UGC. Estructura: la de tu video. Lo condensé a 11 escenas y unos 98 s, con los mismos momentos en el mismo orden.",
+    "Formato de escenas habladas: en tu video la madre, la novia y el novio hablan en cámara, así que cada uno dice sus líneas con su propia voz y acento colombiano (sin elegir ciudad). No hay voz en off ni escenas nuevas.",
+    "Ángulo: más curvas en cola, caderas y piernas sin cirugía. El antes es la foto vieja de Mariana en el celular de la madre (delgada, en short de jean corto); el después es ella de pie en la cena, girando de perfil con su vestido ajustado, como en tu video.",
+    "Cambié lo de tu video que no es tu producto: las gotas bajo la lengua son dos cápsulas al día con la comida, se ve solo el frasco cerrado, y el «mecanismo de la grasa» pasó a ser los tres extractos con comida y rutina. «Dos meses» pasó a «tres meses», porque tu plan es de tres.",
+    "No tienes garantía ni oferta, así que el cierre no las nombra: termina como una recomendación de ella («míralo con calma, el link está aquí abajo»), que además funciona mejor con el filtro del video."
+  ],
+  "modelos": [
+    {
+      "modelo": "Omni Flash 1.2",
+      "para": "tomas 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 y 11",
+      "porque": "hablan tres personas con los labios sincronizados y es el gancho diálogo entre tres personas y el giro de ella de cuerpo entero, con labios sincronizados"
+    }
+  ]
+}

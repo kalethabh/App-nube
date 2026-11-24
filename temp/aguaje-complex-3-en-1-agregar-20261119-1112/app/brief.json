@@ -1,0 +1,53 @@
+{
+  "slug": "aguaje-complex-3-en-1-agregar-20261119-1112",
+  "productoId": "producto-edb1",
+  "estilo": "agregar",
+  "familia": "ugc",
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": {
+    "id": "Wl3O9lmFSMgGFTTwuS6f",
+    "nombre": "Martin Alvarez - Soothing and Hopeful",
+    "auto": true,
+    "motivo": "voz masculina como la del video de referencia (tono medio de 129 Hz, expresiva) · «Martin Alvarez - Soothing and Hopeful»: voz masculina, habla español, adulta, confiable, cercana, hecha para narrar",
+    "elegida": "2026-11-19T16:19:23.531Z"
+  },
+  "continuidad": false,
+  "respuestas": {
+    "clonar": "subido:mwnqxmma38da07|1035913686187832_video_0.mp4",
+    "pedido": "Quiero el mismo estilo guión pero es una variación",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {},
+  "creado": "2026-11-19T16:12:32.507Z",
+  "agregar": {
+    "pedido": "Quiero el mismo estilo guión pero es una variación",
+    "plan": {
+      "estilo": "agregar",
+      "estiloNombre": "El mismo look de tu video",
+      "formato": "Una persona habla a cámara",
+      "duracion": null,
+      "idioma": "es",
+      "resumen": "Rehago tu video con un médico nuevo del mismo tipo, en el mismo consultorio y con la misma forma de hablar, pero con un guion nuevo para tu Aguaje Complex. Le sumo un antes y después de una paciente en short de jean.",
+      "conserva": [
+        "la estructura: gancho → problema → producto → beneficios → llamado a la acción",
+        "el gancho: «hay dos caminos para ganar glúteo», cirugía o natural, dicho muy cerca de la cámara",
+        "el ángulo: más volumen en glúteos, piernas y caderas sin cirugía",
+        "el médico en su consultorio, con bata, lentes y estetoscopio, hablándole de «usted» a quien mira",
+        "el frasco junto a su cara mientras nombra los tres extractos"
+      ],
+      "cambia": [
+        "las palabras del guion: es una variación, como pediste",
+        "el frasco es el tuyo, siempre cerrado",
+        "se agrega un antes y después corto de una paciente en short, con el cambio bien visible",
+        "se quitan beneficios que tu producto no promete (hormonas, cintura, piel y cabello)",
+        "el cierre no habla de pago contra entrega porque no sabemos cómo compra tu cliente"
+      ],
+      "porque": "En tu video un médico habla a cámara todo el tiempo, así que lo hago igual: él habla con su propia voz y la paciente aparece en dos cortes cortos sin hablar.",
+      "pedido": "Quiero el mismo estilo guión pero es una variación"
+    }
+  },
+  "produccion": "ugc"
+}

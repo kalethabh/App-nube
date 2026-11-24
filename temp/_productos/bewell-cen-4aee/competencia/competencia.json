@@ -1,0 +1,208 @@
+{
+  "marca": "Happy Mammoth (Hormone Harmony)",
+  "tienda": "happymammoth.com",
+  "producto": "Hormone Harmony, suplemento para la menopausia (marca de referencia para BeWell Cen)",
+  "pais": "Colombia",
+  "fecha": "19 de noviembre de 2026",
+  "explicacion": "BeWell Cen es un batido en polvo de proteína de soya con isoflavonas, maca y linaza, con calcio y magnesio, para mujeres en la menopausia. Se compara con Hormone Harmony, un suplemento para la misma etapa.",
+  "motivo": "TrendTrack no dio permiso para ninguna búsqueda. Esta versión sale solo de fuentes públicas: no tiene anuncios, cifras de ventas ni conteos de TrendTrack.",
+  "faltan": [
+    "Permiso para usar TrendTrack desde la app (tiendas, productos y anuncios)",
+    "Con ese permiso, repetir la investigación para tener anuncios, ventas y conteos reales"
+  ],
+  "advertencias": [
+    "TrendTrack no dio permiso para ninguna búsqueda: no hay créditos consultados, ni fichas de tiendas, ni anuncios con su número, ni conteos por ángulo. Todo lo de abajo sale de fuentes públicas de internet.",
+    "Se eligió Happy Mammoth (Hormone Harmony) como marca de referencia porque las fuentes públicas la muestran como la de más anuncios activos en suplementos para la menopausia (se reportaron unos 3.900 anuncios activos en Meta). No se pudo confirmar con las ventas de TrendTrack, y no es un batido de proteína como BeWell Cen.",
+    "En Colombia no se encontró una tienda grande que venda un batido de proteína de soya para la menopausia: lo que hay son cápsulas de isoflavonas en farmacias (Isoretard, Freshlypausia, Fembalance, Natural Systems).",
+    "Tampoco se encontró información pública de BeWell Cen en internet.",
+    "Sin transcripciones de videos: la marca no se pudo revisar en el seguimiento de marcas.",
+    "No se gastaron créditos de TrendTrack."
+  ],
+  "creditos": { "antes": 0, "despues": 0 },
+  "etapas": [
+    {
+      "titulo": "Investigación maestra",
+      "contexto": "Se revisó, con fuentes públicas, a Happy Mammoth y al mercado de suplementos para la menopausia en Estados Unidos y en Colombia. Sin TrendTrack no hay ficha de ventas ni anuncios.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos de TrendTrack", "texto": "Dato: no se pudieron consultar ingresos, unidades, tráfico, anuncios activos, catálogo ni creativos. Faltan las secciones de familias de creativos, desglose de anuncios top, estáticos y embudo con cifras: no se inventan." },
+        { "tipo": "subtitulo", "texto": "Panorama competitivo" },
+        { "tipo": "metricas", "items": [
+          { "etiqueta": "Anuncios activos reportados", "valor": "≈3.900", "nota": "Fuente pública (biblioteca de anuncios de Meta citada en prensa), no TrendTrack", "tono": "ambar" },
+          { "etiqueta": "Precio de un mes", "valor": "US$70", "nota": "Según Truth in Advertising", "tono": "azul" },
+          { "etiqueta": "Reseñas en Trustpilot", "valor": "≈12.570", "nota": "Página pública de Trustpilot", "tono": "azul" }
+        ] },
+        { "tipo": "tabla", "columnas": ["Marca", "Producto", "Tipo", "Mercado", "Dato público"],
+          "filas": [
+            ["Happy Mammoth", "Hormone Harmony", "Cápsulas", "EE. UU., Australia, Reino Unido", "≈3.900 anuncios activos reportados; US$70 al mes"],
+            ["The Pause Life (Dr. Mary Claire Haver)", "Suplementos y batido para la menopausia", "Polvo y cápsulas", "EE. UU.", "≈US$16 M en 6 meses (Particl, abril de 2025)"],
+            ["Revival Soy", "Batido de proteína de soya", "Polvo (competencia directa)", "EE. UU.", "Se vende con soya para calores y sudores nocturnos"],
+            ["MPowder", "Meno-Boost / Peri-Boost", "Polvo con isoflavonas", "Reino Unido", "En Holland & Barrett y Selfridges"],
+            ["Isoretard", "Isoflavonas de soya 400 g", "Polvo", "Colombia", "COP 69.900 en Farmatodo"],
+            ["Freshlypausia", "Isoflavonas de soya", "Cápsulas", "Colombia", "COP 51.900 en Falabella (con descuento)"],
+            ["Fembalance (Vivein)", "Isoflavonas, omega 3, calcio y magnesio", "Discos", "Colombia", "COP 50.400 en Farmatodo"]
+          ],
+          "nota": "Datos públicos, no de TrendTrack. Inferencia: el competidor real de BeWell Cen en Colombia no es otro batido, sino las cápsulas de isoflavonas de farmacia." },
+        { "tipo": "subtitulo", "texto": "Sofisticación del mercado" },
+        { "tipo": "escala", "titulo": "Sofisticación del mercado (Schwartz)", "items": [
+          { "nombre": "Happy Mammoth", "nivel": 4, "nota": "Inferencia: promesas cada vez más grandes (peso, calores, sueño) que los reguladores ya frenaron." },
+          { "nombre": "Mercado de EE. UU.", "nivel": 4, "nota": "Inferencia: muchas marcas con promesas parecidas; pasan a médicas y a historias reales." },
+          { "nombre": "Colombia (batidos para la menopausia)", "nivel": 2, "nota": "Inferencia: casi solo cápsulas de farmacia con mensajes de ficha técnica." }
+        ] },
+        { "tipo": "subtitulo", "texto": "Oferta, precio y retención" },
+        { "tipo": "vinetas", "items": [
+          "Dato: Hormone Harmony cuesta unos US$70 al mes (Truth in Advertising).",
+          "Dato: en Australia, su página decía que las clientas bajan \"en promedio entre 3 y 9 kg en 14 a 30 días\" y sus anuncios hablaban de \"eliminar 8 kg de peso hormonal\" (The Nightly).",
+          "Dato: en EE. UU., la NAD le recomendó dejar promesas como \"alivia los síntomas de la menopausia\", \"alivia los calores\" y \"reduce la hinchazón\"; la marca retiró algunas.",
+          "Dato: en Australia, el registro del regulador muestra el producto como cancelado.",
+          "Inferencia: lo que dicen los anuncios va más allá de lo que respalda la evidencia; no copiar esas promesas."
+        ] },
+        { "tipo": "subtitulo", "texto": "Mapa de oportunidades" },
+        { "tipo": "vinetas", "items": [
+          "Inferencia: un batido (comida) frente a cápsulas: ofrece proteína, calcio y magnesio en el desayuno, no solo una pastilla.",
+          "Inferencia: proteína para no perder músculo en la menopausia; la prensa colombiana ya lo menciona (El Tiempo, salud intestinal y proteína).",
+          "Inferencia: sabor a vainilla y ritual diario, frente a la farmacia fría.",
+          "Inferencia: honestidad frente a promesas exageradas, con un tono de \"acompaña tu etapa\" y no de \"cura\".",
+          "Inferencia: soya, maca y linaza, ingredientes conocidos en Latinoamérica."
+        ] },
+        { "tipo": "caja", "estilo": "hipotesis", "titulo": "Plan de ejecución (sin datos de anuncios)", "texto": "Inferencia: sin anuncios de TrendTrack no hay top 10 de ganchos probados. Esta secuencia sale de lo que sí se sabe y hay que medirla.", "items": [] },
+        { "tipo": "plan", "titulo": "Secuencia de prueba de 3 semanas", "items": [
+          { "cuando": "Semana 1", "que": "Probar tres ideas: batido frente a cápsulas, proteína para no perder fuerza, y el desayuno de la mujer de 45+." },
+          { "cuando": "Semana 2", "que": "Quedarse con la que gane y probar 3 ganchos nuevos sobre el mismo cuerpo." },
+          { "cuando": "Semana 3", "que": "Llevar la ganadora a imagen fija y a testimonio, y repetir la investigación con TrendTrack." }
+        ] }
+      ],
+      "limitaciones": [
+        "Sin TrendTrack: no hay ingresos, unidades, tráfico ni anuncios con número y fechas.",
+        "Las cifras de Happy Mammoth y The Pause Life salen de prensa y de otras herramientas, no se pudieron verificar."
+      ],
+      "riesgos": [
+        "Promesas de salud (aliviar calores, bajar kilos) frenadas por la NAD en EE. UU., la ASA en el Reino Unido y el regulador australiano.",
+        "Las isoflavonas pueden no ser adecuadas para mujeres con historia de algunos cánceres (aviso de Holland & Barrett)."
+      ]
+    },
+    {
+      "titulo": "Ganadores",
+      "contexto": "No se pudieron medir ganadores: hacen falta los días al aire, las versiones y el alcance de TrendTrack.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin evidencia de escala", "texto": "Dato: sin TrendTrack no hay anuncios con su número, impresiones, días al aire ni relanzamientos. No se citan anuncios para no inventarlos." },
+        { "tipo": "parrafo", "texto": "**Criterio de ganador** que se aplicará cuando haya datos: al menos tres de estas señales: alcance alto, varios anuncios del mismo guion, varios ganchos sobre el mismo cuerpo, versión en imagen y en video, y relanzamiento después de semanas." },
+        { "tipo": "tabla", "columnas": ["Lo que se sabe que repiten", "Fuente"],
+          "filas": [
+            ["Promesa de bajar \"peso hormonal\" en semanas", "Dato: The Nightly (Australia)"],
+            ["Alivio de calores, ánimo, sueño e hinchazón", "Dato: decisión de la NAD (EE. UU.)"],
+            ["Tono de médica o experta", "Dato: biblioteca de AdManage con una \"especialista en salud hormonal\""],
+            ["Historias reales de mujeres", "Dato: caso de LYMA (The Cirqle)"]
+          ],
+          "nota": "Inferencia: estas son señales de lo que el mercado repite, no ganadores medidos." },
+        { "tipo": "caja", "estilo": "riesgo", "titulo": "Lo que no conviene copiar", "texto": "Inferencia: las promesas que más se repiten son justo las que los reguladores han frenado. Usa versiones defendibles: \"te acompaña en esta etapa\", \"proteína para mantener tu fuerza\"." }
+      ],
+      "limitaciones": ["Sin TrendTrack no hay ganadores medidos ni futuros ganadores con fecha."],
+      "riesgos": ["Tomar como ganador algo que solo se ve mucho en la prensa."]
+    },
+    {
+      "titulo": "Base de hooks",
+      "contexto": "Sin TrendTrack no hay ganchos de anuncios con su número ni sus impresiones. Solo se recogen las frases que la prensa y los reguladores citan de los anuncios.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Base incompleta", "texto": "Dato: se piden 40 a 50 ganchos con evidencia de TrendTrack. Sin acceso, solo hay estas frases públicas; no se inventan las demás." },
+        { "tipo": "hooks", "items": [
+          { "texto": "Flush out 8kg of hormonal weight", "traduccion": "Elimina 8 kg de peso hormonal", "fuente": "marca", "marca": "Happy Mammoth", "categoria": "aspiración", "conciencia": "consciente del problema", "gatillo": "deseo de recuperar el cuerpo", "avatar": "Mujer en la menopausia que subió de peso", "por_que": "Pone nombre (peso hormonal) a un cambio que la mujer siente y no entiende.", "saturacion": "alta", "mejorado": "Tu cuerpo cambió en esta etapa. Dale la proteína que ahora necesita.", "evidencia": "Citado por The Nightly (Australia); sin cifras de TrendTrack", "id": "", "url": "" },
+          { "texto": "Relieves hot flashes", "traduccion": "Alivia los calores", "fuente": "marca", "marca": "Happy Mammoth", "categoria": "consciente de la solución", "conciencia": "consciente de la solución", "gatillo": "alivio", "avatar": "Mujer con calores", "por_que": "Ataca el síntoma más conocido.", "saturacion": "alta", "mejorado": "Un batido con isoflavonas de soya para acompañar tus días de cambio.", "evidencia": "Promesa retirada tras la NAD (2024)", "id": "", "url": "" },
+          { "texto": "Relieves mood swings and boosts energy", "traduccion": "Alivia los cambios de ánimo y te da energía", "fuente": "marca", "marca": "Happy Mammoth", "categoria": "consciente del problema", "conciencia": "consciente del problema", "gatillo": "frustración", "avatar": "Mujer cansada e irritable", "por_que": "Nombra síntomas que no se suelen ligar a la menopausia.", "saturacion": "alta", "mejorado": "Si te sientes sin energía en esta etapa, empieza por tu desayuno.", "evidencia": "Promesa retirada tras la NAD (2024)", "id": "", "url": "" },
+          { "texto": "Reduces bloating and gas", "traduccion": "Reduce la hinchazón y los gases", "fuente": "marca", "marca": "Happy Mammoth", "categoria": "vanidad", "conciencia": "consciente del problema", "gatillo": "incomodidad", "avatar": "Mujer que se siente inflamada", "por_que": "Síntoma visible y diario.", "saturacion": "media", "mejorado": "Un desayuno ligero con fibra de linaza.", "evidencia": "Promesa citada en la NAD (2024)", "id": "", "url": "" },
+          { "texto": "See why modern women use FEM to feel like themselves again", "traduccion": "Mira por qué las mujeres de hoy usan FEM para volver a sentirse ellas mismas", "fuente": "competidor", "marca": "Ancestral Supplements", "categoria": "identidad", "conciencia": "consciente del problema", "gatillo": "volver a ser una misma", "avatar": "Mujer que no se reconoce", "por_que": "Habla de identidad, no de síntomas.", "saturacion": "media", "mejorado": "Vuelve a sentirte tú, con un desayuno pensado para esta etapa.", "evidencia": "Título de anuncio en Particl; sin cifras", "id": "", "url": "" }
+        ] },
+        { "tipo": "vinetas", "items": [
+          "Inferencia: los más repetidos son las promesas de peso y de calores.",
+          "Inferencia: el más escalable y seguro es el de identidad (\"volver a sentirte tú\").",
+          "Inferencia: los más fatigados y riesgosos son los de kilos en semanas.",
+          "Sin datos para estilos emergentes con fecha."
+        ] }
+      ],
+      "limitaciones": ["Solo 5 ganchos públicos; faltan los de TrendTrack con número, impresiones y fechas."],
+      "riesgos": ["Las frases de peso y calores ya fueron frenadas por reguladores."]
+    },
+    {
+      "titulo": "Mapa de saturación de ángulos",
+      "contexto": "Sin TrendTrack no se pudo contar cuántos anuncios usan cada ángulo. Se marca la saturación como lectura, no como conteo.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin conteos", "texto": "Dato: la saturación de abajo es inferencia a partir de prensa, reguladores y tiendas; no hay número de anuncios." },
+        { "tipo": "tabla", "columnas": ["Ángulo", "Saturación", "Base"],
+          "filas": [
+            ["Bajar \"peso hormonal\"", "Alta", "Inferencia: prensa y reguladores lo citan una y otra vez"],
+            ["Alivio de calores", "Alta", "Inferencia: promesa central de casi todos"],
+            ["Médica o experta que lo recomienda", "Media", "Inferencia: The Pause Life y \"especialistas\" en anuncios"],
+            ["Proteína para no perder músculo", "Baja", "Inferencia: aparece en blogs y prensa, poco en productos"],
+            ["Batido de desayuno frente a cápsulas", "Baja", "Dato: en Colombia casi todo son cápsulas"]
+          ],
+          "nota": "Para confirmar hay que contar anuncios en TrendTrack." },
+        { "tipo": "caja", "estilo": "oportunidad", "titulo": "Oportunidades contrarias", "texto": "Inferencia: ir contra la promesa de milagro.", "items": [
+          "\"No es una pastilla milagro: es tu desayuno con lo que tu cuerpo pide ahora.\"",
+          "\"En la menopausia no solo se sube de peso: se pierde fuerza.\"",
+          "Hipótesis: soya + maca + linaza como mezcla natural conocida en Latinoamérica (hay que sustentarla)."
+        ] },
+        { "tipo": "caja", "estilo": "clave", "titulo": "Lectura crítica", "texto": "Inferencia: las mejores apuestas son proteína para mantener la fuerza y batido frente a cápsulas. No haría promesas de kilos ni de \"acabar con los calores\"." }
+      ],
+      "limitaciones": ["Sin conteos de anuncios; la búsqueda por texto tampoco lee lo que se dice en los videos."],
+      "riesgos": ["Tomar como hueco algo que solo no se encontró en la prensa."]
+    },
+    {
+      "titulo": "Avatares",
+      "contexto": "Avatares deducidos de lo que dicen la prensa, los reguladores y las tiendas. TrendTrack no da edad ni sexo de la audiencia, y aquí tampoco hubo anuncios.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin evidencia de volumen", "texto": "Dato: sin anuncios de TrendTrack no hay volumen ni momento medidos. Todo es inferencia." },
+        { "tipo": "avatares", "items": [
+          { "nombre": "La que subió de peso sin cambiar nada", "frase": "Como igual que siempre y la ropa ya no me queda.", "perfil": "45 a 55 años, en la menopausia, frustrada con su cuerpo.", "angulo": "Peso hormonal", "ganchos": ["Tu cuerpo cambió en esta etapa."], "evidencia": "Inferencia: promesas de peso de Happy Mammoth (The Nightly)", "volumen": "Sin dato", "momento": "estable", "saturacion": "alta" },
+          { "nombre": "La de los calores", "frase": "No duermo por los calores de la noche.", "perfil": "45 a 55 años, con calores y mal sueño.", "angulo": "Alivio de síntomas", "ganchos": ["Acompaña tus días de cambio."], "evidencia": "Inferencia: promesas citadas por la NAD", "volumen": "Sin dato", "momento": "estable", "saturacion": "alta" },
+          { "nombre": "La que no se reconoce", "frase": "Ya no me siento yo.", "perfil": "40 a 55 años, cansada e irritable.", "angulo": "Identidad", "ganchos": ["Vuelve a sentirte tú."], "evidencia": "Inferencia: anuncio de FEM en Particl", "volumen": "Sin dato", "momento": "creciendo", "saturacion": "media" },
+          { "nombre": "La que quiere seguir fuerte", "frase": "Quiero seguir activa, no perder fuerza.", "perfil": "45 a 60 años, hace ejercicio o camina.", "angulo": "Proteína para el músculo", "ganchos": ["En esta etapa se pierde fuerza: dale proteína."], "evidencia": "Inferencia: artículos de proteína y menopausia (El Tiempo, Midi, RP Strength)", "volumen": "Sin dato", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "La que prefiere lo natural", "frase": "No quiero hormonas, quiero algo natural.", "perfil": "45 a 60 años, desconfía de los tratamientos.", "angulo": "Soya, maca y linaza", "ganchos": ["Lo natural, en tu desayuno."], "evidencia": "Inferencia: oferta de isoflavonas en farmacias de Colombia", "volumen": "Sin dato", "momento": "estable", "saturacion": "media" }
+        ] },
+        { "tipo": "tabla", "columnas": ["Avatar", "Señal", "Saturación"],
+          "filas": [
+            ["La que subió de peso", "Rojo: saturado", "Alta"],
+            ["La de los calores", "Rojo: saturado", "Alta"],
+            ["La que no se reconoce", "Ámbar: creciendo", "Media"],
+            ["La que prefiere lo natural", "Ámbar: estable", "Media"],
+            ["La que quiere seguir fuerte", "Verde: emergente", "Baja"]
+          ],
+          "nota": "Inferencia: para entrar, \"la que quiere seguir fuerte\" y \"la que prefiere lo natural\"." }
+      ],
+      "limitaciones": ["Sin anuncios ni volumen: los avatares no están medidos."],
+      "riesgos": ["No segmentar por condiciones de salud."]
+    },
+    {
+      "titulo": "Validación en Colombia",
+      "contexto": "Sin TrendTrack no se pudieron buscar anuncios en Colombia. Se revisaron tiendas públicas colombianas.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin anuncios en Colombia", "texto": "Dato: no se pudo saber qué ofertas pautan hoy en Colombia ni cuánto tiempo llevan. La permanencia queda sin verificar." },
+        { "tipo": "tabla", "columnas": ["Ángulo o avatar", "Cruce en Colombia", "Base"],
+          "filas": [
+            ["Isoflavonas para la menopausia", "Ya existe", "Dato: Isoretard, Freshlypausia, Fembalance y Natural Systems en farmacias"],
+            ["Batido de proteína de soya para la menopausia", "No existe", "Dato: no se encontró en tiendas públicas"],
+            ["Proteína para no perder fuerza", "Sin verificar", "Sin anuncios de TrendTrack"],
+            ["Peso hormonal", "Sin verificar", "Sin anuncios de TrendTrack"],
+            ["La que prefiere lo natural", "Parecido", "Inferencia: las farmacias venden isoflavonas \"naturales\""]
+          ],
+          "nota": "Competencia directa: polvos para la menopausia. Alternativas: cápsulas de farmacia y tratamientos médicos." },
+        { "tipo": "escala", "titulo": "Sofisticación del mercado (Schwartz)", "items": [
+          { "nombre": "Colombia, suplementos para la menopausia", "nivel": 2, "nota": "Inferencia: mensajes de ficha técnica." },
+          { "nombre": "EE. UU., suplementos para la menopausia", "nivel": 4, "nota": "Inferencia: promesas grandes ya frenadas." }
+        ] },
+        { "tipo": "caja", "estilo": "veredicto", "titulo": "Viable con condiciones", "texto": "Inferencia: no se encontró otro batido de proteína de soya para la menopausia en Colombia, pero hay que confirmarlo con TrendTrack antes de invertir.", "items": [
+          "H1: batido de desayuno frente a cápsulas. Riesgo: que la gente no entienda por qué cambiar.",
+          "H2: proteína para seguir fuerte. Riesgo: la proteína de soya tiene menos fama que la de suero.",
+          "Dónde no entrar: promesas de kilos o de acabar con los calores.",
+          "Combinación: batido, isoflavonas y proteína, para la mujer que quiere seguir fuerte, con el gancho \"en esta etapa no solo cambia tu peso: también tu fuerza\".",
+          "Ventana: sin datos de imitadores no se puede estimar."
+        ] }
+      ],
+      "limitaciones": [
+        "Sin TrendTrack: no hay anuncios, fechas, versiones ni permanencia en Colombia.",
+        "La clasificación de vendedores no se hizo."
+      ],
+      "riesgos": [
+        "Las promesas de salud necesitan respaldo; el empaque ya lleva el sello de edulcorantes de Minsalud."
+      ]
+    }
+  ]
+}

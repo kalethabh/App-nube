@@ -1,0 +1,88 @@
+{
+  "ad_info": {
+    "variation_id": "V10"
+  },
+  "global_identity": {
+    "color_palette": "the colors of the product's packaging",
+    "text_typography": "a heavy bold sans for the headline in ALL CAPS, a clean sans for the rest"
+  },
+  "visual_prompt": "PRODUCT: VITALDROPS. Its bottle reproduced with total fidelity to the attached photo (label, brand name letter by letter, colors).\nLAYOUT (hero): Z1 headline across the top; the model full body on the RIGHT side; Z3 benefit bullets on the LEFT; the product bottle at the bottom center; Z5 offer as a ribbon along the bottom.\nMODEL: a 25 years old woman, medium build with wide hips, golden latina skin, afro hair, ordinary and believable (not a fashion model), natural makeup. Emotion: El frasco protagonista sobre una mesa de comedor con un desayuno colombiano: arepa, huevos y jugo. Al lado, la mano de una mujer joven echando las gotas en su vaso. Cálido, casero y apetitoso..\nSETTING: a clothing store fitting room with a curtain and mirror. POSE AND FRAMING: standing, three-quarter back view, looking over her shoulder, full body framing.",
+  "text_layers": [
+    {
+      "reference_function": "Z1 headline",
+      "reference_position": "top 15-20% of the image",
+      "text": "GANAS DE COMER EN SEMANAS, DE FORMA NATURAL",
+      "text_style": "very bold, ALL CAPS, high contrast, the biggest text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "left side, stacked",
+      "text": "✓ Acompaña tu apetito",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "left side, stacked",
+      "text": "✓ Una toma al día",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z4 product seal",
+      "reference_position": "on or next to the bottle",
+      "text": "5 INGREDIENTES · 1 TOMA AL DÍA",
+      "text_style": "badge or seal"
+    },
+    {
+      "reference_function": "Z5 offer",
+      "reference_position": "badge or ribbon, bottom",
+      "text": "TRATAMIENTO COMPLETO X3",
+      "text_style": "highlighted but not exaggerated"
+    },
+    {
+      "reference_function": "Z5 offer (2)",
+      "reference_position": "inside or right below the offer",
+      "text": "Pagas al recibir",
+      "text_style": "smaller"
+    },
+    {
+      "reference_function": "Z6 CTA",
+      "reference_position": "a single short chip",
+      "text": "Escríbenos",
+      "text_style": "button chip"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo, at least 15% of the image",
+    "the woman: a 25 years old woman, medium build with wide hips, golden latina skin, afro hair, ordinary and believable (not a fashion model), natural makeup"
+  ],
+  "final_generation_exclusions": [
+    "any text closer than 5% to the edges",
+    "more than 3 benefit bullets",
+    "more than one CTA",
+    "medical claims, guarantees or invented numbers",
+    "brands or logos other than the product",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "extra blocks of text",
+      "prices other than the given offer"
+    ],
+    "detected_visual_blocks": [
+      "Z1",
+      "Z2",
+      "Z3",
+      "Z4",
+      "Z5",
+      "Z6"
+    ]
+  },
+  "language_rule": "All visible text in Colombian Spanish, simple, perfectly spelled.",
+  "app_desde0": {
+    "formato": "hero",
+    "modelo": "a 25 years old woman, medium build with wide hips, golden latina skin, afro hair, ordinary and believable (not a fashion model), natural makeup",
+    "escenario": "a clothing store fitting room with a curtain and mirror",
+    "pose": "standing, three-quarter back view, looking over her shoulder, full body framing",
+    "plantilla_titular": "[Resultado deseado] en [tiempo], de forma natural"
+  }
+}

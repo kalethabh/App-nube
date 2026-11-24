@@ -1,0 +1,141 @@
+{
+  "uuid": "adeba5b0-9f63-46dd-ab1e-5fefbf5eb890",
+  "estado": "aprobado",
+  "tipo": "cambios",
+  "intentos": 2,
+  "progreso": [
+    "Claude está leyendo tu pedido",
+    "Repasando el guion",
+    "Escribiendo el guion y cada escena",
+    "Revisando que el guion esté completo",
+    "Marcando las transiciones",
+    "Pasando el guion en limpio"
+  ],
+  "inicio": "2026-11-19T17:08:14.580Z",
+  "cambios": [
+    {
+      "pedido": "Editaste a mano las partes 1, 2, 3, 4, 5",
+      "aMano": true,
+      "fecha": "2026-11-19T18:11:24.867Z",
+      "ok": true
+    }
+  ],
+  "actualizado": "2026-11-19T18:48:32.603Z",
+  "error": null,
+  "inicioIntento": "2026-11-19T18:11:24.867Z",
+  "fin": "2026-11-19T18:18:05.138Z",
+  "limite": false,
+  "reinicio": null,
+  "medidas": [
+    {
+      "tipo": "guion",
+      "fecha": "2026-11-19T17:17:31.286Z",
+      "ok": true,
+      "turnos": 56,
+      "duracionMs": 533492,
+      "uso": {
+        "input_tokens": 44,
+        "cache_creation_input_tokens": 164341,
+        "cache_read_input_tokens": 2483954,
+        "output_tokens": 60547,
+        "output_tokens_details": {
+          "thinking_tokens": 24110
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 164341,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 170472,
+            "cache_creation_input_tokens": 2412,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 2412
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 3.0226348000000005,
+      "modelo": "claude-opus-5-5",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 3,
+      "motor": "claude"
+    },
+    {
+      "tipo": "cambios",
+      "fecha": "2026-11-19T18:18:05.138Z",
+      "ok": true,
+      "turnos": 8,
+      "duracionMs": 400267,
+      "uso": {
+        "input_tokens": 14,
+        "cache_creation_input_tokens": 60690,
+        "cache_read_input_tokens": 1197728,
+        "output_tokens": 36624,
+        "output_tokens_details": {
+          "thinking_tokens": 9469
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 60690,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 229360,
+            "cache_creation_input_tokens": 4214,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4214
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 4.4802364,
+      "modelo": "claude-opus-5-5",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 0,
+      "motor": "claude"
+    }
+  ],
+  "ajustados": 0,
+  "pedido": "El usuario editó A MANO el guion. Pon EXACTAMENTE estos textos, palabra por palabra (no los mejores ni los acortes), y ajusta todo lo demás de esas tomas para que digan eso mismo: los tramos y sus tiempos, la duración, el prompt de video y los subtítulos. Donde trae «se ve», esa es la escena: rehaz el prompt de imagen y de video de esa toma para mostrar eso (con los mismos personajes, el mismo estilo y la misma continuidad del anuncio) y pon ese texto en `se_ve` de la hoja. No cambies las otras tomas.\n- Parte 1: dice «O sea, yo me ponía un jean y por detrás, Dios mío!. Plana, plana, plana. Y ya estaba ahorrando pa' operarme, le juro.»; se ve: La de camiseta blanca, con el pelo ondulado suelto, habla al micrófono de un podcast casero con luz cálida y una planta detrás. Abre los ojos grandes y se lleva las manos a la cabeza al decir «¡Dios mío!». Corte a su selfie en el espejo del cuarto, de lado, con el jean azul flojo y caído atrás, bien visible en primer plano. Vuelve al plano medio: se ríe con la mano en el pecho.\n- Parte 2: dice «Ay, no me digas, yo estaba igualita. Hasta que mi tía me dijo que tomara aguaje, fenogreco y maca negra y me dijo: antes del bisturí, prueba lo natural.»; se ve: La del suéter verde, moño alto y aros dorados, se ríe en su micrófono. Corte a su selfie de antes en el espejo de su cuarto: de lado, plana atrás, en jean y top negro. Vuelve e imita a su tía con el dedo en alto, cara seria y graciosa; en primer plano, sobre la mesa, frutos de aguaje, semillas de fenogreco y raíz de maca negra. Luz cálida de casa, plano medio.\n- Parte 3: dice «Me pasó el Aguaje Complex 3 en 1 de Vitalabh. Dos cápsulas al día, con las comidas. ¿Y eso no engorda, o qué?»; se ve: En el mismo podcast casero, con micrófonos negros y luz cálida de lámpara, la del suéter verde, con moño alto y aros dorados, acerca el frasco cerrado de Aguaje Complex a su cara y lo gira hacia la cámara con una sonrisa pícara. La etiqueta se ve nítida en primer plano. A su lado, la de camiseta blanca, pelo ondulado suelto, frunce el ceño y se cruza de brazos, desconfiada. Plano medio de las dos, colores verde, blanco y dorado.\n- Parte 4: dice «Yo probé unas pastillas de Vitalcom, las verdes que según son \"las originales\". y cuando las dejé, rebote total y ni ví resultados. No, a mí no me pasó con las de Vitalabh. Eso era lo que más miedo me daba.»; se ve: En el mismo podcast casero, con luz cálida de lámpara y la pared beige detrás, la de camiseta blanca levanta un frasco verde de pastillas sin marca, lo sacude vacío, frunce la cara y luego se ríe con las palmas arriba. Plano medio de las dos con sus micrófonos. La del suéter verde, con moño alto y aros dorados, niega tranquila con la mano en el pecho y el frasco de Aguaje Complex bien visible en la mesa, en primer plano.\n- Parte 5: dice «Y trae sesenta cápsulas, te dura el mes completo. Ahora me pongo el jean y me miro de lado y uff, un nalgaje. ¿Sí me entiendes? La diferencia.»; se ve: La del suéter verde, en su micrófono del podcast casero, cuenta con los dedos y levanta el frasco de Aguaje Complex, orgullosa. Corte a su selfie de hoy en el mismo espejo de su cuarto, mismo jean y top negro, de lado, ahora con curvas bien marcadas; luz cálida de la tarde. Vuelve al podcast: se abanica con la mano, sonríe pícara, y la de camiseta blanca abre la boca, sorprendida.",
+  "respaldo": null,
+  "aprobado": "2026-11-19T18:48:32.603Z"
+}

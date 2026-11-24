@@ -1,0 +1,155 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format G17 (Lifestyle con columna de beneficios y producto en primer plano)",
+    "reference_style": "Warm premium lifestyle ad: a serene, confident woman in a softly blurred blush-pink interior, a two-tone headline and a column of ringed line-icon benefits on the left, the product large in the lower-right foreground, and a metallic rounded delivery band at the bottom",
+    "angle_used": "Beneficio sin sacrificio: more curves her way, without surgery or needles",
+    "ad_format": "Lifestyle Benefit Column with Foreground Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: clean pink and blush backgrounds, ultra-photorealistic Colombian women photographed naturally and respectfully, the black-and-fuchsia bottle as hero, clean icon modules.",
+    "visual_atmosphere": "Feminine, confident, warm and aspirational; soft daylight, believable real-life moments.",
+    "graphic_language": "Rounded pills and banners in fuchsia and deep magenta, thin-line white icons inside fuchsia circles, handwritten script accents used sparingly, clean flat or softly graded backgrounds with minimal decoration (no clutter, no excess particles, petals or sparkles).",
+    "text_typography": "Poppins Bold (uppercase, heavy) for headlines and labels, Poppins Regular for supporting text."
+  },
+  "creative_objective": "State the central desire head-on — curves her way, without surgery — through a calm, confident Colombian woman, then make it feel easy and safe with three short benefits and the cash-on-delivery band, while the real bottle dominates the lower right.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The two-tone headline at the top left. 2) The woman's serene, confident expression. 3) The bottle large in the lower-right foreground. 4) The three benefit rows. 5) The delivery and payment band.",
+    "composition_style": "Layered asymmetric composition: text column on the left third, woman in the center-right middle ground, bottle in the right foreground, and the band anchoring the bottom left up to the bottle. Headline above everything at the top left.",
+    "spacing_and_structure": "Headline line 1 at about 4-12% of the height, line 2 at about 14.5-22%, about 3.5-58% of the width, left-aligned. Benefit column about 3.5-34.5% of the width; rows at about 26-38%, 43-54% and 58-69% of the height, separated by thin lines at about 40.5% and 56.5%; each row has a ringed icon circle about 11% of the canvas on the left and its text starting at about 16% of the width. Woman: head and shoulders from about 30% to 80% of the width, top of the head at about 15% of the height, cropped by the bottom edge. Bottle: about 78-98% of the width and 35-96% of the height. Band: about 3.5-76% of the width and 81-96.5% of the height, corner radius about 3%.",
+    "lighting_and_depth": "Warm, soft and premium: rosy daylight and gentle blush-pink ambient glow, a softly blurred background with a few subtle warm bokeh lights (no heavy sparkles or bubbles), soft glow on the woman's skin. The left third darker in deep magenta so white text pops. The bottle has crisp studio highlights on a glossy surface with a soft reflection. Icon rings and dividers are thin rose-gold/fuchsia metallic lines. The band has a satin pink-metallic gradient and a soft shadow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas filled with a warm blush-pink lifestyle photo of a softly blurred bedroom; a serene Colombian woman, shoulders up, eyes closed and one hand touching her neck, in the center-right. Top left, a 2-line bold uppercase headline (line 1 white, line 2 in a fuchsia-to-pink metallic gradient). Below it, a left column of three benefits separated by thin lines, each with a thin-ringed circle holding a line icon and short white text. Lower right, the black-and-fuchsia bottle large in the foreground. Bottom left, a wide rounded pink-metallic band with a ringed truck icon, a thin vertical divider and 2 lines of delivery and payment text.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "lifestyle photo",
+        "position": "Full canvas, edge to edge; woman in the center-right",
+        "visual_function": "Shows the feeling of being confident and at peace with her body",
+        "adaptation_rule": "Softly blurred, tidy bedroom in blush pink and deep magenta tones with a few subtle warm bokeh lights. A Colombian woman about 27 years old, warm tan skin, long dark wavy hair, shoulders up, eyes closed, serene confident smile, one hand gently touching her neck, wearing a fitted fuchsia top. Real skin texture. Left third darker and calm for the text. No body-part focus."
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "benefit icon circles (3)",
+        "position": "Left column, about 3.5-14.5% of the width, rows at about 26-38%, 43-54% and 58-69% of the height",
+        "visual_function": "Makes each benefit scannable",
+        "adaptation_rule": "Thin fuchsia-metallic ring (about 11% of the canvas) with a simple white line icon: row 1 a heart, row 2 a single capsule, row 3 a shield with a check. Same stroke for all."
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "benefit dividers",
+        "position": "Between the rows, at about 40.5% and 56.5% of the height, about 3.5-30% of the width",
+        "visual_function": "Separate the benefits cleanly",
+        "adaptation_rule": "Thin fuchsia-metallic lines fading toward the right."
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "Lower-right foreground, about 78-98% of the width and 35-96% of the height",
+        "visual_function": "Shows exactly what is sold",
+        "adaptation_rule": "The attached bottle exactly as in the photo, upright, front view, large and studio-sharp, label fully legible, on a glossy surface with a soft reflection, overlapping the edge of the woman's shoulder without covering her face."
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "delivery and payment band",
+        "position": "Bottom left, about 3.5-76% of the width and 81-96.5% of the height",
+        "visual_function": "Removes the last fear (paying and never receiving it)",
+        "adaptation_rule": "Wide rounded rectangle in a satin pale-pink to bubblegum-pink metallic gradient with a thin lighter border and a soft shadow; on its left a thin-ringed circle with a truck line icon in near-black, then a thin vertical divider and two lines of near-black text."
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount or urgency badge",
+      "Rating stars, reviews or testimonials",
+      "Trust seals, guarantee, certification or sanitary registration badges",
+      "Before/after images or body comparisons",
+      "Close-ups of buttocks, hips or legs",
+      "More than three benefits",
+      "Numbers on the benefit rows",
+      "Boxes or cards behind each benefit",
+      "Cold or blue-toned lighting",
+      "Heavy bubbles, sparkles, petals or flowers",
+      "Logos or brand marks other than the real bottle label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium lifestyle supplement ad. Full-bleed photo of a softly blurred, tidy bedroom in blush pink (#FBE3EE) and deep magenta (#B0105E) tones with rosy daylight and a few subtle warm bokeh lights; the left third falls into a darker deep-magenta shade so white text reads clearly. In the center-right, from about 30% to 80% of the width, a photorealistic Colombian woman about 27 years old, warm tan skin with real texture, long dark wavy hair, shown from the shoulders up and cropped by the bottom edge, eyes closed, a serene and confident smile, one hand gently touching her neck, wearing a fitted hot-fuchsia (#E6177F) top; natural, elegant and respectful, no focus on her body. Top left, a two-line bold uppercase headline in Poppins Bold: line 1 in white at about 4-12% of the height, line 2 in a fuchsia-to-bubblegum-pink metallic gradient at about 14.5-22%, both left-aligned starting at about 3.5% of the width. Below it, a left column (about 3.5-34.5% of the width) of three benefit rows at about 26-38%, 43-54% and 58-69% of the height, separated by thin fuchsia-metallic lines fading to the right; each row has a thin fuchsia-metallic ring about 11% of the canvas holding a white line icon (row 1 heart, row 2 single capsule, row 3 shield with check) and short white Poppins Regular text starting at about 16% of the width. In the lower-right foreground, about 78-98% of the width and 35-96% of the height, the product from the attached image: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; the black label shows a small pink VITALABH emblem with the white word 'VITALABH', a huge bold white condensed word 'AGUAJE', the line 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a small white line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline, three small black rounded boxes outlined in pink joined by plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA', and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' at the bottom. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret it. The bottle stands upright, front view, studio-sharp, on a glossy surface with a soft reflection, overlapping the edge of the woman's shoulder without covering her face. Bottom left, about 3.5-76% of the width and 81-96.5% of the height, a wide rounded band (corner radius about 3%) in a satin pale-pink to bubblegum-pink metallic gradient with a thin lighter border and soft shadow; on its left a thin-ringed circle with a near-black truck line icon, a thin vertical divider, then two lines of near-black text. Clean, uncluttered, high contrast. Do not add CTA buttons, price badges, extra benefit items, trust seals, rating stars, testimonials, before/after images or any extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "headline line 1",
+      "reference_position": "Top left, first line, about 4-12% of the canvas height",
+      "text_style": "Poppins Bold extra heavy, uppercase, about 8% of the canvas height, 1 line, left-aligned, white",
+      "text": "CURVAS A TU MANERA"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "headline line 2",
+      "reference_position": "Top left, second line, about 14.5-22% of the canvas height",
+      "text_style": "Poppins Bold extra heavy, uppercase, about 7.5% of the canvas height, 1 line, left-aligned, fuchsia-to-bubblegum-pink metallic gradient",
+      "text": "Y SIN QUIRÓFANO"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit 1",
+      "reference_position": "Left column, first row, right of the heart icon",
+      "text_style": "Poppins Regular, sentence case, about 2.8% of the canvas height, max 3 lines, left-aligned, white",
+      "text": "Acompaña tu proceso de curvas"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 2",
+      "reference_position": "Left column, second row, right of the capsule icon",
+      "text_style": "Same style as benefit 1",
+      "text": "Solo 2 cápsulas al día"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 3",
+      "reference_position": "Left column, third row, right of the shield icon",
+      "text_style": "Same style as benefit 1",
+      "text": "Natural, sin agujas ni recuperación"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "delivery line",
+      "reference_position": "Inside the band, right of the vertical divider, top line",
+      "text_style": "Poppins Bold, uppercase, about 5% of the canvas height, 1 line, left-aligned, near-black #0E0E10",
+      "text": "LO RECIBES EN CASA"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "payment line",
+      "reference_position": "Inside the band, under the delivery line",
+      "text_style": "Poppins Medium, uppercase, about 3.5% of the canvas height, 1 line, left-aligned, deep magenta #B0105E",
+      "text": "PAGAS AL RECIBIR"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed warm blush-pink lifestyle photo with a serene, confident Colombian woman (shoulders up) in the center-right",
+    "Two-line headline at the top left: white line over a fuchsia metallic line",
+    "Left column of three benefits with thin-ringed white line-icon circles separated by thin dividers",
+    "The real black-and-fuchsia bottle large in the lower-right foreground",
+    "Wide rounded pink-metallic delivery and payment band with a ringed truck icon at the bottom left"
+  ],
+  "final_generation_exclusions": [
+    "No close-ups of buttocks, hips or legs and no before/after or body comparison.",
+    "No price, sanitary registration, ratings or customer counts.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

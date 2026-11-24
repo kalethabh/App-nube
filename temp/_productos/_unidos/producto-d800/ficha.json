@@ -1,0 +1,52 @@
+{
+  "nombre": "VITALABH Aguaje Complex 3 en 1",
+  "queEs": "Suplemento alimenticio en cápsulas a base de aguaje, fenogreco y maca negra, de triple acción.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio",
+    "Triple acción: aguaje, fenogreco y maca negra en una sola cápsula"
+  ],
+  "publico": "Mujeres adultas que quieren más volumen en glúteos y piernas.",
+  "dolor": "Quiere aumentar glúteos y piernas, pero no ve resultados o no tiene tiempo para el gimnasio, y le da miedo engordar de todo el cuerpo.",
+  "oferta": "",
+  "comoCompra": "",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "",
+  "prueba": "",
+  "ingredientes": "Por porción (2 cápsulas): aguaje 200 mg, fenogreco 400 mg, maca negra 200 mg. También trae vitamina A y vitamina E. Frasco de 60 cápsulas de 0,5 g cada una (contenido neto 30 g), 30 porciones.",
+  "comoSeUsa": "Tomar 2 cápsulas al día, preferentemente con las comidas principales. La etiqueta recomienda uso continuo. No exceder la porción diaria recomendada.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "El frasco negro con rosado en una mano, de frente. Es una captura de un video: abajo se ve la barra del reproductor y tiene reflejos del plástico."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": false,
+      "nota": "Es el diseño plano de la etiqueta, con medidas de imprenta. No muestra el frasco, pero de aquí salieron los beneficios, los ingredientes y el modo de uso."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "idioma",
+    "mercado",
+    "pais"
+  ],
+  "falta": [
+    {
+      "campo": "oferta",
+      "pregunta": "¿Cuánto cuesta y tienes alguna oferta o envío gratis?"
+    },
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿Cómo te compran: por tu página, por WhatsApp o contra entrega?"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "n": 1,
+  "calidad": "1080",
+  "version": "completa",
+  "subtitulos": "sin",
+  "sinMusica": false,
+  "srt": false,
+  "guardar": false,
+  "estado": {
+    "subtitulos": {
+      "visible": true,
+      "estilo": "caja",
+      "color": null,
+      "tamano": 1,
+      "altura": null,
+      "lado": 0
+    },
+    "lugaresSubtitulos": {},
+    "correcciones": {},
+    "ocultos": [],
+    "voz": {
+      "volumen": 1,
+      "silenciada": false
+    },
+    "musica": {
+      "fuente": "original",
+      "volumen": 1,
+      "silenciada": false,
+      "inicio": 0,
+      "id": null,
+      "nombre": null,
+      "url": null,
+      "duracion": null,
+      "origen": null,
+      "tramos": null
+    },
+    "quitados": [],
+    "textos": [],
+    "tomas": null,
+    "brolls": null,
+    "ajustesTextos": {},
+    "textosNuevos": [
+      {
+        "id": "tmwk74ktz0",
+        "texto": "Difumina «A-M-U-A · Amua Vital Drops»",
+        "inicio": 183.4,
+        "fin": 237.7,
+        "color": "#FFFFFF",
+        "fondo": "#0FA3B1",
+        "tamano": 1,
+        "x": 0.5,
+        "y": 0.17,
+        "fuente": "titulo",
+        "sigue": {
+          "texto": "A-M-U-A · Amua Vital Drops",
+          "siempre": false,
+          "pistas": [
+            [
+              [
+                184,
+                0.4986,
+                0.6703,
+                0.1806,
+                0.0312
+              ],
+              [
+                184.333,
+                0.5,
+                0.6703,
+                0.1778,
+                0.0312
+              ],
+              [
+                185,
+                0.4986,
+                0.6687,
+                0.2694,
+                0.0312
+              ],
+              [
+                185.333,
+                0.4986,
+                0.6687,
+                0.275,
+                0.0344
+              ],
+              [
+                185.667,
+                0.4986,
+                0.6687,
+                0.275,
+                0.0344
+              ]
+            ],
+            [
+              [
+                236,
+                0.4986,
+                0.6695,
+                0.5083,
+                0.0391
+              ],
+              [
+                236.333,
+                0.4986,
+                0.6695,
+                0.5083,
+                0.0391
+              ],
+              [
+                236.667,
+                0.4986,
+                0.6695,
+                0.5028,
+                0.0359
+              ],
+              [
+                237,
+                0.4986,
+                0.6695,
+                0.5083,
+                0.0391
+              ]
+            ]
+          ]
+        },
+        "caja": true
+      }
+    ],
+    "reemplazos": {},
+    "clips": {},
+    "corte": null,
+    "censuras": [],
+    "encuadres": {},
+    "ajustesEscena": {}
+  },
+  "contexto": {
+    "titulo": "01   VTD 6   54 ventas CPA 7.2k",
+    "overlays": [],
+    "color": "#0FA3B1"
+  }
+}

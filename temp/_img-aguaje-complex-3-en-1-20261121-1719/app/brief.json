@@ -1,0 +1,83 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261121-1719",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "AGUAJE COMPLEX 3 EN 1",
+  "productoId": "producto-edb1",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "publico": "mujeres que quieren más volumen en glúteos y piernas",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "20 variaciones de su anuncio ganador (antes y después estilo animado 3D, fondo morado oscuro a la izquierda y rosado a la derecha, titular grande blanco y amarillo, notas escritas a mano, sello dorado, íconos abajo) para AGUAJE COMPLEX 3 EN 1. Tanda 1 de 2.",
+    "angulo": null
+  },
+  "cantidad": 10,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.png"
+  ],
+  "modo": "variantes",
+  "referenciasPropias": [],
+  "conceptosReferencias": [
+    "20 variaciones de su anuncio ganador (antes y después estilo animado 3D, fondo morado oscuro a la izquierda y rosado a la derecha, titular grande blanco y amarillo, notas escritas a mano, sello dorado, íconos abajo) para AGUAJE COMPLEX 3 EN 1. Tanda 1 de 2."
+  ],
+  "fiel": true,
+  "elegirTitulos": false,
+  "rapido": false,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-21T22:19:52.437Z",
+  "investigacionDelProducto": true,
+  "origen": "chat",
+  "variacionesChat": [
+    {
+      "titular": "ANTES: INVISIBLE. AHORA: IMPOSIBLE DE IGNORAR.",
+      "cambio": "Otra chica, cabello castaño ondulado, misma pose de espaldas mirando por encima del hombro"
+    },
+    {
+      "titular": "ANTES NADIE LA VEÍA. AHORA NADIE DEJA DE MIRARLA.",
+      "cambio": "Chica morena de cabello rizado, vestido ajustado azul cielo, pose de perfil"
+    },
+    {
+      "titular": "DE INVISIBLE A IMPOSIBLE DE IGNORAR.",
+      "cambio": "Chica de cabello negro liso con cola alta, jean ajustado y top corto, de espaldas"
+    },
+    {
+      "titular": "ANTES: PLANA. AHORA: TODOS VOLTEAN A VERLA.",
+      "cambio": "Chica de cabello cobrizo, falda corta lila, mirando a cámara con sonrisa en el después"
+    },
+    {
+      "titular": "ANTES PASABA DESAPERCIBIDA. AHORA ES LA QUE TODOS NOTAN.",
+      "cambio": "Chica de piel trigueña y cabello ondulado largo, licra deportiva rosada, pose de tres cuartos"
+    },
+    {
+      "titular": "ANTES: SIN CURVAS. AHORA: IMPOSIBLE DE IGNORAR.",
+      "cambio": "Chica rubia con trenza, vestido blanco ceñido, de espaldas con mano en la cadera"
+    },
+    {
+      "titular": "ELLA ERA INVISIBLE. HOY SE ROBA TODAS LAS MIRADAS.",
+      "cambio": "Chica de cabello corto tipo bob negro, vestido rojo ajustado, pose de perfil"
+    },
+    {
+      "titular": "ANTES: IGNORADA. AHORA: IMPOSIBLE DE NO VER.",
+      "cambio": "Chica de cabello castaño claro suelto, short de jean y blusa blanca, de espaldas"
+    },
+    {
+      "titular": "DE LA QUE NADIE NOTA A LA QUE TODOS MIRAN.",
+      "cambio": "Chica morena con cabello recogido en moño, vestido verde esmeralda, mirando por encima del hombro"
+    },
+    {
+      "titular": "ANTES: INVISIBLE. AHORA: LA MÁS MIRADA.",
+      "cambio": "Chica de cabello negro ondulado, conjunto deportivo gris, pose de tres cuartos con sonrisa"
+    }
+  ],
+  "indicacionesChat": "Replica el anuncio de referencia tal cual: mismo estilo animado 3D, mismo antes y después con el cambio del cuerpo bien visible (glúteos, caderas y piernas con más volumen en el después), mismos colores, mismas notas a mano a los lados, mismo sello y mismos íconos de abajo. Cambia el frasco por el de AGUAJE COMPLEX 3 EN 1, que se vea grande y claro. Fondo limpio, sin nada que haga ruido. Solo cambian la chica, su ropa, la pose y el titular.",
+  "leccionesChat": ""
+}

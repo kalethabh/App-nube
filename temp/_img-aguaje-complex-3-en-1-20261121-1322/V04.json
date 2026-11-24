@@ -1,0 +1,94 @@
+{
+  "ad_info": {
+    "variation_id": "V04"
+  },
+  "global_identity": {
+    "color_palette": "the colors of the product's packaging",
+    "text_typography": "a heavy bold sans for the headline in ALL CAPS, a clean sans for the rest"
+  },
+  "visual_prompt": "PRODUCT: AGUAJE COMPLEX 3 EN 1. Its bottle reproduced with total fidelity to the attached photo (label, brand name letter by letter, colors).\nLAYOUT (recommended / press note): looks like a \"recommended by\" card or a press article, light background, an article-style headline; a credible woman in a small photo; it builds trust. Never fake logos of real media or doctors.\nMODEL: a 25 years old woman, muscular, medium olive skin, braids, ordinary and believable (not a fashion model), natural makeup. Emotion: Ánimo y ganas: una mujer activa, con ropa deportiva, lista para su rutina de pierna, cercana y real..\nSETTING: her bedroom at home, unmade bed and soft window light. POSE AND FRAMING: facing the camera, confident smile, waist-up framing.",
+  "text_layers": [
+    {
+      "reference_function": "Z1 headline",
+      "reference_position": "top 15-20% of the image",
+      "text": "NO SOLO CURVAS: TAMBIÉN ENERGÍA PARA TU RUTINA",
+      "text_style": "very bold, ALL CAPS, high contrast, the biggest text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Maca negra para tu energía",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Acompaña tus curvas",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Fácil de cumplir",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z4 product seal",
+      "reference_position": "on or next to the bottle",
+      "text": "3 EN 1 · TRIPLE ACCIÓN",
+      "text_style": "badge or seal"
+    },
+    {
+      "reference_function": "Z5 offer",
+      "reference_position": "badge or ribbon, bottom",
+      "text": "TRATAMIENTO COMPLETO X3",
+      "text_style": "highlighted but not exaggerated"
+    },
+    {
+      "reference_function": "Z5 offer (2)",
+      "reference_position": "inside or right below the offer",
+      "text": "Pagas al recibir",
+      "text_style": "smaller"
+    },
+    {
+      "reference_function": "Z6 CTA",
+      "reference_position": "a single short chip",
+      "text": "Pídelo hoy",
+      "text_style": "button chip"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo, at least 15% of the image",
+    "the woman: a 25 years old woman, muscular, medium olive skin, braids, ordinary and believable (not a fashion model), natural makeup"
+  ],
+  "final_generation_exclusions": [
+    "any text closer than 5% to the edges",
+    "more than 3 benefit bullets",
+    "more than one CTA",
+    "medical claims, guarantees or invented numbers",
+    "brands or logos other than the product",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "extra blocks of text",
+      "prices other than the given offer"
+    ],
+    "detected_visual_blocks": [
+      "Z1",
+      "Z2",
+      "Z3",
+      "Z4",
+      "Z5",
+      "Z6"
+    ]
+  },
+  "language_rule": "All visible text in Colombian Spanish, simple, perfectly spelled.",
+  "app_desde0": {
+    "formato": "nota",
+    "modelo": "a 25 years old woman, muscular, medium olive skin, braids, ordinary and believable (not a fashion model), natural makeup",
+    "escenario": "her bedroom at home, unmade bed and soft window light",
+    "pose": "facing the camera, confident smile, waist-up framing",
+    "plantilla_titular": "No solo [beneficio obvio]: también [beneficio extra]"
+  }
+}

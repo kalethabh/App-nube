@@ -1,0 +1,49 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-21T22:56:54.180Z",
+  "variaciones": 10,
+  "archivos": 10,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 6,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V01_1x1",
+        "problemas": [
+          "En el después, el vestido rosa ya no es el mismo del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+        ]
+      },
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "En el después, el vestido azul ya no es el mismo del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+        ]
+      },
+      {
+        "pieza": "V04_1x1",
+        "problemas": [
+          "En el título, la tilde de «QUIRÓFANO» se pega a la O de «MIEDO» y parece una rayita de más debajo de esa O.",
+          "En el después, la falda lila ya no es la misma del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+        ]
+      },
+      {
+        "pieza": "V06_1x1",
+        "problemas": [
+          "Abajo, entre el sello y los íconos, hay una mancha rosada rara que tapa la pierna derecha de la chica del después: la pierna se corta y se pierde en esa forma."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

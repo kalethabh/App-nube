@@ -1,0 +1,23 @@
+{
+  "fecha": "2026-11-20T15:47:40.491Z",
+  "cambios": [
+    {
+      "que": "toma",
+      "n": 6,
+      "toma": 6,
+      "antes": 2.5,
+      "despues": 3.3,
+      "necesita": 3.2
+    },
+    {
+      "que": "toma",
+      "n": 7,
+      "toma": 7,
+      "antes": 3.2,
+      "despues": 4.3,
+      "necesita": 4.2
+    }
+  ],
+  "sinArreglo": [],
+  "brollFuera": []
+}

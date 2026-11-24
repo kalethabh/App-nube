@@ -1,0 +1,43 @@
+
+=== Contexto para rehacer la toma 31 ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:        A
+    duracion:    2.9s
+    referencias: producto
+
+  QUE TIENE QUE TRANSMITIR ESTA TOMA:
+    linea:       "Ahorita puedes pedir tu tratamiento de tres frascos"
+    viene de:    "te sientes otra persona."
+    lleva a:     "y tomar solo dos cápsulas al día"
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen inicial ---
+Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. Close-up of a woman's hands with warm tan skin holding a smartphone in front of a warm golden blurred background. The phone screen shows a simple clean shop page with three closed AGUAJE COMPLEX 3 EN 1 bottles from the product reference image standing side by side in the center of the screen, and one big rounded hot-pink button below them with no letters; each bottle is a cylindrical bottle about 1.8 times taller than wide with straight sides and rounded shoulders, a wide glossy hot-pink screw cap almost as wide as the bottle, a black label with the big white words AGUAJE COMPLEX 3 EN 1 and pink accents, and a hot-pink base band; labels readable, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules, no pills. The index finger of her other hand is about to tap the pink button. Warm cinematic lighting, shallow depth of field, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, capsules, pills, open bottle, amber pharmacy bottles, readable button text
+
+  --- video ---
+Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.
+Camera: locked-off static camera, no zoom.
+Motion: her finger taps the pink button, the button glows and a few golden sparkles pop out of the screen. No loose capsules are visible and the bottles stay closed; the labels always read correctly, never mirrored.
+Lighting: warm cinematic glow
+
+  --- referencia "protagonista" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation character reference render in the cinematic look of a Zack D Films explainer short. Full body view, head to feet, of an adult Colombian woman in her late 20s with clearly adult facial features: soft oval face, defined cheekbones, full dark eyebrows, big warm brown eyes, small rounded nose, full lips with a friendly confident smile, long voluminous wavy dark brown hair falling past her shoulders, warm tan skin. She has a curvy hourglass figure: small waist, wide rounded hips about one and a half times wider than her waist, full thick thighs filling her jeans. She wears a plain white fitted short-sleeve t-shirt, light-blue high-waisted skinny jeans and white sneakers. She stands in a three-quarter side view with her face turned toward the camera over her shoulder, so her silhouette reads clearly. Background: a softly lit warm living room with a window, a plant and a beige sofa, slightly out of focus. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm cinematic lighting, expressive facial detail, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- referencia "protagonista-antes" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation character reference render in the cinematic look of a Zack D Films explainer short. Full body view, head to feet, of an adult Colombian woman in her late 20s with clearly adult facial features: soft oval face, defined cheekbones, full dark eyebrows, big warm brown eyes, small rounded nose, full lips with a friendly smile, long voluminous wavy dark brown hair falling past her shoulders, warm tan skin. She has a slim straight figure: narrow hips barely wider than her small waist, thin straight thighs, the jeans one size too big at the back with a baggy fold of extra denim below the seat and drooping back pockets, one straight flat vertical line from her lower back to her thighs. She wears a plain white fitted short-sleeve t-shirt, light-blue high-waisted skinny jeans and white sneakers. She stands in a three-quarter side view with her face turned toward the camera over her shoulder, so her silhouette reads clearly. Background: a softly lit warm living room with a window, a plant and a beige sofa, slightly out of focus. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm cinematic lighting, expressive facial detail, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, curvy hips, wide hips, thick thighs
+
+  --- referencia "amiga" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation character reference render in the cinematic look of a Zack D Films explainer short. Full body view, head to feet, of an adult Latina woman in her early 30s with clearly adult facial features: round face, thick arched eyebrows, big expressive dark eyes, wide mouth, light brown skin, black hair pulled up in a high messy bun with a few loose strands. She wears a cream chunky knit sweater, olive-green pants and white sneakers. She stands facing the camera with an amazed open-mouth expression, both hands raised in surprise. Background: a softly lit warm living room with a window, a plant and a beige sofa, slightly out of focus. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm cinematic lighting, expressive facial detail, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion.
+

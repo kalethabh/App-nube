@@ -1,0 +1,80 @@
+{
+  "id": "T002",
+  "piezas": {
+    "V05_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 2,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1f49d-d1eb-7873-9642-9c73d22447f4",
+      "ultimoMotivo": "contenido-chatgpt",
+      "firma": "1752576-1795105450592",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V06_1x1": {
+      "orden": "g",
+      "estado": "sin-imagen",
+      "intentosApi": 3,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt",
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+    },
+    "V07_1x1": {
+      "orden": "g",
+      "estado": "sin-imagen",
+      "intentosApi": 3,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt",
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+    },
+    "V08_1x1": {
+      "orden": "g",
+      "estado": "sin-imagen",
+      "intentosApi": 3,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt",
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+    },
+    "V09_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1f4a1-30f4-72c3-b93b-b071f2820b18",
+      "firma": "1695775-1795105652041",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V10_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1f4a1-750a-7080-ace5-e77c9d482663",
+      "firma": "1704606-1795105663852",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    }
+  },
+  "actualizado": "2026-11-19T16:29:35.863Z",
+  "terminado": true
+}

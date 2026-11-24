@@ -1,0 +1,35 @@
+{
+  "resumen": "Tomamos tu anuncio ganador tal cual: fondo rosado, frasco al centro, tres íconos de beneficios a la izquierda, la foto de la modelo a la derecha y la franja «Envío gratis · Paga al recibir» abajo. Entre una variación y otra solo cambian el titular, la modelo, el lugar y la pose. Creemos que vende porque nombra el deseo de entrada (curvas en glúteos y piernas), muestra el resultado soñado en una foto real y cierra la duda con pago al recibir; es una hipótesis, no una garantía. Los íconos y la franja van con tus palabras, y los textos a mano son nuevos y propios de tu producto.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#D9572B", "nombre": "Naranja aguaje" }
+  ],
+  "tipografia": "La misma de tu anuncio: letra gruesa y redonda en mayúsculas para el titular, los íconos y la franja; la palabra grande en fucsia con borde blanco y sombra; y letra a mano en magenta para las frases cortas.",
+  "estilo": "Anuncio de belleza rosado y brillante, con el frasco negro de protagonista, frutos de aguaje reales, foto realista de la modelo de espaldas y una franja de oferta redondeada abajo.",
+  "beneficios": [
+    "Acompaña tu proceso de curvas en glúteos y piernas",
+    "Un apoyo diario para tu rutina de pierna",
+    "Más energía y ánimo para cumplirle a tu plan",
+    "Curvas a tu manera, sin agujas ni quirófano"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje, fenogreco y maca negra",
+    "Con vitaminas A y E",
+    "Solo 2 cápsulas al día con tus comidas",
+    "Frasco de 60 cápsulas: te dura un mes"
+  ],
+  "deseo_central": "Verse con más curvas y sentirse segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Ya compré pastillas por internet y no vi nada",
+    "Me comparo con las de Instagram y me siento plana"
+  ]
+}

@@ -1,0 +1,1710 @@
+{
+  "video": "original.mp4",
+  "duracion": 217.68,
+  "formato": "720x1280",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 2.73,
+      "duracion": 2.73,
+      "fotograma": "tomas/toma-01.jpg",
+      "tira": "tomas/movimiento/tira-01.jpg",
+      "imagen": {
+        "brillo": 102.5,
+        "luz": "media",
+        "saturacion": 23,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "La mujer de la foto que me enseñaste no tenía ese cuerpo.",
+      "eventos": [],
+      "palabras_por_segundo": 4.4
+    },
+    {
+      "n": 2,
+      "desde": 2.73,
+      "hasta": 4.13,
+      "duracion": 1.4,
+      "fotograma": "tomas/toma-02.jpg",
+      "tira": "tomas/movimiento/tira-02.jpg",
+      "imagen": {
+        "brillo": 79.1,
+        "luz": "media",
+        "saturacion": 16.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 20.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Mamá, guarda el teléfono.",
+      "eventos": [],
+      "palabras_por_segundo": 2.86
+    },
+    {
+      "n": 3,
+      "desde": 4.13,
+      "hasta": 5.73,
+      "duracion": 1.6,
+      "fotograma": "tomas/toma-03.jpg",
+      "tira": "tomas/movimiento/tira-03.jpg",
+      "imagen": {
+        "brillo": 73,
+        "luz": "media",
+        "saturacion": 16.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Esa soy yo.",
+      "eventos": [],
+      "palabras_por_segundo": 1.88
+    },
+    {
+      "n": 4,
+      "desde": 5.73,
+      "hasta": 10.03,
+      "duracion": 4.3,
+      "fotograma": "tomas/toma-04.jpg",
+      "tira": "tomas/movimiento/tira-04.jpg",
+      "imagen": {
+        "brillo": 89.1,
+        "luz": "media",
+        "saturacion": 27.4,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "La cara sí. Lo demás, eso es lo que quiero comprobar.",
+      "eventos": [],
+      "palabras_por_segundo": 2.56
+    },
+    {
+      "n": 5,
+      "desde": 10.03,
+      "hasta": 10.83,
+      "duracion": 0.8,
+      "fotograma": "tomas/toma-05.jpg",
+      "tira": "tomas/movimiento/tira-05.jpg",
+      "imagen": {
+        "brillo": 95.6,
+        "luz": "media",
+        "saturacion": 16.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 6,
+      "desde": 10.83,
+      "hasta": 11.93,
+      "duracion": 1.1,
+      "fotograma": "tomas/toma-06.jpg",
+      "tira": "tomas/movimiento/tira-06.jpg",
+      "imagen": {
+        "brillo": 97.1,
+        "luz": "media",
+        "saturacion": 25.2,
+        "color": "natural",
+        "temperatura": "cálida",
+        "movimiento": 1.6,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "Párate.",
+      "eventos": [],
+      "palabras_por_segundo": 0.91
+    },
+    {
+      "n": 7,
+      "desde": 11.93,
+      "hasta": 14.1,
+      "duracion": 2.17,
+      "fotograma": "tomas/toma-07.jpg",
+      "tira": "tomas/movimiento/tira-07.jpg",
+      "imagen": {
+        "brillo": 73.5,
+        "luz": "media",
+        "saturacion": 20.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 7.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Perdón? Dije que te pares.",
+      "eventos": [],
+      "palabras_por_segundo": 2.3
+    },
+    {
+      "n": 8,
+      "desde": 14.1,
+      "hasta": 14.77,
+      "duracion": 0.67,
+      "fotograma": "tomas/toma-08.jpg",
+      "tira": "tomas/movimiento/tira-08.jpg",
+      "imagen": {
+        "brillo": 70.4,
+        "luz": "media",
+        "saturacion": 15.5,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Mamá.",
+      "eventos": [],
+      "palabras_por_segundo": 1.49
+    },
+    {
+      "n": 9,
+      "desde": 14.77,
+      "hasta": 16.67,
+      "duracion": 1.9,
+      "fotograma": "tomas/toma-09.jpg",
+      "tira": "tomas/movimiento/tira-09.jpg",
+      "imagen": {
+        "brillo": 97.2,
+        "luz": "media",
+        "saturacion": 24.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Quiero ver algo. Párate.",
+      "eventos": [],
+      "palabras_por_segundo": 2.11
+    },
+    {
+      "n": 10,
+      "desde": 16.67,
+      "hasta": 17.5,
+      "duracion": 0.83,
+      "fotograma": "tomas/toma-10.jpg",
+      "tira": "tomas/movimiento/tira-10.jpg",
+      "imagen": {
+        "brillo": 74.5,
+        "luz": "media",
+        "saturacion": 9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Date la vuelta.",
+      "eventos": [],
+      "palabras_por_segundo": 3.61
+    },
+    {
+      "n": 11,
+      "desde": 17.5,
+      "hasta": 19,
+      "duracion": 1.5,
+      "fotograma": "tomas/toma-11.jpg",
+      "tira": "tomas/movimiento/tira-11.jpg",
+      "imagen": {
+        "brillo": 82,
+        "luz": "media",
+        "saturacion": 14.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 13.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 12,
+      "desde": 19,
+      "hasta": 20.6,
+      "duracion": 1.6,
+      "fotograma": "tomas/toma-12.jpg",
+      "tira": "tomas/movimiento/tira-12.jpg",
+      "imagen": {
+        "brillo": 90.6,
+        "luz": "media",
+        "saturacion": 15.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 13.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Mamá, ¿qué estás haciendo?",
+      "eventos": [],
+      "palabras_por_segundo": 2.5
+    },
+    {
+      "n": 13,
+      "desde": 20.6,
+      "hasta": 24.07,
+      "duracion": 3.47,
+      "fotograma": "tomas/toma-13.jpg",
+      "tira": "tomas/movimiento/tira-13.jpg",
+      "imagen": {
+        "brillo": 97.9,
+        "luz": "media",
+        "saturacion": 23.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 11.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Tengo derecho a saber qué está trayendo mi hijo a esta familia. Date la vuelta.",
+      "eventos": [],
+      "palabras_por_segundo": 4.32
+    },
+    {
+      "n": 14,
+      "desde": 24.07,
+      "hasta": 26.13,
+      "duracion": 2.06,
+      "fotograma": "tomas/toma-14.jpg",
+      "tira": "tomas/movimiento/tira-14.jpg",
+      "imagen": {
+        "brillo": 68.8,
+        "luz": "oscura",
+        "saturacion": 15.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 15,
+      "desde": 26.13,
+      "hasta": 27.83,
+      "duracion": 1.7,
+      "fotograma": "tomas/toma-15.jpg",
+      "tira": "tomas/movimiento/tira-15.jpg",
+      "imagen": {
+        "brillo": 73.1,
+        "luz": "media",
+        "saturacion": 13.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1.4,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 16,
+      "desde": 27.83,
+      "hasta": 30.07,
+      "duracion": 2.24,
+      "fotograma": "tomas/toma-16.jpg",
+      "tira": "tomas/movimiento/tira-16.jpg",
+      "imagen": {
+        "brillo": 69.4,
+        "luz": "oscura",
+        "saturacion": 21.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Mhm. Siéntate.",
+      "eventos": [],
+      "palabras_por_segundo": 0.89
+    },
+    {
+      "n": 17,
+      "desde": 30.07,
+      "hasta": 31.67,
+      "duracion": 1.6,
+      "fotograma": "tomas/toma-17.jpg",
+      "tira": "tomas/movimiento/tira-17.jpg",
+      "imagen": {
+        "brillo": 69.1,
+        "luz": "oscura",
+        "saturacion": 15.5,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 19.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 18,
+      "desde": 31.67,
+      "hasta": 35.67,
+      "duracion": 4,
+      "fotograma": "tomas/toma-18.jpg",
+      "tira": "tomas/movimiento/tira-18.jpg",
+      "imagen": {
+        "brillo": 75.5,
+        "luz": "media",
+        "saturacion": 20,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Marcus, cocina. Ahora.",
+      "eventos": [],
+      "palabras_por_segundo": 0.75
+    },
+    {
+      "n": 19,
+      "desde": 35.67,
+      "hasta": 36.67,
+      "duracion": 1,
+      "fotograma": "tomas/toma-19.jpg",
+      "tira": "tomas/movimiento/tira-19.jpg",
+      "imagen": {
+        "brillo": 66,
+        "luz": "oscura",
+        "saturacion": 12.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 20,
+      "desde": 36.67,
+      "hasta": 37.5,
+      "duracion": 0.83,
+      "fotograma": "tomas/toma-20.jpg",
+      "tira": "tomas/movimiento/tira-20.jpg",
+      "imagen": {
+        "brillo": 77.1,
+        "luz": "media",
+        "saturacion": 20.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 21,
+      "desde": 37.5,
+      "hasta": 40.9,
+      "duracion": 3.4,
+      "fotograma": "tomas/toma-21.jpg",
+      "tira": "tomas/movimiento/tira-21.jpg",
+      "imagen": {
+        "brillo": 58.5,
+        "luz": "oscura",
+        "saturacion": 13.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Es falsa.",
+      "eventos": [],
+      "palabras_por_segundo": 0.59
+    },
+    {
+      "n": 22,
+      "desde": 40.9,
+      "hasta": 42.07,
+      "duracion": 1.17,
+      "fotograma": "tomas/toma-22.jpg",
+      "tira": "tomas/movimiento/tira-22.jpg",
+      "imagen": {
+        "brillo": 72.3,
+        "luz": "media",
+        "saturacion": 15.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿De qué hablas?",
+      "eventos": [],
+      "palabras_por_segundo": 2.56
+    },
+    {
+      "n": 23,
+      "desde": 42.07,
+      "hasta": 46.4,
+      "duracion": 4.33,
+      "fotograma": "tomas/toma-23.jpg",
+      "tira": "tomas/movimiento/tira-23.jpg",
+      "imagen": {
+        "brillo": 54.1,
+        "luz": "oscura",
+        "saturacion": 13.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Ese cuerpo. Se ha hecho cosas: cirugía,",
+      "eventos": [],
+      "palabras_por_segundo": 1.62
+    },
+    {
+      "n": 24,
+      "desde": 46.4,
+      "hasta": 47.23,
+      "duracion": 0.83,
+      "fotograma": "tomas/toma-24.jpg",
+      "tira": "tomas/movimiento/tira-24.jpg",
+      "imagen": {
+        "brillo": 82.5,
+        "luz": "media",
+        "saturacion": 17,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 25,
+      "desde": 47.23,
+      "hasta": 49.87,
+      "duracion": 2.64,
+      "fotograma": "tomas/toma-25.jpg",
+      "tira": "tomas/movimiento/tira-25.jpg",
+      "imagen": {
+        "brillo": 56.2,
+        "luz": "oscura",
+        "saturacion": 15.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1.7,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "inyecciones, algo.",
+      "eventos": [],
+      "palabras_por_segundo": 0.76
+    },
+    {
+      "n": 26,
+      "desde": 49.87,
+      "hasta": 51.07,
+      "duracion": 1.2,
+      "fotograma": "tomas/toma-26.jpg",
+      "tira": "tomas/movimiento/tira-26.jpg",
+      "imagen": {
+        "brillo": 76.5,
+        "luz": "media",
+        "saturacion": 14.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Y qué si lo hizo?",
+      "eventos": [],
+      "palabras_por_segundo": 4.17
+    },
+    {
+      "n": 27,
+      "desde": 51.07,
+      "hasta": 58.97,
+      "duracion": 7.9,
+      "fotograma": "tomas/toma-27.jpg",
+      "tira": "tomas/movimiento/tira-27.jpg",
+      "imagen": {
+        "brillo": 62.6,
+        "luz": "oscura",
+        "saturacion": 13.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "No te crié para que estés con alguien que miente sobre quién es. No voy a tener una mujer de plástico dándome nietos de plástico.",
+      "eventos": [],
+      "palabras_por_segundo": 3.16
+    },
+    {
+      "n": 28,
+      "desde": 58.97,
+      "hasta": 60.83,
+      "duracion": 1.86,
+      "fotograma": "tomas/toma-28.jpg",
+      "tira": "tomas/movimiento/tira-28.jpg",
+      "imagen": {
+        "brillo": 74.5,
+        "luz": "media",
+        "saturacion": 17.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 8.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Admite lo que se hizo",
+      "eventos": [],
+      "palabras_por_segundo": 2.69
+    },
+    {
+      "n": 29,
+      "desde": 60.83,
+      "hasta": 63.57,
+      "duracion": 2.74,
+      "fotograma": "tomas/toma-29.jpg",
+      "tira": "tomas/movimiento/tira-29.jpg",
+      "imagen": {
+        "brillo": 72.6,
+        "luz": "media",
+        "saturacion": 19.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 20.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "o no es bienvenida aquí.",
+      "eventos": [],
+      "palabras_por_segundo": 1.82
+    },
+    {
+      "n": 30,
+      "desde": 63.57,
+      "hasta": 68.23,
+      "duracion": 4.66,
+      "fotograma": "tomas/toma-30.jpg",
+      "tira": "tomas/movimiento/tira-30.jpg",
+      "imagen": {
+        "brillo": 77.8,
+        "luz": "media",
+        "saturacion": 17.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Te voy a preguntar directamente. ¿Qué te hiciste?",
+      "eventos": [],
+      "palabras_por_segundo": 1.72
+    },
+    {
+      "n": 31,
+      "desde": 68.23,
+      "hasta": 69.7,
+      "duracion": 1.47,
+      "fotograma": "tomas/toma-31.jpg",
+      "tira": "tomas/movimiento/tira-31.jpg",
+      "imagen": {
+        "brillo": 74.7,
+        "luz": "media",
+        "saturacion": 20.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "No me hice cirugía.",
+      "eventos": [],
+      "palabras_por_segundo": 2.72
+    },
+    {
+      "n": 32,
+      "desde": 69.7,
+      "hasta": 73.57,
+      "duracion": 3.87,
+      "fotograma": "tomas/toma-32.jpg",
+      "tira": "tomas/movimiento/tira-32.jpg",
+      "imagen": {
+        "brillo": 69.2,
+        "luz": "oscura",
+        "saturacion": 18.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "No me mientas. ¿BBL?",
+      "eventos": [],
+      "palabras_por_segundo": 1.03
+    },
+    {
+      "n": 33,
+      "desde": 73.57,
+      "hasta": 75.17,
+      "duracion": 1.6,
+      "fotograma": "tomas/toma-33.jpg",
+      "tira": "tomas/movimiento/tira-33.jpg",
+      "imagen": {
+        "brillo": 72.1,
+        "luz": "media",
+        "saturacion": 20,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.9,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "No.",
+      "eventos": [],
+      "palabras_por_segundo": 0.63
+    },
+    {
+      "n": 34,
+      "desde": 75.17,
+      "hasta": 78.83,
+      "duracion": 3.66,
+      "fotograma": "tomas/toma-34.jpg",
+      "tira": "tomas/movimiento/tira-34.jpg",
+      "imagen": {
+        "brillo": 66.9,
+        "luz": "oscura",
+        "saturacion": 16.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Inyecciones? No.",
+      "eventos": [],
+      "palabras_por_segundo": 0.55
+    },
+    {
+      "n": 35,
+      "desde": 78.83,
+      "hasta": 81.73,
+      "duracion": 2.9,
+      "fotograma": "tomas/toma-35.jpg",
+      "tira": "tomas/movimiento/tira-35.jpg",
+      "imagen": {
+        "brillo": 94,
+        "luz": "media",
+        "saturacion": 24,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Entonces explícame lo que estoy viendo,",
+      "eventos": [],
+      "palabras_por_segundo": 2.07
+    },
+    {
+      "n": 36,
+      "desde": 81.73,
+      "hasta": 83.33,
+      "duracion": 1.6,
+      "fotograma": "tomas/toma-36.jpg",
+      "tira": "tomas/movimiento/tira-36.jpg",
+      "imagen": {
+        "brillo": 63,
+        "luz": "oscura",
+        "saturacion": 17.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "porque eso no es natural.",
+      "eventos": [],
+      "palabras_por_segundo": 3.13
+    },
+    {
+      "n": 37,
+      "desde": 83.33,
+      "hasta": 84.47,
+      "duracion": 1.14,
+      "fotograma": "tomas/toma-37.jpg",
+      "tira": "tomas/movimiento/tira-37.jpg",
+      "imagen": {
+        "brillo": 81.9,
+        "luz": "media",
+        "saturacion": 19.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1.7,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "Sí es natural.",
+      "eventos": [],
+      "palabras_por_segundo": 2.63
+    },
+    {
+      "n": 38,
+      "desde": 84.47,
+      "hasta": 85.67,
+      "duracion": 1.2,
+      "fotograma": "tomas/toma-38.jpg",
+      "tira": "tomas/movimiento/tira-38.jpg",
+      "imagen": {
+        "brillo": 81.6,
+        "luz": "media",
+        "saturacion": 20.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Desde cuándo?",
+      "eventos": [],
+      "palabras_por_segundo": 1.67
+    },
+    {
+      "n": 39,
+      "desde": 85.67,
+      "hasta": 87.13,
+      "duracion": 1.46,
+      "fotograma": "tomas/toma-39.jpg",
+      "tira": "tomas/movimiento/tira-39.jpg",
+      "imagen": {
+        "brillo": 85.4,
+        "luz": "media",
+        "saturacion": 19,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Desde hace dos meses.",
+      "eventos": [],
+      "palabras_por_segundo": 2.74
+    },
+    {
+      "n": 40,
+      "desde": 87.13,
+      "hasta": 88.63,
+      "duracion": 1.5,
+      "fotograma": "tomas/toma-40.jpg",
+      "tira": "tomas/movimiento/tira-40.jpg",
+      "imagen": {
+        "brillo": 76.1,
+        "luz": "media",
+        "saturacion": 18.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.5,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Esperas",
+      "eventos": [],
+      "palabras_por_segundo": 0.67
+    },
+    {
+      "n": 41,
+      "desde": 88.63,
+      "hasta": 92.9,
+      "duracion": 4.27,
+      "fotograma": "tomas/toma-41.jpg",
+      "tira": "tomas/movimiento/tira-41.jpg",
+      "imagen": {
+        "brillo": 81.3,
+        "luz": "media",
+        "saturacion": 22.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "que cree que te creció todo eso en dos meses?",
+      "eventos": [],
+      "palabras_por_segundo": 2.34
+    },
+    {
+      "n": 42,
+      "desde": 92.9,
+      "hasta": 96.3,
+      "duracion": 3.4,
+      "fotograma": "tomas/toma-42.jpg",
+      "tira": "tomas/movimiento/tira-42.jpg",
+      "imagen": {
+        "brillo": 85.5,
+        "luz": "media",
+        "saturacion": 19.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "No dije naturalmente. Dije sin cirugía.",
+      "eventos": [],
+      "palabras_por_segundo": 1.76
+    },
+    {
+      "n": 43,
+      "desde": 96.3,
+      "hasta": 97.9,
+      "duracion": 1.6,
+      "fotograma": "tomas/toma-43.jpg",
+      "tira": "tomas/movimiento/tira-43.jpg",
+      "imagen": {
+        "brillo": 76.6,
+        "luz": "media",
+        "saturacion": 21.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Entonces, ¿qué?",
+      "eventos": [],
+      "palabras_por_segundo": 1.25
+    },
+    {
+      "n": 44,
+      "desde": 97.9,
+      "hasta": 103.03,
+      "duracion": 5.13,
+      "fotograma": "tomas/toma-44.jpg",
+      "tira": "tomas/movimiento/tira-44.jpg",
+      "imagen": {
+        "brillo": 66.7,
+        "luz": "oscura",
+        "saturacion": 17,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Son gotas. Gotas. Debajo de la lengua",
+      "eventos": [],
+      "palabras_por_segundo": 1.36
+    },
+    {
+      "n": 45,
+      "desde": 103.03,
+      "hasta": 104.13,
+      "duracion": 1.1,
+      "fotograma": "tomas/toma-45.jpg",
+      "tira": "tomas/movimiento/tira-45.jpg",
+      "imagen": {
+        "brillo": 81,
+        "luz": "media",
+        "saturacion": 22.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "cada mañana.",
+      "eventos": [],
+      "palabras_por_segundo": 1.82
+    },
+    {
+      "n": 46,
+      "desde": 104.13,
+      "hasta": 106.13,
+      "duracion": 2,
+      "fotograma": "tomas/toma-46.jpg",
+      "tira": "tomas/movimiento/tira-46.jpg",
+      "imagen": {
+        "brillo": 65.3,
+        "luz": "oscura",
+        "saturacion": 13.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Eso es ridículo.",
+      "eventos": [],
+      "palabras_por_segundo": 1.5
+    },
+    {
+      "n": 47,
+      "desde": 106.13,
+      "hasta": 108.57,
+      "duracion": 2.44,
+      "fotograma": "tomas/toma-47.jpg",
+      "tira": "tomas/movimiento/tira-47.jpg",
+      "imagen": {
+        "brillo": 90.7,
+        "luz": "media",
+        "saturacion": 21.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Redirige donde tu cuerpo guarda la grasa.",
+      "eventos": [],
+      "palabras_por_segundo": 2.87
+    },
+    {
+      "n": 48,
+      "desde": 108.57,
+      "hasta": 112.87,
+      "duracion": 4.3,
+      "fotograma": "tomas/toma-48.jpg",
+      "tira": "tomas/movimiento/tira-48.jpg",
+      "imagen": {
+        "brillo": 71.5,
+        "luz": "media",
+        "saturacion": 16,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "En vez de tu estómago, va a tus caderas, musulos y nalgas.",
+      "eventos": [],
+      "palabras_por_segundo": 2.79
+    },
+    {
+      "n": 49,
+      "desde": 112.87,
+      "hasta": 114.37,
+      "duracion": 1.5,
+      "fotograma": "tomas/toma-49.jpg",
+      "tira": "tomas/movimiento/tira-49.jpg",
+      "imagen": {
+        "brillo": 67.6,
+        "luz": "oscura",
+        "saturacion": 18.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Eso no es posible.",
+      "eventos": [],
+      "palabras_por_segundo": 2.67
+    },
+    {
+      "n": 50,
+      "desde": 114.37,
+      "hasta": 124.2,
+      "duracion": 9.83,
+      "fotograma": "tomas/toma-50.jpg",
+      "tira": "tomas/movimiento/tira-50.jpg",
+      "imagen": {
+        "brillo": 78.4,
+        "luz": "media",
+        "saturacion": 18.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Tu cuerpo ya sabe dónde poner las curvas. Solo se le olvidó. Esto se lo recuerda. Sin cicatrices, sin recuperación, sin cirugía.",
+      "eventos": [],
+      "palabras_por_segundo": 2.24
+    },
+    {
+      "n": 51,
+      "desde": 124.2,
+      "hasta": 126.07,
+      "duracion": 1.87,
+      "fotograma": "tomas/toma-51.jpg",
+      "tira": "tomas/movimiento/tira-51.jpg",
+      "imagen": {
+        "brillo": 68,
+        "luz": "oscura",
+        "saturacion": 17.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Solo gotas.",
+      "eventos": [],
+      "palabras_por_segundo": 1.07
+    },
+    {
+      "n": 52,
+      "desde": 126.07,
+      "hasta": 128.3,
+      "duracion": 2.23,
+      "fotograma": "tomas/toma-52.jpg",
+      "tira": "tomas/movimiento/tira-52.jpg",
+      "imagen": {
+        "brillo": 71.3,
+        "luz": "media",
+        "saturacion": 21.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Marcus, danos un minuto.",
+      "eventos": [],
+      "palabras_por_segundo": 1.79
+    },
+    {
+      "n": 53,
+      "desde": 128.3,
+      "hasta": 129.63,
+      "duracion": 1.33,
+      "fotograma": "tomas/toma-53.jpg",
+      "tira": "tomas/movimiento/tira-53.jpg",
+      "imagen": {
+        "brillo": 73.3,
+        "luz": "media",
+        "saturacion": 18.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 15.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Mamá. Por favor.",
+      "eventos": [],
+      "palabras_por_segundo": 2.26
+    },
+    {
+      "n": 54,
+      "desde": 129.63,
+      "hasta": 132.4,
+      "duracion": 2.77,
+      "fotograma": "tomas/toma-54.jpg",
+      "tira": "tomas/movimiento/tira-54.jpg",
+      "imagen": {
+        "brillo": 63,
+        "luz": "oscura",
+        "saturacion": 12.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Maya?",
+      "eventos": [],
+      "palabras_por_segundo": 0.36
+    },
+    {
+      "n": 55,
+      "desde": 132.4,
+      "hasta": 134.33,
+      "duracion": 1.93,
+      "fotograma": "tomas/toma-55.jpg",
+      "tira": "tomas/movimiento/tira-55.jpg",
+      "imagen": {
+        "brillo": 76.5,
+        "luz": "media",
+        "saturacion": 20.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Está bien. Ve.",
+      "eventos": [],
+      "palabras_por_segundo": 1.55
+    },
+    {
+      "n": 56,
+      "desde": 134.33,
+      "hasta": 136.67,
+      "duracion": 2.34,
+      "fotograma": "tomas/toma-56.jpg",
+      "tira": "tomas/movimiento/tira-56.jpg",
+      "imagen": {
+        "brillo": 78,
+        "luz": "media",
+        "saturacion": 18.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "",
+      "eventos": [],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 57,
+      "desde": 136.67,
+      "hasta": 146.83,
+      "duracion": 10.16,
+      "fotograma": "tomas/toma-57.jpg",
+      "tira": "tomas/movimiento/tira-57.jpg",
+      "imagen": {
+        "brillo": 81.3,
+        "luz": "media",
+        "saturacion": 24.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "He tenido cuerpo de tabla toda mi vida. Mi madre era una tabla. Su madre era una tabla. Pensé que así éramos hechas. ¿Cómo se llama?",
+      "eventos": [],
+      "palabras_por_segundo": 2.56
+    },
+    {
+      "n": 58,
+      "desde": 146.83,
+      "hasta": 151.9,
+      "duracion": 5.07,
+      "fotograma": "tomas/toma-58.jpg",
+      "tira": "tomas/movimiento/tira-58.jpg",
+      "imagen": {
+        "brillo": 73.3,
+        "luz": "media",
+        "saturacion": 21.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Me llamaste falsa. Me llamaste chica de video.",
+      "eventos": [],
+      "palabras_por_segundo": 1.58
+    },
+    {
+      "n": 59,
+      "desde": 151.9,
+      "hasta": 153.67,
+      "duracion": 1.77,
+      "fotograma": "tomas/toma-59.jpg",
+      "tira": "tomas/movimiento/tira-59.jpg",
+      "imagen": {
+        "brillo": 76.3,
+        "luz": "media",
+        "saturacion": 21,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Dijiste que no era bienvenida aquí.",
+      "eventos": [],
+      "palabras_por_segundo": 3.39
+    },
+    {
+      "n": 60,
+      "desde": 153.67,
+      "hasta": 159.13,
+      "duracion": 5.46,
+      "fotograma": "tomas/toma-60.jpg",
+      "tira": "tomas/movimiento/tira-60.jpg",
+      "imagen": {
+        "brillo": 79.1,
+        "luz": "media",
+        "saturacion": 23,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Estaba equivocada. Lo siento. ¿Cómo se llama?",
+      "eventos": [],
+      "palabras_por_segundo": 1.28
+    },
+    {
+      "n": 61,
+      "desde": 159.13,
+      "hasta": 163.47,
+      "duracion": 4.34,
+      "fotograma": "tomas/toma-61.jpg",
+      "tira": "tomas/movimiento/tira-61.jpg",
+      "imagen": {
+        "brillo": 75.1,
+        "luz": "media",
+        "saturacion": 20.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "AMUA. A-M-U-A. Vital Drops.",
+      "eventos": [],
+      "palabras_por_segundo": 0.92
+    },
+    {
+      "n": 62,
+      "desde": 163.47,
+      "hasta": 164.97,
+      "duracion": 1.5,
+      "fotograma": "tomas/toma-62.jpg",
+      "tira": "tomas/movimiento/tira-62.jpg",
+      "imagen": {
+        "brillo": 71,
+        "luz": "media",
+        "saturacion": 19.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.9,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Y de verdad funciona?",
+      "eventos": [],
+      "palabras_por_segundo": 2.67
+    },
+    {
+      "n": 63,
+      "desde": 164.97,
+      "hasta": 171,
+      "duracion": 6.03,
+      "fotograma": "tomas/toma-63.jpg",
+      "tira": "tomas/movimiento/tira-63.jpg",
+      "imagen": {
+        "brillo": 75.5,
+        "luz": "media",
+        "saturacion": 18.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Me hiciste pararme y darme la vuelta para que lo vieras tú misma. Dime tú si funciona.",
+      "eventos": [],
+      "palabras_por_segundo": 2.82
+    },
+    {
+      "n": 64,
+      "desde": 171,
+      "hasta": 174.7,
+      "duracion": 3.7,
+      "fotograma": "tomas/toma-64.jpg",
+      "tira": "tomas/movimiento/tira-64.jpg",
+      "imagen": {
+        "brillo": 71.3,
+        "luz": "media",
+        "saturacion": 20.5,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1.2,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "Mándame el link.",
+      "eventos": [],
+      "palabras_por_segundo": 0.81
+    },
+    {
+      "n": 65,
+      "desde": 174.7,
+      "hasta": 176.17,
+      "duracion": 1.47,
+      "fotograma": "tomas/toma-65.jpg",
+      "tira": "tomas/movimiento/tira-65.jpg",
+      "imagen": {
+        "brillo": 71.2,
+        "luz": "media",
+        "saturacion": 18.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Pídelo más amable.",
+      "eventos": [],
+      "palabras_por_segundo": 2.04
+    },
+    {
+      "n": 66,
+      "desde": 176.17,
+      "hasta": 178.4,
+      "duracion": 2.23,
+      "fotograma": "tomas/toma-66.jpg",
+      "tira": "tomas/movimiento/tira-66.jpg",
+      "imagen": {
+        "brillo": 72.9,
+        "luz": "media",
+        "saturacion": 22.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1.6,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "Por favor.",
+      "eventos": [],
+      "palabras_por_segundo": 0.9
+    },
+    {
+      "n": 67,
+      "desde": 178.4,
+      "hasta": 180.57,
+      "duracion": 2.17,
+      "fotograma": "tomas/toma-67.jpg",
+      "tira": "tomas/movimiento/tira-67.jpg",
+      "imagen": {
+        "brillo": 64.9,
+        "luz": "oscura",
+        "saturacion": 15.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Revisa tu teléfono.",
+      "eventos": [],
+      "palabras_por_segundo": 1.38
+    },
+    {
+      "n": 68,
+      "desde": 180.57,
+      "hasta": 183.9,
+      "duracion": 3.33,
+      "fotograma": "tomas/toma-68.jpg",
+      "tira": "tomas/movimiento/tira-68.jpg",
+      "imagen": {
+        "brillo": 65.9,
+        "luz": "oscura",
+        "saturacion": 17.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Todo",
+      "eventos": [],
+      "palabras_por_segundo": 0.3
+    },
+    {
+      "n": 69,
+      "desde": 183.9,
+      "hasta": 185.7,
+      "duracion": 1.8,
+      "fotograma": "tomas/toma-69.jpg",
+      "tira": "tomas/movimiento/tira-69.jpg",
+      "imagen": {
+        "brillo": 98.5,
+        "luz": "media",
+        "saturacion": 17.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 7.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "bien?",
+      "eventos": [],
+      "palabras_por_segundo": 0.56
+    },
+    {
+      "n": 70,
+      "desde": 185.7,
+      "hasta": 187.13,
+      "duracion": 1.43,
+      "fotograma": "tomas/toma-70.jpg",
+      "tira": "tomas/movimiento/tira-70.jpg",
+      "imagen": {
+        "brillo": 77.5,
+        "luz": "media",
+        "saturacion": 21.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Es una buena elección.",
+      "eventos": [],
+      "palabras_por_segundo": 2.8
+    },
+    {
+      "n": 71,
+      "desde": 187.13,
+      "hasta": 188.53,
+      "duracion": 1.4,
+      "fotograma": "tomas/toma-71.jpg",
+      "tira": "tomas/movimiento/tira-71.jpg",
+      "imagen": {
+        "brillo": 80.5,
+        "luz": "media",
+        "saturacion": 14.5,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "¿Qué acaba de pasar?",
+      "eventos": [],
+      "palabras_por_segundo": 2.86
+    },
+    {
+      "n": 72,
+      "desde": 188.53,
+      "hasta": 190.7,
+      "duracion": 2.17,
+      "fotograma": "tomas/toma-72.jpg",
+      "tira": "tomas/movimiento/tira-72.jpg",
+      "imagen": {
+        "brillo": 75.3,
+        "luz": "media",
+        "saturacion": 18,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 2.6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Cosas de mujeres.",
+      "eventos": [
+        "[música suave]"
+      ],
+      "palabras_por_segundo": 1.38
+    },
+    {
+      "n": 73,
+      "desde": 190.7,
+      "hasta": 191.63,
+      "duracion": 0.93,
+      "fotograma": "tomas/toma-73.jpg",
+      "tira": "tomas/movimiento/tira-73.jpg",
+      "imagen": {
+        "brillo": 62.4,
+        "luz": "oscura",
+        "saturacion": 11.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "",
+      "eventos": [
+        "[música suave]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 74,
+      "desde": 191.63,
+      "hasta": 192.67,
+      "duracion": 1.04,
+      "fotograma": "tomas/toma-74.jpg",
+      "tira": "tomas/movimiento/tira-74.jpg",
+      "imagen": {
+        "brillo": 68,
+        "luz": "oscura",
+        "saturacion": 23.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 0.9,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "",
+      "eventos": [
+        "[música suave]"
+      ],
+      "palabras_por_segundo": 0
+    },
+    {
+      "n": 75,
+      "desde": 192.67,
+      "hasta": 200.6,
+      "duracion": 7.93,
+      "fotograma": "tomas/toma-75.jpg",
+      "tira": "tomas/movimiento/tira-75.jpg",
+      "imagen": {
+        "brillo": 106.7,
+        "luz": "media",
+        "saturacion": 13.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 13.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "La mamá de mi novio me hizo pararme en la cena. Me hizo darme la vuelta como si estuviera en exhibición. Me llamó falsa.",
+      "eventos": [
+        "[música suave]"
+      ],
+      "palabras_por_segundo": 3.03
+    },
+    {
+      "n": 76,
+      "desde": 200.6,
+      "hasta": 201.83,
+      "duracion": 1.23,
+      "fotograma": "tomas/toma-76.jpg",
+      "tira": "tomas/movimiento/tira-76.jpg",
+      "imagen": {
+        "brillo": 79.5,
+        "luz": "media",
+        "saturacion": 9.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3.9,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Dijo que no era bienvenida en",
+      "eventos": [],
+      "palabras_por_segundo": 4.88
+    },
+    {
+      "n": 77,
+      "desde": 201.83,
+      "hasta": 202.57,
+      "duracion": 0.74,
+      "fotograma": "tomas/toma-77.jpg",
+      "tira": "tomas/movimiento/tira-77.jpg",
+      "imagen": {
+        "brillo": 78.1,
+        "luz": "media",
+        "saturacion": 5.5,
+        "color": "apagado",
+        "temperatura": "neutra",
+        "movimiento": 6.1,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "su familia.",
+      "eventos": [],
+      "palabras_por_segundo": 2.7
+    },
+    {
+      "n": 78,
+      "desde": 202.57,
+      "hasta": 207,
+      "duracion": 4.43,
+      "fotograma": "tomas/toma-78.jpg",
+      "tira": "tomas/movimiento/tira-78.jpg",
+      "imagen": {
+        "brillo": 108.6,
+        "luz": "media",
+        "saturacion": 11.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Todo porque no podía creer que un cuerpo así fuera real. No me hice cirugía,",
+      "eventos": [],
+      "palabras_por_segundo": 3.39
+    },
+    {
+      "n": 79,
+      "desde": 207,
+      "hasta": 208.67,
+      "duracion": 1.67,
+      "fotograma": "tomas/toma-79.jpg",
+      "tira": "tomas/movimiento/tira-79.jpg",
+      "imagen": {
+        "brillo": 116,
+        "luz": "media",
+        "saturacion": 18.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 1.4,
+        "se_mueve": "casi quieta"
+      },
+      "dice": "solo encontré algo que funcionó.",
+      "eventos": [],
+      "palabras_por_segundo": 2.99
+    },
+    {
+      "n": 80,
+      "desde": 208.67,
+      "hasta": 211.17,
+      "duracion": 2.5,
+      "fotograma": "tomas/toma-80.jpg",
+      "tira": "tomas/movimiento/tira-80.jpg",
+      "imagen": {
+        "brillo": 101.6,
+        "luz": "media",
+        "saturacion": 13.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Mi cuerpo olvidó dónde poner las cosas.",
+      "eventos": [],
+      "palabras_por_segundo": 2.8
+    },
+    {
+      "n": 81,
+      "desde": 211.17,
+      "hasta": 212.43,
+      "duracion": 1.26,
+      "fotograma": "tomas/toma-81.jpg",
+      "tira": "tomas/movimiento/tira-81.jpg",
+      "imagen": {
+        "brillo": 101.4,
+        "luz": "media",
+        "saturacion": 12.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 25.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Esto se lo recordó.",
+      "eventos": [],
+      "palabras_por_segundo": 3.17
+    },
+    {
+      "n": 82,
+      "desde": 212.43,
+      "hasta": 214.83,
+      "duracion": 2.4,
+      "fotograma": "tomas/toma-82.jpg",
+      "tira": "tomas/movimiento/tira-82.jpg",
+      "imagen": {
+        "brillo": 113.7,
+        "luz": "media",
+        "saturacion": 18.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.9,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "AMUA Vital Drops,",
+      "eventos": [],
+      "palabras_por_segundo": 1.25
+    },
+    {
+      "n": 83,
+      "desde": 214.83,
+      "hasta": 216.27,
+      "duracion": 1.44,
+      "fotograma": "tomas/toma-83.jpg",
+      "tira": "tomas/movimiento/tira-83.jpg",
+      "imagen": {
+        "brillo": 108.3,
+        "luz": "media",
+        "saturacion": 19.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "garantía de noventa días.",
+      "eventos": [],
+      "palabras_por_segundo": 2.78
+    },
+    {
+      "n": 84,
+      "desde": 216.27,
+      "hasta": 217.68,
+      "duracion": 1.41,
+      "fotograma": "tomas/toma-84.jpg",
+      "tira": "tomas/movimiento/tira-84.jpg",
+      "imagen": {
+        "brillo": 113.4,
+        "luz": "media",
+        "saturacion": 18.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Link abajo.",
+      "eventos": [],
+      "palabras_por_segundo": 1.42
+    }
+  ],
+  "texto": "La mujer de la foto que me enseñaste no tenía ese cuerpo. Mamá, guarda el teléfono. Esa soy yo. La cara sí. Lo demás, eso es lo que quiero comprobar. Párate. ¿Perdón? Dije que te pares. Mamá. Quiero ver algo. Párate. Date la vuelta. Mamá, ¿qué estás haciendo? Tengo derecho a saber qué está trayendo mi hijo a esta familia. Date la vuelta. Mhm. Siéntate. Marcus, cocina. Ahora. Es falsa. ¿De qué hablas? Ese cuerpo. Se ha hecho cosas: cirugía, inyecciones, algo. ¿Y qué si lo hizo? No te crié para que estés con alguien que miente sobre quién es. No voy a tener una mujer de plástico dándome nietos de plástico. Admite lo que se hizo o no es bienvenida aquí. Te voy a preguntar directamente. ¿Qué te hiciste? No me hice cirugía. No me mientas. ¿BBL? No. ¿Inyecciones? No. Entonces explícame lo que estoy viendo, porque eso no es natural. Sí es natural. ¿Desde cuándo? Desde hace dos meses. ¿Esperas que cree que te creció todo eso en dos meses? No dije naturalmente. Dije sin cirugía. Entonces, ¿qué? Son gotas. Gotas. Debajo de la lengua cada mañana. Eso es ridículo. Redirige donde tu cuerpo guarda la grasa. En vez de tu estómago, va a tus caderas, musulos y nalgas. Eso no es posible. Tu cuerpo ya sabe dónde poner las curvas. Solo se le olvidó. Esto se lo recuerda. Sin cicatrices, sin recuperación, sin cirugía. Solo gotas. Marcus, danos un minuto. Mamá. Por favor. ¿Maya? Está bien. Ve. He tenido cuerpo de tabla toda mi vida. Mi madre era una tabla. Su madre era una tabla. Pensé que así éramos hechas. ¿Cómo se llama? Me llamaste falsa. Me llamaste chica de video. Dijiste que no era bienvenida aquí. Estaba equivocada. Lo siento. ¿Cómo se llama? AMUA. A-M-U-A. Vital Drops. ¿Y de verdad funciona? Me hiciste pararme y darme la vuelta para que lo vieras tú misma. Dime tú si funciona. Mándame el link. Pídelo más amable. Por favor. Revisa tu teléfono. ¿Todo bien? Es una buena elección. ¿Qué acaba de pasar? Cosas de mujeres. La mamá de mi novio me hizo pararme en la cena. Me hizo darme la vuelta como si estuviera en exhibición. Me llamó falsa. Dijo que no era bienvenida en su familia. Todo porque no podía creer que un cuerpo así fuera real. No me hice cirugía, solo encontré algo que funcionó. Mi cuerpo olvidó dónde poner las cosas. Esto se lo recordó. AMUA Vital Drops, garantía de noventa días. Link abajo.",
+  "palabras_por_segundo": 1.92,
+  "eventos_de_audio": [
+    "[música suave]"
+  ],
+  "voz": {
+    "f0": 170,
+    "genero": null,
+    "variacion": 3.6,
+    "expresiva": true,
+    "ritmo": 1.92,
+    "muestras": 678
+  },
+  "aviso": null
+}

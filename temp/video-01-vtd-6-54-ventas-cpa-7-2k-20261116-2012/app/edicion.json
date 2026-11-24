@@ -14,7 +14,8 @@
     "ocultos": [],
     "voz": {
       "volumen": 1,
-      "silenciada": false
+      "silenciada": false,
+      "tramos": null
     },
     "musica": {
       "fuente": "original",
@@ -35,10 +36,10 @@
     "ajustesTextos": {},
     "textosNuevos": [
       {
-        "id": "tmwk28of60",
-        "texto": "VITALABH",
+        "id": "tmwk74ktz0",
+        "texto": "Difumina «A-M-U-A · Amua Vital Drops»",
         "inicio": 183.4,
-        "fin": 186.367,
+        "fin": 237.7,
         "color": "#FFFFFF",
         "fondo": "#0FA3B1",
         "tamano": 1,
@@ -46,7 +47,7 @@
         "y": 0.17,
         "fuente": "titulo",
         "sigue": {
-          "texto": "A-M-U-A",
+          "texto": "A-M-U-A · Amua Vital Drops",
           "siempre": false,
           "pistas": [
             [
@@ -85,25 +86,7 @@
                 0.275,
                 0.0344
               ]
-            ]
-          ]
-        }
-      },
-      {
-        "id": "tmwk28of61",
-        "texto": "VITALABH Vital Drops",
-        "inicio": 235.4,
-        "fin": 237.7,
-        "color": "#FFFFFF",
-        "fondo": "#0FA3B1",
-        "tamano": 1,
-        "x": 0.5,
-        "y": 0.17,
-        "fuente": "titulo",
-        "sigue": {
-          "texto": "Amua Vital Drops",
-          "siempre": false,
-          "pistas": [
+            ],
             [
               [
                 236,
@@ -135,122 +118,33 @@
               ]
             ]
           ]
-        }
-      },
-      {
-        "id": "tmwk29pm12",
-        "texto": "V-I-T-A-L-A-B-H",
-        "inicio": 183.4,
-        "fin": 186.367,
-        "color": "#FFFFFF",
-        "fondo": "#0FA3B1",
-        "tamano": 1,
-        "x": 0.5,
-        "y": 0.17,
-        "fuente": "titulo",
-        "sigue": {
-          "texto": "A-M-U-A",
-          "siempre": false,
-          "pistas": [
-            [
-              [
-                184,
-                0.4986,
-                0.6703,
-                0.1806,
-                0.0312
-              ],
-              [
-                184.333,
-                0.5,
-                0.6703,
-                0.1778,
-                0.0312
-              ],
-              [
-                185,
-                0.4986,
-                0.6687,
-                0.2694,
-                0.0312
-              ],
-              [
-                185.333,
-                0.4986,
-                0.6687,
-                0.275,
-                0.0344
-              ],
-              [
-                185.667,
-                0.4986,
-                0.6687,
-                0.275,
-                0.0344
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "id": "tmwk29pm13",
-        "texto": "Vitalabh Vital Drops",
-        "inicio": 235.4,
-        "fin": 237.7,
-        "color": "#FFFFFF",
-        "fondo": "#0FA3B1",
-        "tamano": 1,
-        "x": 0.5,
-        "y": 0.17,
-        "fuente": "titulo",
-        "sigue": {
-          "texto": "Amua Vital Drops",
-          "siempre": false,
-          "pistas": [
-            [
-              [
-                236,
-                0.4986,
-                0.6695,
-                0.5083,
-                0.0391
-              ],
-              [
-                236.333,
-                0.4986,
-                0.6695,
-                0.5083,
-                0.0391
-              ],
-              [
-                236.667,
-                0.4986,
-                0.6695,
-                0.5028,
-                0.0359
-              ],
-              [
-                237,
-                0.4986,
-                0.6695,
-                0.5083,
-                0.0391
-              ]
-            ]
-          ]
-        }
+        },
+        "caja": true
       }
     ],
     "reemplazos": {},
     "clips": {},
     "corte": null,
-    "censuras": []
+    "censuras": [],
+    "encuadres": {
+      "toma-1": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      }
+    },
+    "ajustesEscena": {},
+    "audios": [],
+    "fundido": {
+      "entrada": 0,
+      "salida": 0
+    }
   },
-  "t": 1794882770857,
+  "t": 1794892957610,
   "contexto": {
     "titulo": "01   VTD 6   54 ventas CPA 7.2k",
     "overlays": [],
     "color": "#0FA3B1"
   },
-  "guardado": "2026-11-17T02:32:51.475Z"
+  "guardado": "2026-11-17T05:22:38.224Z"
 }

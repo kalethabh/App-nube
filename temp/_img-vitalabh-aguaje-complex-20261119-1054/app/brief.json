@@ -1,0 +1,52 @@
+{
+  "slug": "_img-vitalabh-aguaje-complex-20261119-1054",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "VITALABH Aguaje Complex 3 en 1",
+  "productoId": "producto-edb1",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "VITALABH Aguaje Complex 3 en 1",
+    "publico": "18 a 55",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "Es para el aumento de glúteo piernas y caderas de forma natural. Sus principales 3 extractos son los que dan los resultados (Aguaje, fenogreco y maca negra). Los antes y después deben ser bastantes visibles con respecto al volúmen en piernas y glúteos pero que se vea natural. shorts cortos como en las referencias subidas. Que las imagenes de las modelos tengan el mayor detalle de realismo",
+    "angulo": null
+  },
+  "cantidad": 10,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.jpg",
+    "entrada/referencias/R02.jpg",
+    "entrada/referencias/R03.jpg",
+    "entrada/referencias/R04.jpg",
+    "entrada/referencias/R05.jpg",
+    "entrada/referencias/R06.jpg",
+    "entrada/referencias/R07.jpg",
+    "entrada/referencias/R08.jpg"
+  ],
+  "modo": "nuevos",
+  "referenciasPropias": [],
+  "fiel": false,
+  "elegirTitulos": false,
+  "rapido": false,
+  "investigacion": null,
+  "desdePlantillas": true,
+  "logo": null,
+  "creado": "2026-11-19T15:54:35.951Z",
+  "plantillasReferencia": [
+    "p22",
+    "p24",
+    "p02",
+    "p29",
+    "p30",
+    "p27",
+    "p21",
+    "p26"
+  ]
+}

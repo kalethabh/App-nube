@@ -1,0 +1,30 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-17T22:27:59.573Z",
+  "variaciones": 5,
+  "archivos": 5,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 4,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "En el titular falta el espacio después de la coma: se lee «CURVAS,SIN» pegado."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

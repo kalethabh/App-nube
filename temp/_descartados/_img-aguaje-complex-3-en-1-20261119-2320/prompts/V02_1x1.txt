@@ -1,0 +1,46 @@
+Square 1:1 clean progress-timeline supplement ad on a flat pale blush-pink (#FBE3EE) background with a very subtle lighter gradient toward the top. Top center, from about 6% to 19% of the height, a bold uppercase headline in Poppins Bold, max 2 lines, centered, near-black #0E0E10 with the time expression '3 MESES' in hot fuchsia #E6177F. Across the middle, three circular photo frames whose centers sit on one horizontal line at about 46% of the height and that GROW from left to right: circle 1 about 20% of the width (spanning about 7-27% of the width), circle 2 about 25% (about 30.5-55.5%), circle 3 about 32% (about 59-91%). A thin timeline line runs behind them through their centers from about 6% to 94% of the width, shifting from bubblegum pink to hot fuchsia, with one small chevron arrow pointing right in each gap. All three circles show the SAME photorealistic Colombian woman, about 27 years old, warm tan skin, long dark wavy hair, waist up, facing the camera, same crop, angle and lighting setup: circle 1 in her bedroom in the early morning, sleepy and low-energy, holding a coffee mug, grey t-shirt, muted slightly cool tones; circle 2 in a fuchsia sports top with a towel over her shoulder, energized smile after a workout, neutral tones; circle 3 in a white fitted top and blue high-waisted jeans with the waistband visible, a big confident smile, warm vibrant tones, ringed in hot fuchsia (about 1% of the width) with a faint pink glow. Each circle has a thin white outline and a soft drop shadow. A rounded pill straddles the top edge of each circle: pills 1 and 2 bubblegum pink, pill 3 hot fuchsia, all with white bold text. Under each circle, on one shared baseline at about 65-71% of the height, a short centered caption in Poppins (near-black for 1 and 2, fuchsia semi-bold for 3). Bottom center, from about 74% to 95% of the height, the product from the attached image standing front view with a soft contact shadow and soft studio light from the upper left: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern and a solid hot-pink band wrapping the bottom fifth; the black label shows a small pink VITALABH emblem with the white word 'VITALABH', a huge bold white condensed word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a small white line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret it. Safe margins of 6-7% on every side. No body comparisons, no views from behind. Do not add CTA buttons, price badges, benefit lists, icons, trust seals, rating stars, testimonials, bottom bars or any extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, first element of the canvas): "3 MESES PARA SENTIRTE SEGURA" — Poppins Bold extra heavy, uppercase, each line about 6.5-7.5% of the canvas height, max 2 lines, centered, near-black #0E0E10 with '3 MESES' in hot fuchsia #E6177F
+- stage label 1 (Inside the pill on the top edge of circle 1): "Semana 1" — Poppins Bold, about 2.8-3% of the canvas height, 1 line, centered, white on bubblegum pink
+- stage label 2 (Inside the pill on the top edge of circle 2): "Semana 4" — Poppins Bold, about 2.8-3% of the canvas height, 1 line, centered, white on bubblegum pink
+- stage label 3 (Inside the pill on the top edge of circle 3): "Mes 3" — Poppins Bold, about 3-3.2% of the canvas height, 1 line, centered, white on hot fuchsia
+- caption stage 1 (Centered under circle 1, on the shared caption baseline): "Más energía" — Poppins Medium, about 2.6-3% of the canvas height, 1 line, centered, near-black
+- caption stage 2 (Centered under circle 2, on the shared caption baseline): "Tu rutina al día" — Poppins Medium, about 2.6-3% of the canvas height, 1 line, centered, near-black
+- caption stage 3 (Centered under circle 3, on the shared caption baseline): "Segura con tu jean" — Poppins SemiBold, about 2.8-3.2% of the canvas height, 1 line, centered, hot fuchsia #E6177F
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.
+- text_typography: Poppins Bold (uppercase, heavy) for headlines and labels, Poppins Regular for supporting text.
+
+MANDATORY ELEMENTS:
+- Three circular photo frames growing in size from left to right (about 20%, 25% and 32% of the canvas width)
+- The same woman, crop and lighting in all three circles, progressing from tired and muted to confident and warm
+- Thin horizontal timeline track through the circle centers with a chevron arrow in each gap
+- Fuchsia ring and faint glow on the largest circle
+- Rounded time-label pill on the top edge of each circle
+- The real black-and-fuchsia bottle centered in the bottom band with a soft contact shadow
+- Pale blush-pink background
+
+STRICT EXCLUSIONS:
+- No body, weight or shape comparison between the circles; the change is energy, routine and confidence only.
+- No price, sanitary registration, ratings or customer counts.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: A fourth stage or extra circles
+- Do not add: Rectangular photo panels or a two-panel before/after split
+- Do not add: Number badges instead of time labels
+- Do not add: Charts, graphs, percentages or numeric data overlays
+- Do not add: Benefit list or icons
+- Do not add: The product repeated inside the circles
+- Do not add: Body, weight or medical before/after comparisons; views from behind or close-ups of buttocks, hips or legs
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks other than the real bottle label
+- Do not add: Clinical, certification or sanitary registration seals
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

@@ -1,0 +1,383 @@
+{
+  "titulo": "Aguaje Complex 3 en 1 — «Me caso en quince minutos con un vestido que no cierra»",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 92.4,
+  "de_que_va": "Una novia cuenta por qué, quince minutos antes de casarse, su vestido no le cierra: tres meses antes se sentía plana, su amiga le dio Aguaje Complex 3 en 1 y ahora el vestido le queda demasiado bien. Cierra recomendándolo a quien se siente igual.",
+  "estructura": {
+    "id": "de-la-referencia",
+    "nombre": "La de tu video",
+    "porque": "Sigue los momentos de tu video en su orden: el vestido que no cierra, el salto a tres meses antes, lo que ya probó, la amiga que le muestra el producto, el cambio, el giro del vestido, la boda y la recomendación final."
+  },
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "Me caso en quince minutos con un vestido que no cierra.",
+      "se_ve": "La novia contiene el aire mientras su amiga intenta subirle el cierre del vestido y no sube.",
+      "segundos": 3.6
+    },
+    {
+      "n": 2,
+      "momento": "gancho",
+      "dice": "«Mete la barriga, bota el aire.» «¡Para, para! Esto me quedaba hace tres meses.»",
+      "se_ve": "La novia le hace señas de «para» a su amiga, suelta el aire y se mira al espejo sin creerlo.",
+      "segundos": 5
+    },
+    {
+      "n": 3,
+      "momento": "problema",
+      "dice": "Tres meses antes, en la prueba: «te ves bellísima».",
+      "se_ve": "Tres meses antes, en la tienda de novias, el vestido le cuelga suelto y ella sonríe por compromiso.",
+      "segundos": 2.9
+    },
+    {
+      "n": 4,
+      "momento": "problema",
+      "dice": "Yo sonreía, pero no estaba bien.",
+      "se_ve": "Sola en el probador, se le sale una lágrima y se la seca rápido.",
+      "segundos": 2.1
+    },
+    {
+      "n": 5,
+      "momento": "problema",
+      "dice": "Me miraba en jean: tengo que hacer algo con esto.",
+      "se_ve": "De lado frente al espejo, se jala el jean que le queda suelto atrás y suspira.",
+      "segundos": 3.6
+    },
+    {
+      "n": 6,
+      "momento": "problema",
+      "dice": "Sentadillas, batidos, la faja… y seguía plana como una tabla.",
+      "se_ve": "Hace sentadillas en la sala, cansada, y se queda con las manos en la cintura.",
+      "segundos": 3.6
+    },
+    {
+      "n": 7,
+      "momento": "giro",
+      "dice": "Hasta que Caro, mi amiga desde los nueve: «Tú sabes que yo no jugaría contigo».",
+      "se_ve": "En la cocina, su amiga le toma el brazo y la mira en serio.",
+      "segundos": 5.4
+    },
+    {
+      "n": 8,
+      "momento": "solución",
+      "dice": "«Esto no son los batidos. Esto no es la faja.»",
+      "se_ve": "La mano de la amiga pone el frasco cerrado sobre la mesa, entre las dos tazas.",
+      "segundos": 3.2
+    },
+    {
+      "n": 9,
+      "momento": "solución",
+      "dice": "«Es Aguaje Complex 3 en 1: aguaje, fenogreco y maca negra.»",
+      "se_ve": "La amiga sostiene el frasco junto a su cara y asiente segura.",
+      "segundos": 3.6
+    },
+    {
+      "n": 10,
+      "momento": "solución",
+      "dice": "«Para más cola, no se trata de comer más ni de entrenar más duro.»",
+      "se_ve": "La amiga le explica con las manos, con una sonrisa paciente.",
+      "segundos": 4.6
+    },
+    {
+      "n": 11,
+      "momento": "solución",
+      "dice": "«Esos tres extractos le dan a tu cuerpo un empujón natural: caderas, piernas, cola.»",
+      "se_ve": "Un maniquí de vidrio translúcido: tres corrientes de luz bajan desde la cintura y encienden en dorado las caderas y los muslos, que se ven más llenos.",
+      "segundos": 5
+    },
+    {
+      "n": 12,
+      "momento": "problema",
+      "dice": "Yo le dije: «eso es genética».",
+      "se_ve": "La novia, de brazos cruzados, levanta una ceja sin creerle.",
+      "segundos": 2.1
+    },
+    {
+      "n": 13,
+      "momento": "prueba",
+      "dice": "«Yo era plana como una tabla. Dos cápsulas al día. Confía en mí.»",
+      "se_ve": "La amiga le pone el frasco en las manos y le guiña un ojo.",
+      "segundos": 4.6
+    },
+    {
+      "n": 14,
+      "momento": "solución",
+      "dice": "Y empecé: dos cápsulas al día, con la comida.",
+      "se_ve": "Almorzando en casa, con el frasco cerrado junto al plato, toma agua y sonríe.",
+      "segundos": 3.2
+    },
+    {
+      "n": 15,
+      "momento": "prueba",
+      "dice": "Mes a mes, el jean dejó de quedarme suelto atrás.",
+      "se_ve": "En el mismo espejo y la misma pose, su figura se llena: más cadera, más pierna, el jean ajustado, y sonríe orgullosa.",
+      "segundos": 3.6
+    },
+    {
+      "n": 16,
+      "momento": "prueba",
+      "dice": "«¿Tú te has mirado últimamente? Te ves como otra persona.»",
+      "se_ve": "En un brunch, la amiga la señala asombrada y ella se ríe tapándose la boca.",
+      "segundos": 3.6
+    },
+    {
+      "n": 17,
+      "momento": "giro",
+      "dice": "«No es que no te sirva, Valen: es que te queda demasiado bien.»",
+      "se_ve": "De vuelta en la suite, la amiga la toma de los hombros y se ríen; el vestido sigue abierto.",
+      "segundos": 4.3
+    },
+    {
+      "n": 18,
+      "momento": "giro",
+      "dice": "Quince minutos y sin vestido. Y Caro: «Tienes quince minutos y el cuerpo que siempre quisiste».",
+      "se_ve": "Primer plano de la novia con lágrimas que se convierten en sonrisa.",
+      "segundos": 5.7
+    },
+    {
+      "n": 19,
+      "momento": "resultado",
+      "dice": "Entré con otro vestido.",
+      "se_ve": "Entra a la fiesta con un vestido blanco ajustado que le queda perfecto.",
+      "segundos": 2
+    },
+    {
+      "n": 20,
+      "momento": "resultado",
+      "dice": "Mi novio se quedó sin palabras.",
+      "se_ve": "El novio, con la boca abierta, termina sonriendo emocionado.",
+      "segundos": 2.1
+    },
+    {
+      "n": 21,
+      "momento": "resultado",
+      "dice": "Y las tías: «¿Qué le pasó?»",
+      "se_ve": "Dos señoras en una mesa de la fiesta se cuchichean asombradas.",
+      "segundos": 2.1
+    },
+    {
+      "n": 22,
+      "momento": "cierre",
+      "dice": "Mira, tal vez estás cansada de sentirte plana, o ya botaste la plata en batidos y fajas que no te dieron nada.",
+      "se_ve": "En su sala, sentada en el sofá, mira a cámara con cariño y se pone la mano en el pecho.",
+      "segundos": 7.9
+    },
+    {
+      "n": 23,
+      "momento": "cierre",
+      "dice": "Aguaje Complex 3 en 1 es diferente. Te dejé el enlace aquí abajo, míralo con calma.",
+      "se_ve": "Sostiene el frasco cerrado junto a su cara y sonríe.",
+      "segundos": 5.7
+    },
+    {
+      "n": 24,
+      "momento": "cierre",
+      "dice": "Tres meses. Eso fue todo lo que me tomó.",
+      "se_ve": "Levanta tres dedos, se ríe y se recuesta feliz en el sofá.",
+      "segundos": 2.9
+    }
+  ],
+  "broll": [
+    {
+      "n": 1,
+      "despues": 1,
+      "con": "un vestido que no cierra",
+      "segundos": 2,
+      "se_ve": "Primer plano del costado del vestido de novia, a la altura de la cintura: el cierre abierto unos centímetros y los dedos de la amiga jalando. Sube un poquito y se frena. Deja la tensión del gancho.",
+      "camara": "primer plano, cámara en mano casi quieta"
+    },
+    {
+      "n": 2,
+      "despues": 2,
+      "con": "esto me quedaba hace tres meses",
+      "segundos": 2,
+      "se_ve": "Un reloj de pared elegante en la suite de la novia, con el velo colgado al lado y luz de ventana. El minutero avanza un paso. Se siente el tiempo encima.",
+      "camara": "plano detalle, la cámara se acerca despacio"
+    },
+    {
+      "n": 3,
+      "despues": 3,
+      "con": "en la prueba",
+      "segundos": 2,
+      "se_ve": "Un perchero lleno de vestidos de novia blancos en una tienda pequeña, con encaje y tul, y luz cálida de vitrina. No hay nadie. Lleva al recuerdo de la prueba.",
+      "camara": "plano medio, paneo lento a la derecha"
+    },
+    {
+      "n": 4,
+      "despues": 4,
+      "con": "no estaba bien",
+      "segundos": 2,
+      "se_ve": "Un velo de novia colgado solo junto a una ventana al anochecer, con un pañuelo arrugado en el marco. Se mueve apenas con el aire. Deja una sensación triste.",
+      "camara": "plano medio, la cámara se acerca despacio"
+    },
+    {
+      "n": 5,
+      "despues": 5,
+      "con": "me miraba en jean",
+      "segundos": 2,
+      "se_ve": "De la cintura a los muslos, de lado frente al espejo: ella separa la pretina del jean y queda un hueco grande de tela suelta. Lo suelta y cae. Se ve claro el problema.",
+      "camara": "primer plano, cámara fija"
+    },
+    {
+      "n": 6,
+      "despues": 6,
+      "con": "batidos, la faja",
+      "segundos": 2,
+      "se_ve": "En el mesón de la cocina, una licuadora con batido, un vaso lleno, una botella de agua y una faja beige doblada al lado. Luz de mañana. Todo lo que ya probó.",
+      "camara": "plano detalle, la cámara se acerca despacio"
+    },
+    {
+      "n": 7,
+      "despues": 7,
+      "con": "mi amiga desde los nueve",
+      "segundos": 2,
+      "se_ve": "Dos tazas de café humeando sobre una mesa redonda de madera, con sol de la mañana. La cocina de fondo, desenfocada. Un momento íntimo entre amigas.",
+      "camara": "plano detalle, la cámara se acerca despacio"
+    },
+    {
+      "n": 8,
+      "despues": 8,
+      "con": "esto no es la faja",
+      "segundos": 2,
+      "se_ve": "El frasco cerrado de Aguaje Complex 3 en 1 sobre la mesa de madera, con la etiqueta de frente y una taza humeante detrás. La luz de la mañana se mueve sobre la etiqueta. Es la revelación del producto.",
+      "camara": "primer plano, la cámara se acerca despacio"
+    },
+    {
+      "n": 9,
+      "despues": 9,
+      "con": "aguaje, fenogreco y maca negra",
+      "segundos": 2.5,
+      "se_ve": "Tres cuencos de barro en la mesa: frutos de aguaje con su cáscara rojiza de escamas, uno abierto con pulpa naranja; semillas doradas de fenogreco; y raíces de maca negra. Luz de sol. Los tres extractos, de verdad.",
+      "camara": "plano medio, paneo lento a la izquierda"
+    },
+    {
+      "n": 10,
+      "despues": 10,
+      "con": "ni de entrenar más duro",
+      "segundos": 2,
+      "se_ve": "Unas pesas rosadas sobre un tapete de yoga en el piso de la sala, con una toalla sudada y una botella de agua. El polvo flota en el rayo de sol. El esfuerzo que no alcanzaba.",
+      "camara": "plano detalle, la cámara se acerca despacio"
+    },
+    {
+      "n": 11,
+      "despues": 11,
+      "con": "caderas, piernas, cola",
+      "segundos": 2.5,
+      "se_ve": "Dentro de un canal de vidrio sobre azul oscuro, tres corrientes de luz ámbar, crema y violeta se trenzan y se vuelven una sola luz dorada que baja. Partículas brillan alrededor. Los tres extractos trabajando juntos.",
+      "camara": "primerísimo plano, cámara fija"
+    },
+    {
+      "n": 12,
+      "despues": 12,
+      "con": "eso es genética",
+      "segundos": 2,
+      "se_ve": "Primer plano de los ojos de la novia, con una ceja levantada y mirada de lado. Rueda los ojos y hace media sonrisa. La duda de siempre.",
+      "camara": "primerísimo plano, cámara en mano casi quieta"
+    },
+    {
+      "n": 13,
+      "despues": 13,
+      "con": "confía en mí",
+      "segundos": 2,
+      "se_ve": "Sobre la mesa, las manos de la novia sostienen el frasco cerrado y las manos de la amiga se apoyan encima. Le da un apretón y la suelta. Es una promesa entre amigas.",
+      "camara": "primer plano, cámara fija"
+    },
+    {
+      "n": 14,
+      "despues": 14,
+      "con": "dos cápsulas al día",
+      "segundos": 2,
+      "se_ve": "El frasco cerrado en la repisa blanca del baño, junto al vaso con el cepillo de dientes, con luz de la mañana. Ya es parte de su rutina diaria.",
+      "camara": "plano detalle, la cámara se acerca despacio"
+    },
+    {
+      "n": 15,
+      "despues": 15,
+      "con": "el jean dejó de quedarme suelto",
+      "segundos": 2.5,
+      "se_ve": "Frente al clóset, de la línea del top a medio muslo: se abotona un jean que ahora le queda ajustado y se lo alisa sobre las caderas. Se nota la cadera redonda y la pierna llena. Arriba se asoma su sonrisa.",
+      "camara": "plano medio, cámara fija"
+    },
+    {
+      "n": 16,
+      "despues": 16,
+      "con": "te ves como otra persona",
+      "segundos": 2,
+      "se_ve": "La mesa del brunch con pancakes, frutos rojos y dos jugos de naranja, bajo luces colgantes que titilan. Un momento feliz entre amigas.",
+      "camara": "plano detalle, la cámara se acerca despacio"
+    },
+    {
+      "n": 17,
+      "despues": 17,
+      "con": "te queda demasiado bien",
+      "segundos": 2,
+      "se_ve": "Las manos de la amiga abren un forro de ropa colgado en el clóset de la suite y aparece otro vestido de novia blanco y ajustado. Lo del vestido sí tiene solución.",
+      "camara": "plano medio, cámara en mano casi quieta"
+    },
+    {
+      "n": 18,
+      "despues": 18,
+      "con": "el cuerpo que siempre quisiste",
+      "segundos": 2,
+      "se_ve": "Primer plano de la amiga, segura y cariñosa, mirando a la novia con una ceja levantada. Asiente despacio y sonríe más. Le da confianza.",
+      "camara": "primer plano, cámara en mano casi quieta"
+    },
+    {
+      "n": 19,
+      "despues": 19,
+      "con": "entré con otro vestido",
+      "segundos": 2,
+      "se_ve": "El salón de la boda de noche: mesas redondas con manteles blancos, flores blancas, velas y luz dorada, y la pista blanca al centro. Las velas titilan. La fiesta está lista.",
+      "camara": "plano general, paneo lento a la izquierda"
+    },
+    {
+      "n": 20,
+      "despues": 20,
+      "con": "sin palabras",
+      "segundos": 2,
+      "se_ve": "Un mesero con una bandeja de copas se frena en seco, con los ojos muy abiertos. Las copas tiemblan un poco. Otro que se quedó sin palabras.",
+      "camara": "plano medio, cámara en mano casi quieta"
+    },
+    {
+      "n": 21,
+      "despues": 21,
+      "con": "¿Qué le pasó?",
+      "segundos": 2.5,
+      "se_ve": "La novia camina de lado entre las mesas con su vestido ajustado, mirando a cámara con una sonrisa tranquila. Los invitados giran la cabeza a su paso. Orgullo puro.",
+      "camara": "cuerpo entero, la cámara la acompaña de lado"
+    },
+    {
+      "n": 22,
+      "despues": 22,
+      "con": "batidos y fajas que no te dieron nada",
+      "segundos": 2.5,
+      "se_ve": "En su cuarto, frente al espejo, en top blanco y jean ajustado, de tres cuartos: se mira la figura con curvas y sonríe segura con la mano en la cadera. Así se ve ahora.",
+      "camara": "cuerpo entero, cámara fija"
+    },
+    {
+      "n": 23,
+      "despues": 23,
+      "con": "Aguaje Complex 3 en 1 es diferente",
+      "segundos": 2.5,
+      "se_ve": "El frasco cerrado de Aguaje Complex 3 en 1 solo, sobre una superficie gris oscura, con un haz de luz suave que cae desde arriba. La etiqueta se lee clara. El cierre del producto.",
+      "camara": "plano detalle, la cámara se acerca despacio"
+    },
+    {
+      "n": 24,
+      "despues": 24,
+      "con": "eso fue todo lo que me tomó",
+      "segundos": 2.5,
+      "se_ve": "La novia baila con su esposo en la pista blanca, entre luces doradas. Él la hace girar y ella se ríe con el pelo en movimiento. Felicidad total.",
+      "camara": "plano medio, cámara en mano que gira un poco"
+    }
+  ],
+  "decisiones": [
+    "Clonado de: VTD-N 007 - Gabriela Ramirez · 44 tomas · 287 s. Estructura: la de tu video. Lo recorté a 24 tomas y unos 92 segundos (pediste máximo 1:40): mismos momentos, en el mismo orden y con sus frases clave.",
+    "Narra la novia, Valentina, en primera persona, y cita lo que le dice Caro, su amiga. Es la misma persona en el antes (delgada, con el jean suelto atrás) y en el después (con curvas en cadera, cola y piernas), en el mismo espejo. Voz femenina joven con acento colombiano, sin elegir ciudad.",
+    "Ángulo: más cola y piernas de forma natural, sin batidos, sin faja y sin vivir en el gimnasio. Cambié «seis semanas» por «tres meses», porque tu producto se usa por varios meses, y quité lo de las hormonas y el estrógeno. Lo que hace el producto lo explica un maniquí de vidrio con tres luces, una por cada extracto.",
+    "Sin oferta ni forma de pago, porque tu ficha no las trae. Tampoco va la garantía de 90 días del original. El cierre es una recomendación, no una venta: «te dejé el enlace aquí abajo, míralo con calma».",
+    "No usé ningún subestilo: manda el estilo de tu video. Solo se ve el frasco cerrado, nunca cápsulas. 12 de los 24 B-roll van quietos (con movimiento suave, sin pagar el clip)."
+  ]
+}

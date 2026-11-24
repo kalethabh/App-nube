@@ -1,0 +1,18 @@
+
+=== 2026-11-17T23:57:36.987Z  node produccion/generar-imagen-ads.js temp/_img-vitaldrops-20261117-1857 --motor chatgpt --concurrencia 4
+
+=== Anuncios de imagen — _img-vitaldrops-20261117-1857 ===
+
+  Modelo: gpt-image (ChatGPT), con tu suscripcion (sin costo por imagen)
+  Hasta 4 a la vez; sale tras 20 s sin trabajo.
+
+  OK  V01_1x1 — 0 cr
+  OK  V03_1x1 — 0 cr
+  OK  V05_1x1 — 0 cr
+  OK  V02_1x1 — 0 cr
+
+  Listo en 70 s: 4 listas, 0 sin imagen, 0 ya estaban.
+  Gasto real: 0 creditos = US$0.00
+
+
+--- termino con codigo 0 en 70 s

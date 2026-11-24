@@ -1,0 +1,12 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V03_1x1",
+      "ok": false,
+      "problemas": [
+        "En el titular falta el espacio después de la coma: se lee «CURVAS,SIN» pegado."
+      ],
+      "correccion_en": "Write the headline exactly as \"TUS CURVAS, SIN AGUJAS NI QUIRÓFANO\", with a clear normal word space after the comma between \"CURVAS,\" and \"SIN\" (same gap as between the other words). Change nothing else."
+    }
+  ]
+}

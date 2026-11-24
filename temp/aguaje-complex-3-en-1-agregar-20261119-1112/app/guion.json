@@ -1,0 +1,73 @@
+{
+  "titulo": "Aguaje Complex · El doctor: dos caminos para ganar glúteo",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 38,
+  "de_que_va": "Un médico en su consultorio explica que hay dos caminos para ganar glúteo, la cirugía o el natural, y recomienda Aguaje Complex 3 en 1. Una paciente en short muestra cómo estaba antes y cómo quedó.",
+  "estructura": {
+    "id": "de-la-referencia",
+    "nombre": "La de tu video",
+    "porque": "Tiene cinco momentos en este orden: gancho de dos caminos, problema, el producto con sus tres extractos, beneficios y el llamado a la acción. Se suma el antes y después dentro del problema y de los beneficios."
+  },
+  "personajes": [
+    {
+      "nombre": "El médico",
+      "como_es": "Un hombre latino de unos 48 años, con lentes de pasta negra, barba canosa, bata blanca, corbata azul y estetoscopio, que habla de usted."
+    },
+    {
+      "nombre": "La paciente",
+      "como_es": "Una mujer colombiana de unos 28 años, de pelo largo ondulado, con camiseta blanca y short de jean; no habla, solo aparece en el antes y el después."
+    }
+  ],
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "Mire, para ganar glúteo hay dos caminos. Uno es el quirófano, caro y con riesgos. Y el otro, de forma natural.",
+      "se_ve": "El médico se acerca a la cámara y la señala, después abre las manos y termina con las manos juntas sobre el escritorio.",
+      "segundos": 8
+    },
+    {
+      "n": 2,
+      "momento": "problema",
+      "dice": "Muchas me dicen: hago de todo y nada. Las piernas siguen flaquitas. Les falta darle al cuerpo el empujón.",
+      "se_ve": "El médico estira la mano hacia la cámara; corte a la paciente de lado en short de jean, plana y con las piernas delgadas, que se jala el short decepcionada.",
+      "segundos": 8
+    },
+    {
+      "n": 3,
+      "momento": "solución",
+      "dice": "Por eso yo le recomiendo Aguaje Complex tres en uno. Trae aguaje, fenogreco y maca negra juntos. Dos cápsulas al día, con la comida.",
+      "se_ve": "El médico sube el frasco cerrado junto a su cara, señala la etiqueta y muestra dos dedos.",
+      "segundos": 8
+    },
+    {
+      "n": 4,
+      "momento": "prueba",
+      "dice": "Le ayuda a ganar volumen en glúteos, piernas y caderas. Sin efecto rebote, no engorda. Y se ve natural.",
+      "se_ve": "El médico cuenta con los dedos con el frasco en la mano; corte a la misma paciente, en el mismo lugar y la misma pose, ahora con curvas, que sonríe orgullosa.",
+      "segundos": 8
+    },
+    {
+      "n": 5,
+      "momento": "cierre",
+      "dice": "Si quiere probarlo, el suyo está en el botón de abajo. Fíjese que sea el de tapa rosada.",
+      "se_ve": "El médico señala hacia abajo y toca la tapa rosada del frasco, sonriendo.",
+      "segundos": 6
+    }
+  ],
+  "modelos": [
+    {
+      "modelo": "Omni Flash 1.2",
+      "para": "tomas 1, 2, 3, 4 y 5",
+      "porque": "el médico habla a cámara y necesita los labios sincronizados el médico habla a cámara y el corte mudo de la paciente va dentro del mismo bloque"
+    }
+  ],
+  "decisiones": [
+    "Rehecho de: 1035913686187832_video_0.mp4 · 5 tomas · 36 s · formato UGC. La estructura es la de tu video: gancho, problema, producto, beneficios y cierre. Es una variación del guion, como pediste.",
+    "Formato UGC: en tu video el médico habla a cámara todo el tiempo, así que habla con su propia voz y acento colombiano (sin elegir ciudad). Es un médico nuevo del mismo tipo, no la cara del original.",
+    "Ángulo: más volumen en glúteos, piernas y caderas sin cirugía. Agregué un antes y después: una paciente de lado en short de jean, en el mismo consultorio, con la misma ropa y pose; plana en el problema y con curvas en los beneficios. El cambio sale con curvas claras, pero natural, no exagerado.",
+    "Quité lo que tu producto no promete (hormonas, cintura, piel y cabello) y no hablé de pago contra entrega ni de precio porque no hay ese dato: el cierre manda al botón de abajo.",
+    "El frasco siempre se ve cerrado, junto a la cara del médico; no se ven cápsulas. No hay investigación de mercado: el deseo y la objeción salen de tu ficha y de lo que contaste."
+  ]
+}

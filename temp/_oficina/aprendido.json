@@ -1,0 +1,18 @@
+[
+  {
+    "agente": "coordinacion",
+    "regla": "Cuando el usuario pide clonar un video «tal cual», el guion debe ser idéntico al de referencia, palabra por palabra y con la misma estructura, cambiando solo el producto. Sin variaciones ni opciones.",
+    "estilo": null,
+    "voto": "regla",
+    "origen": "chat",
+    "fecha": "2026-11-20T16:54:37.338Z"
+  },
+  {
+    "agente": "coordinacion",
+    "regla": "Los videos deben durar como máximo entre 1 minuto 30 y 1 minuto 40 (nunca más de 1:40) para no consumir mucho crédito. Aunque el video de referencia dure más, se ajusta a ese máximo.",
+    "estilo": null,
+    "voto": "regla",
+    "origen": "chat",
+    "fecha": "2026-11-20T17:31:38.649Z"
+  }
+]

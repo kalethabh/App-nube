@@ -1,0 +1,148 @@
+{
+  "uuid": "d5c1c731-5a27-4100-acb9-76c1d6f21390",
+  "estado": "listo",
+  "tipo": "guion",
+  "intentos": 1,
+  "progreso": [
+    "Preparando la foto de tu producto",
+    "Analizando el video de referencia",
+    "Claude empezó a escribir tu guion",
+    "Leyendo las instrucciones del estilo",
+    "Revisando",
+    "Buscando en los archivos",
+    "Leyendo",
+    "Mirando las imágenes del anuncio",
+    "Mirando las fotos de tu producto",
+    "Leyendo",
+    "Buscando en los archivos",
+    "Leyendo las instrucciones del estilo",
+    "Mirando las imágenes del anuncio",
+    "Buscando en los archivos",
+    "Guardando",
+    "Tu pedido: Musical. Claude escribe la letra de ese estilo",
+    "Preparando la foto de tu producto",
+    "Claude empezó a escribir la letra",
+    "Leyendo las instrucciones del estilo",
+    "Leyendo",
+    "Mirando las fotos de tu producto",
+    "Escribiendo las letras",
+    "Corrigiendo lo que faltaba",
+    "Ajustando las letras"
+  ],
+  "inicio": "2026-11-21T21:47:09.934Z",
+  "cambios": [],
+  "actualizado": "2026-11-21T21:52:44.756Z",
+  "error": null,
+  "inicioIntento": "2026-11-21T21:51:33.381Z",
+  "medidas": [
+    {
+      "tipo": "guion",
+      "fecha": "2026-11-21T21:51:33.376Z",
+      "ok": true,
+      "turnos": 22,
+      "duracionMs": 165302,
+      "uso": {
+        "input_tokens": 32,
+        "cache_creation_input_tokens": 106865,
+        "cache_read_input_tokens": 1256873,
+        "output_tokens": 15152,
+        "output_tokens_details": {
+          "thinking_tokens": 4192
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 106865,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 110828,
+            "cache_creation_input_tokens": 4580,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4580
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 1.4094626000000003,
+      "modelo": "claude-opus-5-5",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 1,
+      "motor": "claude"
+    },
+    {
+      "tipo": "guion",
+      "fecha": "2026-11-21T21:52:44.756Z",
+      "ok": true,
+      "turnos": 9,
+      "duracionMs": 70511,
+      "uso": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 502,
+        "cache_read_input_tokens": 164976,
+        "output_tokens": 285,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 502,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 82556,
+            "cache_creation_input_tokens": 366,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 366
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 0.8015962,
+      "modelo": "claude-opus-5-5",
+      "herramientas": [
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 0,
+      "motor": "claude"
+    }
+  ],
+  "fin": "2026-11-21T21:52:44.756Z",
+  "limite": false,
+  "reinicio": null,
+  "ajustados": 0
+}

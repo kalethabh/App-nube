@@ -1,0 +1,57 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261121-1625",
+  "familia": "imagen-ads",
+  "estado": "listo",
+  "paso": "informe",
+  "pasos": [
+    {
+      "id": "preparar",
+      "nombre": "Preparando tu lote",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:25:16.797Z",
+      "fin": "2026-11-21T21:25:16.841Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Revisando con qué se hacen tus imágenes",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:25:16.841Z",
+      "fin": "2026-11-21T21:25:16.841Z"
+    },
+    {
+      "id": "estrategia",
+      "nombre": "La IA arma la estrategia",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:25:16.842Z",
+      "uuid": "fcdccd89-e3c1-46f5-8e11-578a43c0c1e3",
+      "empezada": true,
+      "motor": "claude",
+      "fin": "2026-11-21T21:29:51.604Z"
+    },
+    {
+      "id": "anuncios",
+      "nombre": "Creando tus anuncios",
+      "estado": "hecho",
+      "intentos": 4,
+      "inicio": "2026-11-21T22:42:34.753Z",
+      "fin": "2026-11-21T22:51:04.299Z"
+    },
+    {
+      "id": "informe",
+      "nombre": "Armando tu informe",
+      "estado": "hecho",
+      "intentos": 4,
+      "inicio": "2026-11-21T22:51:04.300Z",
+      "fin": "2026-11-21T22:51:04.301Z"
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-21T21:25:16.797Z",
+  "aprobado": "2026-11-21T21:25:16.797Z",
+  "actualizado": "2026-11-21T22:51:04.301Z",
+  "terminado": "2026-11-21T22:51:04.301Z"
+}

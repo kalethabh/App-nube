@@ -1,0 +1,18 @@
+{
+  "id": "T010",
+  "piezas": {
+    "V05_1x1": {
+      "orden": "U0009",
+      "estado": "sin-imagen",
+      "intentosApi": 3,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt",
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+    }
+  },
+  "actualizado": "2026-11-21T01:28:15.899Z",
+  "terminado": true
+}

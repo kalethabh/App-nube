@@ -1,0 +1,28 @@
+{
+  "id": "9ec101ba-23ba-402d-aee8-253783c87919",
+  "uuid": "9ec101ba-23ba-402d-aee8-253783c87919",
+  "estado": "error",
+  "paso": "claude",
+  "progreso": [
+    "Claude está en pausa hasta que se renueve tu plan"
+  ],
+  "intentos": 6,
+  "inicio": "2026-11-19T15:46:36.864Z",
+  "error": {
+    "mensaje": "Se acabó por ahora el uso de tu plan de Claude. Toca \"Reintentar\" cuando se renueve (a las 09:01): lo ya hecho no se repite.",
+    "tipo": "limite",
+    "motor": "claude"
+  },
+  "fin": "2026-11-19T15:46:36.868Z",
+  "medida": {
+    "turnos": 0,
+    "duracionMs": 0,
+    "uso": null,
+    "costoEstimado": 0,
+    "modelo": null,
+    "motor": "claude"
+  },
+  "limite": true,
+  "reinicio": "2026-11-20T14:01:00.000Z",
+  "actualizado": "2026-11-19T15:46:36.868Z"
+}

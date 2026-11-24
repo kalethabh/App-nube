@@ -1,0 +1,114 @@
+{
+  "slug": "_img-vitaldrops-20261121-1738",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "VITALDROPS",
+  "productoId": "vitaldrops-d183",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "VITALDROPS",
+    "publico": "Mujeres de 20 a 34 años en ciudades de Colombia, flacas que comen y no suben, que ya probaron gomitas y le tienen miedo al quirófano",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "10 creativos para Meta pensados para Andromeda: cada imagen es un CONCEPTO distinto, no una variación. Entre una y otra cambian al menos dos cosas: la mujer (faceta), el problema, el momento o lugar y el formato. Todo en lenguaje colombiano. Se vende el ritual diario de gotas que acompaña el apetito y la energía junto con comida y ejercicio. Sin prometer aumento de glúteos ni caderas, sin hormonas, sin antes y después, sin señalar el cuerpo como malo. Cierre siempre: Pagas al recibir, sin suscripción.",
+    "angulo": null
+  },
+  "cantidad": 10,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [],
+  "modo": "nuevos",
+  "referenciasPropias": [],
+  "conceptosReferencias": [],
+  "fiel": false,
+  "desde0": {
+    "formatos": [
+      "testimonio",
+      "nosotros-vs-ellos",
+      "pregunta-respuesta",
+      "nota",
+      "testimonio",
+      "temporada",
+      "antes-despues",
+      "hero",
+      "antes-despues",
+      "hero"
+    ]
+  },
+  "elegirTitulos": false,
+  "rapido": false,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-21T22:38:08.203Z",
+  "investigacionDelProducto": true,
+  "validados": [
+    {
+      "archivo": "entrada/validados/A01.png",
+      "origen": "me-funciona",
+      "mismoProducto": true,
+      "producto": "VITALDROPS",
+      "titulo": "CURVAS MÁS LLENAS EN 21 DÍAS",
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "entrada/validados/A02.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A03.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A04.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A05.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p22",
+      "nombre": "No solo X: también Y",
+      "familia": "dolor",
+      "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]», con «Tu mejor versión» a mano",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A06.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p30",
+      "nombre": "Día 0 · 7 · 21",
+      "familia": "tiempo",
+      "titular": "Los días (Día 0 · 7 · 21) + el nombre del producto + 2 resultados concretos en sus palabras («Empiezas a [resultado visible]»)",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A07.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p23",
+      "nombre": "Producto héroe",
+      "familia": "beneficios",
+      "titular": "«Descubre el poder de [producto]» + el resultado principal en 3 a 5 palabras + íconos de ingredientes",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A08.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p08",
+      "nombre": "Resultado en 2 semanas",
+      "familia": "antes-despues",
+      "titular": "«Menos [PROBLEMA] en [TIEMPO]» (o «Más [RESULTADO] en [TIEMPO]»), en dos líneas grandes",
+      "relacionada": true
+    }
+  ],
+  "ganchos": "entrada/ganchos.json"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261120-1803",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "AGUAJE COMPLEX 3 EN 1",
+  "productoId": "producto-edb1",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "publico": "Mujeres de 20 a 40 años en Colombia que quieren glúteos más grandes y piernas más firmes de forma natural",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "10 variaciones del anuncio de imagen del Aguaje Complex 10X (Conexion Lab), siguiendo el estilo de las 6 referencias que pasó el usuario (todas del mismo producto). Lo que tienen en común y hay que mantener: paleta rosado fucsia con negro y blanco; el frasco negro con tapa rosada grande y protagonista, con cápsulas rosadas y frutos de aguaje al lado; una chica latina de espaldas en shorts ajustados (rosados, blancos o grises) mostrando glúteos y piernas, o un antes y después lado a lado; titular grande en mayúsculas blanco/fucsia en dos niveles; 3 o 4 íconos circulares de beneficios (activa el",
+    "angulo": null
+  },
+  "cantidad": 10,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.png"
+  ],
+  "modo": "variantes",
+  "referenciasPropias": [],
+  "conceptosReferencias": [
+    "10 variaciones del anuncio de imagen del Aguaje Complex 10X (Conexion Lab), siguiendo el estilo de las 6 referencias que pasó el usuario (todas del mismo producto). Lo que tienen en común y hay que mantener: paleta rosado fucsia con negro y blanco; el frasco negro con tapa rosada grande y protagonis"
+  ],
+  "fiel": true,
+  "agente": "variaciones",
+  "elegirTitulos": false,
+  "rapido": false,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-20T23:03:38.523Z",
+  "investigacionDelProducto": true
+}

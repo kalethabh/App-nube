@@ -1,0 +1,39 @@
+{
+  "slug": "_img-vitaldrops-20261121-1719",
+  "nombre": "VITALDROPS",
+  "analisis": "VITALDROPS.",
+  "tipo_producto": "producto físico",
+  "descripcion_visual_en": "Use the attached product photo exactly as it is (packaging, label, colors and proportions).",
+  "foto_producto": "entrada/producto.jpg",
+  "datos": {
+    "nombre": "VITALDROPS",
+    "publico": "18 a 55",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "Variaciones del anuncio ganador de VITALDROPS: antes y después estilo 3D animado, chica de espaldas con vestido corto rosa, izquierda oscura (antes: sin curvas, sin confianza, la que nadie nota) y derecha rosa brillante (después: curvas naturales, más confianza, todos la notan), titular grande arriba a la derecha, frasco al lado, sello de 90 días de garantía e íconos abajo (ingredientes de origen vegetal, resultados reales, sin cirugía).",
+    "angulo": null
+  },
+  "identidad_visual": {
+    "color_palette": "the colors of the product packaging",
+    "visual_style": "the style of the reference ad",
+    "visual_atmosphere": "the atmosphere of the reference ad",
+    "graphic_language": "the graphic language of the reference ad",
+    "text_typography": "the typography of the reference ad",
+    "art_direction": "same design as the reference ad"
+  },
+  "beneficios": [
+    "Beneficio principal del producto",
+    "Fácil de usar",
+    "Calidad",
+    "Resultados visibles"
+  ],
+  "caracteristicas": [
+    "Producto real de la foto",
+    "Empaque original",
+    "Uso diario",
+    "Envío a domicilio"
+  ]
+}

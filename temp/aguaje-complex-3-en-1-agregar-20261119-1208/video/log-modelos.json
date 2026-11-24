@@ -1,0 +1,150 @@
+{
+  "generado": "2026-11-19T19:02:29.759Z",
+  "parcial": false,
+  "segundos": 355,
+  "clips": [
+    {
+      "id": "toma-1",
+      "archivo": "toma-1.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 10,
+      "segundosPedidos": 10,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "personaje-2"
+      ],
+      "creditos": 100,
+      "taskId": "9572ec8ddc560fd40c5d3395a077ee10",
+      "dialogo": true
+    },
+    {
+      "id": "toma-2",
+      "archivo": "toma-2.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 10,
+      "segundosPedidos": 10,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "lugar-podcast"
+      ],
+      "creditos": 100,
+      "taskId": "0ce476616d28160457e3fdebaafffcb0",
+      "dialogo": true
+    },
+    {
+      "id": "toma-3",
+      "archivo": "toma-3.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 8,
+      "segundosPedidos": 8,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "producto",
+        "lugar-podcast"
+      ],
+      "creditos": 80,
+      "taskId": "7b2420c724308731e4088165f3b9f057",
+      "dialogo": true
+    },
+    {
+      "id": "toma-4",
+      "archivo": "toma-4.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 8,
+      "segundosPedidos": 8,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "producto",
+        "lugar-podcast"
+      ],
+      "creditos": 80,
+      "taskId": "3bd41e11b0f1057a794c807823b8e15d",
+      "dialogo": true
+    },
+    {
+      "id": "toma-5",
+      "archivo": "toma-5.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 6,
+      "segundosPedidos": 6,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "producto",
+        "lugar-podcast"
+      ],
+      "creditos": 60,
+      "taskId": "dcc85799ea0eb3252c71d5a91212a368",
+      "dialogo": true
+    },
+    {
+      "id": "toma-6",
+      "archivo": "toma-6.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 10,
+      "segundosPedidos": 10,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "producto",
+        "lugar-podcast"
+      ],
+      "creditos": 100,
+      "taskId": "48094adf2fa8d42355027008aac69ad3",
+      "dialogo": true
+    },
+    {
+      "id": "toma-7",
+      "archivo": "toma-7.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 8,
+      "segundosPedidos": 8,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "lugar-podcast"
+      ],
+      "creditos": 80,
+      "taskId": "8ac511ebea5dac220e9f64280b5c22bd",
+      "dialogo": true
+    }
+  ]
+}

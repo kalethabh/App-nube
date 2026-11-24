@@ -1,0 +1,62 @@
+{
+  "generado": "2026-11-21T18:05:37.659Z",
+  "anuncio": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
+  "limpio": false,
+  "codigo": 1,
+  "controles": {
+    "ok": true,
+    "motivo": null,
+    "congelado": true,
+    "movimiento": true,
+    "negro": true
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-3-en-1-realista-narrado-20261121-0943_9x16_con-subtitulos.mp4",
+      "fecha": "2026-11-21T18:05:36.652Z",
+      "deEsteMontaje": true,
+      "duracion": 104.555,
+      "fps": 30,
+      "negros": [],
+      "congelados": []
+    }
+  ],
+  "musica": {
+    "medida": false,
+    "motivo": "se entrego solo la version completa: la version sin musica sale del editor"
+  },
+  "defectos": [
+    {
+      "tipo": "corto",
+      "pieza": "B-roll 3",
+      "desde": 14.694,
+      "hasta": 15.256,
+      "detalle": "B-roll 3: el clip se acaba 0.6 s antes de que termine su momento (desde el segundo 14.7 se ve quieto)",
+      "rerender": false
+    },
+    {
+      "tipo": "corto",
+      "pieza": "B-roll 6",
+      "desde": 25.966,
+      "hasta": 26.772,
+      "detalle": "B-roll 6: el clip se acaba 0.8 s antes de que termine su momento (desde el segundo 26 se ve quieto)",
+      "rerender": false
+    },
+    {
+      "tipo": "corto",
+      "pieza": "B-roll 9",
+      "desde": 41.01,
+      "hasta": 41.377,
+      "detalle": "B-roll 9: el clip se acaba 0.4 s antes de que termine su momento (desde el segundo 41 se ve quieto)",
+      "rerender": false
+    }
+  ],
+  "avisos": [],
+  "noMedido": [],
+  "soloCompleta": true,
+  "versionesEsperadas": [
+    "con-subtitulos"
+  ],
+  "rerenderAyuda": false
+}

@@ -1,0 +1,147 @@
+{
+  "slug": "aguaje-complex-3-en-1-musical-20261120-1209",
+  "familia": "musical",
+  "estado": "error",
+  "paso": "imagenes-y-videos",
+  "pasos": [
+    {
+      "id": "letra",
+      "nombre": "Preparar la letra de la canción",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:11:38.790Z",
+      "fin": "2026-11-20T17:11:38.879Z",
+      "nota": "Letra 1: «Lo que nadie te dice del BBL»."
+    },
+    {
+      "id": "saldo-cancion",
+      "nombre": "Mirar tu saldo para la canción",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:11:38.879Z",
+      "fin": "2026-11-20T17:11:39.063Z"
+    },
+    {
+      "id": "cancion",
+      "nombre": "Componer tu canción",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:11:39.063Z",
+      "fin": "2026-11-20T17:12:38.346Z",
+      "nota": "2 versiones listas para escuchar."
+    },
+    {
+      "id": "elegir-cancion",
+      "nombre": "Elegir tu canción",
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-20T17:12:38.346Z",
+      "fin": "2026-11-20T17:16:38.208Z",
+      "nota": "Elegiste la versión 1: dura 3:45."
+    },
+    {
+      "id": "tomas",
+      "nombre": "Escribir las escenas sobre la canción",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:16:38.208Z",
+      "fin": "2026-11-20T17:27:48.031Z",
+      "nota": "93 escenas y 16 B-roll sobre la canción."
+    },
+    {
+      "id": "tiempos",
+      "nombre": "Medir cada escena en la canción",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:27:48.031Z",
+      "fin": "2026-11-20T17:27:48.187Z"
+    },
+    {
+      "id": "ventanas",
+      "nombre": "Ajustar el largo de cada escena",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:27:48.187Z",
+      "fin": "2026-11-20T17:27:48.190Z",
+      "nota": "5 B-roll no entran en el video con esta canción: no se generan."
+    },
+    {
+      "id": "saldo",
+      "nombre": "Mirar tu saldo de kie",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:27:48.190Z",
+      "fin": "2026-11-20T17:27:48.814Z"
+    },
+    {
+      "id": "imagenes-y-videos",
+      "nombre": "Crear las imágenes y los videos",
+      "estado": "error",
+      "intentos": 4,
+      "inicio": "2026-11-20T17:27:48.814Z",
+      "fin": "2026-11-20T20:32:07.733Z",
+      "error": {
+        "mensaje": "El modelo de video rechazó una escena por su contenido.",
+        "motivo": "contenido",
+        "detalle": "[vid]   Genera primero sus imagenes (npm run imagenes -- temp/aguaje-complex-3-en-1-musical-20261120-1209); despues se generan con lo que falta (sin --rehacer):\n[vid]       npm run videos -- temp/aguaje-complex-3-en-1-musical-20261120-1209\n[vid]\n=== Produccion — aguaje-complex-3-en-1-musical-20261120-1209: resumen ===\n  Imagenes:    SE DETUVO (codigo 1), nada nuevo, en 51 s\n  Videos:      SE DETUVO (codigo 1), nada nuevo, en 51 s\n  Tiempo:      51 s\n  Algo no salio. El detalle esta arriba, en las lineas [img], [voz] o [vid] que dicen que paso.\n  Para retomar, el mismo comando:\n      npm run producir -- temp/aguaje-complex-3-en-1-musical-20261120-1209 --si\n  Lo ya hecho no se paga otra vez, y las tareas que seguian en kie se retoman.\n  Si el motivo es un rechazo por contenido, volver a correr no alcanza: ese mensaje dice que hacer.",
+        "causa": {
+          "porque": "Las tomas 11, 40 y 7 no salieron con ninguno de los dos modelos de video. El modelo de video rechazó una escena por su contenido (algo que su filtro considera sensible).",
+          "dijo": "400 The input or output was flagged as sensitive. Please try again with different inputs.",
+          "hacer": [
+            "Abre el anuncio en el editor y rehaz esa toma con otra descripción.",
+            "O toca «Continuar»: a veces la misma escena pasa en otro intento."
+          ]
+        }
+      }
+    },
+    {
+      "id": "revision-imagenes",
+      "nombre": "Revisar las imágenes",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "voces",
+      "nombre": "Buscar voces que no van",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "montaje",
+      "nombre": "Armar el montaje y los subtítulos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "render",
+      "nombre": "Exportar los videos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "control-final",
+      "nombre": "Revisar el video terminado",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "informe",
+      "nombre": "Preparar el informe",
+      "estado": "pendiente",
+      "intentos": 0
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-20T17:11:38.790Z",
+  "aprobado": "2026-11-20T17:11:38.790Z",
+  "actualizado": "2026-11-20T20:32:07.734Z",
+  "saldoInicial": {
+    "creditos": 9200.1,
+    "fecha": "2026-11-20T17:11:39.063Z"
+  },
+  "costoPlan": {
+    "creditos": 3350,
+    "fecha": "2026-11-20T17:27:48.814Z"
+  }
+}

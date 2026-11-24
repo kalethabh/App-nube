@@ -1,0 +1,28 @@
+{
+  "resumen": "Desde 0: 10 anuncios nuevos con las 6 zonas, en 7 formatos distintos.",
+  "paleta": [
+    {
+      "hex": "#000000",
+      "nombre": "la del empaque del producto"
+    },
+    {
+      "hex": "#FFFFFF",
+      "nombre": "fondos claros y textos sobre color"
+    }
+  ],
+  "tipografia": "titular grueso en mayúsculas; el resto, sans limpia",
+  "estilo": "respuesta directa, poco texto, legible en el celular",
+  "beneficios": [
+    "Beneficio principal del producto",
+    "De forma natural",
+    "Fácil de usar",
+    "Calidad"
+  ],
+  "caracteristicas": [
+    "Producto real de la foto",
+    "Empaque original",
+    "Uso diario",
+    "Pagas al recibir"
+  ],
+  "desde0": true
+}

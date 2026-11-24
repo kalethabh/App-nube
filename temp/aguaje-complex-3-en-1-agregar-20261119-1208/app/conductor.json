@@ -1,0 +1,126 @@
+{
+  "slug": "aguaje-complex-3-en-1-agregar-20261119-1208",
+  "familia": "ugc",
+  "estado": "listo",
+  "paso": "informe",
+  "pasos": [
+    {
+      "id": "validar",
+      "nombre": "Revisar el guion",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T18:48:32.605Z",
+      "fin": "2026-11-19T18:48:32.749Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Mirar tu saldo de kie",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T18:48:32.749Z",
+      "fin": "2026-11-19T18:48:33.539Z"
+    },
+    {
+      "id": "persona",
+      "nombre": "Crear la imagen de la persona",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T18:48:33.540Z",
+      "fin": "2026-11-19T18:54:38.468Z"
+    },
+    {
+      "id": "revision-persona",
+      "nombre": "Revisar la imagen de la persona",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T18:54:38.469Z",
+      "fin": "2026-11-19T18:54:53.210Z",
+      "nota": "La imagen de la persona pasó la revisión."
+    },
+    {
+      "id": "bloques",
+      "nombre": "Crear los videos de la persona hablando",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T18:54:53.212Z",
+      "fin": "2026-11-19T19:02:29.784Z",
+      "nota": "1 frase se cambió porque el generador las rechazó."
+    },
+    {
+      "id": "revision-bloques",
+      "nombre": "Revisar cada bloque: la cara, el producto y lo que dice",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:02:29.785Z",
+      "fin": "2026-11-19T19:03:37.633Z",
+      "nota": "Todos los bloques pasaron la revisión."
+    },
+    {
+      "id": "musica",
+      "nombre": "Poner la música",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:03:37.636Z",
+      "fin": "2026-11-19T19:04:14.779Z"
+    },
+    {
+      "id": "montaje",
+      "nombre": "Armar el montaje y los subtítulos",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:04:14.780Z",
+      "fin": "2026-11-19T19:07:05.721Z"
+    },
+    {
+      "id": "render",
+      "nombre": "Exportar los videos",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:07:05.728Z",
+      "renderLento": 1,
+      "fin": "2026-11-19T19:35:10.827Z"
+    },
+    {
+      "id": "control-final",
+      "nombre": "Revisar el video terminado",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:35:10.827Z",
+      "fin": "2026-11-19T19:35:23.864Z"
+    },
+    {
+      "id": "ganchos",
+      "nombre": "Armar las versiones con otro gancho",
+      "estado": "saltado",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:35:23.865Z",
+      "fin": "2026-11-19T19:35:23.865Z"
+    },
+    {
+      "id": "informe",
+      "nombre": "Preparar el informe",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:35:23.866Z",
+      "fin": "2026-11-19T19:35:24.056Z"
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-19T18:48:32.604Z",
+  "aprobado": "2026-11-19T18:48:32.604Z",
+  "actualizado": "2026-11-19T19:35:24.057Z",
+  "saldoInicial": {
+    "creditos": 2628.1,
+    "fecha": "2026-11-19T18:48:33.539Z"
+  },
+  "costoPlan": {
+    "creditos": 632,
+    "fecha": "2026-11-19T18:48:33.539Z"
+  },
+  "saldoFinal": {
+    "creditos": 2016.1,
+    "fecha": "2026-11-19T19:35:24.050Z"
+  },
+  "terminado": "2026-11-19T19:35:24.057Z"
+}

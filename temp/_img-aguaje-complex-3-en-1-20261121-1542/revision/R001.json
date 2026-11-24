@@ -1,0 +1,16 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V03_1x1",
+      "ok": false,
+      "problemas": [
+        "El diseño no cabe en el cuadrado: arriba y abajo quedó cortado.",
+        "Falta la franja de arriba con «MÁS CURVAS SÍ,». No se ve.",
+        "«PERO SIN» sale cortado por arriba.",
+        "Falta la barra de abajo con el camión, la mano con moneda, «ENVÍO GRATIS» y «PAGA AL RECIBIR».",
+        "La frase de cierre solo muestra «Natural,» cortado. Falta «a tu ritmo» y su corazón."
+      ],
+      "correccion_en": "Fit the entire layout inside the square canvas with safe margins: scale the middle band down so the full top headline (magenta pill reading \"MÁS CURVAS SÍ,\", then \"PERO SIN\", then \"QUIRÓFANO\") is fully visible at the top, and the full deep magenta bottom bar (truck icon + \"ENVÍO GRATIS\", divider, hand-with-coin icon + \"PAGA\\nAL RECIBIR\") plus the script accent \"Natural,\\na tu ritmo\" with a small heart are fully visible at the bottom. Nothing may be cropped by the canvas edges."
+    }
+  ]
+}

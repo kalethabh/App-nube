@@ -1,0 +1,43 @@
+{
+  "resumen": "Tomamos tu anuncio ganador de antes y después en estilo animado y lo llevamos a tu frasco y a sus colores. Las 10 variaciones tienen el mismo diseño, las mismas notas a mano, el sello y los íconos; cambia el titular y, como pediste, la chica, su ropa y su pose. Cada titular ataca un dolor real de tu clienta o le promete lo que más quiere: verse con curvas y segura, sin quirófano. Creemos que tu anuncio vende porque el cambio se entiende en un segundo y el titular habla de cómo la miran los demás; es una hipótesis, no una garantía.",
+  "paleta": [
+    { "hex": "#2A0E22", "nombre": "Ciruela oscuro" },
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#FFD23F", "nombre": "Amarillo titular" },
+    { "hex": "#D4A437", "nombre": "Dorado sello" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" }
+  ],
+  "tipografia": "La de tu anuncio: titular en letra muy gruesa, todo en mayúsculas, en blanco y amarillo. El subtítulo en letra redonda y sencilla. Las notas de los lados, en letra escrita a mano.",
+  "estilo": "Antes y después en estilo animado 3D. A la izquierda, fondo oscuro y la chica triste. A la derecha, fondo fucsia con brillos y corazones, la misma chica feliz y con más curvas, y tu frasco grande abajo.",
+  "beneficios": [
+    "Acompaña tu proceso de curvas junto con tu comida y tu rutina de pierna",
+    "Más energía y mejor ánimo para cumplirle a tu rutina",
+    "Fácil de cumplir: solo 2 cápsulas al día con tus comidas",
+    "Una opción natural, sin agujas ni quirófano"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg por porción",
+    "Con vitaminas A y E",
+    "Frasco de 60 cápsulas: un mes de uso",
+    "Pagas en efectivo cuando lo recibes"
+  ],
+  "deseo_central": "Verse con más curvas y sentirse segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas",
+    "Ya compré pastillas por internet y no vi nada",
+    "Me comparo con las de Instagram y me siento plana"
+  ],
+  "decisiones": [
+    "El sello de tu anuncio decía «90 días de garantía». Tú no tienes una garantía definida, así que el sello dice «Pagas al recibir», que es tu oferta real.",
+    "El ícono de «Resultados reales» cambió a «2 cápsulas al día»: no se puede prometer un resultado.",
+    "Dejamos el amarillo del titular y el dorado del sello, como en tu anuncio. Los fondos pasan a ciruela oscuro y fucsia, los colores de tu frasco.",
+    "En cada variación cambian la chica, su ropa y su pose, como pediste. Todo lo demás queda igual."
+  ]
+}

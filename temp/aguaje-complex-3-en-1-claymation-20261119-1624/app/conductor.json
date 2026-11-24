@@ -1,0 +1,158 @@
+{
+  "slug": "aguaje-complex-3-en-1-claymation-20261119-1624",
+  "familia": "continuidad",
+  "estado": "listo",
+  "paso": "informe",
+  "pasos": [
+    {
+      "id": "validar",
+      "nombre": "Revisar el guion",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T22:59:45.221Z",
+      "fin": "2026-11-19T22:59:45.345Z"
+    },
+    {
+      "id": "preparar-cadena",
+      "nombre": "Preparar el anuncio sin cortes",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T22:59:45.345Z",
+      "fin": "2026-11-19T22:59:45.513Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Mirar tu saldo de kie",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T22:59:45.514Z",
+      "fin": "2026-11-19T22:59:46.274Z"
+    },
+    {
+      "id": "voz",
+      "nombre": "Grabar la voz",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T22:59:46.274Z",
+      "fin": "2026-11-19T22:59:53.634Z"
+    },
+    {
+      "id": "imagenes",
+      "nombre": "Crear las imágenes",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T22:59:53.634Z",
+      "fin": "2026-11-19T23:03:14.680Z"
+    },
+    {
+      "id": "revision-imagenes",
+      "nombre": "Revisar las imágenes",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:03:14.681Z",
+      "fin": "2026-11-19T23:03:56.657Z",
+      "nota": "Las imágenes pasaron la revisión."
+    },
+    {
+      "id": "duraciones",
+      "nombre": "Medir cada paso con la voz",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:03:56.657Z",
+      "fin": "2026-11-19T23:03:56.957Z"
+    },
+    {
+      "id": "pares",
+      "nombre": "Escribir el paso entre cada escena",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:03:56.957Z",
+      "fin": "2026-11-19T23:07:34.587Z"
+    },
+    {
+      "id": "videos",
+      "nombre": "Crear los videos encadenados",
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-19T23:07:34.587Z",
+      "retomado": true,
+      "fin": "2026-11-19T23:14:28.601Z"
+    },
+    {
+      "id": "revision-cadena",
+      "nombre": "Revisar las uniones entre escenas",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:14:28.602Z",
+      "fin": "2026-11-19T23:15:46.296Z",
+      "nota": "Cada escena pasa bien a la siguiente."
+    },
+    {
+      "id": "voces",
+      "nombre": "Buscar voces que no van",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:15:46.296Z",
+      "fin": "2026-11-19T23:15:58.413Z",
+      "nota": "1 clip(s) traían una voz que no iba: van sin sonido."
+    },
+    {
+      "id": "musica",
+      "nombre": "Poner la música",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:15:58.413Z",
+      "fin": "2026-11-19T23:16:27.121Z"
+    },
+    {
+      "id": "montaje",
+      "nombre": "Armar el montaje y los subtítulos",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:16:27.121Z",
+      "fin": "2026-11-19T23:16:29.144Z"
+    },
+    {
+      "id": "render",
+      "nombre": "Exportar los videos",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:16:29.145Z",
+      "fin": "2026-11-19T23:21:43.647Z"
+    },
+    {
+      "id": "control-final",
+      "nombre": "Revisar el video terminado",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:21:43.647Z",
+      "fin": "2026-11-19T23:22:01.993Z"
+    },
+    {
+      "id": "informe",
+      "nombre": "Preparar el informe",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:22:01.993Z",
+      "fin": "2026-11-19T23:22:02.309Z"
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-19T22:59:45.220Z",
+  "aprobado": "2026-11-19T22:59:45.220Z",
+  "actualizado": "2026-11-19T23:22:02.310Z",
+  "saldoInicial": {
+    "creditos": 2016.1,
+    "fecha": "2026-11-19T22:59:46.274Z"
+  },
+  "costoPlan": {
+    "creditos": 752,
+    "fecha": "2026-11-19T22:59:46.274Z"
+  },
+  "saldoFinal": {
+    "creditos": 1011.1,
+    "fecha": "2026-11-19T23:22:02.299Z"
+  },
+  "terminado": "2026-11-19T23:22:02.310Z"
+}

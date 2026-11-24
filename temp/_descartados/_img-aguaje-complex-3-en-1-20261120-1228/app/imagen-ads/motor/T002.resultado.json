@@ -1,0 +1,20 @@
+{
+  "id": "T002",
+  "piezas": {
+    "V05_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1fad9-293f-7173-ba8f-c9ea9eeeda84",
+      "firma": "1640094-1795210007649",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    }
+  },
+  "actualizado": "2026-11-20T21:26:47.651Z",
+  "terminado": true
+}

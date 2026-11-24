@@ -1,0 +1,8 @@
+{
+  "efectos": { "woosh": "efectos/woosh.mp3", "deep-woosh": "efectos/deep-woosh.mp3" },
+  "puntos": [
+    { "toma": 2, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada de la solución: aquí se nombran los tres componentes puros" },
+    { "toma": 4, "animacion": "deslizar-derecha", "efecto": "woosh", "porque": "entrada del problema: las marcas que dicen ser el original y las que compran sin ver cambios" },
+    { "toma": 10, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada del cierre: ella muestra el frasco y se dice la marca" }
+  ]
+}

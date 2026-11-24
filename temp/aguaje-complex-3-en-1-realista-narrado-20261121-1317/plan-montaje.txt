@@ -1,0 +1,273 @@
+==============================================================================
+PLAN DE MONTAJE — aguaje-complex-3-en-1-realista-narrado-20261121-1317
+==============================================================================
+
+Esto es para armar el anuncio a mano (CapCut, Premiere, lo que uses).
+Todos los archivos que se nombran estan en esta misma carpeta.
+
+VOZ EN OFF:  audio/voz.mp3        duracion 100.91s
+             voz: Lina - Carefree & Fresh
+
+REGLA MADRE: manda el audio. Pon el mp3 en la linea de tiempo primero
+y calza cada clip en su ventana. El video se adapta a la voz, nunca al reves.
+
+------------------------------------------------------------------------------
+
+TOMA 1   (tipo A)
+  Cuando:   00:00.00 -> 00:03.82   (3.82s de ventana)
+  Dice:     "Cinco hombres me rechazaron en televisión por no tener curvas."
+  Clip:     video/toma-1.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-1.mp4   (3s)
+            va DESPUES de esta toma, sincronizado con: "cinco hombres me rechazaron"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+
+TOMA 2   (tipo A)
+  Cuando:   00:03.82 -> 00:07.17   (3.35s de ventana)
+  Dice:     "Lo que pasó tres meses después los dejó sin palabras."
+  Clip:     video/toma-2.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 3   (tipo A)
+  Cuando:   00:07.17 -> 00:11.76   (4.59s de ventana)
+  Dice:     "Programa de citas: si no te querían, reventaban el globo."
+  Clip:     video/toma-3.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 4   (tipo A)
+  Cuando:   00:11.76 -> 00:16.39   (4.63s de ventana)
+  Dice:     "Me preguntaron el nombre y, antes de decir Laura… ¡pum!"
+  Clip:     video/toma-4.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 5   (tipo A)
+  Cuando:   00:16.39 -> 00:20.16   (3.76s de ventana)
+  Dice:     "Dije mi edad, veintisiete. ¡Pum! Otro."
+  Clip:     video/toma-5.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-2.mp4   (2.5s)
+            va DESPUES de esta toma, sincronizado con: "¡pum! otro"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+
+TOMA 6   (tipo A)
+  Cuando:   00:20.16 -> 00:23.70   (3.54s de ventana)
+  Dice:     "Que tengo mi propia tienda de ropa. ¡Pum! ¡Pum!"
+  Clip:     video/toma-6.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 7   (tipo A)
+  Cuando:   00:23.70 -> 00:26.29   (2.59s de ventana)
+  Dice:     "Entonces la presentadora les preguntó por qué."
+  Clip:     video/toma-7.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   broll-3 no se genera
+            NO entra: su frase dura 2.59s y una toma de tipo A aguanta sola hasta 3.0 s.
+
+TOMA 8   (tipo A)
+  Cuando:   00:26.29 -> 00:30.04   (3.75s de ventana)
+  Dice:     "El primero: «Perdón, pero a mí me gustan las curvas»."
+  Clip:     video/toma-8.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 9   (tipo A)
+  Cuando:   00:30.04 -> 00:34.17   (4.13s de ventana)
+  Dice:     "El segundo: «No te lo tomes a mal, pero me gustan con cuerpo»."
+  Clip:     video/toma-9.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 10   (tipo A)
+  Cuando:   00:34.17 -> 00:38.12   (3.95s de ventana)
+  Dice:     "El tercero: «Yo quiero la que todos voltean a mirar»."
+  Clip:     video/toma-10.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 11   (tipo A)
+  Cuando:   00:38.12 -> 00:40.76   (2.65s de ventana)
+  Dice:     "Y yo, sonriendo como si nada."
+  Clip:     video/toma-11.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 12   (tipo A)
+  Cuando:   00:40.76 -> 00:45.43   (4.67s de ventana)
+  Dice:     "Quedaba uno: «Me caes bien, eres divertida»."
+  Clip:     video/toma-12.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 13   (tipo A)
+  Cuando:   00:45.43 -> 00:49.48   (4.05s de ventana)
+  Dice:     "«¿Haces ejercicio?» Sí, llevo un año en el gimnasio."
+  Clip:     video/toma-13.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-4.mp4   (2.5s)
+            va DESPUES de esta toma, sincronizado con: "llevo un año en el gimnasio"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+
+TOMA 14   (tipo A)
+  Cuando:   00:49.48 -> 00:55.02   (5.54s de ventana)
+  Dice:     "«¿Y no ha cambiado nada?» Más fuerza, sí… pero curvas, ninguna."
+  Clip:     video/toma-14.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 15   (tipo A)
+  Cuando:   00:55.02 -> 00:59.86   (4.84s de ventana)
+  Dice:     "«Qué lástima», dijo. ¡Pum! Ahí se fue el último."
+  Clip:     video/toma-15.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 16   (tipo A)
+  Cuando:   00:59.86 -> 01:01.96   (2.10s de ventana)
+  Dice:     "Salí de ahí sin una sola cita."
+  Clip:     video/toma-16.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   broll-5 no se genera
+            NO entra: su frase dura 2.10s y una toma de tipo A aguanta sola hasta 3.0 s.
+
+TOMA 17   (tipo A)
+  Cuando:   01:01.96 -> 01:04.01   (2.04s de ventana)
+  Dice:     "Así era yo hace tres meses."
+  Clip:     video/toma-17.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+  Texto:    "Hace 3 meses"  (inicio)
+
+TOMA 18   (tipo B)
+  Cuando:   01:04.01 -> 01:07.30   (3.30s de ventana)
+  Dice:     "Y así estoy ahora. Sí, soy la misma."
+  Clip:     video/toma-18.mp4
+            Tipo B: empieza y termina en estados distintos.
+            Si sobra metraje ACELERALO, no le cortes el final: perderias la segunda accion.
+  B-roll:   no hay para esta toma
+  Texto:    "Ahora"  (inicio)
+
+TOMA 19   (tipo A)
+  Cuando:   01:07.30 -> 01:11.41   (4.11s de ventana)
+  Dice:     "¿Qué cambió? Empecé a tomar Aguaje Complex 3 en 1."
+  Clip:     video/toma-19.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-6.mp4   (3s)
+            va DESPUES de esta toma, sincronizado con: "Aguaje Complex 3 en 1"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+
+TOMA 20   (tipo A)
+  Cuando:   01:11.41 -> 01:16.79   (5.38s de ventana)
+  Dice:     "Dos cápsulas al día con mis comidas: aguaje, fenogreco y maca negra."
+  Clip:     video/toma-20.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-7.mp4   (3s)
+            va DESPUES de esta toma, sincronizado con: "aguaje, fenogreco y maca negra"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+
+TOMA 21   (tipo A)
+  Cuando:   01:16.79 -> 01:20.22   (3.44s de ventana)
+  Dice:     "El primer mes noté más energía y ganas de entrenar."
+  Clip:     video/toma-21.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-8.mp4   (3.5s)
+            va DESPUES de esta toma, sincronizado con: "más energía (los tres extractos juntos)"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+  Texto:    "MES 1"  (inicio)
+
+TOMA 22   (tipo A)
+  Cuando:   01:20.22 -> 01:23.55   (3.32s de ventana)
+  Dice:     "El segundo mes, los jeans empezaron a hormarme atrás."
+  Clip:     video/toma-22.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-9.mp4   (3s)
+            va DESPUES de esta toma, sincronizado con: "los jeans empezaron a hormarme"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+  Texto:    "MES 2"  (inicio)
+
+TOMA 23   (tipo A)
+  Cuando:   01:23.55 -> 01:26.95   (3.40s de ventana)
+  Dice:     "Y en el supermercado, de repente, me miraban diferente."
+  Clip:     video/toma-23.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 24   (tipo A)
+  Cuando:   01:26.95 -> 01:30.20   (3.25s de ventana)
+  Dice:     "Al tercer mes, mis jeans de antes ya no me cerraban."
+  Clip:     video/toma-24.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-10.mp4   (2.5s)
+            va DESPUES de esta toma, sincronizado con: "mis jeans de antes ya no me cerraban"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+  Texto:    "MES 3"  (inicio)
+
+TOMA 25   (tipo A)
+  Cuando:   01:30.20 -> 01:35.94   (5.75s de ventana)
+  Dice:     "Sin magia y sin quirófano: constancia. Si te pasa igual, míralo con calma aquí abajo."
+  Clip:     video/toma-25.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-11.mp4   (3.3s)
+            va DESPUES de esta toma, sincronizado con: "constancia"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+
+TOMA 26   (tipo A)
+  Cuando:   01:35.94 -> 01:37.94   (2.00s de ventana)
+  Dice:     "Esa es la mujer que ellos querían."
+  Clip:     video/toma-26.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   broll-12 no se genera
+            NO entra: su frase dura 2.00s y una toma de tipo A aguanta sola hasta 3.0 s.
+
+TOMA 27   (tipo A)
+  Cuando:   01:37.94 -> 01:40.91   (2.97s de ventana)
+  Dice:     "Qué lástima, mi amor: ya no me van a tener."
+  Clip:     video/toma-27.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+------------------------------------------------------------------------------
+
+B-ROLL
+Con esta voz entran 9 de 12: solo esos se generan. Los que no entran
+(su frase es corta y la toma aguanta sola) se dicen toma por toma, arriba.
+
+SUBTITULOS
+  audio/tiempos.json trae el tiempo exacto de cada caracter de la narracion.
+  De ahi salen subtitulos de 2-4 palabras perfectamente sincronizados.
+
+AUDIO DE LOS CLIPS
+  Los clips traen ambiente y efectos, sin voces. Mezclalos por debajo de la
+  narracion (unos -18/-20 dB) y ponles un fade corto de ~80ms en cada corte
+  para que no suenen secos.
+
+==============================================================================

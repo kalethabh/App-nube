@@ -1,0 +1,46 @@
+{
+  "resumen": "Tres variaciones de tu anuncio ganador de Navidad, con el mismo diseño y la misma idea: regalarte las curvas que sueñas esta Navidad. Cambia solo el titular y la modelo es otra. Cada titular ataca un deseo o un dolor de tu clienta: las curvas que sueña, el jean que no le horma y el miedo al quirófano.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#C8102E", "nombre": "Rojo navideño" },
+    { "hex": "#C9A24A", "nombre": "Dorado sello" }
+  ],
+  "tipografia": "La misma de tu anuncio: «Esta Navidad» en letra a mano negra, la palabra grande en mayúsculas muy gruesas en fucsia, la segunda línea en mayúsculas gruesas negras, y textos cortos en letra sencilla. Notas a mano en blanco y en negro.",
+  "estilo": "Foto real de Navidad en una habitación acogedora con árbol y regalos. La modelo a la izquierda con gorro navideño y el frasco en la mano. A la derecha, el titular, cuatro beneficios con íconos fucsia y el frasco grande con su sello. Abajo, una barra fucsia con la frase de cierre.",
+  "beneficios": [
+    "Acompaña tus curvas de forma natural, sin agujas ni quirófano",
+    "El apoyo diario para tu rutina de pierna y glúteo",
+    "Más energía y ánimo para cumplirle a tu plan",
+    "Seguridad para volver a ponerte el jean y la ropa que te gusta"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje, fenogreco y maca negra",
+    "Con vitaminas A y E",
+    "Solo 2 cápsulas al día con tus comidas",
+    "Un frasco dura un mes; el plan completo es de 3 meses"
+  ],
+  "deseo_central": "Verse con más curvas y sentirse segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, que acompaña su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas y me siento plana",
+    "Ya compré pastillas por internet y no vi nada"
+  ],
+  "por_que_vende_la_referencia": "Idea, no garantía: tu anuncio junta una fecha que emociona (Navidad) con un deseo fuerte (la figura que sueña). Lo dice como un regalo para ella misma, así que comprar se siente como un premio y no como un gasto. La modelo con el frasco en la mano da confianza y los cuatro íconos responden rápido qué hace el producto.",
+  "decisiones": [
+    "El ángulo es el de tu anuncio: transformación, como un regalo de Navidad para ti misma. Las tres variaciones lo conservan.",
+    "Los tres titulares: «Regálate las curvas que sueñas» (deseo central), «Que el jean por fin te horme» (dolor del jean) y «Curvas sin quirófano ni agujas» (miedo a la cirugía).",
+    "Para que Meta no rechace el anuncio, suavizamos frases que prometían aumento: el subtítulo y los íconos hablan de acompañar tus curvas, tu rutina y tu energía.",
+    "El cuadro de «antes y después» se mantiene en su lugar, pero con las etiquetas «DÍA 1» y «MES 3» para mostrarlo como el avance de un plan. Meta suele rechazar el «antes y después».",
+    "El sello dorado dice solo «PREMIUM»: quitamos «calidad garantizada» porque no se puede prometer.",
+    "No hay precio ni botón de compra porque tu anuncio no los tiene. El logo de la otra marca se quitó.",
+    "La misma modelo nueva en las tres variaciones, para que solo cambie el titular."
+  ]
+}

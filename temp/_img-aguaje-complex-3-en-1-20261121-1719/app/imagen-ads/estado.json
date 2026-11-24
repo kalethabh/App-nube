@@ -1,0 +1,421 @@
+{
+  "version": 1,
+  "siguiente": {
+    "E": 3,
+    "R": 5,
+    "A": 1,
+    "T": 3
+  },
+  "tandas": {
+    "E001": {
+      "tipo": "estrategia",
+      "ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V04"
+      ],
+      "uuid": "9545cf57-869d-44af-a43d-5725239c87ec",
+      "motor": "claude",
+      "estado": "hecha"
+    },
+    "E002": {
+      "tipo": "prompts",
+      "uuid": "dfb78c82-36e4-492f-b7a5-624948756355",
+      "estado": "hecha",
+      "ids": [
+        "V05",
+        "V06",
+        "V07",
+        "V08",
+        "V09",
+        "V10"
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "31fe9019-801d-4acb-a9bb-4a9d75c72b86",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "2090162-1795300491780",
+          "ronda": 1
+        },
+        {
+          "pieza": "V02_1x1",
+          "firma": "2130251-1795300491009",
+          "ronda": 1
+        },
+        {
+          "pieza": "V03_1x1",
+          "firma": "2217298-1795300492214",
+          "ronda": 1
+        },
+        {
+          "pieza": "V04_1x1",
+          "firma": "2142345-1795300622701",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "a697866f-6d3b-488c-abbb-a23dd042d639",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V07_1x1",
+          "firma": "2005957-1795301339878",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "0e27d80d-80eb-4664-bc73-06fa48fb4cea",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "2185785-1795301344626",
+          "ronda": 1
+        },
+        {
+          "pieza": "V06_1x1",
+          "firma": "2113733-1795301346668",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "104194e7-d1f7-40b1-92df-7a4c66c57bf8",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V08_1x1",
+          "firma": "2165371-1795301471468",
+          "ronda": 1
+        },
+        {
+          "pieza": "V09_1x1",
+          "firma": "2064663-1795301474595",
+          "ronda": 1
+        },
+        {
+          "pieza": "V10_1x1",
+          "firma": "2195622-1795301480884",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    }
+  },
+  "variaciones": {
+    "V01": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V02": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V03": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V04": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V05": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V06": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V07": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V08": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V09": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V10": {
+      "prompt": "listo",
+      "tanda": "E002"
+    }
+  },
+  "piezas": {
+    "V01_1x1": {
+      "v": "V01",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2090162-1795300491780",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "En el después, el vestido rosa ya no es el mismo del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+        ],
+        "firma": "2090162-1795300491780",
+        "correccion_en": "In the AFTER panel, keep the exact same dusty-pink slip dress as the BEFORE panel, with the same length down to mid-thigh, fully covering the glutes; do not turn the hem into shorts or show the lower glutes."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:34:53.464Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V02_1x1": {
+      "v": "V02",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2130251-1795300491009",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "En el después, el vestido azul ya no es el mismo del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+        ],
+        "firma": "2130251-1795300491009",
+        "correccion_en": "In the AFTER panel, keep the exact same sky-blue fitted dress as the BEFORE panel, with the same length down to mid-thigh, fully covering the glutes; do not turn the hem into shorts or show the lower glutes."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:34:51.083Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V03_1x1": {
+      "v": "V03",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2217298-1795300492214",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2217298-1795300492214"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:34:53.464Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V04_1x1": {
+      "v": "V04",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2142345-1795300622701",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "En el título, la tilde de «QUIRÓFANO» se pega a la O de «MIEDO» y parece una rayita de más debajo de esa O.",
+          "En el después, la falda lila ya no es la misma del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+        ],
+        "firma": "2142345-1795300622701",
+        "correccion_en": "Add a little more line spacing in the headline so the accent on \"QUIRÓFANO\" does not touch the line above; \"MIEDO AL\" must have no extra mark under the O. In the AFTER panel, keep the exact same lilac mini skirt as the BEFORE panel, same length down to upper-mid thigh, fully covering the glutes; do not turn it into shorts."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:37:03.810Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V05_1x1": {
+      "v": "V05",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2185785-1795301344626",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2185785-1795301344626"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:49:06.454Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V06_1x1": {
+      "v": "V06",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2113733-1795301346668",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Abajo, entre el sello y los íconos, hay una mancha rosada rara que tapa la pierna derecha de la chica del después: la pierna se corta y se pierde en esa forma."
+        ],
+        "firma": "2113733-1795301346668",
+        "correccion_en": "Remove the flat pink blob at the bottom center behind the AFTER character's legs; draw both of her legs complete and continuous down to the bottom edge, with only the clean fuchsia background around them."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:49:08.633Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V07_1x1": {
+      "v": "V07",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2005957-1795301339878",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2005957-1795301339878"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:49:00.095Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V08_1x1": {
+      "v": "V08",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2165371-1795301471468",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2165371-1795301471468"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:51:11.544Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V09_1x1": {
+      "v": "V09",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2064663-1795301474595",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2064663-1795301474595"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:51:15.859Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V10_1x1": {
+      "v": "V10",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2195622-1795301480884",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2195622-1795301480884"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T22:51:22.049Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    }
+  },
+  "pedidos": {}
+}

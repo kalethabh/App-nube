@@ -1,0 +1,17 @@
+{
+  "numero": 1,
+  "paso": "voz",
+  "comando": "node produccion/generar-audio.js temp/aguaje-complex-3-en-1-realista-narrado-20261121-1317",
+  "inicio": "2026-11-21T18:37:50.308Z",
+  "fin": "2026-11-21T18:38:00.459Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "caracteres": 1372
+  }
+}

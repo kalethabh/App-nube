@@ -1,0 +1,9 @@
+{
+  "efectos": { "woosh": "efectos/woosh.mp3", "deep-woosh": "efectos/deep-woosh.mp3" },
+  "puntos": [
+    { "toma": 3, "animacion": "deslizar-derecha", "efecto": "woosh", "porque": "entrada del problema: empieza el programa y los rechazos" },
+    { "toma": 17, "animacion": "zoom", "efecto": "deep-woosh", "porque": "el giro: «Así era yo hace tres meses» y aparece el cambio" },
+    { "toma": 21, "animacion": "deslizar-izquierda", "efecto": "woosh", "porque": "la prueba: empieza la línea de tiempo mes a mes" },
+    { "toma": 25, "animacion": "zoom", "efecto": "deep-woosh", "porque": "el cierre: su recomendación y la frase final" }
+  ]
+}

@@ -1,0 +1,495 @@
+{
+  "estilo": "zack-d-films",
+  "modo_audio": "voz_en_off",
+  "mercado": "LatAm",
+  "idioma": "es",
+  "aspect_ratio": "9:16",
+  "referencias": [
+    {
+      "id": "protagonista",
+      "tipo": "personaje",
+      "prompt": "Vertical 9:16. Pixar-Disney style 3D animation character reference render in the cinematic look of a Zack D Films explainer short. Full body view, head to feet, of an adult Colombian woman in her late 20s with clearly adult facial features: soft oval face, defined cheekbones, full dark eyebrows, big warm brown eyes, small rounded nose, full lips with a friendly confident smile, long voluminous wavy dark brown hair falling past her shoulders, warm tan skin. She has a curvy hourglass figure: small waist, wide rounded hips about one and a half times wider than her waist, full thick thighs filling her jeans. She wears a plain white fitted short-sleeve t-shirt, light-blue high-waisted skinny jeans and white sneakers. She stands in a three-quarter side view with her face turned toward the camera over her shoulder, so her silhouette reads clearly. Background: a softly lit warm living room with a window, a plant and a beige sofa, slightly out of focus. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm cinematic lighting, expressive facial detail, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting"
+    },
+    {
+      "id": "protagonista-antes",
+      "tipo": "personaje",
+      "prompt": "Vertical 9:16. Pixar-Disney style 3D animation character reference render in the cinematic look of a Zack D Films explainer short. Full body view, head to feet, of an adult Colombian woman in her late 20s with clearly adult facial features: soft oval face, defined cheekbones, full dark eyebrows, big warm brown eyes, small rounded nose, full lips with a friendly smile, long voluminous wavy dark brown hair falling past her shoulders, warm tan skin. She has a slim straight figure: narrow hips barely wider than her small waist, thin straight thighs, the jeans one size too big at the back with a baggy fold of extra denim below the seat and drooping back pockets, one straight flat vertical line from her lower back to her thighs. She wears a plain white fitted short-sleeve t-shirt, light-blue high-waisted skinny jeans and white sneakers. She stands in a three-quarter side view with her face turned toward the camera over her shoulder, so her silhouette reads clearly. Background: a softly lit warm living room with a window, a plant and a beige sofa, slightly out of focus. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm cinematic lighting, expressive facial detail, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, curvy hips, wide hips, thick thighs"
+    },
+    {
+      "id": "amiga",
+      "tipo": "personaje",
+      "prompt": "Vertical 9:16. Pixar-Disney style 3D animation character reference render in the cinematic look of a Zack D Films explainer short. Full body view, head to feet, of an adult Latina woman in her early 30s with clearly adult facial features: round face, thick arched eyebrows, big expressive dark eyes, wide mouth, light brown skin, black hair pulled up in a high messy bun with a few loose strands. She wears a cream chunky knit sweater, olive-green pants and white sneakers. She stands facing the camera with an amazed open-mouth expression, both hands raised in surprise. Background: a softly lit warm living room with a window, a plant and a beige sofa, slightly out of focus. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm cinematic lighting, expressive facial detail, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting"
+    },
+    {
+      "id": "producto",
+      "tipo": "producto",
+      "archivo": "producto.png",
+      "nota": "conservar forma, proporciones y texto real de la etiqueta; siempre el frasco cerrado, sin cápsulas a la vista"
+    }
+  ],
+  "tomas": [
+    {
+      "n": 1,
+      "tipo": "A",
+      "duracion": 4.3,
+      "linea": "La mayoría no tiene idea de lo bien que funciona el aguaje.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. Wide shot on a sunny Caribbean beach: the same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, walks barefoot along the wet sand at the shoreline. She wears a coral cropped tank top and light-blue denim short shorts, with her curvy hourglass figure: small waist, wide rounded hips about one and a half times wider than her waist, full thick thighs. She is seen in a three-quarter side view walking to the right, her face turned toward the camera over her shoulder with a confident playful smile, framed from head to feet. Behind her: turquoise water, tall palm trees, colorful beach umbrellas, a surprised shirtless man holding an ice cream cone and beachgoers on towels turning their heads to look at her. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: smooth tracking shot moving sideways with her at the same distance, she stays full body in frame, no zoom.\nMotion: she walks along the wet sand with her hair bouncing in the breeze, closes her eyes and smiles proudly, while the man with the ice cream and the people on the towels turn their heads to watch her.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 2,
+      "tipo": "B",
+      "duracion": 5,
+      "linea": "Esto es lo que pasa dentro de tu cuerpo en los primeros tres meses.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, stands against a deep navy-blue background with faint soft blue light swirls and a few tiny golden sparkles. She wears a plain white fitted t-shirt and light-blue high-waisted skinny jeans. She has a slim straight figure: narrow hips barely wider than her small waist, thin straight thighs, the jeans one size too big at the back with a baggy fold of extra denim below the seat and drooping back pockets. She stands in a three-quarter side view, framed from her head to her knees, looking back at the camera over her shoulder with a curious smile. Faint thin golden glowing vine patterns with small leaves are barely visible inside her legs, seen through the jeans. Soft even lighting from the front, camera at chest height, she rests naturally in the space. Expressive facial detail, subsurface scattering, octane render, 8k, stylized realism only, never photorealistic, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, curvy hips, thick thighs",
+      "prompt_imagen_final": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. The exact same scene, camera, framing, deep navy-blue background with faint soft blue light swirls, lighting and palette as the start frame: the same woman, same face, hair, white fitted t-shirt and light-blue high-waisted skinny jeans, same three-quarter side view from her head to her knees, looking back at the camera over her shoulder, now with a bright happy smile. Do NOT copy her body shape from the attached image: now she has a curvy hourglass figure, big round full lifted seat that projects well behind her lower back, hips about one and a half times wider than her small waist, thick full thighs filling the jean legs, the jeans fitting snug with no loose fabric. Bright golden glowing leafy vines now run along her legs and hips, and a bright golden ribbon of light swirls around her hips with sparkles. The change from the start frame must be obvious at a glance. Expressive facial detail, subsurface scattering, octane render, 8k, stylized realism only, never photorealistic, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, no text, no labels, no UI, no props",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the start frame to the end frame, 5s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: the faint golden vines inside her legs light up and grow brighter, a golden ribbon of light spirals around her hips, and her hips, seat and thighs smoothly fill out into curves until the jeans fit snug; she places a hand on her hip and smiles at the camera.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista-antes"
+      ]
+    },
+    {
+      "n": 3,
+      "tipo": "A",
+      "duracion": 2.1,
+      "linea": "Desde tu primera cápsula, el aguaje,",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. Close-up from the chest up of the same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wearing an emerald-green t-shirt, in a warm cozy kitchen softly blurred behind her. She holds the closed AGUAJE COMPLEX 3 EN 1 bottle from the product reference image up beside her cheek, at the same distance from the camera as her face, label facing the camera, about 40 percent of the frame height: a cylindrical bottle about 1.8 times taller than wide with straight sides and rounded shoulders, a short neck and a wide glossy hot-pink screw cap almost as wide as the bottle, a black label with the big white words AGUAJE COMPLEX 3 EN 1 and pink accents, and a hot-pink base band; not a slim bottle and not a flat jar; the label reads correctly, never mirrored; matte, no rainbow, no prism light, no lens flare. Her fingers hold it by the sides without covering the label; her other hand is empty and out of the frame; she holds nothing but the closed bottle; no capsules, no pills. She looks at the bottle with wide excited eyes and a big smile. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, capsules, pills, open bottle, amber pharmacy bottles",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 2s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she lifts the closed bottle a little closer to her cheek, her eyes widen with excitement and she smiles; the bottle stays beside her face. No loose capsules are visible and the bottle stays closed; the label always reads correctly, never mirrored.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista",
+        "producto"
+      ]
+    },
+    {
+      "n": 4,
+      "tipo": "A",
+      "duracion": 3.6,
+      "linea": "el fenogreco y la maca negra se ponen a trabajar",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. Inside a sunny glass greenhouse full of lush tropical plants, hanging pots and warm string lights, the same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, walks along the path. She wears a grey sports crop top and teal leggings, with her slim straight figure: narrow hips barely wider than her small waist, thin straight thighs. She is seen in a three-quarter side view from head to feet, her face turned toward the camera with a relaxed smile. Three thin bright golden rings of light float around her hips and thighs. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: smooth tracking shot moving with her at the same distance, she stays full body in frame, no zoom.\nMotion: she walks among the plants while the three golden rings of light slowly rotate around her hips and thighs and glow brighter.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista-antes"
+      ]
+    },
+    {
+      "n": 5,
+      "tipo": "A",
+      "duracion": 2.5,
+      "linea": "y activan la señal que le dice",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. The same glass greenhouse at night, lit by soft purple and teal grow lights and warm string lights, full of tropical plants. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a fitted teal long-sleeve top and teal leggings, with her slim straight figure: narrow hips barely wider than her small waist, thin straight thighs. She walks in a three-quarter side view from head to feet, glancing back at the camera over her shoulder with a smile. A bright golden ribbon of light spirals from her waist down around her hips. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: smooth tracking shot moving with her at the same distance, she stays full body in frame, no zoom.\nMotion: she keeps walking and glances back at the camera, while the golden ribbon of light spins faster and slides down from her waist to her hips.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista-antes"
+      ]
+    },
+    {
+      "n": 6,
+      "tipo": "A",
+      "duracion": 3.3,
+      "linea": "a tu cuerpo dónde guardar las curvas.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. In the sunny glass greenhouse, next to a wooden potting bench full of plants and flower pots, the same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, stands in a side profile from head to knees with one hand on her hip and her eyes closed in a content smile. She wears a grey sports crop top and green leggings, with her slim straight figure: narrow hips barely wider than her small waist, thin straight thighs. A soft warm golden glow gathers at her hips. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she shifts her weight onto one leg and opens her eyes with a satisfied smile, while the golden glow pulses twice and settles at her hips.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista-antes"
+      ]
+    },
+    {
+      "n": 7,
+      "tipo": "A",
+      "duracion": 4.3,
+      "linea": "Al primer mes tus jeans ya te quedan apretadísimos",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. Inside a cozy denim store with wooden shelves of folded jeans, racks of hanging jeans and warm window light, the same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a white fitted t-shirt and light-blue skinny jeans that look very tight on her. She has her curvy hourglass figure: small waist, wide rounded hips about one and a half times wider than her waist, full thick thighs filling the jeans. She stands in a three-quarter side view from head to feet, twisting to look down at her tight jeans with a surprised delighted face. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she twists to look at her tight jeans, tugs the waistband up with both hands and raises her eyebrows in surprised delight.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 8,
+      "tipo": "A",
+      "duracion": 4.3,
+      "linea": "y te das cuenta de que ya te toca comprarte unos nuevos.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A bright clothing store inside a shopping mall with a glass skylight, warm ceiling lights, racks of blue jeans, a wire basket of folded jeans and red, blue, yellow and green shopping bags on the floor. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a mustard-yellow long-sleeve top and black high-waisted jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. Facing the camera from head to feet, she pulls a new pair of blue jeans off the rack with an excited grin. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: gentle pan to the right following her, she stays full body in frame, no zoom.\nMotion: she pulls the jeans off the rack, holds them up against her body and does a happy little spin.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 9,
+      "tipo": "A",
+      "duracion": 2.1,
+      "linea": "Esa es la señal haciendo efecto.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A wooden boardwalk by the sea at golden sunset, with palm trees and small beach shops. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a teal t-shirt and white denim short shorts, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. She walks along the boardwalk in a three-quarter side view from head to feet, looking back at the camera over her shoulder with a confident smile. A bright golden ring of light swirls around her hips. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 2s. Vertical 9:16.\nCamera: smooth tracking shot moving with her at the same distance, she stays full body in frame, no zoom.\nMotion: she walks along the boardwalk while the golden ring of light spins around her hips and leaves a trail of sparkles.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 10,
+      "tipo": "A",
+      "duracion": 3.6,
+      "linea": "Lo que antes se te iba directico a la barriga,",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. Medium close-up of the torso of the same adult woman from the first reference image, warm tan skin, framed from the bottom edge of her pink sports crop top down to her hips, wearing black high-waisted leggings, standing on a wooden beach boardwalk at golden sunset with the sea softly blurred behind. Her belly is soft and slightly rounded above the waistband. A thick glowing golden curved arrow of light arcs from the side and points down into her belly. Warm cinematic lighting, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, pregnant belly",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: the golden arrow of light pulses and slides down into her belly, and her belly softly rounds out a little more above the waistband.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista-antes"
+      ]
+    },
+    {
+      "n": 11,
+      "tipo": "A",
+      "duracion": 3.2,
+      "linea": "ahora se te empieza a ir a la cola.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A charming city sidewalk with brick brownstone buildings, green trees and parked cars in warm afternoon light. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a burgundy cropped t-shirt and light-blue skinny jeans, with her curvy hourglass figure: small waist, wide rounded hips about one and a half times wider than her waist, full thick thighs filling the jeans. She walks toward the camera from head to feet with a playful smile. A bright golden ring of light circles her waist. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: smooth tracking shot moving backward in front of her at the same distance, she stays full body in frame, no zoom.\nMotion: she walks confidently toward the camera while the golden ring of light slides down from her waist and settles around her hips.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 12,
+      "tipo": "A",
+      "duracion": 3.2,
+      "linea": "A los dos meses los cambios ya se notan.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A bright supermarket aisle with colorful shelves full of products under warm lights. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a white fitted t-shirt and light-blue high-waisted jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs filling the jeans. She pushes a shopping cart down the aisle in a three-quarter side view from head to feet, her face turned toward the camera with a happy smile. In the background a man in a green shirt and a woman shopper glance at her. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: smooth tracking shot moving with her at the same distance, she stays full body in frame, no zoom.\nMotion: she pushes the cart down the aisle with a little bounce in her step while the shoppers in the background turn to look at her.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 13,
+      "tipo": "A",
+      "duracion": 2.9,
+      "linea": "Ya no se te va a la barriga,",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. In the same bright supermarket aisle with colorful shelves, the same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, faces the camera, framed from her head to mid-thigh. She wears a black cropped t-shirt and light-blue high-waisted jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. With both hands she holds the closed waistband of her jeans at her small flat waist and smiles proudly. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she pulls the waistband slightly forward to show it is loose at her small waist, looks down and then up at the camera with a proud smile.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 14,
+      "tipo": "B",
+      "duracion": 4.6,
+      "linea": "se te va a las caderas, a las piernas y a la cola,",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. The fresh produce section of a bright supermarket with stands of red apples, oranges and green fruit under warm lights. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a black cropped t-shirt and light-blue high-waisted jeans. She has a slim straight figure: narrow hips barely wider than her small waist, thin straight thighs, the jeans one size too big at the back with a baggy fold of extra denim below the seat and drooping back pockets. She stands next to a shopping cart full of fruit in a three-quarter side view from head to knees, looking back at the camera over her shoulder with a curious smile. Camera at hip height, soft even light, she rests naturally in the space with a soft contact shadow. Expressive facial detail, subsurface scattering, octane render, 8k, stylized realism only, never photorealistic, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, curvy hips, thick thighs",
+      "prompt_imagen_final": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. The exact same scene, camera, framing, produce section, fruit cart, lighting and palette as the start frame: the same woman, same face, hair, black cropped t-shirt and light-blue high-waisted jeans, same three-quarter side view from head to knees, looking back at the camera over her shoulder, now with a delighted smile. Do NOT copy her body shape from the attached image: now she has a curvy hourglass figure, wider rounded hips about one and a half times wider than her small waist, a big round full seat that projects well behind her lower back, thick full thighs filling the jean legs, the jeans fitting snug with no loose fabric. The change from the start frame must be obvious at a glance. Expressive facial detail, subsurface scattering, octane render, 8k, stylized realism only, never photorealistic, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, no text, no labels, no UI",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the start frame to the end frame, 5s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: soft golden sparkles swirl around her as her hips, then her thighs, then her seat smoothly fill out into curves until the jeans fit snug; she looks back at the camera with a delighted smile.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista-antes"
+      ]
+    },
+    {
+      "n": 15,
+      "tipo": "A",
+      "duracion": 1.5,
+      "linea": "justo donde lo querías.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A bright supermarket aisle with colorful shelves under warm lights. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a black cropped t-shirt and light-blue high-waisted jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs filling the jeans. She pushes a shopping cart in a three-quarter side view from head to feet, her face turned toward the camera with a satisfied smile. In the background a man in a green shirt turns his head to look at her, surprised. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 2s. Vertical 9:16.\nCamera: smooth tracking shot moving with her at the same distance, no zoom.\nMotion: she pushes the cart forward with a satisfied smile while the man in the green shirt turns his head and follows her with his eyes.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 16,
+      "tipo": "A",
+      "duracion": 2,
+      "linea": "Tu cintura se queda pequeñita",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. In a bright supermarket aisle with colorful shelves, the same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, faces the camera, framed from her head to mid-thigh. She wears a black cropped t-shirt and light-blue high-waisted jeans, with her curvy hourglass figure: small flat waist, wide rounded hips, full thick thighs. Her hands rest on the waistband of her jeans and a thin bright golden ring of light circles her small waist. She smiles proudly. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 2s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: the golden ring around her waist tightens and glows brighter while she runs her hands along her small waist and smiles proudly.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 17,
+      "tipo": "A",
+      "duracion": 5.4,
+      "linea": "porque tu cuerpo ya no recibe la señal de guárdalo todo en la barriga. Ahora",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. The fresh produce section of a bright supermarket with stands of red apples, oranges, bananas and green fruit under warm lights. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, faces the camera, framed from her head to her knees, with both hands on her hips and a confident smile. She wears a black cropped t-shirt and light-blue high-waisted jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs filling the jeans. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 5s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: with her hands on her hips she sways gently side to side, tilts her head, nods knowingly and gives the camera a playful wink.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 18,
+      "tipo": "B",
+      "duracion": 2.1,
+      "linea": "recibe la señal de curvas. A",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. An elegant boutique with warm wooden walls, a large window with soft golden light and a potted plant. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a white fitted t-shirt and black high-waisted leggings. She has a slim straight figure: narrow hips barely wider than her small waist, thin straight thighs, the leggings loose with soft wrinkles at the back of the thighs. She stands in a three-quarter side view from head to knees, looking back at the camera over her shoulder with a hopeful smile. A thin faint golden ring of light circles her hips. Camera at hip height, soft even light, she rests naturally in the space with a soft contact shadow. Expressive facial detail, subsurface scattering, octane render, 8k, stylized realism only, never photorealistic, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, curvy hips, thick thighs",
+      "prompt_imagen_final": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. The exact same scene, camera, framing, boutique, window light, lighting and palette as the start frame: the same woman, same face, hair, white fitted t-shirt and black high-waisted leggings, same three-quarter side view from head to knees, looking back at the camera over her shoulder, now with a big confident smile. Do NOT copy her body shape from the attached image: now she has a curvy hourglass figure, hips about one and a half times wider than her small waist, a big round full seat that projects well behind her lower back like a shelf, thick full thighs that touch at the top, the leggings smooth and snug. The golden ring of light around her hips is now bright and wide, with sparkles. The change from the start frame must be obvious at a glance. Expressive facial detail, subsurface scattering, octane render, 8k, stylized realism only, never photorealistic, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, no text, no labels, no UI",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the start frame to the end frame, 2s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: the golden ring of light around her hips flashes brighter and widens, and her hips, seat and thighs fill out into curves in one smooth change.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista-antes"
+      ]
+    },
+    {
+      "n": 19,
+      "tipo": "A",
+      "duracion": 4.3,
+      "linea": "los tres meses tu amiga ya te está echando el ojo. ¿Te",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A sunny outdoor café terrace on a cobblestone street with a big cream umbrella, string lights and potted plants. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a red fitted t-shirt and light-blue skinny jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs filling the jeans. She walks past the café in a three-quarter side view from head to feet, laughing with joy, her face toward the camera. At a small round table in the background sits her friend from the second reference image, the adult Latina woman with black hair in a high messy bun and a cream knit sweater, staring at her with wide eyes and a hand on her cheek. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: smooth tracking shot moving with her at the same distance, no zoom.\nMotion: she walks past laughing while her friend at the table follows her with her eyes, lowers her coffee cup and drops her jaw in amazement.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista",
+        "amiga"
+      ]
+    },
+    {
+      "n": 20,
+      "tipo": "A",
+      "duracion": 5,
+      "linea": "hiciste un BBL? No, te ves en el espejo y sí, es real. Y",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A cozy living room with a beige sofa, a grey knitted throw blanket, hanging plants, a bookshelf and a big window with sheer curtains glowing with warm afternoon light. On the sofa sit the same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wearing a red fitted t-shirt and black leggings, and her friend from the second reference image, the adult Latina woman with black hair in a high messy bun and a cream chunky knit sweater. Both face the camera at three-quarter angle, framed from head to feet. The friend gestures with both hands, mouth open in amazement, asking her something; the protagonist laughs with her eyes closed. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 5s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: the friend gestures in disbelief with both hands and her mouth wide open, the protagonist shakes her head, throws her head back laughing and then points proudly at herself; no one speaks on camera.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista",
+        "amiga"
+      ]
+    },
+    {
+      "n": 21,
+      "tipo": "A",
+      "duracion": 2.5,
+      "linea": "tu seguridad cambia junto con tu cuerpo.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A bright warm bedroom with a big window, a potted plant and a tall standing mirror with a wooden frame. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a white fitted tank top and black high-waisted leggings, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. She stands in a three-quarter side view from head to feet in front of the mirror, her face turned toward the camera with a confident smile, and her reflection is visible in the mirror. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she turns slightly to admire her figure in the mirror, straightens her back, lifts her chin and smiles with confidence at the camera.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 22,
+      "tipo": "A",
+      "duracion": 3.6,
+      "linea": "Con el tratamiento completo, tus curvas ya no se van.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A charming cobblestone street lined with colorful old buildings, café tables and flower boxes in warm sunlight. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears an emerald-green fitted t-shirt and light-blue skinny jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs filling the jeans. She walks toward the camera down the middle of the street from head to feet with a confident smile. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: smooth tracking shot moving backward in front of her at the same distance, she stays full body in frame, no zoom.\nMotion: she walks confidently toward the camera, swinging her arms and flipping her hair over her shoulder.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 23,
+      "tipo": "A",
+      "duracion": 1.8,
+      "linea": "Esto no es algo temporal.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. An upscale clothing boutique with track lights on the ceiling, wooden shelves and racks of elegant clothes. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a burgundy fitted t-shirt and black high-waisted flared pants, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. She stands in a three-quarter side view from head to feet, her face turned toward the camera, eyes closed with a proud content smile. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 2s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she sways her hips gently, opens her eyes and gives a slow confident nod.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 24,
+      "tipo": "A",
+      "duracion": 3.6,
+      "linea": "Cuando tu cuerpo recibe sus tres extractos cada día, la",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A bright boutique with cream walls, warm window light and racks of clothes. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a burgundy fitted t-shirt and black high-waisted flared pants, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. She stands in a three-quarter side view from head to feet with one hand on her hip, her face turned toward the camera with a warm smile. Three tiny glowing golden orbs float gently around her waist. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: the three golden orbs circle her waist and melt into a soft glow at her hips while she rests her hand on her hip and smiles at the camera.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 25,
+      "tipo": "A",
+      "duracion": 2.9,
+      "linea": "grasa se va donde tiene que ir. Los",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. An upscale clothing boutique with track lights, wooden shelves and racks of elegant clothes. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a burgundy fitted t-shirt and black high-waisted flared pants, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. She walks between the racks in a three-quarter side view from head to feet, looking at the camera with a playful smile, touching a dress on the rack. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: smooth tracking shot moving with her at the same distance, no zoom.\nMotion: she strolls between the racks running her fingers along the clothes and glances at the camera with a playful smile.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 26,
+      "tipo": "A",
+      "duracion": 3.2,
+      "linea": "hombres voltean a verte apenas entras a un lugar.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. An elegant hotel lobby with warm globe lamps, wooden panels and a marble floor. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a burgundy fitted t-shirt and black high-waisted flared pants, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. She walks into the lobby in a three-quarter side view from head to feet, her face turned toward the camera with a confident smile. On the right two adult men in grey suits turn their heads to look at her, surprised. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: smooth tracking shot moving with her at the same distance, no zoom.\nMotion: she walks across the lobby with confidence while the two men in suits turn their heads, one lowers his coffee cup and both follow her with their eyes.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 27,
+      "tipo": "A",
+      "duracion": 1.8,
+      "linea": "Tu ex, de la nada,",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. Inside a parked car at night, with warm city lights blurred into bokeh through the windshield. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a burgundy fitted t-shirt and sits in the driver's seat, framed from her head to her waist, looking down at the phone in her hands with one eyebrow raised and a small knowing smirk; the phone screen softly lights her face. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 2s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: the phone lights up her face, she raises one eyebrow higher and her smirk grows into an amused smile.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 28,
+      "tipo": "A",
+      "duracion": 2.4,
+      "linea": "encuentra un pretexto para escribirte.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. Close-up of a woman's hand with warm tan skin holding a smartphone inside a car at night, warm city lights blurred into bokeh behind. The phone screen shows a simple chat app: a round contact avatar at the top and one green message bubble filled with soft blurred unreadable lines, no letters. Warm cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, readable text, letters, logos",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 2s. Vertical 9:16.\nCamera: slow gentle push-in toward the phone screen.\nMotion: a new message bubble pops up on the screen with a soft bounce.\nLighting: warm cinematic glow",
+      "quieto": true,
+      "referencias": []
+    },
+    {
+      "n": 29,
+      "tipo": "A",
+      "duracion": 3.2,
+      "linea": "Tus amigas te preguntan qué hiciste diferente y",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A colorful café with a painted mural of tropical flowers on the wall, warm string lights and small round tables. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a pink fitted t-shirt and white high-waisted jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. She stands next to a table in a three-quarter side view from head to knees, smiling at the camera. At the table sit her friend from the second reference image, the adult Latina woman with black hair in a high messy bun and a cream knit sweater, and another adult woman friend with curly brown hair and a light-blue blouse, both leaning toward her with curious amazed faces. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: the two friends lean in with curious faces and gesture toward her, and she shrugs playfully with a secretive smile; no one speaks on camera.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista",
+        "amiga"
+      ]
+    },
+    {
+      "n": 30,
+      "tipo": "A",
+      "duracion": 1.7,
+      "linea": "te sientes otra persona.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A sunny city street with shop fronts with blank awnings, trees and warm golden light. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a royal-blue fitted t-shirt and cream high-waisted jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. She walks along the sidewalk in a three-quarter side view from head to feet, her face turned toward the camera with a radiant happy smile. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, letters on signs",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 2s. Vertical 9:16.\nCamera: smooth tracking shot moving with her at the same distance, she stays full body in frame, no zoom.\nMotion: she walks with a light happy step, takes a deep breath and smiles brightly.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 31,
+      "tipo": "A",
+      "duracion": 2.9,
+      "linea": "Ahorita puedes pedir tu tratamiento de tres frascos",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. Close-up of a woman's hands with warm tan skin holding a smartphone in front of a warm golden blurred background. The phone screen shows a simple clean shop page with three closed AGUAJE COMPLEX 3 EN 1 bottles from the product reference image standing side by side in the center of the screen, and one big rounded hot-pink button below them with no letters; each bottle is a cylindrical bottle about 1.8 times taller than wide with straight sides and rounded shoulders, a wide glossy hot-pink screw cap almost as wide as the bottle, a black label with the big white words AGUAJE COMPLEX 3 EN 1 and pink accents, and a hot-pink base band; labels readable, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules, no pills. The index finger of her other hand is about to tap the pink button. Warm cinematic lighting, shallow depth of field, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, capsules, pills, open bottle, amber pharmacy bottles, readable button text",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: her finger taps the pink button, the button glows and a few golden sparkles pop out of the screen. No loose capsules are visible and the bottles stay closed; the labels always read correctly, never mirrored.\nLighting: warm cinematic glow",
+      "referencias": [
+        "producto"
+      ]
+    },
+    {
+      "n": 32,
+      "tipo": "A",
+      "duracion": 2.5,
+      "linea": "y tomar solo dos cápsulas al día",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. Close-up from the chest up of the same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wearing a white fitted t-shirt, in a warm softly blurred kitchen with morning light. Her eyes are closed with a serene happy smile. She holds the closed AGUAJE COMPLEX 3 EN 1 bottle from the product reference image up beside her cheek, at the same distance from the camera as her face, label facing the camera, about 40 percent of the frame height: a cylindrical bottle about 1.8 times taller than wide with straight sides and rounded shoulders, a short neck and a wide glossy hot-pink screw cap almost as wide as the bottle, a black label with the big white words AGUAJE COMPLEX 3 EN 1 and pink accents, and a hot-pink base band; not a slim bottle and not a flat jar; the label reads correctly, never mirrored; matte, no rainbow, no prism light, no lens flare. Her fingers hold it by the sides without covering the label; her other hand is empty and out of the frame; she holds nothing but the closed bottle; no capsules, no pills. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, capsules, pills, open bottle, dropper, amber pharmacy bottles",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: with her eyes closed she takes a calm happy breath, then opens her eyes and smiles at the camera, the closed bottle staying beside her cheek. No loose capsules are visible and the bottle stays closed; the label always reads correctly, never mirrored.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista",
+        "producto"
+      ]
+    },
+    {
+      "n": 33,
+      "tipo": "A",
+      "duracion": 2.6,
+      "linea": "con aguaje, fenogreco y maca negra.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain. The closed AGUAJE COMPLEX 3 EN 1 bottle from the product reference image stands alone in the center of a rustic wooden kitchen table, with a softly blurred warm kitchen behind: a cylindrical bottle about 1.8 times taller than wide with straight sides and rounded shoulders, a short neck and a wide glossy hot-pink screw cap almost as wide as the bottle, a black label with the big white words AGUAJE COMPLEX 3 EN 1 and pink accents, and a hot-pink base band; not a slim bottle and not a flat jar; the label reads correctly, never mirrored; matte, no rainbow, no prism light, no lens flare. Exactly three glossy transparent bubbles float in one arc around the bottle: the left one holds a cluster of small oval aguaje palm fruits with reddish-brown scaly skin, the top one holds a little pile of small golden-yellow fenugreek seeds, the right one holds two dark black maca roots. A thin golden ribbon of light loops around the bottle and the bubbles, with tiny golden sparkles. The bottle rests naturally on the table with a soft contact shadow. Warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, capsules, pills, open bottle, box, carton, second bottle, dropper, amber pharmacy bottles, monitors, screens, a fourth bubble",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow gentle push-in toward the bottle.\nMotion: the three bubbles bob softly around the bottle while the golden ribbon of light loops around it. No loose capsules are visible and the bottle stays closed; the label always reads correctly, never mirrored.\nLighting: warm cinematic glow",
+      "quieto": true,
+      "referencias": [
+        "producto"
+      ]
+    },
+    {
+      "n": 34,
+      "tipo": "A",
+      "duracion": 2.5,
+      "linea": "Así que no lo dejes pasar:",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A warm living room with a big sunny window, a potted plant and a beige sofa. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a white fitted t-shirt and light-blue high-waisted jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. Framed from her head to her knees in a three-quarter view facing the camera, she holds the closed AGUAJE COMPLEX 3 EN 1 bottle from the product reference image up beside her face, at the same distance from the camera as her face, label facing the camera: a cylindrical bottle about 1.8 times taller than wide with straight sides and rounded shoulders, a short neck and a wide glossy hot-pink screw cap almost as wide as the bottle, a black label with the big white words AGUAJE COMPLEX 3 EN 1 and pink accents, and a hot-pink base band; not a slim bottle and not a flat jar; the label reads correctly, never mirrored; matte, no rainbow, no prism light, no lens flare. Her other hand rests on her hip; she holds nothing but the closed bottle; no capsules, no pills. She smiles excitedly at the camera. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, capsules, pills, open bottle, amber pharmacy bottles",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she gives a little excited bounce, taps the closed bottle beside her face with one finger and winks at the camera. No loose capsules are visible and the bottle stays closed; the label always reads correctly, never mirrored.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista",
+        "producto"
+      ]
+    },
+    {
+      "n": 35,
+      "tipo": "A",
+      "duracion": 3.4,
+      "linea": "lo pagas cuando te llega a la casa.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A bright store aisle with long white shelves on both sides fully stocked with rows of the closed AGUAJE COMPLEX 3 EN 1 bottles from the product reference image, each with a wide glossy hot-pink cap, a black label and a hot-pink base band; above the glass entrance at the end of the aisle hangs a glowing pink sign that is completely blank, with no letters. A joyful crowd of adult Latina women of different ages and body types rushes down the aisle toward the camera, smiling and cheering, hugging closed bottles to their chests and pushing shopping carts full of bottles. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, capsules, pills, open bottles, yellow boxes, amber pharmacy bottles, letters on the sign",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: smooth tracking shot moving backward down the aisle, no zoom.\nMotion: the happy women rush toward the camera, laughing and cheering, grabbing closed bottles from the shelves and lifting them up. No loose capsules are visible and the bottles stay closed; the labels always read correctly, never mirrored.\nLighting: warm cinematic glow",
+      "referencias": [
+        "producto"
+      ]
+    },
+    {
+      "n": 36,
+      "tipo": "A",
+      "duracion": 2,
+      "linea": "Pídelo hoy.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in the cinematic look of a Zack D Films explainer short. A sunny city street with shop fronts with blank awnings, trees and warm golden light. The same adult Colombian woman in her late 20s from the first reference image, with adult facial features, long voluminous wavy dark brown hair, warm tan skin and big warm brown eyes, wears a white fitted t-shirt and light-blue high-waisted jeans, with her curvy hourglass figure: small waist, wide rounded hips, full thick thighs. Framed from her head to her knees, she walks toward the camera beaming, holding the closed AGUAJE COMPLEX 3 EN 1 bottle from the product reference image up beside her face, at the same distance from the camera as her face, label facing the camera: a cylindrical bottle about 1.8 times taller than wide with straight sides and rounded shoulders, a short neck and a wide glossy hot-pink screw cap almost as wide as the bottle, a black label with the big white words AGUAJE COMPLEX 3 EN 1 and pink accents, and a hot-pink base band; not a slim bottle and not a flat jar; the label reads correctly, never mirrored; matte, no rainbow, no prism light, no lens flare. Her other hand is empty and swings at her side; she holds nothing but the closed bottle; no capsules, no pills. Warm cinematic lighting, expressive facial detail, realistic-stylized environment, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, capsules, pills, open bottle, amber pharmacy bottles, letters on signs",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 2s. Vertical 9:16.\nCamera: smooth tracking shot moving backward in front of her at the same distance, no zoom.\nMotion: she walks toward the camera with a big happy smile, holding the closed bottle beside her face, and gives a little nod. No loose capsules are visible and the bottle stays closed; the label always reads correctly, never mirrored.\nLighting: warm cinematic glow",
+      "referencias": [
+        "protagonista",
+        "producto"
+      ]
+    }
+  ],
+  "broll": [],
+  "voz_en_off": "La mayoría no tiene idea de lo bien que funciona el aguaje. Esto es lo que pasa dentro de tu cuerpo en los primeros tres meses. Desde tu primera cápsula, el aguaje, el fenogreco y la maca negra se ponen a trabajar y activan la señal que le dice a tu cuerpo dónde guardar las curvas. Al primer mes tus jeans ya te quedan apretadísimos y te das cuenta de que ya te toca comprarte unos nuevos. Esa es la señal haciendo efecto. Lo que antes se te iba directico a la barriga, ahora se te empieza a ir a la cola. A los dos meses los cambios ya se notan. Ya no se te va a la barriga, se te va a las caderas, a las piernas y a la cola, justo donde lo querías. Tu cintura se queda pequeñita porque tu cuerpo ya no recibe la señal de guárdalo todo en la barriga. Ahora recibe la señal de curvas. A los tres meses tu amiga ya te está echando el ojo. ¿Te hiciste un BBL? No, te ves en el espejo y sí, es real. Y tu seguridad cambia junto con tu cuerpo. Con el tratamiento completo, tus curvas ya no se van. Esto no es algo temporal. Cuando tu cuerpo recibe sus tres extractos cada día, la grasa se va donde tiene que ir. Los hombres voltean a verte apenas entras a un lugar. Tu ex, de la nada, encuentra un pretexto para escribirte. Tus amigas te preguntan qué hiciste diferente y te sientes otra persona. Ahorita puedes pedir tu tratamiento de tres frascos y tomar solo dos cápsulas al día con aguaje, fenogreco y maca negra. Así que no lo dejes pasar: lo pagas cuando te llega a la casa. Pídelo hoy.",
+  "overlays": [
+    {
+      "texto": "Mes 1",
+      "toma": 7,
+      "momento": "inicio"
+    },
+    {
+      "texto": "Mes 2",
+      "toma": 12,
+      "momento": "inicio"
+    },
+    {
+      "texto": "Mes 3",
+      "toma": 19,
+      "momento": "inicio"
+    },
+    {
+      "texto": "Pagas al recibir",
+      "toma": 35,
+      "momento": "inicio"
+    }
+  ]
+}

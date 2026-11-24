@@ -1,0 +1,39 @@
+{
+  "slug": "_img-vitaldrops-20261118-1353",
+  "nombre": "VITALDROPS",
+  "analisis": "VITALDROPS.",
+  "tipo_producto": "producto físico",
+  "descripcion_visual_en": "Use the attached product photo exactly as it is (packaging, label, colors and proportions).",
+  "foto_producto": "entrada/producto.jpg",
+  "datos": {
+    "nombre": "VITALDROPS",
+    "publico": "18 a 55",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "",
+    "angulo": null
+  },
+  "identidad_visual": {
+    "color_palette": "the colors of the product packaging",
+    "visual_style": "the style of the reference ad",
+    "visual_atmosphere": "the atmosphere of the reference ad",
+    "graphic_language": "the graphic language of the reference ad",
+    "text_typography": "the typography of the reference ad",
+    "art_direction": "same design as the reference ad"
+  },
+  "beneficios": [
+    "Beneficio principal del producto",
+    "Fácil de usar",
+    "Calidad",
+    "Resultados visibles"
+  ],
+  "caracteristicas": [
+    "Producto real de la foto",
+    "Empaque original",
+    "Uso diario",
+    "Envío a domicilio"
+  ]
+}

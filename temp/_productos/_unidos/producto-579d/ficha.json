@@ -1,0 +1,55 @@
+{
+  "nombre": "Aguaje Complex 3 en 1",
+  "queEs": "Suplemento en cápsulas a base de aguaje, fenogreco y maca negra, de la marca Vitalabh.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio",
+    "Triple acción"
+  ],
+  "publico": "Mujeres jóvenes y adultas que quieren más volumen en glúteos y piernas sin ir al gimnasio.",
+  "dolor": "Se siente insegura con sus glúteos y piernas planas, no le da el tiempo o las ganas para el gimnasio y no quiere subir de peso por todo el cuerpo.",
+  "oferta": "",
+  "comoCompra": "",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "",
+  "prueba": "",
+  "ingredientes": "Por porción de 2 cápsulas: aguaje 200 mg, fenogreco 400 mg, maca negra 200 mg, más vitamina A y vitamina E. Frasco de 60 cápsulas de 0,5 g (contenido neto 30 g).",
+  "comoSeUsa": "Tomar 2 cápsulas al día, de preferencia con las comidas principales. La etiqueta pide uso continuo por varios meses para resultados duraderos y sin efecto rebote.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "Una mano sostiene el frasco rosado y negro; se lee bien el frente. Es captura de un video, abajo se ve la barra de reproducción."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": true,
+      "nota": "Diseño completo de la etiqueta extendida, con beneficios, ingredientes y modo de uso. Sirve como referencia, no como foto real."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "idioma",
+    "mercado"
+  ],
+  "falta": [
+    {
+      "campo": "oferta",
+      "pregunta": "¿Cuánto cuesta y tienes alguna oferta o envío gratis?"
+    },
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿Cómo compra el cliente: contra entrega, WhatsApp o en una web?"
+    },
+    {
+      "campo": "prueba",
+      "pregunta": "¿Tienes algún testimonio real de una clienta que podamos usar?"
+    }
+  ]
+}

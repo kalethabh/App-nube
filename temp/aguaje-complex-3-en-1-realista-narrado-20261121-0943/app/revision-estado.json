@@ -1,0 +1,11 @@
+{
+  "sesion": {
+    "uuid": "8b46be51-4e91-4934-a2e5-e35ce580aa11",
+    "intentos": 1,
+    "hecha": true,
+    "fecha": "2026-11-21T17:53:22.491Z",
+    "ok": true
+  },
+  "pedidos": [],
+  "descartados": []
+}

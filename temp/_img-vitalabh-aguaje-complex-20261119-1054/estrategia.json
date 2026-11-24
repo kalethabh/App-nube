@@ -1,0 +1,36 @@
+{
+  "resumen": "Anuncios en rosa y negro, los colores de tu frasco, con modelos muy reales en shorts cortos que muestran más volumen en glúteos, piernas y caderas. Cada anuncio habla de un dolor real de tu clienta o del deseo de tener curvas naturales, y casi todos nombran los 3 extractos: aguaje, fenogreco y maca negra.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#D9572B", "nombre": "Naranja aguaje" }
+  ],
+  "tipografia": "Letra gruesa en mayúsculas para los titulares, letra sencilla para los textos cortos y una letra a mano para frases emotivas con corazones.",
+  "estilo": "Fondos rosados con brillo, el frasco como protagonista y mujeres reales de espalda o de lado en shorts cortos. Íconos blancos en círculos fucsia y antes y después que se notan, pero naturales.",
+  "beneficios": [
+    "Ayuda a dar más volumen a tus glúteos",
+    "Piernas y caderas más llenas y con forma",
+    "Resultados naturales, sin efecto rebote",
+    "Sin vivir en el gimnasio: 2 cápsulas al día"
+  ],
+  "caracteristicas": [
+    "3 extractos en 1: aguaje, fenogreco y maca negra",
+    "Con vitaminas A y E",
+    "60 cápsulas: un frasco te dura 30 días",
+    "Tratamiento completo recomendado de 3 frascos"
+  ],
+  "deseo_central": "Tener glúteos, piernas y caderas con más curvas y volumen, de forma natural, y sentirse segura con shorts y jeans.",
+  "beneficio_principal": "Ayuda a dar más volumen a glúteos, piernas y caderas de forma natural, con 3 extractos en 1: aguaje, fenogreco y maca negra.",
+  "puntos_dolor": [
+    "Siempre fui la flaquita sin curvas",
+    "Los shorts y los jeans no me lucen como quisiera",
+    "Ya tomé aguaje de otra marca y no vi nada",
+    "Cuando lo dejé, perdí lo poco que gané",
+    "No tengo tiempo de vivir en el gimnasio",
+    "Quiero algo natural, nada de cirugías"
+  ]
+}

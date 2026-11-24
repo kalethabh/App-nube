@@ -1,0 +1,157 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format F08 (Beneficios con íconos)",
+    "reference_style": "Clean two-column benefits ad: a large product standing in front of a tall brand-colored arch on the left and a vertical stack of icon-tile-plus-text benefits on the right, under a centered headline",
+    "angle_used": "Beneficio principal",
+    "ad_format": "Benefit Icons Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "#C0B116 and #1C305F",
+    "visual_style": "Clean, bold and modern direct-response wellness ad: softly graded brand-colored background, thick condensed headline, studio product photography and flat graphics",
+    "visual_atmosphere": "Warm, honest, feminine and close: the calm feeling of a small daily ritual. Confident and optimistic, never clinical",
+    "graphic_language": "A tall deep navy (#1C305F) arch, mustard-yellow (#C0B116) rounded-square tiles with simple white monoline icons, strong contrast, generous margins, no foliage clutter",
+    "text_typography": "Anton + Caveat"
+  },
+  "creative_objective": "Show in three seconds what the woman gains with her daily drops, using only what can honestly be said: support for her appetite, energy for her day, ashwagandha for heavy days and an easy liquid format. The bottle is the hero and the four benefits prove the headline.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The headline. 2) The product framed by the navy arch on the left. 3) The benefit stack on the right, read top to bottom, with the yellow icon tiles as visual anchors.",
+    "composition_style": "Asymmetric two-column grid under a centered, full-width headline. The left column (from 6% to 50% of the width) holds a tall arch-shaped panel with the product standing in front of it; the right column (from 54% to 94% of the width) holds the benefit stack. Both columns share the same vertical band below the headline so the arch and the stack balance each other.",
+    "spacing_and_structure": "Headline zone: 6-21% of the height, centered, up to 88% of the width. Body zone: 26-94% of the height. Arch panel: from about 10% to 46% of the width and from about 28% to 94% of the height, with a fully rounded top. Product: centered on the arch, base at about 90% of the height. Benefit column: four rows evenly spaced between about 28% and 92% of the height; the icon tile sits on the left of each row and its text to the right, both vertically centered. About 4% of empty space between the arch and the benefit column.",
+    "lighting_and_depth": "Soft studio light from the upper left; the product casts a soft contact shadow on the floor line at the base of the arch. The arch has a very subtle vertical gradient and a faint soft shadow that lifts it off the background. Icon tiles and text are flat, with no shadows, for maximum legibility.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a soft gradient background from warm cream to a pale tint of the brand yellow. A bold centered headline spans the top. Below it, in the left half, a tall arch-shaped panel (rectangle with a fully rounded top) in deep navy, with the product standing large in front of it, its base near the bottom of the arch. In the right half, four benefit rows are stacked with equal spacing; each row has a solid mustard-yellow rounded-square tile with a simple white line icon, followed by a short bold benefit text in deep navy. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Calm brand-colored base that keeps the layout clean and scannable",
+        "adaptation_rule": "Smooth soft gradient from warm cream at the top to a pale tint of the brand mustard yellow at the bottom. No patterns or textures.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top center, 6-21% of the height, up to 88% of the width",
+        "visual_function": "States the main promise that the benefits below prove",
+        "adaptation_rule": "Two centered lines in Anton, deep navy #1C305F; the word CURVAS highlighted in mustard yellow #C0B116 with a thin navy outline so it stays legible.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "arch backdrop panel",
+        "position": "Left column, from about 10% to 46% of the width and from about 28% to 94% of the height, fully rounded top",
+        "visual_function": "Frames the product like a showcase niche and gives the format its recognizable silhouette",
+        "adaptation_rule": "Solid arch in deep navy #1C305F with a very subtle vertical gradient and a faint soft shadow. Flat graphic shape, no texture, no text on it. The yellow label of the bottle pops against the navy.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "In front of the arch, centered on it horizontally, base at about 90% of the height; about 50-56% of the canvas height and no wider than the arch",
+        "visual_function": "Main visual anchor; shows what delivers the benefits",
+        "adaptation_rule": "The product exactly as in the attached product photo, front view, standing upright in front of the arch with a soft contact shadow, framed inside the arch's silhouette with a visible band of navy above and around it.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "benefit icon tiles (4)",
+        "position": "Right column, at the left edge of each benefit row (starting at about 54% of the width), four tiles stacked vertically with equal spacing",
+        "visual_function": "Visual anchors that make each benefit scannable at a glance",
+        "adaptation_rule": "Solid rounded-square tiles about 9% of the canvas on each side, filled with mustard yellow #C0B116, each holding a simple white monoline icon: a fork and spoon (appetite), a lightning bolt (energy), a leaf (ashwagandha), a droplet (drops). One style, one stroke weight, one size.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "benefit texts (4)",
+        "position": "Right column, to the right of each icon tile (from about 66% to 94% of the width), vertically centered on it",
+        "visual_function": "Names each benefit in a few words",
+        "adaptation_rule": "One short benefit per row in deep navy, ordered from strongest to weakest for this angle.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount, offer or urgency badge",
+      "Trust seals, guarantee or certification badges",
+      "Callout lines or arrows pointing at the product",
+      "Numbers or numbering on the benefit rows",
+      "Divider lines, boxes or cards behind each benefit",
+      "Round pedestal or circular backdrop shape",
+      "Rating stars, reviews or testimonials",
+      "Subheadline or paragraph text",
+      "People or lifestyle scenes",
+      "More than 4 benefits",
+      "Bottom bar or banner",
+      "Logos or brand marks",
+      "The yellow circle with 60ml from the product photo"
+    ]
+  },
+  "visual_prompt": "Square 1:1 static ad, clean two-column benefits layout. BACKGROUND: a smooth soft gradient from warm cream at the top to a pale tint of mustard yellow at the bottom, with no patterns or textures. TOP (about 6% to 21% of the height, centered, up to 88% of the width): a bold two-line headline in a thick condensed sans-serif (Anton), deep navy (#1C305F), with the single word CURVAS in mustard yellow (#C0B116) with a thin navy outline. LEFT HALF: a tall arch-shaped panel, a rectangle with a fully rounded top, from about 10% to 46% of the width and from about 28% to 94% of the height, solid deep navy (#1C305F) with a very subtle vertical gradient and a faint soft shadow, flat and without texture or text. In front of the arch, centered on it, the product stands upright and large, front view, about 52% of the canvas height and narrower than the arch, with its base at about 90% of the height and a soft contact shadow; a visible band of navy remains above and around it. The product is the amber glass dropper bottle with a black rubber-bulb dropper cap and a yellow-to-white label shown in the attached product image: use the attached product image as the only source of truth for the product and reproduce it exactly as it is, same shape, cap, label, colors and proportions; do not redesign, replace or reinterpret it. Do not reproduce the yellow circle with the text 60ml from the corner of the product photo. Soft studio light from the upper left. RIGHT HALF (from about 54% to 94% of the width, between about 28% and 92% of the height): four benefit rows stacked with equal spacing. Each row starts with a solid mustard-yellow (#C0B116) rounded-square tile about 9% of the canvas on each side with a simple white monoline icon, followed to its right by a short bold benefit text in deep navy, in Anton, vertically centered on the tile, in up to 2 lines. The icons, top to bottom: a fork and spoon, a lightning bolt, a leaf, a droplet. All icons share one style, one stroke weight and one size. About 4% of empty space separates the arch from the benefit column. Tiles and text are flat, without shadows. Nothing else on the canvas: no people, no CTA button, no price, no badges, no seals, no stars, no arrows or lines pointing at the product, no numbers on the rows, no cards or dividers behind the benefits, no pedestal, no subheadline, no bottom bar, no logos.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, spanning up to 88% of the width, 2 lines",
+      "text_style": "Anton, extra bold condensed uppercase, each line about 7.5% of the canvas height, centered, deep navy #1C305F; the word CURVAS in mustard yellow #C0B116 with a thin navy outline. Line break after DIARIO.",
+      "text": "TU RITUAL DIARIO PARA TRABAJAR TUS CURVAS"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "benefit 1",
+      "reference_position": "Right column, first row, right of the first icon tile",
+      "text_style": "Anton, about 3.8% of the canvas height, max 2 lines, left-aligned, deep navy",
+      "text": "Acompaña tu apetito"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit 2",
+      "reference_position": "Right column, second row, right of the second icon tile",
+      "text_style": "Same style as benefit 1",
+      "text": "Energía para tu día"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 3",
+      "reference_position": "Right column, third row, right of the third icon tile",
+      "text_style": "Same style as benefit 1",
+      "text": "Con ashwagandha para días pesados"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 4",
+      "reference_position": "Right column, fourth row, right of the fourth icon tile",
+      "text_style": "Same style as benefit 1",
+      "text": "En gotas, sin pastillas"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Tall deep navy arch panel with a fully rounded top in the left half",
+    "The product from the attached photo, large, standing in front of the arch with a soft contact shadow",
+    "Four benefit rows stacked in the right half with equal spacing",
+    "Solid mustard-yellow rounded-square tile with a simple white line icon at the start of each row",
+    "Soft cream-to-pale-yellow gradient background"
+  ],
+  "final_generation_exclusions": [
+    "No people and no lifestyle scene",
+    "No fifth benefit and no numbering",
+    "No yellow 60ml circle copied from the product photo",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The benefits speak of support and ritual, with no body-change promise.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

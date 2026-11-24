@@ -1,0 +1,125 @@
+{
+  "rechazos": {
+    "toma-1": [
+      {
+        "fecha": "2026-11-19T18:56:33.105Z",
+        "failMsg": "Request blocked: The audio was filtered due to copyright or safety risks.",
+        "fase": "aplicado",
+        "lineaAntes": "O sea, yo me ponía un jean y por detrás, Dios mío!. Plana, plana, plana. Y ya estaba ahorrando pa' operarme, le juro.",
+        "linea": "O sea, yo me ponía un jean y por detrás, Dios mío!. Plana, plana, plana. Y ya no sabía ni qué ponerme, le juro.",
+        "frase_original": "Y ya estaba ahorrando pa' operarme, le juro.",
+        "frase_nueva": "Y ya no sabía ni qué ponerme, le juro.",
+        "motivo": "Quité lo de ahorrar para operarse, porque hablar de cirugía frena el video. Ahora dice que ya no sabía qué ponerse: sigue enganchando con el mismo problema y casi el mismo largo."
+      }
+    ]
+  },
+  "extraRechazos": {},
+  "descartados": [],
+  "ganchos": {},
+  "persona": {
+    "sesion": {
+      "uuid": "9b1ac15c-5c69-4e06-9440-e552fb27c046",
+      "usada": true
+    },
+    "pedidos": []
+  },
+  "actualizado": "2026-11-19T19:03:37.574Z",
+  "sesionRechazo": {
+    "uuid": "a712ab28-e2f2-40ad-8e6c-e2aea5f2d4ef",
+    "usada": true
+  },
+  "revision": {
+    "ronda": 1,
+    "medidas": {
+      "1": {
+        "huella": "10385824-1795114733198",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "2": {
+        "huella": "13961645-1795114927943",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "3": {
+        "huella": "8474981-1795114888853",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "4": {
+        "huella": "6916676-1795114949755",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "5": {
+        "huella": "6663916-1795114888386",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "6": {
+        "huella": "13413190-1795114890716",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "7": {
+        "huella": "9618134-1795114939038",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      }
+    },
+    "vistos": {},
+    "piezas": {
+      "toma-1": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-2": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-3": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-4": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-5": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-6": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-7": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      }
+    },
+    "pendientes": [],
+    "revisarTambien": [],
+    "sinRevisar": [],
+    "lugares": {},
+    "vuelta": null,
+    "sesion": {
+      "uuid": "7075b342-73e9-49f0-bfc0-230a162bbd7b",
+      "usada": true
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "slug": "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116",
+  "generado": "2026-11-18T23:18:27.589Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 63.99,
+    "estimada": 69.6,
+    "pedida": null
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda la voz",
+      "detalle": "El video se adaptó a los 1:04 de la voz en off: ninguna frase se recortó para cuadrar."
+    },
+    {
+      "id": "voz",
+      "icono": "voz",
+      "titulo": "La voz: Lina - Carefree & Fresh",
+      "detalle": "La eligió la app porque no elegiste una: voz femenina como la del video de referencia (tono medio de 211 Hz, expresiva) · «Lina - Carefree & Fresh»: voz femenina, habla español, acento colombiano, joven, cercana, natural, hecha para narrar."
+    },
+    {
+      "id": "ventanas",
+      "icono": "ritmo",
+      "titulo": "5 escenas se pidieron un poco más largas",
+      "detalle": "La voz real dura más de lo calculado en esas frases: se pidió cada clip con el largo justo para que no falte imagen. Nunca se acortó ninguna."
+    },
+    {
+      "id": "ritmo",
+      "icono": "ritmo",
+      "titulo": "Todas las escenas, un poco más rápidas",
+      "detalle": "Los clips eran más largos que sus frases: en vez de cortarlos se aceleraron para seguir a la voz (la que más, 3,6 veces más rápida)."
+    },
+    {
+      "id": "broll",
+      "icono": "broll",
+      "titulo": "7 imágenes de apoyo en el video",
+      "detalle": "Quedó uno fuera porque su frase era corta y la escena aguantaba sola. No se generó, así que no costó nada."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:58; se repite para cubrir todo el video."
+    },
+    {
+      "id": "transiciones",
+      "icono": "transicion",
+      "titulo": "3 transiciones con sonido",
+      "detalle": "Van solo donde la historia cambia de parte; el resto son cortes limpios."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "67 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    }
+  ],
+  "transiciones": [
+    {
+      "toma": 3,
+      "momento": 12.446,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    },
+    {
+      "toma": 5,
+      "momento": 27.504,
+      "animacion": "deslizar-derecha",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 11,
+      "momento": 57.853,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    }
+  ],
+  "problemas": [
+    {
+      "id": "respaldo",
+      "tipo": "arreglado",
+      "titulo": "6 clips salieron con el modelo de respaldo",
+      "detalle": "El modelo principal no lo pudo hacer y la app usó el de respaldo para no frenar el anuncio. Puede verse un poco distinto: míralo.",
+      "piezas": [
+        {
+          "n": 1,
+          "unidad": "toma",
+          "momento": 0,
+          "valor": "clip"
+        },
+        {
+          "n": 2,
+          "unidad": "toma",
+          "momento": 4.493,
+          "valor": "clip"
+        },
+        {
+          "n": 6,
+          "unidad": "toma",
+          "momento": 33.495,
+          "valor": "clip"
+        },
+        {
+          "n": 7,
+          "unidad": "toma",
+          "momento": 40.368,
+          "valor": "clip"
+        },
+        {
+          "n": 8,
+          "unidad": "toma",
+          "momento": 43.793,
+          "valor": "clip"
+        },
+        {
+          "n": 9,
+          "unidad": "toma",
+          "momento": 48.321,
+          "valor": "clip"
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 1816.9,
+    "dolares": 9.08,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 20,
+      "creditos": 0,
+      "dolares": 0
+    },
+    "videos": {
+      "piezas": 14,
+      "creditos": 1624.9,
+      "dolares": 8.12
+    },
+    "musica": {
+      "pistas": 1,
+      "creditos": 12,
+      "dolares": 0.06
+    },
+    "sinRegistro": {
+      "piezas": 6,
+      "creditosEstimados": 180
+    },
+    "estimado": true,
+    "elevenlabs": {
+      "caracteres": 930,
+      "scribeSegundos": 102.4
+    },
+    "corridas": 4,
+    "respaldo": [
+      "toma-1.mp4",
+      "toma-2.mp4",
+      "toma-6.mp4",
+      "toma-7.mp4",
+      "toma-8.mp4",
+      "toma-9.mp4"
+    ],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 22,
+        "creditos": 20,
+        "dolares": 0.1,
+        "estimadas": 2
+      },
+      {
+        "id": "videos",
+        "piezas": 18,
+        "creditos": 1784.9,
+        "dolares": 8.92,
+        "estimadas": 4
+      },
+      {
+        "id": "musica",
+        "piezas": 1,
+        "creditos": 12,
+        "dolares": 0.06
+      },
+      {
+        "id": "voz",
+        "caracteres": 930
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 2657,
+      "saldoDespues": 1020.1,
+      "diferencia": 1636.9,
+      "coincide": false
+    },
+    "rehecho": false
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "aguaje-complex-3-en-1-agregar-20261119-1208",
+  "productoId": "producto-edb1",
+  "estilo": "agregar",
+  "familia": "ugc",
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": {
+    "id": "VmejBeYhbrcTPwDniox7",
+    "nombre": "Lina - Carefree & Fresh",
+    "auto": true,
+    "motivo": "voz femenina como la del video de referencia (tono medio de 235 Hz, expresiva) · «Lina - Carefree & Fresh»: voz femenina, habla español, acento colombiano, joven, cercana, natural, hecha para narrar",
+    "elegida": "2026-11-19T17:17:31.288Z"
+  },
+  "continuidad": false,
+  "respuestas": {
+    "clonar": "subido:mwnsz8wo34ad33|AGUAJE 01 - VIDIA.mp4",
+    "pedido": "El mismo video para mi producto",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {},
+  "creado": "2026-11-19T17:08:14.579Z",
+  "agregar": {
+    "pedido": "El mismo video para mi producto",
+    "plan": {
+      "estilo": "agregar",
+      "estiloNombre": "El mismo look de tu video",
+      "formato": "Una persona habla a cámara",
+      "duracion": null,
+      "idioma": "es",
+      "resumen": "Rehago tu video tal cual: dos amigas en un podcast casero conversan, una confiesa que es plana atrás y la otra le cuenta cómo cambió con Aguaje Complex, con su antes y después en el espejo.",
+      "conserva": [
+        "la estructura: confesión → la amiga que estaba igual → el consejo de la tía → el producto → la duda del rebote → el después → dónde conseguirlo",
+        "el gancho: «me ponía un jean y por detrás, nada… plana, plana, plana» con su selfie del antes",
+        "el ángulo: glúteos y piernas con curvas, natural, sin cirugía y sin rebote",
+        "las frases clave: «ahorrando pa' operarme», «antes del bisturí, prueba lo natural», «rebote total», «¿sí me entiendes? La diferencia»",
+        "el look: la sala cálida con lámpara y matas, los micrófonos negros, la camiseta blanca y el suéter verde, las selfies de espejo"
+      ],
+      "cambia": [
+        "dos amigas nuevas del mismo tipo, nunca las caras del video",
+        "la escena de la tía pasa a ser la selfie del antes de la amiga que lo usó, para que su cambio se vea en el mismo espejo",
+        "el cierre no dice WhatsApp, días de envío ni pago al recibir, porque no tenemos esos datos: dice que está en el botón del video",
+        "el frasco siempre cerrado, sin cápsulas a la vista"
+      ],
+      "porque": "Tu pedido no nombra otro estilo, así que va con el mismo look. Es UGC porque las dos hablan a cámara casi todo el video y sus voces salen del mismo clip.",
+      "pedido": "El mismo video para mi producto"
+    }
+  },
+  "produccion": "ugc"
+}

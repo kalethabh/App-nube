@@ -1,0 +1,14 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V02_1x1",
+      "ok": false,
+      "problemas": [
+        "Arriba la imagen queda cortada: falta la cinta con «SIÉNTETE SEGURA» y «CON TUS» sale cortado por el borde.",
+        "Abajo también queda cortada: no se ve la barra con «ENVÍO GRATIS» y «PAGA AL RECIBIR», ni sus íconos del camión y la mano con moneda.",
+        "La frase «Natural, a tu ritmo» sale cortada: solo se ve «Natural,» a medias y falta su corazoncito."
+      ],
+      "correccion_en": "Zoom out so the whole layout fits inside the square canvas with safe margins: at the top show the full deep magenta pill reading exactly \"SIÉNTETE SEGURA\" above the complete line \"CON TUS\"; at the bottom show the full deep magenta bar with the truck icon and \"ENVÍO GRATIS\", a thin divider, the hand-with-coin icon and \"PAGA AL RECIBIR\"; in the bottom right corner show the complete script \"Natural, a tu ritmo\" with its small heart. Nothing may touch or be cut by the canvas edges."
+    }
+  ]
+}

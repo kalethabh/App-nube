@@ -1,0 +1,10 @@
+{
+  "efectos": {
+    "woosh": "efectos/woosh.mp3",
+    "deep-woosh": "efectos/deep-woosh.mp3"
+  },
+  "puntos": [
+    { "toma": 3, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada de la solución: la amiga muestra el frasco y dice cómo se toma" },
+    { "toma": 6, "animacion": "deslizar-izquierda", "efecto": "woosh", "porque": "entrada de la prueba: cuánto dura el frasco y su después en el espejo" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "aguaje-complex-3-en-1-claymation-20261119-1624",
+  "productoId": "producto-a220",
+  "estilo": "claymation",
+  "familia": "continuidad",
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": {
+    "id": "J4vZAFDEcpenkMp3f3R9",
+    "nombre": "Valentina - Conversational Medellin"
+  },
+  "continuidad": true,
+  "respuestas": {
+    "clonar": "subido:mwo24jm1db321e|AGUAJE 02 - CLAYMATION.mp4",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {},
+  "creado": "2026-11-19T21:24:54.443Z"
+}
