@@ -6,9 +6,9 @@
 // social, objeciones, lo fuerte, lo flojo e ideas). Y «Subir a Shopify» escribe el código en tu tema con Shopify CLI y
 // primero te da la VISTA PREVIA en tu tienda: la página se crea recién con «Publicar la página» (menú Shopify).
 // Servidor: /api/landings (lib/landings/).
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { CircleAlert, Copy, Download, ExternalLink, Gauge, LayoutTemplate, LoaderCircle, RefreshCw, ScanSearch, ShoppingBag, Smartphone, Trash2 } from 'lucide-react';
-import { Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Selector, useAvisos } from '../../componentes/index.js';
+import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Selector, useAvisos } from '../../componentes/index.js';
 import { enlace } from '../../datos/rutas.js';
 import { bandera } from '../../datos/paises.js';
 import { pedirNuevo, useDatos } from '../../datos/api.js';
@@ -173,7 +173,7 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
             {l.url} <ExternalLink size={12} aria-hidden="true" />
           </a>
           <span className="ld-item__meta">
-            {l.modo === 'adaptar' ? `Adaptada a tu producto · textos con ${l.motor === 'codex' ? 'Codex' : 'Claude Code'}, imágenes con ChatGPT` : 'Clon tal cual'} · {fechaRelativa(l.creado)}
+            {l.modo === 'adaptar' ? (l.prompt ? `Con tu pedido: «${l.prompt.length > 70 ? `${l.prompt.slice(0, 70)}…` : l.prompt}»` : `Adaptada a tu producto · textos con ${l.motor === 'codex' ? 'Codex' : 'Claude Code'}, imágenes con ChatGPT`) : 'Clon tal cual'} · {fechaRelativa(l.creado)}
           </span>
         </div>
         <span className={`ld-estado ld-estado--${l.estado}`}>
@@ -235,10 +235,8 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
 export default function Landings() {
   const { aviso } = useAvisos();
   const [url, setUrl] = useState('');
-  const [modo, setModo] = useState('tal-cual');
-  const [motor, setMotor] = useState('claude');
+  const [prompt, setPrompt] = useState('');
   const [analizar, setAnalizar] = useState(true);
-  const [productoId, setProductoId] = useState('');
   const [ocupado, setOcupado] = useState(false);
   const [abierta, setAbierta] = useState(null);
   const { datos, recargar } = useDatos('landings', () => pedirNuevo('/api/landings'), { cadaMs: 3000 });
@@ -246,15 +244,13 @@ export default function Landings() {
   const productos = prods?.productos || [];
   const { datos: dt } = useDatos('shopify:tiendas', () => pedirNuevo('/api/shopify/tiendas'));
   const tiendas = dt?.tiendas || [];
-  useEffect(() => {
-    if (!productoId && productos.length) setProductoId(productos[0].id);
-  }, [productos, productoId]);
   const landings = datos?.landings || [];
   const clonar = async () => {
     setOcupado(true);
     try {
-      await pedirNuevo('/api/landings', { metodo: 'POST', cuerpo: { url: url.trim(), modo, motor, analizar, productoId: modo === 'adaptar' ? productoId : null } });
+      await pedirNuevo('/api/landings', { metodo: 'POST', cuerpo: { url: url.trim(), prompt: prompt.trim(), analizar } });
       setUrl('');
+      setPrompt('');
       await recargar?.();
     } catch (e) {
       aviso({ tipo: 'error', titulo: 'No pude empezar', texto: e.message });
@@ -264,54 +260,40 @@ export default function Landings() {
   };
   return (
     <div className="pagina ld pila" style={{ '--hueco': 'var(--e-5)' }}>
-      <CabeceraPagina sobretitulo="Crear" titulo="Landings" descripcion="Pega la dirección de una landing y la app la clona: tal cual (textos, imágenes, colores, estructura y carruseles) o adaptada a tu producto. Siempre la deja liviana para que cargue rápido en celular, y te muestra cuánto mejoró." />
+      <CabeceraPagina sobretitulo="Crear" titulo="Landings" descripcion="Pega la dirección de una landing y, si quieres, escribe qué cambiarle. La app la clona funcionando igual que la original y te muestra qué tan rápido carga." />
       <section className="ld-nueva">
         <CampoTexto etiqueta="Dirección de la landing" placeholder="https://tutienda.com/products/…" value={url} onChange={(e) => setUrl(e.target.value)} maxLength={2000} />
-        <div className="ld-opciones">
-          <div className="ld-grupo">
-            <span className="ld-grupo__etiqueta">Cómo</span>
-            <div className="ld-segmento" role="group" aria-label="Cómo clonarla">
-              <button type="button" className={modo === 'tal-cual' ? 'activo' : ''} aria-pressed={modo === 'tal-cual'} onClick={() => setModo('tal-cual')}>Tal cual</button>
-              <button type="button" className={modo === 'adaptar' ? 'activo' : ''} aria-pressed={modo === 'adaptar'} onClick={() => setModo('adaptar')}>Para mi producto</button>
-            </div>
+        <AreaTexto
+          etiqueta="Qué quieres (opcional)"
+          placeholder={'Vacío: la clona tal cual, funcionando igual que la original.\nO escribe lo que quieres, por ejemplo: «adáptala a mi producto Colágeno Plus», «cambia el precio a 89.900 y el tono a más cercano», «pásala a inglés».'}
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          rows={3}
+          maxLength={4000}
+        />
+        {productos.length ? (
+          <div className="ld-chips">
+            <span className="ld-grupo__etiqueta">Para tu producto</span>
+            {productos.slice(0, 12).map((p) => (
+              <button key={p.id} type="button" className="ld-chip" onClick={() => setPrompt((t) => `${t.trim() ? `${t.trim()}\n` : ''}Adáptala a mi producto ${p.nombre}.`)}>
+                {p.nombre}
+              </button>
+            ))}
           </div>
+        ) : null}
+        <div className="ld-opciones">
           <div className="ld-grupo">
             <span className="ld-grupo__etiqueta">Analizarla</span>
             <Interruptor activado={analizar} onCambio={setAnalizar} etiqueta={analizar ? 'Sí, que la IA explique cómo vende' : 'No'} />
           </div>
-          {modo === 'adaptar' ? (
-            <>
-              <label className="ld-grupo">
-                <span className="ld-grupo__etiqueta">Producto</span>
-                <select value={productoId} onChange={(e) => setProductoId(e.target.value)}>
-                  {productos.map((p) => <option key={p.id} value={p.id}>{p.nombre}</option>)}
-                </select>
-              </label>
-              <div className="ld-grupo">
-                <span className="ld-grupo__etiqueta">Textos y HTML con</span>
-                <div className="ld-segmento" role="group" aria-label="Qué IA escribe los textos">
-                  <button type="button" className={motor === 'claude' ? 'activo' : ''} aria-pressed={motor === 'claude'} onClick={() => setMotor('claude')}>Claude Code</button>
-                  <button type="button" className={motor === 'codex' ? 'activo' : ''} aria-pressed={motor === 'codex'} onClick={() => setMotor('codex')}>Codex</button>
-                </div>
-              </div>
-            </>
-          ) : analizar ? (
-            <div className="ld-grupo">
-              <span className="ld-grupo__etiqueta">Analiza</span>
-              <div className="ld-segmento" role="group" aria-label="Qué IA la analiza">
-                <button type="button" className={motor === 'claude' ? 'activo' : ''} aria-pressed={motor === 'claude'} onClick={() => setMotor('claude')}>Claude Code</button>
-                <button type="button" className={motor === 'codex' ? 'activo' : ''} aria-pressed={motor === 'codex'} onClick={() => setMotor('codex')}>Codex</button>
-              </div>
-            </div>
-          ) : null}
-          <Boton variante="primario" icono={Copy} onClick={clonar} cargando={ocupado} disabled={!/^https?:\/\/\S+\.\S+/.test(url.trim()) || (modo === 'adaptar' && !productoId)}>
+          <Boton variante="primario" icono={Copy} onClick={clonar} cargando={ocupado} disabled={!/^https?:\/\/\S+\.\S+/.test(url.trim())}>
             Clonar
           </Boton>
         </div>
         <p className="ld-ayuda">
-          {modo === 'tal-cual'
-            ? 'La copia exacta la hace el código (sin IA): no se pierde nada y no se inventa nada. Después la optimiza: imágenes en WebP y en su tamaño, sin el JavaScript de la tienda ni las apps, solo el CSS que usa, y los botones siguen llevando a la tienda original.'
-            : `Misma estructura y diseño. ${motor === 'codex' ? 'Codex' : 'Claude Code'} reescribe los textos para tu producto (con su ficha y su investigación, sin inventar) y ChatGPT hace las imágenes donde se ve el producto, con tu foto. Las imágenes con ChatGPT no cuestan por imagen.`}
+          {prompt.trim()
+            ? 'La copia exacta la hace el código; después la IA aplica lo que escribiste (si nombras uno de tus productos, usa su ficha y su investigación, y hace con ChatGPT las imágenes donde se ve el producto, con tu foto). Nada se inventa.'
+            : 'La copia exacta la hace el código (sin IA): textos, imágenes, colores y estructura, y todo funciona como en la original (desplegables, pestañas, selectores, variantes). Quita la analítica, los píxeles y los popups de las apps, y deja las imágenes en WebP.'}
         </p>
       </section>
       {/* (2026-11-24) las tiendas a donde se suben: a la vista (se conectan en el menú Shopify) */}

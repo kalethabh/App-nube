@@ -55,6 +55,10 @@ const PAGINA = `<!doctype html><html lang="es"><head><meta charset="utf-8"><titl
 <style>.oferta{color:#c00;font-weight:800}.nunca-se-usa-aqui{color:blue}</style>
 <script src="/js/tienda.js"></script>
 <script>window.rastreo = 1;</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PRUEBA"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('config','G-PRUEBA');</script>
+<script>!function(f){f.fbq=function(){};}(window);fbq('init','123');fbq('track','PageView');</script>
+<script src="/js/pestanas.js" defer></script>
 <script type="application/ld+json">{"@type":"Product","name":"MARCAORIGINAL"}</script>
 </head><body class="template-product overflow-hidden" style="overflow:hidden"><div class="kl-private-reset-css needsclick klaviyo-form-popup" role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:999"><h2>Try your luck POPUPRULETA</h2><button>No, thanks</button></div>
 <header class="cabeza"><a href="/collections/all">Tienda</a></header>
@@ -62,6 +66,7 @@ const PAGINA = `<!doctype html><html lang="es"><head><meta charset="utf-8"><titl
 <h1 class="titulo">MARCAORIGINAL Gotas para dormir</h1>
 <img class="portada" src="/img/portada.png" alt="MARCAORIGINAL frasco">
 <p class="oferta">Lleva 2 y ahorra 40%</p>
+<div class="dolores"><button type="button" class="dolor" data-dolor="espalda">Espalda</button><button type="button" class="dolor" data-dolor="rodilla">Rodilla</button><p id="texto-dolor">TEXTO-ESPALDA</p></div>
 <div class="swiper"><div class="swiper-wrapper" style="transform:translate3d(-600px,0,0);width:3000px">
 <div class="swiper-slide"><img src="/img/slide.png" alt="uno"></div>
 <div class="swiper-slide"><img src="/img/slide.png?v=2" alt="dos"></div>
@@ -77,7 +82,9 @@ const ARCHIVOS = {
   '/css/tema.css': ['text/css', '@import url("/css/base.css");\n.titulo{font-family:Marca,sans-serif;font-size:28px}.portada{width:100%;background:url(/img/slide.png)}.comprar{background:#111;color:#fff}.clase-que-no-esta{margin:99px}\n@font-face{font-family:Marca;src:url(/fuentes/marca.woff2) format("woff2")}'],
   '/css/base.css': ['text/css', 'body{margin:0;font-family:sans-serif}.otra-que-no-esta{padding:3px}'],
   '/fuentes/marca.woff2': ['font/woff2', Buffer.alloc(2000, 1)],
-  '/js/tienda.js': ['text/javascript', 'document.body.dataset.tienda="si";'],
+  '/js/tienda.js': ['text/javascript', 'document.documentElement.dataset.tienda="si";'],
+  // (2026-11-24j) el selector de dolor de la tienda: al elegir uno, cambia el texto (en la copia fiel debe seguir andando)
+  '/js/pestanas.js': ['text/javascript', 'document.querySelectorAll(".dolor").forEach(b=>b.addEventListener("click",()=>{document.getElementById("texto-dolor").textContent="TEXTO-"+b.dataset.dolor.toUpperCase()}));'],
   '/img/portada.png': ['image/png', fs.readFileSync(path.join(TMP, 'portada.png'))],
   '/img/slide.png': ['image/png', fs.readFileSync(path.join(TMP, 'slide.png'))],
   '/img/anim.gif': ['image/gif', fs.readFileSync(path.join(TMP, 'anim.gif'))],
@@ -144,7 +151,7 @@ async function principal() {
   check('Desde otro sitio no se puede crear', r.st === 403, r);
 
   // tal cual
-  r = await pedir('/api/landings', { json: { url: URL_LANDING, modo: 'tal-cual', motor: 'claude' } });
+  r = await pedir('/api/landings', { json: { url: URL_LANDING } });
   const id1 = r.datos?.id;
   if (id1) creados.landings.push(id1);
   check('Se crea la landing y arranca a clonar', r.st === 200 && id1 && r.datos.estado === 'trabajando', r);
@@ -155,17 +162,45 @@ async function principal() {
   const h1 = id1 && fs.existsSync(path.join(RAIZ, 'temp', '_landings', id1, 'index.html')) ? html(id1) : '';
   const assets = id1 ? fs.readdirSync(path.join(RAIZ, 'temp', '_landings', id1, 'assets')) : [];
   check('Conserva los textos de la original', /MARCAORIGINAL Gotas para dormir/.test(h1) && /Lleva 2 y ahorra 40%/.test(h1) && /Comprar ahora/.test(h1), h1.slice(0, 600));
-  check('Sin los scripts de la tienda (queda el JSON-LD)', !/tienda\.js|window\.rastreo/.test(h1) && /application\/ld\+json/.test(h1), h1.match(/<script[^>]*>/g));
+  check('(2026-11-24j) Fiel: quedan los scripts de la tienda (con su dirección completa) y el JSON-LD', h1.includes(`src="${TIENDA}/js/tienda.js"`) && h1.includes(`src="${TIENDA}/js/pestanas.js"`) && /window\.rastreo/.test(h1) && /application\/ld\+json/.test(h1), h1.match(/<script[^>]*>/g));
+  check('(2026-11-24j) Fiel: sin la analítica ni los píxeles (Google, Meta)', !/googletagmanager|gtag\(|fbq\(/.test(h1), h1.match(/<script[^>]*>[^<]{0,60}/g));
+  // y FUNCIONA: en un navegador de verdad, elegir otro dolor cambia el texto
+  let funciona = null;
+  try {
+    const { chromium } = (await import('node:module')).createRequire(import.meta.url)('playwright');
+    const nav = await chromium.launch();
+    try {
+      const pag = await nav.newPage({ viewport: { width: 412, height: 900 } });
+      await pag.goto(`${BASE}/landing/${id1}/index.html`, { waitUntil: 'load' });
+      await pag.click('button[data-dolor="rodilla"]');
+      funciona = { texto: await pag.textContent('#texto-dolor'), tienda: await pag.evaluate(() => document.documentElement.dataset.tienda) };
+    } finally {
+      await nav.close();
+    }
+  } catch (e) {
+    funciona = { error: String(e?.message || e).slice(0, 300) };
+  }
+  check('(2026-11-24j) Fiel: en el navegador, elegir otro dolor cambia el contenido (como en la original)', funciona?.texto === 'TEXTO-RODILLA' && funciona.tienda === 'si', funciona);
   check('Las imágenes quedan dentro de la landing (assets/)', /<img[^>]+src="assets\//.test(h1) && !/src="\/img\//.test(h1) && assets.length >= 3, assets);
   check('Las imágenes pesadas pasan a WebP y llevan su tamaño', /\.webp"/.test(h1) && /<img[^>]+width="\d+"[^>]+height="\d+"|<img[^>]+height="\d+"[^>]+width="\d+"/.test(h1), h1.match(/<img[^>]*>/g));
   check('La primera imagen grande se carga primero y las demás perezosas', /fetchpriority="high"/.test(h1) && /loading="lazy"/.test(h1), h1.match(/<img[^>]*>/g));
-  check('El carrusel queda armado y sin la diapositiva clonada', /kc-carrusel/.test(h1) && !/swiper-slide-duplicate/.test(h1) && !/translate3d\(-600px/.test(h1) && (h1.match(/swiper-slide"/g) || []).length + (h1.match(/swiper-slide /g) || []).length >= 2, h1.match(/<div class="swiper[^>]*>/g));
+  check('Fiel: el carrusel lo arma el JavaScript de la tienda (sin la fila propia)', !/kc-carrusel/.test(h1));
   check('El CSS se trae (también el @import) y queda dentro', /\.comprar\{/.test(h1) && /\.oferta\{/.test(h1) && /margin:0/.test(h1) && !/<link[^>]+stylesheet/.test(h1));
-  check('El CSS que no se usa se poda', !/clase-que-no-esta|otra-que-no-esta|nunca-se-usa-aqui/.test(h1));
   check('La fuente queda local y con font-display:swap', /url\(assets\/[^)]+\.woff2\)/.test(h1) && /font-display:swap/.test(h1));
+
+  // (2026-11-24j) la LIVIANA (sin el JavaScript de la tienda), como antes
+  r = await pedir('/api/landings', { json: { url: URL_LANDING, modo: 'tal-cual', motor: 'claude', liviana: true, analizar: false } });
+  const idL = r.datos?.id;
+  if (idL) creados.landings.push(idL);
+  const lL = await esperar(240, () => leerLanding(idL), terminada);
+  const hL = idL && fs.existsSync(path.join(RAIZ, 'temp', '_landings', idL, 'index.html')) ? html(idL) : '';
+  check('Liviana: termina lista y sin los scripts de la tienda (queda el JSON-LD)', lL?.estado === 'lista' && !/tienda\.js|window\.rastreo|pestanas/.test(hL) && /application\/ld\+json/.test(hL), hL.match(/<script[^>]*>/g));
+  check('Liviana: el carrusel queda armado y sin la diapositiva clonada', /kc-carrusel/.test(hL) && !/swiper-slide-duplicate/.test(hL) && !/translate3d\(-600px/.test(hL) && (hL.match(/swiper-slide"/g) || []).length + (hL.match(/swiper-slide /g) || []).length >= 2, hL.match(/<div class="swiper[^>]*>/g));
+  check('Liviana: el CSS que no se usa se poda', /\.comprar\{/.test(hL) && !/clase-que-no-esta|otra-que-no-esta|nunca-se-usa-aqui/.test(hL));
+  check('Liviana: sin el popup ni el bloqueo del scroll', !/POPUPRULETA/.test(hL) && !/overflow-hidden/.test((hL.match(/<body[^>]*>/) || [''])[0]));
   check('Los enlaces y el formulario van a la tienda original', h1.includes(`href="${TIENDA}/collections/all"`) && h1.includes(`action="${TIENDA}/cart/add"`), h1.match(/(href|action)="[^"]*"/g));
   check('(2026-11-24) Sin el popup de la app («Try your luck») ni el bloqueo del scroll: la página se puede usar', !/POPUPRULETA/.test(h1) && !/overflow-hidden/.test((h1.match(/<body[^>]*>/) || [''])[0]) && !/overflow:\s*hidden/.test((h1.match(/<body[^>]*>/) || [''])[0]) && /MARCAORIGINAL Gotas para dormir/.test(h1) && l?.informe?.avisos?.some((a) => /popup/.test(a)), { body: (h1.match(/<body[^>]*>/) || [''])[0], avisos: l?.informe?.avisos });
-  check('El informe dice qué hizo', l?.informe?.scripts >= 2 && l.informe.imagenes >= 3 && l.informe.carruseles >= 1 && l.informe.pesos?.html > 0, l?.informe);
+  check('El informe dice qué hizo', l?.informe?.fiel === true && l.informe.scripts >= 2 && l.informe.scriptsVivos >= 3 && l.informe.imagenes >= 3 && l.informe.pesos?.html > 0 && lL?.informe?.fiel === false && lL.informe.carruseles >= 1, { fiel: l?.informe, liviana: lL?.informe });
   // (2026-11-24) el análisis de la landing (la IA lee sus textos en orden)
   check('Trae su análisis: resumen, gancho, oferta y las secciones en orden', l?.analisis?.resumen && l.analisis.gancho && l.analisis.oferta && l.analisis.secciones?.length >= 2 && l.analisis.secciones[0].n === 1 && l.analisis.ideas?.length >= 1, l?.analisis);
   r = await pedir(`/api/landings/${id1}/analizar`, { metodo: 'POST', json: {} });
@@ -187,15 +222,27 @@ async function principal() {
   check('La lista la muestra', r.datos?.landings?.some((x) => x.id === id1));
 
   // para mi producto
-  r = await pedir('/api/landings', { json: { url: URL_LANDING, modo: 'adaptar', motor: 'claude', productoId: prod } });
+  // (2026-11-24j) con el PROMPT: nombrar el producto basta (la app lo reconoce)
+  r = await pedir('/api/landings', { json: { url: URL_LANDING, prompt: 'Adáptala a mi producto sueño profundo, con un tono más cercano.' } });
   const id2 = r.datos?.id;
   if (id2) creados.landings.push(id2);
   l = await esperar(300, () => leerLanding(id2), terminada);
-  check('«Para mi producto» termina lista', l?.estado === 'lista' && l.modo === 'adaptar' && l.motor === 'claude', l);
+  check('Con el prompt: termina lista, adaptada al producto que nombra y con el pedido guardado', l?.estado === 'lista' && l.modo === 'adaptar' && l.productoId === prod && /tono más cercano/.test(l.prompt || ''), l);
   const h2 = id2 && fs.existsSync(path.join(RAIZ, 'temp', '_landings', id2, 'index.html')) ? html(id2) : '';
   check('La IA cambió los textos con la marca por el producto (y el resto quedó)', /Sueño Profundo Gotas para dormir/.test(h2) && /clientes de Sueño Profundo/.test(h2) && /Lleva 2 y ahorra 40%/.test(h2) && !/<h1[^>]*>MARCAORIGINAL/.test(h2), h2.match(/<h1[^>]*>[^<]*/));
   check('La imagen del producto se cambió (ChatGPT; en prueba, la foto)', /<img[^>]+src="assets\/ia-0-/.test(h2) && l?.adaptada?.imagenes === 1, l?.adaptada);
-  check('El diseño no se tocó (mismo CSS y carrusel)', /kc-carrusel/.test(h2) && /\.comprar\{/.test(h2));
+  check('El diseño no se tocó (mismo CSS) y sigue funcionando (sus scripts)', /\.comprar\{/.test(h2) && h2.includes('/js/pestanas.js'));
+
+  // un pedido sin producto («cambia el precio»): la IA lo aplica, sin producto ni imágenes nuevas
+  r = await pedir('/api/landings', { json: { url: URL_LANDING, prompt: 'Cambia el precio a 2x1 y ponla en inglés.', analizar: false } });
+  const id3 = r.datos?.id;
+  if (id3) creados.landings.push(id3);
+  const l3 = await esperar(300, () => leerLanding(id3), terminada);
+  check('Un pedido sin producto: termina lista, sin producto y sin imágenes de ChatGPT', l3?.estado === 'lista' && l3.modo === 'adaptar' && !l3.productoId && l3.adaptada?.imagenes === 0, l3);
+  const h3 = id3 && fs.existsSync(path.join(RAIZ, 'temp', '_landings', id3, 'index.html')) ? html(id3) : '';
+  check('La IA recibe el pedido y lo aplica (en prueba: «PEDIDO: …» en el texto de la oferta)', /PEDIDO: Cambia el precio a 2x1/.test(h3) && /MARCAORIGINAL Gotas para dormir/.test(h3), h3.match(/<p class="oferta">[^<]*/));
+  r = await pedir('/api/landings', { json: { url: URL_LANDING, modo: 'adaptar' } });
+  check('«Para mi producto» sin producto ni pedido: lo pide', r.st === 400, r);
   check('La IA no ve el archivo de textos desde la vista', (await fetch(`${BASE}/landing/${id2}/nuevos-textos.json`)).status === 404 && (await fetch(`${BASE}/landing/${id2}/textos.json`)).status === 404);
 
   // medir y borrar

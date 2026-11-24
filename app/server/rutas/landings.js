@@ -1,6 +1,6 @@
 // LANDINGS (lib/landings/): clonar por URL, optimizar, adaptar con IA, medir la velocidad, ver y descargar.
 //   GET    /api/landings                      -> { landings }
-//   POST   /api/landings { url, modo: 'tal-cual'|'adaptar', motor: 'claude'|'codex', productoId? } -> la landing (se arma de fondo)
+//   POST   /api/landings { url, prompt?, analizar? } (o { modo: 'tal-cual'|'adaptar', motor, productoId }) -> la landing (se arma de fondo)
 //   GET    /api/landings/:id                  -> la landing (estado, progreso, informe, puntajes)
 //   DELETE /api/landings/:id
 //   POST   /api/landings/:id/medir            -> vuelve a medir la velocidad
