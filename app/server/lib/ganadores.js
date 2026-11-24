@@ -40,7 +40,8 @@ const DIR_REGISTRO = path.join(DIR_GANADORES, 'registro');
 const ARCHIVO_CREDITOS = path.join(DIR_GANADORES, 'creditos.json');
 const ARCHIVO_GUARDADOS = path.join(RAIZ, 'mis_archivos', 'ganadores', 'guardados.json');
 
-const HERRAMIENTA_CREDITOS = 'mcp__claude_ai_TrendTrack__check_credits';
+import { TT, ttTodas, esTT } from './trendtrack-conector.js';
+const HERRAMIENTA_CREDITOS = TT('check_credits');
 export const CREDITOS_POR_ANUNCIO = 1.5;
 const CACHE_MS = 12 * 3600000;
 const MAX_POR_BUSQUEDA = 20;
@@ -315,14 +316,13 @@ export function leerRespuestaCreditos(textoCrudo) {
 // ---------------------------------------------------------------- la búsqueda
 
 const PROHIBIDAS = ['Bash', 'PowerShell', 'Edit', 'MultiEdit', 'Write', 'NotebookEdit', 'Read', 'Glob', 'Grep', 'WebFetch', 'WebSearch', 'Agent', 'Task', 'Skill'];
-const TT = (corto) => `mcp__claude_ai_TrendTrack__${corto}`;
 // las únicas herramientas de TrendTrack que la app llama así (todas de lectura)
 const DE_LECTURA = ['search_ads', 'search_advertisers', 'list_tracked_brands'];
 
 function promptConector(nombre, args) {
   return [
     'Tarea de la app Kads Studio: una consulta en TrendTrack. Haz exactamente esto, en este orden, y nada más:',
-    `1. Carga las herramientas con ToolSearch usando exactamente la consulta "select:${nombre},${HERRAMIENTA_CREDITOS}". Si todavía no aparecen, vuelve a buscarlas una vez con la consulta "TrendTrack ${nombre.split('__').pop()}".`,
+    `1. Carga las herramientas con ToolSearch usando exactamente la consulta "select:${nombre},${HERRAMIENTA_CREDITOS}". Si todavía no aparecen, vuelve a buscarlas una vez con la consulta "trendtrack ${nombre.split('__').pop()}" y usa las que aparezcan (el nombre del conector puede venir como Trendtrack o TrendTrack).`,
     `2. Llama ${nombre} UNA sola vez con exactamente estos argumentos (no agregues, quites ni cambies ninguno):`,
     JSON.stringify(args),
     `3. Llama ${HERRAMIENTA_CREDITOS} una vez, sin argumentos.`,
@@ -355,7 +355,7 @@ export async function consultarConector({ herramienta, args, clave, leer, frase 
       cwd: DIR_SESION,
       prompt: promptConector(nombre, args),
       conectores: true,
-      permitidas: ['ToolSearch', nombre, HERRAMIENTA_CREDITOS],
+      permitidas: ['ToolSearch', ...ttTodas(herramienta), ...ttTodas('check_credits')],
       prohibidas: PROHIBIDAS,
       maxTurnos: 8,
       timeoutMs: 4 * 60000,
@@ -366,10 +366,10 @@ export async function consultarConector({ herramienta, args, clave, leer, frase 
       fraseInicio: frase,
       alProgreso,
       alResultadoHerramienta: (n, t, { error }) => {
-        if (n === nombre) {
+        if (esTT(n, herramienta)) {
           if (error) errorHerramienta = t.slice(0, 400);
           else datos = leer(t) || datos;
-        } else if (n === HERRAMIENTA_CREDITOS && !error) {
+        } else if (esTT(n, 'check_credits') && !error) {
           creditos = leerRespuestaCreditos(t) || creditos;
         }
       },
