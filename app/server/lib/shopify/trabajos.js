@@ -134,6 +134,49 @@ function elegirParaCodex(dir, pedido) {
   return { elegidos, resto: todos.filter((f) => !elegidos.includes(f)) };
 }
 
+// ---------------------------------------------------------------- la vista previa en la página que cambió
+
+/** Un producto de la tienda para ver su página (con acceso completo por la API; si no, el /products.json público). */
+async function unProducto(tienda) {
+  try {
+    if (tienda.tipo === 'completo') {
+      const d = await api.admin(tienda, '{ products(first: 1, query: "status:active") { nodes { handle } } }');
+      const h = d?.products?.nodes?.[0]?.handle;
+      if (h) return h;
+    }
+  } catch {
+    /* sigue con el público */
+  }
+  try {
+    const r = await fetch(`${(tienda.tienda || `https://${tienda.dominio}`).replace(/\/$/, '')}/products.json?limit=1`, { signal: AbortSignal.timeout(8000) });
+    const j = await r.json();
+    return j?.products?.[0]?.handle || null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * (2026-11-24) «Al darle a la vista previa me manda a donde se ven todos los productos»: la vista previa abre la página
+ * que cambió (la de un producto si se tocó la plantilla o una sección del producto, la colección, el carrito, una página…)
+ * y no la portada.
+ */
+async function conPaginaQueCambio(tienda, nuevo, archivos = []) {
+  if (!nuevo?.id) return nuevo;
+  const txt = archivos.join(' ');
+  let ruta = '/';
+  if (/templates\/product|sections\/[^ ]*(product|producto|main-product|buy|comprar)/i.test(txt)) {
+    const h = await unProducto(tienda);
+    ruta = h ? `/products/${h}` : '/collections/all';
+  } else if (/templates\/collection|sections\/[^ ]*collection/i.test(txt)) ruta = '/collections/all';
+  else if (/templates\/cart|sections\/[^ ]*cart/i.test(txt)) ruta = '/cart';
+  else if (/templates\/search/i.test(txt)) ruta = '/search';
+  else if (/templates\/blog|templates\/article/i.test(txt)) ruta = '/blogs/news';
+  if (ruta === '/') return nuevo;
+  const base = (tienda.tienda || `https://${tienda.dominio}`).replace(/\/$/, '');
+  return { ...nuevo, vista: `${base}${ruta}?preview_theme_id=${nuevo.id}`, vistaInicio: nuevo.vista };
+}
+
 // ---------------------------------------------------------------- 1. pídele a la IA
 
 export async function crearTrabajo({ tiendaId, temaId, pedido, motor = 'claude' } = {}) {
@@ -240,7 +283,7 @@ Tu respuesta final: solo LISTO.`;
   if (cambiados.length || borrados.length) {
     const nombre = `Kads · ${t.pedido.replace(/\s+/g, ' ').slice(0, 24)} · ${new Date().toISOString().slice(5, 16).replace('T', ' ')}`;
     avanzar(id, `Subiendo el tema con ${cambiados.length + borrados.length} archivo(s) cambiado(s) como tema nuevo SIN publicar…`);
-    const nuevo = await api.subirTema(tienda, dirTema, { nombre });
+    const nuevo = await conPaginaQueCambio(tienda, await api.subirTema(tienda, dirTema, { nombre }), [...cambiados, ...borrados]);
     guardar(id, { nuevoTema: nuevo });
     avanzar(id, 'Listo: revisa la vista previa y, si te gusta, publícalo.');
   } else avanzar(id, admin.length ? 'Listo: no cambió el tema; revisa los cambios que propone en la tienda.' : 'Listo: no hizo falta cambiar el tema.');
@@ -370,11 +413,13 @@ export async function subirLanding({ landingId, tiendaId, titulo, direccion, pro
     // la tienda la muestra en su dominio, con sus fuentes y sus enlaces, sin que exista todavía la página ni la vea nadie
     // que no tenga el enlace. La página se crea recién con «Publicar» (publicarLanding).
     fs.writeFileSync(path.join(subir, 'templates', `index.${sufijo}.liquid`), plantilla);
+    // y como plantilla de colección: /collections/all existe en todas las tiendas y ?view= la aplica siempre
+    fs.writeFileSync(path.join(subir, 'templates', `collection.${sufijo}.liquid`), plantilla);
     const solo = archivosDe(subir);
     avanzar(id, `Escribiendo el código en tu tema «${vivo.nombre}» con Shopify CLI: la plantilla y ${n} imágenes (solo archivos nuevos: no cambia nada de lo que ya tienes)…`);
     await api.subirTema(tienda, subir, { temaId: vivo.id, solo, alEnVivo: true });
     const base = (tienda.tienda || `https://${tienda.dominio}`).replace(/\/$/, '');
-    guardar(id, { estado: 'vista-previa', vistaPrevia: `${base}/?view=${sufijo}`, temaId: vivo.id, temaNombre: vivo.nombre, archivos: solo });
+    guardar(id, { estado: 'vista-previa', vistaPrevia: `${base}/collections/all?view=${sufijo}`, temaId: vivo.id, temaNombre: vivo.nombre, archivos: solo });
     avanzar(id, 'Lista la vista previa en tu tienda. Mírala y, si te gusta, toca «Publicar la página».');
   });
   return leerTrabajo(id);
@@ -572,7 +617,7 @@ async function trabajarCopia(id) {
           fs.mkdirSync(path.dirname(destino), { recursive: true });
           fs.copyFileSync(path.join(dirOrigen, f), destino);
         }
-        const nuevo = await api.subirTema(tienda, dir, { nombre: `Kads · ${t.archivosPedidos.length} parte(s) de ${origen.nombre} · ${fecha}` });
+        const nuevo = await conPaginaQueCambio(tienda, await api.subirTema(tienda, dir, { nombre: `Kads · ${t.archivosPedidos.length} parte(s) de ${origen.nombre} · ${fecha}` }), lleva);
         cambiarDestino(id, dest.tiendaId, { estado: 'lista', nuevoTema: nuevo, sinPisar: suyas, temaBase: vivo.nombre });
         fs.rmSync(dir, { recursive: true, force: true });
       } else {
