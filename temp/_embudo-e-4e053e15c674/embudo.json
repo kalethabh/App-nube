@@ -5,7 +5,7 @@
   "puerto": null,
   "version": 12,
   "creado": "2026-11-24T21:53:17.852Z",
-  "actualizado": "2026-11-24T22:08:02.965Z",
+  "actualizado": "2026-11-24T22:09:00.914Z",
   "formato": "9:16",
   "estilo": "",
   "avatar": {
@@ -254,13 +254,20 @@
       "trabajoId": "j-498bbbd1f7c91fff",
       "fecha": "2026-11-24T22:00:46.860Z",
       "url": "/api/embudos/e-4e053e15c674/imagenes/j-498bbbd1f7c91fff/beneficios"
+    },
+    "uso": {
+      "archivo": "trabajos/j-12f4265e34c34349/uso.png",
+      "firma": "b867670ca824d7f735d9fe5564fafa20f74aa6d82245c2e914a1b20550ad3d41",
+      "trabajoId": "j-12f4265e34c34349",
+      "fecha": "2026-11-24T22:09:00.913Z",
+      "url": "/api/embudos/e-4e053e15c674/imagenes/j-12f4265e34c34349/uso"
     }
   },
   "presupuestos": {},
   "trabajo": {
     "id": "j-12f4265e34c34349",
     "token": "052a295943f2be4a557bf48c0c8ffba9",
-    "estado": "generando",
+    "estado": "lista",
     "motor": "chatgpt",
     "cantidad": 1,
     "importeAprobado": 0,
@@ -268,8 +275,9 @@
     "secciones": [
       "uso"
     ],
-    "hechas": 0,
-    "actual": "uso"
+    "hechas": 1,
+    "actual": null,
+    "fin": "2026-11-24T22:09:00.914Z"
   },
   "avatarPendiente": null
 }
