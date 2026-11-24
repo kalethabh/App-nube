@@ -15,6 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Embudo continuo, generación paralela y mensajes propios (2026-11-24n)
 
+Implementación: [PR #202](https://github.com/kalethabh/App-nube/pull/202).
+Distribución prevista al cerrar esta entrega: [v2026-11-24n](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-24n).
+
 Refina el Embudo de la versión m. Estas decisiones prevalecen sobre sus detalles anteriores:
 - Formato fijo por sección: Hero 9:16, resto 4:5. El motor normaliza sin recortar a 1080×1920 y
   1080×1350 con ffmpeg; banda superior/inferior de 8 px en el mismo fondo sólido configurable.
