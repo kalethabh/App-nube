@@ -194,6 +194,185 @@
           "**Dudas de origen.** Preguntas sobre dónde se fabrica y quién es la empresa."
         ] }
       ]
+    },
+    {
+      "titulo": "Impulso de compra",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Detonante", "Momento real", "Cómo activarlo en el anuncio"], "filas": [
+          ["Pies helados en la cama", "10 p. m., se mete a la cama y no logra calentar los pies", "Abrir con la escena de los pies con dos pares de medias bajo la cobija"],
+          ["Bajón de la tarde", "3 p. m., en el trabajo o en la casa, se le cierran los ojos", "«¿A las 3 de la tarde ya no das más?» con la persona bostezando"],
+          ["Piernas de plomo", "Al llegar a la casa después de un día de pie o de bus", "Mostrar cómo sube los pies al sofá y se soba las piernas"],
+          ["Susto en el control médico", "Sale de la cita con «tiene que cuidarse»", "Mensaje de cuidarse a tiempo con una rutina natural (sin nombrar enfermedad)"],
+          ["El familiar enfermo", "Un tío o el papá tuvo un problema del corazón", "Hablarle a la hija que quiere cuidar a su mamá"],
+          ["Frío de temporada", "Viaje a tierra fría o novenas de diciembre en la noche", "«Que el frío no te arruine diciembre»"],
+          ["Plata de la prima o quincena", "15 y 30, y la prima de diciembre", "Combo x3 y regalo para mamá, pagas al recibir"]
+        ] }
+      ]
+    },
+    {
+      "titulo": "Beneficios que evalúa el cliente (en orden de prioridad)",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["#", "Beneficio", "Por qué lo valora"], "filas": [
+          ["1", "Pies y manos menos helados", "Es lo que siente cada noche y nadie le ha resuelto"],
+          ["2", "Piernas más livianas al final del día", "Le cambia cómo llega a la casa y cómo duerme"],
+          ["3", "Más energía en la tarde", "Quiere rendir y no sentirse vieja"],
+          ["4", "Cuidarse a tiempo de forma natural", "Calma el miedo al corazón sin tomar «más pastillas químicas»"],
+          ["5", "Fácil de tomar, sin ardor", "La cayena en agua arde; la cápsula no"],
+          ["6", "Pagar al recibir y tener asesoría", "Quita el miedo a lo falso y al cobro escondido"]
+        ] }
+      ]
+    },
+    {
+      "titulo": "Los 5 resultados deseados",
+      "bloques": [
+        { "tipo": "numerada", "items": [
+          "**Acostarse y que los pies se calienten rápido**, sin tres pares de medias ni bolsa de agua caliente.",
+          "**Terminar el día con las piernas livianas**, sin ganas de tirarse en el sofá con los pies arriba.",
+          "**Tener energía hasta la noche**, para el trabajo, la casa y los nietos.",
+          "**Sentir que se está cuidando a tiempo**, con algo natural que no le pelee con lo que ya toma (con permiso de su médico).",
+          "**Volver a sentirse joven y activa**: caminar, viajar y aguantar una novena sin morirse de frío ni de cansancio."
+        ] },
+        { "tipo": "cita", "estilo": "deseo", "texto": "Yo solo quiero meterme a la cama y sentir los pies calienticos, y llegar a la noche con ganas de algo más que acostarme." }
+      ]
+    },
+    {
+      "titulo": "Tiempos de transformación",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Orden", "Cambio", "Cuándo lo notan muchas personas", "Base"], "filas": [
+          ["1", "Pies y manos menos helados", "Entre la semana 2 y la 4", "Experiencias reportadas y uso tradicional; estimación"],
+          ["2", "Más energía en la tarde", "Entre la semana 1 y la 2", "Experiencias reportadas; estimación"],
+          ["3", "Piernas más livianas al final del día", "Entre la semana 3 y la 4", "Experiencias reportadas; estimación"],
+          ["4", "Sensación de calorcito en el cuerpo", "Desde los primeros días, minutos después de tomarla", "Comentarios de usuarios de cápsulas de cayena"],
+          ["5", "Rutina estable y sensación general de bienestar", "De 60 a 90 días de uso constante (2 a 3 bolsas)", "Estimación para la oferta de 3 bolsas"]
+        ], "nota": "Son experiencias que reportan algunas personas, no garantías. Los resultados varían según cada cuerpo, la constancia y los hábitos." }
+      ]
+    },
+    {
+      "titulo": "Avatar principal",
+      "bloques": [
+        { "tipo": "caja", "estilo": "avatar", "titulo": "Gloria Patricia, la de los pies helados que se apaga a media tarde", "texto": "56 años, de Bogotá. Se acuesta con dos pares de medias y aun así no le calientan los pies. A las 3 de la tarde ya no da más, y al llegar a la casa siente las piernas como de plomo. Su papá tuvo un problema del corazón y ella tiene miedo de seguir el mismo camino." },
+        { "tipo": "tabla", "columnas": ["Dato", "Gloria Patricia (usa el producto)", "Luz Adriana (la hija que a veces compra)"], "filas": [
+          ["Edad", "50 a 65 años (56)", "28 a 40 años (33)"],
+          ["Sexo", "Mujer", "Mujer"],
+          ["Ciudades", "Bogotá, Tunja, Pasto, Manizales, Medellín, Cali (barrios de estrato medio)", "Las mismas o vive lejos de la mamá"],
+          ["Estrato", "2 a 4", "3 a 4"],
+          ["Estado civil", "Casada o separada", "Casada o en unión libre"],
+          ["Hijos", "2 a 3 hijos adultos, 1 o 2 nietos", "1 hijo pequeño"],
+          ["Ocupación", "Comerciante, empleada de pie (tienda, cocina, peluquería) o ama de casa; algunas pensionadas", "Empleada de oficina o independiente"],
+          ["Ingresos", "1 a 3 salarios mínimos (hogar)", "2 a 4 salarios mínimos"],
+          ["Educación", "Bachiller o técnica", "Técnica o profesional"],
+          ["Momento de vida", "Después de la menopausia; nota que el cuerpo «ya no responde igual»", "Empieza a preocuparse por la salud de su mamá"],
+          ["Historial", "Ha probado agua con cayena, jengibre, medias de lana, baños de pies, castaño de Indias y multivitamínicos", "Le ha comprado vitaminas y cremas a la mamá"],
+          ["Medios", "Facebook, WhatsApp, YouTube, Caracol y RCN en la noche", "Instagram, TikTok, WhatsApp"],
+          ["Cómo compra", "Por WhatsApp después de ver un video en Facebook; paga contra entrega en efectivo", "Por WhatsApp o en línea; paga contra entrega o por Nequi y lo manda a la casa de la mamá"]
+        ] },
+        { "tipo": "cita", "estilo": "dolor", "texto": "Me da miedo que esto de los pies helados y las piernas pesadas sea el aviso de algo peor, como lo que le pasó a mi papá." },
+        { "tipo": "subtitulo", "texto": "Puntos de dolor" },
+        { "tipo": "vinetas", "items": [
+          "Se acuesta con los pies helados y tarda mucho en dormirse.",
+          "Las manos se le ponen frías y pálidas en la madrugada o con el agua fría.",
+          "Al final del día las piernas le pesan y se le cansan.",
+          "El bajón de la tarde no se le quita ni con tinto.",
+          "Siente que se está envejeciendo más rápido de lo que quisiera.",
+          "La familia le dice «usted siempre tiene frío» y se ríe."
+        ] },
+        { "tipo": "subtitulo", "texto": "Puntos débiles y objeciones" },
+        { "tipo": "vinetas", "items": [
+          "«Eso de internet es puro cuento.» → Pagas al recibir y te asesoramos por WhatsApp.",
+          "«¿Y eso me va a arder?» → Cápsula blanda, sin el ardor de la cayena en agua; se toma con el desayuno.",
+          "«Yo tomo pastillas para la presión.» → Consulta con tu médico antes; no reemplaza tu tratamiento.",
+          "«¿Y si me cobran después?» → Un solo pago al recibir, sin suscripción.",
+          "«Está caro.» → Cuesta menos que un tinto al día con la oferta de 3.",
+          "«Ya probé de todo.» → La cayena trabaja diferente: ayuda a que la sangre llegue a pies y manos."
+        ] },
+        { "tipo": "subtitulo", "texto": "Motivaciones" },
+        { "tipo": "vinetas", "items": [
+          "Dormir bien y sin frío.",
+          "Seguirles el ritmo a los nietos y al trabajo.",
+          "Cuidarse a tiempo con algo natural.",
+          "Disfrutar diciembre, los viajes y las reuniones.",
+          "No ser una carga para los hijos."
+        ] },
+        { "tipo": "cita", "estilo": "deseo", "texto": "Quiero volver a sentir los pies calienticos y tener energía para mis nietos sin sentir que me estoy apagando." },
+        { "tipo": "subtitulo", "texto": "Lenguaje que usa" },
+        { "tipo": "vinetas", "items": [
+          "«Tengo los pies helados», «se me congelan las manos», «yo soy friolenta».",
+          "«Las piernas me pesan», «me duelen las piernas de estar parada».",
+          "«Me apago a media tarde», «ya no me rinde el día».",
+          "«Siento que la sangre no me llega».",
+          "«Algo natural, que no sea químico».",
+          "«¿Eso sí sirve?», «¿y se paga cuando llegue?»"
+        ] },
+        { "tipo": "subtitulo", "texto": "Avatares secundarios" },
+        { "tipo": "ficha", "filas": [
+          ["Luz Adriana, la hija que cuida a su mamá desde lejos", "33 años, Medellín o Bogotá. Ve a su mamá cada vez más cansada y friolenta. Compra por WhatsApp y lo manda a la casa de la mamá. Busca regalarle salud en diciembre o en el Día de la Madre."],
+          ["Don Álvaro, el pensionado que ya no le aguanta la caminada", "62 años, Tunja o Bogotá. Camina en el parque, pero se le cansan las piernas y se le enfrían los pies. Suele tomar medicamentos para la presión: requiere preguntas de seguridad y aprobación de su médico."],
+          ["Yesenia, la que pasa 10 horas de pie", "40 años, Cali o Barranquilla. Vendedora o cocinera; llega con las piernas pesadas y sin energía. Le interesa más el ánimo y las piernas que el frío."]
+        ] }
+      ]
+    },
+    {
+      "titulo": "Recomendaciones estratégicas",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "Posicionamiento" },
+        { "tipo": "ficha", "filas": [
+          ["Promesa", "El ritual del calorcito: pies menos helados, piernas más livianas y energía hasta la noche, con 2 cápsulas al día."],
+          ["Mecanismo único", "La capsaicina de la cayena ayuda a relajar los vasos para que la sangre llegue mejor a pies y manos; los botánicos de apoyo acompañan (lista por confirmar)."],
+          ["Diferenciador", "Cayena en cápsula blanda: todo lo bueno del ají sin el ardor en la boca, con 10 botánicos de apoyo. Pagas al recibir y te asesoramos por WhatsApp."]
+        ] },
+        { "tipo": "subtitulo", "texto": "Oferta escalonada" },
+        { "tipo": "tabla", "columnas": ["Oferta", "Duración", "Precio sugerido", "Para qué"], "filas": [
+          ["1 bolsa", "30 días", "$89.900", "Probar (entrada)"],
+          ["2 bolsas", "60 días", "$139.900", "Ver los cambios de la semana 4"],
+          ["3 bolsas (recomendada)", "90 días", "$169.900 + envío gratis", "Tratamiento completo: rutina estable"]
+        ], "nota": "Precios de referencia (estimación). Ajústalos al costo real de importación, envío, devoluciones y pauta, y a los precios de la competencia que falta consultar." },
+        { "tipo": "subtitulo", "texto": "Plan de entrada de 30 días" },
+        { "tipo": "ficha", "filas": [
+          ["Días 1 a 3", "Confirmar registro INVIMA, ficha técnica (10 botánicos y miligramos) y etiqueta en español. Armar landing y guion de WhatsApp con preguntas de seguridad."],
+          ["Días 4 a 10", "Lanzar 8 conceptos (sección 15) en un solo conjunto amplio: Colombia, 45 a 65 años. Presupuesto de prueba moderado."],
+          ["Días 11 a 17", "Leer qué conceptos se llevan el gasto y cuáles confirman pedidos. Crear conceptos vecinos del ganador."],
+          ["Días 18 a 24", "Activar la temporada: diciembre, regalo para mamá, frío de las novenas. Empujar combo x3."],
+          ["Días 25 a 30", "Recoger los primeros testimonios reales (semana 2 a 4) y volverlos UGC. Preparar enero (propósitos de salud)."]
+        ] },
+        { "tipo": "subtitulo", "texto": "Canales" },
+        { "tipo": "ficha", "filas": [
+          ["Meta Ads (Facebook e Instagram)", "Canal principal; Facebook para 50+ e Instagram para las hijas."],
+          ["WhatsApp", "Cierre de la venta, preguntas de seguridad, seguimiento a la semana 2 para pedir testimonio."],
+          ["TikTok", "Videos de la «prueba de los pies fríos» y del bajón de la tarde; segundo canal."],
+          ["Mercado Libre", "Solo con registro INVIMA; sirve para dar confianza a quien busca la marca."],
+          ["Alianzas", "Peluquerías, tiendas de barrio, grupos de caminantes y de adulto mayor; podólogos y masajistas (sin claims médicos)."]
+        ] },
+        { "tipo": "subtitulo", "texto": "5 hooks" },
+        { "tipo": "numerada", "items": [
+          "«¿Te acuestas con dos pares de medias y los pies siguen helados?»",
+          "«Si a las 3 de la tarde ya no das más, mira esto.»",
+          "«Mi mamá siempre tenía los pies fríos. Hasta que le llevé esto.»",
+          "«No te tomes la cayena en agua: arde horrible. Hay una forma más fácil.»",
+          "«Lo que el ají le hace a tus piernas cansadas.»"
+        ] },
+        { "tipo": "subtitulo", "texto": "Cumplimiento: qué evitar" },
+        { "tipo": "tabla", "estilo": "evita", "columnas": ["Evita", "Usa en su lugar"], "filas": [
+          ["Cura la mala circulación", "Ayuda a la sensación de pies y manos calientes"],
+          ["Baja la presión", "No mencionar la presión"],
+          ["Protege el corazón / salud cardiovascular", "Apoya tu bienestar diario"],
+          ["Adelgaza la sangre / previene infartos o trombos", "No mencionarlo nunca"],
+          ["Elimina las várices", "Piernas más livianas al final del día"],
+          ["Sube las defensas / inmunidad", "No mencionarlo"],
+          ["Resultados garantizados en 7 días", "Muchas personas notan cambios desde la semana 2"],
+          ["Reemplaza tus medicamentos", "No reemplaza ningún tratamiento médico"],
+          ["Quema grasa / adelgaza", "No usarlo como promesa"],
+          ["Suplemento alimenticio", "Suplemento dietario"],
+          ["Aprobado por la FDA / probado por terceros", "Solo si tienes el documento que lo prueba"],
+          ["Reseñas de Trustpilot de EE. UU. como si fueran colombianas", "Testimonios reales de tus clientes en Colombia"]
+        ] },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Advertencias de seguridad", "items": [
+          "Solo adultos. No en embarazo ni lactancia.",
+          "Quien toma anticoagulantes, medicamentos para la presión o para el corazón: consultar al médico antes y nunca dejar el tratamiento.",
+          "Siempre con comida; no recomendada con gastritis, úlcera o reflujo fuertes.",
+          "Suspender 2 semanas antes de una cirugía.",
+          "Pies fríos con dolor al caminar, heridas que no sanan o cambio de color: primero al médico."
+        ] }
+      ]
     }
   ]
 }

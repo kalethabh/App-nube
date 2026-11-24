@@ -9,10 +9,11 @@
   "progreso": [
     "Claude está investigando a tu competencia en TrendTrack",
     "Leyendo las instrucciones del estilo",
-    "Buscando en los archivos"
+    "Buscando en los archivos",
+    "Guardando"
   ],
   "intentos": 2,
   "inicio": "2026-11-24T15:44:32.837Z",
   "error": null,
-  "actualizado": "2026-11-24T15:44:58.394Z"
+  "actualizado": "2026-11-24T15:48:42.032Z"
 }
