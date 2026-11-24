@@ -259,6 +259,15 @@ async function principal() {
   r = await pedir(`/api/shopify/trabajos/${t.id}/publicar`, { metodo: 'POST' });
   check('…y al publicar queda la indicación para crear la página en Shopify', r.datos?.estado === 'lista' && !r.datos.pagina, r.datos);
 
+  // (2026-11-24) CON MI CUENTA DE SHOPIFY (sin clave): el enlace y el código para aprobar, y queda conectada
+  r = await pedir('/api/shopify/conexiones', { json: { dominio: 'cuatro', nombre: 'Tienda Cuatro', pais: 'PE' } });
+  const cx = r.datos?.id;
+  let ec = await esperar(30, async () => (await pedir(`/api/shopify/conexiones/${cx}`)).datos, (d) => d?.url || d?.estado === 'error');
+  check('«Conectar con mi cuenta»: da el enlace de Shopify y el código para aprobar', r.st === 200 && /accounts\.shopify\.com/.test(ec?.url || '') && ec.codigo === 'ABCD-1234', ec);
+  ec = await esperar(30, async () => (await pedir(`/api/shopify/conexiones/${cx}`)).datos, (d) => d?.estado === 'lista' || d?.estado === 'error');
+  check('…al aprobar queda conectada (solo temas, sin clave guardada) y se usa', ec?.estado === 'lista' && ec.tienda?.forma === 'cuenta' && ec.tienda.pais === 'PE' && (await pedir(`/api/shopify/tiendas/${ec.tienda.id}/temas`)).datos?.temas?.length === 2, ec);
+  if (ec?.tienda?.id) await pedir(`/api/shopify/tiendas/${ec.tienda.id}`, { metodo: 'DELETE' });
+
   // (2026-11-24) CUENTAS Y PAÍSES, VARIAS TIENDAS A LA VEZ Y COPIAR DE UNA A OTRAS
   check('Con acceso completo, el país y la moneda se leen solos (y la cuenta por defecto)', bella.pais === 'CO' && bella.moneda === 'COP' && bella.cuenta === 'Mi cuenta', bella);
   r = await pedir(`/api/shopify/tiendas/${bella.id}`, { metodo: 'PUT', json: { cuenta: 'Cuenta Colombia', pais: 'co' } });

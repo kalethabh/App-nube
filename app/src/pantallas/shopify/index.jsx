@@ -19,7 +19,8 @@ const ESTADOS = { trabajando: 'Trabajando…', 'vista-previa': 'Vista previa lis
 
 function Conectar({ alConectar, abierto, setAbierto, cuentas = [] }) {
   const { aviso } = useAvisos();
-  const [forma, setForma] = useState('dev');
+  const [forma, setForma] = useState('cuenta'); // (2026-11-24) por defecto: con mi cuenta de Shopify (sin claves)
+  const [conexion, setConexion] = useState(null); // { url, codigo } mientras esperas aprobar en Shopify
   const [dominio, setDominio] = useState('');
   const [token, setToken] = useState('');
   const [clientId, setClientId] = useState('');
@@ -29,7 +30,40 @@ function Conectar({ alConectar, abierto, setAbierto, cuentas = [] }) {
   const [pais, setPais] = useState('');
   const [ocupado, setOcupado] = useState(false);
   if (!abierto) return <Boton variante="secundario" icono={Plus} onClick={() => setAbierto(true)}>Conectar una tienda</Boton>;
-  const listo = dominio.trim() && (forma === 'dev' ? clientId.trim() && secreto.trim() : token.trim());
+  const listo = dominio.trim() && (forma === 'cuenta' || (forma === 'dev' ? clientId.trim() && secreto.trim() : token.trim()));
+  // con mi cuenta: la app pide a Shopify el enlace para entrar, lo abre y espera a que apruebes
+  const conCuenta = async () => {
+    setOcupado(true);
+    try {
+      const { id } = await pedirNuevo('/api/shopify/conexiones', { metodo: 'POST', cuerpo: { dominio, nombre, cuenta: cuenta.trim() || undefined, pais: pais || undefined } });
+      let abierta = false;
+      for (let i = 0; i < 400; i++) {
+        const c = await pedirNuevo(`/api/shopify/conexiones/${id}`);
+        if (c.url && !abierta) {
+          abierta = true;
+          setConexion({ url: c.url, codigo: c.codigo });
+          window.open(c.url, '_blank', 'noopener');
+        }
+        if (c.estado === 'lista') {
+          aviso({ tipo: 'exito', titulo: `${c.tienda.nombre} conectada`, texto: 'Con tu cuenta de Shopify (temas).' });
+          setConexion(null);
+          setDominio('');
+          setNombre('');
+          setAbierto(false);
+          alConectar(c.tienda.id);
+          return;
+        }
+        if (c.estado === 'error') throw new Error(c.error);
+        await new Promise((ok) => setTimeout(ok, 1500));
+      }
+      throw new Error('No llegó la aprobación de Shopify. Vuelve a intentar.');
+    } catch (e) {
+      setConexion(null);
+      aviso({ tipo: 'error', titulo: 'No se conectó', texto: e.message });
+    } finally {
+      setOcupado(false);
+    }
+  };
   const conectar = async () => {
     setOcupado(true);
     try {
@@ -54,10 +88,13 @@ function Conectar({ alConectar, abierto, setAbierto, cuentas = [] }) {
     <section className="sh-conectar">
       <h3><KeyRound size={16} aria-hidden="true" /> Conectar una tienda</h3>
       <div className="sh-segmento" role="group" aria-label="Cómo conectarla">
-        <button type="button" className={forma === 'dev' ? 'activo' : ''} aria-pressed={forma === 'dev'} onClick={() => setForma('dev')}>Client ID y secreto (recomendado)</button>
+        <button type="button" className={forma === 'cuenta' ? 'activo' : ''} aria-pressed={forma === 'cuenta'} onClick={() => setForma('cuenta')}>Con mi cuenta de Shopify</button>
+        <button type="button" className={forma === 'dev' ? 'activo' : ''} aria-pressed={forma === 'dev'} onClick={() => setForma('dev')}>Acceso completo (Client ID)</button>
         <button type="button" className={forma === 'token' ? 'activo' : ''} aria-pressed={forma === 'token'} onClick={() => setForma('token')}>Token o Theme Access</button>
       </div>
-      {forma === 'dev' ? (
+      {forma === 'cuenta' ? (
+        <p className="sh-ayuda">Pon la dirección de tu tienda y toca el botón: se abre Shopify, entras con tu cuenta y apruebas. Sin claves. Sirve para los temas (cambios con IA, landings, copiar temas y secciones). Para crear páginas o copiar productos, usa «Acceso completo».</p>
+      ) : forma === 'dev' ? (
         <ol className="sh-pasos">
           <li>Entra a <a href="https://dev.shopify.com/dashboard" target="_blank" rel="noopener noreferrer">dev.shopify.com</a> con la MISMA cuenta de tu tienda › <b>Crear app</b> (ponle «Kads Studio»).</li>
           <li>En <b>Versiones</b>, en «Alcances de acceso» pon: <code>read_themes, write_themes, read_content, write_content, read_online_store_pages, write_online_store_pages, read_products, write_products, read_files, write_files</code> (y los que quieras que la IA pueda usar) › <b>Publicar</b>.</li>
@@ -72,7 +109,7 @@ function Conectar({ alConectar, abierto, setAbierto, cuentas = [] }) {
       )}
       <div className="sh-conectar__campos">
         <CampoTexto etiqueta="Dirección de la tienda" placeholder="tutienda.myshopify.com" value={dominio} onChange={(e) => setDominio(e.target.value)} autoComplete="off" />
-        {forma === 'dev' ? (
+        {forma === 'cuenta' ? null : forma === 'dev' ? (
           <>
             <CampoTexto etiqueta="Client ID" placeholder="a1b2c3…" value={clientId} onChange={(e) => setClientId(e.target.value)} autoComplete="off" />
             <CampoTexto etiqueta="Secreto (Client secret)" type="password" placeholder="••••••" value={secreto} onChange={(e) => setSecreto(e.target.value)} autoComplete="new-password" />
@@ -85,9 +122,14 @@ function Conectar({ alConectar, abierto, setAbierto, cuentas = [] }) {
         <datalist id="sh-cuentas">{cuentas.map((c) => <option key={c} value={c} />)}</datalist>
         <Selector etiqueta="País" opcional value={pais} onChange={(e) => setPais(e.target.value)} opciones={[{ valor: '', etiqueta: 'Que lo lea de la tienda' }, ...OPCIONES_PAIS.slice(1)]} />
       </div>
+      {conexion ? (
+        <p className="sh-ok">
+          Se abrió Shopify en tu navegador: entra con tu cuenta y aprueba{conexion.codigo ? <> el código <b>{conexion.codigo}</b></> : null}. Si no se abrió, <a href={conexion.url} target="_blank" rel="noopener noreferrer">ábrelo aquí</a>. Te espero…
+        </p>
+      ) : null}
       <p className="sh-ayuda">Las claves se guardan solo en tu computador (no se suben a GitHub ni van en los paquetes) y nunca se muestran.</p>
       <div className="sh-fila">
-        <Boton variante="primario" icono={Store} cargando={ocupado} disabled={!listo} onClick={conectar}>Probar y conectar</Boton>
+        <Boton variante="primario" icono={Store} cargando={ocupado} disabled={!listo} onClick={forma === 'cuenta' ? conCuenta : conectar}>{forma === 'cuenta' ? 'Conectar con mi cuenta de Shopify' : 'Probar y conectar'}</Boton>
         <Boton variante="fantasma" onClick={() => setAbierto(false)}>Cancelar</Boton>
       </div>
     </section>

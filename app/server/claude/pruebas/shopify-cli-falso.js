@@ -17,9 +17,16 @@ const token = process.env.SHOPIFY_CLI_THEME_TOKEN || '';
 const DIR = path.join(process.env.SHOPIFY_FALSO_DIR, String(val('--store') || 'sin-tienda')); // una tienda por carpeta
 fs.mkdirSync(DIR, { recursive: true });
 fs.appendFileSync(path.join(DIR, 'llamadas.log'), `${JSON.stringify({ args: args.filter((a) => a !== token), claveEnArgv: args.some((a) => a.includes(token) && token), claveEnEnv: Boolean(token), store: val('--store') })}\n`);
-if (/malo/.test(token) || !token) {
+if (/malo/.test(token)) {
   process.stderr.write('Error: Unauthorized (401). Invalid password for the store.\n');
   process.exit(1);
+}
+// (2026-11-24) sin clave: «con mi cuenta de Shopify». La primera vez pide iniciar sesión (enlace y código) y, al rato
+// (como si la aprobaras en el navegador), guarda la sesión de esa tienda y sigue.
+if (!token && !fs.existsSync(path.join(DIR, 'sesion'))) {
+  process.stdout.write('To run this command, log in to Shopify.\nUser verification code: ABCD-1234\nOpen this link to start the auth process: https://accounts.shopify.com/activate-with-code?device_code%5Buser_code%5D=ABCD-1234\n');
+  await new Promise((ok) => setTimeout(ok, 1500));
+  fs.writeFileSync(path.join(DIR, 'sesion'), 'ok');
 }
 const archivoTemas = path.join(DIR, 'temas.json');
 if (!fs.existsSync(archivoTemas)) {

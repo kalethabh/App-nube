@@ -10,7 +10,7 @@
 //   POST   /api/shopify/landing { landingId, tiendaId, titulo, direccion, producto }  -> sube una landing a la tienda
 import express from 'express';
 import { soloDesdeLaApp } from '../lib/productos.js';
-import { listarTiendas, agregarTienda, quitarTienda, editarTienda, tiendaConClave } from '../lib/shopify/tiendas.js';
+import { listarTiendas, agregarTienda, quitarTienda, editarTienda, tiendaConClave, conectarConCuenta, estadoConexion } from '../lib/shopify/tiendas.js';
 import { temas } from '../lib/shopify/api.js';
 import { listarTrabajos, leerTrabajo, borrarTrabajo, crearTrabajo, crearTrabajos, publicarTrabajo, descartarTema, aplicarAdmin, subirLanding, crearCopia, publicarCopia, descartarCopia, partesDelTema } from '../lib/shopify/trabajos.js';
 
@@ -41,6 +41,9 @@ export default function rutasShopify(app) {
   app.post('/api/shopify/landing', soloDesdeLaApp, json, r((req) => subirLanding(req.body || {})));
   // (2026-11-24) copiar de una tienda a otras y lo de cada tienda
   app.get('/api/shopify/tiendas/:id/partes', r((req) => partesDelTema(req.params.id, req.query.tema ? String(req.query.tema) : null)));
+  // (2026-11-24) con mi cuenta de Shopify: el enlace y el código para aprobar en el navegador, y su estado
+  app.post('/api/shopify/conexiones', soloDesdeLaApp, json, r((req) => conectarConCuenta(req.body || {})));
+  app.get('/api/shopify/conexiones/:id', r((req) => estadoConexion(req.params.id)));
   app.post('/api/shopify/copias', soloDesdeLaApp, json, r((req) => crearCopia(req.body || {})));
   app.post('/api/shopify/trabajos/:id/destinos/:tienda/publicar', soloDesdeLaApp, r((req) => publicarCopia(req.params.id, req.params.tienda)));
   app.post('/api/shopify/trabajos/:id/destinos/:tienda/descartar', soloDesdeLaApp, r((req) => descartarCopia(req.params.id, req.params.tienda)));
