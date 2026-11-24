@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24e · Landings: tus tiendas a la vista
+
+- En Landings ahora ves **tus tiendas de Shopify** y el botón **«Conectar mis tiendas»**, que te lleva al menú Shopify, donde se conectan.
+
 ## 2026-11-24d · La coordinadora copia entre tiendas
 
 - Ahora le puedes pedir por chat a la coordinadora que **copie de una tienda a otras**: «copia la sección de ofertas de la tienda de Colombia a la de México», «pasa este producto a todas mis tiendas», «el mismo tema en las otras». También que haga **el mismo cambio en varias tiendas**. Todo queda para revisar en el menú Shopify (tema sin publicar o producto en borrador).
