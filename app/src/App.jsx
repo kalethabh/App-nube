@@ -23,7 +23,7 @@ const Inicio = lazy(() => import('./pantallas/inicio/index.jsx'));
 const Oficina = lazy(() => import('./pantallas/oficina/index.jsx'));
 const Productos = lazy(() => import('./pantallas/productos/index.jsx'));
 // (lo que viene: una pantalla de «Próximamente» cada uno)
-const EmbudoWhatsapp = lazy(() => import('./pantallas/proximamente/index.jsx').then((m) => ({ default: m.EmbudoWhatsapp })));
+const EmbudoWhatsapp = lazy(() => import('./pantallas/embudo/index.jsx'));
 const Landings = lazy(() => import('./pantallas/landings/index.jsx'));
 const Sep = lazy(() => import('./pantallas/sep/index.jsx'));
 const TrabajosTiendas = lazy(() => import('./pantallas/landings/TrabajosTiendas.jsx'));
@@ -64,7 +64,8 @@ const MIS_ANUNCIOS = { texto: 'Mis anuncios', href: enlace.tablero() };
 export const RUTAS = [
   { patron: '/inicio', Pantalla: Inicio, menu: 'inicio', titulo: 'Inicio', migas: () => [{ texto: 'Inicio' }] },
   { patron: '/oficina', Pantalla: Oficina, menu: 'oficina', titulo: 'Oficina virtual', migas: () => [{ texto: 'Oficina virtual' }] },
-  { patron: '/embudo-whatsapp', Pantalla: EmbudoWhatsapp, menu: 'whatsapp', titulo: 'Embudo WhatsApp', migas: () => [{ texto: 'Embudo WhatsApp' }] },
+  { patron: '/embudo-whatsapp/:id', Pantalla: EmbudoWhatsapp, menu: 'whatsapp', titulo: 'Tu embudo', migas: () => [{ texto: 'Embudo', href: enlace.embudoWhatsapp() }, { texto: 'Secciones' }] },
+  { patron: '/embudo-whatsapp', Pantalla: EmbudoWhatsapp, menu: 'whatsapp', titulo: 'Embudo', migas: () => [{ texto: 'Embudo' }] },
   { patron: '/landings/tiendas', Pantalla: TrabajosTiendas, menu: 'landings', titulo: 'Cambios en tiendas', migas: () => [{ texto: 'Landings', href: enlace.landings() }, { texto: 'Cambios en tiendas' }] },
   { patron: '/landings', Pantalla: Landings, menu: 'landings', titulo: 'Generador de Landings', migas: () => [{ texto: 'Generador de Landings' }] },
   { patron: '/sep', Pantalla: Sep, menu: 'sep', titulo: 'S.E.P', migas: () => [{ texto: 'S.E.P' }] },

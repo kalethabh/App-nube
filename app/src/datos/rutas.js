@@ -65,6 +65,7 @@ export const rutas = {
   landings: () => '/landings',
   trabajosTiendas: () => '/landings/tiendas',
   embudoWhatsapp: () => '/embudo-whatsapp',
+  embudo: (id) => `/embudo-whatsapp/${encodeURIComponent(id)}`,
   sep: () => '/sep',
   shopify: () => '/shopify',
   shopifyCarpeta: (id) => `/shopify/${encodeURIComponent(id)}`,
