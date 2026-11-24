@@ -416,6 +416,12 @@ async function alMensaje(texto) {
       const n = Number((/(\d+)/.exec(ultimo) || [])[1]) || 1;
       acciones.push({ tipo: 'crear-anuncio', productoId: prod, estilo: 'claymation', cantidad: n, duracion: null, respuestas: {}, idea: 'ángulo de prueba' });
       respuesta = `Listo, le pedí a Mateo ${n} guion${n > 1 ? 'es' : ''} de Claymation. Te aviso cuando esperen tu aprobación.`;
+    } else if (/^copia /i.test(ultimo) && /tienda/i.test(ultimo) && /^(\S+) \| [^|\n]+ \| \S+\.myshopify\.com \|/m.test(textoTarea)) {
+      // (2026-11-24) copiar entre tiendas: de la primera de la lista a todas las demás, la sección que nombre
+      const origen = /^(\S+) \| [^|\n]+ \| \S+\.myshopify\.com \|/m.exec(textoTarea)[1];
+      const seccion = (/secci[oó]n (\S+)/i.exec(ultimo) || [])[1] || 'boton';
+      acciones.push({ tipo: 'copiar-tienda', origen, destinos: 'todas', que: 'partes', archivos: [`sections/${seccion}.liquid`] });
+      respuesta = 'Listo, la copio a tus otras tiendas. Te queda como tema sin publicar en cada una para que la revises.';
     } else if (/tienda/i.test(ultimo) && /^(\S+) \| [^|\n]+ \| \S+\.myshopify\.com \|/m.test(textoTarea)) {
       const tienda = /^(\S+) \| [^|\n]+ \| \S+\.myshopify\.com \|/m.exec(textoTarea)[1];
       acciones.push({ tipo: 'shopify', tienda, pedido: ultimo, motor: 'claude' });
