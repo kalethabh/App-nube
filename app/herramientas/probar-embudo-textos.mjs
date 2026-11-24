@@ -27,3 +27,5 @@ const azul=identidadProducto({color:'#2155B0'},{}),salud=identidadProducto({}, {
 assert.notEqual(azul.fondo,'#FFFFFF');assert.notEqual(salud.fondo,belleza.fondo);assert.equal(azul.acento,'#2155B0');
 assert.match(prompt,/not an empty white backdrop/);assert.match(prompt,/MEANING BEFORE DECORATION/);assert.match(prompt,/ALL UPPERCASE/);assert.match(prompt,/SUBTITLE entirely lowercase/);assert.match(prompt,/EXACT common base color/);assert.match(prompt,/LO QUE CONTIENE/);assert.doesNotMatch(prompt,/perfectly FLAT SOLID background #FFFFFF/);
 console.log('OK caja del copy con acentos, fuentes intactas, paleta cromática por marca/categoría, gráficos semánticos y bordes continuos');
+
+assert.match(identidadProducto(null,null).fondo,/^#[0-9A-F]{6}$/);
