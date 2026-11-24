@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24i · Landings sin popups que tapan
+
+- Al clonar, la app quita los **popups de las apps de la tienda** (ruletas como «Try your luck», boletines, descuentos…) que se copiaban abiertos y no dejaban usar la página, y deja la página desplazarse normal. La vista en celular y «Abrir» se pueden usar. Las landings que ya tenías: clónalas otra vez.
+
 ## 2026-11-24h · La vista previa abre la página que cambió
 
 - «Vista previa» ahora abre directo **la página que cambió**: la de un producto si cambiaste la página de producto, la colección, el carrito… (antes abría la portada con todos los productos).
