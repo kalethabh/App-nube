@@ -11,7 +11,8 @@ export async function validarEmbudoUI({ base, id }) {
     const errores = []; p.on('pageerror', (e) => errores.push(e.message));
     await p.route('**/api/ajustes', async (route) => { try { const r = await route.fetch(); await route.fulfill({ response: r, json: { ...await r.json(), bienvenidaVista: true } }); } catch { /* navegación o cierre del contexto de prueba */ } });
     await p.goto(`${base}/#/embudo-whatsapp`);
-    await p.locator(`.em-tarjeta[href="#/embudo-whatsapp/${id}"]`).click();
+    await p.locator('.ge-carpeta').first().click();
+    await p.locator(`.ge-proyecto[href="#/embudo-whatsapp/${id}"]`).click();
     await p.locator('.em-seccion').first().waitFor();
     assert.equal(await p.locator('.em-seccion').count(), 5);
     assert.ok(await p.locator('.em-opciones input[type=radio]').count() >= 10);

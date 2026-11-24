@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24o · Carpetas en las secciones de generación
+
+- Imágenes, anuncios de video y estilos, Embudo, Landings, Sketch y Cambiar producto abren primero tus carpetas por producto o proyecto. Dentro están sus generaciones guardadas y el botón para crear otra.
+- Las generaciones con el mismo producto se agrupan automáticamente. Los proyectos antiguos sin producto asociado conservan una carpeta independiente, aunque tengan el mismo nombre que otro.
+- Búsqueda de carpetas y generaciones, contador de proyectos, estado y fecha. Puedes recargar o compartir el enlace de una carpeta para continuar después.
+- Al crear videos desde una carpeta se conservan el producto y el estilo elegido. Landings ahora abre solo el proyecto seleccionado, con su vista previa y acciones; después de crear una, entra directamente a ella.
+
 ## 2026-11-24n · Embudo continuo, generación paralela y mensajes propios
 
 - Genera las cinco secciones desde un botón, procesando hasta dos imágenes a la vez. Cada sección muestra si está en cola, generándose, lista o pendiente de retomar; al regenerar, la imagen anterior se conserva.

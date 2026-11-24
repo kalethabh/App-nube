@@ -19,6 +19,8 @@ import { BandaVersionNueva } from './marco/BandaVersionNueva.jsx';
 import { BandaActualizacion } from './marco/BandaActualizacion.jsx';
 import './marco/marco.css';
 
+import EntradaGeneracion from './pantallas/generacion/index.jsx';
+const entrada = (tipo,Pantalla) => (props) => <EntradaGeneracion tipo={tipo} Pantalla={Pantalla} {...props} />;
 const Inicio = lazy(() => import('./pantallas/inicio/index.jsx'));
 const Oficina = lazy(() => import('./pantallas/oficina/index.jsx'));
 const Productos = lazy(() => import('./pantallas/productos/index.jsx'));
@@ -53,6 +55,13 @@ const Componentes = lazy(() => import('./pantallas/componentes/index.jsx'));
 // La bienvenida de 3 pasos: se abre sola la primera vez (hasta que se cierra o se termina).
 const BienvenidaPrimeraVez = lazy(() => import('./pantallas/ajustes/Bienvenida.jsx'));
 
+const VideosConCarpetas=entrada('videos',Nuevo);
+const ImagenesConCarpetas=entrada('imagenes',Imagenes);
+const EmbudoConCarpetas=entrada('embudo',EmbudoWhatsapp);
+const LandingsConCarpetas=entrada('landings',Landings);
+const SketchConCarpetas=entrada('sketch',Sketch);
+const CambiarConCarpetas=entrada('cambiar',Cambiar);
+
 // Título provisorio a partir del slug (la pantalla lo cambia por el real con useBarraSuperior).
 const nombreDeSlug = (slug) => slug.replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase());
 const MIS_ANUNCIOS = { texto: 'Mis anuncios', href: enlace.tablero() };
@@ -64,10 +73,10 @@ const MIS_ANUNCIOS = { texto: 'Mis anuncios', href: enlace.tablero() };
 export const RUTAS = [
   { patron: '/inicio', Pantalla: Inicio, menu: 'inicio', titulo: 'Inicio', migas: () => [{ texto: 'Inicio' }] },
   { patron: '/oficina', Pantalla: Oficina, menu: 'oficina', titulo: 'Oficina virtual', migas: () => [{ texto: 'Oficina virtual' }] },
-  { patron: '/embudo-whatsapp/:id', Pantalla: EmbudoWhatsapp, menu: 'whatsapp', titulo: 'Tu embudo', migas: () => [{ texto: 'Embudo', href: enlace.embudoWhatsapp() }, { texto: 'Secciones' }] },
-  { patron: '/embudo-whatsapp', Pantalla: EmbudoWhatsapp, menu: 'whatsapp', titulo: 'Embudo', migas: () => [{ texto: 'Embudo' }] },
+  { patron: '/embudo-whatsapp/:id', Pantalla: EmbudoConCarpetas, menu: 'whatsapp', titulo: 'Tu embudo', migas: () => [{ texto: 'Embudo', href: enlace.embudoWhatsapp() }, { texto: 'Secciones' }] },
+  { patron: '/embudo-whatsapp', Pantalla: EmbudoConCarpetas, menu: 'whatsapp', titulo: 'Embudo', migas: () => [{ texto: 'Embudo' }] },
   { patron: '/landings/tiendas', Pantalla: TrabajosTiendas, menu: 'landings', titulo: 'Cambios en tiendas', migas: () => [{ texto: 'Landings', href: enlace.landings() }, { texto: 'Cambios en tiendas' }] },
-  { patron: '/landings', Pantalla: Landings, menu: 'landings', titulo: 'Generador de Landings', migas: () => [{ texto: 'Generador de Landings' }] },
+  { patron: '/landings', Pantalla: LandingsConCarpetas, menu: 'landings', titulo: 'Generador de Landings', migas: () => [{ texto: 'Generador de Landings' }] },
   { patron: '/sep', Pantalla: Sep, menu: 'sep', titulo: 'S.E.P', migas: () => [{ texto: 'S.E.P' }] },
   { patron: '/shopify/:carpetaId', Pantalla: Shopify, menu: 'shopify', titulo: 'Tiendas del negocio', migas: () => [{ texto: 'Shopify', href: enlace.shopify() }, { texto: 'Mis tiendas' }] },
   { patron: '/shopify', Pantalla: Shopify, menu: 'shopify', titulo: 'Shopify', migas: () => [{ texto: 'Shopify' }] },
@@ -75,7 +84,7 @@ export const RUTAS = [
   { patron: '/carpetas/:id', Pantalla: Carpetas, menu: 'carpetas', titulo: 'Carpeta', migas: () => [{ texto: 'Carpetas', href: enlace.carpetas() }, { texto: 'Carpeta' }] },
   { patron: '/productos', Pantalla: Productos, menu: 'productos', titulo: 'Productos', migas: () => [{ texto: 'Productos' }] },
   { patron: '/tablero', Pantalla: Tablero, menu: 'tablero', titulo: 'Mis anuncios', migas: () => [{ texto: 'Mis anuncios' }] },
-  { patron: '/nuevo', Pantalla: Nuevo, menu: 'nuevo', titulo: 'Nuevo anuncio', migas: () => [MIS_ANUNCIOS, { texto: 'Nuevo anuncio' }] },
+  { patron: '/nuevo', Pantalla: VideosConCarpetas, menu: 'nuevo', titulo: 'Nuevo anuncio', migas: () => [MIS_ANUNCIOS, { texto: 'Nuevo anuncio' }] },
   {
     patron: '/anuncio/:slug',
     Pantalla: Entrega,
@@ -95,11 +104,11 @@ export const RUTAS = [
   { patron: '/anuncios', Pantalla: Anuncios, menu: 'anuncios', titulo: 'Anuncios', migas: () => [{ texto: 'Anuncios' }] },
   { patron: '/editor', Pantalla: EditorVideos, menu: 'editor', titulo: 'Editor', migas: () => [{ texto: 'Editor' }] },
   { patron: '/aprendizajes', Pantalla: Aprendizajes, menu: 'aprendizajes', titulo: 'Aprendizajes', migas: () => [{ texto: 'Aprendizajes' }] },
-  { patron: '/sketch', Pantalla: Sketch, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia' }] },
-  { patron: '/sketch/:slug', Pantalla: Sketch, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia', href: enlace.sketch() }, { texto: 'Tu sketch' }] },
+  { patron: '/sketch', Pantalla: SketchConCarpetas, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia' }] },
+  { patron: '/sketch/:slug', Pantalla: SketchConCarpetas, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia', href: enlace.sketch() }, { texto: 'Tu sketch' }] },
   // (Cambiar el producto vive en el Editor desde el 2026-11-19p: se ilumina «Editor» y las migas empiezan ahí)
-  { patron: '/cambiar', Pantalla: Cambiar, menu: 'editor', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Editor', href: enlace.editorVideos() }, { texto: 'Cambiar el producto' }] },
-  { patron: '/cambiar/:slug', Pantalla: Cambiar, menu: 'editor', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Editor', href: enlace.editorVideos() }, { texto: 'Cambiar el producto', href: enlace.cambiar() }, { texto: 'Revisar' }] },
+  { patron: '/cambiar', Pantalla: CambiarConCarpetas, menu: 'editor', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Editor', href: enlace.editorVideos() }, { texto: 'Cambiar el producto' }] },
+  { patron: '/cambiar/:slug', Pantalla: CambiarConCarpetas, menu: 'editor', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Editor', href: enlace.editorVideos() }, { texto: 'Cambiar el producto', href: enlace.cambiar() }, { texto: 'Revisar' }] },
   { patron: '/saldo', Pantalla: Saldo, menu: 'saldo', titulo: 'Saldo y costos', migas: () => [{ texto: 'Saldo y costos' }] },
   { patron: '/biblioteca', Pantalla: Biblioteca, menu: 'biblioteca', titulo: 'Biblioteca', migas: () => [{ texto: 'Biblioteca' }] },
   { patron: '/ajustes', Pantalla: Ajustes, menu: 'ajustes', titulo: 'Ajustes', migas: () => [{ texto: 'Ajustes' }] },
@@ -114,7 +123,7 @@ export const RUTAS = [
   },
   // Anuncios de imagen: la portada (tus productos y tus lotes), el formulario para crear un lote y la pantalla de un
   // lote (avance y galería). "/imagenes/nuevo" va antes que "/imagenes/:lote" (un lote nunca se llama "nuevo")
-  { patron: '/imagenes', Pantalla: Imagenes, menu: 'imagenes', titulo: 'Anuncios de imagen', migas: () => [{ texto: 'Anuncios de imagen' }] },
+  { patron: '/imagenes', Pantalla: ImagenesConCarpetas, menu: 'imagenes', titulo: 'Anuncios de imagen', migas: () => [{ texto: 'Anuncios de imagen' }] },
   {
     patron: '/imagenes/nuevo',
     Pantalla: CrearImagenes,

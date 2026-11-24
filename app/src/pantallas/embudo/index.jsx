@@ -139,7 +139,7 @@ function EditorEmbudo({ id }) {
   );
 }
 
-export default function Embudo({ params = {} }) {
+export default function Embudo({ params = {}, consulta }) {
   const { aviso } = useAvisos();
   const { datos, error } = useDatos('embudos:lista', () => pedirNuevo(API), { cadaMs: 5000 });
   const [productoId, setProductoId] = useState('');
@@ -156,6 +156,6 @@ export default function Embudo({ params = {} }) {
     <section className="em-crear"><div><Layers3 size={32} /><h2>Crea el embudo de tu producto</h2><p>Primero elige los textos. Después genera y corrige cada imagen.</p></div><div className="em-crear__form"><Selector etiqueta="Producto" value={productoId} onChange={(x) => setProductoId(x.target.value)} opciones={[{ valor: '', etiqueta: 'Elige un producto investigado' }, ...(datos?.productos || []).filter((p) => p.estado === 'lista').map((p) => ({ valor: p.id, etiqueta: p.nombre }))]} /><Boton variante="primario" icono={Plus} disabled={!productoId} cargando={ocupado} onClick={crear}>Crear embudo</Boton></div></section>
     {error ? <p role="alert">{error.message}</p> : !datos ? <p role="status">Cargando tus productos…</p> : null}
     {datos && !datos.productos.some((p) => p.estado === 'lista') ? <EstadoVacio icono={Layers3} titulo="Empieza con la investigación del producto" descripcion="Necesitas su foto y su investigación de mercado para traer los títulos y propuestas de valor de cada sección." acciones={<Boton href={enlace.investigacion()}>Ir a investigación de mercado</Boton>} /> : null}
-    {datos?.embudos.length ? <section className="em-lista" aria-label="Tus embudos">{datos.embudos.map((e) => <a className="em-tarjeta" key={e.id} href={enlace.embudo(e.id)}><Layers3 size={28} /><h2>{e.nombre}</h2><p>{e.generadas} de 5 imágenes generadas</p><span>Abrir embudo</span></a>)}</section> : null}
+    {consulta?.get('crear') !== '1' && datos?.embudos.length ? <section className="em-lista" aria-label="Tus embudos">{datos.embudos.map((e) => <a className="em-tarjeta" key={e.id} href={enlace.embudo(e.id)}><Layers3 size={28} /><h2>{e.nombre}</h2><p>{e.generadas} de 5 imágenes generadas</p><span>Abrir embudo</span></a>)}</section> : null}
   </div>;
 }
