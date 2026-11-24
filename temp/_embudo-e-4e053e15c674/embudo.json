@@ -3,9 +3,9 @@
   "productoId": "cayenne-pepper-d319",
   "nombre": "CAYENNE PEPPER",
   "puerto": null,
-  "version": 10,
+  "version": 11,
   "creado": "2026-11-24T21:53:17.852Z",
-  "actualizado": "2026-11-24T21:58:26.057Z",
+  "actualizado": "2026-11-24T21:59:48.850Z",
   "formato": "9:16",
   "estilo": "",
   "avatar": {
@@ -228,7 +228,7 @@
   "seleccion": {
     "hero": "f078dddb38ba27601084",
     "dolor": "73da449593e43d5f4fa4",
-    "beneficios": "51bd148ee76953a93913",
+    "beneficios": "f63b043801df67f99c6a",
     "ingredientes": null,
     "uso": null
   },
@@ -251,19 +251,18 @@
   },
   "presupuestos": {},
   "trabajo": {
-    "id": "j-955084e25cdb497f",
-    "token": "9599a205ccb02a6176c8a499401a92af",
-    "estado": "lista",
+    "id": "j-498bbbd1f7c91fff",
+    "token": "5b91ab8638fd0e4dc7e2f2c969728982",
+    "estado": "generando",
     "motor": "chatgpt",
     "cantidad": 1,
     "importeAprobado": 0,
-    "inicio": "2026-11-24T21:56:02.583Z",
+    "inicio": "2026-11-24T21:59:48.850Z",
     "secciones": [
-      "dolor"
+      "beneficios"
     ],
-    "hechas": 1,
-    "actual": null,
-    "fin": "2026-11-24T21:57:02.738Z"
+    "hechas": 0,
+    "actual": "beneficios"
   },
   "avatarPendiente": null
 }

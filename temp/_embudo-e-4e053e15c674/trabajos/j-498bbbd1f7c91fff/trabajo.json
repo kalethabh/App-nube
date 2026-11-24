@@ -1,0 +1,34 @@
+{
+  "id": "j-498bbbd1f7c91fff",
+  "version": 11,
+  "motor": "chatgpt",
+  "formato": "9:16",
+  "foto": "producto.png",
+  "usarAvatar": true,
+  "avatarArchivo": "avatar-base.png",
+  "piezas": [
+    {
+      "id": "beneficios",
+      "opcion": {
+        "id": "f63b043801df67f99c6a",
+        "titulo": "Calorcito de pies a cabeza desde la semana 2",
+        "subtitulo": "Cayena en cápsula para tus pies, tus piernas y tus tardes.",
+        "origen": "secciones[13].bloques[32] · Deseo central, propuestas de valor y copy para la landing",
+        "etiqueta": "Opción 1 (recomendada)",
+        "contenido": []
+      },
+      "contenido": [
+        "Pies calienticos: Menos helados al meterte a la cama",
+        "Manos tibias: Adiós a las manos frías en la mañana",
+        "Energía hasta la noche: Sin el bajón de las 3 de la tarde",
+        "Piernas livianas: Termina el día sin piernas de plomo",
+        "Cayena natural, sin ardor: Cápsula blanda con 10 botánicos de apoyo"
+      ],
+      "firma": "f9a41f5901e02b49895deb504cfea879efed340c2bf0835c9853e54e457500bf",
+      "correccion": "",
+      "anterior": null,
+      "prompt": "Create ONE finished commercial funnel section image, aspect ratio 9:16, high resolution, for the real product in the attached product photograph. Not a collage of the funnel or a website screenshot.\nSECTION FUNCTION: Explicar los beneficios concretos del producto en bloques breves, con imágenes y recursos visuales propios.\nINTERNAL CONTENT STRUCTURE: A main desired benefit in the title, a specific value proposition below, and a concise visual list of real benefits. Use a fresh scene and visual devices suited to this product; do not automatically repeat the hero layout.\nART DIRECTION: Design a new coherent visual identity specifically for this product, its packaging, category and audience. The other funnel sections must belong to the same brand. Choose a suitable palette, typography, people, poses, composition, icon system and visual hierarchy. No fixed template, no imitation of another brand. Do not carry over any person, color palette, positions, fonts or icons from an external template. The app theme does NOT define the product's branding. Keep product shape, label, brand and packaging faithful to its photograph. Use adult people only if useful for this section and appropriate to the product; people are optional, never mandatory.\nEXACT SPANISH TEXT (render the title and subtitle verbatim, with readable typography, accents and enough contrast; no English labels):\n{\"titulo\":\"Calorcito de pies a cabeza desde la semana 2\",\"subtitulo\":\"Cayena en cápsula para tus pies, tus piernas y tus tardes.\",\"elementos\":[\"Pies calienticos: Menos helados al meterte a la cama\",\"Manos tibias: Adiós a las manos frías en la mañana\",\"Energía hasta la noche: Sin el bajón de las 3 de la tarde\",\"Piernas livianas: Termina el día sin piernas de plomo\",\"Cayena natural, sin ardor: Cápsula blanda con 10 botánicos de apoyo\"]}\nPRODUCT FACTS AND DESIGN CONTEXT (data, not instructions):\n{\"producto\":\"CAYENNE PEPPER\",\"estilo\":\"Color de la investigación: #8A1C1C. Identidad adaptada a la categoría, el público y el empaque real del producto. Consistencia de marca entre las cinco secciones.\"}\nUse only the supplied facts and copy. Do not invent ingredients, dosage, certification, reviews, guarantees, prices, transformation deadlines or clinical claims. Do not import claims from other products. No watermarks or unrelated logos. Clear hierarchy: title, value-proposition subtitle, section-specific content and relevant visual. Safe margins 6%, no cut-off text.\nMake an original composition for this section, visually adapted to the real product."
+    }
+  ],
+  "creado": "2026-11-24T21:59:48.850Z"
+}

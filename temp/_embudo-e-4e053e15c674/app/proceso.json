@@ -1,0 +1,12 @@
+{
+  "pid": 35313,
+  "paso": "embudo-j-498bbbd1f7c91fff-beneficios",
+  "script": "generar-embudo.js",
+  "args": [
+    "temp/_embudo-e-4e053e15c674/trabajos/j-498bbbd1f7c91fff",
+    "beneficios"
+  ],
+  "comando": "node produccion/generar-embudo.js temp/_embudo-e-4e053e15c674/trabajos/j-498bbbd1f7c91fff beneficios",
+  "inicio": "2026-11-24T21:59:48.852Z",
+  "app": 33950
+}
