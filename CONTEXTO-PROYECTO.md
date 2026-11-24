@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-24 (Embudo continuo, versión 2026-11-24n).
+Última actualización: 2026-11-24 (Carpetas en generación, versión 2026-11-24o).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -12,6 +12,38 @@ Al terminar cada cambio de desarrollo o decisión relevante, actualizar este arc
 cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponibles, las pruebas y sus límites,
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
+
+## Carpetas por producto o proyecto en generación (2026-11-24o)
+
+Implementación: [PR #203](https://github.com/kalethabh/App-nube/pull/203).
+Distribución: [v2026-11-24o](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-24o).
+
+Pedido confirmado: «Sí, carpetas por producto o proyecto». Se abre primero el índice de carpetas, no el
+formulario. Alcance: `/imagenes`, `/nuevo` (también un estilo concreto), `/embudo-whatsapp`, `/landings`,
+`/sketch` y `/cambiar`. Investigación ya tenía su índice por producto; Biblioteca y Shopify mantienen sus
+funciones propias. No se crean carpetas con nombres libres ni se mueven archivos: el usuario eligió agrupación
+por producto/proyecto, no un administrador de carpetas manuales.
+
+- `pantallas/generacion/` contiene entrada compartida, normalización de resúmenes y cuadrícula de carpetas.
+  Lee las APIs existentes y agrupa por **productoId**, nunca solo por nombre. Proyectos antiguos sin vínculo
+  de producto tienen su propia carpeta por identificador. Los productos homónimos no se mezclan.
+- Enlaces persistentes: `?carpeta=producto:<id>` o `?carpeta=proyecto:<id>`. Dentro se listan sus generaciones
+  con estado, fecha y enlace al detalle existente. Búsqueda independiente de carpetas/proyectos; al navegar
+  se limpia la búsqueda anterior. Los nombres se actualizan con el catálogo de productos.
+- App envuelve las seis entradas: `?crear=1` abre su formulario; detalles y enlaces antiguos con producto,
+  pasos, anuncios o simulación conservan acceso directo. Un estilo en `/nuevo?estilo=...` filtra sus videos;
+  continuidad también se filtra. Crear desde carpeta de imágenes/videos pasa producto; video conserva estilo.
+- Sketch y Cambiar producto exponen su productoId ya guardado en la lista; Embudo añade estado de trabajo.
+  Sus formularios de creación ya no repiten las listas planas de otros proyectos.
+- Landings separa creación y detalle con `/landings?proyecto=<id>`, abre su vista previa y conserva medir,
+  analizar, descargar, Shopify y borrar dentro del proyecto. Al crear navega a su detalle. Shopify sigue
+  dedicado a conectar tiendas; los cambios en tiendas siguen en `/landings/tiendas`.
+- Validación: prueba de interfaz con fixtures de las **seis secciones**, agrupación de dos proyectos del
+  mismo producto, homónimos con IDs distintos, proyectos antiguos sin producto, filtro por estilo,
+  búsqueda, recarga de carpeta, enlaces de creación, detalle de landing, seis formularios, temas oscuro/claro
+  y móvil 390 px sin desborde, sin errores de página ni solicitudes de generación. Chrome local real con
+  datos sintéticos; no se probaron generaciones de pago. Build y extracción/prompt del Embudo pasan.
+  Regresión del Embudo **39/39** y su interfaz pasan entrando por las nuevas carpetas.
 
 ## Embudo continuo, generación paralela y mensajes propios (2026-11-24n)
 

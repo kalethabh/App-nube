@@ -520,7 +520,6 @@ export default function Sketch({ params }) {
       ) : (
         <>
           <Nuevo />
-          <Lista />
         </>
       )}
     </div>

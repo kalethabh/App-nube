@@ -6,10 +6,10 @@
 // social, objeciones, lo fuerte, lo flojo e ideas). Y «Subir a Shopify» escribe el código en tu tema con Shopify CLI y
 // primero te da la VISTA PREVIA en tu tienda: la página se crea recién con «Publicar la página» (menú Shopify).
 // Servidor: /api/landings (lib/landings/).
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CircleAlert, Copy, Download, ExternalLink, Eye, Gauge, LayoutTemplate, LoaderCircle, RefreshCw, ScanSearch, ShoppingBag, Smartphone, Trash2 } from 'lucide-react';
 import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Selector, useAvisos } from '../../componentes/index.js';
-import { enlace } from '../../datos/rutas.js';
+import { enlace, ir } from '../../datos/rutas.js';
 import { bandera } from '../../datos/paises.js';
 import { pedirNuevo, useDatos } from '../../datos/api.js';
 import { fechaRelativa } from '../../datos/formato.js';
@@ -232,26 +232,29 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
   );
 }
 
-export default function Landings() {
+export default function Landings({ consulta }) {
+  const proyecto=consulta?.get('proyecto');
   const { aviso } = useAvisos();
   const [url, setUrl] = useState('');
   const [prompt, setPrompt] = useState('');
   const [analizar, setAnalizar] = useState(true);
   const [ocupado, setOcupado] = useState(false);
-  const [abierta, setAbierta] = useState(null);
+  const [abierta, setAbierta] = useState(proyecto || null);
+  useEffect(()=>setAbierta(proyecto || null),[proyecto]);
   const { datos, recargar } = useDatos('landings', () => pedirNuevo('/api/landings'), { cadaMs: 3000 });
   const { datos: prods } = useDatos('productos:lista-landings', () => pedirNuevo('/api/productos'));
   const productos = prods?.productos || [];
   const { datos: dt } = useDatos('shopify:tiendas', () => pedirNuevo('/api/shopify/tiendas'));
   const tiendas = dt?.tiendas || [];
-  const landings = datos?.landings || [];
+  const landings = (datos?.landings || []).filter(l=>l.id===proyecto);
   const clonar = async () => {
     setOcupado(true);
     try {
-      await pedirNuevo('/api/landings', { metodo: 'POST', cuerpo: { url: url.trim(), prompt: prompt.trim(), analizar } });
+      const creada=await pedirNuevo('/api/landings', { metodo: 'POST', cuerpo: { url: url.trim(), prompt: prompt.trim(), analizar } });
       setUrl('');
       setPrompt('');
       await recargar?.();
+      ir(`/landings?proyecto=${encodeURIComponent(creada.id)}`);
     } catch (e) {
       aviso({ tipo: 'error', titulo: 'No pude empezar', texto: e.message });
     } finally {
@@ -261,7 +264,7 @@ export default function Landings() {
   return (
     <div className="pagina ld pila" style={{ '--hueco': 'var(--e-5)' }}>
       <CabeceraPagina sobretitulo="Crear" titulo="Landings" descripcion="Pega la dirección de una landing y, si quieres, escribe qué cambiarle. La app la clona funcionando igual que la original y te muestra qué tan rápido carga." />
-      <section className="ld-nueva">
+      {!proyecto ? <section className="ld-nueva">
         <CampoTexto etiqueta="Dirección de la landing" placeholder="https://tutienda.com/products/…" value={url} onChange={(e) => setUrl(e.target.value)} maxLength={2000} />
         <AreaTexto
           etiqueta="Qué quieres (opcional)"
@@ -296,6 +299,7 @@ export default function Landings() {
             : 'La copia exacta la hace el código (sin IA): textos, imágenes, colores y estructura, y todo funciona como en la original (desplegables, pestañas, selectores, variantes). Quita la analítica, los píxeles y los popups de las apps, y deja las imágenes en WebP.'}
         </p>
       </section>
+      : null}
       {/* (2026-11-24) las tiendas a donde se suben: a la vista (se conectan en el menú Shopify) */}
       <section className="ld-mis-tiendas">
         <span className="ld-grupo__etiqueta">Tus tiendas de Shopify</span>
@@ -303,15 +307,15 @@ export default function Landings() {
         <Boton variante="secundario" tamano="chico" icono={ShoppingBag} href={enlace.shopify()}>{tiendas.length ? 'Conectar otra tienda' : 'Conectar mis tiendas'}</Boton>
         {tiendas.length ? <Boton variante="secundario" tamano="chico" icono={Eye} href={enlace.trabajosTiendas()}>Cambios en tiendas</Boton> : null}
       </section>
-      {!landings.length ? (
-        <EstadoVacio icono={LayoutTemplate} titulo="Todavía no clonaste ninguna" descripcion="Pega arriba la dirección de una landing que te guste o de tu tienda." />
-      ) : (
+      {proyecto && !landings.length ? (
+        <EstadoVacio icono={LayoutTemplate} titulo={datos ? "No encuentro esa landing" : "Cargando landing…"} descripcion={datos ? "Vuelve a tus carpetas para elegir otra." : "Preparando la vista del proyecto."} />
+      ) : proyecto ? (
         <div className="ld-lista">
           {landings.map((l) => (
             <Landing key={l.id} l={l} abierta={abierta === l.id} onAbrir={() => setAbierta(abierta === l.id ? null : l.id)} onCambio={recargar} tiendas={tiendas} />
           ))}
         </div>
-      )}
+      ) : null}
       <p className="ld-ayuda">
         <RefreshCw size={12} aria-hidden="true" /> La velocidad se mide con Lighthouse (lo mismo que PageSpeed) en celular. La primera medición tarda unos minutos más porque baja Lighthouse una sola vez.
       </p>
