@@ -1,7 +1,7 @@
 {
   "id": "c80ac761-4344-4193-8afa-0134bff4b938",
   "uuid": "c80ac761-4344-4193-8afa-0134bff4b938",
-  "estado": "investigando",
+  "estado": "lista",
   "enlace": "https://app.trendtrack.io/es/kaleth-benjumea-hernandez/explorer?tab=products&shop=3ac65f60-4639-4478-91a5-5841d3ecb588",
   "producto": "",
   "pais": "Colombia",
@@ -10,10 +10,19 @@
     "Claude está investigando a tu competencia en TrendTrack",
     "Leyendo las instrucciones del estilo",
     "Buscando en los archivos",
-    "Guardando"
+    "Guardando",
+    "Buscando en los archivos",
+    "Guardando",
+    "Buscando en los archivos"
   ],
   "intentos": 2,
   "inicio": "2026-11-24T15:44:32.837Z",
   "error": null,
-  "actualizado": "2026-11-24T15:48:42.032Z"
+  "fin": "2026-11-24T15:58:32.807Z",
+  "medida": {
+    "turnos": 54,
+    "duracionMs": 839967,
+    "motor": "claude"
+  },
+  "actualizado": "2026-11-24T15:58:32.807Z"
 }
