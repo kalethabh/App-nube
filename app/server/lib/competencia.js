@@ -19,9 +19,9 @@ import { motorElegido, nombreIA } from './motor-ia.js';
 import { PRODUCTOS, ErrorApp, escribirJSON, leerProducto, leerFicha, relProducto, errorPublico } from './productos.js';
 
 export const SKILL = 'investigacion-trendtrack';
-const TT = (n) => `mcp__claude_ai_TrendTrack__${n}`;
+import { TT, ttTodas } from './trendtrack-conector.js'; // (el nombre del conector, en todas sus formas)
 // solo lectura; agregar al brandtracker (gasta créditos) va aparte, si el usuario lo permitió
-const HERRAMIENTAS_TT = ['check_credits', 'brief_competitor', 'list_tracked_brands', 'get_brandtracker_transcripts', 'search_ads', 'scan_ad', 'find_similar_shops', 'search_shops', 'lookup', 'lookup_filter_ids', 'get_landing_page', 'search_landing_pages', 'get_product', 'get_product_ads', 'search_products', 'search_advertisers'].map(TT);
+const HERRAMIENTAS_TT = ['check_credits', 'brief_competitor', 'list_tracked_brands', 'get_brandtracker_transcripts', 'search_ads', 'scan_ad', 'find_similar_shops', 'search_shops', 'lookup', 'lookup_filter_ids', 'get_landing_page', 'search_landing_pages', 'get_product', 'get_product_ads', 'search_products', 'search_advertisers'].flatMap(ttTodas);
 const TIPOS = ['subtitulo', 'parrafo', 'vinetas', 'metricas', 'barras', 'escala', 'tabla', 'anuncios', 'hooks', 'avatares', 'caja', 'plan'];
 
 const dir = (id) => path.join(PRODUCTOS, id, 'competencia');
@@ -99,7 +99,7 @@ function armarSesion(id, t, { retomar }) {
     resume: retomar,
     prompt: retomar ? `${prompt}\n\n(La app se cerró o el intento anterior no terminó: lee lo que ya escribiste en el archivo y sigue desde la etapa que falta, sin repetir búsquedas ya hechas.)` : prompt,
     conectores: true,
-    permitidas: ['ToolSearch', ...HERRAMIENTAS_TT, ...(t.brandtracker ? [TT('add_to_brandtracker')] : []), `Read(./${rel}/**)`, `Read(./.claude/skills/${SKILL}/**)`, 'Glob', 'Grep', 'WebSearch', 'WebFetch', `Write(./${archivo})`, `Edit(./${archivo})`],
+    permitidas: ['ToolSearch', ...HERRAMIENTAS_TT, ...(t.brandtracker ? ttTodas('add_to_brandtracker') : []), `Read(./${rel}/**)`, `Read(./.claude/skills/${SKILL}/**)`, 'Glob', 'Grep', 'WebSearch', 'WebFetch', `Write(./${archivo})`, `Edit(./${archivo})`],
     prohibidas,
     entorno: { MAX_MCP_OUTPUT_TOKENS: '80000' },
     fraseInicio: `${nombreIA()} está investigando a tu competencia en TrendTrack`,
