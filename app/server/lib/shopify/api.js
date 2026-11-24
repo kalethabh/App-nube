@@ -76,19 +76,29 @@ function jsonDe(texto) {
 }
 
 /** Corre Shopify CLI en esa tienda. */
-export async function cli(tiendaDada, args, { cwd, plazoMs = 10 * 60000 } = {}) {
+export async function cli(tiendaDada, args, { cwd, plazoMs = 10 * 60000, alLeer = null } = {}) {
   const tienda = await renovar(tiendaDada);
   const bin = await asegurarCli();
   const dir = cwd || DIR_CLI();
   fs.mkdirSync(dir, { recursive: true });
-  const env = { ...process.env, SHOPIFY_CLI_THEME_TOKEN: tienda.token, SHOPIFY_FLAG_STORE: tienda.dominio, SHOPIFY_CLI_NO_ANALYTICS: '1', SHOPIFY_CLI_NEVER_USE_PARTNERS_API: '1', NO_COLOR: '1', FORCE_COLOR: '0', CI: '1' };
+  // (2026-11-24) una tienda conectada «con mi cuenta de Shopify» no tiene clave: Shopify CLI usa la sesión que guardó
+  // al iniciar sesión en el navegador (y para esa primera vez no va CI=1: así muestra el enlace para entrar)
+  const conClave = Boolean(tienda.token);
+  const env = { ...process.env, ...(conClave ? { SHOPIFY_CLI_THEME_TOKEN: tienda.token, CI: '1' } : {}), SHOPIFY_FLAG_STORE: tienda.dominio, SHOPIFY_CLI_NO_ANALYTICS: '1', SHOPIFY_CLI_NEVER_USE_PARTNERS_API: '1', NO_COLOR: '1', FORCE_COLOR: '0' };
+  if (!conClave) delete env.SHOPIFY_CLI_THEME_TOKEN;
   return new Promise((ok) => {
     const p = spawn(process.execPath, [bin, ...args, '--store', tienda.dominio, '--no-color'], { cwd: dir, env, windowsHide: true });
     const out = [];
     const err = [];
     const t = setTimeout(() => p.kill('SIGKILL'), plazoMs);
-    p.stdout.on('data', (d) => out.push(d));
-    p.stderr.on('data', (d) => err.push(d));
+    p.stdout.on('data', (d) => {
+      out.push(d);
+      alLeer?.(d.toString('utf8'));
+    });
+    p.stderr.on('data', (d) => {
+      err.push(d);
+      alLeer?.(d.toString('utf8'));
+    });
     p.on('error', (e) => {
       clearTimeout(t);
       ok({ ok: false, salida: '', error: e.message });
@@ -98,7 +108,7 @@ export async function cli(tiendaDada, args, { cwd, plazoMs = 10 * 60000 } = {}) 
       const salida = limpiar(Buffer.concat(out).toString('utf8'));
       const error = limpiar(Buffer.concat(err).toString('utf8'));
       // la clave nunca sale en un mensaje
-      const sinClave = (s) => s.split(tienda.token).join('••••');
+      const sinClave = (s) => (tienda.token ? s.split(tienda.token).join('••••') : s);
       ok({ ok: c === 0, salida: sinClave(salida), error: sinClave(error || (c === 0 ? '' : salida)).slice(-1500), json: jsonDe(salida) });
     });
   });
@@ -113,8 +123,8 @@ const errorDeCli = (r, que) => {
   return `${que}: ${e.split('\n').filter(Boolean).slice(-3).join(' ').slice(0, 300) || 'Shopify CLI falló.'}`;
 };
 
-export async function temas(tienda) {
-  const r = await cli(tienda, ['theme', 'list', '--json'], { plazoMs: 3 * 60000 });
+export async function temas(tienda, { alLeer = null, plazoMs = 3 * 60000 } = {}) {
+  const r = await cli(tienda, ['theme', 'list', '--json'], { plazoMs, alLeer });
   const lista = Array.isArray(r.json) ? r.json : Array.isArray(r.json?.themes) ? r.json.themes : null;
   if (!r.ok || !lista) throw new Error(errorDeCli(r, 'No pude ver los temas'));
   return lista.map((t) => ({ id: String(t.id), nombre: t.name, rol: t.role })).sort((a, b) => (a.rol === 'live' || a.rol === 'main' ? -1 : b.rol === 'live' || b.rol === 'main' ? 1 : 0));

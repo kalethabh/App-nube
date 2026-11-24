@@ -7,6 +7,8 @@
 //     cambia por un token (client credentials, dura ~24 h) y lo RENUEVA sola antes de que venza (renovar()).
 //   - shpat_…  el token de una app propia creada antes de 2026: ACCESO COMPLETO (API de administración y Shopify CLI).
 //   - shptka_… la contraseña de la app «Theme Access»: solo los temas (Shopify CLI).
+//   - (2026-11-24) «Con mi cuenta de Shopify» (conectarConCuenta): sin clave. Shopify CLI abre el inicio de sesión en el
+//     navegador con un código; apruebas y queda su sesión guardada. Solo temas.
 // Las claves viven en <raíz>/.env.shopify.json (permisos 600; fuera de git, del paquete y de las actualizaciones, como
 // el .env) y NUNCA salen por la API de la app ni se muestran.
 //
@@ -54,7 +56,7 @@ export function normalizarDominio(texto) {
 }
 
 export const tipoDeToken = (t) => (/^(shpat|shpca)_[A-Za-z0-9]{20,}$/.test(t) ? 'completo' : /^shptka_[A-Za-z0-9]{20,}$/.test(t) ? 'temas' : null);
-const publica = ({ token: _t, clientSecret: _s, clientId: _c, vence: _v, ...t }) => ({ ...t, cuenta: t.cuenta || 'Mi cuenta', pais: t.pais || null, forma: _c ? 'dev-dashboard' : 'token' });
+const publica = ({ token: _t, clientSecret: _s, clientId: _c, vence: _v, ...t }) => ({ ...t, cuenta: t.cuenta || 'Mi cuenta', pais: t.pais || null, forma: _c ? 'dev-dashboard' : _t ? 'token' : 'cuenta' });
 
 export const listarTiendas = () => leer().tiendas.map(publica);
 
@@ -127,6 +129,49 @@ export async function agregarTienda({ dominio, token, nombre, clientId, clientSe
   datos.tiendas = [...datos.tiendas.filter((x) => x.dominio !== d), t];
   guardar(datos);
   return publica(t);
+}
+
+// ---------------------------------------------------------------- con mi cuenta de Shopify (sin clave)
+const conexiones = new Map(); // id -> { estado: 'abriendo'|'esperando'|'lista'|'error', url, codigo, tienda, error }
+
+/** Empieza la conexión: Shopify CLI pide iniciar sesión (enlace y código) y, al aprobarla, lista los temas. -> { id } */
+export function conectarConCuenta({ dominio, nombre, cuenta, pais } = {}) {
+  const d = normalizarDominio(dominio);
+  if (!d) throw new ErrorApp(400, 'Pon la dirección de la tienda que termina en .myshopify.com (la ves en Configuración › Dominios).');
+  const id = crypto.randomBytes(6).toString('hex');
+  const c = { estado: 'abriendo', url: null, codigo: null, tienda: null, error: null };
+  conexiones.set(id, c);
+  (async () => {
+    try {
+      const api = await import('./api.js');
+      let texto = '';
+      await api.temas({ dominio: d, token: null, tipo: 'temas' }, {
+        plazoMs: 10 * 60000,
+        alLeer: (t) => {
+          texto += t;
+          const u = /(https:\/\/accounts\.shopify\.com\/\S+)/.exec(texto);
+          const k = /verification code:?\s*([A-Z0-9]{4}-?[A-Z0-9]{4})/i.exec(texto);
+          if (u && !c.url) Object.assign(c, { estado: 'esperando', url: u[1].replace(/[)\].,]+$/, '') });
+          if (k && !c.codigo) c.codigo = k[1];
+        },
+      });
+      const datos = leer();
+      const antes = datos.tiendas.find((x) => x.dominio === d);
+      const t = { id: antes?.id || `${d.split('.')[0]}-${crypto.randomBytes(2).toString('hex')}`, nombre: String(nombre || '').trim().slice(0, 60) || d.split('.')[0], dominio: d, tipo: 'temas', token: null, cuenta: limpioCuenta(cuenta) || antes?.cuenta || 'Mi cuenta', pais: limpioPais(pais) || antes?.pais || null, moneda: antes?.moneda || null, agregada: antes?.agregada || new Date().toISOString(), tienda: `https://${d}` };
+      datos.tiendas = [...datos.tiendas.filter((x) => x.dominio !== d), t];
+      guardar(datos);
+      Object.assign(c, { estado: 'lista', tienda: publica(t) });
+    } catch (e) {
+      Object.assign(c, { estado: 'error', error: e?.message || 'No se pudo conectar.' });
+    }
+  })();
+  return { id };
+}
+
+export function estadoConexion(id) {
+  const c = conexiones.get(String(id));
+  if (!c) throw new ErrorApp(404, 'Esa conexión ya no está: empieza de nuevo.');
+  return c;
 }
 
 /** Cambia el nombre, la cuenta o el país de una tienda (sin tocar su clave). */
