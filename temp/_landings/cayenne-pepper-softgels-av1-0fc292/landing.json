@@ -9,7 +9,7 @@
   "analizar": true,
   "titulo": "Aurivita Cayenne Pepper Softgels",
   "creado": "2026-11-24T19:16:13.304Z",
-  "estado": "midiendo",
+  "estado": "lista",
   "progreso": [
     "Cargando la página como la ve un celular…",
     "Dejando el JavaScript de la tienda (para que todo funcione) y quitando la analítica, los píxeles y los popups…",
@@ -22,7 +22,8 @@
     "Análisis listo: 17 secciones.",
     "Claude Code está aplicando lo que pediste…",
     "Cambió 323 textos.",
-    "Midiendo la velocidad (Lighthouse en celular): la original y la copia…"
+    "Midiendo la velocidad (Lighthouse en celular): la original y la copia…",
+    "Lista."
   ],
   "error": null,
   "informe": {
@@ -57,8 +58,26 @@
       "No pude copiar un archivo (404 en https://aurivita.co/products/assets/4c5ae8ef83.woff2)."
     ]
   },
-  "puntajes": null,
-  "actualizado": "2026-11-24T19:18:18.401Z",
+  "puntajes": {
+    "original": {
+      "puntaje": 50,
+      "fcp": "6.6 s",
+      "lcp": "17.9 s",
+      "tbt": "260 ms",
+      "cls": "0.001",
+      "peso": 13584
+    },
+    "copia": {
+      "puntaje": 56,
+      "fcp": "7.0 s",
+      "lcp": "18.6 s",
+      "tbt": "50 ms",
+      "cls": "0.001",
+      "peso": 10056
+    },
+    "fecha": "2026-11-24T19:21:21.024Z"
+  },
+  "actualizado": "2026-11-24T19:21:21.025Z",
   "analisis": {
     "resumen": "Es la página de un solo producto: cápsulas blandas de pimienta cayena para la circulación y el corazón. Su estrategia es educar: primero te explica por qué el problema empieza antes de que suba la presión o el colesterol, y luego te muestra su producto como la forma de atacar ese origen. Para que compres más, regala productos si eliges los packs grandes con suscripción.",
     "producto": "Cápsulas blandas de cayena (3 mg de capsaicina por porción) con cúrcuma, espino blanco, remolacha, canela, berberina, ginseng, pimienta negra y vitaminas D3, K2 y E. Cada bolsa trae 60 cápsulas y la página dice que alcanza para 30 días.",
