@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24f · Conectar tu tienda de Shopify con un botón
+
+- En Shopify › «Conectar una tienda», la forma nueva es **«Con mi cuenta de Shopify»**: pones la dirección de la tienda, tocas el botón, se abre Shopify, entras y apruebas. Sin claves. Sirve para los temas (cambios con IA, landings y copiar temas o secciones). Para páginas y productos sigue «Acceso completo».
+
 ## 2026-11-24e · Landings: tus tiendas a la vista
 
 - En Landings ahora ves **tus tiendas de Shopify** y el botón **«Conectar mis tiendas»**, que te lleva al menú Shopify, donde se conectan.
