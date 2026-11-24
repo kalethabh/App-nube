@@ -9,7 +9,7 @@
   "analizar": true,
   "titulo": "Aurivita Cayenne Pepper Softgels",
   "creado": "2026-11-24T19:16:13.304Z",
-  "estado": "trabajando",
+  "estado": "midiendo",
   "progreso": [
     "Cargando la página como la ve un celular…",
     "Dejando el JavaScript de la tienda (para que todo funcione) y quitando la analítica, los píxeles y los popups…",
@@ -20,7 +20,9 @@
     "Juntando y comprimiendo el CSS…",
     "Claude Code está analizando la landing…",
     "Análisis listo: 17 secciones.",
-    "Claude Code está aplicando lo que pediste…"
+    "Claude Code está aplicando lo que pediste…",
+    "Cambió 323 textos.",
+    "Midiendo la velocidad (Lighthouse en celular): la original y la copia…"
   ],
   "error": null,
   "informe": {
@@ -56,7 +58,7 @@
     ]
   },
   "puntajes": null,
-  "actualizado": "2026-11-24T19:17:13.325Z",
+  "actualizado": "2026-11-24T19:18:18.401Z",
   "analisis": {
     "resumen": "Es la página de un solo producto: cápsulas blandas de pimienta cayena para la circulación y el corazón. Su estrategia es educar: primero te explica por qué el problema empieza antes de que suba la presión o el colesterol, y luego te muestra su producto como la forma de atacar ese origen. Para que compres más, regala productos si eliges los packs grandes con suscripción.",
     "producto": "Cápsulas blandas de cayena (3 mg de capsaicina por porción) con cúrcuma, espino blanco, remolacha, canela, berberina, ginseng, pimienta negra y vitaminas D3, K2 y E. Cada bolsa trae 60 cápsulas y la página dice que alcanza para 30 días.",
@@ -211,5 +213,10 @@
     ],
     "fecha": "2026-11-24T19:17:13.313Z"
   },
-  "analisisError": null
+  "analisisError": null,
+  "adaptada": {
+    "textos": 323,
+    "imagenes": 0,
+    "pedidas": 0
+  }
 }
