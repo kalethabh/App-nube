@@ -15,6 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Carpetas por producto o proyecto en generación (2026-11-24o)
 
+Implementación: [PR #203](https://github.com/kalethabh/App-nube/pull/203).
+Distribución: [v2026-11-24o](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-24o).
+
 Pedido confirmado: «Sí, carpetas por producto o proyecto». Se abre primero el índice de carpetas, no el
 formulario. Alcance: `/imagenes`, `/nuevo` (también un estilo concreto), `/embudo-whatsapp`, `/landings`,
 `/sketch` y `/cambiar`. Investigación ya tenía su índice por producto; Biblioteca y Shopify mantienen sus
