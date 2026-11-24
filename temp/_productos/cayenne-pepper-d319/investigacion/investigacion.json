@@ -1,0 +1,156 @@
+{
+  "formato": "documento",
+  "producto": "Aurivita Cayenne Pepper",
+  "pais": "Colombia",
+  "fecha": "24 de noviembre de 2026",
+  "color": "#8E2A1E",
+  "portada": {
+    "titulo": "Aurivita Cayenne Pepper",
+    "subtitulo": "Aurivita · 60 softgels, 30 porciones · cayena con 10 botánicos de apoyo",
+    "avatar": "Gloria Patricia, la de los pies helados y las piernas pesadas",
+    "quien_compra": "Ella misma; a veces también para su esposo. En diciembre, la hija que se lo regala.",
+    "canal": "Meta Ads + WhatsApp · pago contra entrega · oferta x3"
+  },
+  "claves": {
+    "deseo_central": "Volver a sentir los pies calienticos y las piernas livianas, con energía para mi casa y mis nietos, sin miedo a terminar como mi mamá",
+    "beneficio_principal": "Sensación de calor en manos y pies, piernas más livianas y más energía en el día, desde adentro",
+    "puntos_dolor": [
+      "Me acuesto con medias y cobija doble y los pies siguen helados",
+      "Llego en la tarde con las piernas como dos bultos de cemento",
+      "Desde las 3 de la tarde ya no me da el cuerpo",
+      "Se me duermen las manos y los pies",
+      "Me da miedo terminar como mi mamá, que sufría de la tensión",
+      "Ya probé medias, cremas y poner los pies arriba, y nada me dura",
+      "La cayena en polvo me quema el estómago y la boca"
+    ]
+  },
+  "secciones": [
+    {
+      "titulo": "Resumen ejecutivo",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "**Aurivita Cayenne Pepper** es un suplemento en softgel de pimienta de cayena (capsaicina) con «10 botánicos de apoyo». La bolsa trae 60 softgels para 30 porciones y dice apoyar la circulación, el corazón, la energía y las defensas. Es una marca de Estados Unidos (Azeal Supplements LLC), enfocada en salud cardiovascular, con buena calificación en Trustpilot pero con quejas por envíos, suscripciones y productos falsos." },
+        { "tipo": "parrafo", "texto": "En Colombia el dolor es grande: más de 6,7 millones de casos de hipertensión registrados y entre el 25 % y el 33 % de las mujeres con várices. Pero ese tamaño trae un riesgo: mucha de la gente que más lo quiere toma medicamentos para la tensión, para el azúcar o para la sangre, y la cayena y el espino blanco pueden interactuar con ellos." },
+        { "tipo": "parrafo", "texto": "La mejor puerta de entrada no es «el corazón» (prohibido como promesa y riesgoso), sino lo que la persona **siente**: pies y manos helados, piernas pesadas al final del día y falta de energía. Ahí la cayena tiene una historia fácil de entender: «calorcito desde adentro»." },
+        { "tipo": "caja", "estilo": "recomendacion", "titulo": "Recomendación central", "texto": "Vende Aurivita Cayenne como el ritual diario para sentir **manos y pies tibios, piernas livianas y más energía**, para mujeres de 45 a 62 años de estratos 2 a 4. Usa la cayena como mecanismo («calor que se siente desde adentro, sin el picor en la boca») y la oferta x3 como «el tratamiento de 90 días». Nunca prometas bajar la tensión ni cuidar el corazón: en WhatsApp pregunta siempre por medicamentos antes de cerrar.", "items": [], "pie": "" },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Alertas antes de pautar", "texto": "", "items": [
+          "**La fórmula no está confirmada.** La bolsa dice «10 botánicos de apoyo», pero no encontramos la etiqueta completa. Productos casi iguales en TikTok Shop traen espino blanco, remolacha, cúrcuma, ginseng, semilla de uva y vitaminas D3, K2 y E. Pide la ficha técnica antes de nombrar ingredientes.",
+          "**La dosis está pendiente.** 60 softgels y 30 porciones sugieren 2 por porción, pero la cara de atrás no se ve. Confírmala con la etiqueta.",
+          "**Registro INVIMA.** Para vender en Colombia debe tener registro de suplemento dietario y etiqueta en español. La bolsa está en inglés y dice «Dietary Supplement».",
+          "**Claims de la bolsa.** «Supports Heart Health», «Supports Immunity» y «Supports Healthy Response» no se pueden traducir tal cual en los anuncios: en Colombia son declaraciones de salud que el INVIMA debe aprobar.",
+          "**Interacciones.** Anticoagulantes (warfarina, heparina), medicamentos para la tensión, para el azúcar, digoxina y nitratos. Embarazo y lactancia: no.",
+          "**Marca blanca.** La misma fórmula aparece con otras marcas (VIVONU, ForestWell, CellJuvMax, BFQN). No uses reseñas de Aurivita como si fueran de tu tienda."
+        ], "pie": "" }
+      ]
+    },
+    {
+      "titulo": "Ficha del producto",
+      "bloques": [
+        { "tipo": "ficha", "filas": [
+          ["Nombre", "Aurivita Cayenne Pepper"],
+          ["Marca", "Aurivita (Azeal Supplements LLC, Estados Unidos), marca enfocada en salud cardiovascular"],
+          ["Presentación", "Bolsa resellable con 60 softgels rojos · 30 porciones"],
+          ["Tipo", "Suplemento dietario (en la bolsa: «Dietary Supplement») · Non-GMO (sin OGM)"],
+          ["Ingrediente principal", "Pimienta de cayena (Capsicum annuum), rica en capsaicina, en softgel para tomarla sin el picor en la boca"],
+          ["Botánicos de apoyo", "«10 supporting botanicals»: lista pendiente. En fórmulas casi iguales: espino blanco, remolacha, cúrcuma, ginseng, aceite de semilla de uva, vitaminas D3, K2 y E (confirmar con la ficha técnica)"],
+          ["Lo que dice la bolsa", "Apoya la circulación, la salud del corazón, la respuesta sana del cuerpo, la energía natural y las defensas (todo con la marca † de la FDA: no evaluado)"],
+          ["Dosis", "Pendiente: [X] softgels al día. 60 softgels y 30 porciones sugieren 2 por porción"],
+          ["Duración por bolsa", "30 días (si la porción es diaria) · x3 = 90 días"],
+          ["Precio de referencia en EE. UU.", "Pendiente: no aparece en las fuentes. Fórmulas parecidas en TikTok Shop se venden en frascos de 240 softgels"],
+          ["Nivel de evidencia", "Bajo a moderado. La capsaicina sube un poco el gasto de energía (efecto pequeño en metaanálisis). Para presión y colesterol, una revisión de 2026 encontró un efecto modesto que depende de un solo estudio. El calor en manos y pies es sobre todo experiencia reportada y uso tradicional"],
+          ["Calificación pública", "Trustpilot de la marca: entre 4,4 y 4,6 de 5 (de 676 a 1.522 reseñas según la página, de todos sus productos)"]
+        ], "nota": "Confirma con la etiqueta física: lista de botánicos con miligramos, dosis, advertencias y registro INVIMA." }
+      ]
+    },
+    {
+      "titulo": "Panorama del mercado en Colombia",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "Tamaño del dolor" },
+        { "tipo": "tabla", "columnas": ["Indicador", "Dato", "Fuente"], "filas": [
+          ["Casos de hipertensión registrados", "6.703.467 (julio 2024 a junio 2025)", "Cuenta de Alto Costo, citada por ConsultorSalud"],
+          ["Prevalencia de hipertensión", "De 7,6 % en 2017 a 11,9 % en 2024", "PROESA (Icesi) con datos de la CAC"],
+          ["Personas sin diagnóstico", "Minsalud estima otros 5 millones con tensión alta que no lo saben", "Noticias RCN"],
+          ["Riesgo cardiovascular combinado", "7.074.181 personas con hipertensión, diabetes tipo 2 o enfermedad renal", "Cuenta de Alto Costo, reporte 2025"],
+          ["Primera causa de muerte", "Enfermedades del corazón: 92,7 muertes por cada 100.000 habitantes (2025)", "DANE, citado por PROESA"],
+          ["Muertes por enfermedad cardiovascular", "Más de 80.000 al año, unas 219 al día (cifra de prensa, verificar)", "Publimetro, con datos de Minsalud y DANE"],
+          ["Várices en mujeres", "Entre el 25 % y el 33 % de las mujeres; insuficiencia venosa en el 30 % de la población (estimación)", "Fundación Valle del Lili, citada por Blu Radio"],
+          ["Quién consulta por várices", "79,8 % mujeres, edad media de 53 años (1.136 pacientes de una clínica)", "Estudio colombiano, Universidad del Rosario"]
+        ], "nota": "Lectura: el dolor es masivo y femenino a partir de los 45. Pero la gente con diagnóstico suele tomar medicamentos: el anuncio habla de sensaciones y WhatsApp filtra por seguridad." },
+        { "tipo": "subtitulo", "texto": "Contexto cultural" },
+        { "tipo": "vinetas", "items": [
+          "**«Mala circulación»** es un diagnóstico casero muy usado en Colombia: pies fríos, calambres, piernas pesadas y «venitas» se explican así en la casa.",
+          "**El frío de la Sabana y de la montaña** (Bogotá, Tunja, Pasto, Manizales) hace que los pies helados en la noche sean un tema diario; en la costa el dolor es más «piernas hinchadas por el calor y por estar de pie».",
+          "**Remedios de la abuela**: agua de panela con jengibre, ají en la comida, baños de pies con sal, medias de compresión de farmacia. La cayena encaja como «remedio natural de siempre, en cápsula».",
+          "**La herencia pesa**: «mi mamá sufría de la tensión», «a mi papá le dio un infarto». El miedo a repetir la historia de la familia mueve la compra.",
+          "**Temporada**: noviembre y diciembre traen lluvias, frío en la noche, novenas y viajes; enero trae los propósitos de «cuidarme este año».",
+          "**Uso de términos**: en Colombia se dice «suplemento dietario» (no «suplemento alimenticio»), «la tensión» (no «la presión arterial») y «el azúcar» (no «la glucosa»)."
+        ] },
+        { "tipo": "subtitulo", "texto": "E-commerce y pago contra entrega" },
+        { "tipo": "tabla", "columnas": ["Indicador", "Dato", "Fuente"], "filas": [
+          ["Ventas en línea 2025", "$145,4 billones y 684,6 millones de transacciones", "Cámara Colombiana de Comercio Electrónico (CCCE)"],
+          ["Peso del efectivo y contraentrega", "2,7 % del valor en línea (II trimestre de 2025; no separa contraentrega de efectivo)", "Observatorio de eCommerce de MinTIC"],
+          ["Colombia y el pago al recibir", "Señalado como el país que más usa el pago contra entrega en Latinoamérica (dato sin fecha clara)", "Tiendanube, citando a Infobae"],
+          ["Tasa de entrega con confirmación", "70 % a 85 % en zonas urbanas si se confirma por WhatsApp (dato de un operador, no estudio independiente)", "EnColombia"],
+          ["Comercio social", "La venta de suplementos por redes y WhatsApp es común; el INVIMA alertó por 42 productos con beneficios no autorizados", "El Tiempo / INVIMA"]
+        ], "nota": "Lectura: el valor en línea casi no pasa por contraentrega, pero en el público de 45+ de estratos 2 a 4 el pago al recibir sigue siendo la llave de la confianza. Confirmar por WhatsApp es lo que sube la entrega." },
+        { "tipo": "subtitulo", "texto": "Competencia" },
+        { "tipo": "tabla", "columnas": ["Producto", "Presentación", "Precio", "Canal", "Lectura"], "filas": [
+          ["Neo Veins", "30 cápsulas", "$54.900 (envío gratis)", "Mercado Libre", "Barato, promete «tratamiento para várices»: claim riesgoso"],
+          ["Carlyle, suplemento para venas de las piernas", "180 cápsulas", "$149.900", "Mercado Libre (importado)", "Mucho volumen, marca desconocida para el público"],
+          ["Suplemento de apoyo a la circulación de venas y piernas", "90 cápsulas", "$166.310 (con 5 % de descuento)", "Mercado Libre (importado)", "Precio alto: hay espacio para un x3 competitivo"],
+          ["Centella asiática", "90 cápsulas", "$145.295", "Mercado Libre (importado)", "Ingrediente de venas, sin el «calor» de la cayena"],
+          ["Castaño de Indias Natural Systems 500 mg", "100 cápsulas", "Pendiente", "Mercado Libre", "El clásico para piernas pesadas; competidor directo en el ángulo de piernas"],
+          ["Medias de compresión No Varix", "Par", "Pendiente", "Farmatodo y droguerías", "Lo que ya probó: alivio por fuera, incómodo en el calor"],
+          ["Cápsulas de cayena sola (NOW, Nature's Way, Solgar)", "100 a 250 cápsulas", "Pendiente en Colombia", "Importadores y tiendas naturistas", "Más baratas pero queman el estómago según reseñas: tu ventaja es el softgel"],
+          ["Cayena + espino + remolacha (VIVONU y similares)", "240 softgels", "Pendiente en Colombia", "TikTok Shop EE. UU.", "Misma fórmula con otra marca: 47.300 vendidos, 4,4 de 5 (3.200 reseñas)"]
+        ], "nota": "Precios de Mercado Libre tomados de los resultados de búsqueda; pueden haber cambiado." }
+      ]
+    },
+    {
+      "titulo": "Problemas que resuelve",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "Agrupados por tipo de problema. Siempre como sensación o apoyo, nunca como tratamiento de una enfermedad." },
+        { "tipo": "ficha", "filas": [
+          ["Sensación física", "Pies y manos helados, sobre todo en la noche y al levantarse · Piernas pesadas y cansadas al final del día · Manos y pies que se duermen · Sensación de «sangre que no circula»"],
+          ["Energía", "Cansancio desde la tarde · Pocas ganas de salir o de caminar · Sentir el cuerpo «lento» con los años"],
+          ["Ciclo de vida", "Menopausia y posmenopausia (más frío en extremidades y más várices) · Hombres de 55+ que «ya no rinden igual»"],
+          ["Hábitos", "Muchas horas de pie (cocina, comercio, salón de belleza) o sentado (taxi, oficina) · Poco ejercicio · Comida pesada"],
+          ["Ambiente", "Frío de Bogotá y de la montaña · Temporada de lluvias · Calor de la costa que hincha las piernas"],
+          ["Emocional y familiar", "Miedo a repetir la historia de la mamá o del papá con la tensión o el corazón · No aguantar el ritmo de los nietos · Sentirse vieja antes de tiempo"],
+          ["Estético", "Piernas con «venitas» que no quiere mostrar en tierra caliente o en vacaciones"],
+          ["Económico", "Cremas, medias y remedios que se acaban rápido · Miedo a pagar por algo que no llega o que es falso"]
+        ], "nota": "" }
+      ]
+    },
+    {
+      "titulo": "Problema y solución, con el sentimiento de las comunidades",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Problema", "Cómo lo dicen (parafraseado)", "Sentimiento", "Solución del producto"], "filas": [
+          ["Pies y manos fríos", "«Duermo con medias y aun así los pies amanecen helados»; en foros, quien toma cápsulas de cayena dice que ya casi no necesita medias", "Frustración diaria, mucha esperanza en lo natural", "La capsaicina da sensación de calor; muchas personas notan manos y pies más tibios"],
+          ["Piernas pesadas", "«Llego con las piernas como de plomo después de estar todo el día de pie»", "Cansancio y resignación («es la edad»)", "Rutina diaria con cayena y botánicos de apoyo a la circulación (por confirmar)"],
+          ["Poca energía", "En Trustpilot: «siento que volvió mi energía», «más alerta y enfocado»", "Positivo, es el beneficio más mencionado", "Energía natural sin cafeína (confirmar que no tenga estimulantes)"],
+          ["Manos y pies que se duermen", "Una reseña cuenta que el adormecimiento y la quemazón en los pies bajaron en unas dos semanas (experiencia aislada)", "Alta esperanza, alto riesgo de prometer de más", "Hablar de «sensación de hormigueo», nunca de neuropatía"],
+          ["Miedo al corazón y la tensión", "Hay quien lo compra esperando «recuperar sus venas» con el tiempo", "Miedo y expectativa alta", "Cuidarse desde adentro, como hábito. No prometer bajar la tensión"],
+          ["Ardor de estómago con la cayena", "En Amazon: las cápsulas de cayena «queman el estómago por horas», incluso después de comer; tomar 3 en ayunas da ardor y sudor", "Molestia real, causa abandono", "Softgel fácil de tragar y tomarlo con comida; no exceder la dosis"],
+          ["Desconfianza", "En Trustpilot: pedidos que no llegan, suscripciones difíciles de cancelar, quejas de producto falso", "Desconfianza fuerte hacia compras en línea", "Pagas al recibir, sin suscripción, asesora por WhatsApp"]
+        ], "nota": "" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Nota metodológica", "texto": "Se revisaron Trustpilot de Aurivita (varias páginas), listados de TikTok Shop con fórmulas casi iguales, resúmenes de reseñas de Amazon (vía Fakespot), foros abiertos (People's Pharmacy, HealthUnlocked, S4ME) y fuentes médicas (MedlinePlus, Memorial Sloan Kettering, WebMD, Mayo Clinic). Reddit no apareció en los resultados y Walmart y TikTok Shop bloquearon la lectura directa: sus datos vienen de los resultados de búsqueda. Las frases están parafraseadas; ninguna es cita textual. Las reseñas son de otras marcas o de todos los productos de Aurivita.", "items": [], "pie": "" }
+      ]
+    },
+    {
+      "titulo": "Barrido por plataformas",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Plataforma", "Qué dicen", "Insight para la venta"], "filas": [
+          ["Trustpilot (Aurivita)", "4,4 a 4,6 de 5. Elogian la energía, la circulación y lo fácil de tragar; algunos notan cambios en dos semanas, otros siguen esperando al mes. Quejas: envíos, cobros de más, suscripción que no se deja cancelar y producto falso", "La energía es el beneficio que más se siente. El pago al recibir y «sin suscripción» resuelven las quejas"],
+          ["Amazon (cayena en cápsulas, vía Fakespot)", "Ardor de estómago que dura horas, gases y un efecto fuerte en el intestino; otros dicen que con leche o comida no quema. Algunos todavía esperan ver la circulación", "El softgel «sin picor» y tomarlo con el desayuno es un diferencial real"],
+          ["TikTok Shop (EE. UU.)", "Fórmulas iguales (cayena, espino, remolacha, D3, K2) con miles de ventas: VIVONU 47.300 vendidos y 4,4 de 5. Prometen «venas de las piernas y corazón»", "El producto ya está validado en video corto; el ángulo de piernas vende"],
+          ["YouTube y TikTok (contenido)", "Remedios con cayena para pies fríos (baños de pies, una pizca antes de salir) y mitos («el mejor anticoagulante natural», desmentido por Science Feedback)", "Usa la cayena como remedio de siempre, pero sin decir que adelgaza la sangre"],
+          ["Foros (People's Pharmacy, HealthUnlocked, S4ME)", "Personas que sienten manos y pies más calientes y menos entumecidos en días; otras dicen que les funciona a veces", "Historias reales para UGC; la frase «ya casi no uso medias» es oro"],
+          ["Mercado Libre Colombia", "No aparece la cayena en cápsula como producto fuerte; sí hay suplementos para venas y piernas de $54.900 a $175.000", "Hueco de mercado: cayena «para sentir los pies calienticos» no tiene dueño local"],
+          ["Walmart y eBay", "Varias marcas de la misma fórmula en 240 softgels (BFQN y otras)", "Confirma que es fórmula de fabricante: diferénciate con la asesoría y la entrega"],
+          ["Fuentes médicas", "Uso tradicional para digestión y circulación; interacciones con anticoagulantes, medicamentos para el azúcar y la tensión; un caso de infarto con pastillas de cayena «para adelgazar»", "Nunca venderlo para adelgazar ni a quien tome anticoagulantes"]
+        ], "nota": "" }
+      ]
+    },
+    { "titulo": "__MARCA__", "bloques": [] }
+  ]
+}
