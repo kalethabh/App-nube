@@ -1,0 +1,254 @@
+{
+  "id": "e-4e053e15c674",
+  "productoId": "cayenne-pepper-d319",
+  "nombre": "CAYENNE PEPPER",
+  "puerto": null,
+  "version": 2,
+  "creado": "2026-11-24T21:53:17.852Z",
+  "actualizado": "2026-11-24T21:54:20.833Z",
+  "formato": "9:16",
+  "estilo": "",
+  "avatar": {
+    "modo": "nuevo",
+    "descripcion": "",
+    "semilla": "a-99a0e84d56a8",
+    "guardado": {
+      "estilo": "realista-narrado",
+      "id": "avatar-cayenne-pepper-42b9",
+      "rol": "protagonista",
+      "nombre": "Avatar · CAYENNE PEPPER"
+    }
+  },
+  "fuenteFirma": "6e8b88a0f70a44377b769096c921ec1b634a04ac2aeb3e3cbf500caa1f7793f4",
+  "fuenteFecha": "24 de noviembre de 2026",
+  "fotoFirma": "6f35896b1398a23f8f5bc6fb360b9e615c9c79542d09625e123758a6f3b89a8e",
+  "textos": {
+    "hero": {
+      "opciones": [
+        {
+          "id": "cc08376aebc2c205c456",
+          "titulo": "Pies calienticos y energía hasta la noche desde la semana 2",
+          "subtitulo": "Cayena en cápsula blanda con 10 botánicos para que la sangre llegue mejor a tus pies y manos, sin el ardor del ají.",
+          "origen": "secciones[13].bloques[15] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 1 (recomendada)",
+          "contenido": []
+        },
+        {
+          "id": "f078dddb38ba27601084",
+          "titulo": "Vuelve a acostarte con los pies calienticos y deja de apagarte a media tarde en 2 a 4 semanas",
+          "subtitulo": "Porque tu cuerpo no se está apagando: solo necesita que la sangre le llegue mejor.",
+          "origen": "secciones[13].bloques[16] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 2 (más emocional)",
+          "contenido": []
+        },
+        {
+          "id": "c0768c830b8c8093b9bf",
+          "titulo": "Regálale a tu mamá pies calienticos y energía para sus nietos en pocas semanas",
+          "subtitulo": "2 cápsulas de cayena al día, sin ardor. Se lo llevamos a su casa y se paga al recibir.",
+          "origen": "secciones[13].bloques[17] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 3 (para la hija que compra)",
+          "contenido": []
+        },
+        {
+          "id": "858966f1a9c3a954a05e",
+          "titulo": "Pies calienticos en 2 a 4 semanas",
+          "subtitulo": "Y energía hasta la noche, con cayena en cápsula.",
+          "origen": "secciones[13].bloques[18] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 4 (corta, para celular)",
+          "contenido": []
+        }
+      ],
+      "contenido": []
+    },
+    "dolor": {
+      "opciones": [
+        {
+          "id": "5da8e915e2e08fe9ec14",
+          "titulo": "¿Te acuestas con dos pares de medias y a medianoche los pies siguen helados?",
+          "subtitulo": "No es que seas friolenta: muchas veces la sangre no está llegando bien a tus pies.",
+          "origen": "secciones[13].bloques[21] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 1 (recomendada, identificación directa)",
+          "contenido": []
+        },
+        {
+          "id": "73da449593e43d5f4fa4",
+          "titulo": "¿Sientes las piernas como de plomo al final del día?",
+          "subtitulo": "Ese peso tiene que ver con cómo circula la sangre en tus piernas.",
+          "origen": "secciones[13].bloques[22] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 2 (la sensación física)",
+          "contenido": []
+        },
+        {
+          "id": "a34c4be6e6c731228ce6",
+          "titulo": "¿Tu mamá siempre tiene frío y cada vez se cansa más rápido?",
+          "subtitulo": "Ella no te lo va a decir, pero se le nota en las manos frías y en la siesta de las 3.",
+          "origen": "secciones[13].bloques[23] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 3 (la hija que compra)",
+          "contenido": []
+        },
+        {
+          "id": "5605d222e34f2a2c8d14",
+          "titulo": "¿Pasas todo el día sentada o de pie y nunca sacas tiempo para cuidarte?",
+          "subtitulo": "Tus piernas y tus pies lo sienten cada noche.",
+          "origen": "secciones[13].bloques[24] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 4 (la culpa o el hábito)",
+          "contenido": []
+        },
+        {
+          "id": "d7b1d315954ad3e55805",
+          "titulo": "¿Tus nietos quieren jugar y tú a las 3 de la tarde ya no das más?",
+          "subtitulo": "El cansancio no tiene por qué quitarte esos momentos.",
+          "origen": "secciones[13].bloques[25] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 5 (la limitación en la vida diaria)",
+          "contenido": []
+        },
+        {
+          "id": "0159fd55bd752f8c0528",
+          "titulo": "¿El frío de Bogotá se te mete en los pies y no se te sale en toda la noche?",
+          "subtitulo": "Madrugadas heladas, buses largos y novenas al aire libre: tus pies lo pagan.",
+          "origen": "secciones[13].bloques[26] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 6 (el entorno)",
+          "contenido": []
+        },
+        {
+          "id": "2646ec6f8a40d11de20c",
+          "titulo": "¿Ya probaste medias de lana, agua de jengibre y cayena en agua, y nada te dura?",
+          "subtitulo": "Lo que te faltaba era tomarla a diario, sin ardor y con constancia.",
+          "origen": "secciones[13].bloques[27] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 7 (frustración con lo que ya probó)",
+          "contenido": []
+        },
+        {
+          "id": "9f773469c007066ee748",
+          "titulo": "¿Te acuestas con dos pares de medias y a medianoche los pies siguen helados?",
+          "subtitulo": "Muchas personas notan los pies menos helados entre la semana 2 y la 4.",
+          "origen": "guia.mensajes[1] · Punto de dolor",
+          "etiqueta": "",
+          "contenido": [
+            "Título",
+            "Subtítulo",
+            "Imagen del dolor",
+            "Título secundario",
+            "Mensaje descriptivo",
+            "Producto",
+            "4 sellos"
+          ]
+        }
+      ],
+      "contenido": [
+        "Cobros sorpresa. Personas que no sabían que estaban suscritas y les cobraron otra vez.",
+        "Envíos lentos o perdidos. Hasta un mes para recibir el pedido.",
+        "Miedo a lo falso. Un reporte de cápsulas que «solo sabían a aceite».",
+        "Precio para pensionados. Alguien con ingreso fijo dice que le cuesta pagarlo cada mes.",
+        "Ardor en el estómago si se toma sin comida.",
+        "Resultados lentos o poco claros. Algunos llevan semanas y no dicen qué cambió: hay que explicar qué notar y cuándo.",
+        "Dudas de origen. Preguntas sobre dónde se fabrica y quién es la empresa.",
+        "Se acuesta con los pies helados y tarda mucho en dormirse."
+      ]
+    },
+    "beneficios": {
+      "opciones": [
+        {
+          "id": "f63b043801df67f99c6a",
+          "titulo": "Calorcito de pies a cabeza desde la semana 2",
+          "subtitulo": "Cayena en cápsula para tus pies, tus piernas y tus tardes.",
+          "origen": "secciones[13].bloques[32] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 1 (recomendada)",
+          "contenido": []
+        },
+        {
+          "id": "b2ea5759c4f3ac2de015",
+          "titulo": "Tus pies calienticos y tu energía de vuelta",
+          "subtitulo": "",
+          "origen": "secciones[13].bloques[33] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 2",
+          "contenido": []
+        },
+        {
+          "id": "51bd148ee76953a93913",
+          "titulo": "Lo mejor del ají, sin el ardor, para todo tu día",
+          "subtitulo": "",
+          "origen": "secciones[13].bloques[34] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 3",
+          "contenido": []
+        }
+      ],
+      "contenido": [
+        "Pies calienticos: Menos helados al meterte a la cama",
+        "Manos tibias: Adiós a las manos frías en la mañana",
+        "Energía hasta la noche: Sin el bajón de las 3 de la tarde",
+        "Piernas livianas: Termina el día sin piernas de plomo",
+        "Cayena natural, sin ardor: Cápsula blanda con 10 botánicos de apoyo"
+      ]
+    },
+    "ingredientes": {
+      "opciones": [],
+      "contenido": [
+        "Pimienta de cayena",
+        "Remolacha (por confirmar)",
+        "Espino blanco (por confirmar)",
+        "Cúrcuma (por confirmar)",
+        "Ginseng (por confirmar)"
+      ]
+    },
+    "uso": {
+      "opciones": [
+        {
+          "id": "1791607dc9ac59ffddf5",
+          "titulo": "Solo 2 cápsulas con el desayuno para tener pies calienticos y energía todo el día",
+          "subtitulo": "Tu ritual del calorcito en menos de 1 minuto.",
+          "origen": "secciones[13].bloques[40] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 1 (recomendada)",
+          "contenido": []
+        },
+        {
+          "id": "6dcb0bae1b4e71ebd7ea",
+          "titulo": "Una vez al día, con tu desayuno, y listo: calorcito de la mañana a la noche",
+          "subtitulo": "",
+          "origen": "secciones[13].bloques[41] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 2",
+          "contenido": []
+        },
+        {
+          "id": "8b354024ed0358375389",
+          "titulo": "2 cápsulas, 1 vaso de agua, 0 ardor: así de fácil",
+          "subtitulo": "",
+          "origen": "secciones[13].bloques[42] · Deseo central, propuestas de valor y copy para la landing",
+          "etiqueta": "Opción 3",
+          "contenido": []
+        }
+      ],
+      "contenido": [
+        "Desayuna",
+        "Toma 2 softgels",
+        "Repite a diario"
+      ]
+    }
+  },
+  "seleccion": {
+    "hero": "cc08376aebc2c205c456",
+    "dolor": null,
+    "beneficios": null,
+    "ingredientes": null,
+    "uso": null
+  },
+  "correcciones": {},
+  "imagenes": {},
+  "presupuestos": {},
+  "trabajo": {
+    "id": "j-99becbef5f0df9f0",
+    "token": "345d474e2847855d43d71fdf94355c7f",
+    "estado": "generando",
+    "motor": "chatgpt",
+    "cantidad": 2,
+    "importeAprobado": 0,
+    "inicio": "2026-11-24T21:53:42.282Z",
+    "secciones": [
+      "avatar",
+      "hero"
+    ],
+    "hechas": 1,
+    "actual": "hero"
+  },
+  "avatarPendiente": null
+}
