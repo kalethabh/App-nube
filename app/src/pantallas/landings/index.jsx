@@ -2,10 +2,13 @@
 // colores, estructura, carruseles…) y la deja lo más rápida posible (meta: 80+ de velocidad en celular, como PageSpeed).
 // O la adapta a tu producto: la IA que elijas (Claude Code o Codex) reescribe los textos y ChatGPT hace las imágenes con
 // tu producto. Cada landing se ve (en un celular de muestra), se mide y se descarga en zip.
+// (2026-11-24) ANALIZAR: tu IA lee la landing y explica cómo vende (ángulo, gancho, oferta, secciones en orden, prueba
+// social, objeciones, lo fuerte, lo flojo e ideas). Y «Subir a Shopify» escribe el código en tu tema con Shopify CLI y
+// primero te da la VISTA PREVIA en tu tienda: la página se crea recién con «Publicar la página» (menú Shopify).
 // Servidor: /api/landings (lib/landings/).
 import { useEffect, useState } from 'react';
-import { CircleAlert, Copy, Download, ExternalLink, Gauge, LayoutTemplate, LoaderCircle, RefreshCw, ShoppingBag, Smartphone, Trash2 } from 'lucide-react';
-import { Boton, CabeceraPagina, CampoTexto, EstadoVacio, Selector, useAvisos } from '../../componentes/index.js';
+import { CircleAlert, Copy, Download, ExternalLink, Gauge, LayoutTemplate, LoaderCircle, RefreshCw, ScanSearch, ShoppingBag, Smartphone, Trash2 } from 'lucide-react';
+import { Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Selector, useAvisos } from '../../componentes/index.js';
 import { enlace } from '../../datos/rutas.js';
 import { pedirNuevo, useDatos } from '../../datos/api.js';
 import { fechaRelativa } from '../../datos/formato.js';
@@ -34,6 +37,61 @@ function Medidor({ titulo, p, meta = 80 }) {
   );
 }
 
+const FILAS_ANALISIS = [
+  ['producto', 'Qué vende'],
+  ['publico', 'A quién le habla'],
+  ['angulo', 'Ángulo'],
+  ['gancho', 'Gancho'],
+  ['oferta', 'Oferta'],
+  ['prueba_social', 'Prueba social'],
+  ['garantia', 'Garantía'],
+  ['urgencia', 'Urgencia'],
+  ['cta', 'Llamadas a comprar'],
+];
+
+/** (2026-11-24) El análisis de la IA: cómo vende esta landing. */
+function Analisis({ a }) {
+  return (
+    <details className="ld-analisis" open>
+      <summary>
+        <ScanSearch size={15} aria-hidden="true" /> Análisis de la landing
+      </summary>
+      <p className="ld-analisis__resumen">{a.resumen}</p>
+      <dl className="ld-analisis__datos">
+        {FILAS_ANALISIS.filter(([k]) => a[k]).map(([k, t]) => (
+          <div key={k}>
+            <dt>{t}</dt>
+            <dd>{a[k]}</dd>
+          </div>
+        ))}
+      </dl>
+      {a.secciones?.length ? (
+        <>
+          <h4>Sus secciones, en orden</h4>
+          <ol className="ld-analisis__secciones">
+            {a.secciones.map((x) => (
+              <li key={x.n}>
+                <span className="ld-analisis__tipo">{x.tipo || 'sección'}</span> <strong>{x.titulo}</strong>
+                {x.objetivo ? <small> — {x.objetivo}</small> : null}
+              </li>
+            ))}
+          </ol>
+        </>
+      ) : null}
+      <div className="ld-analisis__listas">
+        {[['objeciones', 'Objeciones que resuelve'], ['fortalezas', 'Lo que mejor hace'], ['debilidades', 'Lo que le falta'], ['ideas', 'Ideas para tu producto']].map(([k, t]) =>
+          a[k]?.length ? (
+            <div key={k}>
+              <h4>{t}</h4>
+              <ul>{a[k].map((x, i) => <li key={i}>{x}</li>)}</ul>
+            </div>
+          ) : null
+        )}
+      </div>
+    </details>
+  );
+}
+
 function SubirAShopify({ l, tiendas, alCerrar }) {
   const { aviso } = useAvisos();
   const [tiendaId, setTiendaId] = useState(tiendas[0]?.id || '');
@@ -52,7 +110,7 @@ function SubirAShopify({ l, tiendas, alCerrar }) {
     setOcupado(true);
     try {
       await pedirNuevo('/api/shopify/landing', { metodo: 'POST', cuerpo: { landingId: l.id, tiendaId, titulo, direccion: titulo, producto: producto.trim() || null } });
-      aviso({ tipo: 'exito', titulo: 'Subiéndola a Shopify', texto: 'Mira cómo va en el menú Shopify.' });
+      aviso({ tipo: 'exito', titulo: 'Escribiéndola en tu tema', texto: 'En el menú Shopify verás su vista previa y el botón «Publicar la página».' });
       alCerrar();
     } catch (e) {
       aviso({ tipo: 'error', titulo: 'No pude subirla', texto: e.message });
@@ -69,11 +127,11 @@ function SubirAShopify({ l, tiendas, alCerrar }) {
       </div>
       <p className="ld-ayuda">
         {tienda?.tipo === 'completo'
-          ? 'Se sube como plantilla en tu tema publicado (solo archivos nuevos: no cambia nada de lo que ya tienes) y se crea la página publicada.'
-          : 'Se sube como plantilla en tu tema publicado (solo archivos nuevos). Con «solo temas» la página la creas tú en Shopify eligiendo esa plantilla.'}
+          ? 'Se escribe en el código de tu tema con Shopify CLI (solo archivos nuevos: no cambia nada de lo que ya tienes). Primero te queda la VISTA PREVIA en tu tienda; la página se crea y se publica recién cuando tocas «Publicar la página» en el menú Shopify.'
+          : 'Se escribe en el código de tu tema con Shopify CLI (solo archivos nuevos) y te queda la VISTA PREVIA en tu tienda. Con «solo temas», la página la creas tú en Shopify eligiendo esa plantilla.'}
       </p>
       <div className="ld-botones">
-        <Boton variante="primario" tamano="chico" icono={ShoppingBag} cargando={ocupado} disabled={!tiendaId || !titulo.trim()} onClick={subir}>Subir</Boton>
+        <Boton variante="primario" tamano="chico" icono={ShoppingBag} cargando={ocupado} disabled={!tiendaId || !titulo.trim()} onClick={subir}>Subir con vista previa</Boton>
         <Boton variante="fantasma" tamano="chico" onClick={alCerrar}>Cancelar</Boton>
       </div>
     </div>
@@ -84,7 +142,7 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
   const { aviso } = useAvisos();
   const [subiendo, setSubiendo] = useState(false);
   const vista = `/landing/${l.id}/index.html`;
-  const ocupado = l.trabajando || l.estado === 'trabajando' || l.estado === 'midiendo';
+  const ocupado = l.trabajando || l.estado === 'trabajando' || l.estado === 'midiendo' || l.estado === 'analizando';
   const accion = async (fn, ok) => {
     try {
       await fn();
@@ -109,7 +167,7 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
         </div>
         <span className={`ld-estado ld-estado--${l.estado}`}>
           {ocupado ? <LoaderCircle size={13} className="girando" aria-hidden="true" /> : null}
-          {{ trabajando: 'Clonando…', midiendo: 'Midiendo…', lista: 'Lista', error: 'No salió' }[l.estado] || l.estado}
+          {{ trabajando: 'Clonando…', midiendo: 'Midiendo…', analizando: 'Analizando…', lista: 'Lista', error: 'No salió' }[l.estado] || l.estado}
         </span>
       </header>
       {ocupado ? (
@@ -134,6 +192,8 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
           ) : null}
         </div>
       ) : null}
+      {l.analisis ? <Analisis a={l.analisis} /> : null}
+      {!l.analisis && l.analisisError && !ocupado ? <p className="ld-ayuda"><CircleAlert size={13} aria-hidden="true" /> {l.analisisError}</p> : null}
       {l.informe?.avisos?.length ? (
         <details className="ld-avisos">
           <summary>{l.informe.avisos.length} avisos</summary>
@@ -146,6 +206,7 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
           <Boton variante="secundario" tamano="chico" icono={ExternalLink} href={vista} target="_blank">Abrir</Boton>
           <Boton variante="secundario" tamano="chico" icono={Download} href={`/api/landings/${l.id}/descargar`}>Descargar (.zip)</Boton>
           <Boton variante="secundario" tamano="chico" icono={ShoppingBag} onClick={() => setSubiendo(!subiendo)}>Subir a Shopify</Boton>
+          <Boton variante="secundario" tamano="chico" icono={ScanSearch} onClick={() => accion(() => pedirNuevo(`/api/landings/${l.id}/analizar`, { metodo: 'POST', cuerpo: {} }), 'Analizándola')}>{l.analisis ? 'Analizar otra vez' : 'Analizar'}</Boton>
           <Boton variante="fantasma" tamano="chico" icono={Gauge} onClick={() => accion(() => pedirNuevo(`/api/landings/${l.id}/medir`, { metodo: 'POST' }))}>Medir otra vez</Boton>
           <Boton variante="fantasma" tamano="chico" icono={Trash2} onClick={() => accion(() => pedirNuevo(`/api/landings/${l.id}`, { metodo: 'DELETE' }), 'Borrada')}>Borrar</Boton>
         </div>
@@ -165,6 +226,7 @@ export default function Landings() {
   const [url, setUrl] = useState('');
   const [modo, setModo] = useState('tal-cual');
   const [motor, setMotor] = useState('claude');
+  const [analizar, setAnalizar] = useState(true);
   const [productoId, setProductoId] = useState('');
   const [ocupado, setOcupado] = useState(false);
   const [abierta, setAbierta] = useState(null);
@@ -180,7 +242,7 @@ export default function Landings() {
   const clonar = async () => {
     setOcupado(true);
     try {
-      await pedirNuevo('/api/landings', { metodo: 'POST', cuerpo: { url: url.trim(), modo, motor, productoId: modo === 'adaptar' ? productoId : null } });
+      await pedirNuevo('/api/landings', { metodo: 'POST', cuerpo: { url: url.trim(), modo, motor, analizar, productoId: modo === 'adaptar' ? productoId : null } });
       setUrl('');
       await recargar?.();
     } catch (e) {
@@ -202,6 +264,10 @@ export default function Landings() {
               <button type="button" className={modo === 'adaptar' ? 'activo' : ''} aria-pressed={modo === 'adaptar'} onClick={() => setModo('adaptar')}>Para mi producto</button>
             </div>
           </div>
+          <div className="ld-grupo">
+            <span className="ld-grupo__etiqueta">Analizarla</span>
+            <Interruptor activado={analizar} onCambio={setAnalizar} etiqueta={analizar ? 'Sí, que la IA explique cómo vende' : 'No'} />
+          </div>
           {modo === 'adaptar' ? (
             <>
               <label className="ld-grupo">
@@ -218,6 +284,14 @@ export default function Landings() {
                 </div>
               </div>
             </>
+          ) : analizar ? (
+            <div className="ld-grupo">
+              <span className="ld-grupo__etiqueta">Analiza</span>
+              <div className="ld-segmento" role="group" aria-label="Qué IA la analiza">
+                <button type="button" className={motor === 'claude' ? 'activo' : ''} aria-pressed={motor === 'claude'} onClick={() => setMotor('claude')}>Claude Code</button>
+                <button type="button" className={motor === 'codex' ? 'activo' : ''} aria-pressed={motor === 'codex'} onClick={() => setMotor('codex')}>Codex</button>
+              </div>
+            </div>
           ) : null}
           <Boton variante="primario" icono={Copy} onClick={clonar} cargando={ocupado} disabled={!/^https?:\/\/\S+\.\S+/.test(url.trim()) || (modo === 'adaptar' && !productoId)}>
             Clonar

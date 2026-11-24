@@ -275,6 +275,12 @@ async function alMensaje(texto) {
     fs.writeFileSync(ruta, fs.readFileSync(ruta, 'utf8').replace(/\s*\bSIM-PROHIBIDO\b/g, '').replace('Variation ', 'A calm, friendly scene. Variation '));
     return resultado({ result: 'LISTO' });
   }
+  // (2026-11-24) el análisis de una landing clonada
+  const analisisLanding = /TAREA: análisis de landing/.test(textoTarea) ? /Escribe (temp\/\S+\/analisis\.json) con este JSON/.exec(textoTarea) : null;
+  if (analisisLanding) {
+    fs.writeFileSync(path.join(RAIZ, analisisLanding[1]), JSON.stringify({ resumen: 'Página de venta de prueba con un solo producto y pago contra entrega.', producto: 'Gotas de prueba', publico: 'Mujeres de 25 a 45 que duermen mal', angulo: 'Dormir sin pastillas', gancho: 'El titular promete dormir en 7 noches', oferta: '2x1 con envío gratis', secciones: [{ tipo: 'hero', titulo: 'Titular y foto', objetivo: 'Enganchar' }, { tipo: 'prueba-social', titulo: 'Reseñas', objetivo: 'Dar confianza' }, { tipo: 'cta', titulo: 'Botón de compra', objetivo: 'Cerrar' }], prueba_social: '3 reseñas con estrellas', garantia: '30 días', urgencia: 'Stock limitado', cta: '«Comprar ahora», 3 veces', objeciones: ['¿Funciona?'], fortalezas: ['Titular claro'], debilidades: ['Pocas reseñas'], ideas: ['Agregar antes y después'] }));
+    return resultado({ result: 'LISTO' });
+  }
   // «De un video»: el ángulo del video y N conceptos de prueba para el producto
   const anguloVideo = /analizar el ÁNGULO de un video/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
   if (anguloVideo) {
@@ -467,7 +473,7 @@ function familiaDelTexto(texto) {
 function especialista(texto) {
   if (process.env.FALSO_DESPACHADO) return null;
   const tarea = (String(texto).match(/^TAREA: ([^\n]+)/m) || [])[1] || '';
-  if (!tarea || /^ficha\b/.test(tarea) || /^regenerar una l[ií]nea/.test(tarea) || /^lo que se ve en una parte/.test(tarea) || /^escena de apoyo/.test(tarea) || /^coordinadora/.test(tarea) || /^reescribir la descripci[oó]n/.test(tarea) || /^imagen de anuncio rechazada/.test(tarea)) return null;
+  if (!tarea || /^ficha\b/.test(tarea) || /^regenerar una l[ií]nea/.test(tarea) || /^lo que se ve en una parte/.test(tarea) || /^escena de apoyo/.test(tarea) || /^coordinadora/.test(tarea) || /^reescribir la descripci[oó]n/.test(tarea) || /^imagen de anuncio rechazada/.test(tarea) || /^análisis de landing/.test(tarea)) return null;
   if (/^imagen-ads-/.test(tarea)) return 'claude-falso-imagen-ads.js';
   if (/^(guion|cambios)\b/.test(tarea)) return MODOS_DE_ESTILOS.has(modo(tarea.split(/\s/)[0])) ? 'claude-falso-estilos.js' : null;
   if (/^continuidad-/.test(tarea)) return 'claude-falso-continuidad.js';

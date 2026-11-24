@@ -9,7 +9,7 @@ import { pedirNuevo, useDatos } from '../../datos/api.js';
 import { fechaRelativa } from '../../datos/formato.js';
 import './shopify.css';
 
-const ESTADOS = { trabajando: 'Trabajando…', lista: 'Lista para revisar', publicado: 'Publicado', descartado: 'Descartado', error: 'No salió' };
+const ESTADOS = { trabajando: 'Trabajando…', 'vista-previa': 'Vista previa lista', lista: 'Lista para revisar', publicado: 'Publicado', descartado: 'Descartado', error: 'No salió' };
 
 function Conectar({ alConectar, abierto, setAbierto }) {
   const { aviso } = useAvisos();
@@ -122,6 +122,13 @@ function Trabajo({ t, recargar }) {
           <summary>{t.archivos.length} archivo(s) del tema cambiado(s)</summary>
           <ul>{t.archivos.map((f) => <li key={f}><code>{f}</code></li>)}</ul>
         </details>
+      ) : null}
+      {t.tipo === 'landing' && t.estado === 'vista-previa' ? (
+        <div className="sh-fila">
+          <p className="sh-ayuda">El código ya está en tu tema «{t.temaNombre}» (solo archivos nuevos). Mírala en tu tienda; la página todavía no existe y nadie la ve sin este enlace.</p>
+          {t.vistaPrevia ? <Boton variante="secundario" tamano="chico" icono={Eye} href={t.vistaPrevia} target="_blank">Ver la vista previa en tu tienda</Boton> : null}
+          <Boton variante="primario" tamano="chico" cargando={ocupado === 'publicar-landing'} onClick={() => accion('publicar-landing', `/api/shopify/trabajos/${t.id}/publicar`, 'POST', 'Página publicada')}>Publicar la página</Boton>
+        </div>
       ) : null}
       {t.tipo === 'landing' && t.estado === 'lista' ? (
         t.pagina ? (

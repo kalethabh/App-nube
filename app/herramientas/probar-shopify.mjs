@@ -223,11 +223,17 @@ async function principal() {
     path.join(dirL, 'index.html'),
     '<!doctype html>\n<html><head><style>.h{background:url(assets/a1.webp)}</style></head><body><h1>Precio {{ especial }}</h1><img src="assets/a1.webp" srcset="assets/a1.webp 480w"><video src="assets/v1.mp4" data-kc-origen="https://cdn.original.com/a.gif" autoplay muted loop playsinline width="320" height="320"></video><a href="https://original.com/products/gotas?variant=1">Comprar</a><form action="https://original.com/cart/add"><input type="hidden" name="id" value="123456"></form></body></html>',
   );
+  const paginasAntes = consultas.filter((c) => /pageCreate/.test(c.query || '')).length;
   r = await pedir('/api/shopify/landing', { json: { landingId: lid, tiendaId: bella.id, titulo: 'Gotas para dormir', producto: 'mi-producto' } });
   const t3 = r.datos?.id;
   t = await esperar(120, async () => (await pedir(`/api/shopify/trabajos/${t3}`)).datos, terminado);
-  check('La landing sube y crea la página publicada', t?.estado === 'lista' && t.pagina === 'https://bella.com/pages/gotas-para-dormir' && consultas.some((c) => /pageCreate/.test(c.query || '') && c.variables?.p?.templateSuffix === t.plantilla?.replace(/^page\./, '')), t);
+  const sufijoL = t?.plantilla?.replace(/^page\./, '');
+  check('(2026-11-24) Primero la VISTA PREVIA: el código queda en el tema y la página todavía no existe', t?.estado === 'vista-previa' && t.vistaPrevia === `https://bella.com/?view=${sufijoL}` && !t.pagina && consultas.filter((c) => /pageCreate/.test(c.query || '')).length === paginasAntes, t);
   const vivo = temasFalsos().find((x) => x.role === 'live').id;
+  check('La vista previa es la misma plantilla como portada alternativa (index.<sufijo>)', (archivoFalso(vivo, `templates/index.${sufijoL}.liquid`) || '').startsWith('{% layout none %}'));
+  r = await pedir(`/api/shopify/trabajos/${t3}/publicar`, { metodo: 'POST' });
+  t = r.datos;
+  check('«Publicar la página» crea la página publicada con esa plantilla', t?.estado === 'lista' && t.pagina === 'https://bella.com/pages/gotas-para-dormir' && consultas.some((c) => /pageCreate/.test(c.query || '') && c.variables?.p?.templateSuffix === sufijoL), t);
   const plantilla = archivoFalso(vivo, `templates/${t?.plantilla}.liquid`) || '';
   check('Va como plantilla de página en el tema publicado, sin layout de la tienda', plantilla.startsWith('{% layout none %}') && /Precio \{\{ '\{\{' \}\} especial/.test(plantilla), plantilla.slice(0, 300));
   check('Sus imágenes van a los assets del tema (con asset_url)', /\{\{ 'kads-[a-z0-9]+-a1\.webp' \| asset_url \}\}/.test(plantilla) && /url\(\{\{ 'kads-/.test(plantilla) && fs.readdirSync(path.join(FALSO, BELLA, 'temas', String(vivo), 'assets')).some((f) => /^kads-.*a1\.webp$/.test(f)), plantilla);
@@ -237,7 +243,9 @@ async function principal() {
   r = await pedir('/api/shopify/landing', { json: { landingId: lid, tiendaId: otra.id, titulo: 'Gotas' } });
   t = await esperar(120, async () => (await pedir(`/api/shopify/trabajos/${r.datos?.id}`)).datos, terminado);
   const p2 = archivoFalso(1001, `templates/${t?.plantilla}.liquid`, OTRA) || '';
-  check('En una tienda «solo temas» sube la plantilla (sin página) y el video vuelve a ser el GIF original', t?.estado === 'lista' && !t.pagina && /<img src="https:\/\/cdn\.original\.com\/a\.gif"/.test(p2), { t, p2: p2.slice(0, 400) });
+  check('En una tienda «solo temas» sube la plantilla con su vista previa y el video vuelve a ser el GIF original', t?.estado === 'vista-previa' && t.vistaPrevia && !t.pagina && /<img src="https:\/\/cdn\.original\.com\/a\.gif"/.test(p2), { t, p2: p2.slice(0, 400) });
+  r = await pedir(`/api/shopify/trabajos/${t.id}/publicar`, { metodo: 'POST' });
+  check('…y al publicar queda la indicación para crear la página en Shopify', r.datos?.estado === 'lista' && !r.datos.pagina, r.datos);
 
   // la coordinadora
   await pedir('/api/oficina/chat', { json: { texto: 'En la tienda cambia el botón de comprar a verde' } });

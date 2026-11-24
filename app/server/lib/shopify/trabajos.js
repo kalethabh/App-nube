@@ -7,8 +7,9 @@
 //    completo, la IA también puede proponer cambios por la API de administración (páginas, productos, colecciones…):
 //    quedan esperando tu «Aplicar».
 // 2. «Subir una landing» (tipo 'landing'): una landing de Crear › Landings pasa a tu tienda como plantilla de página
-//    (templates/page.kads-<id>.liquid + sus imágenes en assets/, en el tema publicado, sin tocar nada más) y, con acceso
-//    completo, crea la página y la deja publicada en /pages/<dirección>.
+//    (templates/page.kads-<id>.liquid + sus imágenes en assets/, en el tema publicado, sin tocar nada más) y como
+//    portada alternativa (index.kads-<id>) para la VISTA PREVIA (/?view=kads-<id>) antes de nada (2026-11-24). Con
+//    «Publicar» y acceso completo, crea la página y la deja publicada en /pages/<dirección>.
 //
 // Todo vive en temp/_shopify/trabajos/<id>/ (trabajo.json, tema/, subir/, resumen.json, registro-ia.log).
 //
@@ -232,6 +233,7 @@ Tu respuesta final: solo LISTO.`;
 
 export async function publicarTrabajo(id) {
   const t = leerTrabajo(id);
+  if (t.tipo === 'landing') return publicarLanding(id);
   if (!t.nuevoTema?.id) throw new ErrorApp(400, 'Ese trabajo no tiene un tema para publicar.');
   await api.publicarTema(tiendaConClave(t.tiendaId), t.nuevoTema.id);
   guardar(id, { estado: 'publicado', publicado: new Date().toISOString() });
@@ -348,20 +350,40 @@ export async function subirLanding({ landingId, tiendaId, titulo, direccion, pro
     }
     const plantilla = `{% layout none %}\n${html.replace(/^<!doctype html>\s*/i, '<!doctype html>\n')}`;
     fs.writeFileSync(path.join(subir, 'templates', `page.${sufijo}.liquid`), plantilla);
+    // (2026-11-24) VISTA PREVIA PRIMERO: la misma plantilla como portada alternativa (index.<sufijo>). Con ?view=<sufijo>
+    // la tienda la muestra en su dominio, con sus fuentes y sus enlaces, sin que exista todavía la página ni la vea nadie
+    // que no tenga el enlace. La página se crea recién con «Publicar» (publicarLanding).
+    fs.writeFileSync(path.join(subir, 'templates', `index.${sufijo}.liquid`), plantilla);
     const solo = archivosDe(subir);
-    avanzar(id, `Subiendo la plantilla y ${n} imágenes al tema publicado «${vivo.nombre}» (solo archivos nuevos: no cambia nada de lo que ya tienes)…`);
+    avanzar(id, `Escribiendo el código en tu tema «${vivo.nombre}» con Shopify CLI: la plantilla y ${n} imágenes (solo archivos nuevos: no cambia nada de lo que ya tienes)…`);
     await api.subirTema(tienda, subir, { temaId: vivo.id, solo, alEnVivo: true });
-    let pagina = null;
-    if (tienda.tipo === 'completo') {
-      avanzar(id, 'Creando la página…');
-      const d = await api.admin(tienda, 'mutation($p:PageCreateInput!){ pageCreate(page:$p){ page{ id handle } userErrors{ field message } } }', { p: { title: leerTrabajo(id).titulo, handle, templateSuffix: sufijo, isPublished: true } });
-      const e = d?.pageCreate?.userErrors?.[0];
-      if (e) throw new Error(`Shopify no creó la página: ${e.message}`);
-      pagina = `${(tienda.tienda || `https://${tienda.dominio}`).replace(/\/$/, '')}/pages/${d.pageCreate.page.handle}`;
-    }
-    guardar(id, { estado: 'lista', pagina, temaId: vivo.id, temaNombre: vivo.nombre });
-    avanzar(id, pagina ? `Lista en ${pagina}` : `Subida. En Shopify: Tienda online › Páginas › Agregar página, y en «Plantilla» elige «${sufijo}».`);
+    const base = (tienda.tienda || `https://${tienda.dominio}`).replace(/\/$/, '');
+    guardar(id, { estado: 'vista-previa', vistaPrevia: `${base}/?view=${sufijo}`, temaId: vivo.id, temaNombre: vivo.nombre, archivos: solo });
+    avanzar(id, 'Lista la vista previa en tu tienda. Mírala y, si te gusta, toca «Publicar la página».');
   });
+  return leerTrabajo(id);
+}
+
+/**
+ * «Publicar la página» de una landing que ya está en el tema (con su vista previa): con acceso completo crea la página
+ * publicada con esa plantilla; con «solo temas» queda la indicación para crearla en Shopify eligiendo la plantilla.
+ */
+export async function publicarLanding(id) {
+  const t = leerTrabajo(id);
+  if (t.tipo !== 'landing') throw new ErrorApp(400, 'Ese trabajo no es una landing.');
+  if (t.estado === 'lista' || t.estado === 'publicado') return t;
+  if (t.estado !== 'vista-previa') throw new ErrorApp(409, 'La landing todavía no está en tu tema.');
+  const tienda = tiendaConClave(t.tiendaId);
+  const sufijo = String(t.plantilla || '').replace(/^page\./, '');
+  let pagina = null;
+  if (tienda.tipo === 'completo') {
+    const d = await api.admin(tienda, 'mutation($p:PageCreateInput!){ pageCreate(page:$p){ page{ id handle } userErrors{ field message } } }', { p: { title: t.titulo, handle: t.handle, templateSuffix: sufijo, isPublished: true } });
+    const e = d?.pageCreate?.userErrors?.[0];
+    if (e) throw new ErrorApp(502, `Shopify no creó la página: ${e.message}`);
+    pagina = `${(tienda.tienda || `https://${tienda.dominio}`).replace(/\/$/, '')}/pages/${d.pageCreate.page.handle}`;
+  }
+  guardar(id, { estado: 'lista', pagina, publicado: new Date().toISOString() });
+  avanzar(id, pagina ? `Publicada en ${pagina}` : `En Shopify: Tienda online › Páginas › Agregar página, y en «Plantilla» elige «${sufijo}».`);
   return leerTrabajo(id);
 }
 
