@@ -3,9 +3,9 @@
   "productoId": "cayenne-pepper-d319",
   "nombre": "CAYENNE PEPPER",
   "puerto": null,
-  "version": 12,
+  "version": 13,
   "creado": "2026-11-24T21:53:17.852Z",
-  "actualizado": "2026-11-24T22:09:00.914Z",
+  "actualizado": "2026-11-24T22:39:47.626Z",
   "formato": "9:16",
   "estilo": "",
   "avatar": {
@@ -55,6 +55,33 @@
           "subtitulo": "Y energía hasta la noche, con cayena en cápsula.",
           "origen": "secciones[13].bloques[18] · Deseo central, propuestas de valor y copy para la landing",
           "etiqueta": "Opción 4 (corta, para celular)",
+          "contenido": []
+        },
+        {
+          "id": "4d52296f75e915800465",
+          "titulo": "El ritual del calorcito para tus pies helados",
+          "subtitulo": "Dos cápsulas blandas de cayena con el desayuno ayudan a que la sangre llegue mejor a tus pies y manos. Muchas personas notan menos frío al acostarse entre la semana 2 y la 4.",
+          "tipo": "generado",
+          "origen": "Propuesta basada en investigación: Recomendación central del resumen ejecutivo («el ritual del calorcito») y la propuesta de valor 1, pies y manos helados (sección 14.2), con los tiempos de la sección «Tiempos de transformación».",
+          "etiqueta": "Nueva propuesta",
+          "contenido": []
+        },
+        {
+          "id": "efb254272e337efbd50a",
+          "titulo": "Toda la cayena, sin el ardor",
+          "subtitulo": "El ají de siempre, en cápsula blanda fácil de tragar y con 10 botánicos de apoyo. Te ayuda a tener pies menos helados y piernas más livianas, sin tomarte la cayena en agua.",
+          "tipo": "generado",
+          "origen": "Propuesta basada en investigación: Propuesta de valor 4, «Ya probé de todo» (sección 14.2), y la fila del ardor de la cayena cruda en «Problema y solución» («tomar la cayena en agua arde horrible»); el ají como algo de casa sale del contexto cultural.",
+          "etiqueta": "Nueva propuesta",
+          "contenido": []
+        },
+        {
+          "id": "490aa0b8cffada355bf7",
+          "titulo": "Llega entera al final del día",
+          "subtitulo": "Cayena en cápsula para tener pies menos helados, piernas más livianas y energía hasta la noche, sin apagarte a las 3 de la tarde. Un solo pago, cuando te llegue.",
+          "tipo": "generado",
+          "origen": "Propuesta basada en investigación: Deseo central (sección 14.1, «llegar entera al final del día»), el lenguaje del avatar («me apago a media tarde») y los beneficios 1 a 3 que evalúa la clienta; el cierre viene de la propuesta de valor 6, desconfianza y pago al recibir.",
+          "etiqueta": "Nueva propuesta",
           "contenido": []
         }
       ],
@@ -279,5 +306,41 @@
     "actual": null,
     "fin": "2026-11-24T22:09:00.914Z"
   },
-  "avatarPendiente": null
+  "avatarPendiente": null,
+  "titulos": {
+    "seccion": "hero",
+    "estado": "lista",
+    "fin": "2026-11-24T22:39:47.626Z"
+  },
+  "extras": {
+    "hero": [
+      {
+        "id": "4d52296f75e915800465",
+        "titulo": "El ritual del calorcito para tus pies helados",
+        "subtitulo": "Dos cápsulas blandas de cayena con el desayuno ayudan a que la sangre llegue mejor a tus pies y manos. Muchas personas notan menos frío al acostarse entre la semana 2 y la 4.",
+        "tipo": "generado",
+        "origen": "Propuesta basada en investigación: Recomendación central del resumen ejecutivo («el ritual del calorcito») y la propuesta de valor 1, pies y manos helados (sección 14.2), con los tiempos de la sección «Tiempos de transformación».",
+        "etiqueta": "Nueva propuesta",
+        "contenido": []
+      },
+      {
+        "id": "efb254272e337efbd50a",
+        "titulo": "Toda la cayena, sin el ardor",
+        "subtitulo": "El ají de siempre, en cápsula blanda fácil de tragar y con 10 botánicos de apoyo. Te ayuda a tener pies menos helados y piernas más livianas, sin tomarte la cayena en agua.",
+        "tipo": "generado",
+        "origen": "Propuesta basada en investigación: Propuesta de valor 4, «Ya probé de todo» (sección 14.2), y la fila del ardor de la cayena cruda en «Problema y solución» («tomar la cayena en agua arde horrible»); el ají como algo de casa sale del contexto cultural.",
+        "etiqueta": "Nueva propuesta",
+        "contenido": []
+      },
+      {
+        "id": "490aa0b8cffada355bf7",
+        "titulo": "Llega entera al final del día",
+        "subtitulo": "Cayena en cápsula para tener pies menos helados, piernas más livianas y energía hasta la noche, sin apagarte a las 3 de la tarde. Un solo pago, cuando te llegue.",
+        "tipo": "generado",
+        "origen": "Propuesta basada en investigación: Deseo central (sección 14.1, «llegar entera al final del día»), el lenguaje del avatar («me apago a media tarde») y los beneficios 1 a 3 que evalúa la clienta; el cierre viene de la propuesta de valor 6, desconfianza y pago al recibir.",
+        "etiqueta": "Nueva propuesta",
+        "contenido": []
+      }
+    ]
+  }
 }
