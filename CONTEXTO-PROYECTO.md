@@ -15,6 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Dirección visual, fondos y caja del copy en Embudo (2026-11-24p)
 
+Implementación: [PR #204](https://github.com/kalethabh/App-nube/pull/204).
+Distribución: [v2026-11-24p](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-24p).
+
 Corrección expresa: «fondo liso» significa acorde al producto, con material gráfico sin saturar; no blanco
 literal. Las imágenes deben comunicar su título y subtítulo, con fondos que se unan. Títulos siempre en
 MAYÚSCULAS y subtítulos en minúsculas. Estas reglas prevalecen sobre las instrucciones anteriores de blanco
@@ -39,9 +42,10 @@ predeterminado y de fondo completamente vacío.
 - Revisión visual **3** en la firma de sección. Al actualizar, blanco heredado pasa a automático y un color
   no blanco heredado se considera personalizado. Se invalidan presupuestos de reglas anteriores y las
   imágenes previas se marcan pendientes de actualizar; no se generan ni cobran imágenes automáticamente.
-  Retomar un trabajo anterior conserva su prompt, referencias, base y formato inmutables.
+  La migración se guarda una vez sin cambiar la fecha del proyecto para no releer la investigación en cada
+  sondeo. Retomar un trabajo anterior conserva su prompt, referencias, base y formato inmutables.
 
-Validación: integración del Embudo **46/46**, incluida migración de blanco/color personalizado e invalidación
+Validación: integración del Embudo **47/47**, incluida migración de blanco/color personalizado e invalidación
 de presupuesto anterior. Interfaz en Chrome local: selección y manuales con caja correcta, paleta automática,
 corrección, confirmación/cancelación de costo, oscuro/claro y móvil sin desborde. Extracción literal, caja con
 acentos, paleta por marca/categoría y prompt semántico pasan; build pasa. Se verifican dimensiones y píxel

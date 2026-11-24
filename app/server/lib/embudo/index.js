@@ -51,6 +51,8 @@ function cargar(id) {
     e.fondoModo=modoFondo(e);
     try {e.identidad=identidadProducto(fuente(e.productoId).investigacion,leerFicha(e.productoId));} catch {e.identidad=identidadProducto();}
     e.reglasVisuales=REVISION_VISUAL; e.presupuestos={};
+    // Migración única: conservar la fecha del proyecto y no releer la investigación en cada sondeo.
+    escribirJSON(archivo(e.id),e);
   }
   if (e.trabajo?.estado === 'generando' && !activas.has(id)) {
     // Puede haberse cerrado después de descargar/anotar una imagen y antes de actualizar el panel.

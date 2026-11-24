@@ -37,6 +37,7 @@ try{
  const migracionFile=path.join(RAIZ,`temp/_embudo-${embudoId}/embudo.json`), antiguo=JSON.parse(fs.readFileSync(migracionFile));
  delete antiguo.reglasVisuales;delete antiguo.identidad;delete antiguo.fondoModo;antiguo.fondo='#FFFFFF';antiguo.presupuestos={['a'.repeat(32)]:{version:e.version}};fs.writeFileSync(migracionFile,JSON.stringify(antiguo));
  e=(await pedir(`/api/embudos/${embudoId}`)).data;
+ check('La migración queda guardada una sola vez sin cambiar la fecha del proyecto',()=>{const m=JSON.parse(fs.readFileSync(migracionFile));assert.equal(m.reglasVisuales,3);assert.equal(m.actualizado,antiguo.actualizado);assert.deepEqual(m.presupuestos,{});});
  check('El fondo blanco heredado pasa a paleta automática sin alterar sus opciones',()=>{assert.equal(e.fondoModo,'auto');assert.notEqual(e.fondo,'#FFFFFF');assert.equal(e.secciones[0].opciones[0].titulo,'hero: mensaje 1');});
  r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:e.version,token:'a'.repeat(32)}});check('Los presupuestos anteriores a la nueva dirección requieren confirmación nueva',()=>assert.equal(r.st,428));
  antiguo.fondo='#355568';fs.writeFileSync(migracionFile,JSON.stringify(antiguo));e=(await pedir(`/api/embudos/${embudoId}`)).data;
