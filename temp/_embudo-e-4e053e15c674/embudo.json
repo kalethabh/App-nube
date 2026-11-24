@@ -404,5 +404,12 @@
         "contenido": []
       }
     ]
-  }
+  },
+  "fondoModo": "auto",
+  "identidad": {
+    "fondo": "#D5B7B1",
+    "acento": "#8A1C1C",
+    "grafica": "curvas suaves y trazos finos de bajo contraste, derivados del mecanismo, beneficio o componentes documentados; máximo dos acentos gráficos secundarios; sin decoración gratuita"
+  },
+  "reglasVisuales": 3
 }
