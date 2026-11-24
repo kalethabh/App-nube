@@ -597,17 +597,17 @@ async function ejecutar(acciones, ctx) {
       } else if (a.tipo === 'subir-landing') {
         const { subirLanding } = await import('./shopify/trabajos.js');
         const t = await subirLanding({ landingId: String(a.landing || ''), tiendaId: String(a.tienda || ''), titulo: a.titulo ? String(a.titulo) : undefined, direccion: a.titulo ? String(a.titulo) : undefined, producto: a.producto ? String(a.producto) : null });
-        hechas.push({ tipo: 'subir-landing', titulo: `Subiendo la landing a ${t.tiendaNombre}`, href: '#/shopify', ok: true });
+        hechas.push({ tipo: 'subir-landing', titulo: `Subiendo la landing a ${t.tiendaNombre}`, href: '#/landings/tiendas', ok: true });
       } else if (a.tipo === 'shopify') {
         const { crearTrabajo, crearTrabajos } = await import('./shopify/trabajos.js');
         const motor = a.motor === 'codex' ? 'codex' : 'claude';
         // (2026-11-24) el mismo pedido en varias tiendas: "tiendas": [ids]
         if (Array.isArray(a.tiendas) && a.tiendas.length > 1) {
           const r = await crearTrabajos({ tiendaIds: a.tiendas.map(String), pedido: String(a.pedido || ''), motor });
-          hechas.push({ tipo: 'shopify', titulo: `Trabajando en ${r.trabajos.length} tiendas: ${String(a.pedido || '').slice(0, 70)}`, href: '#/shopify', ok: true });
+          hechas.push({ tipo: 'shopify', titulo: `Trabajando en ${r.trabajos.length} tiendas: ${String(a.pedido || '').slice(0, 70)}`, href: '#/landings/tiendas', ok: true });
         } else {
           const t = await crearTrabajo({ tiendaId: String(a.tienda || a.tiendas?.[0] || ''), pedido: String(a.pedido || ''), motor });
-          hechas.push({ tipo: 'shopify', titulo: `Trabajando en ${t.tiendaNombre}: ${t.pedido.slice(0, 80)}`, href: '#/shopify', ok: true });
+          hechas.push({ tipo: 'shopify', titulo: `Trabajando en ${t.tiendaNombre}: ${t.pedido.slice(0, 80)}`, href: '#/landings/tiendas', ok: true });
         }
       } else if (a.tipo === 'copiar-tienda') {
         // (2026-11-24) copiar de una tienda a otras (lib/shopify/trabajos.js crearCopia): todo queda para revisar
@@ -616,7 +616,7 @@ async function ejecutar(acciones, ctx) {
         const origen = String(a.origen || '');
         const destinos = a.destinos === 'todas' ? listarTiendas().map((x) => x.id).filter((x) => x !== origen) : (Array.isArray(a.destinos) ? a.destinos : [a.destinos]).filter(Boolean).map(String);
         const t = await crearCopia({ origenId: origen, destinos, que: String(a.que || ''), temaId: a.tema ? String(a.tema) : null, archivos: Array.isArray(a.archivos) ? a.archivos.map(String) : [], producto: a.producto ? String(a.producto) : null });
-        hechas.push({ tipo: 'shopify', titulo: t.pedido.slice(0, 120), href: '#/shopify', ok: true });
+        hechas.push({ tipo: 'shopify', titulo: t.pedido.slice(0, 120), href: '#/landings/tiendas', ok: true });
       } else if (a.tipo === 'regla') {
         const { ESTILOS } = await import('./anuncios-nuevos.js');
         const estilo = ESTILOS[a.estilo] ? a.estilo : null;

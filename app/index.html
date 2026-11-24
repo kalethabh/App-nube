@@ -6,9 +6,9 @@
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#050505" />
     <!-- el ícono de Kads Studio (el mismo del menú, componentes/Logo.jsx). Nombre nuevo para que el navegador no muestre el viejo guardado -->
-    <link rel="icon" type="image/svg+xml" href="/kads-icono.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/kads-icono-32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/kads-icono-180.png" />
+    <link rel="icon" type="image/svg+xml" href="/kads-icono.svg?v=ciudad-2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/kads-icono-32.png?v=ciudad-2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/kads-icono-180.png?v=ciudad-2" />
     <title>Kads Studio by Kalethabh</title>
     <script>
       /* el tema (datos/tema.js) antes de pintar, para que no parpadee */
@@ -21,7 +21,7 @@
           }
           var v = localStorage.getItem('kads:tema');
           if (v === 'claro' || v === 'oscuro' || v === 'juego') t = v;
-          else if (v === 'auto' && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'claro';
+          else if (v === 'auto') t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'claro' : 'juego';
         } catch (e) {}
         document.documentElement.setAttribute('data-tema', t);
       })();

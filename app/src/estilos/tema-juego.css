@@ -4,11 +4,11 @@
    rejilla de piso en perspectiva, títulos tipo HUD (mayúsculas, inclinados, con degradado de atardecer),
    tarjetas de vidrio con borde de neón y el botón principal con esquinas cortadas.
    Estilo propio: sin nombres, logos, letras ni arte de ningún juego. Solo aplica con <html data-tema="juego">.
-   Los colores son los de tokens.css ([data-tema='juego']).
+   Los colores son los de tokens.css (:is([data-tema='juego'], [data-tema='claro'])).
    ============================================================================= */
 
 /* ---------------------------------------------------------------- el cielo y el horizonte */
-[data-tema='juego'] body::before {
+:is([data-tema='juego'], [data-tema='claro']) body::before {
   background:
     /* el sol bajo, a la derecha, y su reflejo */
     radial-gradient(560px 300px at 82% 100%, rgba(255, 150, 80, 0.22), transparent 70%),
@@ -19,7 +19,7 @@
     linear-gradient(180deg, #0a0515 0%, #120a26 45%, #22103a 78%, #3a1440 100%);
 }
 /* el horizonte: palmeras y edificios en silueta, y la rejilla de neón del piso (detrás del contenido) */
-[data-tema='juego'] body::after {
+:is([data-tema='juego'], [data-tema='claro']) body::after {
   opacity: 1;
   background-image:
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='260' viewBox='0 0 1600 260' preserveAspectRatio='none'><g fill='%23070312' fill-opacity='0.92'><path d='M0 260V190h40v-30h30v40h25v-70h45v70h30v-40h40v60h50v-90h35v50h40v-20h60v40h45v-110h30v110h40v-60h55v80h35v-35h45v45h50v-75h30v-30h20v30h35v95h40v-55h45v30h60v-80h40v80h35v-40h50v50h45v-100h35v100h40v-60h50v35h45v-20h55v40h40v-70h35v70h40v-30h45v55h40v95z'/><path d='M1245 260v-120c-2-30 6-60 18-85M1263 55c-25 0-48 8-62 22 22-8 44-8 62-2M1263 55c22-10 46-8 64 4-20-2-42 2-58 10M1263 55c-8-22-26-36-46-40 14 12 24 26 28 44M1263 55c10-20 30-32 52-32-16 10-28 24-34 40M1263 55c-26 12-40 32-44 54 12-18 28-32 46-40M1263 55c24 14 36 34 38 58-10-20-26-34-44-44' stroke='%23070312' stroke-width='7' fill='none' stroke-linecap='round'/><path d='M1380 260v-95c-1-24 5-48 14-68M1394 97c-22 0-40 7-52 18 18-6 36-6 52-1M1394 97c18-8 38-6 52 4-16-2-34 2-46 8M1394 97c-6-18-20-29-37-32 11 10 19 21 22 35M1394 97c8-16 24-25 42-25-13 8-22 19-27 32' stroke='%23070312' stroke-width='6' fill='none' stroke-linecap='round'/><path d='M140 260v-80c-1-20 4-40 12-56M152 124c-18 0-34 6-44 15 15-5 30-5 44-1M152 124c15-7 32-5 44 3-14-1-28 2-39 7M152 124c-5-15-17-24-31-27 9 8 16 18 19 29M152 124c7-13 20-21 35-21-11 7-18 16-22 27' stroke='%23070312' stroke-width='5' fill='none' stroke-linecap='round'/></g></svg>"),
@@ -33,7 +33,7 @@
 }
 
 /* ---------------------------------------------------------------- títulos tipo HUD */
-[data-tema='juego'] .cabecera-pagina__titulo {
+:is([data-tema='juego'], [data-tema='claro']) .cabecera-pagina__titulo {
   font-style: italic;
   text-transform: uppercase;
   letter-spacing: 0.01em;
@@ -43,33 +43,33 @@
   color: transparent;
   filter: drop-shadow(0 2px 0 rgba(20, 5, 31, 0.9)) drop-shadow(0 0 18px rgba(255, 79, 163, 0.35));
 }
-[data-tema='juego'] .cabecera-pagina__sobre {
+:is([data-tema='juego'], [data-tema='claro']) .cabecera-pagina__sobre {
   color: var(--cian);
   text-shadow: 0 0 10px rgba(41, 240, 220, 0.55);
   font-style: italic;
 }
-[data-tema='juego'] .tarjeta__titulo,
-[data-tema='juego'] h2,
-[data-tema='juego'] h3 {
+:is([data-tema='juego'], [data-tema='claro']) .tarjeta__titulo,
+:is([data-tema='juego'], [data-tema='claro']) h2,
+:is([data-tema='juego'], [data-tema='claro']) h3 {
   letter-spacing: 0.005em;
 }
 
 /* ---------------------------------------------------------------- tarjetas de vidrio con filo de neón */
-[data-tema='juego'] .tarjeta {
+:is([data-tema='juego'], [data-tema='claro']) .tarjeta {
   background: linear-gradient(160deg, rgba(34, 20, 62, 0.78) 0%, rgba(18, 10, 34, 0.72) 100%);
   border-color: rgba(255, 140, 210, 0.14);
   -webkit-backdrop-filter: blur(12px) saturate(1.2);
   backdrop-filter: blur(12px) saturate(1.2);
   box-shadow: inset 0 1px 0 rgba(255, 200, 240, 0.08), 0 10px 30px -18px rgba(255, 79, 163, 0.35);
 }
-[data-tema='juego'] .tarjeta--interactiva:hover {
+:is([data-tema='juego'], [data-tema='claro']) .tarjeta--interactiva:hover {
   border-color: rgba(255, 79, 163, 0.45);
   box-shadow: inset 0 1px 0 rgba(255, 200, 240, 0.1), 0 0 0 1px rgba(255, 79, 163, 0.25), 0 14px 36px -14px rgba(255, 79, 163, 0.55);
 }
 
 /* ---------------------------------------------------------------- el botón principal: esquinas cortadas */
-[data-tema='juego'] .boton--primario,
-[data-tema='juego'] .boton--marca {
+:is([data-tema='juego'], [data-tema='claro']) .boton--primario,
+:is([data-tema='juego'], [data-tema='claro']) .boton--marca {
   clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
   border-radius: 3px;
   font-style: italic;
@@ -78,19 +78,19 @@
   text-transform: uppercase;
   text-shadow: none;
 }
-[data-tema='juego'] .boton--primario.boton--chico {
+:is([data-tema='juego'], [data-tema='claro']) .boton--primario.boton--chico {
   clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
 }
-[data-tema='juego'] .boton--secundario {
+:is([data-tema='juego'], [data-tema='claro']) .boton--secundario {
   border-color: rgba(255, 140, 210, 0.2);
 }
-[data-tema='juego'] .boton--secundario:hover:not(:disabled) {
+:is([data-tema='juego'], [data-tema='claro']) .boton--secundario:hover:not(:disabled) {
   border-color: rgba(41, 240, 220, 0.5);
   box-shadow: 0 0 14px -4px rgba(41, 240, 220, 0.55);
 }
 
 /* ---------------------------------------------------------------- el menú: como el de pausa de un juego */
-[data-tema='juego'] .menu {
+:is([data-tema='juego'], [data-tema='claro']) .menu {
   background:
     radial-gradient(320px 220px at 0% 0%, rgba(180, 92, 255, 0.22), transparent 70%),
     radial-gradient(260px 240px at 100% 100%, rgba(255, 79, 163, 0.14), transparent 70%),
@@ -98,21 +98,21 @@
   border-right-color: rgba(255, 79, 163, 0.22);
   box-shadow: inset -1px 0 0 rgba(255, 79, 163, 0.12), 8px 0 30px -20px rgba(255, 79, 163, 0.5);
 }
-[data-tema='juego'] .nav__item--activo,
-[data-tema='juego'] .nav__item--activo:hover {
+:is([data-tema='juego'], [data-tema='claro']) .nav__item--activo,
+:is([data-tema='juego'], [data-tema='claro']) .nav__item--activo:hover {
   background: linear-gradient(90deg, rgba(255, 79, 163, 0.26) 0%, rgba(180, 92, 255, 0.1) 70%, transparent 100%);
   font-style: italic;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
-[data-tema='juego'] .nav__item--activo::before {
+:is([data-tema='juego'], [data-tema='claro']) .nav__item--activo::before {
   background: var(--marca-degradado);
   box-shadow: 0 0 12px rgba(255, 79, 163, 0.85);
 }
 
 /* ---------------------------------------------------------------- la barra de arriba: vidrio */
-[data-tema='juego'] .barra {
+:is([data-tema='juego'], [data-tema='claro']) .barra {
   background: rgba(13, 7, 27, 0.6);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
@@ -120,17 +120,17 @@
 }
 
 /* ---------------------------------------------------------------- pestañas, insignias y campos */
-[data-tema='juego'] .campo__entrada:focus {
+:is([data-tema='juego'], [data-tema='claro']) .campo__entrada:focus {
   box-shadow: 0 0 0 1px rgba(255, 79, 163, 0.6), 0 0 16px -4px rgba(255, 79, 163, 0.6);
 }
-[data-tema='juego'] ::selection {
+:is([data-tema='juego'], [data-tema='claro']) ::selection {
   background: rgba(255, 79, 163, 0.45);
   color: #fff;
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  [data-tema='juego'] .tarjeta,
-  [data-tema='juego'] .barra {
+  :is([data-tema='juego'], [data-tema='claro']) .tarjeta,
+  :is([data-tema='juego'], [data-tema='claro']) .barra {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     background: var(--superficie-1);
@@ -138,7 +138,7 @@
 }
 
 /* ---------------------------------------------------------------- la oficina virtual con neón rosa (su lima de marca) */
-[data-tema='juego'] .of-boton--primario {
+:is([data-tema='juego'], [data-tema='claro']) .of-boton--primario {
   background: var(--acento-boton);
   color: var(--texto-sobre-acento);
   box-shadow: 0 6px 18px -6px rgba(255, 79, 163, 0.75);
@@ -146,121 +146,121 @@
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
-[data-tema='juego'] .of-boton--primario:hover {
+:is([data-tema='juego'], [data-tema='claro']) .of-boton--primario:hover {
   background: var(--acento-boton-hover);
 }
-[data-tema='juego'] .of-vista--activa {
+:is([data-tema='juego'], [data-tema='claro']) .of-vista--activa {
   background: rgba(255, 79, 163, 0.18);
   color: #ffd0e8;
   box-shadow: inset 0 0 0 1px rgba(255, 79, 163, 0.5);
 }
-[data-tema='juego'] .of-cabeza__sobre,
-[data-tema='juego'] .of-recorrido__paso {
+:is([data-tema='juego'], [data-tema='claro']) .of-cabeza__sobre,
+:is([data-tema='juego'], [data-tema='claro']) .of-recorrido__paso {
   color: var(--cian);
 }
-[data-tema='juego'] .of-marca__logo,
-[data-tema='juego'] .of-plano__logo {
+:is([data-tema='juego'], [data-tema='claro']) .of-marca__logo,
+:is([data-tema='juego'], [data-tema='claro']) .of-plano__logo {
   color: #ff4fa3;
   box-shadow: 0 0 0 2px #ff4fa3, 0 0 22px rgba(255, 79, 163, 0.5);
 }
-[data-tema='juego'] .o3-icono__circulo,
-[data-tema='juego'] .of-ico {
+:is([data-tema='juego'], [data-tema='claro']) .o3-icono__circulo,
+:is([data-tema='juego'], [data-tema='claro']) .of-ico {
   border-color: #ff4fa3;
   box-shadow: 0 0 0 3px rgba(255, 79, 163, 0.14), 0 6px 14px rgba(0, 0, 0, 0.35);
 }
-[data-tema='juego'] .o3-icono--recibiendo .o3-icono__circulo,
-[data-tema='juego'] .o3-icono--enviando .o3-icono__circulo,
-[data-tema='juego'] .o3-icono--completado .o3-icono__circulo {
+:is([data-tema='juego'], [data-tema='claro']) .o3-icono--recibiendo .o3-icono__circulo,
+:is([data-tema='juego'], [data-tema='claro']) .o3-icono--enviando .o3-icono__circulo,
+:is([data-tema='juego'], [data-tema='claro']) .o3-icono--completado .o3-icono__circulo {
   box-shadow: 0 0 0 6px rgba(41, 240, 220, 0.25), 0 0 18px #29f0dc;
 }
-[data-tema='juego'] .of-trabajo--elegido {
+:is([data-tema='juego'], [data-tema='claro']) .of-trabajo--elegido {
   border-color: #ff4fa3;
   box-shadow: 0 0 0 2px rgba(255, 79, 163, 0.25);
 }
-[data-tema='juego'] .of-leyenda__verde,
-[data-tema='juego'] .of-dep__vivo {
+:is([data-tema='juego'], [data-tema='claro']) .of-leyenda__verde,
+:is([data-tema='juego'], [data-tema='claro']) .of-dep__vivo {
   background: #29f0dc;
   box-shadow: 0 0 8px #29f0dc;
 }
-[data-tema='juego'] .of-toast {
+:is([data-tema='juego'], [data-tema='claro']) .of-toast {
   color: #14051f;
   background: var(--acento-boton);
   box-shadow: 0 12px 34px -8px rgba(255, 79, 163, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.35) inset;
 }
-[data-tema='juego'] .of-minimapa__logo {
+:is([data-tema='juego'], [data-tema='claro']) .of-minimapa__logo {
   stroke: #ff4fa3;
 }
 
 /* CIUDAD CREATIVA · 23 noviembre. Cartel ilustrado, tinta, encuadres y menús de juego.
    Solo interfaz: no entra en la composición de Remotion ni cambia imágenes/anuncios exportados. */
-[data-tema='juego'] {
+:is([data-tema='juego'], [data-tema='claro']) {
   --ciudad-tinta: #090610;
   --ciudad-papel: #fff4e9;
   --ciudad-rosa: #ff73b8;
   --ciudad-dorado: #ffc774;
   --ciudad-turquesa: #69eadb;
 }
-[data-tema='juego'] body::before {
+:is([data-tema='juego'], [data-tema='claro']) body::before {
   background: radial-gradient(ellipse at 100% 0%, #45244860, transparent 52%), linear-gradient(155deg, #17101f, #100d18 65%, #22132c);
 }
-[data-tema='juego'] body::after { opacity: .28; }
-[data-tema='juego'] .principal__contenido { position: relative; }
-[data-tema='juego'] .pagina { padding-top: 28px; }
-[data-tema='juego'] .cabecera-pagina__titulo {
+:is([data-tema='juego'], [data-tema='claro']) body::after { opacity: .28; }
+:is([data-tema='juego'], [data-tema='claro']) .principal__contenido { position: relative; }
+:is([data-tema='juego'], [data-tema='claro']) .pagina { padding-top: 28px; }
+:is([data-tema='juego'], [data-tema='claro']) .cabecera-pagina__titulo {
   background: none; color: var(--ciudad-papel); filter: none;
   font-weight: 800; font-style: normal; letter-spacing: -.045em;
   text-shadow: 3px 3px 0 #090610, 0 0 25px #ff4fa315;
   line-height: 1.05;
 }
-[data-tema='juego'] .cabecera-pagina__descripcion { max-width: 64ch; color: var(--texto-2); }
-[data-tema='juego'] .cabecera-pagina__sobre { font: 500 10px/1.5 var(--fuente-mono); letter-spacing: .13em; font-style: normal; text-shadow: none; }
-[data-tema='juego'] .cabecera-pagina__texto { border-left: 4px solid var(--acento); padding-left: 16px; }
-[data-tema='juego'] :is(.tarjeta, .ini-tarjeta, .ini-cifra, .estado-vacio, .img-form, .img-resumen__tarjeta) {
+:is([data-tema='juego'], [data-tema='claro']) .cabecera-pagina__descripcion { max-width: 64ch; color: var(--texto-2); }
+:is([data-tema='juego'], [data-tema='claro']) .cabecera-pagina__sobre { font: 500 10px/1.5 var(--fuente-mono); letter-spacing: .13em; font-style: normal; text-shadow: none; }
+:is([data-tema='juego'], [data-tema='claro']) .cabecera-pagina__texto { border-left: 4px solid var(--acento); padding-left: 16px; }
+:is([data-tema='juego'], [data-tema='claro']) :is(.tarjeta, .ini-tarjeta, .ini-cifra, .estado-vacio, .img-form, .img-resumen__tarjeta) {
   background: linear-gradient(145deg, #292032, #1b1625);
   border: 1px solid #8b719c42;
   box-shadow: 0 4px 0 var(--ciudad-tinta), inset 0 1px 0 #ffffff07;
   backdrop-filter: none; -webkit-backdrop-filter: none;
 }
-[data-tema='juego'] .tarjeta--destacada { border-color: #ff73b87a; }
-[data-tema='juego'] .tarjeta--interactiva:hover { border-color: var(--ciudad-rosa); box-shadow: 0 5px 0 var(--ciudad-tinta), 0 0 22px #ff73b817; transform: translateY(-2px); }
-[data-tema='juego'] :is(.boton--primario, .boton--marca) {
+:is([data-tema='juego'], [data-tema='claro']) .tarjeta--destacada { border-color: #ff73b87a; }
+:is([data-tema='juego'], [data-tema='claro']) .tarjeta--interactiva:hover { border-color: var(--ciudad-rosa); box-shadow: 0 5px 0 var(--ciudad-tinta), 0 0 22px #ff73b817; transform: translateY(-2px); }
+:is([data-tema='juego'], [data-tema='claro']) :is(.boton--primario, .boton--marca) {
   clip-path: none; border: 2px solid var(--ciudad-tinta); border-radius: 4px;
   background: var(--ciudad-rosa); color: #1c0b1a;
   font: 800 13px/1 var(--fuente-ui); text-transform: uppercase; letter-spacing: .025em;
   box-shadow: 3px 3px 0 var(--ciudad-tinta); text-shadow: none;
 }
-[data-tema='juego'] :is(.boton--primario, .boton--marca):hover:not(:disabled) { background: #ff9aca; box-shadow: 4px 5px 0 var(--ciudad-tinta); transform: translate(-1px, -1px); }
-[data-tema='juego'] :is(.boton--primario, .boton--marca):focus-visible { outline: 2px solid var(--ciudad-turquesa); outline-offset: 4px; }
-[data-tema='juego'] .boton--secundario { background: #211a2b; border: 1px solid #9d84b355; box-shadow: 2px 2px 0 var(--ciudad-tinta); }
-[data-tema='juego'] .boton--secundario:hover:not(:disabled) { border-color: var(--ciudad-turquesa); background: #30243c; box-shadow: 2px 3px 0 var(--ciudad-tinta); }
-[data-tema='juego'] :is(.campo__entrada, .campo__area, .campo__select) { border-radius: 4px; background: #110e19; border-color: #7a638e66; box-shadow: inset 0 2px 4px #0005; }
-[data-tema='juego'] .campo__entrada:focus { box-shadow: 0 0 0 2px #ff73b833; }
-[data-tema='juego'] .modal { background: #1c1528; border: 2px solid #9a6da8; box-shadow: 8px 8px 0 #08050dd9; }
-[data-tema='juego'] :is(.pestanas__item--activa, .chip--seleccionado) { box-shadow: inset 0 -3px 0 var(--ciudad-rosa); }
-[data-tema='juego'] .barra-progreso { border-radius: 2px; }
+:is([data-tema='juego'], [data-tema='claro']) :is(.boton--primario, .boton--marca):hover:not(:disabled) { background: #ff9aca; box-shadow: 4px 5px 0 var(--ciudad-tinta); transform: translate(-1px, -1px); }
+:is([data-tema='juego'], [data-tema='claro']) :is(.boton--primario, .boton--marca):focus-visible { outline: 2px solid var(--ciudad-turquesa); outline-offset: 4px; }
+:is([data-tema='juego'], [data-tema='claro']) .boton--secundario { background: #211a2b; border: 1px solid #9d84b355; box-shadow: 2px 2px 0 var(--ciudad-tinta); }
+:is([data-tema='juego'], [data-tema='claro']) .boton--secundario:hover:not(:disabled) { border-color: var(--ciudad-turquesa); background: #30243c; box-shadow: 2px 3px 0 var(--ciudad-tinta); }
+:is([data-tema='juego'], [data-tema='claro']) :is(.campo__entrada, .campo__area, .campo__select) { border-radius: 4px; background: #110e19; border-color: #7a638e66; box-shadow: inset 0 2px 4px #0005; }
+:is([data-tema='juego'], [data-tema='claro']) .campo__entrada:focus { box-shadow: 0 0 0 2px #ff73b833; }
+:is([data-tema='juego'], [data-tema='claro']) .modal { background: #1c1528; border: 2px solid #9a6da8; box-shadow: 8px 8px 0 #08050dd9; }
+:is([data-tema='juego'], [data-tema='claro']) :is(.pestanas__item--activa, .chip--seleccionado) { box-shadow: inset 0 -3px 0 var(--ciudad-rosa); }
+:is([data-tema='juego'], [data-tema='claro']) .barra-progreso { border-radius: 2px; }
 
 /* Navegación: señales numeradas, paleta de tinta y una franja de atardecer. */
-[data-tema='juego'] .menu {
+:is([data-tema='juego'], [data-tema='claro']) .menu {
   background: linear-gradient(180deg, #1c1326, #110d18 52%);
   border-right: 2px solid #090610;
   box-shadow: 5px 0 0 #0002;
 }
-[data-tema='juego'] .menu::before { content: ''; height: 4px; flex: none; background: var(--marca-degradado); margin: -14px -12px 0; }
-[data-tema='juego'] .menu__nombre { font-family: var(--fuente-titulo); font-weight: 800; font-size: 21px; letter-spacing: -.06em; }
-[data-tema='juego'] .menu__nombre-ia { background: none; color: var(--ciudad-rosa); }
-[data-tema='juego'] .menu__marca svg { filter: none; }
-[data-tema='juego'] .menu__lema { letter-spacing: .06em; }
-[data-tema='juego'] .nav__item { border-radius: 4px; transition: background 150ms ease, transform 150ms ease; }
-[data-tema='juego'] .nav__item:hover { background: #ff73b80b; transform: translateX(2px); }
-[data-tema='juego'] .nav__item--activo, [data-tema='juego'] .nav__item--activo:hover {
+:is([data-tema='juego'], [data-tema='claro']) .menu::before { content: ''; height: 4px; flex: none; background: var(--marca-degradado); margin: -14px -12px 0; }
+:is([data-tema='juego'], [data-tema='claro']) .menu__nombre { font-family: var(--fuente-titulo); font-weight: 800; font-size: 21px; letter-spacing: -.06em; }
+:is([data-tema='juego'], [data-tema='claro']) .menu__nombre-ia { background: none; color: var(--ciudad-rosa); }
+:is([data-tema='juego'], [data-tema='claro']) .menu__marca svg { filter: none; }
+:is([data-tema='juego'], [data-tema='claro']) .menu__lema { letter-spacing: .06em; }
+:is([data-tema='juego'], [data-tema='claro']) .nav__item { border-radius: 4px; transition: background 150ms ease, transform 150ms ease; }
+:is([data-tema='juego'], [data-tema='claro']) .nav__item:hover { background: #ff73b80b; transform: translateX(2px); }
+:is([data-tema='juego'], [data-tema='claro']) .nav__item--activo, :is([data-tema='juego'], [data-tema='claro']) .nav__item--activo:hover {
   color: var(--ciudad-papel); background: linear-gradient(100deg, #ff73b827, #bc77ff0d);
   border: 1px solid #ff73b841; font-size: 13px; font-weight: 700; font-style: normal; text-transform: none; letter-spacing: 0;
 }
-[data-tema='juego'] .nav__item--activo .nav__icono { color: var(--ciudad-rosa); }
-[data-tema='juego'] .nav__item--especial { background: var(--ciudad-rosa); color: #1c0b1a; border: 2px solid var(--ciudad-tinta); box-shadow: 3px 3px 0 #090610; text-transform: uppercase; font-size: 12px; letter-spacing: .05em; }
-[data-tema='juego'] .nav__item--especial:hover { background: #ff9aca; color: #1c0b1a; }
-[data-tema='juego'] .barra { background: #140f1eea; border-bottom: 1px solid #76518844; }
-[data-tema='juego'] .barra__migas { font-size: 12px; }
+:is([data-tema='juego'], [data-tema='claro']) .nav__item--activo .nav__icono { color: var(--ciudad-rosa); }
+:is([data-tema='juego'], [data-tema='claro']) .nav__item--especial { background: var(--ciudad-rosa); color: #1c0b1a; border: 2px solid var(--ciudad-tinta); box-shadow: 3px 3px 0 #090610; text-transform: uppercase; font-size: 12px; letter-spacing: .05em; }
+:is([data-tema='juego'], [data-tema='claro']) .nav__item--especial:hover { background: #ff9aca; color: #1c0b1a; }
+:is([data-tema='juego'], [data-tema='claro']) .barra { background: #140f1eea; border-bottom: 1px solid #76518844; }
+:is([data-tema='juego'], [data-tema='claro']) .barra__migas { font-size: 12px; }
 
 /* El cartel principal: una sola ilustración local ligera, texto HTML real y acciones accesibles. */
 .ciudad-portada {
@@ -301,24 +301,24 @@
 .ciudad-mision:focus-visible { outline: 2px solid var(--detalle); outline-offset: 3px; }
 .ciudad-separador { display: flex; justify-content: space-between; align-items: center; gap: 16px; font: 600 10px/1.4 var(--fuente-mono); letter-spacing: .12em; color: var(--texto-3); }
 .ciudad-separador > span:first-child { color: var(--ciudad-papel); }
-[data-tema='juego'] .ini-cifra { padding-top: 22px; }
-[data-tema='juego'] .ini-cifra__valor { font-family: var(--fuente-titulo); font-weight: 800; font-size: 38px; letter-spacing: -.055em; }
-[data-tema='juego'] .ini-cifra::before { width: 100%; height: 3px; inset: 0 0 auto; }
-[data-tema='juego'] .ini-tarjeta__titulo { color: var(--ciudad-papel); }
-[data-tema='juego'] .ini-segmentos { border-radius: 4px; background: #0f0b18; }
-[data-tema='juego'] .ini-segmentos__boton { border-radius: 2px; }
-[data-tema='juego'] .ini-segmentos__boton--activo { background: #ff73b82b; color: var(--ciudad-rosa); }
+:is([data-tema='juego'], [data-tema='claro']) .ini-cifra { padding-top: 22px; }
+:is([data-tema='juego'], [data-tema='claro']) .ini-cifra__valor { font-family: var(--fuente-titulo); font-weight: 800; font-size: 38px; letter-spacing: -.055em; }
+:is([data-tema='juego'], [data-tema='claro']) .ini-cifra::before { width: 100%; height: 3px; inset: 0 0 auto; }
+:is([data-tema='juego'], [data-tema='claro']) .ini-tarjeta__titulo { color: var(--ciudad-papel); }
+:is([data-tema='juego'], [data-tema='claro']) .ini-segmentos { border-radius: 4px; background: #0f0b18; }
+:is([data-tema='juego'], [data-tema='claro']) .ini-segmentos__boton { border-radius: 2px; }
+:is([data-tema='juego'], [data-tema='claro']) .ini-segmentos__boton--activo { background: #ff73b82b; color: var(--ciudad-rosa); }
 
 /* El resto de la ciudad: galerías, formularios y oficina usan la misma gramática visual. */
-[data-tema='juego'] :is(.img-grupo__n, .paso__numero) { background: #ff73b824; color: var(--ciudad-rosa); border-color: #ff73b84d; border-radius: 3px; }
-[data-tema='juego'] :is(.img-producto__chip, .img-filtro__chip) { border-radius: 5px; }
-[data-tema='juego'] :is(.miniatura-video, .estilo-tarjeta, .anuncio-tarjeta) { border: 2px solid #090610; box-shadow: 4px 4px 0 #090610; }
-[data-tema='juego'] .of-cabeza__titulo { font-family: var(--fuente-titulo); font-weight: 800; text-transform: uppercase; letter-spacing: -.04em; text-shadow: 3px 3px 0 #090610; }
-[data-tema='juego'] .of-vidrio { border-radius: 5px; background: #1a1128e8; border: 1px solid #9a71b158; box-shadow: 3px 3px 0 #090610; }
-[data-tema='juego'] .of-boton { border-radius: 4px; }
-[data-tema='juego'] .of-boton--primario { background: var(--ciudad-rosa); box-shadow: 3px 3px 0 #090610; color: #1c0b1a; }
-[data-tema='juego'] .of-minimapa { border: 3px solid #090610; border-radius: 4px; box-shadow: 0 0 0 1px #69eadb66; }
-[data-tema='juego'] .of-equipo { background: #1a1128; border-radius: 5px; border: 1px solid #9a71b158; }
+:is([data-tema='juego'], [data-tema='claro']) :is(.img-grupo__n, .paso__numero) { background: #ff73b824; color: var(--ciudad-rosa); border-color: #ff73b84d; border-radius: 3px; }
+:is([data-tema='juego'], [data-tema='claro']) :is(.img-producto__chip, .img-filtro__chip) { border-radius: 5px; }
+:is([data-tema='juego'], [data-tema='claro']) :is(.miniatura-video, .estilo-tarjeta, .anuncio-tarjeta) { border: 2px solid #090610; box-shadow: 4px 4px 0 #090610; }
+:is([data-tema='juego'], [data-tema='claro']) .of-cabeza__titulo { font-family: var(--fuente-titulo); font-weight: 800; text-transform: uppercase; letter-spacing: -.04em; text-shadow: 3px 3px 0 #090610; }
+:is([data-tema='juego'], [data-tema='claro']) .of-vidrio { border-radius: 5px; background: #1a1128e8; border: 1px solid #9a71b158; box-shadow: 3px 3px 0 #090610; }
+:is([data-tema='juego'], [data-tema='claro']) .of-boton { border-radius: 4px; }
+:is([data-tema='juego'], [data-tema='claro']) .of-boton--primario { background: var(--ciudad-rosa); box-shadow: 3px 3px 0 #090610; color: #1c0b1a; }
+:is([data-tema='juego'], [data-tema='claro']) .of-minimapa { border: 3px solid #090610; border-radius: 4px; box-shadow: 0 0 0 1px #69eadb66; }
+:is([data-tema='juego'], [data-tema='claro']) .of-equipo { background: #1a1128; border-radius: 5px; border: 1px solid #9a71b158; }
 
 @media (min-width: 1650px) { .ciudad-portada { min-height: 480px; } }
 @media (max-width: 1150px) {
@@ -345,33 +345,81 @@
   .ciudad-separador > span:last-child { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ciudad-mision, [data-tema='juego'] .nav__item, [data-tema='juego'] .boton { transition: none; }
-  .ciudad-mision:hover, [data-tema='juego'] .nav__item:hover { transform: none; }
+  .ciudad-mision, :is([data-tema='juego'], [data-tema='claro']) .nav__item, :is([data-tema='juego'], [data-tema='claro']) .boton { transition: none; }
+  .ciudad-mision:hover, :is([data-tema='juego'], [data-tema='claro']) .nav__item:hover { transform: none; }
 }
 @media print {
   .ciudad-portada, .ciudad-misiones, .ciudad-separador { display: none; }
 }
 
 /* Chrome del editor y la coordinadora: continúa el tema; el lienzo de video queda neutro. */
-[data-tema='juego'] :is(.ed-barra, .ed-panel) { background: #1b1426; border-color: #82609344; }
-[data-tema='juego'] .ed-escenario { background: #090909; }
-[data-tema='juego'] .ed-escenario::before { background: none; }
-[data-tema='juego'] .avc__burbuja { background: linear-gradient(140deg, #ffe6ce, #ff91c5); border: 2px solid #090610; border-radius: 12px; box-shadow: 4px 4px 0 #090610, 0 0 0 1px #ff73b8; }
-[data-tema='juego'] .avc__tarjeta { background: #22172e; border: 1px solid #b37ca0; border-radius: 5px; box-shadow: 5px 5px 0 #090610; }
-[data-tema='juego'] .avc__dale { background: var(--ciudad-rosa); border-radius: 4px; }
+:is([data-tema='juego'], [data-tema='claro']) :is(.ed-barra, .ed-panel) { background: #1b1426; border-color: #82609344; }
+:is([data-tema='juego'], [data-tema='claro']) .ed-escenario { background: #090909; }
+:is([data-tema='juego'], [data-tema='claro']) .ed-escenario::before { background: none; }
+:is([data-tema='juego'], [data-tema='claro']) .avc__burbuja { background: linear-gradient(140deg, #ffe6ce, #ff91c5); border: 2px solid #090610; border-radius: 12px; box-shadow: 4px 4px 0 #090610, 0 0 0 1px #ff73b8; }
+:is([data-tema='juego'], [data-tema='claro']) .avc__tarjeta { background: #22172e; border: 1px solid #b37ca0; border-radius: 5px; box-shadow: 5px 5px 0 #090610; }
+:is([data-tema='juego'], [data-tema='claro']) .avc__dale { background: var(--ciudad-rosa); border-radius: 4px; }
 
 /* Los formularios del agente y la oficina tenían acentos lima propios fuera de los tokens. */
-[data-tema='juego'] .img-agente { border: 2px solid var(--ciudad-tinta); border-radius: 6px; background: #21182c; box-shadow: 4px 4px 0 var(--ciudad-tinta); }
-[data-tema='juego'] :is(.enc-modos button, .enc-productos button, .enc-chips button) { border-radius: 4px; }
-[data-tema='juego'] :is(.enc-modos button.activo, .enc-productos button.activo, .enc-chips button.activo, .enc-funciona button.activo) { border-color: var(--ciudad-rosa); background: #ff73b818; box-shadow: 0 0 0 2px #ff73b81c; }
-[data-tema='juego'] :is(.enc-intro svg, .enc-modos button.activo svg) { color: var(--ciudad-rosa); }
-[data-tema='juego'] .enc-intro { background: #ff73b80d; border-color: #ff73b844; border-radius: 4px; }
-[data-tema='juego'] .enc-elegidos img { border-color: var(--ciudad-rosa); border-radius: 4px; }
-[data-tema='juego'] .miniatura__marco { border: 2px solid var(--ciudad-tinta); border-radius: 5px; box-shadow: 4px 4px 0 var(--ciudad-tinta); }
-[data-tema='juego'] .miniatura__titulo { font-family: var(--fuente-titulo); font-size: 17px; font-weight: 800; }
-[data-tema='juego'] .es2-insignia { background: #130c20e0; border-radius: 3px; border: 1px solid #ff73b84d; }
-[data-tema='juego'] .of-escenario { border-radius: 6px; border: 3px solid var(--ciudad-tinta); box-shadow: 5px 5px 0 var(--ciudad-tinta); }
-[data-tema='juego'] .of-escena { background: #1a1128eb; border-left-color: var(--ciudad-rosa); border-radius: 4px; }
-[data-tema='juego'] .of-escena__sobre { color: var(--ciudad-rosa); }
-[data-tema='juego'] .of-escena__etiqueta { color: #ffd2e9; border-color: #ff73b866; }
-[data-tema='juego'] .of-recorrido__puntos .activo { background: var(--ciudad-rosa); }
+:is([data-tema='juego'], [data-tema='claro']) .img-agente { border: 2px solid var(--ciudad-tinta); border-radius: 6px; background: #21182c; box-shadow: 4px 4px 0 var(--ciudad-tinta); }
+:is([data-tema='juego'], [data-tema='claro']) :is(.enc-modos button, .enc-productos button, .enc-chips button) { border-radius: 4px; }
+:is([data-tema='juego'], [data-tema='claro']) :is(.enc-modos button.activo, .enc-productos button.activo, .enc-chips button.activo, .enc-funciona button.activo) { border-color: var(--ciudad-rosa); background: #ff73b818; box-shadow: 0 0 0 2px #ff73b81c; }
+:is([data-tema='juego'], [data-tema='claro']) :is(.enc-intro svg, .enc-modos button.activo svg) { color: var(--ciudad-rosa); }
+:is([data-tema='juego'], [data-tema='claro']) .enc-intro { background: #ff73b80d; border-color: #ff73b844; border-radius: 4px; }
+:is([data-tema='juego'], [data-tema='claro']) .enc-elegidos img { border-color: var(--ciudad-rosa); border-radius: 4px; }
+:is([data-tema='juego'], [data-tema='claro']) .miniatura__marco { border: 2px solid var(--ciudad-tinta); border-radius: 5px; box-shadow: 4px 4px 0 var(--ciudad-tinta); }
+:is([data-tema='juego'], [data-tema='claro']) .miniatura__titulo { font-family: var(--fuente-titulo); font-size: 17px; font-weight: 800; }
+:is([data-tema='juego'], [data-tema='claro']) .es2-insignia { background: #130c20e0; border-radius: 3px; border: 1px solid #ff73b84d; }
+:is([data-tema='juego'], [data-tema='claro']) .of-escenario { border-radius: 6px; border: 3px solid var(--ciudad-tinta); box-shadow: 5px 5px 0 var(--ciudad-tinta); }
+:is([data-tema='juego'], [data-tema='claro']) .of-escena { background: #1a1128eb; border-left-color: var(--ciudad-rosa); border-radius: 4px; }
+:is([data-tema='juego'], [data-tema='claro']) .of-escena__sobre { color: var(--ciudad-rosa); }
+:is([data-tema='juego'], [data-tema='claro']) .of-escena__etiqueta { color: #ffd2e9; border-color: #ff73b866; }
+:is([data-tema='juego'], [data-tema='claro']) .of-recorrido__puntos .activo { background: var(--ciudad-rosa); }
+
+/* La misma ciudad con luz de día: papel lila, tinta ciruela y acentos de atardecer. */
+[data-tema='claro'] { --ciudad-tinta: #3b2546; --ciudad-papel: #291930; --ciudad-rosa: #ff8ec6; --ciudad-dorado: #ffd496; --ciudad-turquesa: #087c79; }
+[data-tema='claro'] body::before { background: radial-gradient(ellipse at 100% 0, #f5b9dd66, transparent 55%), linear-gradient(155deg, #fff7ee, #f5eff8 60%, #e9def6); }
+[data-tema='claro'] body::after { opacity: .07; }
+[data-tema='claro'] .cabecera-pagina__titulo { color: var(--texto-1); text-shadow: none; }
+[data-tema='claro'] .cabecera-pagina__sobre { color: var(--acento); }
+[data-tema='claro'] :is(.tarjeta, .ini-tarjeta, .ini-cifra, .estado-vacio, .img-form, .img-resumen__tarjeta) { background: linear-gradient(145deg, #fffaff, #f7effa); border-color: #75478833; box-shadow: 0 3px 0 #b79ac266; }
+[data-tema='claro'] .tarjeta--interactiva:hover { border-color: var(--acento); box-shadow: 0 4px 0 #b79ac288; }
+[data-tema='claro'] :is(.boton--primario, .boton--marca) { border-color: #713c61; box-shadow: 3px 3px 0 #713c6133; }
+[data-tema='claro'] :is(.boton--primario, .boton--marca):hover:not(:disabled) { background: #ffa6d1; box-shadow: 4px 5px 0 #713c6133; }
+[data-tema='claro'] .boton--secundario { background: #fff9fd; border-color: #6c427544; box-shadow: 2px 2px 0 #b79ac244; }
+[data-tema='claro'] .boton--secundario:hover:not(:disabled) { background: #f2e5f6; border-color: var(--acento); box-shadow: 2px 3px 0 #b79ac266; }
+[data-tema='claro'] :is(.campo__entrada, .campo__area, .campo__select) { background: #fffaff; border-color: #6c427544; box-shadow: inset 0 1px 3px #35194309; }
+[data-tema='claro'] .modal { background: #fff9fd; border-color: #a07bac; box-shadow: 7px 7px 0 #3b254633; }
+[data-tema='claro'] .menu { background: linear-gradient(180deg, #fff8fc, #f5eaf8); border-right-color: #b79ac266; box-shadow: 4px 0 0 #b79ac211; }
+[data-tema='claro'] .menu__nombre-ia { color: var(--acento); }
+[data-tema='claro'] .nav__item--activo, [data-tema='claro'] .nav__item--activo:hover { color: #601f4b; background: linear-gradient(100deg, #f9d4e9, #eeddf7); border-color: #b82d7733; }
+[data-tema='claro'] .nav__item--activo .nav__icono { color: var(--acento); }
+[data-tema='claro'] .nav__item--especial { color: #291930; border-color: #713c61; box-shadow: 3px 3px 0 #713c6133; }
+[data-tema='claro'] .barra { background: #fff9fdea; border-color: #b79ac244; }
+[data-tema='claro'] .ciudad-portada { border-color: #3b2546; box-shadow: 6px 7px 0 #b79ac288; }
+[data-tema='claro'] .ciudad-portada::before { background: linear-gradient(90deg, #fff8f5ff, #fff1f5e8 35%, #fcecf65c 62%, transparent 80%); }
+[data-tema='claro'] .ciudad-portada::after { background: linear-gradient(0deg, #fff1f7e0, transparent 27%, transparent 82%, #fff1f7d0); }
+[data-tema='claro'] .ciudad-portada__superior { color: #59375b; }
+[data-tema='claro'] .ciudad-portada__superior > span:first-child { color: #086d6b; }
+[data-tema='claro'] .ciudad-portada h1 { color: #2f1939; text-shadow: 2px 2px 0 #fff9fd; }
+[data-tema='claro'] .ciudad-portada h1 em { color: #ac2468; }
+[data-tema='claro'] .ciudad-portada p { color: #594460; }
+[data-tema='claro'] .ciudad-portada__acciones .boton--secundario { color: #3b2546; background: #fff8f5e8; }
+[data-tema='claro'] .ciudad-portada__inferior { background: #fff5f5d9; border-color: #3b254633; }
+[data-tema='claro'] .ciudad-portada__inferior > span { color: #85500c; }
+[data-tema='claro'] .ciudad-portada__inferior a { color: #3b2546; }
+[data-tema='claro'] .ciudad-mision { --panel: #ffdae9; --detalle: #ac2468; color: #291930; background: linear-gradient(125deg, var(--panel), #fff9fd); border-color: #775382; box-shadow: 4px 4px 0 #b79ac288; }
+[data-tema='claro'] .ciudad-mision--imagen { --panel: #caeee8; --detalle: #086d6b; }
+[data-tema='claro'] .ciudad-mision--investiga { --panel: #ffe3ba; --detalle: #85500c; }
+[data-tema='claro'] .ciudad-mision::before { border-left-color: #77538266; }
+[data-tema='claro'] .ciudad-mision p { color: #594460; }
+[data-tema='claro'] .ciudad-separador { color: #735c7a; border-color: #77538244; }
+[data-tema='claro'] :is(.of-vidrio, .of-equipo, .of-escena) { background: #fff9fdf5; border-color: #a07bac55; box-shadow: 3px 3px 0 #b79ac255; }
+[data-tema='claro'] .of-cabeza__titulo { text-shadow: none; }
+[data-tema='claro'] .of-escena__etiqueta, [data-tema='claro'] .of-escena__sobre { color: #ac2468; }
+[data-tema='claro'] :is(.avc__tarjeta, .img-agente) { background: #fff9fd; border-color: #a07bac; box-shadow: 4px 4px 0 #b79ac255; }
+[data-tema='claro'] .enc-intro { background: #fae3ef; border-color: #b82d7744; }
+[data-tema='claro'] .enc-intro svg, [data-tema='claro'] .enc-modos button.activo svg { color: var(--acento); }
+[data-tema='claro'] .es2-insignia { background: #fff9fdf0; color: #ac2468; }
+[data-tema='claro'] :is(.img-grupo__n, .paso__numero) { color: #ac2468; }
+[data-tema='claro'] .sh-negocio { box-shadow: 4px 4px 0 #b79ac255; }

@@ -26,6 +26,7 @@ const Productos = lazy(() => import('./pantallas/productos/index.jsx'));
 const EmbudoWhatsapp = lazy(() => import('./pantallas/proximamente/index.jsx').then((m) => ({ default: m.EmbudoWhatsapp })));
 const Landings = lazy(() => import('./pantallas/landings/index.jsx'));
 const Sep = lazy(() => import('./pantallas/sep/index.jsx'));
+const TrabajosTiendas = lazy(() => import('./pantallas/landings/TrabajosTiendas.jsx'));
 const Shopify = lazy(() => import('./pantallas/shopify/index.jsx'));
 const Carpetas = lazy(() => import('./pantallas/carpetas/index.jsx'));
 const Tablero = lazy(() => import('./pantallas/tablero/index.jsx'));
@@ -64,8 +65,10 @@ export const RUTAS = [
   { patron: '/inicio', Pantalla: Inicio, menu: 'inicio', titulo: 'Inicio', migas: () => [{ texto: 'Inicio' }] },
   { patron: '/oficina', Pantalla: Oficina, menu: 'oficina', titulo: 'Oficina virtual', migas: () => [{ texto: 'Oficina virtual' }] },
   { patron: '/embudo-whatsapp', Pantalla: EmbudoWhatsapp, menu: 'whatsapp', titulo: 'Embudo WhatsApp', migas: () => [{ texto: 'Embudo WhatsApp' }] },
+  { patron: '/landings/tiendas', Pantalla: TrabajosTiendas, menu: 'landings', titulo: 'Cambios en tiendas', migas: () => [{ texto: 'Landings', href: enlace.landings() }, { texto: 'Cambios en tiendas' }] },
   { patron: '/landings', Pantalla: Landings, menu: 'landings', titulo: 'Generador de Landings', migas: () => [{ texto: 'Generador de Landings' }] },
   { patron: '/sep', Pantalla: Sep, menu: 'sep', titulo: 'S.E.P', migas: () => [{ texto: 'S.E.P' }] },
+  { patron: '/shopify/:carpetaId', Pantalla: Shopify, menu: 'shopify', titulo: 'Tiendas del negocio', migas: () => [{ texto: 'Shopify', href: enlace.shopify() }, { texto: 'Mis tiendas' }] },
   { patron: '/shopify', Pantalla: Shopify, menu: 'shopify', titulo: 'Shopify', migas: () => [{ texto: 'Shopify' }] },
   { patron: '/carpetas', Pantalla: Carpetas, menu: 'carpetas', titulo: 'Carpetas', migas: () => [{ texto: 'Carpetas' }] },
   { patron: '/carpetas/:id', Pantalla: Carpetas, menu: 'carpetas', titulo: 'Carpeta', migas: () => [{ texto: 'Carpetas', href: enlace.carpetas() }, { texto: 'Carpeta' }] },

@@ -4,9 +4,9 @@ import { Seccion } from '../../componentes/index.js';
 import { elegirTema, useTema } from '../../datos/tema.js';
 
 const OPCIONES = [
-  { id: 'juego', texto: 'Juego', detalle: 'Ciudad creativa: ilustraciones, cómic y menús de videojuego', icono: Gamepad2 },
-  { id: 'claro', texto: 'Claro', detalle: 'Fondo blanco, ideal con mucha luz', icono: Sun },
-  { id: 'oscuro', texto: 'Oscuro', detalle: 'Fondo negro, sobrio', icono: Moon },
+  { id: 'juego', texto: 'Ciudad · oscuro', detalle: 'Predeterminado. Ilustraciones, noche y acentos de atardecer', icono: Gamepad2 },
+  { id: 'claro', texto: 'Ciudad · claro', detalle: 'La misma ciudad, con luz de día y superficies claras', icono: Sun },
+  { id: 'oscuro', texto: 'Oscuro clásico', detalle: 'La apariencia anterior, en negro y verde', icono: Moon },
   { id: 'auto', texto: 'Automático', detalle: 'Igual que tu computador (cambia solo)', icono: Monitor },
 ];
 

@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#C8FC80"/><stop offset=".55" stop-color="#9DF626"/><stop offset="1" stop-color="#7AD10E"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="16" fill="#0A0A0A"/><rect x="2.75" y="2.75" width="58.5" height="58.5" rx="15.25" fill="none" stroke="#9DF626" stroke-opacity=".3" stroke-width="1.5"/><path d="M21 14v36M42 15L26.5 32 42 49" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.5" cy="12.5" r="3.4" fill="url(#g)"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
+  <defs>
+    <linearGradient id="base" x1="8" y1="3" x2="86" y2="96" gradientUnits="userSpaceOnUse"><stop stop-color="#34213e"/><stop offset=".6" stop-color="#170f23"/><stop offset="1" stop-color="#0b0814"/></linearGradient>
+    <linearGradient id="atardecer" x1="23" y1="20" x2="76" y2="80" gradientUnits="userSpaceOnUse"><stop stop-color="#ffda92"/><stop offset=".42" stop-color="#ff91be"/><stop offset=".72" stop-color="#ee67be"/><stop offset="1" stop-color="#ac80f3"/></linearGradient>
+    <linearGradient id="borde" x1="6" y1="2" x2="93" y2="96" gradientUnits="userSpaceOnUse"><stop stop-color="#ffb7d8"/><stop offset=".48" stop-color="#bc87cf" stop-opacity=".5"/><stop offset="1" stop-color="#9268bf" stop-opacity=".15"/></linearGradient>
+  </defs>
+  <rect x="2" y="2" width="92" height="92" rx="23" fill="url(#base)" stroke="url(#borde)" stroke-width="2"/>
+  <path d="M12 30V25c0-7 6-13 13-13h30" stroke="#ffdae9" stroke-opacity=".16" stroke-width="2" stroke-linecap="round"/>
+  <path d="M23 24h14v22l21-22h18L51 50l26 28H58L37 55v23H23V24Z" fill="#09050f" transform="translate(0 3)"/>
+  <path d="M23 21h14v22l21-22h18L51 47l26 28H58L37 52v23H23V21Z" fill="url(#atardecer)"/>
+  <path d="m42 45 8-8-1 16-7-8Z" fill="#fff3eb" fill-opacity=".85"/>
+  <path d="M23 21h14M58 21h18" stroke="#fff1dc" stroke-opacity=".6" stroke-width="1.5"/>
+  <path d="M61 84h15" stroke="#74e9d7" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -70,3 +70,45 @@
 .sh-tienda__editar:hover { color: var(--acento); }
 .sh-enlace { display: flex; flex-direction: column; gap: var(--e-2); }
 .sh-enlace__url { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 6px 10px; border-radius: var(--r-s); background: var(--superficie-2); font-size: var(--t-mini); }
+
+/* Centro de conexiones: negocios → tiendas por país. */
+.sh-integraciones { max-width: 1420px; }
+.sh-carpeta-barra { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.sh-conteo { font: 500 13px/1.5 var(--fuente-mono); color: var(--texto-3); }
+.sh-carpeta-form { padding: 22px; display: flex; align-items: flex-end; flex-wrap: wrap; gap: 16px; background: var(--superficie-1); border: 1px solid var(--acento-borde); border-radius: var(--r-l); }
+.sh-carpeta-form > .campo { min-width: min(100%, 260px); flex: 1; }
+.sh-negocios { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 22px; }
+.sh-negocio { display: flex; flex-direction: column; gap: 18px; padding: 26px; min-height: 250px; position: relative; overflow: hidden; border: 1px solid var(--borde-3); border-radius: 8px; color: var(--texto-1); text-align: left; font: inherit; cursor: pointer; background: linear-gradient(125deg, var(--superficie-2), var(--superficie-1)); box-shadow: 4px 4px 0 var(--ciudad-tinta, #090610); transition: transform 160ms ease, border-color 160ms ease; }
+.sh-negocio::after { content: ''; position: absolute; top: -40px; right: -50px; width: 160px; height: 200px; transform: rotate(25deg); background: var(--acento-suave); border-left: 1px solid var(--acento-borde); pointer-events: none; }
+.sh-negocio:hover { transform: translateY(-3px); border-color: var(--acento); }
+.sh-negocio:focus-visible { outline: 3px solid var(--acento); outline-offset: 4px; }
+.sh-negocio__cabeza { display: flex; align-items: center; justify-content: space-between; color: var(--acento); z-index: 1; }
+.sh-negocio__cabeza > span { font: 500 12px/1.5 var(--fuente-mono); color: var(--texto-2); background: var(--superficie-1); padding: 4px 10px; border: 1px solid var(--borde-2); border-radius: 4px; }
+.sh-negocio > strong { font: 800 28px/1.15 var(--fuente-titulo); letter-spacing: -.04em; overflow-wrap: anywhere; z-index: 1; }
+.sh-negocio__paises { display: flex; flex-wrap: wrap; gap: 7px 14px; color: var(--texto-2); font-size: 14px; flex: 1; }
+.sh-negocio__abrir { font-size: 13px; color: var(--acento); font-weight: 700; border-top: 1px solid var(--borde-2); padding-top: 15px; }
+.sh-carpeta-resumen { display: flex; gap: 18px; align-items: center; padding: 24px; background: var(--acento-suave); border: 1px solid var(--acento-borde); border-radius: 8px; }
+.sh-carpeta-resumen__icono { display: grid; place-items: center; width: 58px; height: 58px; background: var(--superficie-1); border: 1px solid var(--acento-borde); border-radius: 8px; color: var(--acento); flex: none; }
+.sh-carpeta-resumen strong { font: 800 23px/1.3 var(--fuente-titulo); }
+.sh-carpeta-resumen p { margin: 4px 0 0; color: var(--texto-2); font-size: 14px; }
+.sh-carpeta-resumen__marca { margin-left: auto; display: flex; align-items: center; gap: 8px; color: var(--texto-2); font-size: 14px; }
+.sh-conexiones { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 390px), 1fr)); gap: 20px; }
+.sh-conexion { min-width: 0; padding: 22px; display: flex; flex-direction: column; gap: 20px; border: 1px solid var(--borde-2); border-radius: 8px; background: var(--superficie-1); }
+.sh-conexion__info { display: flex; align-items: flex-start; gap: 14px; }
+.sh-conexion__info > div { min-width: 0; flex: 1; }
+.sh-conexion__pais { font-size: 28px; padding-top: 5px; }
+.sh-conexion__mercado { font-size: 12px; letter-spacing: .06em; color: var(--texto-3); text-transform: uppercase; }
+.sh-conexion h2 { margin: 4px 0; font: 800 22px/1.2 var(--fuente-titulo); overflow-wrap: anywhere; }
+.sh-conexion p { margin: 6px 0 0; font-size: 13px; color: var(--texto-3); overflow-wrap: anywhere; }
+.sh-conexion__estado { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--ok); padding-top: 5px; white-space: nowrap; }
+.sh-conexion__meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.sh-conexion__meta > span { padding: 3px 9px; border-radius: 4px; background: var(--superficie-2); color: var(--texto-2); font-size: 12px; }
+.sh-conexion__acciones { display: flex; align-items: center; gap: 7px; border-top: 1px solid var(--borde-1); padding-top: 16px; flex-wrap: wrap; }
+.sh-carpeta-vacia { display: flex; gap: 18px; padding: 30px; border: 1px dashed var(--borde-3); border-radius: 8px; color: var(--texto-3); }
+.sh-carpeta-vacia svg { flex: none; color: var(--acento); }
+.sh-carpeta-vacia h2 { margin: 0 0 8px; font: 700 20px/1.2 var(--fuente-titulo); color: var(--texto-1); }
+.sh-carpeta-vacia p { margin: 0; font-size: 14px; line-height: 1.6; }
+.sh-integraciones > .campo { max-width: 300px; }
+.sh-integraciones .sh-editar { border: 1px solid var(--borde-2); border-radius: 5px; background: var(--superficie-2); }
+@media (max-width: 720px) { .sh-carpeta-resumen { padding: 18px; gap: 12px; } .sh-carpeta-resumen__marca { display: none; } .sh-conexion { padding: 16px; } .sh-conexion__info { gap: 10px; flex-wrap: wrap; } .sh-conectar__campos { grid-template-columns: 1fr; } .sh-conectar .sh-segmento { display: grid; } .sh-carpeta-form { padding: 16px; } }
+@media (prefers-reduced-motion: reduce) { .sh-negocio { transition: none; } }
