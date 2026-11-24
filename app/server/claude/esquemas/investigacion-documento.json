@@ -65,6 +65,193 @@
       }
     },
     "fuentes": { "type": "array", "minItems": 3, "maxItems": 80, "items": { "type": "object", "required": ["titulo", "url"], "properties": { "titulo": { "type": "string", "minLength": 1, "maxLength": 200 }, "url": { "type": "string", "minLength": 3, "maxLength": 600 } } } },
-    "nota_fuentes": { "type": "string", "maxLength": 600 }
+    "nota_fuentes": { "type": "string", "maxLength": 600 },
+    "embudo": {
+      "type": "object",
+      "required": [
+        "hero",
+        "dolor",
+        "beneficios",
+        "ingredientes",
+        "uso"
+      ],
+      "properties": {
+        "hero": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "required": [
+              "titulo",
+              "subtitulo"
+            ],
+            "properties": {
+              "titulo": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "subtitulo": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "elementos": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "type": "string",
+                  "maxLength": 500
+                }
+              },
+              "etiqueta": {
+                "type": "string",
+                "maxLength": 100
+              }
+            }
+          }
+        },
+        "dolor": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "required": [
+              "titulo",
+              "subtitulo"
+            ],
+            "properties": {
+              "titulo": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "subtitulo": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "elementos": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "type": "string",
+                  "maxLength": 500
+                }
+              },
+              "etiqueta": {
+                "type": "string",
+                "maxLength": 100
+              }
+            }
+          }
+        },
+        "beneficios": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "required": [
+              "titulo",
+              "subtitulo"
+            ],
+            "properties": {
+              "titulo": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "subtitulo": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "elementos": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "type": "string",
+                  "maxLength": 500
+                }
+              },
+              "etiqueta": {
+                "type": "string",
+                "maxLength": 100
+              }
+            }
+          }
+        },
+        "ingredientes": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "required": [
+              "titulo",
+              "subtitulo"
+            ],
+            "properties": {
+              "titulo": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "subtitulo": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "elementos": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "type": "string",
+                  "maxLength": 500
+                }
+              },
+              "etiqueta": {
+                "type": "string",
+                "maxLength": 100
+              }
+            }
+          }
+        },
+        "uso": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "required": [
+              "titulo",
+              "subtitulo"
+            ],
+            "properties": {
+              "titulo": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "subtitulo": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "elementos": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "type": "string",
+                  "maxLength": 500
+                }
+              },
+              "etiqueta": {
+                "type": "string",
+                "maxLength": 100
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

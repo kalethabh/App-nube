@@ -1,0 +1,62 @@
+// Opcional: EMBUDO_UI=1 PLAYWRIGHT_PACKAGE_PATH=<paquete playwright> node app/herramientas/probar-embudo.mjs
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+export async function validarEmbudoUI({ base, id }) {
+  const { chromium } = await import(process.env.PLAYWRIGHT_PACKAGE_PATH ? pathToFileURL(path.join(process.env.PLAYWRIGHT_PACKAGE_PATH, 'index.mjs')).href : 'playwright');
+  const browser = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_CHROME ? { executablePath: process.env.PLAYWRIGHT_CHROME } : {}) });
+  try {
+    const p = await browser.newPage({ viewport: { width: 1480, height: 1100 }, reducedMotion: 'reduce' });
+    const errores = []; p.on('pageerror', (e) => errores.push(e.message));
+    await p.route('**/api/ajustes', async (route) => { try { const r = await route.fetch(); await route.fulfill({ response: r, json: { ...await r.json(), bienvenidaVista: true } }); } catch { /* navegación o cierre del contexto de prueba */ } });
+    await p.goto(`${base}/#/embudo-whatsapp`);
+    await p.locator(`.em-tarjeta[href="#/embudo-whatsapp/${id}"]`).click();
+    await p.locator('.em-seccion').first().waitFor();
+    assert.equal(await p.locator('.em-seccion').count(), 5);
+    assert.equal(await p.locator('.em-opciones input[type=radio]').count(), 10);
+    assert.equal(await p.locator('.em-correccion textarea').count(), 5);
+    assert.equal(await p.locator('img[src*=codex-clipboard]').count(), 0);
+    assert.equal(await p.getByLabel('Personas y avatar').count(),1);
+    assert.equal(await p.getByText('Avatar guardado en Biblioteca',{exact:true}).count(),1);
+    console.log('OK UI: cinco secciones, todas las opciones y cinco campos de corrección, sin referencias visibles');
+    const hero = p.locator('#seccion-hero');
+    const [guardada] = await Promise.all([p.waitForResponse((r) => r.url().endsWith(`/api/embudos/${id}`) && r.request().method() === 'PUT'), hero.locator('input[type=radio]').first().click()]);
+    assert.equal(guardada.status(), 200);
+    await p.waitForFunction(() => document.querySelector('#seccion-hero input[type=radio]')?.checked);
+    await p.reload(); await p.locator('.em-seccion').first().waitFor();
+    assert.equal(await hero.locator('input[type=radio]').first().isChecked(), true);
+    console.log('OK UI: selección persistida después de recargar');
+    const anterior = (await (await p.request.get(`${base}/api/embudos/${id}`)).json()).trabajo.id;
+    await hero.getByRole('button', { name: 'Generar de nuevo', exact: true }).click();
+    await p.getByRole('heading', { name: 'Confirmar generación', exact: true }).waitFor();
+    assert.match(await p.locator('.em-presupuesto').innerText(), /1 imagen/);
+    await p.getByRole('button', { name: 'Cancelar', exact: true }).click();
+    assert.equal((await (await p.request.get(`${base}/api/embudos/${id}`)).json()).trabajo.id, anterior);
+    console.log('OK UI: cancelar el costo no genera nada');
+    await hero.getByLabel('Correcciones · Hero').fill('Haz más legible el subtítulo y conserva el producto');
+    await hero.getByRole('button', { name: 'Aplicar corrección', exact: true }).click();
+    await p.getByRole('heading', { name: 'Confirmar corrección', exact: true }).waitFor();
+    assert.match(await p.locator('.em-presupuesto').innerText(), /1 imagen/);
+    const [respuesta] = await Promise.all([p.waitForResponse((r) => r.url().endsWith(`/api/embudos/${id}/generar`) && r.request().method() === 'POST'), p.getByRole('button', { name: 'Confirmar y generar', exact: true }).click()]);
+    const iniciado = await respuesta.json();
+    assert.ok(iniciado.trabajo?.id);
+    await p.waitForFunction((job) => document.querySelector('#seccion-hero img')?.src.includes(job), iniciado.trabajo.id, { timeout: 120000 });
+    console.log('OK UI: confirmación y corrección de una imagen con proveedor simulado');
+    await p.evaluate(async()=>{window.scrollTo(0,0);for(const img of document.images)img.loading='eager';await document.fonts.ready;});
+    const out = process.env.EMBUDO_CAPTURAS;
+    if (out) fs.mkdirSync(out, { recursive: true });
+    if (out) await p.screenshot({ path: path.join(out, 'embudo-oscuro.png'), animations: 'disabled' });
+    await p.getByRole('button', { name: 'Cambiar a modo claro', exact: true }).click();
+    if (out) await p.screenshot({ path: path.join(out, 'embudo-claro.png'), animations: 'disabled' });
+    await p.setViewportSize({ width: 390, height: 844 });
+    await p.waitForFunction(() => document.querySelector('.menu').getBoundingClientRect().width < 80);
+    await p.evaluate(()=>window.scrollTo(0,0));
+    if (out) await p.screenshot({ path: path.join(out, 'embudo-movil.png'), fullPage: true, animations: 'disabled' });
+    const desborde = await p.evaluate(() => ({ancho:innerWidth,total:document.documentElement.scrollWidth,fuera:[...document.querySelectorAll('.em *')].filter(x=>x.getBoundingClientRect().right>innerWidth+1).slice(0,12).map(x=>({clase:x.className,ancho:x.getBoundingClientRect().width,texto:x.textContent.slice(0,60)}))}));
+    assert.equal(desborde.total > desborde.ancho, false, JSON.stringify(desborde));
+    if (out) await p.screenshot({ path: path.join(out, 'embudo-movil.png'), fullPage: true, animations: 'disabled' });
+    assert.deepEqual(errores, []);
+    console.log('OK UI: temas oscuro/claro y móvil, sin desborde ni errores de página');
+  } finally { await browser.close(); }
+}

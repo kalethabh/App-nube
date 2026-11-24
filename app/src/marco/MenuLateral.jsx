@@ -32,7 +32,7 @@ const GRUPOS = [
       { id: 'investigacion', texto: 'Investigación de mercado', icono: Telescope, href: enlace.investigacion() },
       { id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() },
       // (Cambiar el producto vive en Estilos, como un especial: 2026-11-18z)
-      { id: 'whatsapp', texto: 'Embudo WhatsApp', icono: MessageCircle, href: enlace.embudoWhatsapp(), pronto: true },
+      { id: 'whatsapp', texto: 'Embudo', icono: MessageCircle, href: enlace.embudoWhatsapp() },
       { id: 'landings', texto: 'Landings', icono: LayoutTemplate, href: enlace.landings() },
       { id: 'sep', texto: 'S.E.P', icono: Rocket, href: enlace.sep() },
     ],

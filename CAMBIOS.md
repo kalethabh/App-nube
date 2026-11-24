@@ -2,6 +2,15 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24m · Embudo visual y avatares reutilizables
+
+- Embudo ya tiene Hero, Punto de dolor, Beneficios, Ingredientes y Modo de uso. Los títulos y subtítulos se traen literalmente de la investigación del producto; cuando hay varias opciones, puedes elegir el par que quieras para cada sección.
+- Las referencias se usan solo como guía interna de contenido. No aparecen en pantalla ni se adjuntan al generador. Cada diseño se adapta al producto, su empaque y público, con sus propios colores, composición, personas, tipografía e iconos.
+- Genera las cinco secciones o una sola. Cada imagen tiene su campo de correcciones y descarga independiente. Las versiones anteriores se conservan. Antes de generar o corregir se muestra el alcance y costo para confirmar.
+- Los personajes se crean como un retrato independiente y se guardan automáticamente en Biblioteca, para reutilizarlos en otros embudos y anuncios. Puedes elegir un avatar existente o trabajar sin personas. Un retrato nuevo se incluye en el presupuesto; reutilizarlo no crea ni cotiza otro.
+- Se guardan las elecciones y se detecta si cambió la investigación, ficha, foto o avatar. Las generaciones interrumpidas recuperan lo ya terminado; no se repite automáticamente una solicitud de resultado incierto.
+- Si la investigación no tiene un título y subtítulo para una sección, lo indica. No toma ingredientes, dosis, garantías ni promesas de otros productos para completarla. Las investigaciones nuevas incluyen copy específico para las cinco secciones.
+
 ## 2026-11-24l · Ciudad de día y de noche, logo nuevo y Shopify por negocios
 
 - Nuevo logo vectorial de Kads: monograma con los colores del atardecer, también en los iconos del navegador y los instaladores.

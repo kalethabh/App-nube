@@ -23,6 +23,7 @@ import { slugValido } from '../lib/anuncios.js';
 import { miniatura, anchoPermitido } from '../lib/miniaturas.js';
 import {
   DIR_BIBLIOTECA,
+  DIR_SUBIDAS,
   ROLES_AVATAR,
   avataresDeReferencia,
   borrarAudio,
@@ -46,7 +47,7 @@ import {
 } from '../lib/biblioteca.js';
 
 const crudo = express.raw({ type: () => true, limit: '60mb' });
-const BASE_BIBLIOTECA = 'mis_archivos/biblioteca/';
+const BASE_BIBLIOTECA = `${path.relative(RAIZ, DIR_BIBLIOTECA).split(path.sep).join('/')}/`;
 const BASE_SKILLS = '.claude/skills/';
 
 /** La URL de un archivo de la biblioteca o de un retrato de subestilo (por su ruta dentro de la carpeta del sistema). */
@@ -213,6 +214,6 @@ export default function rutasBiblioteca(app) {
   app.get('/archivos/subida/:archivo', (req, res) => {
     const n = String(req.params.archivo || '');
     if (!/^[a-z0-9]{6,30}\.(png|jpe?g|webp|mp3|wav|m4a|ogg)$/.test(n)) return res.status(404).json({ error: 'No encuentro ese archivo.' });
-    enviar(res, path.join(RAIZ, 'temp', '_biblioteca-subidas', n));
+    enviar(res, path.join(DIR_SUBIDAS, n));
   });
 }
