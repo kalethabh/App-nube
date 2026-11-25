@@ -76,11 +76,12 @@ node "$RAIZ/app/inicio/preparar-app.mjs" || { pausar; exit 1; }
 node "$RAIZ/app/inicio/preparar-motor.mjs" || true
 
 # ---------------------------------------------------------------- «Kads Studio.app» en el Escritorio y en Aplicaciones
-# Un doble clic y la app arranca sin esta ventana (instalar/crear-app-mac.sh). Se crea la primera vez, y otra vez si
+# Un doble clic y la app arranca sin esta ventana (app/inicio/crear-app-mac.sh). Se crea la primera vez, y otra vez si
 # esta carpeta cambió de lugar.
 APP_MAC="$HOME/Applications/Kads Studio.app"
-if [ -f "$RAIZ/instalar/crear-app-mac.sh" ] && [ "$(cat "$APP_MAC/Contents/Resources/raiz.txt" 2>/dev/null)" != "$RAIZ" ]; then
-  bash "$RAIZ/instalar/crear-app-mac.sh" 2>/dev/null || true
+# (2026-11-25e) también si la que hay es la vieja del instalador (abría la Terminal): esa no tiene raiz.txt
+if [ -f "$RAIZ/app/inicio/crear-app-mac.sh" ] && [ "$(cat "$APP_MAC/Contents/Resources/raiz.txt" 2>/dev/null)" != "$RAIZ" ]; then
+  bash "$RAIZ/app/inicio/crear-app-mac.sh" >/dev/null 2>&1 || true
 fi
 
 # ---------------------------------------------------------------- abrir la app
