@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24r · Borrar carpetas y generaciones
+
+- Puedes borrar una generación desde su tarjeta o borrar una carpeta con las generaciones de esa sección. Disponible en imágenes, videos, Embudo, Landings, Sketch y Cambiar producto.
+- La confirmación muestra el nombre y la lista exacta de generaciones. Solo se quitan las que confirmaste; los proyectos nuevos o de otras secciones se conservan.
+- Los archivos pasan a una papelera local. El producto, la investigación, los avatares de la biblioteca y las páginas ya publicadas en tiendas se conservan.
+- Si hay un trabajo activo o en cola, el borrado se bloquea antes de mover los proyectos. Si algún archivo no puede moverse, se informa cuáles siguen pendientes.
+
 ## 2026-11-24q · Secciones independientes y análisis visual de landings
 
 - En Embudo puedes elegir títulos, editar mensajes y generar otras secciones mientras una está trabajando. Marca varias para generación conjunta; cada operación conserva su texto confirmado y muestra su progreso. Dos imágenes se procesan a la vez y las demás quedan en cola.

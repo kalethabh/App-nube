@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-24 (Embudo independiente, avisos y análisis visual, versión 2026-11-24q).
+Última actualización: 2026-11-24 (borrado de carpetas y generaciones, versión 2026-11-24r).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -12,6 +12,32 @@ Al terminar cada cambio de desarrollo o decisión relevante, actualizar este arc
 cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponibles, las pruebas y sus límites,
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
+
+## Borrar carpetas y generaciones (2026-11-24r)
+
+Pedido: permitir borrar carpetas o generaciones. La entrada compartida de las seis secciones de generación
+ahora tiene «Borrar generación» en cada tarjeta y «Borrar carpeta» tanto fuera como dentro de la carpeta.
+La carpeta agrupa referencias por producto/proyecto; borrar carpeta quita sus generaciones de la sección
+(y del estilo visible, si está filtrado), no el producto ni generaciones de otras secciones.
+
+- Modal con nombre, número y lista exacta. Cancelar no muta; cerrar está bloqueado durante la solicitud.
+  Diseño comprobado en claro/oscuro y móvil, incluidos botones sin desborde.
+- `POST /api/generaciones/:tipo/borrar` protegido por origen de la app. Recibe IDs explícitos + grupo;
+  valida tipo, pertenencia y existencia de todos antes de mover ninguno. No descubre proyectos nuevos para
+  añadirlos a una confirmación anterior. Máximo 500 proyectos por solicitud.
+- Revisa cola/conductor, sesiones de guion/voz, imágenes y títulos del Embudo, Sketch, Cambiar producto,
+  actividad de landing y subida a tienda. Si uno está activo se rechaza todo el alcance antes de mover.
+- Usa la papelera existente `temp/_descartados/`; videos, Sketch y Cambiar producto mueven además sus
+  salidas propias de `output/`. No cambia biblioteca, productos, investigación, copias guardadas o tiendas.
+  No elimina páginas publicadas ni copias remotas. Recuperación manual con el mecanismo existente de papelera;
+  esta entrega no incorpora una pantalla para restaurar.
+- Movimientos sin esperas entre prevalidación y ejecución. Si falla el sistema de archivos a mitad, devuelve
+  IDs eliminados y errores por proyecto; el modal deja solo los pendientes para reintentar. Actualiza listas.
+- Validación sin gasto: fixtures reales para las seis familias, archivos en papelera, salidas propias,
+  borrado conjunto y conservación de proyectos fuera del alcance; rechazo de carpetas ajenas, tipos/IDs
+  inválidos y proyectos activos/desaparecidos antes de mover. Chrome en seis secciones: cancelar, error 409,
+  borrado individual y de carpeta; ruta rechaza origen externo. Embudo **59/59**, incluido rechazo de borrado
+  con varias secciones generándose. Compilación correcta. Humo rápido **85/86**: único fallo por Python del sistema 3.9.6, inferior al 3.10–3.13 requerido (mismo límite del equipo, sin cambios de instalación). Fallo parcial de archivo abierto probado con fixture. No se borraron proyectos reales del usuario.
 
 ## Embudo independiente, avisos y análisis visual (2026-11-24q)
 

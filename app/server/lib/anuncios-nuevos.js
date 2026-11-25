@@ -2576,3 +2576,9 @@ export function retomarGuiones() {
     console.log(`[guion] retomo ${slug}`);
   }
 }
+
+export function comprobarBorradoGeneracion(slug) {
+ if(!esAnuncioNuevo(slug)) return;
+ const s=leerSesion(slug);
+ if(enMarcha.has(slug) || eligiendoVoz.has(slug) || sesionActiva(s?.uuid)) throw new ErrorApp(409,'Se está preparando este anuncio. Espera a que termine antes de borrarlo.');
+}
