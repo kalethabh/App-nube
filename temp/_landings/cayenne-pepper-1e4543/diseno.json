@@ -1,0 +1,22 @@
+{
+  "paleta": {
+    "accent": "#A62737",
+    "accent_hover": "#8C1E2D",
+    "accent_deep": "#6B1421",
+    "accent_soft": "#FBE6E3",
+    "tinte": "#FFF5EC",
+    "topbar_ink": "#FACF42",
+    "star": "#F2B01E",
+    "bg": "#FFFCF8",
+    "fg": "#2A1A1C",
+    "muted": "#6B5759",
+    "line": "#EEDDD6",
+    "texto_2": "#4A3437"
+  },
+  "fuentes": {
+    "display": "Anton",
+    "body": "Nunito Sans"
+  },
+  "estilo_imagenes": "Luz cálida y suave, como de lámpara en la tarde o de sol entrando por la ventana. Fondos en tonos crema, durazno y rojo cayena apagado, nunca grises ni azules fríos. Ambientes de hogar colombiano de clima frío: cobijas de lana, medias gruesas, una taza caliente, una cama tendida, una mesa de cocina de madera. Mujeres de 50 a 65 años reales y sonrientes, con ropa abrigada en colores tierra. El empaque rojo siempre se ve nítido, con unas cápsulas rojas brillantes al lado y, si cabe, unos ajíes rojos. Toques de amarillo dorado solo en detalles. Nada de imágenes de hospital, venas ni anatomía.",
+  "resumen": "Tomé el rojo cayena y el amarillo dorado del empaque. El rojo va en botones y precio, porque el texto blanco se lee bien encima, y el amarillo resalta la barra de arriba, igual que en la bolsa. Para los títulos elegí Anton, la misma letra gruesa y alargada del empaque, y para el texto Nunito Sans, redondeada y muy fácil de leer en el celular para una señora de 50 a 65 años. Los fondos son crema cálida en vez de blanco frío, para que la página transmita ese calorcito que promete el producto."
+}

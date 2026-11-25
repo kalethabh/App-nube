@@ -1,0 +1,161 @@
+{
+  "secciones": [
+    {
+      "seccion": "barra-superior",
+      "funcion_en_la_plantilla": "Es la primera línea que se ve. Da una razón para comprar hoy y quita de entrada el miedo a pagar por internet: envío gratis y pago al recibir.",
+      "objetivo_para_este_producto": "Que Gloria Patricia vea de una que paga cuando le llega y que no hay cobros automáticos. Si el dueño confirma una promoción o el envío gratis, se pone aquí. Si no, se deja solo lo seguro: pago contra entrega y compra sin suscripción.",
+      "que_debe_sentir_el_cliente": "Tranquilidad: 'aquí no me roban, pago al recibir'.",
+      "titulo": "Un mensaje corto de confianza: 'Pagas cuando te llega · Sin suscripción'. Solo se habla de ahorro o de envío gratis si el dueño lo confirma.",
+      "imagenes": []
+    },
+    {
+      "seccion": "prueba-social",
+      "funcion_en_la_plantilla": "Muestra que otras personas ya lo compran, antes de que la clienta lea nada más. Lleva a las opiniones.",
+      "objetivo_para_este_producto": "No tenemos una cifra de clientes en Colombia, así que no se inventa. Se usa una prueba verdadera: la cayena es un remedio de la abuela para el frío y el producto se vende mucho en Estados Unidos. Si el dueño tiene opiniones reales, se enlazan aquí.",
+      "que_debe_sentir_el_cliente": "'Esto ya lo conozco, no es cualquier invento'.",
+      "titulo": "Algo como 'El remedio de la abuela para el frío, ahora en cápsula'. Sin números de clientes que no estén confirmados.",
+      "imagenes": []
+    },
+    {
+      "seccion": "titulo-y-beneficios",
+      "funcion_en_la_plantilla": "Es el gancho principal: nombre, promesa en una frase y cuatro viñetas que dicen qué es, qué no tiene y por qué fiarse.",
+      "objetivo_para_este_producto": "Presentar 'el ritual del calorcito para los pies helados'. Una frase con la promesa: 2 cápsulas al día para sentir los pies menos helados y las piernas más livianas, y pagas al recibir. Las viñetas: cápsula blanda sin ardor en la boca, 60 cápsulas para 30 días, sin transgénicos, compra única sin suscripción. No se dice INVIMA ni miligramos.",
+      "que_debe_sentir_el_cliente": "'Esto es justo lo mío: los pies fríos de cada noche'.",
+      "titulo": "Debe nombrar el dolor y la salida en pocas palabras, con su forma de hablar: por ejemplo, 'Pies calienticos otra vez, sin el ardor de la cayena'.",
+      "imagenes": []
+    },
+    {
+      "seccion": "oferta",
+      "funcion_en_la_plantilla": "Es donde se decide la compra. Tres combos, con el de 3 unidades marcado como el recomendado, el ahorro visible, un regalo, el envío y el botón de pago al recibir con sellos de confianza.",
+      "objetivo_para_este_producto": "Armar 1 bolsa (30 días), 2 bolsas (60 días) y 3 bolsas (90 días, la recomendada). Explicar que el calorcito se nota con constancia y por eso recomendamos 90 días. Los precios, el ahorro, el regalo y la garantía los pone el dueño: si no los confirma, no se publican. El botón dice 'Pedir y pagar al recibir'.",
+      "que_debe_sentir_el_cliente": "Que elegir es fácil, que el combo de 3 tiene sentido y que no arriesga nada porque paga al recibir.",
+      "titulo": "Que hable de constancia y no de 'tratamiento médico': por ejemplo, 'Elige tu rutina del calorcito'.",
+      "imagenes": [
+        {
+          "imagen": "img4",
+          "funcion": "Hace que la oferta se vea real: muestra lo que llega a la casa.",
+          "que_debe_mostrar": "Las bolsas de Cayenne Pepper (1, 2 o 3) con algunas cápsulas blandas al lado, sobre un fondo cálido."
+        }
+      ]
+    },
+    {
+      "seccion": "testimonio-destacado",
+      "funcion_en_la_plantilla": "Una sola reseña justo después del precio, para calmar la duda del último momento con una escena concreta.",
+      "objetivo_para_este_producto": "Dejar el espacio para una reseña real de una clienta colombiana, que cuente una escena: acostarse sin los pies helados, quitarse las medias de lana, y cuánto tiempo lleva. No se usan reseñas de otros países como si fueran de aquí. Queda marcado como ejemplo hasta tener una real.",
+      "que_debe_sentir_el_cliente": "'A alguien como yo le funcionó'.",
+      "titulo": "El nombre y la ciudad de la clienta, sin titular inventado.",
+      "imagenes": []
+    },
+    {
+      "seccion": "dudas-rapidas",
+      "funcion_en_la_plantilla": "Cuatro dudas rápidas pegadas a la compra: qué lo hace diferente, en cuánto tiempo se nota, cuándo llega y qué pasa si necesito ayuda.",
+      "objetivo_para_este_producto": "Qué lo hace diferente: es la cayena de siempre, con capsaicina, que ayuda a que la sangre llegue a pies y manos, pero en cápsula y sin arder. En cuánto tiempo: cada cuerpo es distinto, muchas personas notan el calorcito con constancia, y por eso se recomiendan 90 días. Llegada y ayuda: igual que la plantilla, por WhatsApp.",
+      "que_debe_sentir_el_cliente": "'Entiendo por qué funciona y sé qué esperar'.",
+      "titulo": "Preguntas con sus palabras: '¿Qué la hace diferente a echarse cayena en las medias?', '¿Cuándo voy a notar el calorcito?'.",
+      "imagenes": []
+    },
+    {
+      "seccion": "aviso-pedido",
+      "funcion_en_la_plantilla": "Un aviso corto para que revise datos y dirección. Evita pedidos que no se entregan.",
+      "objetivo_para_este_producto": "Lo mismo: que revise el combo, la dirección y el teléfono. Sirve sobre todo cuando la hija le compra a la mamá y pone la dirección de ella.",
+      "que_debe_sentir_el_cliente": "Cuidado y seriedad: 'esta tienda sí se preocupa de que me llegue'.",
+      "titulo": "'Revisa bien tu pedido', y una nota: si es para tu mamá, pon su dirección y su teléfono.",
+      "imagenes": []
+    },
+    {
+      "seccion": "compra-repetida",
+      "funcion_en_la_plantilla": "Repite el combo recomendado con su precio y botón, para quien ya se decidió y no quiere volver arriba.",
+      "objetivo_para_este_producto": "Repetir el combo de 3 bolsas (90 días) con el precio del dueño y el botón de pagar al recibir.",
+      "que_debe_sentir_el_cliente": "'Ya está, lo pido'.",
+      "titulo": "'3 bolsas · 90 días de calorcito', con el precio que ponga el dueño.",
+      "imagenes": []
+    },
+    {
+      "seccion": "resenas",
+      "funcion_en_la_plantilla": "Es el bloque grande de prueba social: nota, número de opiniones y reseñas por tema (cada una quita una duda distinta).",
+      "objetivo_para_este_producto": "Dejar los espacios marcados como ejemplo para reseñas reales, una por tema: pies calientes de noche, piernas más livianas al final del día, que no arde ni cae pesado al estómago y una hija que se lo regaló a su mamá. No se pone nota ni número de opiniones sin datos reales.",
+      "que_debe_sentir_el_cliente": "'Le sirvió a varias personas distintas, no es puro cuento'.",
+      "titulo": "Algo como 'Lo que cuentan quienes ya tienen su calorcito'. Sin cifras inventadas.",
+      "imagenes": []
+    },
+    {
+      "seccion": "preguntas-frecuentes",
+      "funcion_en_la_plantilla": "Quita las objeciones que quedan: cómo se toma, qué es, cuándo se nota, qué contiene, quién no debe tomarlo, envíos, devoluciones y suscripción.",
+      "objetivo_para_este_producto": "Responder las objeciones de la estrategia: cómo se toma (2 cápsulas al día con comida); si arde el estómago (cápsula blanda, tomarla con comida); si sirve o es cuento (mecanismo honesto, sin prometer de más); quién no debe tomarla (embarazo, lactancia, menores, alergia al ají; consultar al médico si toma medicamentos para la presión, el corazón o para adelgazar la sangre); cuándo ir primero al médico (dolor al caminar, heridas que no sanan o un solo pie frío); si llega original; envíos, devoluciones y que no es suscripción. En 'qué contiene' solo se nombra la cayena hasta tener la ficha técnica.",
+      "que_debe_sentir_el_cliente": "Confianza porque le hablan claro, incluso de las advertencias.",
+      "titulo": "'Preguntas frecuentes' con un subtítulo cercano: 'Te contamos todo antes de que pidas'.",
+      "imagenes": []
+    },
+    {
+      "seccion": "pie",
+      "funcion_en_la_plantilla": "Contacto, enlaces legales y la aclaración de qué es el producto y qué no es.",
+      "objetivo_para_este_producto": "WhatsApp de contacto, enlaces de políticas y una aclaración: es un suplemento natural de cayena, no es un medicamento y no reemplaza ningún tratamiento. Con las advertencias de uso. Sin INVIMA hasta confirmarlo.",
+      "que_debe_sentir_el_cliente": "'Es una tienda seria y honesta'.",
+      "titulo": "'Contáctanos', igual que la plantilla.",
+      "imagenes": []
+    },
+    {
+      "seccion": "barra-fija",
+      "funcion_en_la_plantilla": "Botón que acompaña siempre al bajar, con el combo recomendado y su precio.",
+      "objetivo_para_este_producto": "Mostrar '3 bolsas · 90 días' con el precio del dueño y el botón 'Pedir ahora'.",
+      "que_debe_sentir_el_cliente": "Que pedir está a un toque.",
+      "titulo": "El combo recomendado, corto y claro.",
+      "imagenes": []
+    },
+    {
+      "seccion": "galeria",
+      "funcion_en_la_plantilla": "Las imágenes de arriba de todo, que cuentan la historia en orden: producto en uso, el dolor, la solución y qué contiene.",
+      "objetivo_para_este_producto": "Contar la historia del calorcito: la mujer con su rutina, los pies helados de noche, cómo la cayena hace llegar el calor a los pies y qué hay en la bolsa.",
+      "que_debe_sentir_el_cliente": "Identificación, luego alivio, luego confianza.",
+      "titulo": "Sin título: lo dicen las imágenes.",
+      "imagenes": [
+        {
+          "imagen": "img0",
+          "funcion": "Primera impresión: muestra el producto en la vida de alguien como ella.",
+          "que_debe_mostrar": "Una mujer colombiana de unos 55 años, en su casa en una tarde fría, con su tinto y la bolsa de Cayenne Pepper en la mano, sonriendo tranquila."
+        },
+        {
+          "imagen": "img1",
+          "funcion": "Nombra el dolor para que ella se reconozca.",
+          "que_debe_mostrar": "Pies con medias gruesas bajo la cobija, de noche, con el texto: '¿Te acuestas con los pies helados y ni con medias se calientan?'. También las piernas pesadas al final del día. Sin miedo ni nada del corazón."
+        },
+        {
+          "imagen": "img2",
+          "funcion": "Muestra la solución y cómo funciona, en sencillo.",
+          "que_debe_mostrar": "El ritual: 2 cápsulas al día con la comida, y una ilustración simple del calor que baja hasta los pies y las manos. Beneficios: pies menos helados, piernas más livianas, más ánimo en la tarde, sin ardor en la boca."
+        },
+        {
+          "imagen": "img3",
+          "funcion": "Da confianza mostrando qué trae.",
+          "que_debe_mostrar": "La bolsa con las cápsulas blandas y un ají cayena al lado: '60 cápsulas blandas · 30 días · Sin transgénicos · Sin ardor'. Sin nombrar otros ingredientes ni miligramos."
+        }
+      ]
+    },
+    {
+      "seccion": "creativos",
+      "funcion_en_la_plantilla": "Las mismas imágenes de dolor, solución y contenido, para usar en anuncios.",
+      "objetivo_para_este_producto": "Usar las mismas tres imágenes de la galería para que el anuncio y la página digan lo mismo.",
+      "que_debe_sentir_el_cliente": "Que la página cumple lo que vio en el anuncio.",
+      "titulo": "Sin título.",
+      "imagenes": [
+        {
+          "imagen": "img1",
+          "funcion": "Gancho del anuncio: el dolor.",
+          "que_debe_mostrar": "Igual que img1 de la galería: los pies helados de noche."
+        },
+        {
+          "imagen": "img2",
+          "funcion": "La solución.",
+          "que_debe_mostrar": "Igual que img2 de la galería: el ritual del calorcito."
+        },
+        {
+          "imagen": "img3",
+          "funcion": "La confianza.",
+          "que_debe_mostrar": "Igual que img3 de la galería: la bolsa y las cápsulas sin ardor."
+        }
+      ]
+    }
+  ],
+  "orden": "El orden sirve: arriba el gancho y la oferta, luego la prueba y al final las dudas. Lo único que cambiaría es poner las advertencias de quién no debe tomarla más cerca de la oferta (por ejemplo, como una de las dudas rápidas), porque esta clienta desconfía y que le hablen claro la convence. Como la página no se reordena, esa duda va en las dudas rápidas.",
+  "resumen": "Usé la plantilla tal cual, pero cada parte ahora cuenta 'el ritual del calorcito para los pies helados': gancho con su dolor de cada noche, oferta de 1, 2 y 3 bolsas con la de 90 días como la recomendada, y pago al recibir. No puse cifras de clientes, notas, reseñas, precios, regalos ni INVIMA porque no están confirmados: esos los pones tú. Dejé las advertencias bien visibles porque a una persona que desconfía la convence la honestidad."
+}
