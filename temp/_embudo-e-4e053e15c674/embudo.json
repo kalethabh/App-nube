@@ -411,5 +411,39 @@
     "acento": "#8A1C1C",
     "grafica": "curvas suaves y trazos finos de bajo contraste, derivados del mecanismo, beneficio o componentes documentados; máximo dos acentos gráficos secundarios; sin decoración gratuita"
   },
-  "reglasVisuales": 3
+  "reglasVisuales": 4,
+  "trabajos": {
+    "j-c93bd09435b2c62d": {
+      "id": "j-c93bd09435b2c62d",
+      "token": "410e7eaa9314361cb7fb4c879c331fa7",
+      "estado": "lista",
+      "motor": "chatgpt",
+      "cantidad": 1,
+      "importeAprobado": 0,
+      "inicio": "2026-11-24T23:36:13.836Z",
+      "secciones": [
+        "hero"
+      ],
+      "estados": {
+        "hero": {
+          "estado": "lista",
+          "inicio": "2026-11-24T23:36:13.838Z",
+          "fin": "2026-11-24T23:37:21.046Z"
+        }
+      },
+      "hechas": 1,
+      "fin": "2026-11-24T23:37:21.046Z",
+      "actual": null
+    }
+  },
+  "confirmaciones": {
+    "410e7eaa9314361cb7fb4c879c331fa7": "j-c93bd09435b2c62d"
+  },
+  "duenos": {
+    "hero": "j-c93bd09435b2c62d",
+    "dolor": "j-955084e25cdb497f",
+    "beneficios": "j-498bbbd1f7c91fff",
+    "uso": "j-12f4265e34c34349"
+  },
+  "planificadorVersion": 2
 }
