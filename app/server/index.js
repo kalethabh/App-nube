@@ -111,7 +111,7 @@ app.all('/mcp/:clave', async (req, res, next) => {
   });
 });
 // (2026-11-25a) EL INGRESO CON CUENTA (lib/acceso.js): solo en un servidor con KADS_SUPABASE_URL y KADS_SUPABASE_ANON
-// (el mismo Supabase del Centro de Control). Sin ellas (la app en tu Mac), no hace nada.
+// (el Supabase PROPIO de Kads, aparte de cualquier otra app). Sin ellas (la app en tu Mac), no hace nada.
 app.use(porteroAcceso);
 app.use((req, res, next) => {
   if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') return next();

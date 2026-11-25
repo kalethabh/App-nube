@@ -148,7 +148,7 @@ async function principal() {
   r = await pedir('/api/productos');
   check('Sin sesión, la API dice 401', r.st === 401 && /entrar/.test(r.datos?.error || ''), r.datos);
   r = await pedir('/entrar', { accept: 'text/html' });
-  check('La página para entrar se ve sin sesión', r.st === 200 && /Entrar/.test(r.texto) && /Centro de Control/.test(r.texto));
+  check('La página para entrar se ve sin sesión', r.st === 200 && /Entrar/.test(r.texto) && /cuenta de Kads Studio/.test(r.texto) && !/Centro de Control/.test(r.texto));
   r = await pedir('/mcp/clave-que-no-existe', { metodo: 'POST', json: {} });
   check('El conector /mcp sigue con su propia llave (404, no pide ingreso)', r.st === 404, r);
 

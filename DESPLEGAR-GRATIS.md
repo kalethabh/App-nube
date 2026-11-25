@@ -1,8 +1,9 @@
-# Kads Studio en internet, gratis (Oracle Cloud) y con las cuentas del Centro de Control
+# Kads Studio en internet, gratis (Oracle Cloud) y con cuentas para tu equipo
 
 Lo mismo que `DESPLEGAR.md`, pero en el servidor **gratis para siempre** de Oracle Cloud (Always Free: 4 núcleos ARM y
-24 GB de memoria, más que el de Hetzner) y con el **ingreso por cuentas** del Centro de Control: cada persona entra con
-su correo y clave, el primero queda dueño y tú apruebas a los demás en «Usuarios».
+24 GB de memoria, más que el de Hetzner) y con **ingreso por cuentas** en un Supabase **propio de Kads** (aparte de
+cualquier otra app tuya: no se mezcla nada): cada persona entra con su correo y clave, el primero queda dueño y tú
+apruebas a los demás en «Usuarios».
 
 Costo: **$0** mientras uses solo lo marcado «Always Free». Oracle pide una tarjeta para verificar que eres una persona,
 pero no cobra lo gratuito.
@@ -11,12 +12,15 @@ Son 6 pasos, unos 40 minutos.
 
 ---
 
-## 1. Preparar Supabase (una vez)
+## 1. Un Supabase solo para Kads (una vez, gratis)
 
-1. Entra a **https://supabase.com/dashboard**, abre el proyecto **centro-de-control**.
-2. Menú **SQL Editor** › **New query**. Pega TODO el archivo `deploy/supabase-kads.sql` y toca **Run**.
-   (Crea solo lo de Kads; no toca las tablas ni los usuarios del Centro de Control.)
-3. En **Project Settings › API** copia la **Project URL** (`https://xxxx.supabase.co`) y la clave **anon public**.
+1. Entra a **https://supabase.com/dashboard** y toca **New project** (el plan gratis permite 2 proyectos activos).
+   - **Name:** `kads-studio`. **Region:** la más cercana (por ejemplo *East US* o *São Paulo*).
+   - Inventa una **Database Password** y guárdala (Kads no la usa, pero Supabase la pide).
+2. **Authentication › Sign In / Providers › Email:** apaga **Confirm email** (así quien crea su cuenta entra enseguida;
+   igual queda «pendiente» hasta que tú la apruebes).
+3. Menú **SQL Editor** › **New query**. Pega TODO el archivo `deploy/supabase-kads.sql` y toca **Run**.
+4. En **Project Settings › API** copia la **Project URL** (`https://xxxx.supabase.co`) y la clave **anon public**.
    Las vas a pegar en el servidor en el paso 5 (es la clave pública; la `service_role` NO se usa nunca).
 
 ## 2. El token de GitHub
@@ -65,7 +69,7 @@ El instalador abre solo el firewall de Oracle (puertos 80 y 443).
 
 ## 6. Entrar primero tú, y conectar Claude
 
-1. Abre la dirección que te mostró al final y **entra tú primero** con tu correo y clave del Centro de Control: el
+1. Abre la dirección que te mostró al final, toca **«No tengo cuenta: crear una»** y **créala tú primero**: el
    primero queda **dueño**.
 2. En el servidor, inicia Claude con tu cuenta (igual que en `DESPLEGAR.md`):
 
