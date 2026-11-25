@@ -27,12 +27,13 @@
     "ChatGPT está haciendo 15 imágenes con tu producto…",
     "Imagen 1 de 15 lista.",
     "Imagen 2 de 15 lista.",
-    "Imagen 3 de 15 lista."
+    "Imagen 3 de 15 lista.",
+    "Imagen 4 de 15 lista."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T21:14:12.949Z",
+  "actualizado": "2026-11-25T21:15:19.337Z",
   "agentes": [
     {
       "id": "estratega",
