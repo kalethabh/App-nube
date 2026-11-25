@@ -3,16 +3,15 @@
 <title>Be Well CEN</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link id="kads-fuentes" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap">
+<link id="kads-fuentes" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
 <style>
 /* Layout: misma estructura que la landing de referencia (columna móvil de 480px, galería → selector de combos → CTA contra entrega → creativos apilados → reseñas → FAQ), recoloreada al morado de CEN. Un solo look claro, a propósito. */
 :root{
   --bg:#ffffff; --fg:#1d1526; --muted:#6b6275; --line:#e9e3ef;
   --accent:#8a4fc4; --accent-soft:#efe5fa; --accent-deep:#3d2252; --accent-ink:#ffffff;
   --ok:#2f8a4e; --star:#f5b400; --gray-bar:#ececee;
-  --accent-hover:#7a3fb3; --accent-sombra:rgba(138,79,196,.32); --tinte:#f6f2fa; --topbar-ink:#e8d4ff; --texto-2:#4a4253;
   --f-body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  --f-display:"Montserrat","Inter",system-ui,Arial,sans-serif;
+  --f-display:"Inter",system-ui,Arial,sans-serif;
   color-scheme:light;
 }
 *{box-sizing:border-box}
@@ -24,13 +23,13 @@ button{font:inherit;cursor:pointer}
 
 /* Barra superior */
 .topbar{background:var(--accent-deep);color:var(--accent-ink);text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.02em;padding-block:9px}
-.topbar b{color:var(--topbar-ink)}
+.topbar b{color:#e8d4ff}
 
 /* Galería */
 .gallery{margin-top:14px}
 .g-main{position:relative;border-radius:10px;overflow:hidden}
-/* (2026-11-25i) cada imagen con su propia altura: sin la caja fija de la plantilla (dejaba franjas blancas) */
-.g-main img{display:block;width:100%;height:auto;max-width:100%}
+/* (Kads) cada imagen con su propia altura: nunca cortada ni con franjas */
+.g-main img{display:block;width:100%;height:auto;max-width:100%;aspect-ratio:auto!important}
 .g-nav{display:flex;align-items:center;gap:8px;margin-top:10px}
 .g-arrow{flex:none;width:34px;height:48px;border:1px solid var(--line);background:#fff;border-radius:6px;font-size:18px;color:var(--fg)}
 .g-thumbs{display:flex;gap:8px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none}
@@ -42,15 +41,15 @@ button{font:inherit;cursor:pointer}
 /* Prueba social + título */
 .social{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:12.5px}
 .avatars{display:flex}
-.avatars span{width:22px;height:22px;border-radius:50%;border:2px solid #fff;margin-left:-7px;background:linear-gradient(135deg,var(--accent-soft),var(--accent))}
-.avatars span:first-child{margin-left:0;background:linear-gradient(135deg,var(--tinte),var(--accent-hover))}
-.avatars span:nth-child(3){background:linear-gradient(135deg,var(--accent-soft),var(--accent-deep))}
+.avatars span{width:22px;height:22px;border-radius:50%;border:2px solid #fff;margin-left:-7px;background:linear-gradient(135deg,#c9a2ec,#7a3fb3)}
+.avatars span:first-child{margin-left:0;background:linear-gradient(135deg,#f3c7a8,#b9785a)}
+.avatars span:nth-child(3){background:linear-gradient(135deg,#e7b9cf,#a8557e)}
 .social b{font-weight:700}
 .social u{color:var(--muted)}
 .stars{color:var(--star);letter-spacing:1px;font-size:15px}
-h1{font-family:var(--f-display);font-size:27px;line-height:1.15;margin:6px 0 8px;font-weight:700;text-wrap:balance}
+h1{font-size:27px;line-height:1.15;margin:6px 0 8px;font-weight:700;text-wrap:balance}
 h1 sup{font-size:.45em}
-.lede{color:var(--texto-2);margin:0 0 14px}
+.lede{color:#4a4253;margin:0 0 14px}
 .checks{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:9px}
 .checks li{display:flex;gap:10px;align-items:flex-start}
 .checks li::before{content:"✓";flex:none;width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center;margin-top:1px}
@@ -61,7 +60,7 @@ h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
 .offer{position:relative;display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:16px 14px}
 .offer[aria-checked="true"]{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 0 1px var(--accent)}
 .offer .badge{position:absolute;top:-10px;right:12px;background:var(--accent);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.06em;padding:3px 9px;border-radius:4px}
-.jars{flex:none;width:64px;height:64px;border-radius:8px;background:var(--tinte);display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px}
+.jars{flex:none;width:64px;height:64px;border-radius:8px;background:#f6f1fb;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px}
 .jars img{width:24px;height:auto;margin:0 -5px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.18))}
 .jars.n1 img{width:34px}
 .o-body{min-width:0;flex:1}
@@ -76,13 +75,14 @@ h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
 
 .ship{margin:18px 0 0;font-size:12.5px;color:var(--muted)}
 .ship b{display:block;color:var(--fg);font-size:12px;font-weight:700;margin-top:4px}
-.cta{display:block;width:100%;margin-top:16px;border:0;border-radius:12px;background:var(--accent);color:#fff;font-family:var(--f-display);font-weight:800;font-size:17px;letter-spacing:.01em;text-align:center;text-decoration:none;padding-block:18px;box-shadow:0 6px 18px var(--accent-sombra)}
-.cta:hover{background:var(--accent-hover)}
+.cta{display:block;width:100%;margin-top:16px;border:0;border-radius:12px;background:var(--accent);color:#fff;font-family:var(--f-display);font-weight:800;font-size:17px;letter-spacing:.01em;text-align:center;text-decoration:none;padding-block:18px;box-shadow:0 6px 18px rgba(138,79,196,.32)}
+.cta:hover{background:#7a3fb3}
 .cta-sub{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:11.5px;color:var(--muted)}
 
 /* Testimonio destacado */
 .testi{display:flex;gap:12px;margin-top:26px;padding:16px;border:1px solid var(--line);border-radius:12px;box-shadow:0 2px 10px rgba(29,21,38,.05)}
-.testi .ph{flex:none;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent-soft),var(--accent))}
+.testi .ph{flex:none;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#e2c3f7,#8a4fc4);overflow:hidden;box-shadow:0 0 0 2px #fff,0 0 0 3.5px #c9a2ec}
+.testi .ph img{display:block;width:100%;height:100%;object-fit:cover}
 .testi p{margin:4px 0 0;font-size:14px}
 .sample{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#9a5b00;background:#fff3d6;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
 
@@ -93,7 +93,7 @@ h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
 .acc summary::-webkit-details-marker{display:none}
 .acc summary::after{content:"+";font-size:20px;line-height:1;flex:none}
 .acc details[open] summary::after{content:"–"}
-.acc .ans{padding-bottom:14px;color:var(--texto-2);font-size:14px}
+.acc .ans{padding-bottom:14px;color:#4a4253;font-size:14px}
 .acc .ans p{margin:0 0 8px}
 
 .notice{display:flex;gap:10px;margin-top:22px;padding:14px;border:1px dashed #d9b95a;background:#fffbea;border-radius:10px;font-size:12.5px}
@@ -126,7 +126,7 @@ h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
 .r-card header{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px}
 .r-card header b{font-size:14px}
 .r-card h3{font-size:15px;margin:8px 0 4px}
-.r-card p{margin:0;font-size:14px;color:var(--texto-2)}
+.r-card p{margin:0;font-size:14px;color:#4a4253}
 .r-card footer{margin-top:8px;font-size:12px;color:var(--muted)}
 
 /* FAQ */
@@ -134,11 +134,208 @@ h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
 .faq .sub{text-align:center;color:var(--muted);margin:0}
 
 /* Footer */
-.foot{margin-top:44px;background:var(--tinte);padding-block:28px 110px;font-size:13px}
+.foot{margin-top:44px;background:#f6f2fa;padding-block:28px 110px;font-size:13px}
 .foot h3{font-size:16px;margin:0 0 4px}
 .foot ul{list-style:none;padding:0;margin:14px 0;display:grid;gap:6px}
 .foot .legal{font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:14px}
 .foot .legal p{margin:0 0 6px}
+
+/* ===== Validación (estilo IM8, en morado CEN) ===== */
+.serif{font-family:var(--f-body);font-weight:500;letter-spacing:-.01em}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+.vh{font-family:var(--f-display);font-weight:500;font-size:30px;line-height:1.08;letter-spacing:-.01em;margin:8px 0 10px;text-wrap:balance}
+.vh em{font-style:italic;color:var(--accent)}
+.vlead{color:#4a4253;margin:0}
+.ex-note{font-size:11.5px;color:#9a5b00;background:#fff3d6;border-radius:6px;padding:6px 10px;margin:12px 0 0}
+
+/* 1. Sello de verificación */
+.verify{display:flex;align-items:center;gap:12px;margin-top:18px;padding:14px;border:1px solid #dcc6f0;background:#fbf7ff;border-radius:12px}
+.verify svg{flex:none;width:38px;height:38px;filter:drop-shadow(0 2px 4px rgba(61,34,82,.25))}
+.verify .v-txt{min-width:0;flex:1}
+.verify b{font-size:13.5px}
+.verify .pill{display:inline-block;margin-left:4px;background:#ece4f5;color:var(--accent-deep);font-size:10.5px;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:999px;vertical-align:1px}
+.verify small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.verify a{flex:none;color:var(--accent-deep);font-weight:700;font-size:12.5px;text-decoration:none;white-space:nowrap}
+
+.verify{flex-wrap:wrap}
+.verify .v-logo{flex-basis:100%;display:flex;justify-content:center;border-top:1px solid #e6d8f3;padding-top:10px;margin-top:2px}
+.verify .v-logo img{height:30px;width:auto}
+.verify .v-open{flex:none;border:0;background:none;padding:6px 0;color:var(--accent-deep);font-weight:700;font-size:12.5px;white-space:nowrap}
+.inv-modal{width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 32px);padding:0;border:0;border-radius:18px;background:#fff;color:var(--fg);box-shadow:0 24px 60px rgba(29,21,38,.35);overflow:hidden}
+.inv-modal[open]{display:flex;flex-direction:column}
+.inv-modal::backdrop{background:rgba(29,21,38,.55);backdrop-filter:blur(2px)}
+.inv-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);background:#fbf7ff}
+.inv-head h2{margin:2px 0 0;font-size:18px;font-weight:800;letter-spacing:-.01em}
+.inv-x{flex:none;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:#fff;font-size:22px;line-height:1;color:var(--fg)}
+.inv-body{overflow-y:auto;padding:16px 18px 20px;-webkit-overflow-scrolling:touch}
+.inv-data{margin:0 0 14px;display:grid;gap:8px}
+.inv-data div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;font-size:13.5px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.inv-data dt{color:var(--muted)}
+.inv-data dd{margin:0;font-weight:600}
+.inv-body img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;margin-top:10px}
+.inv-links{margin:14px 0 0;font-size:12.5px;color:var(--muted);text-align:center}
+.inv-links a{color:var(--accent-deep);font-weight:700}
+
+.g-cap{position:absolute;left:6px;bottom:6px;max-width:52%;background:rgba(255,255,255,.94);border:1px solid #dcc6f0;border-radius:8px;padding:4px 8px;box-shadow:0 6px 18px rgba(29,21,38,.18);backdrop-filter:blur(4px)}
+.g-cap b{display:block;line-height:1.2;font-size:10.5px;font-weight:800;letter-spacing:-.01em;color:var(--accent-deep)}
+.g-cap span{display:block;font-size:9.5px;color:var(--muted);margin-top:1px}
+
+/* 2. Comparación de costo */
+.cmp{margin-top:40px}
+.cmp-box{margin-top:16px;background:#f6f1fb;border-radius:16px;padding:6px 16px 4px}
+.cmp-head{display:flex;justify-content:space-between;gap:10px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding:12px 0 10px;border-bottom:1px solid #e2d6ee}
+.cmp-row{display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:11px 0;border-bottom:1px solid #e2d6ee;font-size:14px}
+.cmp-row:last-child{border-bottom:0}
+.cmp-row::before{content:"✓";color:var(--accent);font-weight:800}
+.cmp-row b{font-weight:600}
+.cmp-row span{color:var(--muted);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.cmp-total{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-top:18px}
+.cmp-total .sep small,.cmp-total .cen small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cmp-total .sep div{font-family:var(--f-display);font-size:22px;color:var(--muted);text-decoration:line-through}
+.cmp-total .cen small{color:var(--accent)}
+.cmp-total .cen div{font-family:var(--f-display);font-size:46px;line-height:1;color:var(--accent-deep);white-space:nowrap}
+.cmp-total .cen div i{font-style:normal;font-size:18px}
+
+/* 3. Resultados (banda oscura) */
+.res{margin:40px -16px 0;background:#2a1338;color:#fff;padding:30px 20px 26px}
+.res .eyebrow{color:#d9b8ff}
+.res .vh{color:#fff;font-size:32px}
+.res .vh em{color:#d9b8ff}
+.res .vlead{color:#e6dcef}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;margin-top:20px}
+.stat{border-top:1px solid rgba(255,255,255,.22);padding:14px 0 16px}
+.stat .n{font-family:var(--f-display);font-size:44px;line-height:1}
+.stat b{display:block;margin-top:8px;font-size:14px}
+.stat p{margin:2px 0 0;font-size:13px;color:#e6dcef}
+.res .foot-n{font-size:12px;color:#cdbfdc;margin:6px 0 0}
+.res .ex-note{background:rgba(255,243,214,.12);color:#ffd88a}
+
+/* Cuidado, no promesas */
+.care{margin:40px -16px 0;background:#fff}
+.care-ph{position:relative}
+.care-ph img{display:block;width:100%;height:auto}
+.care-ph::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,rgba(255,255,255,0),#fff 92%)}
+.care-badge{position:absolute;left:16px;bottom:14px;z-index:1;display:inline-flex;align-items:center;background:#fff;border:1px solid #dcc6f0;border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:700;color:var(--accent-deep);box-shadow:0 4px 14px rgba(29,21,38,.1)}
+.care-badge .ic{color:var(--accent)}
+.care-txt{padding:6px 20px 0}
+.care-txt .vh{font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:6px 0 14px}
+.care-txt p{margin:0 0 12px;font-size:15px;line-height:1.55;color:#4a4253}
+
+/* 4. Perfil del profesional */
+.docs{margin-top:40px}
+.trust{display:grid;gap:12px;margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 2px 10px rgba(29,21,38,.05)}
+.trust div{display:flex;gap:10px;font-size:13px;color:var(--muted)}
+.trust i{flex:none;width:30px;height:30px;border-radius:8px;background:var(--accent-soft);display:grid;place-items:center;font-style:normal;color:var(--accent);font-weight:800;font-size:14px}
+.trust b{display:block;color:var(--fg);font-size:13.5px}
+.chips{display:flex;gap:8px;overflow-x:auto;margin:16px -16px 0;padding:2px 16px 4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600}
+.chips button small{color:var(--muted);font-weight:600;margin-left:4px}
+.chips button[aria-pressed="true"]{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+.chips button[aria-pressed="true"] small{color:#d9b8ff}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:14px -16px 0;padding:2px 16px 8px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.doc{flex:none;width:84%;scroll-snap-align:start;border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}
+.doc header{display:flex;gap:10px;align-items:flex-start}
+.ava{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;background:linear-gradient(135deg,#c9a2ec,#7a3fb3)}
+.doc header b{display:block;font-size:14.5px;line-height:1.2}
+.doc header small{color:var(--muted);font-size:12px}
+.doc .tag{margin-left:auto;flex:none;font-size:11px;font-weight:700;background:#fff3d6;color:#8a6412;border-radius:999px;padding:3px 9px}
+.doc h3{font-family:var(--f-display);font-weight:500;font-size:17px;line-height:1.25;margin:14px 0 8px}
+.doc q{display:block;font-family:var(--f-body);font-style:italic;color:#4a4253;font-size:14.5px;line-height:1.45}
+.doc .kw{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.doc .kw span{font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+
+.ava{overflow:hidden}
+.ava svg,.ex-card .ph svg{width:100%;height:100%;display:block}
+.ex-card .ph{overflow:hidden;padding:0!important}
+
+.ic{width:15px;height:15px;vertical-align:-3px;margin-right:5px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chips button .ic{color:var(--accent)}
+.chips button[aria-pressed="true"] .ic{color:#d9b8ff}
+.doc .tag{background:var(--accent-soft);color:var(--accent-deep)}
+.doc .tag .ic{width:13px;height:13px;margin-right:3px;color:var(--accent)}
+
+/* 5. Programa de expertas */
+.experts{margin-top:40px;text-align:center}
+.experts .vlead{font-size:14px}
+.ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;text-align:left}
+.ex-card{border:1px solid #ead8e8;border-radius:12px;overflow:hidden;background:#fff}
+.ex-card .ph{aspect-ratio:1/1;display:grid;place-items:center;background:linear-gradient(180deg,#f6eefc,#e6d3f5);color:var(--accent-deep);font-family:var(--f-body);font-size:34px}
+.ex-card div{padding:10px}
+.ex-card b{display:block;font-size:13px;color:var(--accent-deep)}
+.ex-card p{margin:2px 0 0;font-size:12px;color:var(--muted);line-height:1.35}
+
+/* 6. Reseñas (rediseño) */
+.rv{margin-top:44px;text-align:center}
+.rv .vh{font-size:28px}
+.rating{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px}
+.rating .row{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800}
+.rating .boxes{display:flex;gap:2px}
+.rating .boxes span{width:24px;height:24px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:14px}
+.rating .boxes span.half{background:linear-gradient(90deg,var(--accent) 50%,#dcd3e4 50%)}
+.rating p{margin:0;font-size:13px;color:var(--muted)}
+.rv .rail{text-align:left}
+.rcard{flex:none;width:84%;scroll-snap-align:start;background:#faf8fc;border:1px solid var(--line);border-radius:12px;padding:16px}
+.rcard .boxes{display:flex;gap:2px}
+.rcard .boxes span{width:18px;height:18px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:11px}
+.rcard .who{margin:10px 0 0;font-size:13px;color:var(--muted)}
+.rcard .who b{color:var(--fg)}
+.rcard h3{font-size:15px;margin:4px 0 6px}
+.rcard p{margin:0;font-size:14px;color:#4a4253}
+.reply{margin-top:12px;border-left:3px solid var(--accent);background:#fff;border-radius:0 8px 8px 0;padding:10px 12px;font-size:13px;color:var(--muted)}
+.reply b{color:var(--fg)}
+
+/* Todo en Inter: títulos fuertes, sin cursivas */
+.vh{font-weight:800;letter-spacing:-.02em;line-height:1.12}
+.vh em{font-style:normal}
+.doc h3{font-weight:700;letter-spacing:-.01em}
+.doc q{font-style:normal}
+.stat .n,.cmp-total .cen div,.cmp-total .sep div{font-weight:800;letter-spacing:-.02em}
+.ex-card .ph{font-weight:800}
+strong.kwb{font-weight:700;color:inherit}
+/* Fórmula CEN en la paleta de la landing */
+.res{background:var(--accent-soft);color:var(--fg);border-top:1px solid #e2d6ee;border-bottom:1px solid #e2d6ee}
+.res .eyebrow{color:var(--accent)}
+.res .vh{color:var(--fg)}
+.res .vh em{color:var(--accent)}
+.res .vlead{color:#4a4253}
+.res .stat{border-top-color:#d9c8ec}
+.res .stat .n{color:var(--accent-deep)}
+.res .stat p{color:var(--muted)}
+.res .foot-n{color:var(--muted)}
+/* Fórmula CEN con el fondo y estilo de las imágenes del embudo */
+.res{background:radial-gradient(ellipse 90% 70% at 50% 42%,#ffffff 0%,#fcf9ff 45%,#eadcf7 100%);border:0;text-align:center;padding:34px 18px 28px}
+.res .eyebrow{position:relative;display:inline-block;background:#e6d5f7;border:1.5px solid #2a1338;border-radius:999px;padding:6px 16px;color:#111;font-weight:900;font-size:12.5px;letter-spacing:.05em;margin:0 26px}
+.res .eyebrow::before,.res .eyebrow::after{content:"";position:absolute;top:50%;width:20px;height:20px;transform:translateY(-50%);background:no-repeat center/contain}
+.res .eyebrow::before{left:-26px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg stroke='%238a4fc4' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M3 3l5 4'/%3E%3Cpath d='M2 10h6'/%3E%3Cpath d='M3 17l5-4'/%3E%3C/g%3E%3C/svg%3E")}
+.res .eyebrow::after{right:-26px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg stroke='%238a4fc4' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M17 3l-5 4'/%3E%3Cpath d='M18 10h-6'/%3E%3Cpath d='M17 17l-5-4'/%3E%3C/g%3E%3C/svg%3E")}
+.res .vh{font-weight:900;text-transform:uppercase;font-size:31px;line-height:1.08;letter-spacing:-.03em;color:#111;margin:16px 0 12px}
+.res .vh em{display:inline-block;margin-top:6px;background:#dcc4f3;border:2px solid #1d1526;border-radius:14px;padding:3px 12px 4px;color:#111;font-size:.8em;white-space:nowrap}
+.res .vlead{display:inline-block;background:#efe3fa;border-radius:18px;padding:8px 16px;color:#1d1526;font-size:14.5px}
+.res .stats{grid-template-columns:1fr;gap:12px;margin-top:22px;text-align:left}
+.res .stat{display:grid;grid-template-columns:78px minmax(0,1fr);align-items:center;column-gap:12px;border:2px solid #b98ce3;border-radius:48px 24px 24px 48px;background:linear-gradient(90deg,#ffffff 30%,#f1e6fb);padding:6px 16px 6px 6px}
+.res .stat .n{grid-row:1/span 2;width:78px;height:78px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#7b4aa8,#3d2252 70%);color:#fff;font-size:24px;font-weight:900;letter-spacing:-.02em;box-shadow:0 0 0 3px #fff,0 0 0 5px #c9a2ec}
+.res .stat b{margin:0;align-self:end;font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;color:#111}
+.res .stat b::after{content:":"}
+.res .stat p{align-self:start;color:#1d1526;font-size:13.5px;margin-top:2px}
+.res .foot-n{margin-top:16px}
+/* Composición tipo IM8: izquierda, título grande, cuadrícula 2x2 con líneas */
+.res{text-align:left;padding:36px 20px 28px;border:0;background:radial-gradient(ellipse 45% 55% at 0% 45%,#f1e6fb 0%,rgba(241,230,251,0) 100%),radial-gradient(ellipse 45% 55% at 100% 65%,#f1e6fb 0%,rgba(241,230,251,0) 100%),#fefefe}
+.res .eyebrow{display:block;background:none;border:0;border-radius:0;padding:0;margin:0;color:var(--accent);font-size:11.5px;font-weight:700;letter-spacing:.12em}
+.res .eyebrow::before,.res .eyebrow::after{display:none}
+.res .vh{text-transform:none;font-size:38px;font-weight:800;line-height:1.06;letter-spacing:-.035em;color:var(--fg);margin:14px 0 16px}
+.res .vh em{display:inline;background:none;border:0;border-radius:0;padding:0;margin:0;font-size:1em;white-space:normal;color:var(--accent)}
+.res .vlead{display:block;background:none;border-radius:0;padding:0;font-size:15.5px;line-height:1.55;color:#4a4253}
+.res .stats{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 20px;margin-top:26px}
+.res .stat{display:block;border:0;border-top:1px solid #cdb6e6;border-radius:0;background:none;padding:18px 0 20px}
+.res .stat .n{width:auto;height:auto;border-radius:0;display:block;background:none;box-shadow:none;color:var(--accent-deep);font-size:50px;font-weight:500;letter-spacing:-.04em;line-height:1}
+.res .stat b{display:block;margin-top:12px;text-transform:none;font-size:15px;font-weight:800;letter-spacing:-.01em;color:var(--fg)}
+.res .stat b::after{content:none}
+.res .stat p{font-size:13.5px;line-height:1.45;color:var(--muted);margin-top:3px}
+.res .foot-n{font-size:12.5px;line-height:1.5;color:var(--muted);margin-top:10px;padding-top:14px;border-top:1px solid #cdb6e6}
+.checks li{display:block;position:relative;padding-left:28px}
+.checks li::before{position:absolute;left:0;top:1px}
 
 /* Barra fija inferior */
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(29,21,38,.08);padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-top:10px;transform:translateY(110%);transition:transform .25s ease}
@@ -148,7 +345,8 @@ h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
 .sticky .s-info b{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sticky .cta{margin:0;width:auto;flex:none;padding:13px 16px;font-size:13.5px;border-radius:10px}
 @media (prefers-reduced-motion:reduce){.sticky{transition:none}}
-/* (2026-11-25i) en celular, las imágenes de borde a borde (los textos y las miniaturas siguen con su margen) */
+
+/* (Kads) en celular, las imágenes de borde a borde (los textos y las miniaturas siguen con su margen) */
 @media (max-width:600px){
   .g-main,.stack{margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));border-radius:0}
   .gallery{margin-top:0}
@@ -157,13 +355,13 @@ h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
 </head><body>
 
 
-<div class="topbar" data-seccion="barra-superior"><div class="wrap">🔥 <b>BLACK FRIDAY</b> · Hasta 43% de ahorro · Envío GRATIS · Pagas al recibir</div></div>
+<div class="topbar" data-seccion="barra-superior"><div class="wrap"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5 .3 1.7 1.2 2.8 2.5 3.2C11.5 8.5 11 6 12 3z"/></svg><b>BLACK FRIDAY</b> · Hasta 43% de ahorro · Envío GRATIS · Pagas al recibir</div></div>
 
 <main class="wrap">
 
   <!-- GALERÍA -->
   <section class="gallery" aria-label="Imágenes del producto" data-seccion="galeria">
-    <div class="g-main"><img id="gMain" src="img/cen-1.webp" alt="Mujer tomando un vaso de CEN, alimento funcional de Be Well"></div>
+    <div class="g-main"><img id="gMain" src="img/cen-1.webp" alt="Mujer tomando un vaso de CEN, alimento funcional de Be Well"><div class="g-cap" id="gCap" hidden><b id="gCapT"></b><span id="gCapS"></span></div></div>
     <div class="g-nav">
       <button class="g-arrow" id="gPrev" aria-label="Imagen anterior">‹</button>
       <div class="g-thumbs" id="gThumbs">
@@ -171,6 +369,8 @@ h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
         <button data-src="img/cen-2.webp" aria-label="Imagen 2"><img src="img/cen-2.webp" alt=""></button>
         <button data-src="img/cen-3.webp" aria-label="Imagen 3"><img src="img/cen-3.webp" alt=""></button>
         <button data-src="img/cen-4.webp" aria-label="Imagen 4"><img src="img/cen-4.webp" alt=""></button>
+        <button data-src="img/cen-5.webp" data-ratio="1217/1293" aria-label="Imagen 5: información nutricional"><img src="img/cen-5.webp" alt=""></button>
+        <button data-src="img/doctor-endocrinologo.webp" data-ratio="713/429" data-cap-t="Recomendado por los mejores endocrinólogos" data-cap-s="Dr. R. Camargo · Endocrinólogo" aria-label="Imagen 6: endocrinólogo"><img src="img/doctor-endocrinologo.webp" alt="" style="object-position:center"></button>
       </div>
       <button class="g-arrow" id="gNext" aria-label="Imagen siguiente">›</button>
     </div>
@@ -178,7 +378,7 @@ h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
 
   <!-- PRUEBA SOCIAL + TÍTULO -->
   <div class="social" data-seccion="prueba-social">
-    <div class="avatars"><span></span><span></span><span></span></div>
+    <div class="avatars"><span><img src="img/av-clienta-1.webp" alt="" width="22" height="22" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block"></span><span><img src="img/av-clienta-2.webp" alt="" width="22" height="22" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block"></span><span><img src="img/av-clienta-3.webp" alt="" width="22" height="22" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block"></span></div>
     <div><b>Opiniones de clientas</b> <u>+40.000 mujeres en Colombia ya lo usan</u><div class="stars" aria-label="4,8 de 5">★★★★★</div></div>
   </div>
 
@@ -229,11 +429,38 @@ h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
   <a class="cta" id="ctaMain" href="#">PEDIR Y PAGAR AL RECIBIR</a>
   <div class="cta-sub"><span>🚚 Envío GRATIS</span><span>💵 Pago contra entrega</span><span>🛡️ Garantía de satisfacción</span></div></div>
 
+  <!-- 1. SELLO DE VERIFICACIÓN (poner el número real del registro y el enlace a la consulta INVIMA) -->
+  <div data-seccion="registro-sanitario"><div class="verify">
+    <svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="sealG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a774dc"/><stop offset="1" stop-color="#3d2252"/></linearGradient></defs><polygon points="24.0,2.0 29.0,5.5 35.0,4.9 37.6,10.4 43.1,13.0 42.5,19.0 46.0,24.0 42.5,29.0 43.1,35.0 37.6,37.6 35.0,43.1 29.0,42.5 24.0,46.0 19.0,42.5 13.0,43.1 10.4,37.6 4.9,35.0 5.5,29.0 2.0,24.0 5.5,19.0 4.9,13.0 10.4,10.4 13.0,4.9 19.0,5.5" fill="url(#sealG)" stroke="url(#sealG)" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.2"/><path d="M16.5 24.5l5 5 10-11" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="v-txt"><b>Registro sanitario INVIMA</b><span class="pill">RSA-0012589-2021</span><small>Alimento en polvo a base de proteína de soya · Marca CEN</small></div>
+    <button type="button" class="v-open" id="invimaOpen" aria-haspopup="dialog">Ver registro →</button>
+    <div class="v-logo"><img src="img/invima-logo.webp" alt="INVIMA, Instituto Nacional de Vigilancia de Medicamentos y Alimentos" width="360" height="147"></div>
+  </div>
+
+  <dialog class="inv-modal" id="invimaModal" aria-labelledby="invTitle">
+    <div class="inv-head">
+      <div><p class="eyebrow">Registro sanitario</p><h2 id="invTitle">INVIMA · RSA-0012589-2021</h2></div>
+      <button type="button" class="inv-x" id="invimaClose" aria-label="Cerrar">×</button>
+    </div>
+    <div class="inv-body">
+      <dl class="inv-data">
+        <div><dt>Registro</dt><dd>RSA-0012589-2021</dd></div>
+        <div><dt>Resolución</dt><dd>2022005749 · 30 de marzo de 2022</dd></div>
+        <div><dt>Producto</dt><dd>Alimento en polvo a base de proteína de soya</dd></div>
+        <div><dt>Marca autorizada</dt><dd>CEN</dd></div>
+        <div><dt>Titular y fabricante</dt><dd>Laboratorio G &amp; B S.A.S. · Cali, Valle</dd></div>
+      </dl>
+      <img src="docs/p-1.webp" alt="Resolución INVIMA 2022005749, página 1: modifica el registro sanitario RSA-0012589-2021 y autoriza la marca CEN" loading="lazy">
+      <img src="docs/p-2.webp" alt="Resolución INVIMA 2022005749, página 2: firma del Director Técnico de Alimentos y Bebidas" loading="lazy">
+      <p class="inv-links"><a href="docs/registro-invima-cen.pdf" target="_blank" rel="noopener">Abrir el PDF completo</a> · Verifícalo en consultaregistro.invima.gov.co</p>
+    </div>
+  </dialog></div>
+
   <!-- TESTIMONIO DESTACADO (reemplazar por una reseña real) -->
   <article class="testi" data-seccion="testimonio-destacado">
-    <div class="ph" aria-hidden="true"></div>
+    <div class="ph" aria-hidden="true"><img src="img/clienta-testimonio.webp" alt="" width="44" height="44"></div>
     <div>
-      <b>Nombre de clienta</b> <span class="stars">★★★★★</span><span class="sample">Ejemplo</span>
+      <b>Patricia V.</b> <span class="stars">★★★★★</span>
       <p>Aquí va una reseña real de tu tienda. Las que más convierten cuentan una escena concreta: dormir de corrido otra vez, ya no despertarse empapada, levantarse sin el cuerpo pesado, y cuánto tiempo lleva tomándolo.</p>
     </div>
   </article>
@@ -261,34 +488,168 @@ h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
     <img src="img/cen-4.webp" alt="Ingredientes de CEN: proteína de soya, harina de ñame, maca, omega 3, citrato de magnesio, vitamina D3, vitamina B1 y stevia" loading="lazy">
   </section>
 
-  <div class="buybox" data-seccion="compra-repetida">
-    <div class="stars">★★★★★</div>
-    <p id="bbName">Kit Trío · Tratamiento completo recomendado</p>
-    <div class="bb-price" id="bbPrice">$199.900 COP</div>
-    <a class="cta" id="ctaBox" href="#">PEDIR Y PAGAR AL RECIBIR</a>
-  </div>
 
-  <!-- RESEÑAS (conectar a Judge.me / Loox; las tarjetas son de ejemplo) -->
-  <section class="reviews" id="resenas" data-seccion="resenas">
-    <h2>La comunidad CEN opina</h2>
-    <div class="score">
-      <div class="big">4,8<small>Más de 1.200 opiniones</small></div>
-      <div class="bars" aria-label="Distribución de calificaciones">
-        <div class="bar">5<span><i style="width:86%"></i></span></div>
-        <div class="bar">4<span><i style="width:10%"></i></span></div>
-        <div class="bar">3<span><i style="width:3%"></i></span></div>
-        <div class="bar">2<span><i style="width:1%"></i></span></div>
-        <div class="bar">1<span><i style="width:0%"></i></span></div>
-      </div>
+
+  <!-- 3. RESULTADOS (cifras de ejemplo: reemplazar con una encuesta real a clientas) -->
+  <section class="res" aria-labelledby="resH" data-seccion="encuesta">
+    <p class="eyebrow">Encuesta a clientas · XX semanas tomando CEN</p>
+    <h2 class="vh" id="resH">Sin hormonas.<br>Sin fármacos.<br><em>Con registro INVIMA.</em></h2>
+    <p class="vlead">Una bebida diaria con proteína de soya, ñame, maca, magnesio, omega 3, vitamina D3 y B1, pensada para acompañar los cambios de la perimenopausia y la menopausia.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">95%</div><b>Descanso profundo</b><p>“Duermo de corrido y me levanto descansada.”</p></div>
+      <div class="stat"><div class="n">88%</div><b>Menos sofocos</b><p>“Noté menos calores durante el día y la noche.”</p></div>
+      <div class="stat"><div class="n">80%</div><b>Más energía</b><p>“Sentí un aumento notable en mi energía diaria.”</p></div>
+      <div class="stat"><div class="n">97%</div><b>Menos hinchazón</b><p>“Tengo mejor digestión y el abdomen más ligero.”</p></div>
     </div>
-    <p class="r-note">Las barras y las tarjetas de abajo son de ejemplo: aquí va tu app de reseñas con las opiniones reales.</p>
-    <div class="r-list">
-      <article class="r-card"><header><b>Nombre de clienta</b><span class="stars">★★★★★</span></header><h3>Título de la reseña <span class="sample">Ejemplo</span></h3><p>Reseña sobre el descanso: cuántas noches lleva durmiendo de corrido y desde cuándo lo toma.</p><footer>Ciudad · fecha</footer></article>
-      <article class="r-card"><header><b>Nombre de clienta</b><span class="stars">★★★★★</span></header><h3>Título de la reseña <span class="sample">Ejemplo</span></h3><p>Reseña sobre los sofocos o la hinchazón, con una escena concreta del día a día.</p><footer>Ciudad · fecha</footer></article>
-      <article class="r-card"><header><b>Nombre de clienta</b><span class="stars">★★★★★</span></header><h3>Título de la reseña <span class="sample">Ejemplo</span></h3><p>Reseña sobre el sabor y lo fácil que es prepararlo.</p><footer>Ciudad · fecha</footer></article>
-      <article class="r-card"><header><b>Nombre de clienta</b><span class="stars">★★★★★</span></header><h3>Título de la reseña <span class="sample">Ejemplo</span></h3><p>Reseña de una hija que se lo regaló a su mamá.</p><footer>Ciudad · fecha</footer></article>
+    <p class="foot-n">Resultados de una encuesta a XX clientas tras XX semanas tomando CEN. Experiencias individuales; CEN es un alimento funcional con registro INVIMA, no un medicamento.</p>
+  </section>
+
+  <!-- CUIDADO, NO PROMESAS (endocrinólogo asesor de Be Well) -->
+  <section class="care" aria-labelledby="careH" data-seccion="medico-asesor">
+    <div class="care-ph">
+      <img src="img/doctor-endocrinologo.webp" alt="Endocrinólogo con bata blanca" loading="lazy">
+      <span class="care-badge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></svg>Dr. R. Camargo · Endocrinólogo</span>
+    </div>
+    <div class="care-txt">
+      <h2 class="vh" id="careH">Tu cuerpo merece cuidado, <em>no promesas mágicas.</em></h2>
+      <p>Cada mujer vive la perimenopausia y la menopausia a su manera. La alimentación, el descanso, el movimiento y tu estado de salud influyen en cómo te sientes. CEN complementa tu rutina: no reemplaza un tratamiento médico.</p>
+      <p>Reúne proteína de soya, isoflavonas, ñame, maca, citrato de magnesio, omega 3, vitamina D3 y vitamina B1 en un solo vaso al día. Antes de tomarlo, revisa la etiqueta. Si estás embarazada, lactando, tomas anticoagulantes o tienes una condición de salud, consulta con tu médico.</p>
+      <p>Sin afán y sin comparaciones: escucha a tu cuerpo y decide con información.</p>
     </div>
   </section>
+
+  <!-- 4. PERFIL DEL PROFESIONAL (perfiles de ejemplo: reemplazar con profesionales reales y con su autorización) -->
+  <section class="docs" aria-labelledby="docH" data-seccion="profesionales">
+    <p class="eyebrow">Opinión profesional</p>
+    <h2 class="vh" id="docH">Cada ingrediente, <em>explicado por una especialista.</em></h2>
+    <p class="vlead">Profesionales de la salud revisaron la fórmula de CEN. Filtra según lo que más te inquieta.</p>
+    <div class="trust">
+      <div><i>1</i><span><b>Recibieron el producto para probarlo.</b>Así opinan desde la experiencia, no desde la etiqueta.</span></div>
+      <div><i>2</i><span><b>No pagamos por las opiniones.</b>Las profesionales no reciben dinero por lo que escriben.</span></div>
+      <div><i>3</i><span><b>Con nombre y registro profesional.</b>Cada perfil muestra su especialidad.</span></div>
+    </div>
+    <div class="chips" id="docChips" role="group" aria-label="Filtrar opiniones">
+      <button type="button" aria-pressed="true" data-f="all">Todos <small>5</small></button>
+      <button type="button" aria-pressed="false" data-f="sueno"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>Sueño <small>1</small></button>
+      <button type="button" aria-pressed="false" data-f="sofocos"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5 .3 1.7 1.2 2.8 2.5 3.2C11.5 8.5 11 6 12 3z"/></svg>Sofocos <small>1</small></button>
+      <button type="button" aria-pressed="false" data-f="energia"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6z"/></svg>Energía <small>1</small></button>
+      <button type="button" aria-pressed="false" data-f="digestion"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19l7-7"/></svg>Digestión <small>1</small></button>
+      <button type="button" aria-pressed="false" data-f="huesos"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6a2.5 2.5 0 1 0-3 3l9 9a2.5 2.5 0 1 0 3 3 2.5 2.5 0 1 0 3-3l-9-9a2.5 2.5 0 1 0-3-3z"/></svg>Huesos <small>1</small></button>
+    </div>
+    <div class="rail" id="docRail">
+      <article class="doc" data-c="sueno"><header><span class="ava" data-photo><img src="img/dra-ginecologa.webp" alt="Ginecóloga" width="48" height="48" style="width:100%;height:100%;object-fit:cover;display:block"></span><span><b>Dra. Valentina B.</b><small>Ginecología</small></span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>Sueño</span></header><h3>El magnesio y la vitamina B1 apoyan el descanso nocturno.</h3><q>Aquí va la opinión real de la profesional, en sus palabras, sobre por qué recomienda la fórmula.</q><div class="kw"><span>Magnesio</span><span>Vitamina B1</span></div></article>
+      <article class="doc" data-c="sofocos"><header><span class="ava" data-photo><img src="img/dra-endocrinologa.webp" alt="Endocrinóloga" width="48" height="48" style="width:100%;height:100%;object-fit:cover;display:block"></span><span><b>Dra. Camila S.</b><small>Endocrinología</small></span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5 .3 1.7 1.2 2.8 2.5 3.2C11.5 8.5 11 6 12 3z"/></svg>Sofocos</span></header><h3>Las isoflavonas de soya son la base vegetal de la fórmula.</h3><q>Opinión real sobre las isoflavonas y el ñame, con el matiz que la profesional quiera darle.</q><div class="kw"><span>Isoflavonas</span><span>Ñame</span></div></article>
+      <article class="doc" data-c="energia"><header><span class="ava" data-photo><img src="img/dr-medicina-interna.webp" alt="Médico internista" width="48" height="48" style="width:100%;height:100%;object-fit:cover;display:block"></span><span><b>Dr. Carlos O.</b><small>Medicina interna</small></span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6z"/></svg>Energía</span></header><h3>13 g de proteína vegetal y maca en un solo vaso.</h3><q>Opinión real sobre la proteína y la maca en esta etapa de la vida.</q><div class="kw"><span>Proteína de soya</span><span>Maca</span></div></article>
+      <article class="doc" data-c="digestion"><header><span class="ava" data-photo><img src="img/nut-nutricionista.webp" alt="Nutricionista" width="48" height="48" style="width:100%;height:100%;object-fit:cover;display:block"></span><span><b>Nut. Fabián C.</b><small>Nutrición clínica</small></span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19l7-7"/></svg>Digestión</span></header><h3>Sin azúcares añadidos y fácil de incluir en la rutina.</h3><q>Opinión real de la nutricionista sobre cómo incorporarlo a la alimentación.</q><div class="kw"><span>Stevia</span><span>Rutina simple</span></div></article>
+      <article class="doc" data-c="huesos"><header><span class="ava" data-photo><img src="img/dr-ortopedia.webp" alt="Ortopedista" width="48" height="48" style="width:100%;height:100%;object-fit:cover;display:block"></span><span><b>Dr. Nombre Apellido</b><small>Ortopedia</small></span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6a2.5 2.5 0 1 0-3 3l9 9a2.5 2.5 0 1 0 3 3 2.5 2.5 0 1 0 3-3l-9-9a2.5 2.5 0 1 0-3-3z"/></svg>Huesos</span></header><h3>Vitamina D3 y omega 3 para el soporte óseo y muscular.</h3><q>Opinión real sobre la vitamina D3 y el omega 3 después de los 45.</q><div class="kw"><span>Vitamina D3</span><span>Omega 3</span></div></article>
+    </div>
+  </section>
+
+
+  <!-- 2. COMPARACIÓN DE COSTO (precios por separado aproximados: ajústalos con tus referencias) -->
+  <section class="cmp" aria-labelledby="cmpH" data-seccion="comparacion-costo">
+    <p class="eyebrow">El costo real de cuidarte</p>
+    <h2 class="vh" id="cmpH">Un solo vaso reemplaza <em>8 suplementos.</em></h2>
+    <p class="vlead">Muchas mujeres arman su rutina de la menopausia con frascos sueltos: proteína, maca, magnesio, omega 3… CEN los reúne en una sola bebida al día.</p>
+    <div class="cmp-box">
+      <div class="cmp-head"><span>¿Qué hay en tu vaso?</span><span>Aprox. por separado</span></div>
+      <div class="cmp-row"><b>Proteína de soya (13 g por porción)</b><span>$90.000</span></div>
+      <div class="cmp-row"><b>Isoflavonas de soya</b><span>$70.000</span></div>
+      <div class="cmp-row"><b>Ñame silvestre</b><span>$60.000</span></div>
+      <div class="cmp-row"><b>Maca andina</b><span>$45.000</span></div>
+      <div class="cmp-row"><b>Omega 3</b><span>$55.000</span></div>
+      <div class="cmp-row"><b>Citrato de magnesio</b><span>$40.000</span></div>
+      <div class="cmp-row"><b>Vitamina D3</b><span>$30.000</span></div>
+      <div class="cmp-row"><b>Vitamina B1</b><span>$20.000</span></div>
+    </div>
+    <div class="cmp-total">
+      <div class="sep"><small>Por separado</small><div>$410.000</div></div>
+      <div class="cen"><small>Kit Trío · 3 tarros</small><div>$199.900 <i>COP</i></div></div>
+    </div>
+    <a class="cta" href="#" data-buy>QUIERO MI KIT TRÍO</a>
+  </section>
+
+  <!-- 6. RESEÑAS (conectar a Judge.me / Loox; las tarjetas son de ejemplo) -->
+  <section class="rv" id="resenas" aria-labelledby="rvH" data-seccion="resenas">
+    <h2 class="vh" id="rvH">+40.000 mujeres en Colombia ya lo toman.<br><em>Así se siente realmente.</em></h2>
+    <div class="rating">
+      <div class="row">Excelente <span class="boxes" aria-label="4,8 de 5"><span>★</span><span>★</span><span>★</span><span>★</span><span class="half">★</span></span></div>
+      <p>Calificación <b>4,8</b> / 5 en más de <b>1.200 opiniones</b></p>
+    </div>
+    <div class="rail">
+      <article class="rcard"><div class="boxes"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="who"><b>Nombre de clienta</b>, ciudad · hace 1 día</p><h3>Título de la reseña</h3><p>Reseña sobre el descanso: cuántas noches lleva durmiendo de corrido y desde cuándo lo toma.</p><div class="reply"><b>Respuesta de Be Well</b> · hace 1 día</div></article>
+      <article class="rcard"><div class="boxes"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="who"><b>Nombre de clienta</b>, ciudad · hace 2 días</p><h3>Título de la reseña</h3><p>Reseña sobre los sofocos o la hinchazón, con una escena concreta del día a día.</p><div class="reply"><b>Respuesta de Be Well</b> · hace 2 días</div></article>
+      <article class="rcard"><div class="boxes"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="who"><b>Nombre de clienta</b>, ciudad · hace 3 días</p><h3>Título de la reseña</h3><p>Reseña sobre el sabor y lo fácil que es prepararlo.</p><div class="reply"><b>Respuesta de Be Well</b> · hace 3 días</div></article>
+      <article class="rcard"><div class="boxes"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="who"><b>Nombre de clienta</b>, ciudad · hace 4 días</p><h3>Título de la reseña</h3><p>Reseña de una hija que se lo regaló a su mamá.</p><div class="reply"><b>Respuesta de Be Well</b> · hace 4 días</div></article>
+    </div>
+  </section>
+
+  <script>
+  {
+    const chips=[...document.querySelectorAll('#docChips button')], docs=[...document.querySelectorAll('#docRail .doc')];
+    chips.forEach(b=>b.addEventListener('click',()=>{
+      chips.forEach(x=>x.setAttribute('aria-pressed',x===b));
+      const f=b.dataset.f;
+      docs.forEach(d=>{d.hidden=!(f==='all'||d.dataset.c===f);});
+      document.getElementById('docRail').scrollLeft=0;
+    }));
+    /* Retratos ilustrados de marcador (reemplazar por fotos reales de cada profesional) */
+    const SK=['#f1c7a5','#d9a37c','#b97a52','#8d5a3b','#f5d2b8','#c98f66'];
+    const HC=['#2b1d17','#5a3a22','#8a5a32','#1b1b1b','#b98a52','#3d2a1e'];
+    const BG=['#efe5fa','#fde8ef','#f6efe3','#e9eef8','#f3e9f7','#fbeee6'];
+    const HAIR={
+      long:{b:'M30 44 C29 20 71 20 70 44 L73 76 L27 76 Z',f:'M33 42 C33 23 67 21 67 42 C61 31 44 30 33 42Z'},
+      bob:{b:'M31 47 C29 21 71 21 69 47 L69 62 L31 62Z',f:'M33 42 C33 23 67 22 67 42 C58 33 42 31 33 42Z'},
+      bun:{b:'',f:'M34 40 C34 24 66 24 66 40 C60 31 40 31 34 40Z',x:'<circle cx="50" cy="21" r="9"/>'},
+      short:{b:'',f:'M34 41 C32 23 68 23 66 41 C63 34 40 32 34 41Z'},
+      curly:{b:'M29 50 C24 24 76 24 71 50 C74 60 66 66 62 62 L38 62 C34 66 26 60 29 50Z',f:'M33 40 C34 25 66 25 67 40 C62 33 40 33 33 40Z'}
+    };
+    function avatar(i,style,coat,scrub){
+      const s=SK[i%SK.length],h=HC[(i*5+2)%HC.length],bg=BG[i%BG.length],H=HAIR[style];
+      return '<svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="'+bg+'"/>'+
+        (H.b?'<path d="'+H.b+'" fill="'+h+'"/>':'')+
+        '<path d="M8 100 C12 77 30 70 50 70 C70 70 88 77 92 100Z" fill="'+coat+'"'+(coat==='#ffffff'?' stroke="#e2d8ec" stroke-width="1"':'')+'/>'+
+        (scrub?'<path d="M41 71 L50 88 L59 71Z" fill="'+scrub+'"/>':'')+
+        '<rect x="44" y="55" width="12" height="17" rx="5" fill="'+s+'" style="filter:brightness(.9)"/>'+
+        '<ellipse cx="50" cy="44" rx="16" ry="19" fill="'+s+'"/>'+
+        '<g fill="'+h+'">'+(H.x||'')+'<path d="'+H.f+'"/></g>'+
+        '<circle cx="44" cy="45" r="1.7" fill="#2b1d1d"/><circle cx="56" cy="45" r="1.7" fill="#2b1d1d"/>'+
+        '<path d="M45 53 Q50 57 55 53" fill="none" stroke="#8a4a3a" stroke-width="1.6" stroke-linecap="round"/></svg>';
+    }
+    const docStyles=['bob','long','short','bun','curly'], docScrub=['#8a4fc4','#a8557e','#3d2252','#2f8a4e','#a8557e'];
+    document.querySelectorAll('#docRail .ava').forEach((el,k)=>{if(el.hasAttribute('data-photo')) return;el.style.background='none';el.innerHTML=avatar(k+1,docStyles[k%5],'#ffffff',docScrub[k%5]);});
+    const exStyles=['long','bun','bob','curly','long','short'], exCoat=['#ffffff','#c9a2ec','#ffffff','#3d2252','#e7b9cf','#8a4fc4'];
+    document.querySelectorAll('.ex-card .ph').forEach((el,k)=>{el.innerHTML=avatar(k+3,exStyles[k%6],exCoat[k%6],exCoat[k%6]==='#ffffff'?'#8a4fc4':'');});
+
+    /* Negrita automática: menopausia e ingredientes en los textos corridos */
+    const KW=/(perimenopausia|menopausia|isoflavonas de soya|isoflavonas|prote[ií]na vegetal|prote[ií]na de soya|harina de ñame|ñame silvestre|ñame|maca andina|maca en polvo|maca|citrato de magnesio|magnesio|omega 3|vitamina D3|vitamina B1|\bB1\b|\bD3\b|stevia|biotina|calcio)/gi;
+    const SKIP='H1,H2,H3,B,STRONG,A,BUTTON,SCRIPT,STYLE,SUMMARY';
+    const walker=document.createTreeWalker(document.querySelector('main'),NodeFilter.SHOW_TEXT,{acceptNode:n=>{
+      if(!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      let p=n.parentElement; while(p&&p.tagName!=='MAIN'){ if(SKIP.split(',').includes(p.tagName)||p.classList.contains('kw')||p.classList.contains('cmp-row')) return NodeFilter.FILTER_REJECT; p=p.parentElement; }
+      KW.lastIndex=0; return KW.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
+    }});
+    const hits=[]; while(walker.nextNode()) hits.push(walker.currentNode);
+    hits.forEach(n=>{
+      const frag=document.createDocumentFragment(); let last=0; const t=n.nodeValue; KW.lastIndex=0; let m;
+      while((m=KW.exec(t))){ frag.append(t.slice(last,m.index)); const s=document.createElement('strong'); s.className='kwb'; s.textContent=m[0]; frag.append(s); last=m.index+m[0].length; }
+      frag.append(t.slice(last)); n.replaceWith(frag);
+    });
+
+    /* Popup del registro INVIMA */
+    const invM=document.getElementById('invimaModal'), invO=document.getElementById('invimaOpen'), invC=document.getElementById('invimaClose');
+    if(invM&&invO){
+      invO.addEventListener('click',()=>{ if(invM.showModal) invM.showModal(); else invM.setAttribute('open',''); document.body.style.overflow='hidden'; });
+      const invClose=()=>{ if(invM.close) invM.close(); else invM.removeAttribute('open'); };
+      invC.addEventListener('click',invClose);
+      invM.addEventListener('click',e=>{ if(e.target===invM) invClose(); });
+      invM.addEventListener('close',()=>{ document.body.style.overflow=''; invO.focus(); });
+    }
+
+    const cmpCta=document.querySelector('.cmp .cta');
+    if(cmpCta) cmpCta.addEventListener('click',()=>{ try{pick('trio'); cmpCta.href=OFFERS.trio.url;}catch(e){} });
+  }
+  </script>
 
   <!-- FAQ -->
   <section class="faq" data-seccion="preguntas-frecuentes">
@@ -344,7 +705,7 @@ const OFFERS = {
 /* Galería */
 const thumbs=[...document.querySelectorAll('#gThumbs button')], main=document.getElementById('gMain');
 let gi=0;
-function show(i){gi=(i+thumbs.length)%thumbs.length;main.src=thumbs[gi].dataset.src;thumbs.forEach((t,k)=>t.setAttribute('aria-current',k===gi));thumbs[gi].scrollIntoView({block:'nearest',inline:'nearest'});}
+function show(i){gi=(i+thumbs.length)%thumbs.length;main.src=thumbs[gi].dataset.src;main.style.aspectRatio=thumbs[gi].dataset.ratio||"";{const c=document.getElementById('gCap'),d=thumbs[gi].dataset;if(c){c.hidden=!d.capT;document.getElementById('gCapT').textContent=d.capT||'';document.getElementById('gCapS').textContent=d.capS||'';}}thumbs.forEach((t,k)=>t.setAttribute('aria-current',k===gi));thumbs[gi].scrollIntoView({block:'nearest',inline:'nearest'});}
 thumbs.forEach((t,k)=>t.addEventListener('click',()=>show(k)));
 document.getElementById('gPrev').onclick=()=>show(gi-1);
 document.getElementById('gNext').onclick=()=>show(gi+1);
@@ -354,9 +715,7 @@ const radios=[...document.querySelectorAll('.offer')];
 function pick(key){
   radios.forEach(r=>r.setAttribute('aria-checked',r.dataset.key===key));
   const o=OFFERS[key];
-  ['ctaMain','ctaBox','ctaSticky'].forEach(id=>document.getElementById(id).href=o.url);
-  document.getElementById('bbName').textContent=o.name;
-  document.getElementById('bbPrice').textContent=o.price;
+  ['ctaMain','ctaSticky'].forEach(id=>document.getElementById(id).href=o.url);
   document.getElementById('stName').textContent=o.short;
   document.getElementById('stPrice').textContent=o.price;
 }

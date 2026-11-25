@@ -146,6 +146,80 @@ export function limpiarPrecios(x) {
 }
 export const cop = (v) => `$${Math.round(v).toLocaleString('es-CO').replace(/,/g, '.')}`;
 
+// ---------------------------------------------------------------- la base completa (2026-11-25j)
+/** El tipo de cada imagen de la plantilla, por su archivo. */
+export function tipoDe(src) {
+  const f = path.basename(String(src));
+  if (/tarro/i.test(f)) return 'producto';
+  if (/invima|^p-\d/i.test(f)) return 'registro';
+  if (/av-clienta|clienta-testimonio|clienta/i.test(f)) return 'persona';
+  if (/^(doctor|dra?|nut)-/i.test(f)) return 'profesional';
+  return 'creativo';
+}
+export const RE_PROFESIONAL = /\b(Dra?\.|Nut\.)\s+(?!Nombre\b)[A-ZÁÉÍÓÚÑ][\wáéíóúñ]*\.?(\s+[A-ZÁÉÍÓÚÑ][\wáéíóúñ]*\.?)?/;
+export const sinNombreProfesional = (t) => String(t).replace(new RegExp(RE_PROFESIONAL.source, 'g'), '$1 Nombre Apellido');
+
+/** El sello del registro (solo con número) y sin pies de foto de la plantilla en la galería. */
+export function prepararPlantilla(raiz, reg) {
+  const sello = raiz.querySelector('[data-seccion="registro-sanitario"]');
+  if (sello && !reg) sello.parentNode.removeChild(sello);
+  if (sello && reg) {
+    sello.querySelector('.pill')?.set_content(reg);
+    raiz.querySelector('#invTitle')?.set_content(`Registro sanitario · ${reg}`);
+    const filas = sello.querySelectorAll('.inv-data > div');
+    filas.forEach((f, k) => {
+      if (k === 0) f.querySelector('dd')?.set_content(reg);
+      else f.parentNode.removeChild(f);
+    });
+    for (const n of sello.querySelectorAll('img')) if (/assets\/p-\d/.test(n.getAttribute('src') || '')) n.parentNode.removeChild(n);
+    sello.querySelector('.inv-links')?.set_content('Verifícalo en consultaregistro.invima.gov.co');
+  }
+  for (const b of raiz.querySelectorAll('#gThumbs button')) for (const a of ['data-cap-t', 'data-cap-s', 'data-ratio']) b.removeAttribute(a);
+}
+
+/**
+ * Los colores literales de la plantilla del tono de su marca (morados) pasan al tono del producto, con la misma luz:
+ * así cada borde, fondo suave y degradado sigue la paleta sin tocar el CSS a mano.
+ */
+export function recolorear(texto, accent) {
+  const hsl = (r, g, b) => {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    const mx = Math.max(r, g, b);
+    const mn = Math.min(r, g, b);
+    const l = (mx + mn) / 2;
+    if (mx === mn) return [0, 0, l];
+    const d = mx - mn;
+    const s = l > 0.5 ? d / (2 - mx - mn) : d / (mx + mn);
+    const h = mx === r ? (g - b) / d + (g < b ? 6 : 0) : mx === g ? (b - r) / d + 2 : (r - g) / d + 4;
+    return [h * 60, s, l];
+  };
+  const hex = (h, s, l) => {
+    const f = (n) => {
+      const k = (n + h / 30) % 12;
+      const a = s * Math.min(l, 1 - l);
+      return Math.round(255 * (l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1))));
+    };
+    return [f(0), f(8), f(4)];
+  };
+  const [ha, sa] = hsl(...[1, 3, 5].map((i) => parseInt(accent.slice(i, i + 2), 16)));
+  const nuevo = (r, g, b) => {
+    const [h, s, l] = hsl(r, g, b);
+    if (s < 0.12 || h < 235 || h > 330) return null; // solo los morados/lilas de la plantilla
+    return hex(ha, Math.min(1, s * Math.max(0.6, sa / 0.5)), l);
+  };
+  return String(texto)
+    .replace(/#([0-9a-f]{6})\b/gi, (m, x) => {
+      const c = nuevo(...[0, 2, 4].map((i) => parseInt(x.slice(i, i + 2), 16)));
+      return c ? `#${c.map((v) => v.toString(16).padStart(2, '0')).join('')}` : m;
+    })
+    .replace(/rgba?\((\d+),\s*(\d+),\s*(\d+)(,\s*[\d.]+)?\)/gi, (m, r, g, b, a) => {
+      const c = nuevo(+r, +g, +b);
+      return c ? `rgba(${c.join(',')}${a || ',1'})` : m;
+    });
+}
+
 // ---------------------------------------------------------------- la identidad visual (2026-11-25g)
 export const FUENTES_DISPLAY = ['Anton', 'Bebas Neue', 'Archivo Black', 'Oswald', 'Montserrat', 'Poppins', 'Playfair Display', 'DM Serif Display', 'Fraunces', 'Sora'];
 export const FUENTES_CUERPO = ['Inter', 'Nunito Sans', 'Lato', 'Work Sans', 'Poppins', 'Source Sans 3', 'DM Sans', 'Manrope'];
@@ -214,8 +288,18 @@ export function aplicarDiseno(raiz, d) {
   --f-display:"${d.display}","${d.body}",system-ui,Arial,sans-serif;
   color-scheme:light;
 }`;
-    estilo.set_content(estilo.rawText.replace(/:root\{\s*--bg:[\s\S]*?\n\}/, raizCss).replace(/recoloreada al morado de CEN/, 'con la identidad del producto'));
+    const t = estilo.childNodes.find((c) => c.nodeType === 3);
+    if (t) t.rawText = t.rawText.replace(/:root\{\s*--bg:[\s\S]*?\n\}/, raizCss).replace(/recoloreada al morado de CEN/, 'con la identidad del producto');
   }
+  // (el texto de <style> y <script> se cambia en su nodo de texto: set_content lo leería como HTML)
+  const enTexto = (n, fn) => {
+    const t = n.childNodes.find((c) => c.nodeType === 3);
+    if (t) t.rawText = fn(t.rawText);
+  };
+  for (const st of raiz.querySelectorAll('style')) enTexto(st, (x) => recolorear(x, d.accent));
+  for (const n of raiz.querySelectorAll('[style]')) n.setAttribute('style', recolorear(n.getAttribute('style'), d.accent));
+  for (const a of ['stop-color', 'fill', 'stroke']) for (const n of raiz.querySelectorAll(`[${a}]`)) n.setAttribute(a, recolorear(n.getAttribute(a), d.accent));
+  for (const sc of raiz.querySelectorAll('script')) if (!/const OFFERS = \{/.test(sc.rawText)) enTexto(sc, (x) => recolorear(x, d.accent));
   const fam = (f, pesos) => `family=${encodeURIComponent(f).replace(/%20/g, '+')}:wght@${pesos}`;
   const link = raiz.querySelector('#kads-fuentes');
   const display = ['Anton', 'Bebas Neue', 'Archivo Black'].includes(d.display) ? `family=${d.display.replace(/ /g, '+')}` : fam(d.display, '700;800');
@@ -226,7 +310,7 @@ export function aplicarDiseno(raiz, d) {
  * Arma la landing en `carpeta` con el equipo. `guardar(cambios)` y `avanzar(texto)` son los de landings/index.js.
  * -> { titulo, agentes, imagenes }
  */
-export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, guardar, avanzar, precios = null }) {
+export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, guardar, avanzar, precios = null, registro = '' }) {
   const prod = listarProductos().find((p) => p.id === productoId);
   const ficha = leerFicha(productoId) || {};
   let investigacion = '';
@@ -238,24 +322,35 @@ export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, 
   // la plantilla, copiada a la carpeta de la landing (index.html + assets/)
   const base = path.join(PLANTILLAS, PLANTILLA);
   fs.mkdirSync(path.join(carpeta, 'assets'), { recursive: true });
-  for (const f of fs.readdirSync(path.join(base, 'img'))) fs.copyFileSync(path.join(base, 'img', f), path.join(carpeta, 'assets', f));
-  const raiz = leerHtml(fs.readFileSync(path.join(base, 'index.html'), 'utf8').replace(/(["'(])img\//g, '$1assets/'));
+  for (const dir of ['img', 'docs']) {
+    if (!fs.existsSync(path.join(base, dir))) continue;
+    for (const f of fs.readdirSync(path.join(base, dir))) fs.copyFileSync(path.join(base, dir, f), path.join(carpeta, 'assets', f));
+  }
+  const raiz = leerHtml(fs.readFileSync(path.join(base, 'index.html'), 'utf8').replace(/(["'(])(img|docs)\//g, '$1assets/'));
+  // (2026-11-25j) antes del equipo: el sello del registro sanitario (solo con el número que dio el dueño) y nada de
+  // pies de foto de la plantilla con recomendaciones de profesionales
+  const reg = String(registro || '').trim().slice(0, 60);
+  prepararPlantilla(raiz, reg);
   const { textos, imagenes } = piezasDe(raiz);
   // (2026-11-25h) cada imagen de la plantilla con su archivo, su tamaño y su aspecto: el equipo las MIRA (Read) y las
   // nuevas salen con la misma proporción
   for (const im of imagenes) {
-    im.ruta = path.join(base, 'img', path.basename(im.src));
+    im.ruta = ['img', 'docs'].map((d) => path.join(base, d, path.basename(im.src))).find((r) => fs.existsSync(r)) || path.join(base, 'img', path.basename(im.src));
+    im.tipo = tipoDe(im.src);
     const m = fs.existsSync(im.ruta) ? medidas(fs.readFileSync(im.ruta)) : null;
     im.w = m?.w || null;
     im.h = m?.h || null;
     im.aspecto = m ? aspectoDe(m.w, m.h) : '1:1';
   }
-  const verPlantilla = imagenes.filter((im) => !/tarro/i.test(im.src) && fs.existsSync(im.ruta)).map((im) => im.ruta);
-  const listaImgs = imagenes.map((im, k) => `img${k}\t${im.alt || '(sin alt)'}\t${im.w || '?'}x${im.h || '?'} (${im.aspecto})\tarchivo: ${path.relative(RAIZ, im.ruta).replace(/\\/g, '/')}\tsecciones: ${im.usos.join(', ')}`).join('\n');
+  const verPlantilla = imagenes.filter((im) => im.tipo === 'creativo' && fs.existsSync(im.ruta)).map((im) => im.ruta);
+  const listaImgs = imagenes.map((im, k) => `img${k}\ttipo: ${im.tipo}\t${im.alt || '(sin alt)'}\t${im.w || '?'}x${im.h || '?'} (${im.aspecto})\tarchivo: ${path.relative(RAIZ, im.ruta).replace(/\\/g, '/')}\tsecciones: ${im.usos.join(', ')}`).join('\n');
   const p = limpiarPrecios(precios);
   const preciosTxt = p
     ? `\nPRECIOS DEL DUEÑO (fijos, úsalos tal cual): 1 unidad ${cop(p.uno)}, 2 unidades ${cop(p.dos)}, 3 unidades ${cop(p.tres)}${p.antes ? `; precio normal de 1 unidad (tachado) ${cop(p.antes)}` : ''}. trio = 3 unidades, duo = 2, uno = 1.\n`
     : '\nEl dueño NO dio precios: en los precios escribe «Precio por definir» y no inventes descuentos ni «ahorras».\n';
+  const datosTxt = `${reg ? `REGISTRO SANITARIO DEL PRODUCTO: ${reg} (úsalo tal cual en el sello).` : 'El dueño NO dio registro sanitario: no menciones INVIMA, registro sanitario ni sellos oficiales en ningún texto.'}
+ENCUESTA: las cifras van como «XX %», «XX clientas» y «XX semanas» (el dueño pone las reales); escribe los beneficios y las frases, nunca porcentajes inventados.
+PROFESIONALES (médico asesor y opiniones): adapta las especialidades y los temas al producto, pero NO inventes nombres ni opiniones firmadas: deja «Dr./Dra. Nombre Apellido» y opiniones como «Aquí va la opinión real del profesional sobre…» para que el dueño ponga profesionales reales que lo autoricen.\n`;
   const agentes = EQUIPO.map((q) => ({ id: q.id, nombre: q.nombre, rol: q.rol, estado: 'esperando', resumen: null }));
   const marcar = (id, cambios) => {
     Object.assign(agentes.find((a) => a.id === id), cambios);
@@ -277,7 +372,7 @@ export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, 
   });
   const mapa = [...porSeccion].map(([s, v]) => `## ${s}\nTextos (índice<TAB>[etiqueta] texto de la plantilla):\n${v.textos.join('\n') || '(ninguno)'}\nImágenes:\n${v.imagenes.join('\n') || '(ninguna)'}`).join('\n\n');
   const producto = `Su producto: ${prod?.nombre || productoId}\nFicha: ${JSON.stringify(ficha).slice(0, 6000)}`;
-  const pedidoTxt = `${pedido ? `\nLO QUE PIDE EL DUEÑO (manda sobre todo lo demás):\n${pedido}\n` : ''}${preciosTxt}`;
+  const pedidoTxt = `${pedido ? `\nLO QUE PIDE EL DUEÑO (manda sobre todo lo demás):\n${pedido}\n` : ''}${preciosTxt}${datosTxt}`;
 
   // 1. Emilio: la estrategia
   marcar('estratega', { estado: 'trabajando' });
@@ -375,7 +470,11 @@ Escribe TODOS los textos de la landing para este producto: cada uno cumple la in
 Las imágenes de la plantilla (cada una puede aparecer en varias secciones). ÁBRELAS TODAS con Read antes de escribir:
 ${listaImgs}
 
-Para cada imagen, mírala y entiende qué trabajo hace (enganche, problema, mecanismo, ingredientes, prueba, modo de uso…) y CÓMO está armada: sus bloques, su jerarquía y su distribución (titular grande arriba, beneficios con íconos, sellos de garantía, el producto, la persona, la franja de abajo…). Diseña la de este producto como una TRADUCCIÓN ESTRUCTURAL de esa imagen: los mismos bloques en el mismo orden y lugar, con la intención de Simón, los datos reales del producto y textos grandes en español; la misma proporción que la original (va fija). Nunca pongas sellos, registros sanitarios, garantías o cifras que el producto no tenga: cambia ese bloque por algo verdadero. Al generar, ChatGPT recibe la foto del producto y la imagen de la plantilla solo como guía de composición. Todas las imágenes con la identidad de Antonia: ${T(disenoIA.estilo_imagenes, 1200) || 'coherentes entre sí'}; colores de la paleta ${diseno.accent} (principal), ${diseno.accent_deep} y ${diseno.star}. Nunca la marca ni el empaque de la plantilla. Usa la FOTO DEL PRODUCTO como referencia (se adjunta al generar). El tarro chico de los combos («cen-tarro») NO se genera: va la foto del producto tal cual (ponle "usar_foto": true). Escribe ${rel(carpeta, Q('imagenes').archivo)}:
+Para cada imagen, mírala y entiende qué trabajo hace (enganche, problema, mecanismo, ingredientes, prueba, modo de uso…) y CÓMO está armada: sus bloques, su jerarquía y su distribución (titular grande arriba, beneficios con íconos, sellos de garantía, el producto, la persona, la franja de abajo…). Diseña la de este producto como una TRADUCCIÓN ESTRUCTURAL de esa imagen: los mismos bloques en el mismo orden y lugar, con la intención de Simón, los datos reales del producto y textos grandes en español; la misma proporción que la original (va fija). Nunca pongas sellos, registros sanitarios, garantías o cifras que el producto no tenga: cambia ese bloque por algo verdadero. Al generar, ChatGPT recibe la foto del producto y la imagen de la plantilla solo como guía de composición. Todas las imágenes con la identidad de Antonia: ${T(disenoIA.estilo_imagenes, 1200) || 'coherentes entre sí'}; colores de la paleta ${diseno.accent} (principal), ${diseno.accent_deep} y ${diseno.star}. Nunca la marca ni el empaque de la plantilla. Usa la FOTO DEL PRODUCTO como referencia (se adjunta al generar). El tarro chico de los combos («cen-tarro», tipo producto) y el logo del registro (tipo registro) NO se generan (ponles "usar_foto": true).
+Según el TIPO de cada imagen:
+- creativo: la traducción estructural de arriba, con la foto del producto.
+- persona (los círculos de opiniones y testimonios): retrato realista tipo foto de celular, cabeza y hombros, de una persona del AVATAR de Emilio (edad, país, estilo de vida), cada una distinta, mirando a cámara, fondo de casa; sin texto.
+- profesional (médico asesor y opiniones de especialistas): retrato realista de un profesional de la salud con bata, de la especialidad que tenga sentido para ESTE producto según la sección, en un consultorio; sin nombre, sin escarapela legible, sin texto ni logos. Escribe ${rel(carpeta, Q('imagenes').archivo)}:
 { "imagenes": [ { "imagen": "img<n>", "funcion": "", "prompt": "<en inglés, detallado; los textos que van dentro de la imagen, en español y entre comillas>", "aspecto": "1:1" | "4:5" | "9:16" | "16:9", "usar_foto": false } ], "resumen": "" }`,
     }).then((d) => {
       marcar('imagenes', { estado: 'listo', resumen: T(d.resumen, 800) });
@@ -418,6 +517,12 @@ ${(() => {
   for (const [k, v] of Object.entries(revision.cambios || {})) if (poner(k, v)) cambiados++;
   // lo que aún nombre la plantilla, a mano: la marca → el producto; el dominio → nada
   for (let k = 0; k < textos.length; k++) if (RE_PLANTILLA.test(textos[k].texto)) poner(k, sinPlantilla(textos[k].texto, prod?.nombre || 'nuestro producto'));
+  // (2026-11-25j) sin nombres de profesionales ni cifras de encuesta inventados
+  for (let k = 0; k < textos.length; k++) {
+    const t = textos[k];
+    if (['profesionales', 'medico-asesor'].includes(t.seccion) && RE_PROFESIONAL.test(t.texto)) poner(k, sinNombreProfesional(t.texto));
+    if (t.seccion === 'encuesta' && /^\s*\d{1,3}\s?%\s*$/.test(t.texto)) poner(k, 'XX %');
+  }
   marcar('revision', { estado: 'listo', resumen: T(revision.resumen, 800), pendientes: (Array.isArray(revision.pendientes) ? revision.pendientes : []).map((p) => T(p, 300)).filter(Boolean).slice(0, 10) });
 
   // (2026-11-25h) los precios en la página: los del dueño (con tachado y «Ahorras» calculados) o, sin precios, nada de
@@ -444,6 +549,9 @@ ${(() => {
       quitar(card.querySelector('.o-save'));
     }
   }
+
+  const total = raiz.querySelector('.cmp-total .cen div');
+  if (total) total.set_content(p ? `${cop(p.tres)} <i>COP</i>` : 'Precio por definir');
 
   // los combos y el título de la página
   const combos = { ...(copy.combos || {}) };
@@ -478,7 +586,7 @@ ${(() => {
     fs.copyFileSync(foto, path.join(carpeta, destino));
     for (const im of imagenes) if (/tarro/i.test(im.src)) cambiarSrc(im.src, destino);
   }
-  const generar = pedidas.filter((x) => !x.usar_foto && !/tarro/i.test(imagenes[Number(String(x.imagen).slice(3))].src));
+  const generar = pedidas.filter((x) => !x.usar_foto && ['creativo', 'persona', 'profesional'].includes(imagenes[Number(String(x.imagen).slice(3))].tipo));
   const enviados = [];
   if (generar.length) {
     avanzar(`ChatGPT está haciendo ${generar.length} imágenes con tu producto…`);
@@ -490,7 +598,7 @@ ${(() => {
         if (modoPrueba()) {
           if (!foto) continue;
           fs.copyFileSync(foto, destino);
-          enviados.push({ imagen: p.imagen, aspecto: im.aspecto, guia: Boolean(referenciaPng(im.ruta, carpeta)) });
+          enviados.push({ imagen: p.imagen, tipo: im.tipo, aspecto: im.aspecto, guia: im.tipo === 'creativo' && Boolean(referenciaPng(im.ruta, carpeta)) });
         } else {
           const codex = motorDeImagenes() === 'chatgpt' ? codexParaImagenes() : null;
           if (!codex) {
@@ -498,9 +606,16 @@ ${(() => {
             break;
           }
           const { generarConChatGPT } = await import('../../../../produccion/chatgpt-imagen.js');
-          const prompt = `${foto ? 'Reference image 1 is the REAL PRODUCT: show it exactly as it is (same packaging, label and colors). ' : ''}The ${foto ? 'second' : 'first'} reference image is ONLY a LAYOUT guide from another brand: copy its composition, block layout and visual hierarchy, but NEVER its brand, product, packaging, people or texts.\n\n${correcciones.get(String(p.imagen)) || T(p.prompt, 3000)}`;
-          const guia = referenciaPng(im.ruta, carpeta);
-          await generarConChatGPT({ prompt, referencias: [...(foto ? [foto] : []), ...(guia ? [guia] : [])], aspecto: im.aspecto, rutaDestino: destino, codex });
+          const base = correcciones.get(String(p.imagen)) || T(p.prompt, 3000);
+          if (im.tipo === 'creativo') {
+            const prompt = `${foto ? 'Reference image 1 is the REAL PRODUCT: show it exactly as it is (same packaging, label and colors). ' : ''}The ${foto ? 'second' : 'first'} reference image is ONLY a LAYOUT guide from another brand: copy its composition, block layout and visual hierarchy, but NEVER its brand, product, packaging, people or texts.\n\n${base}`;
+            const guia = referenciaPng(im.ruta, carpeta);
+            await generarConChatGPT({ prompt, referencias: [...(foto ? [foto] : []), ...(guia ? [guia] : [])], aspecto: im.aspecto, rutaDestino: destino, codex });
+          } else {
+            // retratos (clientas del avatar, profesionales): sin producto ni guía, sin textos
+            const prompt = `${base}\n\nPhotorealistic portrait, natural light, centered face with some margin around the head. No text, no logos, no watermark, no name tag.`;
+            await generarConChatGPT({ prompt, referencias: [], aspecto: im.aspecto, rutaDestino: destino, codex });
+          }
         }
         cambiarSrc(im.src, `assets/${path.basename(destino)}`);
         if (T(p.funcion)) for (const n of raiz.querySelectorAll(`img[src="assets/${path.basename(destino)}"]`)) if (n.getAttribute('alt')) n.setAttribute('alt', T(p.funcion, 300));
@@ -512,7 +627,7 @@ ${(() => {
     }
   }
   // (2026-11-25g) ninguna imagen de la plantilla queda: la principal pasa a ser la foto del producto; las demás se quitan
-  const restos = imagenes.filter((im) => raiz.querySelectorAll('img').some((n) => n.getAttribute('src') === im.src));
+  const restos = imagenes.filter((im) => im.tipo !== 'registro' && raiz.querySelectorAll('img').some((n) => n.getAttribute('src') === im.src));
   for (const im of restos) {
     if (foto && im.usos.includes('galeria') && im === imagenes[0]) {
       cambiarSrc(im.src, `assets/producto${path.extname(foto) || '.png'}`);
@@ -527,7 +642,13 @@ ${(() => {
   // y ningún texto alternativo con la marca de la plantilla
   for (const n of raiz.querySelectorAll('img[alt]')) if (RE_PLANTILLA.test(n.getAttribute('alt'))) n.setAttribute('alt', sinPlantilla(n.getAttribute('alt'), prod?.nombre || 'el producto'));
   if (restos.length) avanzar(`Quité ${restos.length} imagen(es) de la plantilla que no se pudieron rehacer (la galería usa la foto de tu producto).`);
-  fs.writeFileSync(path.join(carpeta, 'index.html'), `<!doctype html>\n${raiz.querySelector('html')?.outerHTML || raiz.toString()}`);
+  // (2026-11-25j) sin los comentarios de la plantilla (notas para el dueño de la otra marca), ni en el HTML ni en el CSS
+  for (const st of raiz.querySelectorAll('style')) {
+    const t = st.childNodes.find((c) => c.nodeType === 3);
+    if (t) t.rawText = t.rawText.replace(/\/\*[\s\S]*?\*\//g, '');
+  }
+  const final = (raiz.querySelector('html')?.outerHTML || raiz.toString()).replace(/<!--[\s\S]*?-->/g, '');
+  fs.writeFileSync(path.join(carpeta, 'index.html'), `<!doctype html>\n${final}`);
   if (modoPrueba()) escribirJSON(path.join(carpeta, 'prueba-imagenes.json'), enviados);
   return { titulo, agentes, cambiados, diseno, imagenes: { hechas, pedidas: generar.length, quitadas: restos.length } };
 }
