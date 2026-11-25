@@ -29,7 +29,7 @@ export function rutaDelNavegador() {
   if (cache !== undefined) return cache;
   const candidatos = [
     process.env.CHROME_PATH,
-    buscarEn(path.join(RAIZ, 'remotion', 'node_modules', '.remotion', 'chrome-headless-shell'), ['chrome-headless-shell', 'chrome-headless-shell.exe']),
+    buscarEn(path.join(RAIZ, 'remotion', 'node_modules', '.remotion', 'chrome-headless-shell'), ['chrome-headless-shell', 'chrome-headless-shell.exe', 'headless_shell'] /* (headless_shell: el de Linux ARM, p. ej. Oracle gratis) */),
     '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
     'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
     'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
