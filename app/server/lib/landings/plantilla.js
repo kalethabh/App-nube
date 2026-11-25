@@ -44,6 +44,7 @@ export const EQUIPO = [
   { id: 'copy', nombre: 'Valeria', rol: 'Copywriter', archivo: 'textos-nuevos.json' },
   { id: 'imagenes', nombre: 'Mateo', rol: 'Director de imágenes', archivo: 'imagenes-nuevas.json' },
   { id: 'revision', nombre: 'Renata', rol: 'Revisión', archivo: 'revision.json' },
+  { id: 'visual', nombre: 'Renata', rol: 'Revisión visual', archivo: 'revision-visual.json' },
 ];
 
 const BLOQUES = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEMPLATE', 'SVG', 'TEXTAREA']);
@@ -145,6 +146,39 @@ export function limpiarPrecios(x) {
   return p.uno && p.dos && p.tres ? p : null;
 }
 export const cop = (v) => `$${Math.round(v).toLocaleString('es-CO').replace(/,/g, '.')}`;
+
+// ---------------------------------------------------------------- lo que no aplica (2026-11-25k)
+export const SECCIONES_FIJAS = new Set(['galeria', 'titulo-y-beneficios', 'oferta', 'barra-superior', 'barra-fija', 'pie']);
+// textos que pueden quedar igual en cualquier producto (botones, envíos, pagos, pie)
+const GENERICO = /^(COP|Todos|Envíos|Privacidad|Contáctanos|Excelente|Calificación|Por separado|Opini(ó|o)n profesional|Preguntas frecuentes|Opiniones de clientas|Nombre de clienta|Título de la reseña|PEDIR.*|Revisa bien tu pedido\.|Consulta tu pedido|Cambios y devoluciones|Términos del servicio|\/ 5 en más de|,? ?ciudad · hace \d+ d[ií]as?|· hace \d+ d[ií]as?|Dra?\. Nombre Apellido|Nut\. Nombre Apellido|.*(pedido|transportadora|WhatsApp|devoluci|suscripci|Envío|Pago contra entrega).*)$/i;
+const REPETIDOS = ['.cmp-row', '.stat', '.doc', '.rcard', '[data-seccion="preguntas-frecuentes"] details', '[data-seccion="dudas-rapidas"] details', '.checks li', '.trust > div'];
+export const enLaPagina = (raiz, n) => {
+  for (let x = n; x; x = x.parentNode) if (x === raiz) return true;
+  return false;
+};
+/** Quita los elementos repetidos (filas, cifras, profesionales, reseñas, preguntas) cuyos textos quedaron vacíos. */
+export function quitarRepetidos(raiz, nodos) {
+  let quitados = 0;
+  for (const sel of REPETIDOS) {
+    const todos = raiz.querySelectorAll(sel);
+    const set = new Set(todos);
+    const marcados = new Set();
+    for (const n of nodos) for (let x = n; x; x = x.parentNode) if (set.has(x)) marcados.add(x);
+    let quedan = todos.length;
+    for (const el of marcados) {
+      if (quedan <= 2) break;
+      // un profesional se va con su filtro
+      const c = el.getAttribute?.('data-c');
+      if (c) for (const b of raiz.querySelectorAll(`#docChips button[data-f="${c}"]`)) b.parentNode?.removeChild(b);
+      el.parentNode?.removeChild(el);
+      quedan--;
+      quitados++;
+    }
+  }
+  const todosChip = raiz.querySelector('#docChips button[data-f="all"] small');
+  if (todosChip) todosChip.set_content(String(raiz.querySelectorAll('#docRail .doc').length));
+  return quitados;
+}
 
 // ---------------------------------------------------------------- la base completa (2026-11-25j)
 /** El tipo de cada imagen de la plantilla, por su archivo. */
@@ -407,7 +441,8 @@ ${listaImgs}
 
 Entiende de verdad la plantilla: para qué está cada sección en ese lugar del recorrido de compra, qué hace cada título (enganchar, nombrar el dolor, prometer, dar prueba, quitar una objeción, empujar a comprar…) y qué trabajo hace cada imagen. Después decide cómo cumple ESA MISMA FUNCIÓN para este producto con la estrategia. Escribe ${rel(carpeta, Q('conversion').archivo)}:
 { "secciones": [ { "seccion": "<nombre de arriba>", "funcion_en_la_plantilla": "", "objetivo_para_este_producto": "", "que_debe_sentir_el_cliente": "", "titulo": "qué debe lograr su título y con qué idea", "imagenes": [ { "imagen": "img<n>", "funcion": "qué trabajo hace esa imagen", "que_debe_mostrar": "" } ] } ],
-  "orden": "si el orden de la plantilla sirve o qué cambiarías (la página no se reordena: anótalo)", "resumen": "" }`,
+  "orden": "si el orden de la plantilla sirve o qué cambiarías (la página no se reordena: anótalo)", "resumen": "" }
+Si una sección entera NO tiene sentido para este producto (p. ej. una comparación de costo que no aplica), ponle "no_aplica": true y di por qué: se quita de la página. La galería, el título y la oferta siempre van.`,
   });
   marcar('conversion', { estado: 'listo', resumen: T(intencion.resumen, 800) });
 
@@ -454,7 +489,8 @@ Los textos de la plantilla, por sección (índice<TAB>[etiqueta] texto):
 ${mapa}
 
 Escribe TODOS los textos de la landing para este producto: cada uno cumple la intención de Simón para su sección, con las palabras del cliente de la investigación. Conserva el largo aproximado de cada texto (el diseño depende de eso) y el tipo (un botón sigue siendo un botón corto; un precio, un precio). NUNCA inventes cifras, estudios, testimonios, registros sanitarios ni promesas médicas que no estén en la ficha o la investigación: los testimonios y reseñas de ejemplo quedan como EJEMPLO para que el dueño ponga los reales. Escribe ${rel(carpeta, Q('copy').archivo)}:
-{ "textos": { "<índice>": "<texto nuevo>" }, "combos": { "trio": { "name": "", "short": "", "price": "" }, "duo": { … }, "uno": { … } }, "titulo_pagina": "el <title> de la página", "resumen": "" }`,
+Si un elemento REPETIDO no aplica a este producto (una fila de la comparación, una cifra de la encuesta, un profesional, una reseña, una pregunta, un punto de la lista), escribe "" en TODOS sus textos y se quita de la página (deja al menos 2 de cada uno). Mejor quitar que inventar.
+{ "textos": { "<índice>": "<texto nuevo>" }, "negritas": ["las 5 a 12 palabras del producto que se resaltan en negrita en los textos (ingredientes, beneficios)"], "combos": { "trio": { "name": "", "short": "", "price": "" }, "duo": { … }, "uno": { … } }, "titulo_pagina": "el <title> de la página", "resumen": "" }`,
     }).then((d) => {
       marcar('copy', { estado: 'listo', resumen: T(d.resumen, 800) });
       return d;
@@ -492,7 +528,18 @@ Según el TIPO de cada imagen:
     return true;
   };
   let cambiados = 0;
-  for (const [k, v] of Object.entries(copy.textos || {})) if (poner(k, v)) cambiados++;
+  const originales = textos.map((t) => t.texto);
+  const vacios = [];
+  for (const [k, v] of Object.entries(copy.textos || {})) {
+    if (typeof v === 'string' && !v.trim() && textos[Number(k)]) vacios.push(Number(k));
+    else if (poner(k, v)) cambiados++;
+  }
+  // (2026-11-25k) lo que no aplica: elementos repetidos vacíos y secciones enteras que Simón marcó
+  const quitados = quitarRepetidos(raiz, vacios.map((k) => textos[k].nodo));
+  const fuera = (Array.isArray(intencion.secciones) ? intencion.secciones : []).filter((x) => x?.no_aplica === true && !SECCIONES_FIJAS.has(String(x.seccion))).map((x) => String(x.seccion));
+  for (const sec of fuera) for (const n of raiz.querySelectorAll(`[data-seccion="${sec}"]`)) n.parentNode?.removeChild(n);
+  if (quitados || fuera.length) avanzar(`Quité lo que no aplica a este producto: ${[quitados ? `${quitados} elemento(s) repetido(s)` : '', fuera.length ? `la(s) sección(es) ${fuera.join(', ')}` : ''].filter(Boolean).join(' y ')}.`);
+  const vivos = (k) => textos[k].nodo && enLaPagina(raiz, textos[k].nodo);
 
   // 5. Renata: la revisión de todo lo escrito
   marcar('revision', { estado: 'trabajando' });
@@ -511,6 +558,10 @@ Las imágenes que se van a generar: ${JSON.stringify(imgs.imagenes || []).slice(
 ${(() => {
       const quedan = textos.map((t, k) => (RE_PLANTILLA.test(t.texto) ? `${k}\t${t.texto.slice(0, 200)}` : null)).filter(Boolean);
       return quedan.length ? `ESTOS TEXTOS TODAVÍA NOMBRAN LA MARCA DE LA PLANTILLA (Be Well / CEN / colbewell.com): cámbialos todos.\n${quedan.join('\n')}\n\n` : '';
+    })()}${(() => {
+      const iguales = textos.map((t, k) => (vivos(k) && t.texto === originales[k] && !GENERICO.test(t.texto) ? `${k}\t${t.seccion}\t${t.texto.slice(0, 160)}` : null)).filter(Boolean);
+      const lugar = textos.map((t, k) => (vivos(k) && /\?\s*$/.test(originales[k]) !== /\?\s*$/.test(t.texto) ? `${k}\t${t.seccion}\tantes: «${originales[k].slice(0, 80)}» → ahora: «${t.texto.slice(0, 80)}»` : null)).filter(Boolean);
+      return `${iguales.length ? `ESTOS TEXTOS QUEDARON IGUAL QUE EN LA PLANTILLA (de otra marca): confirma que sirven tal cual para este producto o cámbialos.\n${iguales.join('\n')}\n\n` : ''}${lugar.length ? `POSIBLE TEXTO EN EL LUGAR EQUIVOCADO (una pregunta donde iba una respuesta o al revés): revísalos.\n${lugar.join('\n')}\n\n` : ''}`;
     })()}Revisa todo como la última persona antes de publicar: que nada esté inventado (cifras, estudios, testimonios, registros, «clínicamente probado»), que no haya promesas médicas ni de curar, que el producto, los precios y los combos sean coherentes en toda la página, que cada sección cumpla su intención, y la ortografía. Corrige tú lo que esté mal. Escribe ${rel(carpeta, Q('revision').archivo)}:
 { "cambios": { "<índice>": "<texto corregido>" }, "combos": { … solo si hay que corregirlos }, "imagenes": [ { "imagen": "img<n>", "prompt": "<prompt corregido>" } ], "pendientes": ["lo que el dueño debe completar o revisar él mismo (p. ej. reseñas reales, registro sanitario)"], "resumen": "" }`,
   });
@@ -522,8 +573,15 @@ ${(() => {
     const t = textos[k];
     if (['profesionales', 'medico-asesor'].includes(t.seccion) && RE_PROFESIONAL.test(t.texto)) poner(k, sinNombreProfesional(t.texto));
     if (t.seccion === 'encuesta' && /^\s*\d{1,3}\s?%\s*$/.test(t.texto)) poner(k, 'XX %');
+    // (2026-11-25k) ni cantidades de clientas ni calificaciones inventadas: el dueño pone las reales
+    if (/\+\s?\d{1,3}(?:\.\d{3})+/.test(t.texto)) poner(k, t.texto.replace(/\+\s?\d{1,3}(?:\.\d{3})+/g, '+XX.XXX'));
+    if (t.seccion === 'resenas' && /^\s*\d,\d\s*$/.test(t.texto)) poner(k, 'X,X');
+    if (t.seccion === 'resenas' && /^\s*\d{1,3}(?:\.\d{3})*\s+opiniones\s*$/.test(t.texto)) poner(k, 'XX opiniones');
   }
-  marcar('revision', { estado: 'listo', resumen: T(revision.resumen, 800), pendientes: (Array.isArray(revision.pendientes) ? revision.pendientes : []).map((p) => T(p, 300)).filter(Boolean).slice(0, 10) });
+  const pendientes = (Array.isArray(revision.pendientes) ? revision.pendientes : []).map((x) => T(x, 300)).filter(Boolean).slice(0, 10);
+  if (raiz.querySelector('[data-seccion="profesionales"]')) pendientes.push('La sección de profesionales dice que recibieron el producto, que no se les pagó y que tienen registro profesional: déjalo solo si es verdad con los profesionales reales que pongas.');
+  if (raiz.querySelector('[data-seccion="resenas"]')) pendientes.push('La calificación y el número de opiniones quedan como «X,X» y «XX»: pon los reales (o conecta tu app de reseñas).');
+  marcar('revision', { estado: 'listo', resumen: T(revision.resumen, 800), pendientes });
 
   // (2026-11-25h) los precios en la página: los del dueño (con tachado y «Ahorras» calculados) o, sin precios, nada de
   // tachados ni ahorros de la plantilla
@@ -550,6 +608,17 @@ ${(() => {
     }
   }
 
+  // la barra fija ya con el combo de 3 (antes de que corra el script)
+  const st3 = p ? `${cop(p.tres)} COP` : 'Precio por definir';
+  raiz.querySelector('#stPrice')?.set_content(st3);
+  const corto = T(revision?.combos?.trio?.short, 60) || T(copy?.combos?.trio?.short, 60);
+  if (corto) raiz.querySelector('#stName')?.set_content(corto.replace(/</g, '&lt;'));
+  // las negritas automáticas: las palabras del producto (no las de la plantilla)
+  const negritas = (Array.isArray(copy.negritas) ? copy.negritas : []).map((x) => T(x, 40)).filter((x) => x.length >= 3).slice(0, 16);
+  for (const sc of raiz.querySelectorAll('script')) {
+    const tn = sc.childNodes.find((c) => c.nodeType === 3);
+    if (tn && /const KW=\//.test(tn.rawText)) tn.rawText = tn.rawText.replace(/const KW=\/[^\n]*?\/gi;/, `const KW=${negritas.length ? `/(${negritas.map((x) => x.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')).join('|')})/gi` : '/(?!)/g'};`);
+  }
   const total = raiz.querySelector('.cmp-total .cen div');
   if (total) total.set_content(p ? `${cop(p.tres)} <i>COP</i>` : 'Precio por definir');
 
@@ -647,8 +716,49 @@ ${(() => {
     const t = st.childNodes.find((c) => c.nodeType === 3);
     if (t) t.rawText = t.rawText.replace(/\/\*[\s\S]*?\*\//g, '');
   }
-  const final = (raiz.querySelector('html')?.outerHTML || raiz.toString()).replace(/<!--[\s\S]*?-->/g, '');
-  fs.writeFileSync(path.join(carpeta, 'index.html'), `<!doctype html>\n${final}`);
+  const escribir = () => fs.writeFileSync(path.join(carpeta, 'index.html'), `<!doctype html>\n${(raiz.querySelector('html')?.outerHTML || raiz.toString()).replace(/<!--[\s\S]*?-->/g, '')}`);
+  escribir();
+
+  // (2026-11-25k) 7. Renata mira la página TERMINADA, sección por sección, contra la base (capturas)
+  let capturas = [];
+  try {
+    const { capturarSecciones } = await import('./capturas.js');
+    capturas = (await capturarSecciones({ id: path.basename(carpeta), carpeta }))?.capturas || [];
+  } catch {
+    capturas = [];
+  }
+  const baseCapturas = fs.existsSync(path.join(base, 'capturas')) ? fs.readdirSync(path.join(base, 'capturas')).filter((f) => /\.(png|webp)$/.test(f)).map((f) => path.join(base, 'capturas', f)) : [];
+  if (!capturas.length) {
+    marcar('visual', { estado: 'listo', resumen: 'No pude tomar las capturas de la página (sin navegador): la revisión visual se saltó.' });
+  } else {
+    marcar('visual', { estado: 'trabajando' });
+    const nuevas = capturas.map((c) => path.join(carpeta, c.archivo));
+    try {
+      const visual = await agente({
+        carpeta,
+        motor,
+        quien: Q('visual'),
+        avanzar,
+        leer: [...baseCapturas, ...nuevas],
+        valida: (d) => d && T(d.resumen) && (d.cambios === undefined || typeof d.cambios === 'object'),
+        prompt: `${producto}\n${pedidoTxt}
+Las capturas de la BASE, una por sección (nombre del archivo = sección): ${baseCapturas.map((f) => path.relative(RAIZ, f).replace(/\\/g, '/')).join(', ')}
+Las capturas de la landing TERMINADA, en orden: ${nuevas.map((f) => path.relative(RAIZ, f).replace(/\\/g, '/')).join(', ')}
+Ábrelas con Read y compara sección por sección: ¿cada sección cumple la misma función que en la base, se lee bien, tiene sentido para este producto, no quedó nada de la otra marca, nada cortado ni vacío ni en el lugar equivocado?
+Los textos de la página (índice<TAB>sección<TAB>texto):
+${textos.map((t, k) => (vivos(k) ? `${k}\t${t.seccion}\t${t.texto.slice(0, 200)}` : null)).filter(Boolean).join('\n')}
+Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<índice>": "<texto corregido>" }, "quitar": ["<sección que sobra>"], "problemas": ["lo que viste y no se arregla con texto (p. ej. una imagen que no sirve)"], "resumen": "" }`,
+      });
+      let n2 = 0;
+      for (const [k, v] of Object.entries(visual.cambios || {})) if (poner(k, v)) n2++;
+      for (const sec of (Array.isArray(visual.quitar) ? visual.quitar : []).map(String).filter((x) => !SECCIONES_FIJAS.has(x))) for (const n of raiz.querySelectorAll(`[data-seccion="${sec}"]`)) n.parentNode?.removeChild(n);
+      escribir();
+      marcar('visual', { estado: 'listo', resumen: T(visual.resumen, 800), pendientes: (Array.isArray(visual.problemas) ? visual.problemas : []).map((x) => T(x, 300)).filter(Boolean).slice(0, 8) });
+      if (n2) avanzar(`Renata corrigió ${n2} texto(s) al ver la página terminada.`);
+    } catch (e) {
+      marcar('visual', { estado: 'listo', resumen: `La revisión visual no terminó (${String(e?.publico || e?.message || e).slice(0, 120)}): la landing quedó como la dejó la revisión de textos.` });
+    }
+  }
   if (modoPrueba()) escribirJSON(path.join(carpeta, 'prueba-imagenes.json'), enviados);
   return { titulo, agentes, cambiados, diseno, imagenes: { hechas, pedidas: generar.length, quitadas: restos.length } };
 }

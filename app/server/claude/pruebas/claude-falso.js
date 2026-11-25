@@ -379,6 +379,9 @@ async function alMensaje(texto) {
       d = { ...d, imagenes: lista.length ? lista : [{ imagen: 'img0', funcion: 'hero', prompt: 'product hero', aspecto: '4:5' }] };
     }
     if (quien === 'revision') d = { ...d, cambios: {}, pendientes: ['Poner reseñas reales'] };
+    if (quien === 'visual') d = { ...d, cambios: {}, quitar: [], problemas: [] };
+    // (2026-11-25k) KADS_EQUIPO_DIR: respuestas escritas a mano (una por agente) para probar el proceso de verdad
+    if (process.env.KADS_EQUIPO_DIR && fs.existsSync(path.join(process.env.KADS_EQUIPO_DIR, `${quien}.json`))) d = JSON.parse(fs.readFileSync(path.join(process.env.KADS_EQUIPO_DIR, `${quien}.json`), 'utf8'));
     if (archivo) fs.writeFileSync(path.join(RAIZ, archivo), JSON.stringify(d));
     return resultado({ result: 'LISTO' });
   }
