@@ -8,10 +8,8 @@
   "analizar": false,
   "titulo": "Cayenne Pepper · El calorcito de la cayena en cápsula · Pagas al recibir",
   "creado": "2026-11-25T18:11:57.968Z",
-  "estado": "midiendo",
+  "estado": "lista",
   "progreso": [
-    "Emilio (estratega (investigación)) está trabajando…",
-    "Simón (arquitecto de conversión) está trabajando…",
     "Valeria (copywriter) está trabajando…",
     "Antonia (directora de imágenes) está trabajando…",
     "Renata (revisión) está trabajando…",
@@ -22,7 +20,10 @@
     "Imagen 4 de 4 lista.",
     "Midiendo la velocidad (Lighthouse en celular)…",
     "Lista.",
-    "Midiendo la velocidad (Lighthouse en celular)…"
+    "Midiendo la velocidad (Lighthouse en celular)…",
+    "Preparando capturas reales de las secciones…",
+    "Claude Code está analizando la landing…",
+    "Análisis listo: 12 secciones."
   ],
   "error": null,
   "informe": null,
@@ -36,9 +37,9 @@
       "cls": "0",
       "peso": 9720
     },
-    "fecha": "2026-11-25T18:19:31.938Z"
+    "fecha": "2026-11-25T18:25:20.079Z"
   },
-  "actualizado": "2026-11-25T18:25:08.990Z",
+  "actualizado": "2026-11-25T18:26:17.775Z",
   "agentes": [
     {
       "id": "estratega",
@@ -93,5 +94,217 @@
     "textos": 118,
     "imagenes": 4,
     "pedidas": 4
-  }
+  },
+  "analisis": {
+    "resumen": "Página de un solo producto para vender cápsulas de cayena en Colombia con pago contra entrega. Arranca con un dolor muy concreto (pies helados), pasa directo a los combos y luego resuelve dudas de salud, envío y devolución. Es una plantilla todavía sin terminar: faltan precios, reseñas reales y fotos del producto.",
+    "producto": "Cayenne Pepper: suplemento dietario de cayena en cápsula blanda, 60 cápsulas por bolsa (30 días). Se vende en combos de 1, 2 o 3 bolsas.",
+    "publico": "Mujeres adultas, probablemente mayores, que sufren de pies y manos fríos y piernas pesadas. También hijas que le quieren dar un regalo a su mamá en diciembre. Desean sentir calor en el cuerpo y una rutina natural sin ardor.",
+    "angulo": "El «calorcito» de la cayena como remedio tradicional, ahora fácil de tomar: sin el ardor del agua con cayena y con pago al recibir. Se apoya en lo familiar (el picante del ají) y en el regalo de temporada.",
+    "gancho": "«¿Pies helados que ni con medias se calientan?». Engancha porque es una escena que la clienta vive cada noche y se reconoce de inmediato. Arriba lo acompañan «Muy vendido en Estados Unidos» y «Ahora en Colombia, con pago contra entrega».",
+    "oferta": "Tres combos: 3 bolsas para 90 días (marcado como RECOMENDADO), 2 bolsas para 60 días y 1 bolsa para empezar. Los precios todavía dicen «Pon tu precio», así que no hay cifras ni descuentos reales. Envío gratis, pago contra entrega, confirmación por WhatsApp y compra única sin suscripción.",
+    "prueba_social": "Solo dice «Muy vendido en Estados Unidos», sin cifras ni fuente. Las reseñas, las estrellas y las barras son de ejemplo, no hay testimonios reales, ni fotos de clientas, ni sellos.",
+    "garantia": "No ofrece una garantía clara. Solo dice que revisa cambios y devoluciones según sus políticas, por WhatsApp.",
+    "urgencia": "Solo «Especial de diciembre» y la idea de regalo para mamá. No hay fecha límite, contador ni unidades limitadas.",
+    "cta": "«PEDIR Y PAGAR AL RECIBIR» aparece 2 veces (en la oferta y después de «Revisa bien tu pedido») y «PEDIR AHORA» 1 vez en la barra final. En total, 3 botones.",
+    "secciones": [
+      {
+        "n": 1,
+        "tipo": "otra",
+        "titulo": "ESPECIAL DE DICIEMBRE",
+        "objetivo": "Dar un motivo de temporada y resumir las ventajas de compra.",
+        "analisis": "Barra superior con «Regalo para mamá · Envío GRATIS · Pagas al recibir». En una línea junta ocasión, envío y forma de pago.",
+        "porQueFunciona": "Hipótesis: el regalo para mamá abre una segunda compradora (la hija) y el pago al recibir baja el miedo a la estafa desde el primer segundo.",
+        "mejora": "Si es especial de diciembre, poner una fecha límite real de la promoción o del envío antes de Navidad.",
+        "capturaId": null,
+        "captura": null
+      },
+      {
+        "n": 2,
+        "tipo": "hero",
+        "titulo": "Cayenne Pepper",
+        "objetivo": "Presentar el dolor, el producto y la forma de pago en la primera pantalla.",
+        "analisis": "Pregunta por los pies helados, explica la toma diaria con la comida y cierra con «lo pagas cuando te llegue». Debajo van cuatro puntos cortos: uso tradicional, sin ardor, 60 cápsulas para 30 días y compra única.",
+        "porQueFunciona": "Hipótesis: el dolor concreto conecta rápido y los puntos cortos responden las dudas más comunes antes de bajar.",
+        "mejora": "Las imágenes tienen textos de otro producto (una bebida de otra marca); hay que poner foto real del frasco y una escena de pies fríos o de una mujer abrigada.",
+        "capturaId": "S1",
+        "captura": {
+          "id": "S1",
+          "url": "/landing/cayenne-pepper-067986/analisis-capturas/v-422c348dd45b/seccion-01.webp",
+          "titulo": "Cayenne Pepper®",
+          "parcial": false,
+          "fuente": "Captura de la copia analizada"
+        }
+      },
+      {
+        "n": 3,
+        "tipo": "oferta",
+        "titulo": "Elige tu rutina del calorcito",
+        "objetivo": "Llevar a la clienta al combo de 3 bolsas.",
+        "analisis": "Tres opciones con el combo de 90 días arriba, marcado como RECOMENDADO y con la frase «sin quedarte a mitad de camino». Cierra con envío gratis, pago contra entrega y confirmación por WhatsApp junto al botón.",
+        "porQueFunciona": "Hipótesis: presentar el combo grande como «rutina completa» lo hace ver como lo correcto, no como gastar más.",
+        "mejora": "Falta lo más importante: los precios y el ahorro. Poner precio por bolsa o por día y cuánto se ahorra en cada combo.",
+        "capturaId": "S2",
+        "captura": {
+          "id": "S2",
+          "url": "/landing/cayenne-pepper-067986/analisis-capturas/v-422c348dd45b/seccion-02.webp",
+          "titulo": "Elige tu rutina del calorcito",
+          "parcial": false,
+          "fuente": "Captura de la copia analizada"
+        }
+      },
+      {
+        "n": 4,
+        "tipo": "prueba-social",
+        "titulo": "Nombre de clienta (reseña de ejemplo)",
+        "objetivo": "Poner una opinión justo después de la oferta.",
+        "analisis": "Es un espacio de ejemplo que explica qué tipo de reseña poner: una escena concreta y cuánto tiempo lleva tomándolo.",
+        "porQueFunciona": "Hipótesis: una opinión real junto al botón ayuda a quien duda en el momento de decidir.",
+        "mejora": "Cambiarla por una reseña real con nombre, ciudad y foto, o quitarla. Un texto de ejemplo visible le quita confianza a la página.",
+        "capturaId": null,
+        "captura": null
+      },
+      {
+        "n": 5,
+        "tipo": "mecanismo",
+        "titulo": "¿Por qué la cayena da ese calorcito?",
+        "objetivo": "Explicar por qué el producto podría ayudar.",
+        "analisis": "Habla de la capsaicina, el picante del ají, que ayuda a que los vasos se relajen y la sangre llegue a manos y pies. Aclara que es un suplemento, no un medicamento.",
+        "porQueFunciona": "Hipótesis: compararlo con el calor de comer ají lo hace fácil de entender y creíble sin palabras difíciles.",
+        "mejora": "Agregar una imagen sencilla que muestre el calor llegando a pies y manos.",
+        "capturaId": null,
+        "captura": null
+      },
+      {
+        "n": 6,
+        "tipo": "otra",
+        "titulo": "¿En cuánto tiempo lo voy a notar?",
+        "objetivo": "Manejar expectativas y justificar el combo de 90 días.",
+        "analisis": "Dice que no promete días exactos, que «no es magia» y que por eso recomienda 90 días seguidos.",
+        "porQueFunciona": "Hipótesis: la honestidad da confianza y conecta con la venta del combo grande.",
+        "mejora": "Contar qué suele vivir la clienta en el primer mes y en el tercero, sin prometer resultados.",
+        "capturaId": null,
+        "captura": null
+      },
+      {
+        "n": 7,
+        "tipo": "otra",
+        "titulo": "¿Cuándo recibiré mi pedido? / ¿Qué pasa si necesito ayuda o una devolución?",
+        "objetivo": "Quitar miedo a la entrega y a quedarse sin ayuda.",
+        "analisis": "Dice que el tiempo depende de la ciudad, que se ve en el formulario y que el soporte es por WhatsApp con el número de pedido.",
+        "porQueFunciona": "Hipótesis: saber que hay alguien en WhatsApp tranquiliza a quien compra en línea por primera vez.",
+        "mejora": "Dar un rango de días aproximado para ciudades principales; «depende» deja la duda abierta.",
+        "capturaId": null,
+        "captura": null
+      },
+      {
+        "n": 8,
+        "tipo": "cta",
+        "titulo": "Revisa bien tu pedido.",
+        "objetivo": "Evitar pedidos con datos malos y devoluciones.",
+        "analisis": "Pide revisar combo, datos y dirección, y aclara que si es regalo se ponga la dirección de quien paga. Termina con el combo de 3 bolsas y el botón.",
+        "porQueFunciona": "Hipótesis: en pago contra entrega, menos errores de dirección significa menos pedidos rechazados.",
+        "mejora": "Mostrar aquí también el precio real del combo y un recordatorio corto de envío gratis.",
+        "capturaId": null,
+        "captura": null
+      },
+      {
+        "n": 9,
+        "tipo": "prueba-social",
+        "titulo": "Lo que cuentan quienes ya sienten el calorcito",
+        "objetivo": "Mostrar opiniones de clientas.",
+        "analisis": "Tiene barras de calificación y cuatro tarjetas, pero todas dicen «Ejemplo»: son guías sobre qué reseña poner (pies de noche, piernas livianas, la cápsula no arde, hija que se lo pidió a su mamá).",
+        "porQueFunciona": "Hipótesis: los temas elegidos cubren los deseos y miedos principales, así que con reseñas reales podría ser muy convincente.",
+        "mejora": "Hoy no hay prueba social real. Conectar reseñas verdaderas con fotos o quitar la sección hasta tenerlas.",
+        "capturaId": "S3",
+        "captura": {
+          "id": "S3",
+          "url": "/landing/cayenne-pepper-067986/analisis-capturas/v-422c348dd45b/seccion-03.webp",
+          "titulo": "Lo que cuentan quienes ya sienten el calorcito",
+          "parcial": false,
+          "fuente": "Captura de la copia analizada"
+        }
+      },
+      {
+        "n": 10,
+        "tipo": "preguntas",
+        "titulo": "Preguntas frecuentes",
+        "objetivo": "Resolver dudas de salud, uso y compra antes del pedido.",
+        "analisis": "Diez preguntas: cómo tomarla, si es medicamento, presión y corazón, qué contiene, si arde, en cuánto tiempo, quién no debe tomarla, envío, devoluciones y suscripción.",
+        "porQueFunciona": "Hipótesis: responder con cuidado quién no debe tomarla da seriedad y confianza a un público mayor que suele tomar medicamentos.",
+        "mejora": "Poner un botón de compra al final de las preguntas.",
+        "capturaId": "S8",
+        "captura": {
+          "id": "S8",
+          "url": "/landing/cayenne-pepper-067986/analisis-capturas/v-422c348dd45b/seccion-08.webp",
+          "titulo": "Preguntas frecuentes",
+          "parcial": false,
+          "fuente": "Captura de la copia analizada"
+        }
+      },
+      {
+        "n": 11,
+        "tipo": "otra",
+        "titulo": "Contáctanos",
+        "objetivo": "Dar un canal de ayuda y las políticas de la tienda.",
+        "analisis": "Invita a escribir por WhatsApp, tiene enlaces a envíos, devoluciones, privacidad y términos, y repite el aviso de que no es medicamento.",
+        "porQueFunciona": "Hipótesis: los enlaces de políticas y el aviso de salud hacen ver la tienda como un negocio formal.",
+        "mejora": "Mostrar el número de WhatsApp o un botón directo.",
+        "capturaId": null,
+        "captura": null
+      },
+      {
+        "n": 12,
+        "tipo": "cta",
+        "titulo": "3 bolsas · 90 días — PEDIR AHORA",
+        "objetivo": "Tener el botón de compra siempre a mano.",
+        "analisis": "Barra final con el combo recomendado y el botón «PEDIR AHORA».",
+        "porQueFunciona": "Hipótesis: que el botón esté siempre visible reduce los pasos para comprar.",
+        "mejora": "Usar el mismo texto que los otros botones («Pedir y pagar al recibir») para recordar el pago contra entrega.",
+        "capturaId": null,
+        "captura": null
+      }
+    ],
+    "objeciones": [
+      "¿Me va a arder o caer mal? (cápsula blanda, siempre con comida)",
+      "¿Es un medicamento? (no, es un suplemento)",
+      "¿Puedo tomarla si tomo pastillas para la presión o el corazón?",
+      "¿Quién no debe tomarla?",
+      "¿En cuánto tiempo lo noto?",
+      "¿Qué contiene?",
+      "¿Cómo la tomo?",
+      "¿Es una suscripción? (no, compra única)",
+      "¿Cuándo llega y qué pasa si necesito una devolución?",
+      "¿Y si me estafan? (pago contra entrega y confirmación por WhatsApp)"
+    ],
+    "fortalezas": [
+      "Gancho con un dolor muy concreto y fácil de reconocer: pies helados que ni con medias se calientan.",
+      "La oferta va justo después del inicio y empuja al combo de 90 días con una razón clara.",
+      "Pago contra entrega, envío gratis y WhatsApp repetidos varias veces.",
+      "Explica el porqué con el ejemplo del ají, en palabras sencillas.",
+      "Es honesta con los tiempos y cuidadosa con las advertencias de salud, lo que da confianza.",
+      "El regalo para mamá abre una segunda compradora en diciembre."
+    ],
+    "debilidades": [
+      "No tiene precios: todos dicen «Pon tu precio», así que no se puede comprar ni comparar combos.",
+      "Las reseñas y las estrellas son de ejemplo; hoy no hay ninguna prueba social real.",
+      "Las imágenes tienen textos de otro producto, de otra marca; si se publica así confunde y quita confianza.",
+      "«Muy vendido en Estados Unidos» no tiene ningún respaldo en la página.",
+      "No hay garantía clara ni urgencia real.",
+      "No muestra un rango de días de entrega."
+    ],
+    "ideas": [
+      "Copiar el gancho de una escena diaria muy concreta, en forma de pregunta.",
+      "Poner los combos justo después del inicio y nombrar el grande como «rutina completa».",
+      "Explicar el porqué con algo que la clienta ya conoce, como el picante del ají.",
+      "Responder con cuidado quién no debe usar el producto: da seriedad.",
+      "Agregar precio por día, el ahorro de cada combo y una fecha límite real para diciembre.",
+      "Ofrecer una garantía simple y clara, por ejemplo cambio si llega en mal estado.",
+      "Pedir reseñas con escenas concretas (pies de noche, piernas livianas) y mostrarlas con foto real.",
+      "Cambiar todas las imágenes por fotos del producto propio antes de publicar."
+    ],
+    "capturasError": null,
+    "fuenteVisual": "Captura real de la copia local al momento del análisis",
+    "fecha": "2026-11-25T18:26:17.774Z"
+  },
+  "analisisError": null
 }
