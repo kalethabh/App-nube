@@ -2,7 +2,7 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
-## 2026-11-24r · Borrar carpetas y generaciones
+## 2026-11-24s · Borrar carpetas y generaciones
 
 - Puedes borrar una generación desde su tarjeta o borrar una carpeta con las generaciones de esa sección. Disponible en imágenes, videos, Embudo, Landings, Sketch y Cambiar producto.
 - La confirmación muestra el nombre y la lista exacta de generaciones. Solo se quitan las que confirmaste; los proyectos nuevos o de otras secciones se conservan.
