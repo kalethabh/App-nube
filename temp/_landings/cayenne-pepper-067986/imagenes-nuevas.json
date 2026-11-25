@@ -1,0 +1,40 @@
+{
+  "imagenes": [
+    {
+      "imagen": "img0",
+      "funcion": "Enganche: que la clienta se vea a sí misma tomando su cápsula en un momento cálido de casa y sienta confianza.",
+      "prompt": "Warm, authentic lifestyle e-commerce photo for a Meta ad. A smiling Colombian woman around 55 years old, natural gray-streaked hair, wearing a soft knitted wool cardigan and a light scarf, sitting at a wooden dining table in a cozy home in a cold Andean city (Bogotá style: brick wall, window with misty green mountains outside). It is lunchtime: a bowl of hot soup (ajiaco style), a glass of water. She holds one small red-orange softgel capsule between her fingers, about to take it with her meal, relaxed and content expression. The Cayenne Pepper supplement pouch from the reference product photo stands clearly on the table in front of her, label facing camera, sharp and faithful to the reference (same colors, same logo, same shape, do not redesign or add text to the package). Soft warm golden light, shallow depth of field, cozy and trustworthy mood, high-end realistic photography, no text overlay in the image.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img1",
+      "funcion": "Problema: nombrar el dolor que vive cada noche, los pies helados que no calientan ni con medias.",
+      "prompt": "Emotional problem-awareness ad creative for Meta, square format. Night scene in a dim bedroom with cool bluish light: a mature Latina woman around 55 sitting on the edge of her bed wrapped in a blanket, wearing thick wool socks, rubbing her cold hands together and blowing on them, worried tired expression. Subtle icy blue frost glow around her feet to suggest cold feet. Large bold headline text at the top in Spanish, white with strong contrast: \"¿Te acuestas con los pies helados y ni con medias se calientan?\". Along the side or bottom, three short benefit-problem labels with small simple icons, in Spanish: \"Piernas pesadas al final del día\", \"Bajón de la tarde\", \"Manos frías\". Clean modern e-commerce ad layout, legible typography, realistic photo style, no product in this image, no medical claims.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img2",
+      "funcion": "Mecanismo: explicar de forma sencilla por qué la cayena da ese calorcito, para que la promesa tenga sentido.",
+      "prompt": "Simple, friendly explanatory infographic ad creative for Meta, square format, warm color palette (reds, oranges, soft cream background). Left side: a fresh red cayenne chili pepper with a small label \"Capsaicina\". Center: a soft red-orange softgel capsule. A flowing warm orange glow travels from the capsule along a simple stylized illustration of a human silhouette, showing gently relaxed, widened blood vessels and warmth reaching the hands and the feet (glowing warm hands and feet). Three short step labels in Spanish with arrows: \"1. La cayena tiene capsaicina\", \"2. Ayuda a que los vasos se relajen\", \"3. La sangre llega mejor a manos y pies\". Big bold headline at the top in Spanish: \"El mismo calorcito del ají, en una cápsula sin ardor\". Place the Cayenne Pepper pouch from the reference product photo small in a bottom corner, faithful to the reference. Clean modern e-commerce design, very legible text, no heart, no blood pressure, no medical symbols.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img3",
+      "funcion": "Ingredientes y presentación: mostrar qué tiene y cómo viene, para quitar la duda de si es natural.",
+      "prompt": "Clean premium product ingredients ad creative for Meta, square format. Center: the Cayenne Pepper supplement pouch from the reference product photo, standing upright, sharp and faithful to the reference (same colors, logo and shape, do not redesign the label). Around it on a warm cream and terracotta surface: fresh red cayenne chili peppers, a small pile of red cayenne powder, and several glossy red-orange softgel capsules spilling naturally. Bold headline at the top in Spanish: \"Cayena natural en cápsula blanda\". Three clear badges with simple icons in Spanish: \"60 cápsulas blandas\", \"30 días por bolsa\", \"Sin transgénicos\". Soft natural light, appetizing and trustworthy, high-end e-commerce photography with clean legible typography. Do not list any other ingredients.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img4",
+      "funcion": "Oferta: la foto del producto en los combos, para que se vea real lo que llega a la casa.",
+      "prompt": "Use the original product photo as is, without changes.",
+      "aspecto": "1:1",
+      "usar_foto": true
+    }
+  ],
+  "resumen": "Hice cuatro imágenes nuevas que cuentan la historia en orden: Gloria tomando su cápsula con el almuerzo en una casa de tierra fría, el dolor de los pies helados de noche con la pregunta grande, el calorcito de la cayena explicado en tres pasos, y la bolsa con cayenas y cápsulas. No mencionan el corazón ni la presión, ni otros ingredientes hasta que llegue la ficha. En la oferta va la foto real de tu producto tal cual, sin generarla, para que el combo se vea exactamente como llega."
+}

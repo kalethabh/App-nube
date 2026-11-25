@@ -11,12 +11,16 @@
   "estado": "trabajando",
   "progreso": [
     "Emilio (estratega (investigación)) está trabajando…",
-    "Simón (arquitecto de conversión) está trabajando…"
+    "Simón (arquitecto de conversión) está trabajando…",
+    "Valeria (copywriter) está trabajando…",
+    "Antonia (directora de imágenes) está trabajando…",
+    "Renata (revisión) está trabajando…",
+    "ChatGPT está haciendo 4 imágenes con tu producto…"
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T18:12:22.829Z",
+  "actualizado": "2026-11-25T18:14:24.705Z",
   "agentes": [
     {
       "id": "estratega",
@@ -29,29 +33,41 @@
       "id": "conversion",
       "nombre": "Simón",
       "rol": "Arquitecto de conversión",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Toda la página vende una sola sensación: los pies helados de cada noche y el calorcito de la cayena en una cápsula sin ardor, con piernas livianas y más ánimo como apoyo. Mantuve el recorrido de la plantilla, pero cambié el 'tratamiento' por una 'rutina de 90 días' y puse a la vista el aviso para quien toma medicamentos. No inventé precios, cifras de clientas, reseñas, regalo ni registro INVIMA: esos espacios quedan para que tú pongas los datos reales."
     },
     {
       "id": "copy",
       "nombre": "Valeria",
       "rol": "Copywriter",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Escribí toda la página alrededor de los pies helados que ni con medias se calientan y del calorcito de la cayena en cápsula sin ardor, con la rutina de 3 bolsas (90 días) como combo recomendado. No puse precios, ahorros, nota de reseñas ni regalo porque no los tenemos: donde dice «Pon tu precio» van tus precios en pesos, y las reseñas quedan como ejemplo para que pongas las reales. Cambié «Garantía de satisfacción» por «Confirmamos por WhatsApp» y no mencioné el registro INVIMA: si los tienes, agrégalos. La pregunta de quien toma pastillas para la presión o el corazón quedó entre las primeras, bien visible."
     },
     {
       "id": "imagenes",
       "nombre": "Antonia",
       "rol": "Directora de imágenes",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Hice cuatro imágenes nuevas que cuentan la historia en orden: Gloria tomando su cápsula con el almuerzo en una casa de tierra fría, el dolor de los pies helados de noche con la pregunta grande, el calorcito de la cayena explicado en tres pasos, y la bolsa con cayenas y cápsulas. No mencionan el corazón ni la presión, ni otros ingredientes hasta que llegue la ficha. En la oferta va la foto real de tu producto tal cual, sin generarla, para que el combo se vea exactamente como llega."
     },
     {
       "id": "revision",
       "nombre": "Renata",
       "rol": "Revisión",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "La página va bien enfocada en los pies helados y no promete nada del corazón ni de la presión. Corregí «una cápsula al día», porque la bolsa rinde 2 cápsulas diarias por 30 días. También quité dos precios de antes que eran inventados y bajé el tono de «la sangre llega mejor» a «apoya», en el texto y en la imagen del mecanismo. Completé quién no debe tomarla con lo que dice la investigación. Antes de publicar, pon tus precios, las reseñas reales y confirma el registro INVIMA.",
+      "pendientes": [
+        "Pon tus precios reales en los tres combos y el precio de antes. Los precios de antes que venían ($269.700 y $179.800) no tenían respaldo y los quité.",
+        "Confirma el registro sanitario INVIMA antes de publicar y pautar.",
+        "Cambia las reseñas y el testimonio de ejemplo por opiniones reales de tus clientas en Colombia.",
+        "Confirma en la etiqueta cuántas cápsulas se toman al día y a qué hora. La página no dice un número para no equivocarse.",
+        "Pide la ficha técnica antes de nombrar los botánicos de apoyo.",
+        "Revisa que «Muy vendido en Estados Unidos» sea de este mismo producto. Si no lo puedes confirmar, quita esa frase.",
+        "El empaque dice en inglés que apoya el corazón y las defensas. En Colombia no puedes repetir eso en tu página ni en tus anuncios.",
+        "Confirma que el envío gratis aplica a toda tu cobertura.",
+        "Pon tu número de WhatsApp y los enlaces de envíos, cambios y devoluciones, privacidad y términos.",
+        "Revisa el estado de la norma del Ministerio de Salud sobre la venta de suplementos antes de escalar."
+      ]
     }
   ],
   "plantilla": "cen"
