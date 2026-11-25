@@ -86,6 +86,7 @@ try{
  r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:qUso.version,token:qUso.token}});check('Cambiar el mensaje de la sección cotizada invalida solo su presupuesto',()=>assert.equal(r.st,428));
  r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:qDolor.version,token:qDolor.token}});check('La cotización de otra sección sigue válida tras editar títulos ajenos',()=>assert.equal(r.st,200,JSON.stringify(r.data)));const jDolor=r.data.trabajo.id;e=r.data;
  check('Dos confirmaciones separadas conservan ambos trabajos activos',()=>{assert.notEqual(jHero,jDolor);assert.equal(e.trabajos.filter(t=>t.estado==='generando').length,2);});
+ r=await pedir('/api/generaciones/embudo/borrar',{json:{ids:[embudoId],grupo:`producto:${productoId}`}});check('No permite borrar un Embudo con varias secciones activas',()=>assert.equal(r.st,409));
  r=await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones:['hero']}});check('No duplica una sección activa aunque se pida otro presupuesto',()=>assert.equal(r.st,409));
  const qIngredientes=(await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones:['ingredientes']}})).data;
  r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:qIngredientes.version,token:qIngredientes.token}});assert.equal(r.st,200);const jIngredientes=r.data.trabajo.id;e=r.data;

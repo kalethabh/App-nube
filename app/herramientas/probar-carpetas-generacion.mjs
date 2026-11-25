@@ -32,13 +32,26 @@ const server=cp.spawn(process.execPath,['server/index.js'],{cwd:APP,env,stdio:['
 const dormir=ms=>new Promise(r=>setTimeout(r,ms));let browser;
 try{
  for(let n=0;n<80;n++){try{if((await fetch(base+'/api/estilos')).ok)break;}catch{}await dormir(300);}
+ const externo=await fetch(base+'/api/generaciones/imagenes/borrar',{method:'POST',headers:{Origin:'https://externo.example','Content-Type':'application/json'},body:JSON.stringify({ids:['no-existe']})});assert.equal(externo.status,403);
+ const invalido=await fetch(base+'/api/generaciones/desconocido/borrar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ids:['no-existe']})});assert.equal(invalido.status,400);
+ console.log('OK ruta de borrado: rechaza origen externo y tipo desconocido');
  const {chromium}=await import(pathToFileURL(path.join(process.env.PLAYWRIGHT_PACKAGE_PATH,'index.mjs')).href);
  browser=await chromium.launch({headless:true,executablePath:process.env.PLAYWRIGHT_CHROME});
+ let permitirBorrado=false,bloquearBorrado=false;
  const p=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'}), errores=[],mutaciones=[];
  p.on('pageerror',e=>errores.push(e.message));
  await p.route('**/api/**',async route=>{
   const u=new URL(route.request().url());
-  if(route.request().method()!=='GET'){mutaciones.push(u.pathname);await route.fulfill({status:405,json:{error:'Prueba de lectura'}});return;}
+  if(route.request().method()!=='GET'){
+   if(permitirBorrado && /^\/api\/generaciones\/[^/]+\/borrar$/.test(u.pathname)) {
+    const tipo=u.pathname.split('/')[3],keys={imagenes:['/api/imagen-ads','lotes','lote'],videos:['/api/anuncios','anuncios','slug'],embudo:['/api/embudos','embudos','id'],landings:['/api/landings','landings','id'],sketch:['/api/sketch','sketches','slug'],cambiar:['/api/cambiar','trabajos','slug']},[api,key,id]=keys[tipo],body=route.request().postDataJSON();
+    assert.equal(body.grupo,'producto:producto-prueba');assert.ok(body.ids.every(i=>['proyecto-1','proyecto-2'].includes(i)));
+    mutaciones.push({tipo,ids:body.ids});
+    if(bloquearBorrado){await route.fulfill({status:409,json:{error:'Esta generación sigue trabajando. Espera a que termine.'}});return;}
+    fixtures[api][key]=fixtures[api][key].filter(p=>!body.ids.includes(p[id]));
+    await route.fulfill({json:{ok:true,eliminados:body.ids,errores:[]}});return;
+   }
+   mutaciones.push(u.pathname);await route.fulfill({status:405,json:{error:'Prueba de lectura'}});return;}
   if(fixtures[u.pathname]){await route.fulfill({json:fixtures[u.pathname]});return;}
   try {const r=await route.fetch();if(u.pathname==='/api/ajustes')await route.fulfill({response:r,json:{...await r.json(),bienvenidaVista:true}});else await route.fulfill({response:r});}catch{await route.fulfill({json:{}});}
  });
@@ -70,5 +83,21 @@ try{
  if(capturas)await p.screenshot({animations:'disabled',path:path.join(capturas,'carpetas-movil.png'),fullPage:true});
  assert.deepEqual(errores,[]);assert.deepEqual(mutaciones,[]);
  console.log('OK Formularios, temas oscuro/claro, móvil sin desborde, sin errores ni solicitudes de generación');
+ permitirBorrado=true;
+ for(const [tipo,ruta] of secciones) {
+  await p.goto(base+'/#'+ruta);await p.getByRole('button',{name:'Borrar carpeta Producto de prueba',exact:true}).click();
+  await p.getByRole('dialog').waitFor();assert.match(await p.getByRole('dialog').innerText(),/2 generaciones/);
+  const antes=mutaciones.length;await p.getByRole('button',{name:'Cancelar',exact:true}).click();assert.equal(mutaciones.length,antes);
+  await p.locator('.ge-carpeta').click();await p.getByRole('button',{name:'Borrar generación Proyecto de prueba',exact:true}).first().click();
+  bloquearBorrado=true;await p.getByRole('button',{name:'Sí, borrar generación',exact:true}).click();await p.getByRole('alert').waitFor();assert.equal(await p.locator('.ge-proyecto').count(),2);
+  bloquearBorrado=false;await p.getByRole('button',{name:'Sí, borrar generación',exact:true}).click();await p.waitForFunction(()=>document.querySelectorAll('.ge-proyecto').length===1);assert.equal(await p.getByRole('dialog').count(),0);
+  await p.getByRole('button',{name:'Borrar carpeta',exact:true}).click();await p.getByRole('dialog').waitFor();assert.match(await p.getByRole('dialog').innerText(),/1 generación/);
+  for(const b of await p.getByRole('dialog').getByRole('button').all()){const r=await b.boundingBox();assert.ok(r.x>=0 && r.x+r.width<=390,'Los botones del diálogo caben en móvil');}
+  if(capturas && tipo==='imagenes')await p.screenshot({path:path.join(capturas,'confirmar-borrado.png')});
+  await p.getByRole('button',{name:'Borrar carpeta y generaciones',exact:true}).click();await p.waitForFunction(()=>!document.querySelector('[role=dialog]') && !document.querySelector('.ge-carpeta'));
+  assert.ok(!p.url().includes('carpeta='));console.log(`OK ${tipo}: cancelar sin borrar, bloqueo con error, borrado individual y carpeta con alcance explícito`);
+ }
+ assert.deepEqual(errores,[]);assert.equal(mutaciones.length,18);
+
 } catch(e){console.error(e);process.exitCode=1;console.error('Registro: '+dir);}
 finally{if(browser)await browser.close();try{process.kill(-server.pid,'SIGTERM');}catch{}await dormir(250);log.end();if(!process.exitCode)fs.rmSync(dir,{recursive:true,force:true});fs.rmSync(path.join(RAIZ,`temp/_modo-prueba-${puerto}`),{recursive:true,force:true});}

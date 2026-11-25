@@ -543,3 +543,9 @@ export function reintentar(slug) {
     analizar(slug);
   } else guardarEstado(slug, { etapa: existe(path.join(dirDe(slug), 'cambio.json')) ? 'revisar' : 'proponiendo', error: null });
 }
+
+export function comprobarBorradoCambio(slug) {
+ if(!slugValido(slug) || !existe(fEstado(slug))) throw new Error('No encuentro esa generación.');
+ if(enMarcha.has(slug) || ['analizando','proponiendo','produciendo'].includes(leerEstado(slug).etapa) || motorSuelto(slug)) return false;
+ return true;
+}

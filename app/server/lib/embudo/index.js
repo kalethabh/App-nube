@@ -353,3 +353,9 @@ async function prepararTitulos(e,def) {
   for(const o of opciones) if(!x.textos[def.id].opciones.some(a=>a.id===o.id)) {x.extras[def.id].push(o);x.textos[def.id].opciones.push(o);}
   x.version++;x.titulos={seccion:def.id,estado:'lista',fin:ahora()};guardar(x);
 }
+
+export function comprobarBorrado(id) {
+ const e=cargar(id);
+ if(textosActivos.has(id) || enCurso(e).length || [...activas].some(k=>k.startsWith(`${id}:`))) throw new ErrorApp(409,'Este embudo tiene secciones o títulos en curso. Espera a que terminen antes de borrarlo.');
+ return carpeta(id);
+}
