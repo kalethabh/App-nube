@@ -262,7 +262,9 @@ export default function App() {
   const [migasPagina, setMigasPagina] = useState(null);
   const [plegadoElegido, setPlegadoElegido] = useState(() => leerPreferencia('menu-plegado', false));
   const angosta = usePantallaAngosta();
-  const plegado = plegadoElegido || angosta;
+  // (2026-11-25c) en una ventana angosta el menú va plegado, pero la flecha lo abre encima (y se cierra al cambiar de pantalla)
+  const [abiertoAngosta, setAbiertoAngosta] = useState(false);
+  const plegado = angosta ? !abiertoAngosta : plegadoElegido;
 
   // "#/" o sin hash -> el inicio (el dashboard)
   useEffect(() => {
@@ -286,7 +288,11 @@ export default function App() {
   }, [actual]);
 
   const fijarMigas = useCallback((m) => setMigasPagina(m), []);
+  useEffect(() => {
+    setAbiertoAngosta(false);
+  }, [camino, angosta]);
   const plegar = () => {
+    if (angosta) return setAbiertoAngosta((v) => !v);
     const nuevo = !plegadoElegido;
     setPlegadoElegido(nuevo);
     guardarPreferencia('menu-plegado', nuevo);

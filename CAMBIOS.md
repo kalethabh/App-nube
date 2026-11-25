@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-25c · La flecha del menú vuelve a funcionar
+
+- Con el menú plegado, la flecha para abrirlo se ve otra vez (el botón «+» la tapaba).
+- En ventanas angostas la flecha ahora abre el menú encima de la pantalla; se cierra solo al cambiar de pantalla.
+
 ## 2026-11-25b · Kads con su propio Supabase
 
 - Kads ya no usa nada del Centro de Control: las cuentas van en un proyecto de Supabase **solo de Kads** (gratis). La guía `DESPLEGAR-GRATIS.md` explica cómo crearlo; cada persona crea su cuenta de Kads en la página de entrada.
