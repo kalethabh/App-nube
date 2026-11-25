@@ -1,0 +1,22 @@
+{
+  "paleta": {
+    "accent": "#B3263A",
+    "accent_hover": "#931D2F",
+    "accent_deep": "#6E1522",
+    "accent_soft": "#FBE4E3",
+    "tinte": "#FFF6EE",
+    "topbar_ink": "#FACF42",
+    "star": "#F2B705",
+    "bg": "#FFFFFF",
+    "fg": "#2A1215",
+    "muted": "#6B5558",
+    "line": "#EED9D6",
+    "texto_2": "#4A2E32"
+  },
+  "fuentes": {
+    "display": "Anton",
+    "body": "Nunito Sans"
+  },
+  "estilo_imagenes": "Luz cálida y suave, como de atardecer o de lámpara en casa, que transmita calorcito. Fondos rojo coral apagado o crema cálido, con superficies de mármol claro, cobijas de lana, medias gruesas y tazas humeantes. Colores de la paleta: rojo cayena, toques de amarillo dorado y blanco crema; nada de azules fríos ni grises. Personas reales colombianas de 50 a 65 años, en ambientes de casa sencillos y acogedores (sala, cama con cobija, mesa del comedor), con expresión tranquila y aliviada. El empaque rojo y las cápsulas rojas brillantes siempre bien visibles, con algunos ajíes rojos frescos de acompañamiento. Sin texto en inglés sobreimpreso ni íconos médicos.",
+  "resumen": "Tomé el rojo cayena y el amarillo dorado del empaque para que la página se sienta del mismo producto: el rojo va en botones y precio (el blanco se lee bien encima) y el dorado resalta la barra de arriba y las estrellas. Los fondos son blancos y crema cálido para que todo se vea limpio y transmita calorcito, que es justo lo que busca la clienta. Usé Anton en los títulos porque es la misma letra gruesa del empaque, y Nunito Sans en el texto porque es redondita y muy fácil de leer en el celular para una señora de 50 a 65 años."
+}

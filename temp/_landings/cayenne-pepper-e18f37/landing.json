@@ -18,12 +18,16 @@
   "progreso": [
     "Emilio (estratega (investigación)) está trabajando…",
     "Simón (arquitecto de conversión) está trabajando…",
-    "Antonia (diseñadora visual) está trabajando…"
+    "Antonia (diseñadora visual) está trabajando…",
+    "Valeria (copywriter) está trabajando…",
+    "Mateo (director de imágenes) está trabajando…",
+    "Renata (revisión) está trabajando…",
+    "ChatGPT está haciendo 4 imágenes con tu producto…"
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T19:28:42.913Z",
+  "actualizado": "2026-11-25T19:30:06.592Z",
   "agentes": [
     {
       "id": "estratega",
@@ -43,29 +47,38 @@
       "id": "diseno",
       "nombre": "Antonia",
       "rol": "Diseñadora visual",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Tomé el rojo cayena y el amarillo dorado del empaque para que la página se sienta del mismo producto: el rojo va en botones y precio (el blanco se lee bien encima) y el dorado resalta la barra de arriba y las estrellas. Los fondos son blancos y crema cálido para que todo se vea limpio y transmita calorcito, que es justo lo que busca la clienta. Usé Anton en los títulos porque es la misma letra gruesa del empaque, y Nunito Sans en el texto porque es redondita y muy fácil de leer en el celular para una señora de 50 a 65 años."
     },
     {
       "id": "copy",
       "nombre": "Valeria",
       "rol": "Copywriter",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Escribí toda la página alrededor del calorcito en pies y manos, con las palabras de tus clientas: «pies helados», «friolenta», «ni con medias se calientan». Dejé «Precio por definir» en todos los combos y quité los precios tachados, los ahorros, los regalos, el envío gratis, la garantía y el registro INVIMA, porque no los confirmaste. Las reseñas siguen como ejemplo, sin estrellas ni número de opiniones, y la advertencia para quien toma medicamentos va clara para ganar confianza. Cuando tengas los precios y las reseñas reales, solo hay que cambiarlos."
     },
     {
       "id": "imagenes",
       "nombre": "Mateo",
       "rol": "Director de imágenes",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Armé las cuatro imágenes de la galería con la misma estructura de la plantilla, pero con el ángulo del calorcito: la foto principal con la señora tomándose la cápsula en el comedor, el dolor de los pies helados, el ritual diario con sus beneficios y cómo actúa la cayena paso a paso, porque tiene un solo ingrediente. Quité la garantía, el sello del INVIMA y el «en 2 a 4 semanas» porque no los tienes confirmados, y en su lugar puse el pago al recibir y la confirmación por WhatsApp. Todo dice «ayuda» y «apoya», sin hablar de corazón ni de presión. En los combos va la foto real de tu producto tal cual."
     },
     {
       "id": "revision",
       "nombre": "Renata",
       "rol": "Revisión",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Quité todo lo inventado: los precios tachados, los «Ahorras», el regalo de vinagres y la nota de 4,8 con 1.200 opiniones. Ahí quedan textos para que pongas tus datos reales. Suavicé cómo se explica la capsaicina, porque la evidencia es tradicional y no hay estudios grandes. También completé quién no debe tomarla. Lo demás está bien: no promete curar, no habla de corazón ni presión y repite siempre el pago contra entrega.",
+      "pendientes": [
+        "Poner los precios reales de cada combo. Quité los precios tachados y los «Ahorras» porque no los diste.",
+        "Si de verdad vas a regalar algo con la rutina de 3 bolsas, agrégalo. Quité los «2 vinagres de manzana de regalo» porque no venía en tus datos.",
+        "Cambiar las reseñas de ejemplo, el testimonio destacado, la nota y el número de opiniones por opiniones reales de tus clientas en Colombia.",
+        "Confirmar el registro INVIMA antes de pautar.",
+        "Pedir la ficha técnica con los 10 botánicos y los miligramos antes de nombrarlos.",
+        "Confirmar con la etiqueta trasera la forma de tomarla (2 cápsulas al día con la comida).",
+        "Completar los enlaces del pie: WhatsApp, envíos, cambios y devoluciones, privacidad y términos."
+      ]
     }
   ],
   "plantilla": "cen"
