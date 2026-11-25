@@ -8,7 +8,7 @@
   "analizar": false,
   "titulo": "Cayenne Pepper · El calorcito de la cayena en cápsula · Pagas al recibir",
   "creado": "2026-11-25T18:11:57.968Z",
-  "estado": "lista",
+  "estado": "midiendo",
   "progreso": [
     "Emilio (estratega (investigación)) está trabajando…",
     "Simón (arquitecto de conversión) está trabajando…",
@@ -21,7 +21,8 @@
     "Imagen 3 de 4 lista.",
     "Imagen 4 de 4 lista.",
     "Midiendo la velocidad (Lighthouse en celular)…",
-    "Lista."
+    "Lista.",
+    "Midiendo la velocidad (Lighthouse en celular)…"
   ],
   "error": null,
   "informe": null,
@@ -37,7 +38,7 @@
     },
     "fecha": "2026-11-25T18:19:31.938Z"
   },
-  "actualizado": "2026-11-25T18:19:31.938Z",
+  "actualizado": "2026-11-25T18:25:08.990Z",
   "agentes": [
     {
       "id": "estratega",
