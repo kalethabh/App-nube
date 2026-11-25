@@ -23,12 +23,14 @@
     "Valeria (copywriter) está trabajando…",
     "Mateo (director de imágenes) está trabajando…",
     "Quité lo que no aplica a este producto: 6 elemento(s) repetido(s) y la(s) sección(es) comparacion-costo.",
-    "Renata (revisión) está trabajando…"
+    "Renata (revisión) está trabajando…",
+    "ChatGPT está haciendo 15 imágenes con tu producto…",
+    "Imagen 1 de 15 lista."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T21:10:04.538Z",
+  "actualizado": "2026-11-25T21:11:50.926Z",
   "agentes": [
     {
       "id": "estratega",
@@ -69,8 +71,21 @@
       "id": "revision",
       "nombre": "Renata",
       "rol": "Revisión",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Quité los precios, los ahorros y el regalo de vinagre que venían de la otra marca, porque no los diste y no se pueden inventar. Reescribí completa la sección de costos, que hablaba de otra bebida y de otros ingredientes: ahora compara los remedios caseros que tu clienta ya probó contra la rutina de cayena. Suavicé las frases sobre la capsaicina para que no suenen a promesa médica ni a opinión de un médico que todavía no existe. Lo demás quedó coherente: 1, 2 y 3 bolsas para 30, 60 y 90 días, con pago al recibir.",
+      "pendientes": [
+        "Pon los precios reales de 1, 2 y 3 bolsas. Si das un precio de antes o un ahorro, debe ser real.",
+        "Los espacios de precio tachado de las rutinas de 3 y 2 bolsas quedaron vacíos: llénalos solo si tienes un precio anterior real.",
+        "Cambia los «XX» de la encuesta, las reseñas y la calificación por datos reales de tus clientas, o quita esas partes.",
+        "Pon reseñas y testimonios reales de clientas en Colombia, con su permiso.",
+        "Pon profesionales reales que te autoricen, con su nombre, especialidad y su opinión en sus palabras. Las frases «Recibieron el producto para probarlo», «No pagamos por las opiniones» y «Con nombre y registro profesional» solo pueden quedar si son ciertas.",
+        "Confirma con la etiqueta trasera cuántas cápsulas al día y a qué hora se toman.",
+        "Pide la ficha técnica con la lista de los 10 botánicos antes de nombrarlos.",
+        "Confirma el registro sanitario antes de pautar. La página no lo menciona.",
+        "Revisa que tus políticas de envío, cambios y devoluciones estén publicadas en los enlaces del pie de página.",
+        "La sección de profesionales dice que recibieron el producto, que no se les pagó y que tienen registro profesional: déjalo solo si es verdad con los profesionales reales que pongas.",
+        "La calificación y el número de opiniones quedan como «X,X» y «XX»: pon los reales (o conecta tu app de reseñas)."
+      ]
     },
     {
       "id": "visual",
