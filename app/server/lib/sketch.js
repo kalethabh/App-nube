@@ -525,3 +525,9 @@ export function revisarAlAbrir() {
 }
 
 export { gastado as gastadoSketch };
+
+export function comprobarBorradoSketch(slug) {
+ if(!slugValido(slug) || !existe(fEstado(slug))) throw new Error('No encuentro esa generación.');
+ if(enMarcha.has(slug) || ['escribiendo','produciendo'].includes(leerEstado(slug).etapa)) return false;
+ return true;
+}
