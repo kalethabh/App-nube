@@ -1,0 +1,170 @@
+{
+  "secciones": [
+    {
+      "seccion": "barra-superior",
+      "funcion_en_la_plantilla": "Primera línea de la página. Da una razón para seguir leyendo (temporada de oferta) y quita de entrada el miedo a pagar: envío gratis y pago al recibir.",
+      "objetivo_para_este_producto": "Quitar desde el primer segundo el miedo de Gloria a pagar por internet y que no llegue. Como no hay precios ni descuentos, no hablamos de ahorro: hablamos de confianza.",
+      "que_debe_sentir_el_cliente": "Tranquilidad: aquí no me toca pagar antes.",
+      "titulo": "Un mensaje corto de confianza, sin descuentos ni porcentajes. Idea: «Pagas cuando te llega · Confirmamos tu pedido por WhatsApp». Si el dueño confirma envío gratis, se agrega; si no, se deja fuera.",
+      "imagenes": []
+    },
+    {
+      "seccion": "prueba-social",
+      "funcion_en_la_plantilla": "Justo encima del título: caritas de clientas y una cifra para que la visitante sienta que otras como ella ya lo usan.",
+      "objetivo_para_este_producto": "Mostrar que otras mujeres de su edad ya lo usan, sin inventar cifras. La cantidad queda como espacio para que el dueño ponga la real.",
+      "que_debe_sentir_el_cliente": "No soy la única friolenta; otras como yo ya lo están probando.",
+      "titulo": "Línea corta de pertenencia con la cifra en blanco: «XX clientas en Colombia ya hacen su ritual del calorcito».",
+      "imagenes": [
+        { "imagen": "img6", "funcion": "Carita de clienta que da sensación de gente real.", "que_debe_mostrar": "Mujer colombiana de 55 a 65 años, sonriente, con ropa abrigada (saco o ruana)." },
+        { "imagen": "img7", "funcion": "Segunda carita para dar sensación de grupo.", "que_debe_mostrar": "Mujer de 50 a 60 años, cálida y natural, en casa." },
+        { "imagen": "img8", "funcion": "Tercera carita: suma a la hija que compra para la mamá.", "que_debe_mostrar": "Mujer de 35 a 45 años, la hija que se lo regala a la mamá." }
+      ]
+    },
+    {
+      "seccion": "titulo-y-beneficios",
+      "funcion_en_la_plantilla": "Nombra el producto, dice en una frase qué hace y cómo se usa, y lista 4 puntos que quitan dudas rápidas (qué es, qué no tiene, qué trae, cómo se compra).",
+      "objetivo_para_este_producto": "Que en una frase entienda la promesa: pies y manos menos helados con una cápsula de cayena con la comida, sin el ardor. Los puntos quitan las dudas que la frenan: ardor, cuántas son, que no es medicamento, que paga al recibir.",
+      "que_debe_sentir_el_cliente": "Esto es justo lo mío: mis pies helados de por las noches, y se ve fácil y sin riesgo.",
+      "titulo": "El nombre del producto con una bajada que conecte con la noche fría: «Cayenne Pepper: el ritual del calorcito para tus pies y manos». Lede: dos cápsulas al día con la comida para apoyar la circulación, sin el ardor de la cayena cruda, y pagas cuando te llega. Puntos: cápsula blanda fácil de tragar y sin ardor; extracto de cayena con botánicos de apoyo, sin transgénicos; una bolsa de 60 cápsulas rinde 30 días; compra única y pago contra entrega. Sin mencionar registro sanitario.",
+      "imagenes": []
+    },
+    {
+      "seccion": "oferta",
+      "funcion_en_la_plantilla": "Es el cierre principal: 3 combos con el recomendado arriba y marcado, precio, cantidad, cómo se paga y el botón de pedir, con sellos de confianza debajo.",
+      "objetivo_para_este_producto": "Presentar 1, 2 y 3 bolsas (30, 60 y 90 días) con la de 3 bolsas como la recomendada para hacer la rutina completa, porque el efecto se nota con constancia. Todos los precios en «Precio por definir», sin precio tachado, sin «ahorras» y sin regalos.",
+      "que_debe_sentir_el_cliente": "Es claro, sé cuánto me dura cada opción y no arriesgo nada porque pago al recibir.",
+      "titulo": "«Elige tu rutina» en vez de «tratamiento» (no es un medicamento). La etiqueta del recomendado: «RUTINA COMPLETA» o «RECOMENDADO». Cada combo dice cuántos días dura. Los sellos: pago contra entrega y confirmación por WhatsApp; envío gratis y garantía solo si el dueño los confirma.",
+      "imagenes": [
+        { "imagen": "img9", "funcion": "Foto del producto junto al selector de combos, para que sepa qué le va a llegar.", "que_debe_mostrar": "La bolsa de Cayenne Pepper de frente con algunas cápsulas blandas rojizas al lado, fondo limpio y cálido." }
+      ]
+    },
+    {
+      "seccion": "testimonio-destacado",
+      "funcion_en_la_plantilla": "Una sola reseña con foto justo después del precio, para dar prueba en el momento de la duda.",
+      "objetivo_para_este_producto": "Dejar el espacio para una reseña real con una escena concreta del frío: acostarse con los pies calienticos, quitarse las medias de lana, llegar a la tarde con ánimo. No se inventa la reseña.",
+      "que_debe_sentir_el_cliente": "Alguien como yo lo probó y le funcionó en algo que yo vivo.",
+      "titulo": "Nombre de clienta en blanco y un texto guía para el dueño: qué tipo de reseña poner (la escena de los pies fríos en la noche, cuánto tiempo lleva tomándolo).",
+      "imagenes": [
+        { "imagen": "img10", "funcion": "Cara de la clienta que da la reseña, para que se sienta real.", "que_debe_mostrar": "Mujer de 55 a 65 años, sonriente, abrigada en casa, con una taza de tinto." }
+      ]
+    },
+    {
+      "seccion": "dudas-rapidas",
+      "funcion_en_la_plantilla": "Justo debajo de la compra resuelve las 4 dudas que más frenan el pedido: qué lo hace distinto, en cuánto tiempo se nota, cuándo llega y qué pasa si algo sale mal.",
+      "objetivo_para_este_producto": "Resolver lo que más frena a Gloria: ¿por qué esto y no la cayena en agua?, ¿en cuánto lo noto?, ¿cuándo me llega? y ¿es seguro con mis pastillas?",
+      "que_debe_sentir_el_cliente": "Ya no tengo excusas para no probarlo.",
+      "titulo": "Preguntas en sus palabras. 1) ¿Qué lo hace distinto a la cayena en agua? (cápsula blanda, sin ardor en la boca, dosis igual cada día). 2) ¿En cuánto lo noto? (con constancia; por eso la rutina de 3 bolsas). 3) ¿Cuándo me llega? (según ciudad, se confirma por WhatsApp). 4) ¿Lo puedo tomar si tomo pastillas para la presión o para la sangre? (consulta primero a tu médico).",
+      "imagenes": []
+    },
+    {
+      "seccion": "aviso-pedido",
+      "funcion_en_la_plantilla": "Recordatorio corto antes del formulario para que los datos queden bien y el pedido no se devuelva.",
+      "objetivo_para_este_producto": "Pedir que revise sus datos y avisarle que la vamos a llamar o escribir por WhatsApp para confirmar, así no se asusta y contesta.",
+      "que_debe_sentir_el_cliente": "Me están cuidando para que el pedido llegue bien.",
+      "titulo": "«Revisa bien tu pedido» y que te escribimos por WhatsApp para confirmarlo antes de enviarlo.",
+      "imagenes": []
+    },
+    {
+      "seccion": "encuesta",
+      "funcion_en_la_plantilla": "Bloque de prueba: título con lo que NO tiene y lo que sí, y 4 beneficios con porcentaje de clientas y una frase de ellas.",
+      "objetivo_para_este_producto": "Mostrar los 4 beneficios que la estrategia permite (pies menos helados, manos más tibias, piernas más livianas, más ánimo en la tarde) con las cifras en «XX %» para que el dueño ponga las reales. El título dice lo que la tranquiliza: sin ardor, sin pastillas raras.",
+      "que_debe_sentir_el_cliente": "Esto les pasó a otras con lo mismo que me pasa a mí.",
+      "titulo": "Antetítulo: «Encuesta a clientas · XX semanas tomando Cayenne Pepper». Título: «Sin ardor. Sin complicaciones. Con la cayena de siempre.» (nunca «registro INVIMA»). Beneficios con «XX %» y frases en sus palabras: «Ya me acuesto con los pies calienticos», «Las manos no se me ponen tan frías», «Las piernas no me pesan al final del día», «A las 3 de la tarde ya no me apago». Nota al pie: encuesta a XX clientas tras XX semanas; experiencias individuales; no es un medicamento.",
+      "imagenes": []
+    },
+    {
+      "seccion": "medico-asesor",
+      "funcion_en_la_plantilla": "Un profesional con bata baja el tono: nada de milagros, el producto complementa y no reemplaza, y avisa quién debe consultar antes.",
+      "objetivo_para_este_producto": "Dar la voz honesta que el mercado cansado necesita: es un apoyo natural, no cura nada del corazón ni de la presión. Y poner claro quién debe consultar antes: quien toma pastillas para la presión, el corazón o para adelgazar la sangre, gastritis o reflujo, embarazo o lactancia.",
+      "que_debe_sentir_el_cliente": "Por fin alguien que no me promete milagros; esto se siente serio.",
+      "titulo": "Mantener la idea «Tu cuerpo merece cuidado, no promesas mágicas». Etiqueta del profesional en blanco: «Dr./Dra. Nombre Apellido · Medicina interna» (o angiología). Texto: por qué se enfrían los pies después de los 50, cómo la cayena ayuda a que la sangre llegue mejor, que se nota con constancia y las advertencias de seguridad.",
+      "imagenes": [
+        { "imagen": "img5", "funcion": "Rostro de autoridad que acompaña el mensaje de cuidado y honestidad.", "que_debe_mostrar": "Médico o médica de bata blanca, de 45 a 60 años, cercano y sereno, en consultorio. Es una imagen de ejemplo: el dueño debe poner al profesional real que lo autorice." }
+      ]
+    },
+    {
+      "seccion": "profesionales",
+      "funcion_en_la_plantilla": "Varias opiniones de especialistas, filtradas por tema, cada una ligada a un ingrediente y un beneficio, con sellos de transparencia (no pagamos por opinar, con registro profesional).",
+      "objetivo_para_este_producto": "Mismo esquema, con temas de este producto y sin inventar nombres ni opiniones. Filtros: Pies fríos, Piernas pesadas, Energía, Estómago, Seguridad. Especialidades: Angiología o cirugía vascular (pies fríos), Medicina interna (piernas pesadas), Geriatría (energía después de los 60), Gastroenterología (sin ardor, gastritis), Medicina familiar (seguridad con otros medicamentos). Ingredientes: solo capsaicina, extracto de cayena y cápsula blanda; los 10 botánicos no se nombran.",
+      "que_debe_sentir_el_cliente": "Gente que sabe lo revisó y me habla de lo que a mí me preocupa.",
+      "titulo": "«Cada duda, explicada por un especialista». Todos los nombres como «Dr./Dra. Nombre Apellido» y las opiniones como «Aquí va la opinión real del profesional sobre…». Cada tarjeta con una frase de tema cuidadosa, sin prometer nada del corazón ni de la presión.",
+      "imagenes": [
+        { "imagen": "img11", "funcion": "Foto del primer especialista (pies fríos).", "que_debe_mostrar": "Especialista en circulación con bata, 40 a 55 años. Imagen de ejemplo para cambiar por la real." },
+        { "imagen": "img12", "funcion": "Foto del segundo especialista (piernas pesadas).", "que_debe_mostrar": "Médica internista con bata, cercana. Imagen de ejemplo." },
+        { "imagen": "img13", "funcion": "Foto del tercer especialista (energía).", "que_debe_mostrar": "Médico geriatra con bata, de mayor edad, sereno. Imagen de ejemplo." },
+        { "imagen": "img14", "funcion": "Foto del cuarto especialista (estómago y ardor).", "que_debe_mostrar": "Gastroenteróloga con bata. Imagen de ejemplo." },
+        { "imagen": "img15", "funcion": "Foto del quinto especialista (seguridad con otros medicamentos).", "que_debe_mostrar": "Médico familiar con bata, amable. Imagen de ejemplo." }
+      ]
+    },
+    {
+      "seccion": "comparacion-costo",
+      "no_aplica": true,
+      "funcion_en_la_plantilla": "Suma lo que costarían los ingredientes por separado contra el precio del combo para que el producto se vea barato.",
+      "objetivo_para_este_producto": "No aplica: el dueño no dio precios, no hay lista confirmada de los botánicos y cualquier precio de comparación sería inventado. Se quita de la página.",
+      "que_debe_sentir_el_cliente": "",
+      "titulo": "",
+      "imagenes": []
+    },
+    {
+      "seccion": "resenas",
+      "funcion_en_la_plantilla": "Muro de reseñas con calificación general, cada una sobre un beneficio distinto y con respuesta de la marca, para dar volumen de prueba.",
+      "objetivo_para_este_producto": "Dejar los espacios listos para reseñas reales, con guías del tema de cada una: los pies helados en la noche, las piernas pesadas al final del día, que no arde ni cae mal al estómago, y una hija que se lo mandó a la mamá. Calificación y número de opiniones en blanco.",
+      "que_debe_sentir_el_cliente": "Muchas lo usan y les va bien en cosas como las mías.",
+      "titulo": "«XX clientas en Colombia ya lo toman. Así se siente de verdad.» Calificación «X,X / 5 en más de XX opiniones». Respuestas de la marca cálidas y cortas.",
+      "imagenes": []
+    },
+    {
+      "seccion": "preguntas-frecuentes",
+      "funcion_en_la_plantilla": "Lista final de dudas para quien todavía no compra: cómo se toma, qué es, qué trae, quién no debe tomarlo, envío, devoluciones, si es suscripción.",
+      "objetivo_para_este_producto": "Responder todas las objeciones de la estrategia: si de verdad sirve, cómo se toma (2 cápsulas al día con la comida), si arde o cae mal al estómago, si es seguro con pastillas de presión o para la sangre, cuántas bolsas, si llega original, envío, devoluciones y que no es suscripción.",
+      "que_debe_sentir_el_cliente": "Ya entendí todo, no me queda nada pendiente.",
+      "titulo": "«Preguntas frecuentes» con respuestas cortas y honestas. Quién no debe tomarlo sin consultar: embarazo, lactancia, gastritis o reflujo, pastillas para la presión, el corazón o para adelgazar la sangre, y antes de una cirugía.",
+      "imagenes": []
+    },
+    {
+      "seccion": "pie",
+      "funcion_en_la_plantilla": "Contacto por WhatsApp, enlaces de políticas y aviso legal de qué es y qué no es el producto.",
+      "objetivo_para_este_producto": "Dar contacto y dejar claro que es un suplemento de cayena, no un medicamento, que no reemplaza el tratamiento médico y quién debe consultar antes.",
+      "que_debe_sentir_el_cliente": "Hay alguien detrás que me responde.",
+      "titulo": "Contáctanos por WhatsApp, más el aviso legal sin nombrar registro sanitario.",
+      "imagenes": []
+    },
+    {
+      "seccion": "barra-fija",
+      "funcion_en_la_plantilla": "Botón que acompaña todo el recorrido con el combo recomendado y su precio, para comprar en cualquier momento.",
+      "objetivo_para_este_producto": "Mostrar la rutina de 3 bolsas (90 días) con «Precio por definir» y un botón de pedir con pago al recibir.",
+      "que_debe_sentir_el_cliente": "Puedo pedirlo ya, sin buscar.",
+      "titulo": "«Rutina completa · 3 bolsas (90 días)» y botón «PEDIR Y PAGAR AL RECIBIR».",
+      "imagenes": []
+    },
+    {
+      "seccion": "galeria",
+      "funcion_en_la_plantilla": "Las primeras imágenes que ve: la promesa con una mujer feliz y el producto, luego el dolor, luego cómo funciona en varios frentes, luego qué trae y por último la ficha del producto.",
+      "objetivo_para_este_producto": "Contar la misma historia en imágenes: promesa del calorcito, la noche fría que ella vive, cómo ayuda la cayena, qué trae la cápsula y cómo se toma. Sin sellos oficiales, sin garantía de devolución inventada y sin plazos tipo «en 2 a 4 semanas».",
+      "que_debe_sentir_el_cliente": "Me vi en la segunda foto y entendí cómo funciona en la tercera.",
+      "titulo": "",
+      "imagenes": [
+        { "imagen": "img0", "funcion": "Portada: la promesa principal con una mujer feliz usando el producto y los beneficios en íconos al lado.", "que_debe_mostrar": "Mujer de 55 a 65 años sentada en casa con ruana, con los pies en medias y cara de alivio, sosteniendo una taza de tinto; la bolsa de Cayenne Pepper al lado. Título: «Vuelve a sentir tus pies calienticos». Íconos: pies menos helados, manos más tibias, piernas más livianas, más ánimo en la tarde. Sellos: «Sin ardor» y «Pagas al recibir». Nada de INVIMA ni plazos." },
+        { "imagen": "img1", "funcion": "Nombra el dolor con una mujer que sufre y los síntomas en burbujas alrededor.", "que_debe_mostrar": "Mujer de 55 a 65 años en la cama de noche, con cobija y medias de lana, frotándose los pies, con gesto cansado. Título: «¿Te acuestas con los pies helados y ni con medias se calientan?». Burbujas: pies helados, manos frías, piernas pesadas, bajón a media tarde, «ya probé agüitas y cobijas»." },
+        { "imagen": "img2", "funcion": "Explica cómo actúa el producto en varios frentes con el producto y una mujer tranquila.", "que_debe_mostrar": "Mujer sonriente y abrigada con la bolsa al lado. Título: «El ritual del calorcito». Bloques: la capsaicina ayuda a que los vasos se relajen; la sangre llega mejor a manos y pies; piernas más livianas; más ánimo en la tarde; sin el ardor de la cayena cruda. Sin hablar del corazón ni de la presión." },
+        { "imagen": "img3", "funcion": "Muestra qué trae el producto, ingrediente por ingrediente alrededor del envase.", "que_debe_mostrar": "La bolsa al centro con cayenas rojas frescas y cápsulas blandas. Solo lo confirmado: extracto de pimienta de cayena (capsaicina), cápsula blanda fácil de tragar, botánicos de apoyo (sin nombrarlos), sin transgénicos. Título: «La cayena de la abuela, ahora en cápsula y sin ardor»." },
+        { "imagen": "img4", "funcion": "Ficha del producto: presentación y datos de la etiqueta para dar seriedad.", "que_debe_mostrar": "La bolsa con cápsulas fuera y un recuadro sencillo: 60 cápsulas blandas, 30 porciones, 2 cápsulas al día con la comida, una bolsa rinde 30 días. No inventar tabla nutricional." },
+        { "imagen": "img5", "funcion": "Rostro del profesional que también aparece en el bloque del médico asesor.", "que_debe_mostrar": "Médico o médica de bata blanca, sereno y cercano. Imagen de ejemplo para cambiar por el profesional real." }
+      ]
+    },
+    {
+      "seccion": "creativos",
+      "funcion_en_la_plantilla": "Repite las piezas clave (dolor, cómo funciona, ingredientes) para usarlas como anuncios o en otras partes de la página.",
+      "objetivo_para_este_producto": "Las mismas tres piezas de la galería: el dolor de los pies helados, el ritual del calorcito y qué trae la cápsula.",
+      "que_debe_sentir_el_cliente": "Lo mismo que en la galería: me identifico, entiendo y confío.",
+      "titulo": "",
+      "imagenes": [
+        { "imagen": "img1", "funcion": "Pieza del dolor.", "que_debe_mostrar": "La noche fría con los pies helados, igual que en la galería." },
+        { "imagen": "img2", "funcion": "Pieza de cómo funciona.", "que_debe_mostrar": "El ritual del calorcito y sus beneficios, igual que en la galería." },
+        { "imagen": "img3", "funcion": "Pieza de qué trae.", "que_debe_mostrar": "La cayena en cápsula y sin ardor, igual que en la galería." }
+      ]
+    }
+  ],
+  "orden": "El orden de la plantilla sirve: promesa, oferta pronto, prueba, dudas y cierre. Solo cambiaría dos cosas si se pudiera: subir el bloque del médico asesor justo después de las dudas rápidas, porque a este público lo frena más el miedo a mezclarlo con sus pastillas que el precio; y se quita la comparación de costo.",
+  "resumen": "Mantuve el recorrido de la plantilla pero lo cambié a la noche fría de Gloria: los pies helados que no se calientan ni con medias, con las piernas pesadas y el bajón de la tarde como apoyo. Quité la comparación de costo porque no hay precios ni lista de ingredientes confirmada y habría que inventarla. Las cifras, reseñas, nombres de profesionales y precios quedan en blanco para que pongas los reales, y no se menciona ningún registro ni sello oficial. Le di peso a las advertencias de seguridad porque a esta clienta la frena más el miedo a mezclarlo con sus pastillas que el precio."
+}

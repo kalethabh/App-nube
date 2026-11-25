@@ -17,32 +17,34 @@
   "creado": "2026-11-25T21:06:50.016Z",
   "estado": "trabajando",
   "progreso": [
-    "Emilio (estratega (investigación)) está trabajando…"
+    "Emilio (estratega (investigación)) está trabajando…",
+    "Simón (arquitecto de conversión) está trabajando…",
+    "Antonia (diseñadora visual) está trabajando…"
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T21:06:50.063Z",
+  "actualizado": "2026-11-25T21:08:33.680Z",
   "agentes": [
     {
       "id": "estratega",
       "nombre": "Emilio",
       "rol": "Estratega (investigación)",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Elegí vender la sensación que más duele y se nota: los pies helados que no se calientan ni con medias, con las piernas pesadas y el bajón de la tarde como apoyo. Le hablamos a la mujer de 50 a 65 años de tierra fría o de trabajo de pie, y a la hija que le compra a la mamá. Como el mercado ya está cansado de promesas, la landing se identifica con su noche fría y presenta la cayena que ya conoce, en cápsula y sin ardor, sin prometer nada del corazón ni de la presión. Precios por definir, pago contra entrega y advertencias de seguridad claras para dar confianza."
     },
     {
       "id": "conversion",
       "nombre": "Simón",
       "rol": "Arquitecto de conversión",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Mantuve el recorrido de la plantilla pero lo cambié a la noche fría de Gloria: los pies helados que no se calientan ni con medias, con las piernas pesadas y el bajón de la tarde como apoyo. Quité la comparación de costo porque no hay precios ni lista de ingredientes confirmada y habría que inventarla. Las cifras, reseñas, nombres de profesionales y precios quedan en blanco para que pongas los reales, y no se menciona ningún registro ni sello oficial. Le di peso a las advertencias de seguridad porque a esta clienta la frena más el miedo a mezclarlo con sus pastillas que el precio."
     },
     {
       "id": "diseno",
       "nombre": "Antonia",
       "rol": "Diseñadora visual",
-      "estado": "esperando",
+      "estado": "trabajando",
       "resumen": null
     },
     {
