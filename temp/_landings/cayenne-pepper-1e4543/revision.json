@@ -1,0 +1,28 @@
+{
+  "cambios": {
+    "5": "Pies calienticos otra vez, sin el ardor de la cayena. 2 cápsulas al día que apoyan la circulación hacia pies y manos, para sentir los pies menos helados y las piernas más livianas. Lo pagas cuando te llegue.",
+    "14": "",
+    "21": "",
+    "80": "Dos cápsulas al día, siempre con la comida y un vaso de agua. Sigue lo que dice la etiqueta de tu bolsa. Tómala todos los días: el calorcito se nota con constancia. No la tomes con el estómago vacío.",
+    "92": "No se recomienda en embarazo, lactancia, menores de edad, si eres alérgica al ají ni si tienes gastritis, úlcera o reflujo. Si tienes la presión alta, algo del corazón, un trasplante o una cirugía próxima, o si tomas medicamentos para la presión, el corazón o para adelgazar la sangre, consulta primero con tu médico.",
+    "93": "¿Cuándo me llega y cómo pago?",
+    "94": "Depende de tu ciudad y de la transportadora: ves los tiempos en el formulario antes de confirmar. Como pagas al recibir, no adelantas dinero: pagas cuando tienes tu bolsa en la mano.",
+    "107": "No se recomienda en embarazo, lactancia, menores de edad, alergia al ají ni gastritis, úlcera o reflujo. Tómala siempre con comida. Si tienes la presión alta, algo del corazón o tomas medicamentos para la presión, el corazón o para adelgazar la sangre, consulta antes a tu médico. Nunca dejes tu tratamiento."
+  },
+  "imagenes": [
+    {
+      "imagen": "img3",
+      "prompt": "Meta e-commerce product creative, square format. Hero shot of the red Cayenne Pepper pouch (use the attached product photo as exact reference, label perfectly sharp and legible) standing on a warm wooden kitchen table, a small pile of glossy translucent red softgel capsules spilling in front of it, and three fresh red cayenne chili peppers beside them. A folded cream wool blanket and a steaming cup in the soft-focus background. Warm afternoon window light, cream and peach background with muted cayenne red (#A62737) accents and tiny golden (#F2B01E) highlights. Large bold Spanish headline at the top in #6B1421: \"La cayena de siempre, en cápsula\". Four clean badges with small golden icons around the product: \"60 cápsulas blandas\", \"Rinde 30 días\", \"Sin transgénicos\", \"Sin ardor en la boca\". No other ingredient names, no milligrams, no certification seals, no other brands. Crisp, premium, mobile-readable."
+    }
+  ],
+  "pendientes": [
+    "Pon los precios reales de los tres combos. Quité dos precios tachados ($269.700 y $179.800) porque no venían de ningún lado.",
+    "Cambia todas las reseñas y el testimonio de ejemplo por opiniones reales de tus clientas en Colombia, con su permiso. No uses reseñas de Estados Unidos.",
+    "Confirma que el producto tiene registro sanitario INVIMA antes de publicar y pautar.",
+    "Revisa la etiqueta trasera: cuántas cápsulas al día, a qué hora y la lista de ingredientes. Ajusta la página si algo cambia.",
+    "El empaque está en inglés y habla de corazón y defensas. En la página no lo prometemos; revisa que las fotos no muestren esas frases muy grandes.",
+    "Agrega tu número de WhatsApp y tus páginas de envíos, cambios y devoluciones, privacidad y términos.",
+    "En WhatsApp, antes de despachar, pregunta si la clienta toma medicamentos para la presión, el corazón o para adelgazar la sangre, si está embarazada o lactando y si tiene gastritis."
+  ],
+  "resumen": "La página va bien: no promete curar y deja claro que es un apoyo natural. Quité dos precios tachados que estaban inventados, porque los combos aún no tienen precio. Completé los avisos de quién no debe tomarla (gastritis, presión, corazón, cirugía), aclaré que la dosis se confirma con la etiqueta y arreglé una pregunta que no se respondía bien. En una imagen cambié «Sin ardor» por «Sin ardor en la boca», porque en el estómago sí puede arder."
+}

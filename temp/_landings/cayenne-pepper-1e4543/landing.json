@@ -14,12 +14,14 @@
     "Simón (arquitecto de conversión) está trabajando…",
     "Antonia (diseñadora visual) está trabajando…",
     "Valeria (copywriter) está trabajando…",
-    "Mateo (director de imágenes) está trabajando…"
+    "Mateo (director de imágenes) está trabajando…",
+    "Renata (revisión) está trabajando…",
+    "ChatGPT está haciendo 4 imágenes con tu producto…"
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T18:39:25.056Z",
+  "actualizado": "2026-11-25T18:40:29.313Z",
   "agentes": [
     {
       "id": "estratega",
@@ -46,22 +48,31 @@
       "id": "copy",
       "nombre": "Valeria",
       "rol": "Copywriter",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Escribí toda la página alrededor de los pies helados de noche, con las palabras de tus clientas y sin prometer nada del corazón ni de la presión. No puse precios, ahorros, regalos, garantía, envío gratis, Black Friday ni registro INVIMA porque no están confirmados: donde iban dice «Precio por definir» o se cambió por algo seguro, como «Sin suscripción». Las reseñas y la nota quedan como ejemplo para que pongas las reales de clientas en Colombia. Sumé las advertencias de uso y cuándo ir primero al médico, porque eso da confianza."
     },
     {
       "id": "imagenes",
       "nombre": "Mateo",
       "rol": "Director de imágenes",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Hice cuatro imágenes para la galería y los anuncios, en el mismo orden que la plantilla: una mujer como tu clienta con su tinto y la bolsa, el dolor de los pies helados de noche, el ritual de 2 cápsulas con el calorcito que baja a pies y manos, y qué trae la bolsa (60 cápsulas, 30 días, sin transgénicos, sin ardor). Todo en luz cálida, con cobijas, medias de lana y tonos crema y rojo cayena, sin nada de hospital ni del corazón. En los combos va la foto real de tu producto, tal cual. No puse otros ingredientes, miligramos ni sellos porque aún no están confirmados."
     },
     {
       "id": "revision",
       "nombre": "Renata",
       "rol": "Revisión",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "La página va bien: no promete curar y deja claro que es un apoyo natural. Quité dos precios tachados que estaban inventados, porque los combos aún no tienen precio. Completé los avisos de quién no debe tomarla (gastritis, presión, corazón, cirugía), aclaré que la dosis se confirma con la etiqueta y arreglé una pregunta que no se respondía bien. En una imagen cambié «Sin ardor» por «Sin ardor en la boca», porque en el estómago sí puede arder.",
+      "pendientes": [
+        "Pon los precios reales de los tres combos. Quité dos precios tachados ($269.700 y $179.800) porque no venían de ningún lado.",
+        "Cambia todas las reseñas y el testimonio de ejemplo por opiniones reales de tus clientas en Colombia, con su permiso. No uses reseñas de Estados Unidos.",
+        "Confirma que el producto tiene registro sanitario INVIMA antes de publicar y pautar.",
+        "Revisa la etiqueta trasera: cuántas cápsulas al día, a qué hora y la lista de ingredientes. Ajusta la página si algo cambia.",
+        "El empaque está en inglés y habla de corazón y defensas. En la página no lo prometemos; revisa que las fotos no muestren esas frases muy grandes.",
+        "Agrega tu número de WhatsApp y tus páginas de envíos, cambios y devoluciones, privacidad y términos.",
+        "En WhatsApp, antes de despachar, pregunta si la clienta toma medicamentos para la presión, el corazón o para adelgazar la sangre, si está embarazada o lactando y si tiene gastritis."
+      ]
     }
   ],
   "plantilla": "cen"
