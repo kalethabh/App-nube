@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-25j · Landings creadas con todas las secciones de la base
+
+- La plantilla es ahora la versión completa de la base: sello del registro sanitario, encuesta a clientas, médico asesor, opiniones de profesionales con filtros, comparación de costo y reseñas.
+- Las fotos de los círculos (opiniones y testimonios) son personas como tu cliente ideal, hechas con ChatGPT; las de los profesionales, retratos con bata según el tema del producto. Los nombres y opiniones de profesionales quedan para que pongas los reales (no se inventan), y la encuesta sale con «XX %» para tus cifras.
+- Nuevo campo «Registro sanitario» al crear: con el número sale el sello; sin él, no.
+- Ninguna imagen se corta: todas se ven completas.
+
 ## 2026-11-25i · Landings creadas: galería sin espacios y de borde a borde en celular
 
 - Las imágenes de la galería ya no salen con franjas blancas arriba y abajo: cada imagen se ve completa con su propia altura.

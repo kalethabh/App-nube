@@ -251,7 +251,7 @@ async function principal() {
   // (2026-11-25f) CREAR desde la plantilla, con el equipo de agentes
   r = await pedir('/api/landings/crear', { json: {} });
   check('Crear sin producto: lo pide', r.st === 400, r);
-  r = await pedir('/api/landings/crear', { json: { productoId: prod, prompt: 'tono cercano', precios: { uno: '89.900', dos: '152900', tres: '199900', antes: '89900' } } });
+  r = await pedir('/api/landings/crear', { json: { productoId: prod, prompt: 'tono cercano', precios: { uno: '89.900', dos: '152900', tres: '199900', antes: '89900' }, registro: 'RSA-PRUEBA-123' } });
   const id4 = r.datos?.id;
   if (id4) creados.landings.push(id4);
   const l4 = await esperar(300, () => leerLanding(id4), terminada);
@@ -261,7 +261,7 @@ async function principal() {
   const h4 = id4 && fs.existsSync(path.join(RAIZ, 'temp', '_landings', id4, 'index.html')) ? html(id4) : '';
   check('La página es la plantilla con los textos del producto', /data-seccion="oferta"/.test(h4) && /Sueño Profundo/.test(h4) && !/Be Well CEN<sup>/.test(h4), (h4.match(/<h1[^>]*>[\s\S]{0,80}/) || [''])[0]);
   check('Los combos del script quedan con el producto', /"name": "Kit Trío Sueño Profundo"/.test(h4), (h4.match(/const OFFERS = [\s\S]{0,200}/) || [''])[0]);
-  check('El tarro de los combos es la foto del producto y la imagen principal la nueva', /src="assets\/producto\.png"/.test(h4) && /src="assets\/ia-img0-/.test(h4) && l4?.creada?.imagenes === 1, l4?.creada);
+  check('El tarro de los combos es la foto del producto y la imagen principal la nueva', /src="assets\/producto\.png"/.test(h4) && /src="assets\/ia-img0-/.test(h4) && l4?.creada?.imagenes >= 1, l4?.creada);
   // (2026-11-25g) la identidad del producto, no la de la plantilla
   check('La paleta es la del producto (y el texto ilegible que dio el diseño se corrigió)', /--accent:#A62737/i.test(h4) && !/--accent:#8a4fc4/i.test(h4) && !/--fg:#ffffff/i.test(h4) && /--star:#FACF42/i.test(h4), (h4.match(/:root\{[\s\S]{0,500}/) || [''])[0]);
   check('Las fuentes son las elegidas', /id="kads-fuentes"[^>]+family=Lato[^>]+family=Anton|family=Lato[^"]*family=Anton/.test(h4) && /--f-display:"Anton"/.test(h4), (h4.match(/<link id="kads-fuentes"[^>]*>/) || [''])[0]);
@@ -276,7 +276,16 @@ async function principal() {
   if (id5) creados.landings.push(id5);
   const l5 = await esperar(300, () => leerLanding(id5), terminada);
   const h5 = id5 && fs.existsSync(path.join(RAIZ, 'temp', '_landings', id5, 'index.html')) ? html(id5) : '';
+  check('Sin registro: no sale el sello', !/data-seccion="registro-sanitario"|invima-logo/.test(h5), (h5.match(/registro[^<]{0,60}/gi) || []).slice(0, 4));
   check('Sin precios: sin tachados ni «Ahorras» de la plantilla', l5?.estado === 'lista' && !/<s>\$/.test(h5) && !/Ahorras/.test(h5) && /Precio por definir/.test(h5), [l5?.estado, (h5.match(/<s>[^<]*|Ahorras[^<]*/g) || []).slice(0, 4)]);
+  // (2026-11-25j) la base completa: sus secciones, el registro, la encuesta y los profesionales sin inventar
+  const secs = new Set([...h4.matchAll(/data-seccion="([^"]+)"/g)].map((m) => m[1]));
+  check('Trae las secciones de la base (registro, encuesta, médico, profesionales, costo, reseñas)', ['registro-sanitario', 'encuesta', 'medico-asesor', 'profesionales', 'comparacion-costo', 'resenas', 'preguntas-frecuentes'].every((x) => secs.has(x)), [...secs]);
+  check('El sello lleva el registro que dio el dueño (y nada del registro de la plantilla)', /RSA-PRUEBA-123/.test(h4) && !/RSA-0012589|p-1\.webp|registro-invima-cen\.pdf|Laboratorio G/.test(h4), (h4.match(/<div class="verify"[\s\S]{0,400}/) || [''])[0]);
+  check('La encuesta sin cifras inventadas (XX %)', !/<div class="n">\d+%/.test(h4) && /<div class="n">XX %/.test(h4), (h4.match(/<div class="n">[^<]*/g) || []).slice(0, 4));
+  check('Profesionales sin nombres inventados', !/Valentina B\.|R\. Camargo|Camila S\.|Carlos O\.|Fabián C\./.test(h4) && /Nombre Apellido/.test(h4), (h4.match(/(Dra?|Nut)\. [^<]{0,24}/g) || []).slice(0, 6));
+  check('Clientas y profesionales con fotos nuevas; nada de las fotos de la plantilla', !/assets\/(cen-|av-clienta|clienta-testimonio|doctor-|dra?-|nut-)/.test(h4) && env.some((e) => e.tipo === 'persona' && !e.guia) && env.some((e) => e.tipo === 'profesional'), [...new Set(h4.match(/assets\/[\w.-]+/g) || [])].slice(0, 30));
+  check('Las imágenes de contenido no se recortan (sin caja fija en la galería ni en el médico)', !/\.g-main img\{[^}]*aspect-ratio:941/.test(h4) && !/\.care-ph img\{[^}]*object-fit:cover/.test(h4));
   check('Mide solo la landing (no hay original)', l4?.puntajes?.copia && !l4.puntajes.original, l4?.puntajes);
 
   // medir y borrar
