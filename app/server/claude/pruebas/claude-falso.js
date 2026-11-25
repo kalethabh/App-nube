@@ -373,7 +373,11 @@ async function alMensaje(texto) {
       d = { ...d, textos, combos: { trio: { name: `Kit Trío ${prod}`, short: '3 tarros', price: '$199.900 COP' }, duo: { name: 'Kit Dúo', short: '2 tarros', price: '$152.900 COP' }, uno: { name: '1 tarro', short: '1 tarro', price: '$89.900 COP' } }, titulo_pagina: `${prod} · Landing` };
     }
     if (quien === 'diseno') d = { ...d, paleta: { accent: '#A62737', bg: '#ffffff', fg: '#ffffff', star: '#FACF42' }, fuentes: { display: 'Anton', body: 'Lato' }, estilo_imagenes: 'rojo y amarillo, luz cálida' };
-    if (quien === 'imagenes') d = { ...d, imagenes: [{ imagen: 'img0', funcion: 'hero', prompt: 'product hero', aspecto: '4:5' }, { imagen: 'img4', funcion: 'tarro', prompt: '', usar_foto: true }] };
+    if (quien === 'imagenes') {
+      // (2026-11-25j) una por cada imagen de la lista, según su tipo
+      const lista = [...textoTarea.matchAll(/^img(\d+)\ttipo: (\w+)/gm)].map(([, k, tipo]) => ({ imagen: `img${k}`, funcion: tipo === 'persona' ? 'clienta' : tipo === 'profesional' ? 'profesional' : 'creativo', prompt: `prueba ${tipo}`, usar_foto: tipo === 'producto' || tipo === 'registro' }));
+      d = { ...d, imagenes: lista.length ? lista : [{ imagen: 'img0', funcion: 'hero', prompt: 'product hero', aspecto: '4:5' }] };
+    }
     if (quien === 'revision') d = { ...d, cambios: {}, pendientes: ['Poner reseñas reales'] };
     if (archivo) fs.writeFileSync(path.join(RAIZ, archivo), JSON.stringify(d));
     return resultado({ result: 'LISTO' });

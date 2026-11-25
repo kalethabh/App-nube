@@ -272,6 +272,7 @@ export default function Landings({ consulta }) {
   const [forma, setForma] = useState('clonar'); // (2026-11-25f) clonar una landing o crearla con el equipo
   const [productoId, setProductoId] = useState('');
   const [precios, setPrecios] = useState({ uno: '', dos: '', tres: '', antes: '' });
+  const [registro, setRegistro] = useState('');
   const [analizar, setAnalizar] = useState(true);
   const [ocupado, setOcupado] = useState(false);
   const [abierta, setAbierta] = useState(null);
@@ -285,7 +286,7 @@ export default function Landings({ consulta }) {
   const crearConEquipo = async () => {
     setOcupado(true);
     try {
-      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, prompt: prompt.trim(), precios } });
+      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, prompt: prompt.trim(), precios, registro: registro.trim() } });
       setPrompt('');
       await recargar?.();
       ir(`/landings?proyecto=${encodeURIComponent(creada.id)}`);
@@ -338,6 +339,7 @@ export default function Landings({ consulta }) {
               </div>
               <small className="ld-ayuda">Sin precios, los combos dicen «Precio por definir». El precio normal es opcional: con él se calculan el tachado y el «Ahorras».</small>
             </div>
+            <CampoTexto etiqueta="Registro sanitario (opcional)" placeholder="Ej.: RSA-0012345-2024. Sin número, la landing no muestra el sello del registro." value={registro} onChange={(e) => setRegistro(e.target.value)} maxLength={60} />
             <AreaTexto
               etiqueta="Qué quieres (opcional)"
               placeholder={'Por ejemplo: «enfócala en mujeres de 45 a 60 con sofocos», «tono cercano», «combo 2x1 a 99.900».'}
@@ -352,7 +354,7 @@ export default function Landings({ consulta }) {
               </Boton>
             </div>
             <p className="ld-ayuda">
-              La landing nace de la plantilla (galería, oferta por combos con pago contra entrega, creativos, reseñas y preguntas) y la arma el equipo con la investigación de mercado de tu producto: Emilio decide la estrategia, Simón entiende qué hace cada sección, título e imagen, Antonia le da la identidad de tu producto (colores de su empaque y tipografías), Valeria escribe los textos, Mateo diseña las imágenes (ChatGPT, con la foto de tu producto) y Renata revisa que nada esté inventado. Usa tu plan de IA: unos 6 trabajos de IA y una imagen por foto de la galería.
+              La landing nace de la plantilla (galería, oferta por combos con pago contra entrega, creativos, reseñas y preguntas) y la arma el equipo con la investigación de mercado de tu producto: Emilio decide la estrategia, Simón entiende qué hace cada sección, título e imagen, Antonia le da la identidad de tu producto (colores de su empaque y tipografías), Valeria escribe los textos, Mateo diseña las imágenes (ChatGPT: los creativos con la foto de tu producto, y las fotos de las opiniones con personas como tu cliente ideal) y Renata revisa que nada esté inventado. Usa tu plan de IA: unos 6 trabajos de IA y una imagen por foto de la galería.
             </p>
           </>
         ) : <>
