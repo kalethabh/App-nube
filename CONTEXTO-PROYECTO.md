@@ -15,6 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Embudo independiente, avisos y análisis visual (2026-11-24q)
 
+Implementación: [PR #205](https://github.com/kalethabh/App-nube/pull/205).
+Distribución de esta versión: [v2026-11-24q](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-24q).
+
 Pedidos de esta entrega: permitir seleccionar títulos y empezar otras secciones mientras una genera;
 mejorar fondos conservando Hero 9:16 y resto 4:5; avisar landing lista y publicación confirmada; sustituir
 los dos avisos de actualización por un popup central mediano con resumen; análisis de landing por sección
