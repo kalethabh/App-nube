@@ -106,7 +106,7 @@ if (envPropio) fs.writeFileSync(ENV, '# Lo escribió probar-acceso.mjs: claves f
 const TMP = fs.mkdtempSync(path.join(RAIZ, 'temp', '_probar-acceso-'));
 const env = { ...process.env };
 for (const k of Object.keys(env)) if (/^(ANTHROPIC_|CLAUDE_CODE_OAUTH|KIE_|ELEVENLABS_|OPENAI_|CODEX_|KADS_)/i.test(k)) delete env[k];
-Object.assign(env, { PUERTO: String(PUERTO), ANUNCIOS_MODO_PRUEBA: '1', ANUNCIOS_PRUEBA_LIMPIO: '1', ANUNCIOS_SIN_GUARDADO: '1', ANUNCIOS_CLAUDE_BIN: path.join(APP, 'server', 'claude', 'pruebas', 'claude-falso.js'), AIA_MOTOR: 'claude', OFICINA_SIN_SEGUIMIENTO: '1', KADS_SUPABASE_URL: `http://127.0.0.1:${supa.address().port}`, KADS_SUPABASE_ANON: ANON, NO_PROXY: '127.0.0.1,localhost', no_proxy: '127.0.0.1,localhost' });
+Object.assign(env, { PUERTO: String(PUERTO), ANUNCIOS_MODO_PRUEBA: '1', ANUNCIOS_PRUEBA_LIMPIO: '1', ANUNCIOS_SIN_GUARDADO: '1', ANUNCIOS_CLAUDE_BIN: path.join(APP, 'server', 'claude', 'pruebas', 'claude-falso.js'), AIA_MOTOR: 'claude', OFICINA_SIN_SEGUIMIENTO: '1', KADS_SUPABASE_URL: `http://127.0.0.1:${supa.address().port}`, KADS_SUPABASE_ANON: ANON, KADS_PUERTA: 'puerta.prueba', NO_PROXY: '127.0.0.1,localhost', no_proxy: '127.0.0.1,localhost' });
 const log = fs.createWriteStream(path.join(TMP, 'app.log'));
 const app = cp.spawn(process.execPath, ['server/index.js'], { cwd: APP, env, stdio: ['ignore', 'pipe', 'pipe'], detached: true });
 app.stdout.pipe(log);
@@ -131,6 +131,19 @@ async function pedir(ruta, { metodo, json, galleta, accept = 'application/json' 
   }
   return { st: r.status, datos, texto, donde: r.headers.get('location'), galleta: galletas(r) };
 }
+
+// (2026-11-25d) la puerta de Vercel, simulada: reenvía todo a la app (como el rewrite de vercel/vercel.json) y el
+// navegador manda el origen de la puerta
+const puerta = http.createServer((req, res) => {
+  const p = http.request({ host: '127.0.0.1', port: PUERTO, path: req.url, method: req.method, headers: { ...req.headers, host: `127.0.0.1:${PUERTO}`, 'x-forwarded-proto': 'https' } }, (r) => {
+    res.writeHead(r.statusCode, r.headers);
+    r.pipe(res);
+  });
+  p.on('error', () => res.writeHead(502).end());
+  req.pipe(p);
+});
+await new Promise((ok) => puerta.listen(0, '127.0.0.1', ok));
+const PUERTA = `http://127.0.0.1:${puerta.address().port}`;
 
 async function principal() {
   let arriba = false;
@@ -215,6 +228,19 @@ async function principal() {
   r = await pedir('/api/acceso/registro', { json: { nombre: 'Otra', correo: 'luz@x.co', clave: 'clave-luz' } });
   check('Un correo que ya tiene cuenta: avisa', r.st === 400 && /Entrar/.test(r.datos?.error || ''), r.datos);
 
+  // por la puerta de Vercel: entrar (cookie segura), usar la app y cambiar algo con el origen de la puerta
+  const porPuerta = (ruta, o = {}) => fetch(PUERTA + ruta, { method: o.metodo || 'GET', redirect: 'manual', headers: { Accept: 'application/json', Origin: 'https://puerta.prueba', ...(o.cuerpo ? { 'Content-Type': 'application/json' } : {}), ...(o.galleta ? { Cookie: o.galleta } : {}) }, body: o.cuerpo });
+  let v = await porPuerta('/api/acceso/entrar', { metodo: 'POST', cuerpo: JSON.stringify({ correo: 'dueno@x.co', clave: 'clave-dueno' }) });
+  const cv = v.headers.getSetCookie?.() || [];
+  const gv = cv.map((c) => c.split(';')[0]).join('; ');
+  check('Por la puerta de Vercel: entra (cookie Secure, sin Domain)', v.status === 200 && cv.length === 2 && cv.every((c) => /Secure/.test(c) && !/Domain=/i.test(c)), cv);
+  v = await porPuerta('/api/productos', { galleta: gv });
+  check('Por la puerta: usa la app', v.status === 200, v.status);
+  v = await porPuerta('/api/ajustes/preferencias', { metodo: 'PUT', cuerpo: '{}', galleta: gv });
+  check('Por la puerta: un cambio con el origen de Vercel se acepta', v.status !== 403, v.status);
+  v = await porPuerta('/', { galleta: '' });
+  check('Por la puerta sin sesión: va a /entrar', v.status === 302 && /\/entrar/.test(v.headers.get('location') || ''), v.status);
+
   r = await pedir('/api/acceso/salir', { metodo: 'POST', json: {}, galleta: dueno });
   check('Salir borra las cookies', r.st === 200 && (r.galleta === ''), r);
   r = await pedir('/api/acceso/entrar', { json: { correo: 'dueno@x.co', clave: 'clave-dueno' } });
@@ -235,6 +261,7 @@ try {
     /* ya cerró */
   }
   supa.close();
+  puerta.close();
   fs.rmSync(path.join(RAIZ, 'temp', `_modo-prueba-${PUERTO}`), { recursive: true, force: true });
   if (envPropio) fs.rmSync(ENV, { force: true });
   if (fallas) console.log(`\n  Registro de la app: ${path.join(TMP, 'app.log')}`);

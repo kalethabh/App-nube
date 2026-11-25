@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-25d · Kads con dirección de Vercel
+
+- Kads puede tener su propia dirección de Vercel (gratis): Vercel es solo la puerta y reenvía todo a tu servidor gratis de Oracle, que hace el trabajo; las cuentas siguen en el Supabase propio de Kads. Los pasos están en `DESPLEGAR-GRATIS.md` (paso 7).
+
 ## 2026-11-25c · La flecha del menú vuelve a funcionar
 
 - Con el menú plegado, la flecha para abrirlo se ve otra vez (el botón «+» la tapaba).
