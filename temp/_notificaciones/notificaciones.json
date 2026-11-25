@@ -8,6 +8,15 @@
       "destino": "#/landings?proyecto=cayenne-pepper-067986",
       "fecha": "2026-11-25T18:19:31.939Z",
       "leida": "2026-11-25T18:23:26.523Z"
+    },
+    {
+      "id": "n-09bb45a4ac6428f9a3a02c60",
+      "tipo": "landing-lista",
+      "titulo": "Landing lista",
+      "texto": "«Cayenne Pepper · Pies calienticos otra vez, sin el ardor · Pagas al recibir» está clonada y lista para revisar.",
+      "destino": "#/landings?proyecto=cayenne-pepper-1e4543",
+      "fecha": "2026-11-25T18:48:08.320Z",
+      "leida": null
     }
   ]
 }

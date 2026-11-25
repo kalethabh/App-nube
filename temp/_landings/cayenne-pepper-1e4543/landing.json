@@ -6,9 +6,9 @@
   "prompt": "",
   "productoId": "cayenne-pepper-d319",
   "analizar": false,
-  "titulo": "CAYENNE PEPPER",
+  "titulo": "Cayenne Pepper · Pies calienticos otra vez, sin el ardor · Pagas al recibir",
   "creado": "2026-11-25T18:37:57.782Z",
-  "estado": "trabajando",
+  "estado": "lista",
   "progreso": [
     "Emilio (estratega (investigación)) está trabajando…",
     "Simón (arquitecto de conversión) está trabajando…",
@@ -19,12 +19,26 @@
     "ChatGPT está haciendo 4 imágenes con tu producto…",
     "Imagen 1 de 4 lista.",
     "Imagen 2 de 4 lista.",
-    "Imagen 3 de 4 lista."
+    "Imagen 3 de 4 lista.",
+    "Imagen 4 de 4 lista.",
+    "Midiendo la velocidad (Lighthouse en celular)…",
+    "Lista."
   ],
   "error": null,
   "informe": null,
-  "puntajes": null,
-  "actualizado": "2026-11-25T18:46:41.104Z",
+  "puntajes": {
+    "original": null,
+    "copia": {
+      "puntaje": 74,
+      "fcp": "1.6 s",
+      "lcp": "52.0 s",
+      "tbt": "0 ms",
+      "cls": "0",
+      "peso": 10127
+    },
+    "fecha": "2026-11-25T18:48:08.319Z"
+  },
+  "actualizado": "2026-11-25T18:48:08.320Z",
   "agentes": [
     {
       "id": "estratega",
@@ -78,5 +92,10 @@
       ]
     }
   ],
-  "plantilla": "cen"
+  "plantilla": "cen",
+  "creada": {
+    "textos": 116,
+    "imagenes": 4,
+    "pedidas": 4
+  }
 }
