@@ -29,6 +29,7 @@ import { hostsPermitidos, origenesPermitidos } from './lib/servidor.js';
 import { migrarMotor, motorElegido } from './lib/motor-ia.js';
 import { vigilarInterfaz } from './lib/interfaz.js';
 import { porteroImportar } from './lib/desde-chrome.js';
+import { porteroAcceso } from './lib/acceso.js';
 import { programarPortadas } from './lib/portadas-estilos.js';
 
 // IPv4 primero (2026-11-18): con una red con IPv6 a medias, Node intenta primero la dirección IPv6 de ElevenLabs o kie y
@@ -109,6 +110,9 @@ app.all('/mcp/:clave', async (req, res, next) => {
     }
   });
 });
+// (2026-11-25a) EL INGRESO CON CUENTA (lib/acceso.js): solo en un servidor con KADS_SUPABASE_URL y KADS_SUPABASE_ANON
+// (el mismo Supabase del Centro de Control). Sin ellas (la app en tu Mac), no hace nada.
+app.use(porteroAcceso);
 app.use((req, res, next) => {
   if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') return next();
   if (req.desdeExtension === true) return next();

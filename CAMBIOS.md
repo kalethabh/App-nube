@@ -57,6 +57,13 @@ Cada versión nueva va arriba. La versión que tienes está en el archivo VERSIO
 - Las tiendas existentes se organizan por su cuenta anterior, conservando sus conexiones. Las carpetas vacías también se guardan; solo se eliminan cuando ya no tienen tiendas.
 - Los cambios de temas, copias entre tiendas y vistas previas pendientes se revisan desde **Landings → Cambios en tiendas**. El apartado Shopify queda dedicado a conexiones.
 
+## 2026-11-25a · Kads en internet gratis y con cuentas
+
+- En un servidor, la app ahora pide **correo y clave**: las mismas cuentas del Centro de Control (mismo Supabase). El primero que entra queda **dueño**; los demás esperan a que los apruebes en **Tu cuenta › Usuarios** (socio, empleado o rechazado).
+- Socios y empleados usan la app; solo el dueño cambia ajustes, claves, la IA conectada, el guardado y las tiendas conectadas.
+- Guía nueva **DESPLEGAR-GRATIS.md**: la app en el servidor gratis de Oracle Cloud, paso a paso.
+- En tu Mac no cambia nada: ahí no pide ingreso.
+
 ## 2026-11-24k · Landings que se ven y funcionan bien en tiendas reales
 
 - Algunas tiendas (por ejemplo, con íconos que la tienda deja mal cerrados) se copiaban desarmadas: el menú y el carrito sueltos y una rueda de carga gigante que no se iba. Ahora la app lee la página como la lee el navegador y la copia queda igual a la original, con sus pestañas, selectores y preguntas frecuentes funcionando.

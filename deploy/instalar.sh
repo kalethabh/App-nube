@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Kads Studio en un servidor (Ubuntu 24.04, por ejemplo Hetzner CPX31). Se corre UNA vez, como root:
+# Kads Studio en un servidor (Ubuntu 24.04: Oracle Cloud gratis, Hetzner CPX31…). Se corre UNA vez, como root:
 #
 #   bash instalar.sh
 #
@@ -25,7 +25,15 @@ IP=$(curl -fsS4 https://api.ipify.org 2>/dev/null || hostname -I | awk '{print $
 if [ -z "${KADS_TOKEN:-}" ]; then
   read -rsp "Pega tu token de GitHub (no se ve al escribir) y pulsa Enter: " KADS_TOKEN < /dev/tty; echo
 fi
-if [ -z "${KADS_CONTRASENA:-}" ]; then
+# (2026-11-25a) INGRESO CON CUENTAS (el mismo Supabase del Centro de Control): con la dirección y la clave anónima de
+# Supabase, cada persona entra con su correo y clave y tú apruebas a los demás. Sin ellas, una sola contraseña (Caddy).
+if [ -z "${KADS_SUPABASE_URL+x}" ]; then
+  read -rp "Dirección de tu Supabase para entrar con cuentas (https://xxxx.supabase.co; Enter para usar una contraseña): " KADS_SUPABASE_URL < /dev/tty || true
+fi
+if [ -n "${KADS_SUPABASE_URL:-}" ] && [ -z "${KADS_SUPABASE_ANON:-}" ]; then
+  read -rp "Su clave anónima (anon public, la de Project Settings › API): " KADS_SUPABASE_ANON < /dev/tty
+fi
+if [ -z "${KADS_SUPABASE_URL:-}" ] && [ -z "${KADS_CONTRASENA:-}" ]; then
   read -rsp "Escribe la contraseña para entrar a la app y pulsa Enter: " KADS_CONTRASENA < /dev/tty; echo
 fi
 if [ -z "${KADS_DOMINIO:-}" ]; then
@@ -33,7 +41,12 @@ if [ -z "${KADS_DOMINIO:-}" ]; then
   read -rp "Tu dominio (Enter para usar $SUGERIDO): " KADS_DOMINIO < /dev/tty || true
   KADS_DOMINIO="${KADS_DOMINIO:-$SUGERIDO}"
 fi
-[ -n "$KADS_TOKEN" ] && [ -n "$KADS_CONTRASENA" ] || { echo "Faltan el token o la contraseña."; exit 1; }
+[ -n "$KADS_TOKEN" ] || { echo "Falta el token de GitHub."; exit 1; }
+if [ -n "${KADS_SUPABASE_URL:-}" ]; then
+  [ -n "${KADS_SUPABASE_ANON:-}" ] || { echo "Falta la clave anónima de Supabase."; exit 1; }
+else
+  [ -n "${KADS_CONTRASENA:-}" ] || { echo "Falta la contraseña."; exit 1; }
+fi
 
 # ---------------------------------------------------------------- programas
 decir "Instalando los programas (unos minutos)..."
@@ -51,6 +64,14 @@ if ! command -v caddy >/dev/null; then
   curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
   curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' > /etc/apt/sources.list.d/caddy-stable.list
   apt-get update -qq && apt-get install -y -qq caddy >/dev/null
+fi
+
+# (2026-11-25a) Oracle Cloud (gratis): su Ubuntu trae el firewall cerrado salvo SSH. Se abren 80 y 443 (HTTPS).
+if command -v netfilter-persistent >/dev/null && iptables -S INPUT 2>/dev/null | grep -q -- '-j REJECT'; then
+  for P in 80 443; do
+    iptables -C INPUT -p tcp --dport $P -m state --state NEW -j ACCEPT 2>/dev/null || iptables -I INPUT 5 -p tcp --dport $P -m state --state NEW -j ACCEPT
+  done
+  netfilter-persistent save >/dev/null 2>&1 || true
 fi
 
 # ---------------------------------------------------------------- usuario, acceso a GitHub y la app
@@ -88,6 +109,8 @@ User=$USUARIO
 WorkingDirectory=$CARPETA
 Environment=NODE_ENV=production
 Environment=ANUNCIOS_DOMINIO=$KADS_DOMINIO
+${KADS_SUPABASE_URL:+Environment=KADS_SUPABASE_URL=$KADS_SUPABASE_URL}
+${KADS_SUPABASE_ANON:+Environment=KADS_SUPABASE_ANON=$KADS_SUPABASE_ANON}
 Environment=PATH=$CASA/.local/bin:/usr/local/bin:/usr/bin:/bin
 ExecStart=/usr/bin/node app/server/index.js
 Restart=always
@@ -96,6 +119,17 @@ RestartSec=3
 [Install]
 WantedBy=multi-user.target
 EOF
+if [ -n "${KADS_SUPABASE_URL:-}" ]; then
+# con cuentas: la app pide el ingreso (lib/acceso.js); Caddy solo pone el HTTPS
+cat > /etc/caddy/Caddyfile <<EOF
+$KADS_DOMINIO {
+	encode gzip
+	reverse_proxy 127.0.0.1:4455 {
+		flush_interval -1
+	}
+}
+EOF
+else
 HASH=$(caddy hash-password --plaintext "$KADS_CONTRASENA")
 cat > /etc/caddy/Caddyfile <<EOF
 $KADS_DOMINIO {
@@ -112,6 +146,7 @@ $KADS_DOMINIO {
 	}
 }
 EOF
+fi
 systemctl daemon-reload
 systemctl enable --now kads-studio >/dev/null
 systemctl restart caddy
@@ -120,8 +155,7 @@ decir "¡Listo!"
 cat <<EOF
 
   Tu app:        https://$KADS_DOMINIO
-  Usuario:       kads
-  Contraseña:    la que escribiste
+$(if [ -n "${KADS_SUPABASE_URL:-}" ]; then echo "  Entrada:       con tu correo y clave del Centro de Control. ENTRA TÚ PRIMERO: el primero queda dueño."; else printf '  Usuario:       kads\n  Contraseña:    la que escribiste'; fi)
 
   Falta UN paso: iniciar sesión en Claude con tu cuenta (para que escriba los guiones). Corre:
 

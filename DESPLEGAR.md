@@ -1,5 +1,7 @@
 # Kads Studio en internet (para usarla desde el celular o cualquier computador)
 
+> **Gratis y con las cuentas del Centro de Control:** mira `DESPLEGAR-GRATIS.md` (Oracle Cloud Always Free + Supabase).
+
 La app queda en un servidor tuyo, siempre prendido, con **HTTPS y contraseña**. Es solo para ti: usa tu cuenta de
 Claude, tus claves y tus anuncios, igual que en tu Mac. Costo: el servidor, unos **US$15 al mes** (Hetzner CPX31).
 
