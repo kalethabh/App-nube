@@ -79,6 +79,32 @@ El instalador abre solo el firewall de Oracle (puertos 80 y 443).
 
 3. En la app: Ajustes › Conexiones, pega tus claves de kie.ai y ElevenLabs.
 
+## 7. La dirección de Vercel (opcional, gratis)
+
+Si quieres entrar por una dirección de Vercel (un proyecto de Vercel solo de Kads), Vercel queda como **la puerta**: reenvía todo a tu servidor de Oracle, que hace el trabajo. Vercel no corre
+nada ni guarda claves.
+
+1. En GitHub, en el repositorio **App-nube**, abre `vercel/vercel.json` (lápiz para editar) y cambia `__SERVIDOR__` por
+   la dirección de tu servidor (p. ej. `1-2-3-4.sslip.io`, sin `https://`). Guarda (Commit changes).
+2. Entra a **https://vercel.com** con tu GitHub › **Add New › Project** › importa **App-nube**.
+   - **Root Directory:** `vercel`. **Framework Preset:** Other. Toca **Deploy**.
+   - Anota la dirección que te da (p. ej. `kads-studio.vercel.app`; puedes cambiarle el nombre en Settings › Domains).
+3. Dile al servidor esa dirección (si no la diste al instalar):
+
+   ```bash
+   sudo sed -i '/^\[Service\]/a Environment=KADS_PUERTA=kads-studio.vercel.app' /etc/systemd/system/kads-studio.service
+   ```
+
+   ```bash
+   sudo systemctl daemon-reload && sudo systemctl restart kads-studio
+   ```
+
+   (cambia `kads-studio.vercel.app` por la tuya).
+
+Para saber: el plan gratis de Vercel (Hobby) es para uso personal, no comercial. Los archivos muy grandes (videos de
+referencia pesados, descargas en zip) o lo que tarda mucho pueden fallar al pasar por Vercel: para eso entra por la
+dirección directa del servidor (`https://<tu-ip>.sslip.io`), con la misma cuenta.
+
 ## Tu equipo
 
 Cada persona entra a la misma dirección con su cuenta (o la crea ahí mismo) y queda **pendiente**. Tú la apruebas en

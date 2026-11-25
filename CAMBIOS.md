@@ -2,6 +2,20 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-25e · Kads Studio abre sin la ventana de Terminal
+
+- En los Mac donde se instaló con el comando, «Kads Studio» abría siempre una ventana de Terminal. Ahora abre como una app normal: arranca por detrás y abre el navegador. Para cerrarla: Cmd+Q, o clic derecho en su ícono del Dock › Salir.
+- Para dejarla así en un Mac que ya la tenía: actualiza (Ajustes › Actualizar), cierra la ventana de Terminal de Kads y ábrela otra vez una vez; o pega de nuevo el comando de instalación.
+
+## 2026-11-25d · Kads con dirección de Vercel
+
+- Kads puede tener su propia dirección de Vercel (gratis): Vercel es solo la puerta y reenvía todo a tu servidor gratis de Oracle, que hace el trabajo; las cuentas siguen en el Supabase propio de Kads. Los pasos están en `DESPLEGAR-GRATIS.md` (paso 7).
+
+## 2026-11-25c · La flecha del menú vuelve a funcionar
+
+- Con el menú plegado, la flecha para abrirlo se ve otra vez (el botón «+» la tapaba).
+- En ventanas angostas la flecha ahora abre el menú encima de la pantalla; se cierra solo al cambiar de pantalla.
+
 ## 2026-11-25b · Kads con su propio Supabase
 
 - Kads ya no usa nada del Centro de Control: las cuentas van en un proyecto de Supabase **solo de Kads** (gratis). La guía `DESPLEGAR-GRATIS.md` explica cómo crearlo; cada persona crea su cuenta de Kads en la página de entrada.

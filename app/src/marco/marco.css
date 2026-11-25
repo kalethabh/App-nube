@@ -49,6 +49,11 @@
 .menu::-webkit-scrollbar {
   display: none;
 }
+/* (2026-11-25c) con muchas cosas en el menú, nada se encoge: antes la cabecera se achicaba y el botón «+» tapaba la
+   flecha para abrir el menú plegado */
+.menu > * {
+  flex-shrink: 0;
+}
 
 .menu__cabecera {
   display: flex;
@@ -645,6 +650,14 @@
   .app,
   .app--plegada {
     grid-template-columns: var(--ancho-menu-plegado) minmax(0, 1fr);
+  }
+  /* (2026-11-25c) en una ventana angosta la flecha abre el menú ENCIMA de la pantalla (antes no hacía nada) */
+  .app:not(.app--plegada) .menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--ancho-menu);
+    box-shadow: 12px 0 40px rgba(0, 0, 0, 0.55);
   }
 }
 
