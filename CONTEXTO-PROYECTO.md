@@ -15,6 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Borrar carpetas y generaciones (2026-11-24r)
 
+Implementación: [PR #206](https://github.com/kalethabh/App-nube/pull/206).
+Distribución: [v2026-11-24r](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-24r).
+
 Pedido: permitir borrar carpetas o generaciones. La entrada compartida de las seis secciones de generación
 ahora tiene «Borrar generación» en cada tarjeta y «Borrar carpeta» tanto fuera como dentro de la carpeta.
 La carpeta agrupa referencias por producto/proyecto; borrar carpeta quita sus generaciones de la sección
