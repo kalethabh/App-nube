@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cayenne Pepper · El ritual del calorcito para tus pies y manos · Pagas al recibir</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link id="kads-fuentes" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Anton&display=swap">
+<style>
+
+:root{
+  --bg:#FFFFFF; --fg:#2A1A1C; --muted:#6B5A5C; --line:#EEDFDD;
+  --accent:#A62737; --accent-soft:#FBE9EA; --accent-deep:#6E1622; --accent-ink:#ffffff;
+  --ok:#2f8a4e; --star:#F2B81F; --gray-bar:#ececee;
+  --accent-hover:#8C1F2D; --accent-sombra:#A6273752; --tinte:#FFF7F2; --topbar-ink:#FACF42; --texto-2:#4A3A3C;
+  --f-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --f-display:"Anton","Nunito Sans",system-ui,Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.45}
+.wrap{max-width:480px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+
+.topbar{background:var(--accent-deep);color:var(--accent-ink);text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.02em;padding-block:9px}
+.topbar b{color:#ffd4d9}
+
+
+.gallery{margin-top:14px}
+.g-main{position:relative;border-radius:10px;overflow:hidden}
+
+.g-main img{display:block;width:100%;height:auto;max-width:100%;aspect-ratio:auto!important}
+.g-nav{display:flex;align-items:center;gap:8px;margin-top:10px}
+.g-arrow{flex:none;width:34px;height:48px;border:1px solid var(--line);background:#fff;border-radius:6px;font-size:18px;color:var(--fg)}
+.g-thumbs{display:flex;gap:8px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none}
+.g-thumbs::-webkit-scrollbar{display:none}
+.g-thumbs button{flex:none;width:52px;height:52px;padding:0;border:2px solid transparent;border-radius:6px;overflow:hidden;background:#fff}
+.g-thumbs button[aria-current="true"]{border-color:var(--fg)}
+.g-thumbs img{width:100%;height:100%;object-fit:cover;object-position:top}
+
+
+.social{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:12.5px}
+.avatars{display:flex}
+.avatars span{width:22px;height:22px;border-radius:50%;border:2px solid #fff;margin-left:-7px;background:linear-gradient(135deg,#f599a5,#c13143)}
+.avatars span:first-child{margin-left:0;background:linear-gradient(135deg,#f3c7a8,#b9785a)}
+.avatars span:nth-child(3){background:linear-gradient(135deg,#e7b9cf,#a8557e)}
+.social b{font-weight:700}
+.social u{color:var(--muted)}
+.stars{color:var(--star);letter-spacing:1px;font-size:15px}
+h1{font-size:27px;line-height:1.15;margin:6px 0 8px;font-weight:700;text-wrap:balance}
+h1 sup{font-size:.45em}
+.lede{color:#4a4253;margin:0 0 14px}
+.checks{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:9px}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li::before{content:"✓";flex:none;width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center;margin-top:1px}
+
+
+h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
+.offers{display:grid;gap:12px}
+.offer{position:relative;display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:16px 14px}
+.offer[aria-checked="true"]{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 0 1px var(--accent)}
+.offer .badge{position:absolute;top:-10px;right:12px;background:var(--accent);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.06em;padding:3px 9px;border-radius:4px}
+.jars{flex:none;width:64px;height:64px;border-radius:8px;background:#fcf0f1;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px}
+.jars img{width:24px;height:auto;margin:0 -5px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.18))}
+.jars.n1 img{width:34px}
+.o-body{min-width:0;flex:1}
+.o-price{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.o-price strong{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.o-price small{font-size:11px;color:var(--muted)}
+.o-price s{font-size:12px;color:var(--muted)}
+.o-name{font-weight:700;font-size:14px;margin-top:4px}
+.o-qty{font-size:12px;color:var(--muted);margin-top:2px}
+.o-save{font-size:12px;color:var(--ok);font-weight:600;margin-top:2px}
+.o-gift{display:inline-block;margin-top:5px;font-size:11.5px;font-weight:700;color:var(--accent-deep);background:#fff;border:1px dashed var(--accent);border-radius:4px;padding:2px 7px}
+
+.ship{margin:18px 0 0;font-size:12.5px;color:var(--muted)}
+.ship b{display:block;color:var(--fg);font-size:12px;font-weight:700;margin-top:4px}
+.cta{display:block;width:100%;margin-top:16px;border:0;border-radius:12px;background:var(--accent);color:#fff;font-family:var(--f-display);font-weight:800;font-size:17px;letter-spacing:.01em;text-align:center;text-decoration:none;padding-block:18px;box-shadow:0 6px 18px rgba(210,65,83,.32)}
+.cta:hover{background:#c13143}
+.cta-sub{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:11.5px;color:var(--muted)}
+
+
+.testi{display:flex;gap:12px;margin-top:26px;padding:16px;border:1px solid var(--line);border-radius:12px;box-shadow:0 2px 10px rgba(40,19,22,.05)}
+.testi .ph{flex:none;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#fdbdc5,#d24153);overflow:hidden;box-shadow:0 0 0 2px #fff,0 0 0 3.5px #f599a5}
+.testi .ph img{display:block;width:100%;height:100%;object-fit:cover}
+.testi p{margin:4px 0 0;font-size:14px}
+.sample{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#9a5b00;background:#fff3d6;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+
+
+.acc{margin-top:18px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;gap:12px;padding-block:14px;font-size:15px;cursor:pointer}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-size:20px;line-height:1;flex:none}
+.acc details[open] summary::after{content:"–"}
+.acc .ans{padding-bottom:14px;color:#4a4253;font-size:14px}
+.acc .ans p{margin:0 0 8px}
+
+.notice{display:flex;gap:10px;margin-top:22px;padding:14px;border:1px dashed #d9b95a;background:#fffbea;border-radius:10px;font-size:12.5px}
+.notice i{flex:none;font-style:normal;width:20px;height:20px;border-radius:50%;border:1.5px solid #c99a1d;color:#c99a1d;display:grid;place-items:center;font-size:12px;font-weight:700}
+.notice b{display:block;font-size:13.5px;margin-bottom:2px}
+
+
+.stack{margin-top:30px;display:grid;gap:0}
+.stack img{display:block;width:100%;height:auto}
+
+
+.buybox{margin-top:26px;text-align:center}
+.buybox .stars{font-size:18px}
+.buybox p{margin:6px 0 0;font-weight:600}
+.buybox .bb-price{font-size:22px;font-weight:800;margin-top:4px}
+
+
+.reviews{margin-top:40px}
+.reviews h2,.faq h2{font-size:22px;text-align:center;margin:0 0 4px;font-weight:800;font-family:var(--f-display)}
+.score{display:flex;gap:18px;align-items:center;margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:12px}
+.score .big{font-size:44px;font-weight:800;line-height:1;text-align:center}
+.score .big small{display:block;font-size:11.5px;font-weight:500;color:var(--muted);margin-top:6px}
+.bars{flex:1;min-width:0;display:grid;gap:5px;font-size:12px}
+.bar{display:grid;grid-template-columns:12px 1fr;gap:8px;align-items:center}
+.bar span{height:7px;border-radius:4px;background:var(--line);overflow:hidden}
+.bar span i{display:block;height:100%;background:var(--star)}
+.r-note{font-size:12px;color:var(--muted);text-align:center;margin:12px 0 0}
+.r-list{display:grid;gap:12px;margin-top:16px}
+.r-card{border:1px solid var(--line);border-radius:12px;padding:14px}
+.r-card header{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px}
+.r-card header b{font-size:14px}
+.r-card h3{font-size:15px;margin:8px 0 4px}
+.r-card p{margin:0;font-size:14px;color:#4a4253}
+.r-card footer{margin-top:8px;font-size:12px;color:var(--muted)}
+
+
+.faq{margin-top:40px}
+.faq .sub{text-align:center;color:var(--muted);margin:0}
+
+
+.foot{margin-top:44px;background:#fbf1f2;padding-block:28px 110px;font-size:13px}
+.foot h3{font-size:16px;margin:0 0 4px}
+.foot ul{list-style:none;padding:0;margin:14px 0;display:grid;gap:6px}
+.foot .legal{font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:14px}
+.foot .legal p{margin:0 0 6px}
+
+
+.serif{font-family:var(--f-body);font-weight:500;letter-spacing:-.01em}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+.vh{font-family:var(--f-display);font-weight:500;font-size:30px;line-height:1.08;letter-spacing:-.01em;margin:8px 0 10px;text-wrap:balance}
+.vh em{font-style:italic;color:var(--accent)}
+.vlead{color:#4a4253;margin:0}
+.ex-note{font-size:11.5px;color:#9a5b00;background:#fff3d6;border-radius:6px;padding:6px 10px;margin:12px 0 0}
+
+
+.verify{display:flex;align-items:center;gap:12px;margin-top:18px;padding:14px;border:1px solid #f5c1c8;background:#fff7f8;border-radius:12px}
+.verify svg{flex:none;width:38px;height:38px;filter:drop-shadow(0 2px 4px rgba(88,28,36,.25))}
+.verify .v-txt{min-width:0;flex:1}
+.verify b{font-size:13.5px}
+.verify .pill{display:inline-block;margin-left:4px;background:#f7e2e5;color:var(--accent-deep);font-size:10.5px;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:999px;vertical-align:1px}
+.verify small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.verify a{flex:none;color:var(--accent-deep);font-weight:700;font-size:12.5px;text-decoration:none;white-space:nowrap}
+
+.verify{flex-wrap:wrap}
+.verify .v-logo{flex-basis:100%;display:flex;justify-content:center;border-top:1px solid #f6d5d9;padding-top:10px;margin-top:2px}
+.verify .v-logo img{height:30px;width:auto}
+.verify .v-open{flex:none;border:0;background:none;padding:6px 0;color:var(--accent-deep);font-weight:700;font-size:12.5px;white-space:nowrap}
+.inv-modal{width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 32px);padding:0;border:0;border-radius:18px;background:#fff;color:var(--fg);box-shadow:0 24px 60px rgba(40,19,22,.35);overflow:hidden}
+.inv-modal[open]{display:flex;flex-direction:column}
+.inv-modal::backdrop{background:rgba(40,19,22,.55);backdrop-filter:blur(2px)}
+.inv-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);background:#fff7f8}
+.inv-head h2{margin:2px 0 0;font-size:18px;font-weight:800;letter-spacing:-.01em}
+.inv-x{flex:none;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:#fff;font-size:22px;line-height:1;color:var(--fg)}
+.inv-body{overflow-y:auto;padding:16px 18px 20px;-webkit-overflow-scrolling:touch}
+.inv-data{margin:0 0 14px;display:grid;gap:8px}
+.inv-data div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;font-size:13.5px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.inv-data dt{color:var(--muted)}
+.inv-data dd{margin:0;font-weight:600}
+.inv-body img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;margin-top:10px}
+.inv-links{margin:14px 0 0;font-size:12.5px;color:var(--muted);text-align:center}
+.inv-links a{color:var(--accent-deep);font-weight:700}
+
+.g-cap{position:absolute;left:6px;bottom:6px;max-width:52%;background:rgba(255,255,255,.94);border:1px solid #f5c1c8;border-radius:8px;padding:4px 8px;box-shadow:0 6px 18px rgba(40,19,22,.18);backdrop-filter:blur(4px)}
+.g-cap b{display:block;line-height:1.2;font-size:10.5px;font-weight:800;letter-spacing:-.01em;color:var(--accent-deep)}
+.g-cap span{display:block;font-size:9.5px;color:var(--muted);margin-top:1px}
+
+
+.cmp{margin-top:40px}
+.cmp-box{margin-top:16px;background:#fcf0f1;border-radius:16px;padding:6px 16px 4px}
+.cmp-head{display:flex;justify-content:space-between;gap:10px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding:12px 0 10px;border-bottom:1px solid #f1d3d7}
+.cmp-row{display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:11px 0;border-bottom:1px solid #f1d3d7;font-size:14px}
+.cmp-row:last-child{border-bottom:0}
+.cmp-row::before{content:"✓";color:var(--accent);font-weight:800}
+.cmp-row b{font-weight:600}
+.cmp-row span{color:var(--muted);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.cmp-total{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-top:18px}
+.cmp-total .sep small,.cmp-total .cen small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cmp-total .sep div{font-family:var(--f-display);font-size:22px;color:var(--muted);text-decoration:line-through}
+.cmp-total .cen small{color:var(--accent)}
+.cmp-total .cen div{font-family:var(--f-display);font-size:46px;line-height:1;color:var(--accent-deep);white-space:nowrap}
+.cmp-total .cen div i{font-style:normal;font-size:18px}
+
+
+.res{margin:40px -16px 0;background:#3c0f14;color:#fff;padding:30px 20px 26px}
+.res .eyebrow{color:#ffb8c1}
+.res .vh{color:#fff;font-size:32px}
+.res .vh em{color:#ffb8c1}
+.res .vlead{color:#f1dadd}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;margin-top:20px}
+.stat{border-top:1px solid rgba(255,255,255,.22);padding:14px 0 16px}
+.stat .n{font-family:var(--f-display);font-size:44px;line-height:1}
+.stat b{display:block;margin-top:8px;font-size:14px}
+.stat p{margin:2px 0 0;font-size:13px;color:#f1dadd}
+.res .foot-n{font-size:12px;color:#dfbcc0;margin:6px 0 0}
+.res .ex-note{background:rgba(255,243,214,.12);color:#ffd88a}
+
+
+.care{margin:40px -16px 0;background:#fff}
+.care-ph{position:relative}
+.care-ph img{display:block;width:100%;height:auto}
+.care-ph::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,rgba(255,255,255,0),#fff 92%)}
+.care-badge{position:absolute;left:16px;bottom:14px;z-index:1;display:inline-flex;align-items:center;background:#fff;border:1px solid #f5c1c8;border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:700;color:var(--accent-deep);box-shadow:0 4px 14px rgba(40,19,22,.1)}
+.care-badge .ic{color:var(--accent)}
+.care-txt{padding:6px 20px 0}
+.care-txt .vh{font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:6px 0 14px}
+.care-txt p{margin:0 0 12px;font-size:15px;line-height:1.55;color:#4a4253}
+
+
+.docs{margin-top:40px}
+.trust{display:grid;gap:12px;margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 2px 10px rgba(40,19,22,.05)}
+.trust div{display:flex;gap:10px;font-size:13px;color:var(--muted)}
+.trust i{flex:none;width:30px;height:30px;border-radius:8px;background:var(--accent-soft);display:grid;place-items:center;font-style:normal;color:var(--accent);font-weight:800;font-size:14px}
+.trust b{display:block;color:var(--fg);font-size:13.5px}
+.chips{display:flex;gap:8px;overflow-x:auto;margin:16px -16px 0;padding:2px 16px 4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600}
+.chips button small{color:var(--muted);font-weight:600;margin-left:4px}
+.chips button[aria-pressed="true"]{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+.chips button[aria-pressed="true"] small{color:#ffb8c1}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:14px -16px 0;padding:2px 16px 8px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.doc{flex:none;width:84%;scroll-snap-align:start;border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}
+.doc header{display:flex;gap:10px;align-items:flex-start}
+.ava{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;background:linear-gradient(135deg,#f599a5,#c13143)}
+.doc header b{display:block;font-size:14.5px;line-height:1.2}
+.doc header small{color:var(--muted);font-size:12px}
+.doc .tag{margin-left:auto;flex:none;font-size:11px;font-weight:700;background:#fff3d6;color:#8a6412;border-radius:999px;padding:3px 9px}
+.doc h3{font-family:var(--f-display);font-weight:500;font-size:17px;line-height:1.25;margin:14px 0 8px}
+.doc q{display:block;font-family:var(--f-body);font-style:italic;color:#4a4253;font-size:14.5px;line-height:1.45}
+.doc .kw{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.doc .kw span{font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+
+.ava{overflow:hidden}
+.ava svg,.ex-card .ph svg{width:100%;height:100%;display:block}
+.ex-card .ph{overflow:hidden;padding:0!important}
+
+.ic{width:15px;height:15px;vertical-align:-3px;margin-right:5px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chips button .ic{color:var(--accent)}
+.chips button[aria-pressed="true"] .ic{color:#ffb8c1}
+.doc .tag{background:var(--accent-soft);color:var(--accent-deep)}
+.doc .tag .ic{width:13px;height:13px;margin-right:3px;color:var(--accent)}
+
+
+.experts{margin-top:40px;text-align:center}
+.experts .vlead{font-size:14px}
+.ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;text-align:left}
+.ex-card{border:1px solid #ecd6d9;border-radius:12px;overflow:hidden;background:#fff}
+.ex-card .ph{aspect-ratio:1/1;display:grid;place-items:center;background:linear-gradient(180deg,#feecef,#f9cfd4);color:var(--accent-deep);font-family:var(--f-body);font-size:34px}
+.ex-card div{padding:10px}
+.ex-card b{display:block;font-size:13px;color:var(--accent-deep)}
+.ex-card p{margin:2px 0 0;font-size:12px;color:var(--muted);line-height:1.35}
+
+
+.rv{margin-top:44px;text-align:center}
+.rv .vh{font-size:28px}
+.rating{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px}
+.rating .row{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800}
+.rating .boxes{display:flex;gap:2px}
+.rating .boxes span{width:24px;height:24px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:14px}
+.rating .boxes span.half{background:linear-gradient(90deg,var(--accent) 50%,#e6d1d4 50%)}
+.rating p{margin:0;font-size:13px;color:var(--muted)}
+.rv .rail{text-align:left}
+.rcard{flex:none;width:84%;scroll-snap-align:start;background:#fcf8f8;border:1px solid var(--line);border-radius:12px;padding:16px}
+.rcard .boxes{display:flex;gap:2px}
+.rcard .boxes span{width:18px;height:18px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:11px}
+.rcard .who{margin:10px 0 0;font-size:13px;color:var(--muted)}
+.rcard .who b{color:var(--fg)}
+.rcard h3{font-size:15px;margin:4px 0 6px}
+.rcard p{margin:0;font-size:14px;color:#4a4253}
+.reply{margin-top:12px;border-left:3px solid var(--accent);background:#fff;border-radius:0 8px 8px 0;padding:10px 12px;font-size:13px;color:var(--muted)}
+.reply b{color:var(--fg)}
+
+
+.vh{font-weight:800;letter-spacing:-.02em;line-height:1.12}
+.vh em{font-style:normal}
+.doc h3{font-weight:700;letter-spacing:-.01em}
+.doc q{font-style:normal}
+.stat .n,.cmp-total .cen div,.cmp-total .sep div{font-weight:800;letter-spacing:-.02em}
+.ex-card .ph{font-weight:800}
+strong.kwb{font-weight:700;color:inherit}
+
+.res{background:var(--accent-soft);color:var(--fg);border-top:1px solid #f1d3d7;border-bottom:1px solid #f1d3d7}
+.res .eyebrow{color:var(--accent)}
+.res .vh{color:var(--fg)}
+.res .vh em{color:var(--accent)}
+.res .vlead{color:#4a4253}
+.res .stat{border-top-color:#f0c4c9}
+.res .stat .n{color:var(--accent-deep)}
+.res .stat p{color:var(--muted)}
+.res .foot-n{color:var(--muted)}
+
+.res{background:radial-gradient(ellipse 90% 70% at 50% 42%,#ffffff 0%,#fff9fa 45%,#fad9dd 100%);border:0;text-align:center;padding:34px 18px 28px}
+.res .eyebrow{position:relative;display:inline-block;background:#fbd1d6;border:1.5px solid #3c0f14;border-radius:999px;padding:6px 16px;color:#111;font-weight:900;font-size:12.5px;letter-spacing:.05em;margin:0 26px}
+.res .eyebrow::before,.res .eyebrow::after{content:"";position:absolute;top:50%;width:20px;height:20px;transform:translateY(-50%);background:no-repeat center/contain}
+.res .eyebrow::before{left:-26px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg stroke='%238a4fc4' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M3 3l5 4'/%3E%3Cpath d='M2 10h6'/%3E%3Cpath d='M3 17l5-4'/%3E%3C/g%3E%3C/svg%3E")}
+.res .eyebrow::after{right:-26px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg stroke='%238a4fc4' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M17 3l-5 4'/%3E%3Cpath d='M18 10h-6'/%3E%3Cpath d='M17 17l-5-4'/%3E%3C/g%3E%3C/svg%3E")}
+.res .vh{font-weight:900;text-transform:uppercase;font-size:31px;line-height:1.08;letter-spacing:-.03em;color:#111;margin:16px 0 12px}
+.res .vh em{display:inline-block;margin-top:6px;background:#f9bec6;border:2px solid #281316;border-radius:14px;padding:3px 12px 4px;color:#111;font-size:.8em;white-space:nowrap}
+.res .vlead{display:inline-block;background:#fde0e4;border-radius:18px;padding:8px 16px;color:#281316;font-size:14.5px}
+.res .stats{grid-template-columns:1fr;gap:12px;margin-top:22px;text-align:left}
+.res .stat{display:grid;grid-template-columns:78px minmax(0,1fr);align-items:center;column-gap:12px;border:2px solid #ed828f;border-radius:48px 24px 24px 48px;background:linear-gradient(90deg,#ffffff 30%,#fee3e7);padding:6px 16px 6px 6px}
+.res .stat .n{grid-row:1/span 2;width:78px;height:78px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#b33f4d,#581c24 70%);color:#fff;font-size:24px;font-weight:900;letter-spacing:-.02em;box-shadow:0 0 0 3px #fff,0 0 0 5px #f599a5}
+.res .stat b{margin:0;align-self:end;font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;color:#111}
+.res .stat b::after{content:":"}
+.res .stat p{align-self:start;color:#281316;font-size:13.5px;margin-top:2px}
+.res .foot-n{margin-top:16px}
+
+.res{text-align:left;padding:36px 20px 28px;border:0;background:radial-gradient(ellipse 45% 55% at 0% 45%,#fee3e7 0%,rgba(254,227,231,0) 100%),radial-gradient(ellipse 45% 55% at 100% 65%,#fee3e7 0%,rgba(254,227,231,0) 100%),#fefefe}
+.res .eyebrow{display:block;background:none;border:0;border-radius:0;padding:0;margin:0;color:var(--accent);font-size:11.5px;font-weight:700;letter-spacing:.12em}
+.res .eyebrow::before,.res .eyebrow::after{display:none}
+.res .vh{text-transform:none;font-size:38px;font-weight:800;line-height:1.06;letter-spacing:-.035em;color:var(--fg);margin:14px 0 16px}
+.res .vh em{display:inline;background:none;border:0;border-radius:0;padding:0;margin:0;font-size:1em;white-space:normal;color:var(--accent)}
+.res .vlead{display:block;background:none;border-radius:0;padding:0;font-size:15.5px;line-height:1.55;color:#4a4253}
+.res .stats{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 20px;margin-top:26px}
+.res .stat{display:block;border:0;border-top:1px solid #ecb0b8;border-radius:0;background:none;padding:18px 0 20px}
+.res .stat .n{width:auto;height:auto;border-radius:0;display:block;background:none;box-shadow:none;color:var(--accent-deep);font-size:50px;font-weight:500;letter-spacing:-.04em;line-height:1}
+.res .stat b{display:block;margin-top:12px;text-transform:none;font-size:15px;font-weight:800;letter-spacing:-.01em;color:var(--fg)}
+.res .stat b::after{content:none}
+.res .stat p{font-size:13.5px;line-height:1.45;color:var(--muted);margin-top:3px}
+.res .foot-n{font-size:12.5px;line-height:1.5;color:var(--muted);margin-top:10px;padding-top:14px;border-top:1px solid #ecb0b8}
+.checks li{display:block;position:relative;padding-left:28px}
+.checks li::before{position:absolute;left:0;top:1px}
+
+
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(40,19,22,.08);padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-top:10px;transform:translateY(110%);transition:transform .25s ease}
+.sticky.show{transform:none}
+.sticky .wrap{display:flex;align-items:center;gap:12px}
+.sticky .s-info{min-width:0;flex:1;font-size:12px;line-height:1.3}
+.sticky .s-info b{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky .cta{margin:0;width:auto;flex:none;padding:13px 16px;font-size:13.5px;border-radius:10px}
+@media (prefers-reduced-motion:reduce){.sticky{transition:none}}
+
+
+@media (max-width:600px){
+  .g-main,.stack{margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));border-radius:0}
+  .gallery{margin-top:0}
+}
+</style>
+</head><body>
+
+
+<div class="topbar" data-seccion="barra-superior"><div class="wrap"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5 .3 1.7 1.2 2.8 2.5 3.2C11.5 8.5 11 6 12 3z"></path></svg><b>PAGAS AL RECIBIR</b> · Pagas cuando te llega · Confirmamos tu pedido por WhatsApp</div></div>
+
+<main class="wrap">
+
+  
+  <section class="gallery" aria-label="Imágenes del producto" data-seccion="galeria">
+    <div class="g-main"><img id="gMain" src="assets/ia-img0-c94a73.png" alt="Imagen principal de la galería (enganche y promesa): titular grande, dos sellos verdaderos, cuatro beneficios con íconos, la mujer disfrutando su calorcito, el producto abajo y una franja de confianza al pie."><div class="g-cap" id="gCap" hidden><b id="gCapT"></b><span id="gCapS"></span></div></div>
+    <div class="g-nav">
+      <button class="g-arrow" id="gPrev" aria-label="Imagen anterior">‹</button>
+      <div class="g-thumbs" id="gThumbs">
+        <button aria-current="true" data-src="assets/ia-img0-c94a73.png" aria-label="Imagen 1"><img src="assets/ia-img0-c94a73.png" alt></button>
+        <button data-src="assets/ia-img1-0518f3.png" aria-label="Imagen 2"><img src="assets/ia-img1-0518f3.png" alt></button>
+        <button data-src="assets/ia-img2-687fa9.png" aria-label="Imagen 3"><img src="assets/ia-img2-687fa9.png" alt></button>
+        <button data-src="assets/ia-img3-9df8f4.png" aria-label="Imagen 4"><img src="assets/ia-img3-9df8f4.png" alt></button>
+        <button data-src="assets/ia-img4-a4c73d.png" aria-label="Imagen 5: información nutricional"><img src="assets/ia-img4-a4c73d.png" alt></button>
+        <button data-src="assets/ia-img5-aca71c.png" aria-label="Imagen 6: endocrinólogo"><img src="assets/ia-img5-aca71c.png" alt style="object-position:center"></button>
+      </div>
+      <button class="g-arrow" id="gNext" aria-label="Imagen siguiente">›</button>
+    </div>
+  </section>
+
+  
+  <div class="social" data-seccion="prueba-social">
+    <div class="avatars"><span><img src="assets/ia-img6-00d37c.png" alt width="22" height="22" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block"></span><span><img src="assets/ia-img7-545b3a.png" alt width="22" height="22" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block"></span><span><img src="assets/ia-img8-5d3f99.png" alt width="22" height="22" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block"></span></div>
+    <div><b>Opiniones de clientas</b> <u>XX clientas en Colombia ya hacen su ritual del calorcito</u><div class="stars" aria-label="4,8 de 5">★★★★★</div></div>
+  </div>
+
+  <div data-seccion="titulo-y-beneficios"><h1>Cayenne Pepper<sup>®</sup></h1>
+  <p class="lede">El ritual del calorcito para tus pies y manos. Dos cápsulas al día con la comida para apoyar la circulación, sin el ardor de la cayena cruda. Y lo pagas cuando te llegue.</p>
+  <ul class="checks">
+    <li>Cápsula blanda, fácil de tragar y sin ardor en la boca</li>
+    <li>Extracto de cayena con botánicos de apoyo, sin transgénicos</li>
+    <li>60 cápsulas por bolsa: te rinde 30 días</li>
+    <li>Compra única, sin suscripción · Pago contra entrega</li>
+  </ul></div>
+
+  
+  <div data-seccion="oferta"><h2 class="pick" id="pickLbl">Elige tu rutina</h2>
+  <div class="offers" role="radiogroup" aria-labelledby="pickLbl" id="offers">
+    <button class="offer" role="radio" aria-checked="true" data-key="trio">
+      <span class="badge">RECOMENDADO</span>
+      <span class="jars"><img src="assets/producto.png" alt><img src="assets/producto.png" alt><img src="assets/producto.png" alt></span>
+      <span class="o-body">
+        <span class="o-price"><strong>Precio por definir</strong><small>COP</small></span>
+        <span class="o-name" style="display:block">Rutina completa · 3 bolsas para 90 días</span>
+        <span class="o-qty" style="display:block">3 bolsas</span>
+        
+        <span class="o-gift">⭐ La rutina más recomendada para la constancia</span>
+      </span>
+    </button>
+    <button class="offer" role="radio" aria-checked="false" data-key="duo">
+      <span class="jars"><img src="assets/producto.png" alt><img src="assets/producto.png" alt></span>
+      <span class="o-body">
+        <span class="o-price"><strong>Precio por definir</strong><small>COP</small></span>
+        <span class="o-name" style="display:block">Rutina de 60 días</span>
+        <span class="o-qty" style="display:block">2 bolsas</span>
+        
+      </span>
+    </button>
+    <button class="offer" role="radio" aria-checked="false" data-key="uno">
+      <span class="jars n1"><img src="assets/producto.png" alt></span>
+      <span class="o-body">
+        <span class="o-price"><strong>Precio por definir</strong><small>COP</small></span>
+        <span class="o-name" style="display:block">Para empezar · 30 días</span>
+        <span class="o-qty" style="display:block">1 bolsa</span>
+      </span>
+    </button>
+  </div>
+
+  <p class="ship">Envío y cobertura:<b>Pagas en efectivo cuando te llega. La cobertura y el envío se confirman en el formulario y por WhatsApp.</b></p>
+
+  <a class="cta" id="ctaMain" href="#">PEDIR Y PAGAR AL RECIBIR</a>
+  <div class="cta-sub"><span>📲 Confirmación por WhatsApp</span><span>💵 Pago contra entrega</span><span>🔒 Compra única, sin suscripción</span></div></div>
+
+  
+  
+
+  
+  <article class="testi" data-seccion="testimonio-destacado">
+    <div class="ph" aria-hidden="true"><img src="assets/ia-img10-612605.png" alt width="44" height="44"></div>
+    <div>
+      <b>Nombre de clienta</b> <span class="stars">★★★★★</span>
+      <p>EJEMPLO: aquí va una reseña real de tu tienda. Las que más convierten cuentan una escena del frío: acostarse con los pies calienticos, quitarse las medias de lana, llegar a la tarde con ánimo, y cuánto tiempo lleva tomándolo.</p>
+    </div>
+  </article>
+
+  
+  <div class="acc" data-seccion="dudas-rapidas">
+    <details><summary>¿Qué lo hace distinto a la cayena en agua?</summary><div class="ans">
+      <p>Es la misma cayena que ya conoces, pero en una cápsula blanda que se traga fácil. No te arde en la boca ni tienes que aguantarte el agua picante.</p>
+      <p>Además tomas la misma cantidad cada día, sin medir. No es un medicamento: es un apoyo natural para tu rutina.</p></div></details>
+    <details><summary>¿En cuánto tiempo lo noto?</summary><div class="ans">
+      <p>Cada cuerpo va a su ritmo. Es un apoyo que se nota con la constancia, tomándolo todos los días con la comida. Por eso recomendamos hacer la rutina completa de 3 bolsas, que te dura 90 días.</p></div></details>
+    <details><summary>¿Cuándo me llega?</summary><div class="ans">
+      <p>Depende de tu ciudad y de la transportadora. Te confirmamos los tiempos por WhatsApp antes de enviarlo.</p>
+      <p>Si necesitas ayuda con el seguimiento, escríbenos por WhatsApp con tu número de pedido.</p></div></details>
+    <details><summary>¿Lo puedo tomar si tomo pastillas para la presión o la sangre?</summary><div class="ans">
+      <p>Consulta primero con tu médico. Si tomas pastillas para la presión, el corazón o para adelgazar la sangre, tu médico te dirá si es para ti.</p></div></details>
+  </div>
+
+  <div class="notice" data-seccion="aviso-pedido"><i>i</i><div><b>Revisa bien tu pedido.</b>Antes de confirmar, mira tu rutina, tus datos y la dirección. Te escribimos por WhatsApp para confirmar antes de enviarlo.</div></div>
+
+  
+  <section class="stack" aria-label="Beneficios" data-seccion="creativos">
+    <img src="assets/ia-img1-0518f3.png" alt="Imagen del problema: la pregunta que la identifica con su noche fría, la mujer afectada a la izquierda y los síntomas en burbujas a la derecha sobre un camino ilustrado." loading="lazy">
+    <img src="assets/ia-img2-687fa9.png" alt="Imagen de la solución y el mecanismo: un solo ritual diario que apoya en 4 frentes, la mujer serena con el producto a la izquierda y los beneficios en tarjetas a la derecha." loading="lazy">
+    <img src="assets/ia-img3-9df8f4.png" alt="Imagen de qué trae: en vez de una lista de ingredientes que no tenemos confirmada, muestra lo verdadero alrededor del producto: la cayena, la capsaicina, la cápsula blanda, los botánicos de apoyo sin nombrarlos y lo que rinde." loading="lazy">
+  </section>
+
+
+
+  
+  <section class="res" aria-labelledby="resH" data-seccion="encuesta">
+    <p class="eyebrow">Encuesta a clientas · XX semanas tomando Cayenne Pepper</p>
+    <h2 class="vh" id="resH">Sin ardor.<br>Sin complicaciones.<br><em>Con la cayena de siempre.</em></h2>
+    <p class="vlead">Extracto de pimienta de cayena en cápsula blanda, con botánicos de apoyo, para acompañar la circulación hacia tus pies y tus manos.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">XX %</div><b>Pies menos helados</b><p>“Ya me acuesto con los pies calienticos.”</p></div>
+      <div class="stat"><div class="n">XX %</div><b>Manos más tibias</b><p>“Las manos no se me ponen tan frías.”</p></div>
+      <div class="stat"><div class="n">XX %</div><b>Piernas más livianas</b><p>“Las piernas no me pesan al final del día.”</p></div>
+      <div class="stat"><div class="n">XX %</div><b>Más ánimo en la tarde</b><p>“A las 3 de la tarde ya no me apago.”</p></div>
+    </div>
+    <p class="foot-n">Resultados de una encuesta a XX clientas tras XX semanas tomando Cayenne Pepper. Experiencias individuales; Cayenne Pepper es un apoyo natural, no un medicamento.</p>
+  </section>
+
+  
+  <section class="care" aria-labelledby="careH" data-seccion="medico-asesor">
+    <div class="care-ph">
+      <img src="assets/ia-img5-aca71c.png" alt="Rostro del médico asesor: da la voz seria y honesta (un apoyo natural, no promesas mágicas). Es de ejemplo: el dueño debe poner al profesional real que lo autorice." loading="lazy">
+      <span class="care-badge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v6a4 4 0 0 0 8 0V3"></path><path d="M10 13v2a5 5 0 0 0 10 0v-2"></path><circle cx="20" cy="11" r="2"></circle></svg>Dr./Dra. Nombre Apellido · Medicina interna</span>
+    </div>
+    <div class="care-txt">
+      <h2 class="vh" id="careH">Tu cuerpo merece cuidado, <em>no promesas mágicas.</em></h2>
+      <p>Después de los 50 es muy común que los pies y las manos se enfríen: a veces la sangre llega con menos fuerza hasta allá. El descanso, el movimiento y tu salud influyen. Cayenne Pepper complementa tu rutina: no reemplaza un tratamiento médico.</p>
+      <p>La capsaicina de la cayena se conoce por ayudar a que los vasos se relajen; por eso se usa desde siempre para apoyar la circulación hacia manos y pies. Si tomas pastillas para la presión, el corazón o para adelgazar la sangre, tienes gastritis o reflujo, o estás embarazada o lactando, consulta antes con tu médico.</p>
+      <p>Sin afán y sin milagros: se nota con constancia. Escucha a tu cuerpo y decide con información.</p>
+    </div>
+  </section>
+
+  
+  <section class="docs" aria-labelledby="docH" data-seccion="profesionales">
+    <p class="eyebrow">Opinión profesional</p>
+    <h2 class="vh" id="docH">Cada duda, <em>explicada por un especialista.</em></h2>
+    <p class="vlead">Aquí van las opiniones de profesionales de la salud que revisen Cayenne Pepper. Filtra según lo que más te preocupa.</p>
+    <div class="trust">
+      <div><i>1</i><span><b>Recibieron el producto para probarlo.</b>Así opinan desde la experiencia, no desde la etiqueta.</span></div>
+      <div><i>2</i><span><b>No pagamos por las opiniones.</b>Los profesionales no reciben dinero por lo que escriben.</span></div>
+      <div><i>3</i><span><b>Con nombre y registro profesional.</b>Cada perfil muestra su especialidad.</span></div>
+    </div>
+    <div class="chips" id="docChips" role="group" aria-label="Filtrar opiniones">
+      <button type="button" aria-pressed="true" data-f="all">Todos <small>5</small></button>
+      <button type="button" aria-pressed="false" data-f="sueno"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg>Pies fríos <small>1</small></button>
+      <button type="button" aria-pressed="false" data-f="sofocos"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5 .3 1.7 1.2 2.8 2.5 3.2C11.5 8.5 11 6 12 3z"></path></svg>Piernas pesadas <small>1</small></button>
+      <button type="button" aria-pressed="false" data-f="energia"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6z"></path></svg>Energía <small>1</small></button>
+      <button type="button" aria-pressed="false" data-f="digestion"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"></path><path d="M5 19l7-7"></path></svg>Estómago <small>1</small></button>
+      <button type="button" aria-pressed="false" data-f="huesos"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6a2.5 2.5 0 1 0-3 3l9 9a2.5 2.5 0 1 0 3 3 2.5 2.5 0 1 0 3-3l-9-9a2.5 2.5 0 1 0-3-3z"></path></svg>Seguridad <small>1</small></button>
+    </div>
+    <div class="rail" id="docRail">
+      <article class="doc" data-c="sueno"><header><span class="ava" data-photo><img src="assets/ia-img11-16e303.png" alt="Foto de ejemplo del especialista en circulación (pies fríos). El dueño la cambia por la real." width="48" height="48" style="width:100%;height:100%;object-fit:cover;display:block"></span><span><b>Dr./Dra. Nombre Apellido</b><small>Angiología</small></span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg>Pies fríos</span></header><h3>Lo que se sabe de la capsaicina y los pies fríos.</h3><q>Aquí va la opinión real del profesional sobre la cayena y los pies fríos, en sus palabras.</q><div class="kw"><span>Capsaicina</span><span>Extracto de cayena</span></div></article>
+      <article class="doc" data-c="sofocos"><header><span class="ava" data-photo><img src="assets/ia-img12-369801.png" alt="Foto de ejemplo de la médica internista (piernas pesadas). El dueño la cambia por la real." width="48" height="48" style="width:100%;height:100%;object-fit:cover;display:block"></span><span><b>Dr./Dra. Nombre Apellido</b><small>Medicina interna</small></span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5 .3 1.7 1.2 2.8 2.5 3.2C11.5 8.5 11 6 12 3z"></path></svg>Piernas pesadas</span></header><h3>Un apoyo natural para las piernas cansadas al final del día.</h3><q>Aquí va la opinión real del profesional sobre las piernas pesadas y la circulación.</q><div class="kw"><span>Capsaicina</span><span>Rutina diaria</span></div></article>
+      <article class="doc" data-c="energia"><header><span class="ava" data-photo><img src="assets/ia-img13-7b7d7a.png" alt="Foto de ejemplo del geriatra (energía después de los 60). El dueño la cambia por la real." width="48" height="48" style="width:100%;height:100%;object-fit:cover;display:block"></span><span><b>Dr./Dra. Nombre Apellido</b><small>Geriatría</small></span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6z"></path></svg>Energía</span></header><h3>Cuidarse después de los 60 para llegar entera a la tarde.</h3><q>Aquí va la opinión real del profesional sobre el ánimo y la energía en esta etapa.</q><div class="kw"><span>Extracto de cayena</span><span>Constancia</span></div></article>
+      <article class="doc" data-c="digestion"><header><span class="ava" data-photo><img src="assets/ia-img14-88dea6.png" alt="Foto de ejemplo de la gastroenteróloga (sin ardor, estómago). El dueño la cambia por la real." width="48" height="48" style="width:100%;height:100%;object-fit:cover;display:block"></span><span><b>Dr./Dra. Nombre Apellido</b><small>Gastroenterología</small></span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"></path><path d="M5 19l7-7"></path></svg>Estómago</span></header><h3>En cápsula blanda, sin el ardor de la cayena cruda.</h3><q>Aquí va la opinión real del profesional sobre la cápsula y el estómago sensible.</q><div class="kw"><span>Cápsula blanda</span><span>Con la comida</span></div></article>
+      <article class="doc" data-c="huesos"><header><span class="ava" data-photo><img src="assets/ia-img15-efa3fc.png" alt="Foto de ejemplo del médico familiar (seguridad con otros medicamentos). El dueño la cambia por la real." width="48" height="48" style="width:100%;height:100%;object-fit:cover;display:block"></span><span><b>Dr./Dra. Nombre Apellido</b><small>Medicina familiar</small></span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6a2.5 2.5 0 1 0-3 3l9 9a2.5 2.5 0 1 0 3 3 2.5 2.5 0 1 0 3-3l-9-9a2.5 2.5 0 1 0-3-3z"></path></svg>Seguridad</span></header><h3>Quién debe consultar antes de tomarlo con otros medicamentos.</h3><q>Aquí va la opinión real del profesional sobre cómo tomarlo con seguridad.</q><div class="kw"><span>Consulta médica</span><span>Sin transgénicos</span></div></article>
+    </div>
+  </section>
+
+
+  
+  
+
+  
+  <section class="rv" id="resenas" aria-labelledby="rvH" data-seccion="resenas">
+    <h2 class="vh" id="rvH">XX clientas en Colombia ya lo toman.<br><em>Así se siente de verdad.</em></h2>
+    <div class="rating">
+      <div class="row">Excelente <span class="boxes" aria-label="4,8 de 5"><span>★</span><span>★</span><span>★</span><span>★</span><span class="half">★</span></span></div>
+      <p>Calificación <b>X,X</b> / 5 en más de <b>XX opiniones</b></p>
+    </div>
+    <div class="rail">
+      <article class="rcard"><div class="boxes"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="who"><b>Nombre de clienta</b>, ciudad · hace 1 día</p><h3>Título de la reseña</h3><p>EJEMPLO: reseña sobre los pies helados en la noche: si ya se acuesta sin medias y desde cuándo lo toma.</p><div class="reply"><b>Respuesta de Cayenne Pepper</b> · hace 1 día</div></article>
+      <article class="rcard"><div class="boxes"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="who"><b>Nombre de clienta</b>, ciudad · hace 2 días</p><h3>Título de la reseña</h3><p>EJEMPLO: reseña sobre las piernas pesadas al final del día, con una escena concreta de su trabajo o su rutina.</p><div class="reply"><b>Respuesta de Cayenne Pepper</b> · hace 2 días</div></article>
+      <article class="rcard"><div class="boxes"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="who"><b>Nombre de clienta</b>, ciudad · hace 3 días</p><h3>Título de la reseña</h3><p>EJEMPLO: reseña sobre que no arde ni le cae mal al estómago.</p><div class="reply"><b>Respuesta de Cayenne Pepper</b> · hace 3 días</div></article>
+      <article class="rcard"><div class="boxes"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="who"><b>Nombre de clienta</b>, ciudad · hace 4 días</p><h3>Título de la reseña</h3><p>EJEMPLO: reseña de una hija que se lo mandó a su mamá.</p><div class="reply"><b>Respuesta de Cayenne Pepper</b> · hace 4 días</div></article>
+    </div>
+  </section>
+
+  <script>
+  {
+    const chips=[...document.querySelectorAll('#docChips button')], docs=[...document.querySelectorAll('#docRail .doc')];
+    chips.forEach(b=>b.addEventListener('click',()=>{
+      chips.forEach(x=>x.setAttribute('aria-pressed',x===b));
+      const f=b.dataset.f;
+      docs.forEach(d=>{d.hidden=!(f==='all'||d.dataset.c===f);});
+      document.getElementById('docRail').scrollLeft=0;
+    }));
+    /* Retratos ilustrados de marcador (reemplazar por fotos reales de cada profesional) */
+    const SK=['#f1c7a5','#d9a37c','#b97a52','#8d5a3b','#f5d2b8','#c98f66'];
+    const HC=['#2b1d17','#5a3a22','#8a5a32','#1b1b1b','#b98a52','#3d2a1e'];
+    const BG=['#fde2e6','#fde8ef','#f6efe3','#e9eef8','#f9e7ea','#fbeee6'];
+    const HAIR={
+      long:{b:'M30 44 C29 20 71 20 70 44 L73 76 L27 76 Z',f:'M33 42 C33 23 67 21 67 42 C61 31 44 30 33 42Z'},
+      bob:{b:'M31 47 C29 21 71 21 69 47 L69 62 L31 62Z',f:'M33 42 C33 23 67 22 67 42 C58 33 42 31 33 42Z'},
+      bun:{b:'',f:'M34 40 C34 24 66 24 66 40 C60 31 40 31 34 40Z',x:'<circle cx="50" cy="21" r="9"/>'},
+      short:{b:'',f:'M34 41 C32 23 68 23 66 41 C63 34 40 32 34 41Z'},
+      curly:{b:'M29 50 C24 24 76 24 71 50 C74 60 66 66 62 62 L38 62 C34 66 26 60 29 50Z',f:'M33 40 C34 25 66 25 67 40 C62 33 40 33 33 40Z'}
+    };
+    function avatar(i,style,coat,scrub){
+      const s=SK[i%SK.length],h=HC[(i*5+2)%HC.length],bg=BG[i%BG.length],H=HAIR[style];
+      return '<svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="'+bg+'"/>'+
+        (H.b?'<path d="'+H.b+'" fill="'+h+'"/>':'')+
+        '<path d="M8 100 C12 77 30 70 50 70 C70 70 88 77 92 100Z" fill="'+coat+'"'+(coat==='#ffffff'?' stroke="#eed6d9" stroke-width="1"':'')+'/>'+
+        (scrub?'<path d="M41 71 L50 88 L59 71Z" fill="'+scrub+'"/>':'')+
+        '<rect x="44" y="55" width="12" height="17" rx="5" fill="'+s+'" style="filter:brightness(.9)"/>'+
+        '<ellipse cx="50" cy="44" rx="16" ry="19" fill="'+s+'"/>'+
+        '<g fill="'+h+'">'+(H.x||'')+'<path d="'+H.f+'"/></g>'+
+        '<circle cx="44" cy="45" r="1.7" fill="#2b1d1d"/><circle cx="56" cy="45" r="1.7" fill="#2b1d1d"/>'+
+        '<path d="M45 53 Q50 57 55 53" fill="none" stroke="#8a4a3a" stroke-width="1.6" stroke-linecap="round"/></svg>';
+    }
+    const docStyles=['bob','long','short','bun','curly'], docScrub=['#d24153','#a8557e','#581c24','#2f8a4e','#a8557e'];
+    document.querySelectorAll('#docRail .ava').forEach((el,k)=>{if(el.hasAttribute('data-photo')) return;el.style.background='none';el.innerHTML=avatar(k+1,docStyles[k%5],'#ffffff',docScrub[k%5]);});
+    const exStyles=['long','bun','bob','curly','long','short'], exCoat=['#ffffff','#f599a5','#ffffff','#581c24','#e7b9cf','#d24153'];
+    document.querySelectorAll('.ex-card .ph').forEach((el,k)=>{el.innerHTML=avatar(k+3,exStyles[k%6],exCoat[k%6],exCoat[k%6]==='#ffffff'?'#d24153':'');});
+
+    /* Negrita automática: menopausia e ingredientes en los textos corridos */
+    const KW=/(cayena|capsaicina|circulación|pies calienticos|sin ardor|cápsula blanda|piernas más livianas|pies y manos|pago contra entrega)/gi;
+    const SKIP='H1,H2,H3,B,STRONG,A,BUTTON,SCRIPT,STYLE,SUMMARY';
+    const walker=document.createTreeWalker(document.querySelector('main'),NodeFilter.SHOW_TEXT,{acceptNode:n=>{
+      if(!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      let p=n.parentElement; while(p&&p.tagName!=='MAIN'){ if(SKIP.split(',').includes(p.tagName)||p.classList.contains('kw')||p.classList.contains('cmp-row')) return NodeFilter.FILTER_REJECT; p=p.parentElement; }
+      KW.lastIndex=0; return KW.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
+    }});
+    const hits=[]; while(walker.nextNode()) hits.push(walker.currentNode);
+    hits.forEach(n=>{
+      const frag=document.createDocumentFragment(); let last=0; const t=n.nodeValue; KW.lastIndex=0; let m;
+      while((m=KW.exec(t))){ frag.append(t.slice(last,m.index)); const s=document.createElement('strong'); s.className='kwb'; s.textContent=m[0]; frag.append(s); last=m.index+m[0].length; }
+      frag.append(t.slice(last)); n.replaceWith(frag);
+    });
+
+    /* Popup del registro INVIMA */
+    const invM=document.getElementById('invimaModal'), invO=document.getElementById('invimaOpen'), invC=document.getElementById('invimaClose');
+    if(invM&&invO){
+      invO.addEventListener('click',()=>{ if(invM.showModal) invM.showModal(); else invM.setAttribute('open',''); document.body.style.overflow='hidden'; });
+      const invClose=()=>{ if(invM.close) invM.close(); else invM.removeAttribute('open'); };
+      invC.addEventListener('click',invClose);
+      invM.addEventListener('click',e=>{ if(e.target===invM) invClose(); });
+      invM.addEventListener('close',()=>{ document.body.style.overflow=''; invO.focus(); });
+    }
+
+    const cmpCta=document.querySelector('.cmp .cta');
+    if(cmpCta) cmpCta.addEventListener('click',()=>{ try{pick('trio'); cmpCta.href=OFFERS.trio.url;}catch(e){} });
+  }
+  </script>
+
+  
+  <section class="faq" data-seccion="preguntas-frecuentes">
+    <h2>Preguntas frecuentes</h2>
+    <p class="sub">Resolvamos esas dudas antes de que hagas tu pedido.</p>
+    <div class="acc">
+      <details><summary>¿Cómo lo tomo?</summary><div class="ans"><p>Dos cápsulas al día, con la comida y con un vaso de agua. Una bolsa trae 60 cápsulas y te rinde 30 días. Sigue siempre lo que dice la etiqueta de tu bolsa. La constancia es la clave.</p></div></details>
+      <details><summary>¿Es un medicamento?</summary><div class="ans"><p>No. Cayenne Pepper es un apoyo natural a base de extracto de pimienta de cayena. No cura enfermedades ni reemplaza el tratamiento de tu médico.</p></div></details>
+      <details><summary>¿De verdad sirve o es puro cuento?</summary><div class="ans"><p>No es magia. La capsaicina de la cayena se conoce por ayudar a que los vasos se relajen, y así apoya que la sangre llegue a pies y manos. Se nota con constancia, por eso recomendamos 3 meses.</p></div></details>
+      <details><summary>¿Qué contiene Cayenne Pepper?</summary><div class="ans"><p>Extracto de pimienta de cayena con 10 botánicos de apoyo, en cápsula blanda y sin transgénicos. Revisa la etiqueta de tu bolsa para ver la composición completa.</p></div></details>
+      <details><summary>¿Me va a dar ardor o caer mal?</summary><div class="ans"><p>La cápsula blanda no arde en la boca como la cayena cruda. Tómala con la comida. Si tienes gastritis o reflujo, consulta antes con tu médico.</p></div></details>
+      <details><summary>¿Cuántas bolsas necesito?</summary><div class="ans"><p>Una bolsa te dura 30 días. Para hacer la rutina completa recomendamos 3 bolsas: 90 días.</p></div></details>
+      <details><summary>¿Quién no debe tomarlo?</summary><div class="ans"><p>No se recomienda en embarazo ni lactancia. Si tomas pastillas para la presión, el corazón o para adelgazar la sangre, o tienes gastritis o reflujo, consulta primero con tu médico.</p></div></details>
+      <details><summary>¿Me llega original? ¿Cuándo?</summary><div class="ans"><p>Pagas solo cuando lo recibes, así no arriesgas tu dinero antes de tenerlo en tus manos. El tiempo depende de tu ciudad; te confirmamos por WhatsApp y te enviamos el seguimiento.</p></div></details>
+      <details><summary>¿Cómo pido un cambio o una devolución?</summary><div class="ans"><p>Escríbenos con tu número de pedido y el motivo. Revisamos tu caso según nuestras políticas de cambios y devoluciones.</p></div></details>
+      <details><summary>¿Es una suscripción?</summary><div class="ans"><p>No. Las rutinas de esta página son compras únicas, sin envíos automáticos ni cobros recurrentes.</p></div></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" data-seccion="pie">
+  <div class="wrap">
+    <h3>Contáctanos</h3>
+    <p style="margin:0">¿Necesitas una mano con tu pedido? Escríbenos por WhatsApp y te ayudamos.</p>
+    <ul>
+      <li>Consulta tu pedido</li><li>Envíos</li><li>Cambios y devoluciones</li><li>Privacidad</li><li>Términos del servicio</li>
+    </ul>
+    <div class="legal">
+      <p>Cayenne Pepper es un extracto de pimienta de cayena en cápsula blanda. No es un medicamento y no reemplaza una alimentación balanceada ni el tratamiento indicado por tu médico.</p>
+      <p>No se recomienda en embarazo ni lactancia. Si tomas medicamentos o tienes una condición de salud, consulta antes con un profesional.</p>
+      <p>© 2026 Cayenne Pepper</p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true" data-seccion="barra-fija">
+  <div class="wrap">
+    <div class="s-info"><span class="stars" style="font-size:12px">★★★★★</span><b id="stName">3 bolsas · 90 días</b><span id="stPrice">Precio por definir</span></div>
+    <a class="cta" id="ctaSticky" href="#" tabindex="-1">PEDIR AHORA</a>
+  </div>
+</div>
+
+<script>
+/* ===== CONFIGURA AQUÍ =====
+   url: enlace de cada combo (carrito directo de Shopify "https://colbewell.com/cart/VARIANT_ID:1",
+   o el enlace del formulario contra entrega). Cambia "#" por el tuyo. */
+const OFFERS = {
+  "trio": {
+    "name": "Rutina completa · 3 bolsas",
+    "short": "3 bolsas · 90 días",
+    "price": "Precio por definir",
+    "url": "#"
+  },
+  "duo": {
+    "name": "Rutina de 60 días",
+    "short": "2 bolsas · 60 días",
+    "price": "Precio por definir",
+    "url": "#"
+  },
+  "uno": {
+    "name": "Para empezar",
+    "short": "1 bolsa · 30 días",
+    "price": "Precio por definir",
+    "url": "#"
+  }
+};
+
+/* Galería */
+const thumbs=[...document.querySelectorAll('#gThumbs button')], main=document.getElementById('gMain');
+let gi=0;
+function show(i){gi=(i+thumbs.length)%thumbs.length;main.src=thumbs[gi].dataset.src;main.style.aspectRatio=thumbs[gi].dataset.ratio||"";{const c=document.getElementById('gCap'),d=thumbs[gi].dataset;if(c){c.hidden=!d.capT;document.getElementById('gCapT').textContent=d.capT||'';document.getElementById('gCapS').textContent=d.capS||'';}}thumbs.forEach((t,k)=>t.setAttribute('aria-current',k===gi));thumbs[gi].scrollIntoView({block:'nearest',inline:'nearest'});}
+thumbs.forEach((t,k)=>t.addEventListener('click',()=>show(k)));
+document.getElementById('gPrev').onclick=()=>show(gi-1);
+document.getElementById('gNext').onclick=()=>show(gi+1);
+
+/* Combos */
+const radios=[...document.querySelectorAll('.offer')];
+function pick(key){
+  radios.forEach(r=>r.setAttribute('aria-checked',r.dataset.key===key));
+  const o=OFFERS[key];
+  ['ctaMain','ctaSticky'].forEach(id=>document.getElementById(id).href=o.url);
+  document.getElementById('stName').textContent=o.short;
+  document.getElementById('stPrice').textContent=o.price;
+}
+radios.forEach(r=>r.addEventListener('click',()=>pick(r.dataset.key)));
+document.getElementById('offers').addEventListener('keydown',e=>{
+  const i=radios.findIndex(r=>r.getAttribute('aria-checked')==='true');
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();const n=radios[(i+1)%radios.length];pick(n.dataset.key);n.focus();}
+  if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();const n=radios[(i-1+radios.length)%radios.length];pick(n.dataset.key);n.focus();}
+});
+pick('trio');
+
+/* Barra fija: aparece cuando el botón principal sale de pantalla */
+const sticky=document.getElementById('sticky'), ctaMain=document.getElementById('ctaMain');
+if('IntersectionObserver' in window){
+  new IntersectionObserver(([en])=>{
+    const on=!en.isIntersecting && en.boundingClientRect.top<0;
+    sticky.classList.toggle('show',on); sticky.setAttribute('aria-hidden',!on);
+    document.getElementById('ctaSticky').tabIndex=on?0:-1;
+  }).observe(ctaMain);
+}
+</script>
+</body></html>

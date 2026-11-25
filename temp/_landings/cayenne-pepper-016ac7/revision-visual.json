@@ -1,0 +1,14 @@
+{
+  "cambios": {
+    "14": "Precio por definir",
+    "21": "Precio por definir"
+  },
+  "quitar": [],
+  "problemas": [
+    "En las imágenes, la bolsa dice «Aurivita». Si esa no es tu marca, cambia esas fotos por fotos de tu propia bolsa.",
+    "En «Opinión profesional», los tres puntos de confianza (que recibieron el producto, que no se les paga y que tienen nombre y registro) dan cosas por hechas. Déjalos solo cuando tengas profesionales reales que lo cumplan. Si no, quítalos.",
+    "Las estrellas de las reseñas muestran 4,5 de 5. Cuando pongas tu calificación real, revisa que las estrellas coincidan con ella.",
+    "La tabla «Lo que ya probaste para el frío» no salió en las capturas. Revísala a mano en el celular para ver que no quede cortada."
+  ],
+  "resumen": "La landing sigue bien el orden de la base y se lee clara: el producto, la oferta, la encuesta, el médico, los profesionales, las reseñas y las preguntas. En la página ya se ve «Precio por definir», pero el texto todavía guardaba dos precios inventados. Los cambié para que no se cuelen. No quedó nada cortado ni vacío. Lo que falta es tuyo: confirmar la marca de la bolsa en las fotos y poner las reseñas, las cifras y los profesionales reales."
+}
