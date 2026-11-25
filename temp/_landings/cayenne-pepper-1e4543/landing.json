@@ -1,0 +1,64 @@
+{
+  "id": "cayenne-pepper-1e4543",
+  "url": null,
+  "modo": "crear",
+  "motor": "claude",
+  "prompt": "",
+  "productoId": "cayenne-pepper-d319",
+  "analizar": false,
+  "titulo": "CAYENNE PEPPER",
+  "creado": "2026-11-25T18:37:57.782Z",
+  "estado": "trabajando",
+  "progreso": [
+    "Emilio (estratega (investigación)) está trabajando…"
+  ],
+  "error": null,
+  "informe": null,
+  "puntajes": null,
+  "actualizado": "2026-11-25T18:37:57.814Z",
+  "agentes": [
+    {
+      "id": "estratega",
+      "nombre": "Emilio",
+      "rol": "Estratega (investigación)",
+      "estado": "trabajando",
+      "resumen": null
+    },
+    {
+      "id": "conversion",
+      "nombre": "Simón",
+      "rol": "Arquitecto de conversión",
+      "estado": "esperando",
+      "resumen": null
+    },
+    {
+      "id": "diseno",
+      "nombre": "Antonia",
+      "rol": "Diseñadora visual",
+      "estado": "esperando",
+      "resumen": null
+    },
+    {
+      "id": "copy",
+      "nombre": "Valeria",
+      "rol": "Copywriter",
+      "estado": "esperando",
+      "resumen": null
+    },
+    {
+      "id": "imagenes",
+      "nombre": "Mateo",
+      "rol": "Director de imágenes",
+      "estado": "esperando",
+      "resumen": null
+    },
+    {
+      "id": "revision",
+      "nombre": "Renata",
+      "rol": "Revisión",
+      "estado": "esperando",
+      "resumen": null
+    }
+  ],
+  "plantilla": "cen"
+}
