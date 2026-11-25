@@ -84,3 +84,11 @@
 .ld-seccion-analizada__orden {display:flex;align-items:center;gap:12px;color:var(--acento);font:700 13px var(--fuente-mono);}
 .ld-seccion-analizada__mejora {padding:0 16px 16px;margin-top:16px;border-left:2px solid var(--acento);background:var(--acento-suave);}
 @media(max-width:760px){.ld-seccion-analizada {grid-template-columns:1fr;padding:16px;gap:18px;}.ld-seccion-analizada__imagen {max-width:360px;width:100%;margin:auto;}}
+
+/* (2026-11-25f) cómo la armó el equipo */
+.ld-equipo { border: 1px solid var(--borde-1, rgba(127,127,127,.3)); border-radius: var(--r-m, 10px); padding: 10px 14px; }
+.ld-equipo summary { cursor: pointer; font-weight: 600; }
+.ld-equipo ol { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 10px; }
+.ld-equipo__agente p { margin: 4px 0 0; font-size: .92em; }
+.ld-equipo__agente--esperando { opacity: .6; }
+.ld-equipo__pendientes { margin: 6px 0 0; padding-left: 18px; font-size: .88em; }

@@ -119,6 +119,49 @@ export function crear({ url, prompt = '', modo = null, motor = null, productoId 
   return leer(id);
 }
 
+/**
+ * (2026-11-25f) CREAR desde la plantilla, con el equipo de agentes (plantilla.js): { productoId, prompt?, motor? }.
+ * Sin URL: la landing nace de la plantilla y la investigación de mercado del producto.
+ */
+export function crearDesdePlantilla({ productoId, prompt = '', motor = null } = {}) {
+  const prod = listarProductos().find((p) => p.id === productoId);
+  if (!prod) throw new ErrorApp(400, 'Elige el producto para el que creas la landing.');
+  if (!motor) {
+    try {
+      motor = motorElegido() || 'claude';
+    } catch {
+      motor = 'claude';
+    }
+  }
+  if (!['claude', 'codex'].includes(motor)) throw new ErrorApp(400, 'Elige Claude Code o Codex.');
+  const base = String(prod.nombre || productoId).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'landing';
+  const id = `${base}-${crypto.randomBytes(3).toString('hex')}`;
+  fs.mkdirSync(carpetaDe(id), { recursive: true });
+  guardar(id, { id, url: null, modo: 'crear', motor, prompt: String(prompt || '').trim().slice(0, 4000), productoId, analizar: false, titulo: prod.nombre, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, informe: null, puntajes: null });
+  crearConElEquipo(id);
+  return leer(id);
+}
+
+async function crearConElEquipo(id) {
+  enCurso.add(id);
+  try {
+    const l = leer(id);
+    const { crearConEquipo } = await import('./plantilla.js');
+    const r = await crearConEquipo({ carpeta: carpetaDe(id), productoId: l.productoId, pedido: l.prompt, motor: l.motor, guardar: (c) => guardar(id, c), avanzar: (t) => avanzar(id, t) });
+    guardar(id, { titulo: r.titulo, creada: { textos: r.cambiados, imagenes: r.imagenes.hechas, pedidas: r.imagenes.pedidas } });
+    guardar(id, { estado: 'midiendo' });
+    await medir(id);
+    guardar(id, { estado: 'lista' });
+    avanzar(id, 'Lista.');
+    notificarLandingLista(leer(id));
+  } catch (e) {
+    console.error('[landings]', id, e);
+    guardar(id, { estado: 'error', error: e?.publico || e?.message || 'No se pudo crear la landing.' });
+  } finally {
+    enCurso.delete(id);
+  }
+}
+
 async function ffmpegDisponible() {
   try {
     const { comprobarFfmpeg } = await import('../imagen-ads/local.js');
@@ -156,8 +199,8 @@ const urlLocal = (id) => `http://127.0.0.1:${process.env.PUERTO || 4455}/landing
 
 async function medir(id) {
   const l = leer(id);
-  avanzar(id, 'Midiendo la velocidad (Lighthouse en celular): la original y la copia…');
-  const [original, copia] = [await puntaje(l.url), await puntaje(urlLocal(id))];
+  avanzar(id, l.url ? 'Midiendo la velocidad (Lighthouse en celular): la original y la copia…' : 'Midiendo la velocidad (Lighthouse en celular)…');
+  const [original, copia] = [l.url ? await puntaje(l.url) : null, await puntaje(urlLocal(id))];
   guardar(id, { puntajes: { original, copia, fecha: new Date().toISOString() } });
 }
 

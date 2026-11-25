@@ -358,6 +358,25 @@ async function alMensaje(texto) {
     fs.writeFileSync(path.join(dir, 'resumen.json'), JSON.stringify({ resumen: /bot[oó]n/i.test(pedido) ? 'Cambié el botón de comprar a verde y ahora dice «Pídelo ya».' : 'No hizo falta tocar el tema.', admin }));
     return resultado({ result: 'LISTO' });
   }
+  // (2026-11-25f) el equipo que crea una landing desde la plantilla: cada uno escribe su JSON
+  const equipo = /TAREA: landing equipo · (\w+)/.exec(textoTarea);
+  if (equipo) {
+    const archivo = /Escribe (temp\/_landings\/\S+?\.json)/.exec(textoTarea)?.[1];
+    const prod = (/^Su producto: (.+)$/m.exec(textoTarea) || [])[1] || 'Producto';
+    const quien = equipo[1];
+    let d = { resumen: `Prueba: ${quien} hizo su parte para ${prod}.` };
+    if (quien === 'estratega') d = { ...d, angulo: 'Dormir sin pastillas', promesa: `${prod} te ayuda a descansar`, objeciones: ['¿Funciona?'], prueba_disponible: [], palabras_del_cliente: [] };
+    if (quien === 'conversion') d = { ...d, secciones: ['galeria', 'titulo-y-beneficios', 'oferta'].map((s) => ({ seccion: s, funcion_en_la_plantilla: 'x', objetivo_para_este_producto: 'y', titulo: 'z', imagenes: [] })) };
+    if (quien === 'copy') {
+      const textos = {};
+      for (const [, k, t] of textoTarea.matchAll(/^(\d+)\t\[[^\]]*\] (.*)$/gm)) if (/CEN/.test(t)) textos[k] = t.replace(/Be Well CEN|CEN/g, prod);
+      d = { ...d, textos, combos: { trio: { name: `Kit Trío ${prod}`, short: '3 tarros', price: '$199.900 COP' }, duo: { name: 'Kit Dúo', short: '2 tarros', price: '$152.900 COP' }, uno: { name: '1 tarro', short: '1 tarro', price: '$89.900 COP' } }, titulo_pagina: `${prod} · Landing` };
+    }
+    if (quien === 'imagenes') d = { ...d, imagenes: [{ imagen: 'img0', funcion: 'hero', prompt: 'product hero', aspecto: '4:5' }, { imagen: 'img4', funcion: 'tarro', prompt: '', usar_foto: true }] };
+    if (quien === 'revision') d = { ...d, cambios: {}, pendientes: ['Poner reseñas reales'] };
+    if (archivo) fs.writeFileSync(path.join(RAIZ, archivo), JSON.stringify(d));
+    return resultado({ result: 'LISTO' });
+  }
   // (2026-11-20q) la landing adaptada: cambia los textos que nombran la marca de la original y pide la imagen 0
   const landing = /TAREA: landing adaptada/.test(textoTarea) ? /Escribe (temp\/_landings\/\S+\/nuevos-textos\.json)/.exec(textoTarea) : null;
   if (landing) {

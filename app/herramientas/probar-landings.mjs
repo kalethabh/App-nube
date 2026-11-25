@@ -248,6 +248,22 @@ async function principal() {
   check('«Para mi producto» sin producto ni pedido: lo pide', r.st === 400, r);
   check('La IA no ve el archivo de textos desde la vista', (await fetch(`${BASE}/landing/${id2}/nuevos-textos.json`)).status === 404 && (await fetch(`${BASE}/landing/${id2}/textos.json`)).status === 404);
 
+  // (2026-11-25f) CREAR desde la plantilla, con el equipo de agentes
+  r = await pedir('/api/landings/crear', { json: {} });
+  check('Crear sin producto: lo pide', r.st === 400, r);
+  r = await pedir('/api/landings/crear', { json: { productoId: prod, prompt: 'tono cercano' } });
+  const id4 = r.datos?.id;
+  if (id4) creados.landings.push(id4);
+  const l4 = await esperar(300, () => leerLanding(id4), terminada);
+  check('Crear con el equipo: termina lista, sin URL, modo crear', l4?.estado === 'lista' && l4.modo === 'crear' && !l4.url && l4.productoId === prod, l4);
+  check('Los 5 agentes trabajaron y dejaron su resumen', l4?.agentes?.length === 5 && l4.agentes.every((a) => a.estado === 'listo' && a.resumen), l4?.agentes);
+  check('Renata deja lo que el dueño debe completar', l4?.agentes?.find((a) => a.id === 'revision')?.pendientes?.length >= 1);
+  const h4 = id4 && fs.existsSync(path.join(RAIZ, 'temp', '_landings', id4, 'index.html')) ? html(id4) : '';
+  check('La página es la plantilla con los textos del producto', /data-seccion="oferta"/.test(h4) && /Sueño Profundo/.test(h4) && !/Be Well CEN<sup>/.test(h4), (h4.match(/<h1[^>]*>[\s\S]{0,80}/) || [''])[0]);
+  check('Los combos del script quedan con el producto', /"name": "Kit Trío Sueño Profundo"/.test(h4), (h4.match(/const OFFERS = [\s\S]{0,200}/) || [''])[0]);
+  check('El tarro de los combos es la foto del producto y la imagen principal la nueva', /src="assets\/producto\.png"/.test(h4) && /src="assets\/ia-img0-/.test(h4) && l4?.creada?.imagenes === 1, l4?.creada);
+  check('Mide solo la landing (no hay original)', l4?.puntajes?.copia && !l4.puntajes.original, l4?.puntajes);
+
   // medir y borrar
   r = await pedir(`/api/landings/${id1}/medir`, { json: {} });
   l = await esperar(60, () => leerLanding(id1), (d) => d?.estado === 'lista' && d.puntajes?.copia);
