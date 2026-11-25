@@ -256,7 +256,7 @@ async function principal() {
   if (id4) creados.landings.push(id4);
   const l4 = await esperar(300, () => leerLanding(id4), terminada);
   check('Crear con el equipo: termina lista, sin URL, modo crear', l4?.estado === 'lista' && l4.modo === 'crear' && !l4.url && l4.productoId === prod, l4);
-  check('Los 6 agentes trabajaron y dejaron su resumen', l4?.agentes?.length === 6 && l4.agentes.every((a) => a.estado === 'listo' && a.resumen), l4?.agentes);
+  check('Los 7 pasos del equipo (con la revisión visual) terminaron y dejaron su resumen', l4?.agentes?.length === 7 && l4.agentes.every((a) => a.estado === 'listo' && a.resumen), l4?.agentes);
   check('Renata deja lo que el dueño debe completar', l4?.agentes?.find((a) => a.id === 'revision')?.pendientes?.length >= 1);
   const h4 = id4 && fs.existsSync(path.join(RAIZ, 'temp', '_landings', id4, 'index.html')) ? html(id4) : '';
   check('La página es la plantilla con los textos del producto', /data-seccion="oferta"/.test(h4) && /Sueño Profundo/.test(h4) && !/Be Well CEN<sup>/.test(h4), (h4.match(/<h1[^>]*>[\s\S]{0,80}/) || [''])[0]);
@@ -286,6 +286,24 @@ async function principal() {
   check('Profesionales sin nombres inventados', !/Valentina B\.|R\. Camargo|Camila S\.|Carlos O\.|Fabián C\./.test(h4) && /Nombre Apellido/.test(h4), (h4.match(/(Dra?|Nut)\. [^<]{0,24}/g) || []).slice(0, 6));
   check('Clientas y profesionales con fotos nuevas; nada de las fotos de la plantilla', !/assets\/(cen-|av-clienta|clienta-testimonio|doctor-|dra?-|nut-)/.test(h4) && env.some((e) => e.tipo === 'persona' && !e.guia) && env.some((e) => e.tipo === 'profesional'), [...new Set(h4.match(/assets\/[\w.-]+/g) || [])].slice(0, 30));
   check('Las imágenes de contenido no se recortan (sin caja fija en la galería ni en el médico)', !/\.g-main img\{[^}]*aspect-ratio:941/.test(h4) && !/\.care-ph img\{[^}]*object-fit:cover/.test(h4));
+  // (2026-11-25k) la auditoría: calificaciones y cantidades sin inventar, negritas del producto, barra fija, Renata mira la página
+  check('Calificación y cantidad de opiniones sin inventar', !/<b>4,8<\/b>|1\.200 opiniones|\+40\.000/.test(h4), (h4.match(/<b>[\d.,X]+[^<]*<\/b>/g) || []).slice(0, 6));
+  check('La barra fija ya trae el precio del dueño', /<span id="stPrice">\$199\.900 COP/.test(h4), (h4.match(/<span id="stPrice">[^<]*/) || [''])[0]);
+  check('Las negritas automáticas ya no buscan las palabras de la plantilla', !/const KW=\/\(perimenopausia/.test(h4), (h4.match(/const KW=[^;]*;/) || [''])[0]);
+  const vis = l4?.agentes?.find((a) => a.id === 'visual');
+  console.log(`        (revisión visual: ${vis?.resumen || '-'})`);
+  check('Renata revisó la página terminada (o avisó que no pudo capturarla)', vis?.estado === 'listo' && vis.resumen, vis);
+  const capt = fs.existsSync(path.join(RAIZ, 'temp', '_landings', id4, 'registro-visual.log')) ? fs.readFileSync(path.join(RAIZ, 'temp', '_landings', id4, 'registro-visual.log'), 'utf8') : '';
+  check('Con capturas: recibió las de la base y las de la nueva', !capt || (/plantillas\/cen\/capturas\/encuesta\.webp/.test(capt) && /analisis-capturas\//.test(capt)), capt.slice(0, 300));
+  // quitar lo que no aplica (directo sobre la plantilla)
+  {
+    const pl = await import(path.join(APP, 'server', 'lib', 'landings', 'plantilla.js'));
+    const { parse } = await import('node-html-parser');
+    const r = parse(fs.readFileSync(path.join(APP, 'server', 'lib', 'landings', 'plantillas', 'cen', 'index.html'), 'utf8'), { comment: true, blockTextElements: { script: true, style: true } });
+    const nodos = [r.querySelectorAll('.cmp-row')[0], r.querySelectorAll('.doc')[4]].map((el) => el.childNodes.find((c) => c.nodeType === 1) || el);
+    const n = pl.quitarRepetidos(r, nodos);
+    check('Lo que no aplica se quita: una fila de costo y un profesional con su filtro y el contador', n === 2 && r.querySelectorAll('.cmp-row').length === 7 && r.querySelectorAll('.doc').length === 4 && !r.querySelector('#docChips button[data-f="huesos"]') && r.querySelector('#docChips button[data-f="all"] small').text === '4', n);
+  }
   check('Mide solo la landing (no hay original)', l4?.puntajes?.copia && !l4.puntajes.original, l4?.puntajes);
 
   // medir y borrar
