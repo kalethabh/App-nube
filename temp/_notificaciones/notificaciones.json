@@ -17,6 +17,15 @@
       "destino": "#/landings?proyecto=cayenne-pepper-1e4543",
       "fecha": "2026-11-25T18:48:08.320Z",
       "leida": "2026-11-25T18:56:57.261Z"
+    },
+    {
+      "id": "n-7db0e748ce6b9303ffdca6d3",
+      "tipo": "landing-lista",
+      "titulo": "Landing lista",
+      "texto": "«Cayenne Pepper · El ritual del calorcito para tus pies y manos | Pagas al recibir» está clonada y lista para revisar.",
+      "destino": "#/landings?proyecto=cayenne-pepper-9bbd7c",
+      "fecha": "2026-11-25T19:17:04.940Z",
+      "leida": null
     }
   ]
 }

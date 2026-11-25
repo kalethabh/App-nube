@@ -12,9 +12,9 @@
   },
   "productoId": "cayenne-pepper-d319",
   "analizar": false,
-  "titulo": "CAYENNE PEPPER",
+  "titulo": "Cayenne Pepper · El ritual del calorcito para tus pies y manos | Pagas al recibir",
   "creado": "2026-11-25T19:08:42.871Z",
-  "estado": "trabajando",
+  "estado": "lista",
   "progreso": [
     "Emilio (estratega (investigación)) está trabajando…",
     "Simón (arquitecto de conversión) está trabajando…",
@@ -25,12 +25,26 @@
     "ChatGPT está haciendo 4 imágenes con tu producto…",
     "Imagen 1 de 4 lista.",
     "Imagen 2 de 4 lista.",
-    "Imagen 3 de 4 lista."
+    "Imagen 3 de 4 lista.",
+    "Imagen 4 de 4 lista.",
+    "Midiendo la velocidad (Lighthouse en celular)…",
+    "Lista."
   ],
   "error": null,
   "informe": null,
-  "puntajes": null,
-  "actualizado": "2026-11-25T19:15:45.189Z",
+  "puntajes": {
+    "original": null,
+    "copia": {
+      "puntaje": 75,
+      "fcp": "1.6 s",
+      "lcp": "47.3 s",
+      "tbt": "0 ms",
+      "cls": "0",
+      "peso": 9210
+    },
+    "fecha": "2026-11-25T19:17:04.939Z"
+  },
+  "actualizado": "2026-11-25T19:17:04.940Z",
   "agentes": [
     {
       "id": "estratega",
@@ -83,5 +97,10 @@
       ]
     }
   ],
-  "plantilla": "cen"
+  "plantilla": "cen",
+  "creada": {
+    "textos": 119,
+    "imagenes": 4,
+    "pedidas": 4
+  }
 }

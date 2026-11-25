@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cayenne Pepper · El ritual del calorcito para tus pies y manos | Pagas al recibir</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link id="kads-fuentes" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Anton&display=swap">
+<style>
+/* Layout: misma estructura que la landing de referencia (columna móvil de 480px, galería → selector de combos → CTA contra entrega → creativos apilados → reseñas → FAQ), con la identidad del producto. Un solo look claro, a propósito. */
+:root{
+  --bg:#FFFFFF; --fg:#2A1A1C; --muted:#6E5B5D; --line:#EFDCD8;
+  --accent:#A62737; --accent-soft:#FBE9E6; --accent-deep:#5E1420; --accent-ink:#ffffff;
+  --ok:#2f8a4e; --star:#F2B705; --gray-bar:#ececee;
+  --accent-hover:#8C1F2D; --accent-sombra:#A6273752; --tinte:#FFF7F2; --topbar-ink:#FACF42; --texto-2:#4A3537;
+  --f-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --f-display:"Anton","Nunito Sans",system-ui,Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.45}
+.wrap{max-width:480px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* Barra superior */
+.topbar{background:var(--accent-deep);color:var(--accent-ink);text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.02em;padding-block:9px}
+.topbar b{color:var(--topbar-ink)}
+
+/* Galería */
+.gallery{margin-top:14px}
+.g-main{position:relative;border-radius:10px;overflow:hidden;background:var(--accent-soft)}
+.g-main img{display:block;width:100%;height:auto;aspect-ratio:941/1672;object-fit:contain;background:#fff}
+.g-nav{display:flex;align-items:center;gap:8px;margin-top:10px}
+.g-arrow{flex:none;width:34px;height:48px;border:1px solid var(--line);background:#fff;border-radius:6px;font-size:18px;color:var(--fg)}
+.g-thumbs{display:flex;gap:8px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none}
+.g-thumbs::-webkit-scrollbar{display:none}
+.g-thumbs button{flex:none;width:52px;height:52px;padding:0;border:2px solid transparent;border-radius:6px;overflow:hidden;background:#fff}
+.g-thumbs button[aria-current="true"]{border-color:var(--fg)}
+.g-thumbs img{width:100%;height:100%;object-fit:cover;object-position:top}
+
+/* Prueba social + título */
+.social{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:12.5px}
+.avatars{display:flex}
+.avatars span{width:22px;height:22px;border-radius:50%;border:2px solid #fff;margin-left:-7px;background:linear-gradient(135deg,var(--accent-soft),var(--accent))}
+.avatars span:first-child{margin-left:0;background:linear-gradient(135deg,var(--tinte),var(--accent-hover))}
+.avatars span:nth-child(3){background:linear-gradient(135deg,var(--accent-soft),var(--accent-deep))}
+.social b{font-weight:700}
+.social u{color:var(--muted)}
+.stars{color:var(--star);letter-spacing:1px;font-size:15px}
+h1{font-family:var(--f-display);font-size:27px;line-height:1.15;margin:6px 0 8px;font-weight:700;text-wrap:balance}
+h1 sup{font-size:.45em}
+.lede{color:var(--texto-2);margin:0 0 14px}
+.checks{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:9px}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li::before{content:"✓";flex:none;width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center;margin-top:1px}
+
+/* Selector de combos */
+h2.pick{font-size:17px;margin:0 0 12px;font-weight:700}
+.offers{display:grid;gap:12px}
+.offer{position:relative;display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:16px 14px}
+.offer[aria-checked="true"]{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 0 1px var(--accent)}
+.offer .badge{position:absolute;top:-10px;right:12px;background:var(--accent);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.06em;padding:3px 9px;border-radius:4px}
+.jars{flex:none;width:64px;height:64px;border-radius:8px;background:var(--tinte);display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px}
+.jars img{width:24px;height:auto;margin:0 -5px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.18))}
+.jars.n1 img{width:34px}
+.o-body{min-width:0;flex:1}
+.o-price{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.o-price strong{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.o-price small{font-size:11px;color:var(--muted)}
+.o-price s{font-size:12px;color:var(--muted)}
+.o-name{font-weight:700;font-size:14px;margin-top:4px}
+.o-qty{font-size:12px;color:var(--muted);margin-top:2px}
+.o-save{font-size:12px;color:var(--ok);font-weight:600;margin-top:2px}
+.o-gift{display:inline-block;margin-top:5px;font-size:11.5px;font-weight:700;color:var(--accent-deep);background:#fff;border:1px dashed var(--accent);border-radius:4px;padding:2px 7px}
+
+.ship{margin:18px 0 0;font-size:12.5px;color:var(--muted)}
+.ship b{display:block;color:var(--fg);font-size:12px;font-weight:700;margin-top:4px}
+.cta{display:block;width:100%;margin-top:16px;border:0;border-radius:12px;background:var(--accent);color:#fff;font-family:var(--f-display);font-weight:800;font-size:17px;letter-spacing:.01em;text-align:center;text-decoration:none;padding-block:18px;box-shadow:0 6px 18px var(--accent-sombra)}
+.cta:hover{background:var(--accent-hover)}
+.cta-sub{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:11.5px;color:var(--muted)}
+
+/* Testimonio destacado */
+.testi{display:flex;gap:12px;margin-top:26px;padding:16px;border:1px solid var(--line);border-radius:12px;box-shadow:0 2px 10px rgba(29,21,38,.05)}
+.testi .ph{flex:none;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent-soft),var(--accent))}
+.testi p{margin:4px 0 0;font-size:14px}
+.sample{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#9a5b00;background:#fff3d6;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+
+/* Acordeones */
+.acc{margin-top:18px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;gap:12px;padding-block:14px;font-size:15px;cursor:pointer}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-size:20px;line-height:1;flex:none}
+.acc details[open] summary::after{content:"–"}
+.acc .ans{padding-bottom:14px;color:var(--texto-2);font-size:14px}
+.acc .ans p{margin:0 0 8px}
+
+.notice{display:flex;gap:10px;margin-top:22px;padding:14px;border:1px dashed #d9b95a;background:#fffbea;border-radius:10px;font-size:12.5px}
+.notice i{flex:none;font-style:normal;width:20px;height:20px;border-radius:50%;border:1.5px solid #c99a1d;color:#c99a1d;display:grid;place-items:center;font-size:12px;font-weight:700}
+.notice b{display:block;font-size:13.5px;margin-bottom:2px}
+
+/* Creativos apilados */
+.stack{margin-top:30px;display:grid;gap:0}
+.stack img{display:block;width:100%;height:auto}
+
+/* Barra de compra repetida */
+.buybox{margin-top:26px;text-align:center}
+.buybox .stars{font-size:18px}
+.buybox p{margin:6px 0 0;font-weight:600}
+.buybox .bb-price{font-size:22px;font-weight:800;margin-top:4px}
+
+/* Reseñas */
+.reviews{margin-top:40px}
+.reviews h2,.faq h2{font-size:22px;text-align:center;margin:0 0 4px;font-weight:800;font-family:var(--f-display)}
+.score{display:flex;gap:18px;align-items:center;margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:12px}
+.score .big{font-size:44px;font-weight:800;line-height:1;text-align:center}
+.score .big small{display:block;font-size:11.5px;font-weight:500;color:var(--muted);margin-top:6px}
+.bars{flex:1;min-width:0;display:grid;gap:5px;font-size:12px}
+.bar{display:grid;grid-template-columns:12px 1fr;gap:8px;align-items:center}
+.bar span{height:7px;border-radius:4px;background:var(--line);overflow:hidden}
+.bar span i{display:block;height:100%;background:var(--star)}
+.r-note{font-size:12px;color:var(--muted);text-align:center;margin:12px 0 0}
+.r-list{display:grid;gap:12px;margin-top:16px}
+.r-card{border:1px solid var(--line);border-radius:12px;padding:14px}
+.r-card header{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px}
+.r-card header b{font-size:14px}
+.r-card h3{font-size:15px;margin:8px 0 4px}
+.r-card p{margin:0;font-size:14px;color:var(--texto-2)}
+.r-card footer{margin-top:8px;font-size:12px;color:var(--muted)}
+
+/* FAQ */
+.faq{margin-top:40px}
+.faq .sub{text-align:center;color:var(--muted);margin:0}
+
+/* Footer */
+.foot{margin-top:44px;background:var(--tinte);padding-block:28px 110px;font-size:13px}
+.foot h3{font-size:16px;margin:0 0 4px}
+.foot ul{list-style:none;padding:0;margin:14px 0;display:grid;gap:6px}
+.foot .legal{font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:14px}
+.foot .legal p{margin:0 0 6px}
+
+/* Barra fija inferior */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(29,21,38,.08);padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-top:10px;transform:translateY(110%);transition:transform .25s ease}
+.sticky.show{transform:none}
+.sticky .wrap{display:flex;align-items:center;gap:12px}
+.sticky .s-info{min-width:0;flex:1;font-size:12px;line-height:1.3}
+.sticky .s-info b{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky .cta{margin:0;width:auto;flex:none;padding:13px 16px;font-size:13.5px;border-radius:10px}
+@media (prefers-reduced-motion:reduce){.sticky{transition:none}}
+</style>
+</head><body>
+
+
+<div class="topbar" data-seccion="barra-superior"><div class="wrap">🔥 <b>BLACK FRIDAY</b> · Hasta 41% de ahorro en la rutina de 90 días · Pagas al recibir</div></div>
+
+<main class="wrap">
+
+  <!-- GALERÍA -->
+  <section class="gallery" aria-label="Imágenes del producto" data-seccion="galeria">
+    <div class="g-main"><img id="gMain" src="assets/ia-img0-0460e5.png" alt="Portada y promesa del carrusel: la mujer con cara de alivio y calorcito, cuatro beneficios con íconos a un lado, el producto grande abajo y sellos que sí son verdad."></div>
+    <div class="g-nav">
+      <button class="g-arrow" id="gPrev" aria-label="Imagen anterior">‹</button>
+      <div class="g-thumbs" id="gThumbs">
+        <button aria-current="true" data-src="assets/ia-img0-0460e5.png" aria-label="Imagen 1"><img src="assets/ia-img0-0460e5.png" alt></button>
+        <button data-src="assets/ia-img1-c5f337.png" aria-label="Imagen 2"><img src="assets/ia-img1-c5f337.png" alt></button>
+        <button data-src="assets/ia-img2-747455.png" aria-label="Imagen 3"><img src="assets/ia-img2-747455.png" alt></button>
+        <button data-src="assets/ia-img3-78cc76.png" aria-label="Imagen 4"><img src="assets/ia-img3-78cc76.png" alt></button>
+      </div>
+      <button class="g-arrow" id="gNext" aria-label="Imagen siguiente">›</button>
+    </div>
+  </section>
+
+  <!-- PRUEBA SOCIAL + TÍTULO -->
+  <div class="social" data-seccion="prueba-social">
+    <div class="avatars"><span></span><span></span><span></span></div>
+    <div><b>La cayena de la abuela, ahora en cápsula</b> <u>Pagas cuando te llega · Te confirmamos por WhatsApp</u><div class="stars" aria-label="4,8 de 5">★★★★★</div></div>
+  </div>
+
+  <div data-seccion="titulo-y-beneficios"><h1>Cayenne Pepper: el ritual del calorcito<sup>®</sup></h1>
+  <p class="lede">Dos cápsulas al día, con comida, que apoyan tu circulación para que sientas los pies y las manos menos helados. Elige tu rutina y la pagas cuando te llegue.</p>
+  <ul class="checks">
+    <li>Cayena en cápsula blanda, sin ardor en la boca</li>
+    <li>Sin transgénicos y se traga fácil</li>
+    <li>60 cápsulas: 30 días con 2 al día</li>
+    <li>Compra única, sin suscripción · Pagas al recibir</li>
+  </ul></div>
+
+  <!-- SELECTOR DE COMBOS -->
+  <div data-seccion="oferta"><h2 class="pick" id="pickLbl">Elige tu rutina del calorcito</h2>
+  <div class="offers" role="radiogroup" aria-labelledby="pickLbl" id="offers">
+    <button class="offer" role="radio" aria-checked="true" data-key="trio">
+      <span class="badge">RECOMENDADO</span>
+      <span class="jars"><img src="assets/producto.png" alt><img src="assets/producto.png" alt><img src="assets/producto.png" alt></span>
+      <span class="o-body">
+        <span class="o-price"><strong>$139.900</strong><small>COP</small></span>
+        <span class="o-name" style="display:block">Rutina completa · 90 días</span>
+        <span class="o-qty" style="display:block">3 bolsas</span>
+        
+        <span class="o-gift">Cada bolsa te sale a unos $46.600</span>
+      </span>
+    </button>
+    <button class="offer" role="radio" aria-checked="false" data-key="duo">
+      <span class="jars"><img src="assets/producto.png" alt><img src="assets/producto.png" alt></span>
+      <span class="o-body">
+        <span class="o-price"><strong>$119.900</strong><small>COP</small></span>
+        <span class="o-name" style="display:block">Rutina de 60 días</span>
+        <span class="o-qty" style="display:block">2 bolsas</span>
+        
+      </span>
+    </button>
+    <button class="offer" role="radio" aria-checked="false" data-key="uno">
+      <span class="jars n1"><img src="assets/producto.png" alt></span>
+      <span class="o-body">
+        <span class="o-price"><strong>$79.900</strong><small>COP</small></span>
+        <span class="o-name" style="display:block">Para empezar</span>
+        <span class="o-qty" style="display:block">1 bolsa</span>
+      </span>
+    </button>
+  </div>
+
+  <p class="ship">Envío y cobertura:<b>Precios en pesos colombianos. El costo de envío y la cobertura a tu ciudad se confirman en el formulario.</b></p>
+
+  <a class="cta" id="ctaMain" href="#">PEDIR Y PAGAR AL RECIBIR</a>
+  <div class="cta-sub"><span>📲 Confirmación por WhatsApp</span><span>💵 Pago contra entrega</span><span>🌶️ Sin ardor en la boca</span></div></div>
+
+  <!-- TESTIMONIO DESTACADO (reemplazar por una reseña real) -->
+  <article class="testi" data-seccion="testimonio-destacado">
+    <div class="ph" aria-hidden="true"></div>
+    <div>
+      <b>Nombre de clienta</b> <span class="stars">★★★★★</span><span class="sample">Ejemplo</span>
+      <p>Aquí va una reseña real de tu tienda. Las que más venden cuentan una escena concreta: acostarse otra vez con los pies calienticos, llegar entera a la tarde, las piernas más livianas, y cuánto tiempo lleva tomándolo.</p>
+    </div>
+  </article>
+
+  <!-- ACORDEONES -->
+  <div class="acc" data-seccion="dudas-rapidas">
+    <details><summary>¿Qué hace diferente a Cayenne Pepper?</summary><div class="ans">
+      <p>Es la cayena de siempre, la del remedio de la abuela, pero en cápsula blanda. Su capsaicina, lo que hace picante al ají, ayuda a que los vasos se relajen y la sangre llegue mejor a pies y manos. Por eso muchas personas notan un calorcito.</p>
+      <p>No arde en la boca, se traga fácil y tomas la misma cantidad todos los días, sin medir ni preparar nada.</p></div></details>
+    <details><summary>¿En cuánto tiempo voy a notar algo?</summary><div class="ans">
+      <p>Cada cuerpo responde a su ritmo. Muchas personas cuentan que notan un calorcito, pero lo que más ayuda es la constancia. Por eso recomendamos la rutina completa de 90 días, y de ahí las 3 bolsas.</p></div></details>
+    <details><summary>¿Cuándo me llega mi pedido?</summary><div class="ans">
+      <p>Depende de tu ciudad y de la transportadora. Ves los tiempos en el formulario y te escribimos por WhatsApp para confirmar antes de despachar.</p>
+      <p>Si necesitas ayuda con el seguimiento, escríbenos por WhatsApp con tu número de pedido.</p></div></details>
+    <details><summary>¿Qué pasa si necesito ayuda o una devolución?</summary><div class="ans">
+      <p>Escríbenos por WhatsApp con tu número de pedido y el motivo. Revisamos tu caso según nuestras políticas de cambios y devoluciones.</p></div></details>
+  </div>
+
+  <div class="notice" data-seccion="aviso-pedido"><i>i</i><div><b>Revisa bien tu pedido.</b>Antes de confirmar, comprueba tu rutina, tus datos, la dirección y el total. Te escribimos por WhatsApp para confirmar antes de despachar.</div></div>
+
+  <!-- CREATIVOS APILADOS -->
+  <section class="stack" aria-label="Beneficios" data-seccion="creativos">
+    <img src="assets/ia-img1-c5f337.png" alt="Nombra el dolor con una pregunta grande y muestra las molestias alrededor de la mujer, para que diga «esa soy yo»." loading="lazy">
+    <img src="assets/ia-img2-747455.png" alt="Explica la solución: un solo ritual diario, cómo actúa la capsaicina y los tres frentes en los que ayuda, con la mujer contenta y el producto." loading="lazy">
+    <img src="assets/ia-img3-78cc76.png" alt="Muestra qué trae por dentro y cómo se toma: el producto al centro y cuatro datos alrededor. También resuelve la duda del empaque en inglés." loading="lazy">
+  </section>
+
+  <div class="buybox" data-seccion="compra-repetida">
+    <div class="stars">★★★★★</div>
+    <p id="bbName">Rutina completa · 90 días · 3 bolsas</p>
+    <div class="bb-price" id="bbPrice">$139.900 COP</div>
+    <a class="cta" id="ctaBox" href="#">PEDIR Y PAGAR AL RECIBIR</a>
+  </div>
+
+  <!-- RESEÑAS (conectar a Judge.me / Loox; las tarjetas son de ejemplo) -->
+  <section class="reviews" id="resenas" data-seccion="resenas">
+    <h2>Lo que cuentan quienes lo toman</h2>
+    <div class="score">
+      <div class="big">—<small>Aquí irán las opiniones reales</small></div>
+      <div class="bars" aria-label="Distribución de calificaciones">
+        <div class="bar">5<span><i style="width:86%"></i></span></div>
+        <div class="bar">4<span><i style="width:10%"></i></span></div>
+        <div class="bar">3<span><i style="width:3%"></i></span></div>
+        <div class="bar">2<span><i style="width:1%"></i></span></div>
+        <div class="bar">1<span><i style="width:0%"></i></span></div>
+      </div>
+    </div>
+    <p class="r-note">Las barras y las tarjetas de abajo son de ejemplo: aquí va tu app de reseñas con las opiniones reales.</p>
+    <div class="r-list">
+      <article class="r-card"><header><b>Nombre de clienta</b><span class="stars">★★★★★</span></header><h3>Título de la reseña <span class="sample">Ejemplo</span></h3><p>Reseña sobre los pies calienticos de noche: cómo se acostaba antes y desde cuándo lo toma.</p><footer>Ciudad · fecha</footer></article>
+      <article class="r-card"><header><b>Nombre de clienta</b><span class="stars">★★★★★</span></header><h3>Título de la reseña <span class="sample">Ejemplo</span></h3><p>Reseña sobre las piernas más livianas al final del día, con una escena concreta.</p><footer>Ciudad · fecha</footer></article>
+      <article class="r-card"><header><b>Nombre de clienta</b><span class="stars">★★★★★</span></header><h3>Título de la reseña <span class="sample">Ejemplo</span></h3><p>Reseña sobre que no arde y se traga fácil.</p><footer>Ciudad · fecha</footer></article>
+      <article class="r-card"><header><b>Nombre de clienta</b><span class="stars">★★★★★</span></header><h3>Título de la reseña <span class="sample">Ejemplo</span></h3><p>Reseña de una hija que se lo regaló a su mamá y pagó al recibir.</p><footer>Ciudad · fecha</footer></article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" data-seccion="preguntas-frecuentes">
+    <h2>Preguntas frecuentes</h2>
+    <p class="sub">Resolvamos esas dudas antes de que hagas tu pedido.</p>
+    <div class="acc">
+      <details><summary>¿Cómo lo tomo?</summary><div class="ans"><p>Dos cápsulas al día, con comida y con un vaso de agua. Si el empaque está en inglés, no te preocupes: es así de sencillo, y al confirmar tu pedido por WhatsApp te lo explicamos. Nunca la tomes en ayunas.</p></div></details>
+      <details><summary>¿De verdad funciona o es puro cuento?</summary><div class="ans"><p>No es magia ni cura nada. La capsaicina de la cayena ayuda a que los vasos se relajen un poco y la sangre llegue mejor a las puntas. Es el remedio de la abuela, en cápsula y todos los días.</p></div></details>
+      <details><summary>¿Cuánto tiempo lo tengo que tomar?</summary><div class="ans"><p>Depende de cada cuerpo y de la constancia. Lo recomendado es tomarlo todos los días durante 90 días.</p></div></details>
+      <details><summary>¿Qué contiene?</summary><div class="ans"><p>Cayena (ají cayena) en cápsula blanda. Cada bolsa trae 60 cápsulas, para 30 días con 2 al día, y es sin transgénicos. Revisa la etiqueta de tu bolsa para la composición completa.</p></div></details>
+      <details><summary>¿Me va a arder o a caer mal?</summary><div class="ans"><p>La cápsula blanda se traga entera, así que no arde en la boca como la cayena en agua. Tómala siempre con comida para cuidar tu estómago.</p></div></details>
+      <details><summary>Tomo pastillas para la presión, ¿puedo?</summary><div class="ans"><p>Consulta primero con tu médico, igual si tomas medicamentos para adelgazar la sangre. Nunca dejes tu medicamento: esto no reemplaza ningún tratamiento.</p></div></details>
+      <details><summary>¿Quién no debe tomarlo?</summary><div class="ans"><p>No se recomienda en embarazo o lactancia, en menores de edad, con úlcera, gastritis o reflujo fuertes, ni si tomas ciclosporina por un trasplante. Si tomas anticoagulantes o medicamentos para la presión, tienes una enfermedad del corazón o una cirugía programada, habla antes con tu médico.</p></div></details>
+      <details><summary>¿Y si no me llega o me llega falso?</summary><div class="ans"><p>Pagas cuando lo recibes. Ves los tiempos en el formulario y te escribimos por WhatsApp para confirmar y darte el seguimiento.</p></div></details>
+      <details><summary>¿Cómo pido un cambio o una devolución?</summary><div class="ans"><p>Escríbenos por WhatsApp con tu número de pedido y el motivo. Revisamos tu caso según nuestras políticas de cambios y devoluciones.</p></div></details>
+      <details><summary>¿Es una suscripción?</summary><div class="ans"><p>No. Las rutinas de esta página son compras únicas, sin envíos automáticos ni cobros recurrentes.</p></div></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" data-seccion="pie">
+  <div class="wrap">
+    <h3>Contáctanos</h3>
+    <p style="margin:0">¿Necesitas una mano con tu pedido? Escríbenos por WhatsApp y te ayudamos.</p>
+    <ul>
+      <li>Consulta tu pedido</li><li>Envíos</li><li>Cambios y devoluciones</li><li>Privacidad</li><li>Términos del servicio</li>
+    </ul>
+    <div class="legal">
+      <p>Cayenne Pepper es un suplemento de cayena en cápsula blanda. No es un medicamento y no reemplaza una alimentación balanceada ni el tratamiento indicado por tu médico.</p>
+      <p>No se recomienda en embarazo, lactancia, menores de edad ni en personas con condiciones médicas o que toman medicamentos sin consultar antes con un profesional de salud.</p>
+      <p>© 2026 Cayenne Pepper</p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true" data-seccion="barra-fija">
+  <div class="wrap">
+    <div class="s-info"><span class="stars" style="font-size:12px">★★★★★</span><b id="stName">Rutina 90 días · 3 bolsas</b><span id="stPrice">$139.900 COP</span></div>
+    <a class="cta" id="ctaSticky" href="#" tabindex="-1">PEDIR AHORA</a>
+  </div>
+</div>
+
+<script>
+/* ===== CONFIGURA AQUÍ =====
+   url: enlace de cada combo (carrito directo de Shopify "https://colbewell.com/cart/VARIANT_ID:1",
+   o el enlace del formulario contra entrega). Cambia "#" por el tuyo. */
+const OFFERS = {
+  "trio": {
+    "name": "Rutina completa · 90 días",
+    "short": "3 bolsas",
+    "price": "$139.900 COP",
+    "url": "#"
+  },
+  "duo": {
+    "name": "Rutina de 60 días",
+    "short": "2 bolsas",
+    "price": "$119.900 COP",
+    "url": "#"
+  },
+  "uno": {
+    "name": "Para empezar",
+    "short": "1 bolsa",
+    "price": "$79.900 COP",
+    "url": "#"
+  }
+};
+
+/* Galería */
+const thumbs=[...document.querySelectorAll('#gThumbs button')], main=document.getElementById('gMain');
+let gi=0;
+function show(i){gi=(i+thumbs.length)%thumbs.length;main.src=thumbs[gi].dataset.src;thumbs.forEach((t,k)=>t.setAttribute('aria-current',k===gi));thumbs[gi].scrollIntoView({block:'nearest',inline:'nearest'});}
+thumbs.forEach((t,k)=>t.addEventListener('click',()=>show(k)));
+document.getElementById('gPrev').onclick=()=>show(gi-1);
+document.getElementById('gNext').onclick=()=>show(gi+1);
+
+/* Combos */
+const radios=[...document.querySelectorAll('.offer')];
+function pick(key){
+  radios.forEach(r=>r.setAttribute('aria-checked',r.dataset.key===key));
+  const o=OFFERS[key];
+  ['ctaMain','ctaBox','ctaSticky'].forEach(id=>document.getElementById(id).href=o.url);
+  document.getElementById('bbName').textContent=o.name;
+  document.getElementById('bbPrice').textContent=o.price;
+  document.getElementById('stName').textContent=o.short;
+  document.getElementById('stPrice').textContent=o.price;
+}
+radios.forEach(r=>r.addEventListener('click',()=>pick(r.dataset.key)));
+document.getElementById('offers').addEventListener('keydown',e=>{
+  const i=radios.findIndex(r=>r.getAttribute('aria-checked')==='true');
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();const n=radios[(i+1)%radios.length];pick(n.dataset.key);n.focus();}
+  if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();const n=radios[(i-1+radios.length)%radios.length];pick(n.dataset.key);n.focus();}
+});
+pick('trio');
+
+/* Barra fija: aparece cuando el botón principal sale de pantalla */
+const sticky=document.getElementById('sticky'), ctaMain=document.getElementById('ctaMain');
+if('IntersectionObserver' in window){
+  new IntersectionObserver(([en])=>{
+    const on=!en.isIntersecting && en.boundingClientRect.top<0;
+    sticky.classList.toggle('show',on); sticky.setAttribute('aria-hidden',!on);
+    document.getElementById('ctaSticky').tabIndex=on?0:-1;
+  }).observe(ctaMain);
+}
+</script>
+</body></html>
