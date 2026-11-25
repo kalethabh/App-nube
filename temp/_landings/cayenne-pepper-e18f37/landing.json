@@ -16,32 +16,34 @@
   "creado": "2026-11-25T19:27:17.508Z",
   "estado": "trabajando",
   "progreso": [
-    "Emilio (estratega (investigación)) está trabajando…"
+    "Emilio (estratega (investigación)) está trabajando…",
+    "Simón (arquitecto de conversión) está trabajando…",
+    "Antonia (diseñadora visual) está trabajando…"
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T19:27:17.544Z",
+  "actualizado": "2026-11-25T19:28:42.913Z",
   "agentes": [
     {
       "id": "estratega",
       "nombre": "Emilio",
       "rol": "Estratega (investigación)",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Elegí vender el calorcito en pies y manos, porque es lo que el cliente siente cada noche, lo que tú resaltaste y lo que nadie más está diciendo en Colombia. Las piernas livianas y el ánimo de la tarde van de apoyo, y no hablamos de corazón, presión ni defensas porque no se puede prometer. La prueba es el uso tradicional de la cayena y cómo actúa, sin inventar testimonios, y la confianza la ganamos con el pago contra entrega y las advertencias claras para quien toma medicamentos. Faltan los precios y confirmar el registro sanitario antes de pautar."
     },
     {
       "id": "conversion",
       "nombre": "Simón",
       "rol": "Arquitecto de conversión",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Usé cada parte de la plantilla para contar la historia de los pies helados: primero el dolor de cada noche, luego la rutina de 2 cápsulas con el calorcito como promesa, y al final la explicación sencilla de cómo actúa la cayena. Quité todas las cifras de clientes, estrellas, descuentos y regalos de la otra marca, porque no tenemos reseñas ni precios. Las reseñas quedan como ejemplo hasta que tengas opiniones reales. La confianza la damos con el remedio de la abuela, el pago contra entrega y advertencias claras para quien toma medicamentos. Antes de publicar, confirma precios, envío gratis, garantía y registro sanitario."
     },
     {
       "id": "diseno",
       "nombre": "Antonia",
       "rol": "Diseñadora visual",
-      "estado": "esperando",
+      "estado": "trabajando",
       "resumen": null
     },
     {
