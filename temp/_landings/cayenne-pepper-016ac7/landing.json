@@ -17,8 +17,6 @@
   "creado": "2026-11-25T21:06:50.016Z",
   "estado": "trabajando",
   "progreso": [
-    "Valeria (copywriter) está trabajando…",
-    "Mateo (director de imágenes) está trabajando…",
     "Quité lo que no aplica a este producto: 6 elemento(s) repetido(s) y la(s) sección(es) comparacion-costo.",
     "Renata (revisión) está trabajando…",
     "ChatGPT está haciendo 15 imágenes con tu producto…",
@@ -30,12 +28,14 @@
     "Imagen 6 de 15 lista.",
     "Imagen 7 de 15 lista.",
     "Imagen 8 de 15 lista.",
-    "Imagen 9 de 15 lista."
+    "Imagen 9 de 15 lista.",
+    "Imagen 10 de 15 lista.",
+    "Imagen 11 de 15 lista."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T21:19:52.656Z",
+  "actualizado": "2026-11-25T21:21:49.430Z",
   "agentes": [
     {
       "id": "estratega",
