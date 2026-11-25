@@ -25,8 +25,8 @@ IP=$(curl -fsS4 https://api.ipify.org 2>/dev/null || hostname -I | awk '{print $
 if [ -z "${KADS_TOKEN:-}" ]; then
   read -rsp "Pega tu token de GitHub (no se ve al escribir) y pulsa Enter: " KADS_TOKEN < /dev/tty; echo
 fi
-# (2026-11-25a) INGRESO CON CUENTAS (el mismo Supabase del Centro de Control): con la dirección y la clave anónima de
-# Supabase, cada persona entra con su correo y clave y tú apruebas a los demás. Sin ellas, una sola contraseña (Caddy).
+# (2026-11-25a) INGRESO CON CUENTAS (el proyecto de Supabase PROPIO de Kads, aparte de otras apps): con la dirección y
+# la clave anónima de Supabase, cada persona entra con su correo y clave y tú apruebas a los demás. Sin ellas, una sola contraseña (Caddy).
 if [ -z "${KADS_SUPABASE_URL+x}" ]; then
   read -rp "Dirección de tu Supabase para entrar con cuentas (https://xxxx.supabase.co; Enter para usar una contraseña): " KADS_SUPABASE_URL < /dev/tty || true
 fi
@@ -155,7 +155,7 @@ decir "¡Listo!"
 cat <<EOF
 
   Tu app:        https://$KADS_DOMINIO
-$(if [ -n "${KADS_SUPABASE_URL:-}" ]; then echo "  Entrada:       con tu correo y clave del Centro de Control. ENTRA TÚ PRIMERO: el primero queda dueño."; else printf '  Usuario:       kads\n  Contraseña:    la que escribiste'; fi)
+$(if [ -n "${KADS_SUPABASE_URL:-}" ]; then echo "  Entrada:       crea tu cuenta ahí mismo. ENTRA TÚ PRIMERO: el primero queda dueño."; else printf '  Usuario:       kads\n  Contraseña:    la que escribiste'; fi)
 
   Falta UN paso: iniciar sesión en Claude con tu cuenta (para que escriba los guiones). Corre:
 

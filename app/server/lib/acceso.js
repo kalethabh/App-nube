@@ -1,7 +1,6 @@
-// EL INGRESO CON CUENTA (2026-11-25a). Pedido: «hacer lo mismo que el Centro de Control» (cuentas, dueño, aprobar a los
-// demás) en la app en un servidor, con el MISMO Supabase del Centro de Control: las cuentas son las mismas (mismo correo
-// y clave). Kads guarda SUS roles aparte, en `kads_usuarios` (deploy/supabase-kads.sql), y no toca las tablas del
-// Centro de Control.
+// EL INGRESO CON CUENTA (2026-11-25a). Pedido: cuentas, dueño y aprobar a los demás en la app en un servidor.
+// (2026-11-25b) Kads usa su PROPIO proyecto de Supabase: «el Centro de Control es una cosa y la app Kads es otra, no se
+// debe mezclar nada». Los roles van en `kads_usuarios` (deploy/supabase-kads.sql).
 //
 // Solo se prende con KADS_SUPABASE_URL y KADS_SUPABASE_ANON (la clave anónima, la pública) en el servidor. Sin ellas
 // (la app en tu Mac) todo queda como siempre: sin ingreso.
@@ -182,7 +181,7 @@ td,th{text-align:left;padding:8px 4px;border-bottom:1px solid var(--linea);verti
 const PAGINA_ENTRAR = (volver) =>
   pagina(
     'Kads Studio',
-    `<p class="suave">Entra con la misma cuenta del Centro de Control.</p>
+    `<p class="suave">Entra con tu cuenta de Kads Studio.</p>
 <form id="f"><div id="soloRegistro" hidden><label>Nombre<input id="nombre" autocomplete="name"></label></div>
 <label>Correo<input id="correo" type="email" autocomplete="email" required></label>
 <label>Clave<input id="clave" type="password" autocomplete="current-password" required minlength="6"></label>
