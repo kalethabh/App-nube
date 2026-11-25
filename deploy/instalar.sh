@@ -36,6 +36,11 @@ fi
 if [ -z "${KADS_SUPABASE_URL:-}" ] && [ -z "${KADS_CONTRASENA:-}" ]; then
   read -rsp "Escribe la contraseña para entrar a la app y pulsa Enter: " KADS_CONTRASENA < /dev/tty; echo
 fi
+# (2026-11-25d) la puerta en Vercel (opcional): su dirección reenvía todo a este servidor (vercel/vercel.json)
+if [ -z "${KADS_PUERTA+x}" ]; then
+  read -rp "Tu dirección de Vercel, p. ej. kads-studio.vercel.app (Enter si no usas Vercel): " KADS_PUERTA < /dev/tty || true
+fi
+KADS_PUERTA="${KADS_PUERTA#https://}"; KADS_PUERTA="${KADS_PUERTA%/}"
 if [ -z "${KADS_DOMINIO:-}" ]; then
   SUGERIDO="${IP//./-}.sslip.io"
   read -rp "Tu dominio (Enter para usar $SUGERIDO): " KADS_DOMINIO < /dev/tty || true
@@ -111,6 +116,7 @@ Environment=NODE_ENV=production
 Environment=ANUNCIOS_DOMINIO=$KADS_DOMINIO
 ${KADS_SUPABASE_URL:+Environment=KADS_SUPABASE_URL=$KADS_SUPABASE_URL}
 ${KADS_SUPABASE_ANON:+Environment=KADS_SUPABASE_ANON=$KADS_SUPABASE_ANON}
+${KADS_PUERTA:+Environment=KADS_PUERTA=$KADS_PUERTA}
 Environment=PATH=$CASA/.local/bin:/usr/local/bin:/usr/bin:/bin
 ExecStart=/usr/bin/node app/server/index.js
 Restart=always
@@ -155,6 +161,7 @@ decir "¡Listo!"
 cat <<EOF
 
   Tu app:        https://$KADS_DOMINIO
+$(if [ -n "${KADS_PUERTA:-}" ]; then echo "  En Vercel:     https://$KADS_PUERTA   (en vercel/vercel.json, __SERVIDOR__ = $KADS_DOMINIO)"; fi)
 $(if [ -n "${KADS_SUPABASE_URL:-}" ]; then echo "  Entrada:       crea tu cuenta ahí mismo. ENTRA TÚ PRIMERO: el primero queda dueño."; else printf '  Usuario:       kads\n  Contraseña:    la que escribiste'; fi)
 
   Falta UN paso: iniciar sesión en Claude con tu cuenta (para que escriba los guiones). Corre:
