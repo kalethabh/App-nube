@@ -6,9 +6,9 @@
   "prompt": "",
   "productoId": "cayenne-pepper-d319",
   "analizar": false,
-  "titulo": "CAYENNE PEPPER",
+  "titulo": "Cayenne Pepper · El calorcito de la cayena en cápsula · Pagas al recibir",
   "creado": "2026-11-25T18:11:57.968Z",
-  "estado": "trabajando",
+  "estado": "lista",
   "progreso": [
     "Emilio (estratega (investigación)) está trabajando…",
     "Simón (arquitecto de conversión) está trabajando…",
@@ -18,12 +18,26 @@
     "ChatGPT está haciendo 4 imágenes con tu producto…",
     "Imagen 1 de 4 lista.",
     "Imagen 2 de 4 lista.",
-    "Imagen 3 de 4 lista."
+    "Imagen 3 de 4 lista.",
+    "Imagen 4 de 4 lista.",
+    "Midiendo la velocidad (Lighthouse en celular)…",
+    "Lista."
   ],
   "error": null,
   "informe": null,
-  "puntajes": null,
-  "actualizado": "2026-11-25T18:18:04.770Z",
+  "puntajes": {
+    "original": null,
+    "copia": {
+      "puntaje": 75,
+      "fcp": "1.6 s",
+      "lcp": "49.6 s",
+      "tbt": "0 ms",
+      "cls": "0",
+      "peso": 9720
+    },
+    "fecha": "2026-11-25T18:19:31.938Z"
+  },
+  "actualizado": "2026-11-25T18:19:31.938Z",
   "agentes": [
     {
       "id": "estratega",
@@ -73,5 +87,10 @@
       ]
     }
   ],
-  "plantilla": "cen"
+  "plantilla": "cen",
+  "creada": {
+    "textos": 118,
+    "imagenes": 4,
+    "pedidas": 4
+  }
 }
