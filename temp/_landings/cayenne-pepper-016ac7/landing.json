@@ -17,8 +17,6 @@
   "creado": "2026-11-25T21:06:50.016Z",
   "estado": "trabajando",
   "progreso": [
-    "Simón (arquitecto de conversión) está trabajando…",
-    "Antonia (diseñadora visual) está trabajando…",
     "Valeria (copywriter) está trabajando…",
     "Mateo (director de imágenes) está trabajando…",
     "Quité lo que no aplica a este producto: 6 elemento(s) repetido(s) y la(s) sección(es) comparacion-costo.",
@@ -30,12 +28,14 @@
     "Imagen 4 de 15 lista.",
     "Imagen 5 de 15 lista.",
     "Imagen 6 de 15 lista.",
-    "Imagen 7 de 15 lista."
+    "Imagen 7 de 15 lista.",
+    "Imagen 8 de 15 lista.",
+    "Imagen 9 de 15 lista."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T21:18:06.366Z",
+  "actualizado": "2026-11-25T21:19:52.656Z",
   "agentes": [
     {
       "id": "estratega",
