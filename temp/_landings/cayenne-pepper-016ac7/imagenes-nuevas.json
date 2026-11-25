@@ -1,0 +1,117 @@
+{
+  "imagenes": [
+    {
+      "imagen": "img0",
+      "funcion": "Imagen principal de la galería (enganche y promesa): titular grande, dos sellos verdaderos, cuatro beneficios con íconos, la mujer disfrutando su calorcito, el producto abajo y una franja de confianza al pie.",
+      "prompt": "Vertical 9:16 Spanish-language infographic ad for a cayenne pepper soft-gel supplement, structurally translated from a wellness poster layout. Warm cozy palette: cream and soft peach background, deep cherry red #A62737 as main accent, dark wine #6E1622 for text pills and icon circles, golden yellow #F2B81F highlights. Warm soft late-afternoon indoor light. LAYOUT TOP TO BOTTOM: (1) Huge bold stacked headline, black and white letters inside rounded cherry-red highlight pills: \"VUELVE A SENTIR\" / \"TUS PIES CALIENTICOS\" / \"Y TU ENERGÍA\" / \"EN LA TARDE\", with a small golden glowing sun-and-warmth doodle with sparkles at the top right instead of a moon. (2) Subtitle in dark text: \"con una rutina natural de cayena\" and below in a soft cherry pill: \"sin el ardor de la cayena cruda\". (3) Two dark-wine rounded badges side by side with white line icons: a leaf icon with \"ORIGEN NATURAL\" and a soft-gel capsule icon with \"CÁPSULA BLANDA SIN ARDOR\". (4) Left column of four round dark-wine icon circles with bold titles and short descriptions: a foot with warm waves icon \"PIES MENOS HELADOS\" / \"Para acostarte más calientica.\"; a hand icon \"MANOS MÁS TIBIAS\" / \"Apoya la circulación hacia manos y pies.\"; a leg icon with feather \"PIERNAS MÁS LIVIANAS\" / \"Para llegar entera al final del día.\"; a lightning bolt icon \"MÁS ÁNIMO EN LA TARDE\" / \"Sin apagarte a las 3.\". (5) Right and center: a real Colombian Latina woman about 58 years old, warm smile, eyes closed in comfort, wrapped in a mustard-golden knitted cardigan, wearing thick red wool socks, sitting on a cozy sofa with a cream blanket, holding a warm mug of tinto close to her face, a cold-climate Colombian home in the background. (6) Bottom right: the attached Cayenne Pepper product package, exactly as in the reference photo, sharp and in focus, with a few glossy red soft-gel capsules and two fresh red cayenne peppers beside it on a light marble surface. (7) Bottom left: big bold text \"CON\" and \"CONSTANCIA\" with \"CONSTANCIA\" in cherry red and a curved cherry underline. (8) Bottom strip: a golden round badge with a delivery box icon reading \"PAGAS AL RECIBIR\" next to a cherry pill \"CONTRA ENTREGA\", and on the right a rounded white box with a green chat bubble check icon and the text \"Confirmamos tu pedido por WhatsApp\". No guarantees, no official seals, no regulatory logos, no percentages, no other brand. All text in Spanish, large and legible.",
+      "aspecto": "9:16",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img1",
+      "funcion": "Imagen del problema: la pregunta que la identifica con su noche fría, la mujer afectada a la izquierda y los síntomas en burbujas a la derecha sobre un camino ilustrado.",
+      "prompt": "Square-ish 4:5 Spanish-language problem infographic, structurally translated from a symptom poster. Cream and pale peach background, deep cherry red #A62737 pills, dark wine #6E1622 icon circles, golden #F2B81F accents, warm soft indoor evening light. LAYOUT: (1) Top: huge bold headline in black letters, lines inside rounded soft cherry-tinted pills with dark outline: \"¿CANSADA DE ACOSTARTE\" / \"CON LOS PIES HELADOS\" / \"Y QUE NI CON MEDIAS SE CALIENTEN?\", with small cherry burst lines on both sides. (2) Below, bold dark subtitle: \"ASÍ SE SIENTE CUANDO LA SANGRE\" and in a soft cherry pill \"NO LLEGA BIEN A TUS PIES\". (3) Lower left: a real Colombian Latina woman about 60 years old sitting on the edge of her bed at night, tired and cold, hugging herself, rubbing her cold feet that wear thick wool socks, cream and mustard knitted cardigan, a heavy blanket and a hot-water mug on the nightstand, cozy cold-climate Colombian bedroom with warm lamp light. (4) Right side: a gentle descending wavy line drawn like a thermometer cooling from warm golden to cool, with six rounded white bubbles outlined in dark wine, each with a round dark-wine icon on top and bold short text: snowflake-foot icon \"PIES HELADOS EN LA NOCHE\"; hand icon \"MANOS FRÍAS Y MORADAS\"; heavy weight icon \"PIERNAS PESADAS COMO PLOMO\"; clock icon \"BAJÓN A LAS 3 DE LA TARDE\"; wool sock icon \"MEDIAS Y COBIJAS QUE NO ALCANZAN\"; tired face icon \"SENTIR QUE EL CUERPO SE APAGA\". No product in this image, no logos, no numbers. All text in Spanish, large and legible.",
+      "aspecto": "4:5",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img2",
+      "funcion": "Imagen de la solución y el mecanismo: un solo ritual diario que apoya en 4 frentes, la mujer serena con el producto a la izquierda y los beneficios en tarjetas a la derecha.",
+      "prompt": "4:5 Spanish-language solution infographic, structurally translated from a 'one daily ritual, several benefits' poster. Cream and soft peach background, cherry red #A62737 pills, dark wine #6E1622 icon circles, golden #F2B81F touches, warm afternoon indoor light. LAYOUT: (1) Top headline, huge bold black letters with white outline: \"UN SOLO RITUAL DIARIO\" / in a big rounded cherry pill \"DEL CALORCITO\" / \"QUE TE APOYA EN\" followed by a pill \"4 FRENTES\", with cherry burst lines on both sides. Below in a soft peach pill: \"2 cápsulas al día con la comida, sin el ardor de la cayena cruda.\" (2) Left half: a real Colombian Latina woman about 57, calm content smile, chin resting on her hand, wearing a cream blouse and a golden knitted shawl, sitting at a wooden dining table in a cozy cold-climate home. In the lower left foreground on a light marble pedestal: the attached Cayenne Pepper product package exactly as in the reference photo, sharp and in focus, with a few glossy red soft-gel capsules and a small plate of home food and a cup of tinto beside it. (3) Right half: four stacked rounded white cards outlined in dark wine, each with a large round dark-wine icon circle on the left and bold title plus short text: warm foot icon \"PIES Y MANOS MENOS HELADOS:\" / \"La capsaicina de la cayena ayuda a que los vasos se relajen y la sangre llegue mejor.\"; leg icon \"PIERNAS MÁS LIVIANAS:\" / \"Para que al final del día no te pesen como plomo.\"; lightning icon \"MÁS ÁNIMO EN LA TARDE:\" / \"Para llegar entera al final del día.\"; soft-gel capsule icon \"SIN ARDOR EN LA BOCA:\" / \"Cápsula blanda fácil de tragar.\". No medical claims about heart or blood pressure, no seals, no percentages, no other brand. All text in Spanish, large and legible.",
+      "aspecto": "4:5",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img3",
+      "funcion": "Imagen de qué trae: en vez de una lista de ingredientes que no tenemos confirmada, muestra lo verdadero alrededor del producto: la cayena, la capsaicina, la cápsula blanda, los botánicos de apoyo sin nombrarlos y lo que rinde.",
+      "prompt": "Vertical 9:16 Spanish-language 'what's inside' infographic, structurally translated from an ingredients poster: product in the center on a pedestal, round ingredient photos with label pills and text cards arranged on both sides. Cream and soft peach background, cherry red #A62737 and dark wine #6E1622 label pills, golden #F2B81F accents, warm soft light. LAYOUT: (1) Top headline: in a big rounded dark-wine outlined pill \"LA CAYENA DE SIEMPRE\", below in bold black \"AHORA EN CÁPSULA\", a big cherry pill \"SIN EL ARDOR\", then \"para apoyar tu circulación\" and in a soft peach pill \"hacia pies y manos\", with a cherry curved underline. (2) Center: the attached Cayenne Pepper product package exactly as in the reference photo, sharp and in focus, on a light marble round pedestal, with glossy red soft-gel capsules and fresh red cayenne peppers at its base. (3) Six round photo circles with label pills and white rounded text cards, three per side: fresh red cayenne peppers on a wooden board — \"EXTRACTO DE CAYENA:\" / \"La pimienta picante que la abuela usaba para el frío.\"; macro of red chili seeds and flakes glowing warm — \"CAPSAICINA:\" / \"Ayuda a que los vasos se relajen y la sangre llegue mejor a pies y manos.\"; glossy red soft-gel capsules — \"CÁPSULA BLANDA:\" / \"Fácil de tragar y sin ardor en la boca.\"; a bowl of mixed dried herbs and leaves — \"BOTÁNICOS DE APOYO:\" / \"Acompañan la fórmula de la cayena.\"; a green plant leaf with a crossed DNA icon — \"SIN TRANSGÉNICOS:\" / \"Ingredientes de origen natural.\"; a small calendar with capsules — \"60 CÁPSULAS:\" / \"2 al día, una bolsa te rinde 30 días.\". Do not name any specific herb besides cayenne. No seals, no regulatory logos, no other brand. All text in Spanish, large and legible.",
+      "aspecto": "9:16",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img4",
+      "funcion": "Imagen de presentación y modo de uso: en vez de una tabla nutricional que no tenemos, muestra lo que sí es cierto: cuántas cápsulas trae, cuántas se toman, cuánto rinde y cómo se toma.",
+      "prompt": "Square 1:1 Spanish-language product-facts infographic, structurally translated from a 'product on the left, facts table on the right, banner at the bottom' layout. Cream background, cherry red #A62737 pills, dark wine #6E1622 text and borders, golden #F2B81F accents, warm soft light. LAYOUT: (1) Top headline, huge bold dark-wine letters: \"2 CÁPSULAS AL DÍA\" / in a big soft cherry pill \"CON LA COMIDA\" / \"Y SIN ARDOR\", with cherry burst lines on both sides and a curved cherry underline. (2) Left: the attached Cayenne Pepper product package exactly as in the reference photo, large, sharp and in focus, on a light wooden table, with a small wooden spoon holding two glossy red soft-gel capsules in front, fresh red cayenne peppers and a plate of home lunch softly blurred beside it. (3) Right: a clean rounded white card with dark-wine border titled \"Así se toma\", with simple rows separated by thin lines: \"Contenido\" — \"60 cápsulas blandas\"; \"Porciones\" — \"30\"; \"Cuántas al día\" — \"2 cápsulas\"; \"Cuándo\" — \"Con la comida\"; \"Una bolsa rinde\" — \"30 días\"; \"Presentación\" — \"Cápsula blanda fácil de tragar\"; \"Fórmula\" — \"Extracto de cayena con botánicos de apoyo\"; \"Sin transgénicos\" — \"Sí\". (4) Bottom banner: a wide rounded soft-cherry pill with dark-wine text \"Hazlo todos los días: el calorcito se nota con la constancia\". No nutrition numbers, no seals, no regulatory logos, no other brand. All text in Spanish, large and legible.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img5",
+      "funcion": "Rostro del médico asesor: da la voz seria y honesta (un apoyo natural, no promesas mágicas). Es de ejemplo: el dueño debe poner al profesional real que lo autorice.",
+      "prompt": "Realistic 16:9 photo of a Colombian Latino internal medicine doctor about 52 years old, short graying hair and neat beard, calm and approachable smile, standing and looking at the camera, wearing a white lab coat over a light shirt and a warm burgundy tie, no name tag text, no readable badge, no logos. Background: a softly blurred warm medical consultation room with wooden furniture, cream walls, a plant and warm window light; cozy and human, not cold or bluish, not a hospital corridor. Medium shot from the waist up, centered, natural colors with warm tones. No text in the image.",
+      "aspecto": "16:9",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img6",
+      "funcion": "Primera carita de clienta en la prueba social.",
+      "prompt": "Realistic smartphone selfie-style portrait, head and shoulders, of a Colombian Latina woman about 60 years old, shoulder-length dark hair with some gray, warm genuine smile, looking at the camera, wearing a mustard-colored wool ruana over a cream sweater. Background: her cozy home in a cold Colombian city, softly blurred living room with warm lamp light. Natural skin, casual phone photo quality. No text, no logos.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img7",
+      "funcion": "Segunda carita de clienta, para dar sensación de grupo.",
+      "prompt": "Realistic smartphone photo portrait, head and shoulders, of a Colombian Latina woman about 55 years old, short wavy light-brown hair, reading glasses pushed up on her head, soft natural smile, looking at the camera, wearing a cherry-red knitted cardigan. Background: her kitchen at home, softly blurred, wooden cabinets and warm afternoon light. Natural skin, casual phone photo quality. No text, no logos.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img8",
+      "funcion": "Tercera carita: la hija que se lo manda a la mamá.",
+      "prompt": "Realistic smartphone selfie portrait, head and shoulders, of a Colombian Latina woman about 40 years old, long dark hair tied back, friendly smile, looking at the camera, wearing a cream turtleneck sweater and small gold earrings. Background: a cozy apartment living room in a cold Colombian city, softly blurred, warm light and a golden throw blanket on a sofa. Natural skin, casual phone photo quality. No text, no logos.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img9",
+      "funcion": "Foto del producto junto a los combos. No se genera: se usa la foto real del producto.",
+      "prompt": "",
+      "aspecto": "4:5",
+      "usar_foto": true
+    },
+    {
+      "imagen": "img10",
+      "funcion": "Cara de la clienta del testimonio destacado.",
+      "prompt": "Realistic smartphone photo portrait, head and shoulders, of a Colombian Latina woman about 62 years old, dark hair with gray streaks in a low bun, warm happy smile, looking at the camera, wrapped in a thick golden-yellow wool shawl, holding a small cup of black coffee (tinto) near her chest. Background: her cozy living room in a cold Colombian town, softly blurred, wooden furniture, a knitted blanket and warm lamp light. Natural skin, casual phone photo quality. No text, no logos.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img11",
+      "funcion": "Foto de ejemplo del especialista en circulación (pies fríos). El dueño la cambia por la real.",
+      "prompt": "Realistic portrait photo, head and shoulders, of a Colombian Latino vascular surgeon (angiologist) about 48 years old, short dark hair, clean-shaven, confident and kind smile, looking at the camera, wearing a white lab coat over a light blue shirt, no name tag text, no readable badge, no logos. Background: a softly blurred warm consultation office with cream walls, wooden shelves and warm light. No text in the image.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img12",
+      "funcion": "Foto de ejemplo de la médica internista (piernas pesadas). El dueño la cambia por la real.",
+      "prompt": "Realistic portrait photo, head and shoulders, of a Colombian Latina internal medicine doctor about 45 years old, shoulder-length brown hair, warm approachable smile, looking at the camera, wearing a white lab coat over a burgundy blouse, a stethoscope around her neck, no name tag text, no readable badge, no logos. Background: a softly blurred warm consultation office with wooden furniture, a plant and warm window light. No text in the image.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img13",
+      "funcion": "Foto de ejemplo del geriatra (energía después de los 60). El dueño la cambia por la real.",
+      "prompt": "Realistic portrait photo, head and shoulders, of a Colombian Latino geriatrician about 62 years old, gray hair, glasses, serene and gentle smile, looking at the camera, wearing a white lab coat over a light shirt, no name tag text, no readable badge, no logos. Background: a softly blurred warm consultation office with bookshelves, cream walls and warm light. No text in the image.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img14",
+      "funcion": "Foto de ejemplo de la gastroenteróloga (sin ardor, estómago). El dueño la cambia por la real.",
+      "prompt": "Realistic portrait photo, head and shoulders, of a Colombian Latina gastroenterologist about 40 years old, long dark hair, friendly professional smile, looking at the camera, wearing a white lab coat over a cream top, small gold earrings, no name tag text, no readable badge, no logos. Background: a softly blurred warm consultation office with light wood details and warm light. No text in the image.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    },
+    {
+      "imagen": "img15",
+      "funcion": "Foto de ejemplo del médico familiar (seguridad con otros medicamentos). El dueño la cambia por la real.",
+      "prompt": "Realistic portrait photo, head and shoulders, of a Colombian Latino family medicine doctor about 50 years old, short salt-and-pepper hair, short trimmed beard, kind and reassuring smile, looking at the camera, wearing a white lab coat over a light shirt with a stethoscope, no name tag text, no readable badge, no logos. Background: a softly blurred warm family-doctor office with cream walls, a plant and warm light. No text in the image.",
+      "aspecto": "1:1",
+      "usar_foto": false
+    }
+  ],
+  "resumen": "Las cinco imágenes de la galería siguen el mismo orden y armado de la plantilla, pero hablan de los pies helados, las piernas pesadas y el bajón de la tarde, con tu producto, en una casa calientica de tierra fría y con tus colores rojo cereza y dorado. Donde la plantilla tenía sellos oficiales, garantía, «en 2 a 4 semanas», una lista de ingredientes y una tabla nutricional, puse solo lo verdadero: pago al recibir, confirmación por WhatsApp, «con constancia», la cayena y la cápsula blanda (sin nombrar los botánicos) y cómo se toma (60 cápsulas, 2 al día, 30 días). Las caritas son mujeres colombianas de 40 a 62 años en casa, y los médicos son de especialidades que tienen sentido para este producto: son de ejemplo y debes cambiarlos por profesionales reales que te autoricen. La foto del producto de los combos es tu foto real, no se genera."
+}

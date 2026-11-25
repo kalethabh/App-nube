@@ -19,12 +19,16 @@
   "progreso": [
     "Emilio (estratega (investigación)) está trabajando…",
     "Simón (arquitecto de conversión) está trabajando…",
-    "Antonia (diseñadora visual) está trabajando…"
+    "Antonia (diseñadora visual) está trabajando…",
+    "Valeria (copywriter) está trabajando…",
+    "Mateo (director de imágenes) está trabajando…",
+    "Quité lo que no aplica a este producto: 6 elemento(s) repetido(s) y la(s) sección(es) comparacion-costo.",
+    "Renata (revisión) está trabajando…"
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T21:08:33.680Z",
+  "actualizado": "2026-11-25T21:10:04.538Z",
   "agentes": [
     {
       "id": "estratega",
@@ -44,28 +48,28 @@
       "id": "diseno",
       "nombre": "Antonia",
       "rol": "Diseñadora visual",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Tomé el rojo cereza del empaque como color principal de botones y precio, porque el texto blanco se lee muy bien encima, y usé el amarillo dorado del nombre para resaltar la barra de arriba y las estrellas. Para los títulos elegí Anton, la misma letra gruesa y alta del empaque, y para el texto Nunito Sans, que es redondita y fácil de leer para una señora de 50 a 65 años en el celular. Las fotos van con luz cálida y escenas de casa en clima frío para que todo hable del calorcito que ella quiere sentir."
     },
     {
       "id": "copy",
       "nombre": "Valeria",
       "rol": "Copywriter",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Escribí toda la página alrededor de los pies helados de la noche, con las piernas pesadas y el bajón de la tarde como apoyo, y sin prometer nada del corazón ni de la presión. Los precios dicen «Precio por definir», sin descuentos ni regalos. Quité el envío gratis y la garantía porque no los confirmaste, y también la comparación de costos. Las cifras de la encuesta, las reseñas y los nombres de los médicos quedan en blanco para que pongas los reales."
     },
     {
       "id": "imagenes",
       "nombre": "Mateo",
       "rol": "Director de imágenes",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Las cinco imágenes de la galería siguen el mismo orden y armado de la plantilla, pero hablan de los pies helados, las piernas pesadas y el bajón de la tarde, con tu producto, en una casa calientica de tierra fría y con tus colores rojo cereza y dorado. Donde la plantilla tenía sellos oficiales, garantía, «en 2 a 4 semanas», una lista de ingredientes y una tabla nutricional, puse solo lo verdadero: pago al recibir, confirmación por WhatsApp, «con constancia», la cayena y la cápsula blanda (sin nombrar los botánicos) y cómo se toma (60 cápsulas, 2 al día, 30 días). Las caritas son mujeres colombianas de 40 a 62 años en casa, y los médicos son de especialidades que tienen sentido para este producto: son de ejemplo y debes cambiarlos por profesionales reales que te autoricen. La foto del produ"
     },
     {
       "id": "revision",
       "nombre": "Renata",
       "rol": "Revisión",
-      "estado": "esperando",
+      "estado": "trabajando",
       "resumen": null
     },
     {
