@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-24 (Dirección visual y fondos del Embudo, versión 2026-11-24p).
+Última actualización: 2026-11-24 (Embudo independiente, avisos y análisis visual, versión 2026-11-24q).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -12,6 +12,84 @@ Al terminar cada cambio de desarrollo o decisión relevante, actualizar este arc
 cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponibles, las pruebas y sus límites,
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
+
+## Embudo independiente, avisos y análisis visual (2026-11-24q)
+
+Pedidos de esta entrega: permitir seleccionar títulos y empezar otras secciones mientras una genera;
+mejorar fondos conservando Hero 9:16 y resto 4:5; avisar landing lista y publicación confirmada; sustituir
+los dos avisos de actualización por un popup central mediano con resumen; análisis de landing por sección
+con captura, título y explicación. Esta sección prevalece sobre el bloqueo global anterior del Embudo.
+
+### Generación independiente del Embudo
+
+- El proyecto conserva `trabajos` por ID y `trabajo` como puntero compatible al más reciente. Cada trabajo
+  mantiene estados, alcance, mensaje, costo y confirmación independientes. `confirmaciones` conserva la
+  idempotencia de tokens anteriores; `duenos` evita que un resultado antiguo sustituya una imagen posterior.
+- `activas` usa proyecto+trabajo, no solo proyecto. Hasta dos motores globales; el resto queda en cola.
+  Reconciliación y retoma por trabajo. Trabajos de revisión visual anterior conservan prompt/referencias/base;
+  la comprobación de retoma usa su revisión original, o versión de proyecto para encargos antiguos sin ella.
+- Selecciones, textos manuales, recursos por sección y correcciones se pueden editar durante la generación.
+  La entrada confirmada vive inmutable en `trabajo.json`; elegir otro título solo afecta al siguiente encargo
+  y la imagen anterior se marca desactualizada. Fondo/estilo/fuente/avatar comunes esperan a que terminen las
+  imágenes. Regenerar títulos no bloquea imágenes; sus opciones se añaden preservando la selección actual.
+- Presupuestos por token con firma del encargo de sus secciones: cambios ajenos no los invalidan; cambiar su
+  propio título, corrección, imagen de referencia, fuente, estilo o avatar sí. Cada confirmación sigue revisando
+  motor/modelo/precio. No permite dos trabajos simultáneos sobre la misma sección. Se reserva avatar solo para
+  Hero; las otras cotizaciones no se invalidan cuando termina de guardarse ese retrato.
+- UI: selección conjunta con casillas, botones por sección, selección de textos habilitada, aviso del texto
+  confirmado mientras genera, varios progresos y retoma independientes. No cambia silenciosamente un encargo
+  que el usuario aprobó. Embudo registra su actividad para no reiniciar la app a mitad de un trabajo.
+- Fondos: acabado editorial, capas tonales discretas, luz local y sombras interiores suaves; bordes siguen
+  volviendo al mismo color base. Revisión visual **4** invalida presupuestos anteriores y marca imágenes
+  anteriores para regenerar. Formatos conservados y comprobados: 1080×1920 y 1080×1350.
+
+### Landings y notificaciones
+
+- `lib/notificaciones.js` y `/api/notificaciones`: avisos persistentes por hito; GET no marca leído,
+  POST `/:id/leer` usa la protección de origen de la app. En pruebas se guarda bajo el puerto aislado;
+  en producción bajo `temp/_notificaciones/`. No envía correos, mensajes ni avisos a terceros.
+- Landing lista se emite al terminar clonado/adaptación y medición. Publicada se emite después del flujo
+  existente `publicarLanding`, solo con página https real y fecha de publicación; no con vista previa o
+  instrucciones manuales de una tienda «solo temas». El mismo hito no se duplica al reintentar.
+- `NotificacionesLanding` muestra avisos desde otras pantallas, enlace al proyecto o a página publicada y
+  cierre que persiste lectura. Son avisos dentro de la app, también pendientes al volver a abrirla.
+- La API Admin existente sigue fijada a 2026-07; no se cambia la mutación. Se verificó la documentación de
+  [pageCreate](https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/pageCreate) y la prueba con CLI/API
+  simulados comprueba publicación confirmada, ausencia de aviso en vista previa y acceso solo a temas.
+
+### Una ventana para actualizaciones
+
+- `Actualizaciones.jsx` reemplaza las dos bandas; el botón Actualizar abre el mismo diálogo. Tamaño normal
+  de 560 px, centrado y adaptable a móvil. Resumen desde CAMBIOS de la versión remota (GitHub) o notas de
+  release pública; resumen local para activar/reiniciar. Nuevo `/api/actualizar/resumen` de solo lectura.
+- Un solo controlador maneja instalar, esperar reinicio y recargar; se puede posponer por cambio/version.
+  El reinicio pendiente permite cerrar la ventana y continuar viendo la app. No instala por abrir el popup.
+  Se conservan las rutas de actualización existentes; la copia de desarrollo y la instalada eligen su vía.
+
+### Análisis visual de landings
+
+- `lib/landings/capturas.js` usa Chrome ya disponible con el motor del editor: capturas WebP de la copia local,
+  a 412 px de ancho. Identifica títulos visibles (o imágenes si no hay encabezados), hasta 30 bloques. Captura
+  antes de analizar; el modelo recibe IDs, títulos y material visual. Primeras 10 imágenes directas y resto
+  disponible a pedido. Se preserva análisis de texto si el navegador o las capturas no están disponibles.
+- Captura con scripts deshabilitados y solicitudes restringidas a GET de la propia copia; no accede a la API
+  de la app ni ejecuta código de la tienda. No modifica el HTML clonado ni su funcionamiento interactivo.
+- IDs de captura válidos y títulos reales vinculan imagen con sección; no se asigna una imagen por índice
+  supuesto. Títulos repetidos sin ID inequívoco quedan sin captura. Nunca se usa una imagen de otra sección
+  como relleno. Alto limitado a 3200 px por bloque; los recortes parciales se marcan explícitamente.
+- El análisis conserva campos antiguos y añade explicación, hipótesis de conversión, mejora y captura.
+  La UI muestra captura ampliable + título + objetivo + análisis + mejora. Análisis antiguos sin capturas
+  pueden actualizarse con «Analizar otra vez». La captura corresponde a la copia al momento del análisis,
+  no a cambios posteriores en la tienda externa. No se usó IA para inventar capturas.
+
+Validación completada: Embudo **58/58** y Chrome con selección/inicio de una segunda sección mientras Hero
+está activo; capturas reales de tres secciones de una página de prueba, bloqueo de scripts/API y vinculación;
+notificaciones persistentes y resumen; popup GitHub/público, posponer/reabrir, reinicio, avisos y análisis visual
+con temas y móvil. Shopify simulado **58/58**. Landings **43/44**: único fallo del entorno, FFmpeg del sistema
+carece del encoder libwebp; el clon conserva PNG en ese caso. Las capturas WebP de Chrome sí funcionan.
+No se hicieron generaciones de pago ni se publicó en tiendas reales. Regresión final del Embudo **58/58**
+tras el acabado de fondos; capturas de interfaz revisadas (popup central y análisis por sección). La estética final del proveedor de imágenes sigue
+requiriendo una generación real aprobada por el usuario dentro de la app.
 
 ## Dirección visual, fondos y caja del copy en Embudo (2026-11-24p)
 

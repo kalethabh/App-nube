@@ -15,8 +15,8 @@ import { EstadoVacio } from './componentes/EstadoVacio.jsx';
 import { Esqueleto, EsqueletoMiniaturas } from './componentes/Esqueleto.jsx';
 import { useHash, partirRuta, emparejar, ir, enlace } from './datos/rutas.js';
 import { BandaGlobalModoPrueba } from './pantallas/produccion/ModoPrueba.jsx';
-import { BandaVersionNueva } from './marco/BandaVersionNueva.jsx';
-import { BandaActualizacion } from './marco/BandaActualizacion.jsx';
+import { Actualizaciones } from './marco/Actualizaciones.jsx';
+import { NotificacionesLanding } from './marco/NotificacionesLanding.jsx';
 import './marco/marco.css';
 
 import EntradaGeneracion from './pantallas/generacion/index.jsx';
@@ -306,7 +306,7 @@ export default function App() {
   if (actual?.ruta.completa) {
     return (
       <ContextoBarra.Provider value={fijarMigas}>
-        <div className="app app--completa">{pantalla}</div>
+        <div className="app app--completa">{pantalla}<Actualizaciones /><NotificacionesLanding completa /></div>
       </ContextoBarra.Provider>
     );
   }
@@ -321,8 +321,8 @@ export default function App() {
           {/* en el tablero el gran "Nuevo anuncio" ya está en la portada: no se repite arriba */}
           <BarraArriba migas={migas} ocultarNuevo={actual?.ruta.menu === 'nuevo' || actual?.ruta.patron === '/tablero' || actual?.ruta.patron === '/inicio' || actual?.ruta.patron === '/imagenes' || actual?.ruta.patron === '/imagenes/nuevo'} />
           <main className="principal__contenido" id="contenido">
-            <BandaVersionNueva />
-            <BandaActualizacion />
+            <Actualizaciones />
+            <NotificacionesLanding />
             <BandaGlobalModoPrueba />
             {pantalla}
           </main>

@@ -9,6 +9,7 @@
 // cambiaron las dependencias y vuelve a armar la interfaz. Si cambió el servidor o el motor, avisa que hay que cerrar
 // la ventana de la app y volver a abrirla. Nunca borra nada tuyo: si algo choca, lo deja como estaba y lo dice.
 import { motivoParaNoReiniciar, reiniciar } from './version.js';
+import { resumirCambios } from './resumen-actualizacion.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
@@ -77,7 +78,9 @@ export async function revisar() {
   const [adelantados, atrasados] = cuenta.ok ? cuenta.salida.split(/\s+/).map(Number) : [0, 0];
   const u = await git(['log', '-1', '--format=%s%x1f%cI', `origin/${PUBLICADA}`]);
   const [titulo, fecha] = u.ok ? u.salida.split('\x1f') : [];
-  return { repositorio: true, rama: r, publicada: PUBLICADA, atrasados: atrasados || 0, adelantados: adelantados || 0, ultimo: titulo ? { titulo, fecha } : null, pantallaSinArmar: interfazVieja(), revisado: new Date().toISOString() };
+  const [versionRemota,cambiosRemotos]=await Promise.all([git(['show',`origin/${PUBLICADA}:VERSION`]),git(['show',`origin/${PUBLICADA}:CAMBIOS.md`])]);
+  const resumen=cambiosRemotos.ok?resumirCambios(cambiosRemotos.salida,versionRemota.ok?versionRemota.salida.trim():''):null;
+  return { resumen, repositorio: true, rama: r, publicada: PUBLICADA, atrasados: atrasados || 0, adelantados: adelantados || 0, ultimo: titulo ? { titulo, fecha } : null, pantallaSinArmar: interfazVieja(), revisado: new Date().toISOString() };
 }
 
 /** Baja lo último. Nunca corren dos a la vez. */
@@ -136,7 +139,7 @@ export async function actualizar() {
       mensaje: !interfaz
         ? 'Bajé lo nuevo, pero no pude armar la interfaz. Cierra la ventana de la app y vuelve a abrirla: el lanzador la arma solo.'
         : reabrir
-          ? `Listo: ${n} ${n === 1 ? 'cambio nuevo' : 'cambios nuevos'}. ${motivoParaNoReiniciar() ? 'Hay un video produciéndose: cuando termine, toca «Reiniciar la app» en la franja de arriba.' : 'Para usarlos todos, cierra la ventana de la app (la ventana negra) y vuelve a abrirla.'}`
+          ? `Listo: ${n} ${n === 1 ? 'cambio nuevo' : 'cambios nuevos'}. ${motivoParaNoReiniciar() ? 'Hay trabajos en curso. Puedes programar «Reiniciar al terminar» desde la ventana de actualización.' : 'Para usarlos todos, cierra la ventana de la app (la ventana negra) y vuelve a abrirla.'}`
           : `Listo: ${n} ${n === 1 ? 'cambio nuevo' : 'cambios nuevos'}. Recarga la página para verlos.`,
     };
   } finally {

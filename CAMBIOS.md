@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24q · Secciones independientes y análisis visual de landings
+
+- En Embudo puedes elegir títulos, editar mensajes y generar otras secciones mientras una está trabajando. Marca varias para generación conjunta; cada operación conserva su texto confirmado y muestra su progreso. Dos imágenes se procesan a la vez y las demás quedan en cola.
+- Fondos con un acabado editorial más cuidado, profundidad suave y gráficos ligados al mensaje. Hero sigue en 9:16 y las otras secciones en 4:5, con color base y bordes compartidos.
+- Los análisis nuevos de landings muestran tarjetas por sección: captura real ampliable, título, objetivo, análisis y mejora sugerida. «Analizar otra vez» actualiza un análisis anterior.
+- Recibes avisos dentro de la app cuando una landing está lista y cuando su publicación en la tienda está confirmada. Quedan pendientes hasta que los abras o cierres; una vista previa no se anuncia como publicada.
+- Las actualizaciones se presentan en una sola ventana central de tamaño medio, con el resumen de cambios. Desde ella puedes actualizar, posponer, activar el reinicio o recargar la pantalla nueva.
+
 ## 2026-11-24p · Fondos acordes al producto y visuales con intención
 
 - Embudo usa una paleta cromática suave derivada del color de la investigación o de la categoría del producto. Fondo limpio con material gráfico discreto, sin blanco predeterminado ni saturación. Puedes elegir un color base personalizado o volver a la paleta automática.

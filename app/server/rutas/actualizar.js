@@ -18,6 +18,7 @@
 // paquete (200 MB o mas) va directo a un archivo, sin pasar entero por la memoria. Solo se aceptan
 // tipos de zip y binario: un formulario de otra pagina web no puede mandarlo (el navegador pide
 // permiso antes, y esta app no se lo da), y si viene un Origin tiene que ser el de esta app.
+import { resumenLocal } from '../lib/resumen-actualizacion.js';
 import fs from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import { Transform } from 'node:stream';
@@ -121,6 +122,7 @@ function aplicar(res, ruta) {
 }
 
 export default function rutasActualizar(app) {
+  app.get('/api/actualizar/resumen',(req,res)=>res.set('Cache-Control','no-store').json(resumenLocal()));
   // Lo que quedo subido de una vez anterior (la app se cerro con el aviso abierto) no sirve: se borra al arrancar.
   limpiarSubidas();
 

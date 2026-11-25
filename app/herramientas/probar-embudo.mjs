@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import cp from 'node:child_process';
 import assert from 'node:assert/strict';
-import { identidadProducto } from '../server/lib/embudo/direccion.js';
+import { identidadProducto,REVISION_VISUAL } from '../server/lib/embudo/direccion.js';
 import { fileURLToPath } from 'node:url';
 const APP=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'), RAIZ=path.dirname(APP);
 const PUERTO=Number(process.env.PUERTO)||4495, BASE=`http://127.0.0.1:${PUERTO}`;
@@ -17,7 +17,7 @@ let productoId, embudoId, pasan=0;const otrosEmbudoIds=[];
 const dormir=ms=>new Promise(r=>setTimeout(r,ms));
 async function pedir(ruta,{metodo,json,bytes,headers={}}={}){const r=await fetch(BASE+ruta,{method:metodo||(json||bytes?'POST':'GET'),headers:{...(json?{'Content-Type':'application/json'}:{}),...headers},body:json?JSON.stringify(json):bytes,signal:AbortSignal.timeout(60000)});const data=await r.json().catch(()=>null);return{st:r.status,data};}
 function check(nombre,fn){fn();pasan++;console.log('OK '+nombre)}
-async function listo(){let e;for(let i=0;i<150;i++){e=(await pedir(`/api/embudos/${embudoId}`)).data;if(e?.trabajo&&e.trabajo.estado!=='generando')return e;await dormir(1000)}throw new Error('La generación no terminó: '+JSON.stringify(e?.trabajo));}
+async function listo(){let e;for(let i=0;i<150;i++){e=(await pedir(`/api/embudos/${embudoId}`)).data;if(e?.trabajo && !(e.trabajos || [e.trabajo]).some(t=>t.estado==='generando'))return e;await dormir(1000)}throw new Error('La generación no terminó: '+JSON.stringify(e?.trabajo));}
 try{
  let arriba=false;for(let i=0;i<80&&!arriba;i++){try{arriba=(await pedir('/api/estilos')).st===200}catch{}if(!arriba)await dormir(300)}assert.ok(arriba);
  let r=await pedir('/api/productos',{json:{nombre:'Producto sintético Embudo',tipo:'fisico'}});productoId=r.data.id;assert.ok(productoId);
@@ -37,7 +37,7 @@ try{
  const migracionFile=path.join(RAIZ,`temp/_embudo-${embudoId}/embudo.json`), antiguo=JSON.parse(fs.readFileSync(migracionFile));
  delete antiguo.reglasVisuales;delete antiguo.identidad;delete antiguo.fondoModo;antiguo.fondo='#FFFFFF';antiguo.presupuestos={['a'.repeat(32)]:{version:e.version}};fs.writeFileSync(migracionFile,JSON.stringify(antiguo));
  e=(await pedir(`/api/embudos/${embudoId}`)).data;
- check('La migración queda guardada una sola vez sin cambiar la fecha del proyecto',()=>{const m=JSON.parse(fs.readFileSync(migracionFile));assert.equal(m.reglasVisuales,3);assert.equal(m.actualizado,antiguo.actualizado);assert.deepEqual(m.presupuestos,{});});
+ check('La migración queda guardada una sola vez sin cambiar la fecha del proyecto',()=>{const m=JSON.parse(fs.readFileSync(migracionFile));assert.equal(m.reglasVisuales,REVISION_VISUAL);assert.equal(m.actualizado,antiguo.actualizado);assert.deepEqual(m.presupuestos,{});});
  check('El fondo blanco heredado pasa a paleta automática sin alterar sus opciones',()=>{assert.equal(e.fondoModo,'auto');assert.notEqual(e.fondo,'#FFFFFF');assert.equal(e.secciones[0].opciones[0].titulo,'hero: mensaje 1');});
  r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:e.version,token:'a'.repeat(32)}});check('Los presupuestos anteriores a la nueva dirección requieren confirmación nueva',()=>assert.equal(r.st,428));
  antiguo.fondo='#355568';fs.writeFileSync(migracionFile,JSON.stringify(antiguo));e=(await pedir(`/api/embudos/${embudoId}`)).data;
@@ -55,7 +55,7 @@ try{
  q=(await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones}})).data;
  r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{token:q.token,version:q.version}});assert.equal(r.st,200,JSON.stringify(r.data));let trabajo=r.data.trabajo;
  r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{token:q.token,version:q.version}});check('Confirmar dos veces no duplica el trabajo',()=>assert.equal(r.data.trabajo.id,trabajo.id));
- r=await pedir(`/api/embudos/${embudoId}`,{metodo:'PUT',json:{version:e.version,formato:'1:1'}});check('No cambia las entradas mientras genera',()=>assert.equal(r.st,409));
+ r=await pedir(`/api/embudos/${embudoId}`,{metodo:'PUT',json:{version:e.version,formato:'1:1'}});check('El formato común espera a que terminen las imágenes',()=>assert.equal(r.st,409));
  e=await listo();check('Genera cinco imágenes independientes con el proveedor simulado',()=>{assert.equal(e.trabajo.estado,'lista',JSON.stringify(e.trabajo));assert.ok(e.secciones.every(s=>s.imagen?.url));assert.equal(new Set(e.secciones.map(s=>s.imagen.url)).size,5)});
  check('Hero 9:16 y demás 4:5 con medidas y bordes compartidos',()=>{for(const s of e.secciones){assert.equal(s.formato,s.id==='hero'?'9:16':'4:5');const b=fs.readFileSync(path.join(RAIZ,`temp/_embudo-${embudoId}`,s.imagen.archivo));assert.equal(b.readUInt32BE(16),1080);assert.equal(b.readUInt32BE(20),s.id==='hero'?1920:1350);const pixel=cp.execFileSync('ffmpeg',['-v','error','-i',path.join(RAIZ,`temp/_embudo-${embudoId}`,s.imagen.archivo),'-vf','crop=1:1:0:0','-frames:v','1','-f','rawvideo','-pix_fmt','rgb24','pipe:1']);assert.deepEqual([...pixel],[1,3,5].map(i=>parseInt(e.fondo.slice(i,i+2),16)));}});
  check('Las secciones se solapan en el tiempo y tienen estado individual',()=>{const estados=Object.values(e.trabajo.estados);assert.ok(estados.every(x=>x.estado==='lista'));const eventos=estados.flatMap(x=>[{t:x.inicio,d:1},{t:x.fin,d:-1}]).filter(x=>x.t).sort((a,b)=>a.t.localeCompare(b.t)||a.d-b.d);let n=0,max=0;for(const x of eventos){n+=x.d;max=Math.max(max,n);}assert.equal(max,2);});
@@ -65,7 +65,7 @@ try{
  const lib=(await pedir('/api/biblioteca')).data;
  const a=lib.avatares.find(a=>a.id===e.avatarGuardado?.id);
  check('El retrato se guarda automáticamente en la Biblioteca, separado del anuncio',()=>{assert.ok(a);assert.equal(a.estilo,'realista-narrado');assert.equal(a.personas.length,1);assert.ok(e.avatarGuardado.url);const j=JSON.parse(fs.readFileSync(path.join(RAIZ,`temp/_embudo-${embudoId}/trabajos/${e.trabajo.id}/trabajo.json`)));assert.equal(j.piezas[0].id,'avatar');assert.match(j.piezas[0].prompt,/standalone reusable/)});
- const estadoInicial=path.join(RAIZ,`temp/_embudo-${embudoId}/embudo.json`);const corte=JSON.parse(fs.readFileSync(estadoInicial));corte.trabajo.estado='generando';corte.imagenes={};delete corte.avatar.guardado;fs.writeFileSync(estadoInicial,JSON.stringify(corte));e=(await pedir(`/api/embudos/${embudoId}`)).data;
+ const estadoInicial=path.join(RAIZ,`temp/_embudo-${embudoId}/embudo.json`);const corte=JSON.parse(fs.readFileSync(estadoInicial));corte.trabajo.estado='generando';corte.imagenes={};delete corte.avatar.guardado;corte.trabajos[corte.trabajo.id]=corte.trabajo;fs.writeFileSync(estadoInicial,JSON.stringify(corte));e=(await pedir(`/api/embudos/${embudoId}`)).data;
  check('Tras un cierre recupera las imágenes y el mismo avatar sin duplicarlo',()=>{assert.equal(e.trabajo.estado,'lista');assert.equal(e.avatarGuardado.id,a.id);assert.ok(e.secciones.every(s=>s.imagen));});
  const av=await fetch(BASE+e.avatarGuardado.url);check('El avatar de la Biblioteca se puede abrir',()=>assert.equal(av.status,200));
  let otro=(await pedir('/api/embudos',{json:{productoId}})).data;otrosEmbudoIds.push(otro.id);
@@ -76,6 +76,28 @@ try{
  for(let i=0;i<100;i++){otro=(await pedir(`/api/embudos/${otro.id}`)).data;if(otro.trabajo?.estado!=='generando')break;await dormir(500)}
  check('La reutilización conserva el avatar y no duplica la Biblioteca',()=>{assert.equal(otro.trabajo.estado,'lista');const j=JSON.parse(fs.readFileSync(path.join(RAIZ,`temp/_embudo-${otro.id}/trabajos/${otro.trabajo.id}/trabajo.json`)));assert.ok(j.avatarArchivo.startsWith('avatar-base'));assert.equal(j.piezas.some(p=>p.id==='avatar'),false)});
  const libReusada=(await pedir('/api/biblioteca')).data;check('Una sola entrada de avatar después de reutilizarlo',()=>assert.equal(libReusada.avatares.length,1));
+ // Operaciones independientes dentro de un mismo Embudo, con presupuestos simultáneos.
+ const qHero=(await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones:['hero']}})).data;
+ const qDolor=(await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones:['dolor']}})).data;
+ const qUso=(await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones:['uso']}})).data;
+ r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:qHero.version,token:qHero.token}});assert.equal(r.st,200,JSON.stringify(r.data));const jHero=r.data.trabajo.id;e=r.data;
+ e=(await pedir(`/api/embudos/${embudoId}`,{metodo:'PUT',json:{version:e.version,seleccion:{beneficios:e.secciones.find(s=>s.id==='beneficios').opciones[0].id,uso:e.secciones.find(s=>s.id==='uso').opciones[0].id}}})).data;
+ check('Permite seleccionar títulos mientras otra sección se genera',()=>{assert.ok(e.version);assert.equal(e.trabajos.find(t=>t.id===jHero).estado,'generando');assert.equal(e.secciones.find(s=>s.id==='beneficios').elegida,e.secciones.find(s=>s.id==='beneficios').opciones[0].id);});
+ r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:qUso.version,token:qUso.token}});check('Cambiar el mensaje de la sección cotizada invalida solo su presupuesto',()=>assert.equal(r.st,428));
+ r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:qDolor.version,token:qDolor.token}});check('La cotización de otra sección sigue válida tras editar títulos ajenos',()=>assert.equal(r.st,200,JSON.stringify(r.data)));const jDolor=r.data.trabajo.id;e=r.data;
+ check('Dos confirmaciones separadas conservan ambos trabajos activos',()=>{assert.notEqual(jHero,jDolor);assert.equal(e.trabajos.filter(t=>t.estado==='generando').length,2);});
+ r=await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones:['hero']}});check('No duplica una sección activa aunque se pida otro presupuesto',()=>assert.equal(r.st,409));
+ const qIngredientes=(await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones:['ingredientes']}})).data;
+ r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:qIngredientes.version,token:qIngredientes.token}});assert.equal(r.st,200);const jIngredientes=r.data.trabajo.id;e=r.data;
+ check('Una tercera operación queda en cola con progreso propio',()=>{assert.equal(e.trabajos.filter(t=>t.estado==='generando').length,3);assert.equal(e.secciones.find(s=>s.id==='ingredientes').progreso.estado,'en-cola');});
+ e=(await pedir(`/api/embudos/${embudoId}`,{metodo:'PUT',json:{version:e.version,seleccion:{hero:e.secciones[0].opciones[0].id}}})).data;
+ r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:qHero.version,token:qHero.token}});check('Repetir una confirmación anterior no crea otro trabajo aunque ya haya otros nuevos',()=>assert.equal(r.data.trabajos.length,e.trabajos.length));
+ const durante=(await pedir('/api/embudos')).data.embudos.find(x=>x.id===embudoId);check('La carpeta sigue mostrando actividad aunque existan varios trabajos',()=>assert.equal(durante.estado,'generando'));
+ e=await listo();
+ check('Cada trabajo guarda su resultado sin pisar las otras secciones',()=>{for(const [s,id] of [['hero',jHero],['dolor',jDolor],['ingredientes',jIngredientes]]){assert.equal(e.trabajos.find(t=>t.id===id).estado,'lista');assert.equal(e.secciones.find(x=>x.id===s).imagen.trabajoId,id);}});
+ const congelado=JSON.parse(fs.readFileSync(path.join(RAIZ,`temp/_embudo-${embudoId}/trabajos/${jHero}/trabajo.json`)));
+ check('Cambiar el título en curso conserva el encargo confirmado y avisa que hay otra selección',()=>{assert.equal(congelado.piezas[0].opcion.titulo,'hero: mensaje 2');assert.equal(e.secciones[0].elegida,e.secciones[0].opciones[0].id);assert.equal(e.secciones[0].imagen.desactualizada,true);});
+ const eventosNuevos=[jHero,jDolor,jIngredientes].flatMap(id=>Object.values(e.trabajos.find(t=>t.id===id).estados).flatMap(x=>[{t:x.inicio,d:1},{t:x.fin,d:-1}])).filter(x=>x.t).sort((a,b)=>a.t.localeCompare(b.t)||a.d-b.d);let simultaneas=0,pico=0;for(const v of eventosNuevos){simultaneas+=v.d;pico=Math.max(pico,simultaneas);}check('Los trabajos independientes respetan dos motores y se solapan realmente',()=>assert.equal(pico,2));
  const urls=e.secciones.map(s=>s.imagen.url);const imagen=await fetch(BASE+urls[0]+'?descargar=1');check('Imagen descargable en PNG',()=>{assert.equal(imagen.status,200);assert.match(imagen.headers.get('content-disposition'),/hero.png/)});
  e=(await pedir(`/api/embudos/${embudoId}`,{metodo:'PUT',json:{version:e.version,correcciones:{hero:'Agranda el producto y cambia el fondo'}}})).data;
  q=(await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones:['hero'],corregir:true}})).data;check('La corrección cotiza solo la sección elegida',()=>assert.equal(q.cantidad,1));
@@ -84,16 +106,16 @@ try{
  check('La versión anterior sigue descargable',()=>assert.ok(fs.existsSync(path.join(RAIZ,`temp/_embudo-${embudoId}/trabajos/${trabajo.id}/hero.png`))));
  // Simula un cierre tras descargar la corrección, antes de anotar su resultado. Se recupera el MISMO archivo.
  const proyecto=path.join(RAIZ,`temp/_embudo-${embudoId}`), estadoFile=path.join(proyecto,'embudo.json');
- const guardado=JSON.parse(fs.readFileSync(estadoFile));guardado.trabajo.estado='generando';fs.writeFileSync(estadoFile,JSON.stringify(guardado));
+ const guardado=JSON.parse(fs.readFileSync(estadoFile));guardado.trabajo.estado='generando';guardado.trabajos[guardado.trabajo.id]=guardado.trabajo;fs.writeFileSync(estadoFile,JSON.stringify(guardado));
  e=(await pedir(`/api/embudos/${embudoId}`)).data;check('Reconcilia resultados ya terminados sin llamar al proveedor',()=>assert.equal(e.trabajo.estado,'lista'));
- guardado.trabajo.estado='generando';fs.writeFileSync(estadoFile,JSON.stringify(guardado));
+ guardado.trabajo.estado='generando';guardado.trabajos[guardado.trabajo.id]=guardado.trabajo;fs.writeFileSync(estadoFile,JSON.stringify(guardado));
  fs.unlinkSync(path.join(proyecto,`trabajos/${e.trabajo.id}/hero.resultado.json`));
  e=(await pedir(`/api/embudos/${embudoId}`)).data;check('Reconoce la generación interrumpida y conserva los archivos',()=>assert.equal(e.trabajo.estado,'interrumpido'));
  q=(await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,retomar:e.trabajo.id}})).data;
  await pedir(`/api/embudos/${embudoId}/generar`,{json:{token:q.token,version:q.version}});e=await listo();
  check('Retomar recupera la descarga sin pedir otra imagen',()=>{assert.equal(e.trabajo.estado,'lista');assert.equal(JSON.parse(fs.readFileSync(path.join(proyecto,`trabajos/${e.trabajo.id}/hero.resultado.json`))).recuperada,true)});
  r=await pedir('/api/embudos',{json:{productoId},headers:{Origin:'https://sitio-ajeno.example'}});check('Otro sitio no puede iniciar trabajos',()=>assert.equal(r.st,403));
- inv.embudo.hero[1].titulo='Nueva investigación';fs.writeFileSync(invfile,JSON.stringify(inv));e=(await pedir(`/api/embudos/${embudoId}`)).data;check('Detecta investigación modificada',()=>assert.equal(e.fuenteCambio,true));
+ inv.embudo.hero[e.secciones[0].opciones.findIndex(o=>o.id===e.secciones[0].elegida)].titulo='Nueva investigación';fs.writeFileSync(invfile,JSON.stringify(inv));e=(await pedir(`/api/embudos/${embudoId}`)).data;check('Detecta investigación modificada',()=>assert.equal(e.fuenteCambio,true));
  r=await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones:['hero']}});check('No genera con la investigación desactualizada',()=>assert.equal(r.st,409));
  e=(await pedir(`/api/embudos/${embudoId}`,{metodo:'PUT',json:{version:e.version,actualizarTextos:true}})).data;check('Actualizar limpia selecciones desaparecidas y conserva imágenes con aviso',()=>{assert.equal(e.secciones[0].elegida,null);assert.equal(e.secciones[0].imagen.desactualizada,true);assert.equal(e.fuenteCambio,false)});
  // Textos manuales y propuestas nuevas sin generar imágenes ni perder la elección.

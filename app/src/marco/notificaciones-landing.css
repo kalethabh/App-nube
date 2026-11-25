@@ -1,0 +1,8 @@
+.notificaciones-landing { position:fixed;bottom:24px;left:270px;z-index:550;display:grid;gap:12px;width:min(380px,calc(100vw - 32px));pointer-events:none;max-height:calc(100vh - 48px);overflow-y:auto; }
+.nl-aviso { display:flex;align-items:flex-start;gap:12px;padding:18px;border:1px solid var(--ok-borde);border-radius:8px;background:var(--superficie-1);box-shadow:0 12px 30px #0003;color:var(--texto-1);pointer-events:auto; }
+.nl-aviso > svg { flex:none;color:var(--ok); }
+.nl-aviso strong { font-size:15px; }.nl-aviso p { font-size:13px;line-height:1.6;color:var(--texto-2);margin:8px 0; }.nl-aviso a { color:var(--acento);font-size:13px;font-weight:700; }
+.nl-cerrar { display:grid;place-items:center;border:0;background:transparent;color:var(--texto-2);cursor:pointer;padding:3px; }.nl-cerrar:focus-visible {outline:2px solid var(--acento);}
+@media(max-width:800px){.notificaciones-landing {left:16px;bottom:18px;}}
+
+.notificaciones-landing--completa {left:16px;}
