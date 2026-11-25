@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-25a · Kads en internet gratis y con cuentas
+
+- En un servidor, la app ahora pide **correo y clave**: las mismas cuentas del Centro de Control (mismo Supabase). El primero que entra queda **dueño**; los demás esperan a que los apruebes en **Tu cuenta › Usuarios** (socio, empleado o rechazado).
+- Socios y empleados usan la app; solo el dueño cambia ajustes, claves, la IA conectada, el guardado y las tiendas conectadas.
+- Guía nueva **DESPLEGAR-GRATIS.md**: la app en el servidor gratis de Oracle Cloud, paso a paso.
+- En tu Mac no cambia nada: ahí no pide ingreso.
+
 ## 2026-11-24s · Borrar carpetas y generaciones
 
 - Puedes borrar una generación desde su tarjeta o borrar una carpeta con las generaciones de esa sección. Disponible en imágenes, videos, Embudo, Landings, Sketch y Cambiar producto.
@@ -56,13 +63,6 @@ Cada versión nueva va arriba. La versión que tienes está en el archivo VERSIO
 - Shopify abre tus carpetas de negocios. Crea «District Shop» y conecta dentro sus tiendas de Colombia, Ecuador, Guatemala, Costa Rica, Perú o cualquier otro país. Puedes renombrar carpetas y mover tiendas sin reconectarlas.
 - Las tiendas existentes se organizan por su cuenta anterior, conservando sus conexiones. Las carpetas vacías también se guardan; solo se eliminan cuando ya no tienen tiendas.
 - Los cambios de temas, copias entre tiendas y vistas previas pendientes se revisan desde **Landings → Cambios en tiendas**. El apartado Shopify queda dedicado a conexiones.
-
-## 2026-11-25a · Kads en internet gratis y con cuentas
-
-- En un servidor, la app ahora pide **correo y clave**: las mismas cuentas del Centro de Control (mismo Supabase). El primero que entra queda **dueño**; los demás esperan a que los apruebes en **Tu cuenta › Usuarios** (socio, empleado o rechazado).
-- Socios y empleados usan la app; solo el dueño cambia ajustes, claves, la IA conectada, el guardado y las tiendas conectadas.
-- Guía nueva **DESPLEGAR-GRATIS.md**: la app en el servidor gratis de Oracle Cloud, paso a paso.
-- En tu Mac no cambia nada: ahí no pide ingreso.
 
 ## 2026-11-24k · Landings que se ven y funcionan bien en tiendas reales
 
