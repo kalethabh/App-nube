@@ -22,12 +22,13 @@
     "Valeria (copywriter) está trabajando…",
     "Mateo (director de imágenes) está trabajando…",
     "Renata (revisión) está trabajando…",
-    "ChatGPT está haciendo 4 imágenes con tu producto…"
+    "ChatGPT está haciendo 4 imágenes con tu producto…",
+    "Imagen 1 de 4 lista."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T19:11:50.734Z",
+  "actualizado": "2026-11-25T19:13:07.968Z",
   "agentes": [
     {
       "id": "estratega",
