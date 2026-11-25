@@ -1,0 +1,71 @@
+{
+  "id": "cayenne-pepper-9bbd7c",
+  "url": null,
+  "modo": "crear",
+  "motor": "claude",
+  "prompt": "Inventa los",
+  "precios": {
+    "uno": "79900",
+    "dos": "119900",
+    "tres": "139900",
+    "antes": ""
+  },
+  "productoId": "cayenne-pepper-d319",
+  "analizar": false,
+  "titulo": "CAYENNE PEPPER",
+  "creado": "2026-11-25T19:08:42.871Z",
+  "estado": "trabajando",
+  "progreso": [
+    "Emilio (estratega (investigación)) está trabajando…",
+    "Simón (arquitecto de conversión) está trabajando…"
+  ],
+  "error": null,
+  "informe": null,
+  "puntajes": null,
+  "actualizado": "2026-11-25T19:09:06.573Z",
+  "agentes": [
+    {
+      "id": "estratega",
+      "nombre": "Emilio",
+      "rol": "Estratega (investigación)",
+      "estado": "listo",
+      "resumen": "Elegí venderlo como 'el ritual del calorcito' para Gloria Patricia, la mujer de 50 a 65 que vive con los pies helados y se apaga en la tarde, y para la hija que se lo regala. En un mercado cansado de promesas de circulación, gana hablar de lo que ella siente cada noche y presentar la cayena de siempre en cápsula, sin ardor. No prometemos nada del corazón ni de la presión, no inventamos testimonios y dejamos claro para quién no es. La oferta empuja las 3 bolsas a $139.900 como la rutina de 90 días, con pago al recibir. Tu instrucción llegó cortada ('Inventa los...'): no supe qué querías que inventara, así que no inventé nada fuera de lo que dice la investigación."
+    },
+    {
+      "id": "conversion",
+      "nombre": "Simón",
+      "rol": "Arquitecto de conversión",
+      "estado": "trabajando",
+      "resumen": null
+    },
+    {
+      "id": "diseno",
+      "nombre": "Antonia",
+      "rol": "Diseñadora visual",
+      "estado": "esperando",
+      "resumen": null
+    },
+    {
+      "id": "copy",
+      "nombre": "Valeria",
+      "rol": "Copywriter",
+      "estado": "esperando",
+      "resumen": null
+    },
+    {
+      "id": "imagenes",
+      "nombre": "Mateo",
+      "rol": "Director de imágenes",
+      "estado": "esperando",
+      "resumen": null
+    },
+    {
+      "id": "revision",
+      "nombre": "Renata",
+      "rol": "Revisión",
+      "estado": "esperando",
+      "resumen": null
+    }
+  ],
+  "plantilla": "cen"
+}
