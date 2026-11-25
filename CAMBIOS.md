@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-25i · Landings creadas: galería sin espacios y de borde a borde en celular
+
+- Las imágenes de la galería ya no salen con franjas blancas arriba y abajo: cada imagen se ve completa con su propia altura.
+- En celular la landing ocupa todo el ancho de la pantalla: la imagen principal y los creativos van de borde a borde (los textos y las miniaturas conservan su margen). En computador sigue la columna centrada.
+- Para las landings ya creadas: créalas otra vez.
+
 ## 2026-11-25h · Landings creadas: imágenes como las de la base y tus precios
 
 - **Mateo y Simón miran las imágenes de la plantilla** antes de trabajar: la imagen principal ya no sale como una foto suelta, sino como el creativo de la base (titular grande, beneficios con íconos, sellos, el producto), con la misma proporción y sin franjas blancas. ChatGPT recibe la imagen de la plantilla solo como guía de cómo acomodar todo, nunca su marca.
