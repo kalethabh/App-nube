@@ -69,14 +69,19 @@ function Analisis({ a }) {
       {a.secciones?.length ? (
         <>
           <h4>Sus secciones, en orden</h4>
-          <ol className="ld-analisis__secciones">
-            {a.secciones.map((x) => (
-              <li key={x.n}>
-                <span className="ld-analisis__tipo">{x.tipo || 'sección'}</span> <strong>{x.titulo}</strong>
-                {x.objetivo ? <small> — {x.objetivo}</small> : null}
-              </li>
-            ))}
-          </ol>
+          <div className="ld-analisis__secciones-visuales">
+            {a.secciones.map((x,i) => <article className="ld-seccion-analizada" key={x.n || i}>
+              <div className="ld-seccion-analizada__imagen">{x.captura?.url ? <a href={x.captura.url} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar captura de ${x.titulo}`}><img src={x.captura.url} alt={`Captura real: ${x.captura.titulo || x.titulo}`} loading="lazy"/><span>Ampliar captura{x.captura.parcial?' · parcial':''}</span></a> : <div className="ld-seccion-analizada__sin-captura"><LayoutTemplate size={30}/><span>Sin captura vinculada</span><small>Actualiza el análisis para incluir la vista real de la sección.</small></div>}</div>
+              <div className="ld-seccion-analizada__texto"><div className="ld-seccion-analizada__orden">{String(i+1).padStart(2,'0')} <span className="ld-analisis__tipo">{x.tipo || 'sección'}</span></div><h3>{x.titulo || `Sección ${i+1}`}</h3>
+                {x.objetivo?<div><h4>Qué busca comunicar</h4><p>{x.objetivo}</p></div>:null}
+                {x.analisis?<div><h4>Análisis de la sección</h4><p>{x.analisis}</p></div>:null}
+                {x.porQueFunciona?<div><h4>Por qué podría funcionar</h4><p>{x.porQueFunciona}</p></div>:null}
+                {x.mejora?<div className="ld-seccion-analizada__mejora"><h4>Qué mejoraría</h4><p>{x.mejora}</p></div>:null}
+                {x.captura?<small className="ld-ayuda">{x.captura.fuente || 'Captura de la copia al momento del análisis'}{x.captura.parcial?' · se muestra el inicio de la sección':''}</small>:null}
+              </div>
+            </article>)}
+          </div>
+          {a.capturasError?<p className="ld-ayuda">{a.capturasError}</p>:null}
         </>
       ) : null}
       <div className="ld-analisis__listas">
@@ -239,8 +244,8 @@ export default function Landings({ consulta }) {
   const [prompt, setPrompt] = useState('');
   const [analizar, setAnalizar] = useState(true);
   const [ocupado, setOcupado] = useState(false);
-  const [abierta, setAbierta] = useState(proyecto || null);
-  useEffect(()=>setAbierta(proyecto || null),[proyecto]);
+  const [abierta, setAbierta] = useState(null);
+  useEffect(()=>setAbierta(null),[proyecto]);
   const { datos, recargar } = useDatos('landings', () => pedirNuevo('/api/landings'), { cadaMs: 3000 });
   const { datos: prods } = useDatos('productos:lista-landings', () => pedirNuevo('/api/productos'));
   const productos = prods?.productos || [];
@@ -263,7 +268,7 @@ export default function Landings({ consulta }) {
   };
   return (
     <div className="pagina ld pila" style={{ '--hueco': 'var(--e-5)' }}>
-      <CabeceraPagina sobretitulo="Crear" titulo="Landings" descripcion="Pega la dirección de una landing y, si quieres, escribe qué cambiarle. La app la clona funcionando igual que la original y te muestra qué tan rápido carga." />
+      <CabeceraPagina sobretitulo={proyecto ? "ANÁLISIS / LANDING" : "Crear"} titulo={proyecto ? landings[0]?.titulo || "Tu landing" : "Landings"} descripcion={proyecto ? "Revisa cada sección con su captura, entiende su mensaje y consulta las mejoras sugeridas. La vista completa está disponible debajo del análisis." : "Pega la dirección de una landing y, si quieres, escribe qué cambiarle. La app la clona funcionando igual que la original y te muestra qué tan rápido carga."} />
       {!proyecto ? <section className="ld-nueva">
         <CampoTexto etiqueta="Dirección de la landing" placeholder="https://tutienda.com/products/…" value={url} onChange={(e) => setUrl(e.target.value)} maxLength={2000} />
         <AreaTexto

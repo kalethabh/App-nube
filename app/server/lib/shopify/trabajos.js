@@ -22,9 +22,11 @@
 //   listarTrabajos() · leerTrabajo(id) · borrarTrabajo(id)
 //   crearTrabajo({ tiendaId, temaId, pedido, motor }) · publicarTrabajo(id) · descartarTema(id)
 //   aplicarAdmin(id, indice) · subirLanding({ landingId, tiendaId, titulo, direccion, producto })
+import { registrarOcupado } from '../version.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { notificarLandingPublicada } from '../notificaciones.js';
 import { TEMP, RAIZ } from '../rutas.js';
 import { leerJSON } from '../archivos.js';
 import { escribirJSON, ErrorApp } from '../productos.js';
@@ -34,6 +36,7 @@ import * as api from './api.js';
 const DIR = path.join(TEMP, '_shopify', 'trabajos');
 const RE_ID = /^[a-z0-9-]{3,80}$/;
 const enCurso = new Set();
+registrarOcupado(()=>enCurso.size?'Hay trabajos de landing o tienda en curso.':null);
 const MOTORES = ['claude', 'codex'];
 
 const carpetaDe = (id) => {
@@ -443,7 +446,7 @@ export async function subirLanding({ landingId, tiendaId, titulo, direccion, pro
 export async function publicarLanding(id) {
   const t = leerTrabajo(id);
   if (t.tipo !== 'landing') throw new ErrorApp(400, 'Ese trabajo no es una landing.');
-  if (t.estado === 'lista' || t.estado === 'publicado') return t;
+  if (t.estado === 'lista' || t.estado === 'publicado') {notificarLandingPublicada(t);return t;}
   if (t.estado !== 'vista-previa') throw new ErrorApp(409, 'La landing todavía no está en tu tema.');
   const tienda = tiendaConClave(t.tiendaId);
   const sufijo = String(t.plantilla || '').replace(/^page\./, '');
@@ -455,6 +458,7 @@ export async function publicarLanding(id) {
     pagina = `${(tienda.tienda || `https://${tienda.dominio}`).replace(/\/$/, '')}/pages/${d.pageCreate.page.handle}`;
   }
   guardar(id, { estado: 'lista', pagina, publicado: new Date().toISOString() });
+  notificarLandingPublicada(leerTrabajo(id));
   avanzar(id, pagina ? `Publicada en ${pagina}` : `En Shopify: Tienda online › Páginas › Agregar página, y en «Plantilla» elige «${sufijo}».`);
   return leerTrabajo(id);
 }

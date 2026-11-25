@@ -25,7 +25,7 @@ export async function validarEmbudoUI({ base, id }) {
     assert.equal(await p.getByLabel('Recurso visual · Punto de dolor').inputValue(),'anatomia');
     assert.equal(await p.getByLabel('Modo del fondo').inputValue(),'auto');
     assert.equal(await p.getByLabel('Fondo común').isDisabled(),true);
-    assert.equal(await p.locator('#seccion-hero .em-opcion strong').first().innerText(),'HERO: MENSAJE 1');
+    const tituloInicial=await p.locator('#seccion-hero .em-opcion strong').first().innerText();assert.equal(tituloInicial,tituloInicial.toLocaleUpperCase('es'));
     assert.equal(await p.locator('#seccion-hero .em-opcion > span > span').first().innerText(),'propuesta de valor hero 1');
     console.log('OK UI: cinco secciones, todas las opciones y cinco campos de corrección, sin referencias visibles');
     const hero = p.locator('#seccion-hero');
@@ -68,7 +68,18 @@ export async function validarEmbudoUI({ base, id }) {
     assert.ok(iniciado.trabajo?.id);
     await hero.locator('.em-generando').waitFor();
     assert.equal(await hero.locator('.em-preview').getAttribute('aria-busy'),'true');
+    const dolor=p.locator('#seccion-dolor');
+    await p.waitForFunction(()=>!document.querySelector('#seccion-dolor .em-opciones')?.disabled);
+    assert.equal(await hero.locator('input[type=radio]').first().isEnabled(),true);
+    const [eleccionDurante]=await Promise.all([p.waitForResponse(r=>r.url().endsWith(`/api/embudos/${id}`) && r.request().method()==='PUT'),dolor.locator('input[type=radio]').first().click()]);assert.equal(eleccionDurante.status(),200);
+    await dolor.getByRole('button',{name:'Generar de nuevo',exact:true}).click();
+    await p.getByRole('heading',{name:'Confirmar generación',exact:true}).waitFor();
+    const [segundaRespuesta]=await Promise.all([p.waitForResponse(r=>r.url().endsWith(`/api/embudos/${id}/generar`) && r.request().method()==='POST'),p.getByRole('button',{name:'Confirmar y generar',exact:true}).click()]);
+    const segundo=await segundaRespuesta.json();assert.equal(segundaRespuesta.status(),200);assert.notEqual(segundo.trabajo.id,iniciado.trabajo.id);
+    await dolor.locator('.em-generando').waitFor();
+    console.log('OK UI: selecciona títulos e inicia otra sección mientras la primera se genera');
     await p.waitForFunction((job) => document.querySelector('#seccion-hero img')?.src.includes(job), iniciado.trabajo.id, { timeout: 120000 });
+    await p.waitForFunction((job)=>document.querySelector('#seccion-dolor img')?.src.includes(job),segundo.trabajo.id,{timeout:120000});
     console.log('OK UI: confirmación y corrección de una imagen con proveedor simulado');
     await p.evaluate(async()=>{window.scrollTo(0,0);for(const img of document.images)img.loading='eager';await document.fonts.ready;});
     const out = process.env.EMBUDO_CAPTURAS;

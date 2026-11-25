@@ -70,3 +70,17 @@
 .ld-chips { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-2); }
 .ld-chip { border: 1px solid var(--borde, rgba(127,127,127,.35)); background: transparent; color: inherit; border-radius: 999px; padding: 4px 12px; font: inherit; font-size: .85em; cursor: pointer; }
 .ld-chip:hover { border-color: var(--acento, currentColor); }
+
+.ld-analisis__secciones-visuales {display:grid;gap:24px;margin-top:18px;}
+.ld-seccion-analizada {display:grid;grid-template-columns:minmax(200px,320px) minmax(0,1fr);gap:28px;padding:22px;border:1px solid var(--borde-2);border-radius:8px;background:var(--superficie-1);}
+.ld-seccion-analizada__imagen {min-width:0;}
+.ld-seccion-analizada__imagen a {display:block;border:1px solid var(--borde-2);border-radius:6px;overflow:hidden;text-decoration:none;background:var(--superficie-2);}
+.ld-seccion-analizada__imagen img {display:block;width:100%;max-height:480px;object-fit:cover;object-position:top;}
+.ld-seccion-analizada__imagen a > span {display:block;padding:10px 14px;font-size:12px;font-weight:700;color:var(--acento);}
+.ld-seccion-analizada__sin-captura {min-height:250px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;padding:20px;background:var(--superficie-2);color:var(--texto-3);text-align:center;}
+.ld-seccion-analizada__sin-captura small {font-size:12px;line-height:1.6;}
+.ld-seccion-analizada__texto {min-width:0;}.ld-seccion-analizada__texto h3 {font:800 25px/1.2 var(--fuente-titulo);margin:16px 0 22px;overflow-wrap:anywhere;}
+.ld-seccion-analizada__texto h4 {font-size:12px;margin:18px 0 7px;color:var(--texto-3);}.ld-seccion-analizada__texto p {font-size:14px;line-height:1.7;color:var(--texto-2);margin:0;}
+.ld-seccion-analizada__orden {display:flex;align-items:center;gap:12px;color:var(--acento);font:700 13px var(--fuente-mono);}
+.ld-seccion-analizada__mejora {padding:0 16px 16px;margin-top:16px;border-left:2px solid var(--acento);background:var(--acento-suave);}
+@media(max-width:760px){.ld-seccion-analizada {grid-template-columns:1fr;padding:16px;gap:18px;}.ld-seccion-analizada__imagen {max-width:360px;width:100%;margin:auto;}}

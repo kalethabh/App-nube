@@ -157,6 +157,7 @@ async function principal() {
   if (id1) creados.landings.push(id1);
   check('Se crea la landing y arranca a clonar', r.st === 200 && id1 && r.datos.estado === 'trabajando', r);
   let l = await esperar(240, () => leerLanding(id1), terminada);
+  check('Avisa cuando la landing queda lista', (await pedir('/api/notificaciones')).datos?.notificaciones?.some(n=>n.tipo==='landing-lista' && n.destino.includes(id1)));
   check('Termina «lista»', l?.estado === 'lista', l);
   check('El título es el de la página', /MARCAORIGINAL Gotas/.test(l?.titulo || ''), l?.titulo);
   check('Mide la original y la copia (simulado en prueba)', l?.puntajes?.original?.puntaje > 0 && l?.puntajes?.copia?.puntaje >= 80, l?.puntajes);
@@ -169,8 +170,8 @@ async function principal() {
   // y FUNCIONA: en un navegador de verdad, elegir otro dolor cambia el texto
   let funciona = null;
   try {
-    const { chromium } = (await import('node:module')).createRequire(import.meta.url)('playwright');
-    const nav = await chromium.launch();
+    const { chromium } = (await import('node:module')).createRequire(import.meta.url)(process.env.PLAYWRIGHT_PACKAGE_PATH || 'playwright');
+    const nav = await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CHROME?{executablePath:process.env.PLAYWRIGHT_CHROME}:{})});
     try {
       const pag = await nav.newPage({ viewport: { width: 412, height: 900 } });
       await pag.goto(`${BASE}/landing/${id1}/index.html`, { waitUntil: 'load' });
