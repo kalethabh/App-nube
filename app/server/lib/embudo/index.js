@@ -12,6 +12,7 @@ import { correr, modoPrueba } from '../procesos.js';
 import { lanzarSesion } from '../motor-ia.js';
 import { permisos } from '../imagen-ads/sesiones.js';
 import { turno, soltarTurno } from '../ia/fila.js';
+import { registrarOcupado } from '../version.js';
 import { avatarElegido, validarPerfil, claveAvatar, guardarRetrato, promptAvatar } from './avatares.js';
 import { REVISION_VISUAL, identidadProducto, modoFondo, fondoDe } from './direccion.js';
 import { SECCIONES, firma, extraerTextos, construirPrompt } from './textos.js';
@@ -20,14 +21,17 @@ const RE_ID = /^e-[a-f0-9]{12}$/;
 const RE_JOB = /^j-[a-f0-9]{16}$/;
 const FORMATOS = ['9:16', '4:5', '1:1'];
 const activas = new Set();
+const claveTrabajo=(id,jobId)=>`${id}:${jobId}`;
+const enCurso=(e)=>Object.values(e.trabajos || {}).filter(t=>t.estado==='generando');
 const textosActivos = new Set();
+registrarOcupado(()=>activas.size || textosActivos.size?'Hay secciones del Embudo en curso.':null);
 const formatoDe = (s) => s === 'hero' ? '9:16' : '4:5';
 const visualDe = (e,s) => e.visuales?.[s] || (s === 'hero' ? 'persona' : s === 'dolor' ? 'enfoque' : s === 'uso' ? 'demostracion' : s === 'beneficios' ? 'enfoque' : 'producto');
 const ahora = () => new Date().toISOString();
 const nuevoId = (p, n) => `${p}-${crypto.randomBytes(n).toString('hex')}`;
 const carpeta = (id) => path.join(TEMP, `_embudo-${id}`);
 const archivo = (id) => path.join(carpeta(id), 'embudo.json');
-const guardar = (e) => escribirJSON(archivo(e.id), { ...e, actualizado: ahora() });
+const guardar = (e) => {if(e.trabajo && e.trabajos?.[e.trabajo.id]) e.trabajo=e.trabajos[e.trabajo.id];escribirJSON(archivo(e.id),{...e,actualizado:ahora()});};
 const fuente = (productoId) => {
   const x = investigacionDe(productoId);
   if (!x) throw new ErrorApp(404, 'No encuentro ese producto.');
@@ -42,7 +46,7 @@ const huellaFoto = (id) => {
   const h = firma(fs.readFileSync(f).toString('base64')); fotosCache.set(f, { clave, firma: h }); return h;
 };
 const opcionDe = (e, s) => e.textos[s]?.opciones.find((o) => o.id === e.seleccion[s]);
-const firmaSeccion = (e, s) => firma({ revisionVisual:REVISION_VISUAL, opcion: opcionDe(e, s), contenido: e.textos[s]?.contenido, formato: formatoDe(s), visual: visualDe(e,s), fondo: fondoDe(e), estilo: e.estilo, fuente: e.fuenteFirma, foto: e.fotoFirma, avatar: s === 'hero' && visualDe(e,s) === 'persona' ? claveAvatar(e.avatar) : null });
+const firmaSeccion = (e, s,revision=REVISION_VISUAL) => firma({ revisionVisual:revision, opcion: opcionDe(e, s), contenido: e.textos[s]?.contenido, formato: formatoDe(s), visual: visualDe(e,s), fondo: fondoDe(e), estilo: e.estilo, fuente: e.fuenteFirma, foto: e.fotoFirma, avatar: s === 'hero' && visualDe(e,s) === 'persona' ? claveAvatar(e.avatar) : null });
 function cargar(id) {
   if (!RE_ID.test(String(id))) throw new ErrorApp(404, 'No encuentro ese embudo.');
   const e = leerJSON(archivo(id));
@@ -54,34 +58,48 @@ function cargar(id) {
     // Migración única: conservar la fecha del proyecto y no releer la investigación en cada sondeo.
     escribirJSON(archivo(e.id),e);
   }
-  if (e.trabajo?.estado === 'generando' && !activas.has(id)) {
-    // Puede haberse cerrado después de descargar/anotar una imagen y antes de actualizar el panel.
-    const jobId = e.trabajo.id;
-    const j = RE_JOB.test(jobId) ? leerJSON(path.join(carpeta(id), 'trabajos', jobId, 'trabajo.json')) : null;
-    const terminadas = new Set();
-    for (const p of j?.piezas || []) {
-      if (p.id !== 'avatar' && !SECCIONES.some((s) => s.id === p.id)) continue;
-      const dir = path.join(carpeta(id), 'trabajos', jobId);
-      if (leerJSON(path.join(dir, `${p.id}.resultado.json`))?.ok && fs.existsSync(path.join(dir, `${p.id}.png`))) {
+  if(e.planificadorVersion!==2) {
+    e.trabajos=e.trabajo?{[e.trabajo.id]:e.trabajo}:{};
+    e.confirmaciones=e.trabajo?.token?{[e.trabajo.token]:e.trabajo.id}:{};
+    e.duenos=Object.fromEntries(Object.entries(e.imagenes || {}).map(([s,i])=>[s,i.trabajoId]));
+    if(e.trabajo?.estado==='generando') for(const s of e.trabajo.secciones || []) if(s!=='avatar')e.duenos[s]=e.trabajo.id;
+    e.planificadorVersion=2;e.presupuestos={};escribirJSON(archivo(id),e);
+  }
+  if(e.trabajo && e.trabajos[e.trabajo.id])e.trabajo=e.trabajos[e.trabajo.id];
+  for(const t of enCurso(e)) if(!activas.has(claveTrabajo(id,t.id))) {
+    const dir=path.join(carpeta(id),'trabajos',t.id), j=RE_JOB.test(t.id)?leerJSON(path.join(dir,'trabajo.json')):null;
+    const terminadas=new Set();
+    for(const p of j?.piezas || []) {
+      if(p.id!=='avatar' && !SECCIONES.some(s=>s.id===p.id))continue;
+      if(leerJSON(path.join(dir,`${p.id}.resultado.json`))?.ok && fs.existsSync(path.join(dir,`${p.id}.png`))) {
         terminadas.add(p.id);
-        if (p.id === 'avatar') {
-          try { e.avatar.guardado = guardarRetrato(e, dir, jobId, e.avatar.descripcion); e.avatarPendiente = null; } catch { e.avatarPendiente = jobId; }
-          continue;
-        }
-        e.imagenes[p.id] = { archivo: `trabajos/${jobId}/${p.id}.png`, firma: p.firma, trabajoId: jobId, fecha: ahora(), url: `/api/embudos/${id}/imagenes/${jobId}/${p.id}` };
+        if(p.id==='avatar'){try{e.avatar.guardado=guardarRetrato(e,dir,t.id,e.avatar.descripcion);e.avatarPendiente=null;}catch{e.avatarPendiente=t.id;}}
+        else ponerImagen(e,t.id,p);
       }
     }
-    e.trabajo.hechas = (e.trabajo.secciones || []).filter((s) => terminadas.has(s)).length;
-    e.trabajo.estados=Object.fromEntries((e.trabajo.secciones || []).map(s=>[s,{estado:terminadas.has(s)?'lista':'interrumpido'}]));
-    e.trabajo.actual = null;
-    e.trabajo.estado = e.trabajo.hechas === e.trabajo.cantidad ? 'lista' : 'interrumpido';
-    e.trabajo.error = e.trabajo.estado === 'lista' ? null : 'La generación se interrumpió. Revisa lo ya generado y retoma las secciones pendientes.';
+    t.hechas=(t.secciones || []).filter(s=>terminadas.has(s)).length;
+    t.estados=Object.fromEntries((t.secciones || []).map(s=>[s,{estado:terminadas.has(s)?'lista':'interrumpido'}]));
+    t.actual=null;t.estado=t.hechas===t.cantidad?'lista':'interrumpido';
+    t.error=t.estado==='lista'?null:'La generación se interrumpió. Revisa lo ya generado y retoma las secciones pendientes.';
     guardar(e);
   }
   return e;
 }
 function libre(e) {
-  if (activas.has(e.id) || textosActivos.has(e.id)) throw new ErrorApp(409, 'Espera a que termine la generación antes de cambiar el embudo.');
+  if (enCurso(e).length || textosActivos.has(e.id)) throw new ErrorApp(409, 'Espera a que termine la generación antes de cambiar el embudo.');
+}
+function sinDuplicar(e,piezas,omitir=null) {
+  const ids=piezas.map(p=>p.id);
+  if(enCurso(e).some(t=>t.id!==omitir && t.secciones.some(s=>ids.includes(s))))throw new ErrorApp(409,'Esa sección ya está generándose o en cola. Puedes generar las demás.');
+}
+function ponerImagen(e,jobId,p) {
+  if(e.duenos[p.id] && e.duenos[p.id]!==jobId)return;
+  e.imagenes[p.id]={archivo:`trabajos/${jobId}/${p.id}.png`,firma:p.firma,formato:p.formato || formatoDe(p.id),trabajoId:jobId,fecha:ahora(),url:`/api/embudos/${e.id}/imagenes/${jobId}/${p.id}`};
+}
+const necesitaRetrato=(piezas)=>piezas.some(p=>p.id==='avatar' || (p.id==='hero' && p.visual==='persona'));
+function firmaDelAvatar(e,piezas) {const a=necesitaRetrato(piezas)?avatarElegido(e.avatar):null;return necesitaRetrato(piezas)?firma(a?fs.readFileSync(a.archivo).toString('base64'):claveAvatar(e.avatar)):null;}
+function firmaEncargo(e,piezas) {
+  return firma({piezas:piezas.filter(p=>p.id!=='avatar').map(p=>({id:p.id,firma:firmaSeccion(e,p.id),correccion:p.correccion?e.correcciones[p.id]:null,anterior:p.anterior?e.imagenes[p.id]?.archivo:null})),avatar:firmaDelAvatar(e,piezas)});
 }
 function vigente(e) {
   if (fuente(e.productoId).firma !== e.fuenteFirma || huellaFoto(e.productoId) !== e.fotoFirma) throw new ErrorApp(409, 'Cambió la investigación, la ficha o la foto. Actualiza los textos del embudo y revisa tu selección.');
@@ -91,9 +109,9 @@ function vista(e) {
   try { fuenteCambio = fuente(e.productoId).firma !== e.fuenteFirma || huellaFoto(e.productoId) !== e.fotoFirma; } catch { /* producto o investigación borrados */ }
   return {
     id: e.id, productoId: e.productoId, nombre: e.nombre, formato: e.formato, estilo: e.estilo, version: e.version,
-    fuenteCambio, fuenteFecha: e.fuenteFecha, trabajo: e.trabajo, actualizado: e.actualizado, avatar: e.avatar || { modo:'sin' }, avatarGuardado: (() => { const a=avatarElegido(e.avatar); return a ? { nombre:a.nombre, url:a.url, estilo:a.estilo, id:a.id } : null; })(), avatarPendiente: Boolean(e.avatarPendiente),
+    fuenteCambio, fuenteFecha: e.fuenteFecha, trabajo: e.trabajo, trabajos:Object.values(e.trabajos || {}).sort((a,b)=>b.inicio.localeCompare(a.inicio)), actualizado: e.actualizado, avatar: e.avatar || { modo:'sin' }, avatarGuardado: (() => { const a=avatarElegido(e.avatar); return a ? { nombre:a.nombre, url:a.url, estilo:a.estilo, id:a.id } : null; })(), avatarPendiente: Boolean(e.avatarPendiente),
     fondo: fondoDe(e), fondoModo:modoFondo(e), identidad:e.identidad, titulos: textosActivos.has(e.id) ? e.titulos : e.titulos?.estado === 'generando' ? { ...e.titulos, estado:'error', error:'La preparación se interrumpió. Vuelve a pedir los títulos.' } : e.titulos,
-    secciones: SECCIONES.map((s) => ({ ...s, ...e.textos[s.id], formato: formatoDe(s.id), visual: visualDe(e,s.id), progreso: e.trabajo?.estados?.[s.id] || null, elegida: e.seleccion[s.id] || null, correccion: e.correcciones[s.id] || '',
+    secciones: SECCIONES.map((s) => ({ ...s, ...e.textos[s.id], formato: formatoDe(s.id), visual: visualDe(e,s.id), mensajeEnCurso:enCurso(e).find(t=>t.secciones.includes(s.id))?.mensajes?.find(m=>m.seccion===s.id) || null, progreso:(enCurso(e).find(t=>t.secciones.includes(s.id)) || e.trabajos?.[e.duenos?.[s.id]])?.estados?.[s.id] || null, elegida: e.seleccion[s.id] || null, correccion: e.correcciones[s.id] || '',
       imagen: e.imagenes[s.id] ? { ...e.imagenes[s.id], desactualizada: e.imagenes[s.id].firma !== firmaSeccion(e, s.id) } : null,
     })),
   };
@@ -102,7 +120,7 @@ export const ver = (id) => vista(cargar(id));
 export function listar() {
   const embudos = [];
   if (fs.existsSync(TEMP)) for (const n of fs.readdirSync(TEMP).filter((n) => n.startsWith('_embudo-'))) {
-    try { const e = cargar(n.slice(8)); embudos.push({ id: e.id, nombre: e.nombre, productoId: e.productoId, estado:e.trabajo?.estado || 'borrador', actualizado: e.actualizado, generadas: Object.keys(e.imagenes).length }); } catch { /* otra app o archivo incompleto */ }
+    try { const e = cargar(n.slice(8)); embudos.push({ id: e.id, nombre: e.nombre, productoId: e.productoId, estado:enCurso(e).length?'generando':e.trabajo?.estado || 'borrador', actualizado: e.actualizado, generadas: Object.keys(e.imagenes).length }); } catch { /* otra app o archivo incompleto */ }
   }
   return { embudos: embudos.sort((a, b) => String(b.actualizado).localeCompare(String(a.actualizado))), productos: productosInvestigados() };
 }
@@ -113,13 +131,14 @@ export function crear({ productoId }) {
   const e = { id: nuevoId('e', 6), productoId, nombre: f.producto.nombre, puerto: PUERTO_DE_PRUEBA, version: 1, creado: ahora(), actualizado: ahora(),
     formato: '9:16', reglasVisuales:REVISION_VISUAL, fondoModo:'auto', identidad:identidadProducto(f.investigacion,leerFicha(productoId)), fondo:null, visuales:{}, extras:{}, estilo: '', avatar: { modo:'nuevo', descripcion:'', semilla:nuevoId('a',6) }, fuenteFirma: f.firma, fuenteFecha: f.investigacion.fecha || null, fotoFirma: huellaFoto(productoId), textos,
     seleccion: Object.fromEntries(SECCIONES.map((s) => [s.id, textos[s.id].opciones.length === 1 ? textos[s.id].opciones[0].id : null])),
-    correcciones: {}, imagenes: {}, presupuestos: {}, trabajo: null,
+    correcciones: {}, imagenes: {}, presupuestos: {}, trabajo: null, trabajos:{},confirmaciones:{},duenos:{},planificadorVersion:2,
   };
   guardar(e);
   return vista(e);
 }
 export function editar(id, { version, seleccion, correcciones, formato, fondo, fondoModo, visuales, manuales, estilo, avatar, actualizarTextos = false }) {
-  const e = cargar(id); libre(e);
+  const e = cargar(id);
+  if(actualizarTextos || [formato,fondo,fondoModo,estilo,avatar].some(x=>x!==undefined))libre(e);
   if (version !== e.version) throw new ErrorApp(409, 'El embudo cambió en otra ventana. Recarga antes de guardar.');
   if (actualizarTextos) {
     const f = fuente(e.productoId);
@@ -164,27 +183,28 @@ export function editar(id, { version, seleccion, correcciones, formato, fondo, f
   if(fondo !== undefined) { if(!/^#[a-f0-9]{6}$/i.test(fondo)) throw new ErrorApp(400,'Elige un color de fondo válido.'); e.fondo=fondo.toUpperCase();e.fondoModo='manual'; }
   if (formato !== undefined) { if (!FORMATOS.includes(formato)) throw new ErrorApp(400, 'Formato no válido.'); e.formato = formato; }
   if (estilo !== undefined) { if (typeof estilo !== 'string' || estilo.length > 1200) throw new ErrorApp(400, 'La dirección visual puede tener hasta 1200 caracteres.'); e.estilo = estilo.trim(); }
-  e.version++; e.presupuestos = {};
+  e.version++;
   guardar(e); return vista(e);
 }
 
 /** Devuelve una propuesta exacta con versión y precio. Esto no genera ni cobra. */
 export async function presupuestar(id, { version, secciones, corregir = false, retomar = null }) {
-  let e = cargar(id); libre(e); vigente(e);
-  if(e.avatarPendiente) throw new ErrorApp(409,'Primero guarda el avatar pendiente en la Biblioteca; no hace falta generarlo otra vez.');
+  let e = cargar(id); vigente(e);
+  if(e.avatarPendiente && (secciones?.includes('hero') || (retomar && e.trabajos[retomar]?.secciones.includes('hero')))) throw new ErrorApp(409,'Primero guarda el avatar pendiente en la Biblioteca; no hace falta generarlo otra vez.');
   if (e.version !== version) throw new ErrorApp(409, 'Recarga el embudo antes de calcular el costo.');
   const motor = motorDeImagenes();
   const precio = await costoDeImagenAds();
   if (!precio || !Number.isFinite(precio.dolaresPorImagen)) throw new ErrorApp(503, 'No pude calcular el precio. Vuelve a intentarlo.');
   // El precio se calcula fuera del bloqueo: se comprueba otra vez antes de guardar el presupuesto.
-  e = cargar(id); libre(e); vigente(e);
+  e = cargar(id); vigente(e);
   if (e.version !== version) throw new ErrorApp(409, 'Cambió el embudo mientras calculaba el precio.');
   let piezas;
   if (retomar) {
-    if (!RE_JOB.test(retomar) || e.trabajo?.id !== retomar || !['error', 'parcial', 'interrumpido'].includes(e.trabajo.estado)) throw new ErrorApp(400, 'No hay una generación pendiente que retomar.');
+    if (!RE_JOB.test(retomar) || !['error', 'parcial', 'interrumpido'].includes(e.trabajos[retomar]?.estado)) throw new ErrorApp(400, 'No hay una generación pendiente que retomar.');
     const j = leerJSON(path.join(carpeta(id), 'trabajos', retomar, 'trabajo.json'));
-    if (!j || j.version !== e.version || j.motor !== motor) throw new ErrorApp(409, 'Cambió el encargo o el motor: revisa los textos y crea una nueva generación.');
+    if (!j || j.motor !== motor) throw new ErrorApp(409, 'Cambió el encargo o el motor: revisa los textos y crea una nueva generación.');
     piezas = j.piezas.filter((p) => !leerJSON(path.join(carpeta(id), 'trabajos', retomar, `${p.id}.resultado.json`))?.ok);
+    if(piezas.some(p=>p.id!=='avatar' && (j.revisionVisual?p.firma!==firmaSeccion(e,p.id,j.revisionVisual):j.version!==e.version)))throw new ErrorApp(409,'Cambió el mensaje o diseño de una sección pendiente. Revisa y crea una generación nueva.');
   } else {
     if (!Array.isArray(secciones) || !secciones.length || secciones.length > 5 || new Set(secciones).size !== secciones.length) throw new ErrorApp(400, 'Selecciona entre una y cinco secciones diferentes.');
     piezas = secciones.map((s) => {
@@ -200,28 +220,30 @@ export async function presupuestar(id, { version, secciones, corregir = false, r
   if(!retomar && necesitaAvatar && e.avatar?.modo==='nuevo' && e.avatar.guardado && !avatarElegido(e.avatar)) throw new ErrorApp(404,'El avatar guardado ya no está en Biblioteca. Elige otro o prepara un avatar nuevo.');
   if (!retomar && necesitaAvatar && e.avatar?.modo === 'biblioteca' && !avatarElegido(e.avatar)) throw new ErrorApp(404, 'El avatar elegido ya no está en tu Biblioteca.');
   if (!retomar && e.avatar?.modo === 'nuevo' && !avatarElegido(e.avatar) && piezas.some(p=>p.id==='hero' && p.visual==='persona')) piezas.unshift({ id:'avatar', firma:firma(claveAvatar(e.avatar)), crearAvatar:true });
+  sinDuplicar(e,piezas);
   if (!piezas.length) throw new ErrorApp(409, 'No hay secciones pendientes.');
   const importe = Math.round(precio.dolaresPorImagen * piezas.length * 100) / 100;
-  const q = { token: crypto.randomBytes(16).toString('hex'), version, motor, modelo: precio.modelo, importe, cantidad: piezas.length, creado: Date.now(), piezas, retomar, corregir, fotoFirma: e.fotoFirma, avatarFirma: firma(avatarElegido(e.avatar) ? fs.readFileSync(avatarElegido(e.avatar).archivo).toString('base64') : claveAvatar(e.avatar)) };
-  e.presupuestos = { [q.token]: q }; guardar(e);
-  return { token: q.token, version, importe, cantidad: q.cantidad, modelo: q.modelo, motor, secciones: piezas.map((p) => p.id), corregir, retomar };
+  const q = { token: crypto.randomBytes(16).toString('hex'), version, motor, modelo: precio.modelo, importe, cantidad: piezas.length, creado: Date.now(), piezas, retomar, corregir, fotoFirma: e.fotoFirma, avatarFirma:firmaDelAvatar(e,piezas),encargoFirma:firmaEncargo(e,piezas) };
+  e.presupuestos=Object.fromEntries(Object.entries(e.presupuestos || {}).filter(([,q])=>Date.now()-q.creado<20*60000).slice(-19));e.presupuestos[q.token]=q;guardar(e);
+  return { token: q.token, version, importe, cantidad: q.cantidad, modelo: q.modelo, motor, secciones: piezas.map((p) => p.id), mensajes:piezas.filter(p=>p.opcion).map(p=>({seccion:p.id,...p.opcion,correccion:p.correccion})), corregir, retomar };
 }
 
 /** La aprobación usa el presupuesto exacto, no una cifra libre enviada por el cliente. Idempotente por token. */
 export async function generar(id, { token, version }) {
   if (!/^[a-f0-9]{32}$/.test(String(token || ''))) throw new ErrorApp(428, 'Primero revisa y confirma el costo de la generación.');
   let e = cargar(id);
-  if (e.trabajo?.token === token) return vista(e);
-  libre(e); vigente(e);
+  if(e.confirmaciones[token])return vista(e);
+  vigente(e);
   const q = e.presupuestos[token];
-  if (!q || version !== e.version || q.version !== version || Date.now() - q.creado > 20 * 60000) throw new ErrorApp(428, 'Vuelve a revisar y confirmar el costo de esta generación.');
+  if (!q || q.version !== version || Date.now() - q.creado > 20 * 60000) throw new ErrorApp(428, 'Vuelve a revisar y confirmar el costo de esta generación.');
   const precio = await costoDeImagenAds();
   e = cargar(id);
-  if (e.trabajo?.token === token) return vista(e);
-  libre(e); vigente(e);
-  if (e.version !== version || !e.presupuestos[token] || motorDeImagenes() !== q.motor || !precio || precio.modelo !== q.modelo || precio.dolaresPorImagen * q.cantidad > q.importe + .001) throw new ErrorApp(428, 'Cambió el encargo, el modelo o el precio. Confirma un presupuesto nuevo.');
+  if(e.confirmaciones[token])return vista(e);
+  vigente(e);
+  if (q.version !== version || q.encargoFirma!==firmaEncargo(e,q.piezas) || !e.presupuestos[token] || motorDeImagenes() !== q.motor || !precio || precio.modelo !== q.modelo || precio.dolaresPorImagen * q.cantidad > q.importe + .001) throw new ErrorApp(428, 'Cambió el encargo, el modelo o el precio. Confirma un presupuesto nuevo.');
   const avatarActual = avatarElegido(e.avatar);
-  const avatarFirma = firma(avatarActual ? fs.readFileSync(avatarActual.archivo).toString('base64') : claveAvatar(e.avatar));
+  const avatarFirma = firmaDelAvatar(e,q.piezas);
+  sinDuplicar(e,q.piezas);
   if (q.avatarFirma !== avatarFirma) throw new ErrorApp(428, 'Cambió el avatar. Revisa el presupuesto otra vez.');
   const jobId = q.retomar || nuevoId('j', 8);
   const dir = path.join(carpeta(id), 'trabajos', jobId);
@@ -239,12 +261,12 @@ export async function generar(id, { token, version }) {
     const piezas = q.piezas.map((p) => ({ ...p, prompt: p.id === 'avatar' ? promptAvatar(e,ficha) : construirPrompt({ seccion: p.id, opcion: p.opcion, contenido: p.contenido, producto: e.nombre, ficha, estilo, formato: p.formato, fondo:fondoDe(e), identidad:e.identidad, secuencia:SECCIONES.map(s=>({seccion:s.id,...opcionDe(e,s.id)})), visual:p.visual, correccion: p.correccion }) }));
     escribirJSON(path.join(dir, 'trabajo.json'), { id: jobId, version, motor: q.motor, formato: e.formato, fondo:fondoDe(e), identidad:e.identidad, revisionVisual:REVISION_VISUAL, visualPorSeccion:true, foto: productoFoto, usarAvatar, avatarArchivo, piezas, creado: ahora() });
   }
-  e.trabajo = { id: jobId, token, estado: 'generando', motor: q.motor, cantidad: q.cantidad, importeAprobado: q.importe, inicio: ahora(), secciones: q.piezas.map((p) => p.id), estados:Object.fromEntries(q.piezas.map(p=>[p.id,{estado:'en-cola'}])), hechas: 0 };
-  e.presupuestos = {}; guardar(e);
-  activas.add(id);
-  ejecutar(id, jobId, q.piezas).catch(() => {
-    const x = cargar(id); x.trabajo.estado = 'error'; x.trabajo.error = 'No se completó la generación. Revisa las secciones y retoma lo pendiente.'; guardar(x);
-  }).finally(() => activas.delete(id));
+  e.trabajo = { id: jobId, token, estado: 'generando', motor: q.motor, cantidad: q.cantidad, importeAprobado: q.importe, inicio: ahora(), secciones: q.piezas.map((p) => p.id), estados:Object.fromEntries(q.piezas.map(p=>[p.id,{estado:'en-cola'}])), hechas: 0, mensajes:q.piezas.filter(p=>p.opcion).map(p=>({seccion:p.id,titulo:p.opcion.titulo,subtitulo:p.opcion.subtitulo})) };
+  e.trabajos[jobId]=e.trabajo;e.confirmaciones[token]=jobId;
+  for(const p of q.piezas)if(p.id!=='avatar')e.duenos[p.id]=jobId;
+  delete e.presupuestos[token];guardar(e);
+  const clave=claveTrabajo(id,jobId);activas.add(clave);
+  ejecutar(id,jobId,q.piezas).catch(()=>{const x=cargar(id),t=x.trabajos[jobId];t.estado='error';t.error='No se completó la generación. Revisa las secciones y retoma lo pendiente.';guardar(x);}).finally(()=>activas.delete(clave));
   return vista(e);
 }
 
@@ -262,17 +284,17 @@ async function ejecutar(id, jobId, piezas) {
     await entrar(); let conTurno = false;
     try {
       let e=cargar(id);
-      if(e.trabajo.motor==='chatgpt') conTurno=await turno(new AbortController().signal);
-      if(e.trabajo.motor==='chatgpt' && !conTurno) throw new Error('Sin turno');
-      e=cargar(id);e.trabajo.estados ||= {};e.trabajo.estados[p.id]={estado:'generando',inicio:ahora()};guardar(e);
-      const r=await correr({slug:`_embudo-${id}/motores/${p.id}`,paso:`embudo-${jobId}-${p.id}`,script:'generar-embudo.js',args:[relDir,p.id],env:{...entornoParaImagenes(),EMBUDO_MOTOR:e.trabajo.motor}});
+      if(e.trabajos[jobId].motor==='chatgpt') conTurno=await turno(new AbortController().signal);
+      if(e.trabajos[jobId].motor==='chatgpt' && !conTurno) throw new Error('Sin turno');
+      e=cargar(id);e.trabajos[jobId].estados ||= {};e.trabajos[jobId].estados[p.id]={estado:'generando',inicio:ahora()};guardar(e);
+      const r=await correr({slug:`_embudo-${id}/motores/${p.id}`,paso:`embudo-${jobId}-${p.id}`,script:'generar-embudo.js',args:[relDir,p.id],env:{...entornoParaImagenes(),EMBUDO_MOTOR:e.trabajos[jobId].motor}});
       const dir=path.join(carpeta(id),'trabajos',jobId), res=leerJSON(path.join(dir,`${p.id}.resultado.json`));
       if(r.codigo!==0 || !res?.ok || !fs.existsSync(path.join(dir,`${p.id}.png`))) throw new Error('Sección incompleta');
       e=cargar(id);
       if(p.id==='avatar') { try {e.avatar.guardado=guardarRetrato(e,dir,jobId,e.avatar.descripcion);e.avatarPendiente=null;} catch {e.avatarPendiente=jobId;} }
-      else e.imagenes[p.id]={archivo:`trabajos/${jobId}/${p.id}.png`,firma:p.firma,formato:p.formato || formatoDe(p.id),trabajoId:jobId,fecha:ahora(),url:`/api/embudos/${id}/imagenes/${jobId}/${p.id}`};
-      e.trabajo.hechas++;e.trabajo.estados[p.id]={...e.trabajo.estados[p.id],estado:'lista',fin:ahora()};guardar(e);
-    } catch { fallas++; const e=cargar(id);e.trabajo.estados ||= {};e.trabajo.estados[p.id]={...e.trabajo.estados[p.id],estado:'error',fin:ahora()};guardar(e); }
+      else ponerImagen(e,jobId,p);
+      e.trabajos[jobId].hechas++;e.trabajos[jobId].estados[p.id]={...e.trabajos[jobId].estados[p.id],estado:'lista',fin:ahora()};guardar(e);
+    } catch { fallas++; const e=cargar(id);e.trabajos[jobId].estados ||= {};e.trabajos[jobId].estados[p.id]={...e.trabajos[jobId].estados[p.id],estado:'error',fin:ahora()};guardar(e); }
     finally {if(conTurno)soltarTurno();salir();}
   };
   // Registrar la dependencia antes de lanzar Hero; máximo dos imágenes simultáneas en toda la app.
@@ -280,9 +302,9 @@ async function ejecutar(id, jobId, piezas) {
   for(const p of piezas) if(p.id!=='avatar') pendientes.set(p.id,ejecutarPieza(p));
   await Promise.all(pendientes.values());
   const e = cargar(id);
-  if (fallas) e.trabajo.error = 'Alguna sección no se completó. Las imágenes anteriores se conservan. Puedes retomar lo pendiente.';
-  e.trabajo.estado = fallas ? (e.trabajo.hechas ? 'parcial' : 'error') : 'lista';
-  e.trabajo.fin = ahora(); e.trabajo.actual = null; guardar(e);
+  if (fallas) e.trabajos[jobId].error = 'Alguna sección no se completó. Las imágenes anteriores se conservan. Puedes retomar lo pendiente.';
+  e.trabajos[jobId].estado = fallas ? (e.trabajos[jobId].hechas ? 'parcial' : 'error') : 'lista';
+  e.trabajos[jobId].fin = ahora(); e.trabajos[jobId].actual = null; guardar(e);
 }
 export function imagen(id, jobId, seccion) {
   const e = cargar(id);
@@ -296,11 +318,12 @@ export function guardarAvatarPendiente(id) { const e=cargar(id); libre(e); const
 
 /** Propone nuevos pares sin tocar la selección ni pedir imágenes. */
 export function regenerarTitulos(id,{version,seccion}) {
-  const e=cargar(id);libre(e);vigente(e);
+  const e=cargar(id);vigente(e);
+  if(textosActivos.has(id))throw new ErrorApp(409,'Ya se están preparando títulos. Puedes seleccionar textos y generar imágenes mientras terminan.');
   if(version!==e.version) throw new ErrorApp(409,'Recarga antes de pedir los títulos.');
   const def=SECCIONES.find(s=>s.id===seccion);
   if(!def) throw new ErrorApp(400,'Sección no válida.');
-  e.titulos={seccion,estado:'generando',inicio:ahora()};e.presupuestos={};guardar(e);
+  e.titulos={seccion,estado:'generando',inicio:ahora()};guardar(e);
   textosActivos.add(id);
   prepararTitulos(e,def).catch(()=>{
     const x=cargar(id);x.titulos={seccion,estado:'error',error:'No pude preparar nuevos títulos. Tu selección se conserva. Revisa la conexión con la IA y vuelve a intentarlo.'};guardar(x);
@@ -324,9 +347,9 @@ async function prepararTitulos(e,def) {
     if(!r?.ok) throw new Error('No se completaron los títulos');
   }
   if(!(await validar()).ok) throw new Error('Pares incompletos');
-  const x=cargar(e.id);vigente(x);if(x.version!==e.version) throw new Error('Cambió el embudo');
+  const x=cargar(e.id);vigente(x);
   const opciones=leerJSON(salida).opciones.map(o=>({id:firma({s:def.id,titulo:o.titulo.trim(),subtitulo:o.subtitulo.trim()}).slice(0,20),titulo:o.titulo.trim(),subtitulo:o.subtitulo.trim(),tipo:'generado',origen:`Propuesta basada en investigación: ${o.base}`,etiqueta:modoPrueba()?'Propuesta simulada':'Nueva propuesta',contenido:[]}));
   x.extras ||= {}; x.extras[def.id] ||= [];
   for(const o of opciones) if(!x.textos[def.id].opciones.some(a=>a.id===o.id)) {x.extras[def.id].push(o);x.textos[def.id].opciones.push(o);}
-  x.version++;x.presupuestos={};x.titulos={seccion:def.id,estado:'lista',fin:ahora()};guardar(x);
+  x.version++;x.titulos={seccion:def.id,estado:'lista',fin:ahora()};guardar(x);
 }

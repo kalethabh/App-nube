@@ -243,9 +243,13 @@ async function principal() {
   check('(2026-11-24) Primero la VISTA PREVIA: el código queda en el tema y la página todavía no existe', t?.estado === 'vista-previa' && t.vistaPrevia === `https://bella.com/collections/all?view=${sufijoL}` && !t.pagina && consultas.filter((c) => /pageCreate/.test(c.query || '')).length === paginasAntes, t);
   const vivo = temasFalsos().find((x) => x.role === 'live').id;
   check('La vista previa es la misma plantilla como colección alternativa (collection.<sufijo>, en /collections/all)', (archivoFalso(vivo, `templates/collection.${sufijoL}.liquid`) || '').startsWith('{% layout none %}'));
+  check('La vista previa no emite un aviso de landing publicada', !(await pedir('/api/notificaciones')).datos?.notificaciones?.some(n=>n.tipo==='landing-publicada'));
   r = await pedir(`/api/shopify/trabajos/${t3}/publicar`, { metodo: 'POST' });
   t = r.datos;
   check('«Publicar la página» crea la página publicada con esa plantilla', t?.estado === 'lista' && t.pagina === 'https://bella.com/pages/gotas-para-dormir' && consultas.some((c) => /pageCreate/.test(c.query || '') && c.variables?.p?.templateSuffix === sufijoL), t);
+  check('La publicación confirmada emite un aviso con la URL real', (await pedir('/api/notificaciones')).datos?.notificaciones?.some(n=>n.tipo==='landing-publicada' && n.urlPublica===t.pagina));
+  await pedir(`/api/shopify/trabajos/${t3}/publicar`,{metodo:'POST'});
+  check('Repetir Publicar no duplica el aviso', (await pedir('/api/notificaciones')).datos?.notificaciones?.filter(n=>n.tipo==='landing-publicada').length===1);
   const plantilla = archivoFalso(vivo, `templates/${t?.plantilla}.liquid`) || '';
   check('Va como plantilla de página en el tema publicado, sin layout de la tienda', plantilla.startsWith('{% layout none %}') && /Precio \{\{ '\{\{' \}\} especial/.test(plantilla), plantilla.slice(0, 300));
   check('Sus imágenes van a los assets del tema (con asset_url)', /\{\{ 'kads-[a-z0-9]+-a1\.webp' \| asset_url \}\}/.test(plantilla) && /url\(\{\{ 'kads-/.test(plantilla) && fs.readdirSync(path.join(FALSO, BELLA, 'temas', String(vivo), 'assets')).some((f) => /^kads-.*a1\.webp$/.test(f)), plantilla);
@@ -258,6 +262,8 @@ async function principal() {
   check('En una tienda «solo temas» sube la plantilla con su vista previa y el video vuelve a ser el GIF original', t?.estado === 'vista-previa' && t.vistaPrevia && !t.pagina && /<img src="https:\/\/cdn\.original\.com\/a\.gif"/.test(p2), { t, p2: p2.slice(0, 400) });
   r = await pedir(`/api/shopify/trabajos/${t.id}/publicar`, { metodo: 'POST' });
   check('…y al publicar queda la indicación para crear la página en Shopify', r.datos?.estado === 'lista' && !r.datos.pagina, r.datos);
+
+  check('Solo temas no se anuncia como una página publicada', (await pedir('/api/notificaciones')).datos?.notificaciones?.filter(n=>n.tipo==='landing-publicada').length===1);
 
   // (2026-11-24) CON MI CUENTA DE SHOPIFY (sin clave): el enlace y el código para aprobar, y queda conectada
   r = await pedir('/api/shopify/conexiones', { json: { dominio: 'cuatro', nombre: 'Tienda Cuatro', pais: 'PE' } });

@@ -1,5 +1,5 @@
 const esHex=(x)=>typeof x==='string' && /^#[a-f0-9]{6}$/i.test(x);
-export const REVISION_VISUAL=3;
+export const REVISION_VISUAL=4;
 export function identidadProducto(investigacion={},ficha={}) {
  const categoria=`${ficha?.tipo || ''} ${ficha?.queEs || ''} ${ficha?.ingredientes || ''}`.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
  const acento=esHex(investigacion?.color)?investigacion.color.toUpperCase():/serum|belleza|piel|cosmetic|cabello/.test(categoria)?'#AD617D':/azucar|glucosa|salud|suplement|natural|aloe|botanic/.test(categoria)?'#378776':/hogar|cocina|limpieza/.test(categoria)?'#B17B42':'#687BA4';

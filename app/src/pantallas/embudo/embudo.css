@@ -96,3 +96,6 @@
 .em-union img { display:block; width:100%; height:auto; object-fit:contain; margin:0; border:0; border-radius:0; }
 .em-union__pendiente { display:grid; place-items:center; color:#555; font-size:14px; }
 @media(prefers-reduced-motion:reduce) { .em .girando { animation:none; } }
+
+.em-marcar { display:flex;align-items:center;gap:8px;margin-top:12px;color:var(--texto-2);font-size:12px;cursor:pointer; }
+.em-marcar input { accent-color:var(--acento); }
