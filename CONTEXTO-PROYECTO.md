@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-24 (borrado de carpetas y generaciones, versión 2026-11-24r).
+Última actualización: 2026-11-24 (borrado de carpetas y generaciones, versión 2026-11-24s).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -13,10 +13,13 @@ cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponib
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
 
-## Borrar carpetas y generaciones (2026-11-24r)
+## Borrar carpetas y generaciones (2026-11-24s)
 
 Implementación: [PR #206](https://github.com/kalethabh/App-nube/pull/206).
-Distribución: [v2026-11-24r](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-24r).
+Distribución: [v2026-11-24s](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-24s).
+
+La release pública r ya existía desde antes del merge de PR #206, con el paquete anterior.
+Se reserva **s** para que las copias con r detecten también el cambio; no se reemplaza silenciosamente r.
 
 Pedido: permitir borrar carpetas o generaciones. La entrada compartida de las seis secciones de generación
 ahora tiene «Borrar generación» en cada tarjeta y «Borrar carpeta» tanto fuera como dentro de la carpeta.
