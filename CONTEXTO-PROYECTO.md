@@ -88,7 +88,7 @@ con captura, título y explicación. Esta sección prevalece sobre el bloqueo gl
 Validación completada: Embudo **58/58** y Chrome con selección/inicio de una segunda sección mientras Hero
 está activo; capturas reales de tres secciones de una página de prueba, bloqueo de scripts/API y vinculación;
 notificaciones persistentes y resumen; popup GitHub/público, posponer/reabrir, reinicio, avisos y análisis visual
-con temas y móvil. Shopify simulado **58/58**. Landings **43/44**: único fallo del entorno, FFmpeg del sistema
+con temas y móvil. Shopify simulado **58/58**. Humo rápido **85/86**: único fallo por Python del sistema 3.9.6 (requiere 3.10–3.13), sin modificar instalaciones del usuario. Landings **43/44**: único fallo del entorno, FFmpeg del sistema
 carece del encoder libwebp; el clon conserva PNG en ese caso. Las capturas WebP de Chrome sí funcionan.
 No se hicieron generaciones de pago ni se publicó en tiendas reales. Regresión final del Embudo **58/58**
 tras el acabado de fondos; capturas de interfaz revisadas (popup central y análisis por sección). La estética final del proveedor de imágenes sigue
