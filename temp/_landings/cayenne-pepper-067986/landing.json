@@ -1,0 +1,58 @@
+{
+  "id": "cayenne-pepper-067986",
+  "url": null,
+  "modo": "crear",
+  "motor": "claude",
+  "prompt": "",
+  "productoId": "cayenne-pepper-d319",
+  "analizar": false,
+  "titulo": "CAYENNE PEPPER",
+  "creado": "2026-11-25T18:11:57.968Z",
+  "estado": "trabajando",
+  "progreso": [
+    "Emilio (estratega (investigación)) está trabajando…",
+    "Simón (arquitecto de conversión) está trabajando…"
+  ],
+  "error": null,
+  "informe": null,
+  "puntajes": null,
+  "actualizado": "2026-11-25T18:12:22.829Z",
+  "agentes": [
+    {
+      "id": "estratega",
+      "nombre": "Emilio",
+      "rol": "Estratega (investigación)",
+      "estado": "listo",
+      "resumen": "Decidí vender la sensación que la clienta vive cada noche: los pies helados que no calientan ni con medias, con piernas pesadas y el bajón de la tarde como apoyo. Es lo que más resaltaste, se nota en el cuerpo y no obliga a hablar del corazón ni de la presión, que en Colombia no se puede prometer. La cayena se presenta como el calorcito de casa, en cápsula sin ardor, con pago contra entrega y avisos claros para quien toma medicamentos. Faltan los precios en pesos y confirmar el registro INVIMA antes de pautar."
+    },
+    {
+      "id": "conversion",
+      "nombre": "Simón",
+      "rol": "Arquitecto de conversión",
+      "estado": "trabajando",
+      "resumen": null
+    },
+    {
+      "id": "copy",
+      "nombre": "Valeria",
+      "rol": "Copywriter",
+      "estado": "esperando",
+      "resumen": null
+    },
+    {
+      "id": "imagenes",
+      "nombre": "Antonia",
+      "rol": "Directora de imágenes",
+      "estado": "esperando",
+      "resumen": null
+    },
+    {
+      "id": "revision",
+      "nombre": "Renata",
+      "rol": "Revisión",
+      "estado": "esperando",
+      "resumen": null
+    }
+  ],
+  "plantilla": "cen"
+}
