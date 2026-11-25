@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-25f · Crear landings desde cero con un equipo de agentes
+
+- En Landings ahora eliges **Clonar una landing** (tal cual, como antes) o **Crear con el equipo**: eliges tu producto y la landing nace de la plantilla (la de Be Well CEN: galería, oferta por combos con pago contra entrega, creativos, reseñas y preguntas).
+- La arma un equipo, cada uno con su trabajo: **Emilio** decide la estrategia con tu investigación de mercado, **Simón** entiende qué hace cada sección, cada título y cada imagen de la plantilla, **Valeria** escribe los textos, **Antonia** diseña las imágenes (ChatGPT, con la foto de tu producto) y **Renata** revisa que nada esté inventado.
+- En la landing ves «Cómo la armó el equipo»: qué decidió cada uno y por qué, y lo que te toca completar (por ejemplo, reseñas reales).
+
 ## 2026-11-25e · Kads Studio abre sin la ventana de Terminal
 
 - En los Mac donde se instaló con el comando, «Kads Studio» abría siempre una ventana de Terminal. Ahora abre como una app normal: arranca por detrás y abre el navegador. Para cerrarla: Cmd+Q, o clic derecho en su ícono del Dock › Salir.

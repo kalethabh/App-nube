@@ -154,6 +154,30 @@ function SubirAShopify({ l, tiendas, alCerrar }) {
   );
 }
 
+/** (2026-11-25f) Cómo la armó el equipo: cada agente, qué decidió y por qué. */
+function Equipo({ agentes }) {
+  if (!agentes?.length) return null;
+  const marca = { esperando: '·', trabajando: '…', listo: '✓' };
+  return (
+    <details className="ld-equipo" open>
+      <summary>Cómo la armó el equipo</summary>
+      <ol>
+        {agentes.map((a) => (
+          <li key={a.id} className={`ld-equipo__agente ld-equipo__agente--${a.estado}`}>
+            <strong>{marca[a.estado] || ''} {a.nombre} · {a.rol}</strong>
+            {a.resumen ? <p>{a.resumen}</p> : <p className="ld-ayuda">{a.estado === 'trabajando' ? 'Trabajando…' : 'Esperando su turno.'}</p>}
+            {a.pendientes?.length ? (
+              <ul className="ld-equipo__pendientes">
+                {a.pendientes.map((x, i) => <li key={i}>{x}</li>)}
+              </ul>
+            ) : null}
+          </li>
+        ))}
+      </ol>
+    </details>
+  );
+}
+
 function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
   const { aviso } = useAvisos();
   const [subiendo, setSubiendo] = useState(false);
@@ -174,16 +198,18 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
       <header className="ld-item__cabeza">
         <div className="ld-item__textos">
           <strong>{l.titulo}</strong>
-          <a href={l.url} target="_blank" rel="noopener noreferrer" className="ld-item__url">
-            {l.url} <ExternalLink size={12} aria-hidden="true" />
-          </a>
+          {l.url ? (
+            <a href={l.url} target="_blank" rel="noopener noreferrer" className="ld-item__url">
+              {l.url} <ExternalLink size={12} aria-hidden="true" />
+            </a>
+          ) : null}
           <span className="ld-item__meta">
-            {l.modo === 'adaptar' ? (l.prompt ? `Con tu pedido: «${l.prompt.length > 70 ? `${l.prompt.slice(0, 70)}…` : l.prompt}»` : `Adaptada a tu producto · textos con ${l.motor === 'codex' ? 'Codex' : 'Claude Code'}, imágenes con ChatGPT`) : 'Clon tal cual'} · {fechaRelativa(l.creado)}
+            {l.modo === 'crear' ? `Creada desde la plantilla con el equipo${l.prompt ? ` · «${l.prompt.length > 60 ? `${l.prompt.slice(0, 60)}…` : l.prompt}»` : ''}` : l.modo === 'adaptar' ? (l.prompt ? `Con tu pedido: «${l.prompt.length > 70 ? `${l.prompt.slice(0, 70)}…` : l.prompt}»` : `Adaptada a tu producto · textos con ${l.motor === 'codex' ? 'Codex' : 'Claude Code'}, imágenes con ChatGPT`) : 'Clon tal cual'} · {fechaRelativa(l.creado)}
           </span>
         </div>
         <span className={`ld-estado ld-estado--${l.estado}`}>
           {ocupado ? <LoaderCircle size={13} className="girando" aria-hidden="true" /> : null}
-          {{ trabajando: 'Clonando…', midiendo: 'Midiendo…', analizando: 'Analizando…', lista: 'Lista', error: 'No salió' }[l.estado] || l.estado}
+          {{ trabajando: l.modo === 'crear' ? 'Creando…' : 'Clonando…', midiendo: 'Midiendo…', analizando: 'Analizando…', lista: 'Lista', error: 'No salió' }[l.estado] || l.estado}
         </span>
       </header>
       {ocupado ? (
@@ -194,8 +220,8 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
       ) : null}
       {l.puntajes || p ? (
         <div className="ld-datos">
-          <Medidor titulo="La original" p={l.puntajes?.original} />
-          <Medidor titulo="La copia" p={l.puntajes?.copia} />
+          {l.url ? <Medidor titulo="La original" p={l.puntajes?.original} /> : null}
+          <Medidor titulo={l.url ? 'La copia' : 'Tu landing'} p={l.puntajes?.copia} />
           {p ? (
             <dl className="ld-pesos">
               <div><dt>HTML</dt><dd>{kb(p.html)}</dd></div>
@@ -208,6 +234,7 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
           ) : null}
         </div>
       ) : null}
+      <Equipo agentes={l.agentes} />
       {l.analisis ? <Analisis a={l.analisis} /> : null}
       {!l.analisis && l.analisisError && !ocupado ? <p className="ld-ayuda"><CircleAlert size={13} aria-hidden="true" /> {l.analisisError}</p> : null}
       {l.informe?.avisos?.length ? (
@@ -242,6 +269,8 @@ export default function Landings({ consulta }) {
   const { aviso } = useAvisos();
   const [url, setUrl] = useState('');
   const [prompt, setPrompt] = useState('');
+  const [forma, setForma] = useState('clonar'); // (2026-11-25f) clonar una landing o crearla con el equipo
+  const [productoId, setProductoId] = useState('');
   const [analizar, setAnalizar] = useState(true);
   const [ocupado, setOcupado] = useState(false);
   const [abierta, setAbierta] = useState(null);
@@ -252,6 +281,19 @@ export default function Landings({ consulta }) {
   const { datos: dt } = useDatos('shopify:tiendas', () => pedirNuevo('/api/shopify/tiendas'));
   const tiendas = dt?.tiendas || [];
   const landings = (datos?.landings || []).filter(l=>l.id===proyecto);
+  const crearConEquipo = async () => {
+    setOcupado(true);
+    try {
+      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, prompt: prompt.trim() } });
+      setPrompt('');
+      await recargar?.();
+      ir(`/landings?proyecto=${encodeURIComponent(creada.id)}`);
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude empezar', texto: e.message });
+    } finally {
+      setOcupado(false);
+    }
+  };
   const clonar = async () => {
     setOcupado(true);
     try {
@@ -270,6 +312,37 @@ export default function Landings({ consulta }) {
     <div className="pagina ld pila" style={{ '--hueco': 'var(--e-5)' }}>
       <CabeceraPagina sobretitulo={proyecto ? "ANÁLISIS / LANDING" : "Crear"} titulo={proyecto ? landings[0]?.titulo || "Tu landing" : "Landings"} descripcion={proyecto ? "Revisa cada sección con su captura, entiende su mensaje y consulta las mejoras sugeridas. La vista completa está disponible debajo del análisis." : "Pega la dirección de una landing y, si quieres, escribe qué cambiarle. La app la clona funcionando igual que la original y te muestra qué tan rápido carga."} />
       {!proyecto ? <section className="ld-nueva">
+        <div className="ld-segmento" role="group" aria-label="Clonar o crear">
+          <button type="button" className={forma === 'clonar' ? 'activo' : ''} aria-pressed={forma === 'clonar'} onClick={() => setForma('clonar')}>Clonar una landing</button>
+          <button type="button" className={forma === 'crear' ? 'activo' : ''} aria-pressed={forma === 'crear'} onClick={() => setForma('crear')}>Crear con el equipo</button>
+        </div>
+        {forma === 'crear' ? (
+          <>
+            <label className="ld-grupo">
+              <span className="ld-grupo__etiqueta">Tu producto</span>
+              <select value={productoId} onChange={(e) => setProductoId(e.target.value)}>
+                <option value="">Elige el producto…</option>
+                {productos.map((p) => <option key={p.id} value={p.id}>{p.nombre}</option>)}
+              </select>
+            </label>
+            <AreaTexto
+              etiqueta="Qué quieres (opcional)"
+              placeholder={'Por ejemplo: «enfócala en mujeres de 45 a 60 con sofocos», «tono cercano», «combo 2x1 a 99.900».'}
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              rows={3}
+              maxLength={4000}
+            />
+            <div className="ld-opciones">
+              <Boton variante="primario" icono={LayoutTemplate} onClick={crearConEquipo} cargando={ocupado} disabled={!productoId}>
+                Crear con el equipo
+              </Boton>
+            </div>
+            <p className="ld-ayuda">
+              La landing nace de la plantilla (galería, oferta por combos con pago contra entrega, creativos, reseñas y preguntas) y la arma el equipo con la investigación de mercado de tu producto: Emilio decide la estrategia, Simón entiende qué hace cada sección, título e imagen, Valeria escribe los textos, Antonia diseña las imágenes (ChatGPT, con la foto de tu producto) y Renata revisa que nada esté inventado. Usa tu plan de IA: unos 5 trabajos de IA y una imagen por foto de la galería.
+            </p>
+          </>
+        ) : <>
         <CampoTexto etiqueta="Dirección de la landing" placeholder="https://tutienda.com/products/…" value={url} onChange={(e) => setUrl(e.target.value)} maxLength={2000} />
         <AreaTexto
           etiqueta="Qué quieres (opcional)"
@@ -303,6 +376,7 @@ export default function Landings({ consulta }) {
             ? 'La copia exacta la hace el código; después la IA aplica lo que escribiste (si nombras uno de tus productos, usa su ficha y su investigación, y hace con ChatGPT las imágenes donde se ve el producto, con tu foto). Nada se inventa.'
             : 'La copia exacta la hace el código (sin IA): textos, imágenes, colores y estructura, y todo funciona como en la original (desplegables, pestañas, selectores, variantes). Quita la analítica, los píxeles y los popups de las apps, y deja las imágenes en WebP.'}
         </p>
+        </>}
       </section>
       : null}
       {/* (2026-11-24) las tiendas a donde se suben: a la vista (se conectan en el menú Shopify) */}

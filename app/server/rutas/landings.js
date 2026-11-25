@@ -11,7 +11,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import express from 'express';
 import { soloDesdeLaApp } from '../lib/productos.js';
-import { listar, leer, crear, borrar, medirDeNuevo, analizarDeNuevo, carpetaDe } from '../lib/landings/index.js';
+import { listar, leer, crear, crearDesdePlantilla, borrar, medirDeNuevo, analizarDeNuevo, carpetaDe } from '../lib/landings/index.js';
 import { prepararZip, enviarZip } from '../lib/imagen-ads/zip.js';
 
 const json = express.json({ limit: '16kb' });
@@ -29,6 +29,8 @@ export default function rutasLandings(app) {
   };
   app.get('/api/landings', r(() => listar()));
   app.post('/api/landings', soloDesdeLaApp, json, r((req) => crear(req.body || {})));
+  // (2026-11-25f) crear desde la plantilla con el equipo de agentes: { productoId, prompt?, motor? }
+  app.post('/api/landings/crear', soloDesdeLaApp, json, r((req) => crearDesdePlantilla(req.body || {})));
   app.get('/api/landings/:id', r((req) => leer(req.params.id)));
   app.delete('/api/landings/:id', soloDesdeLaApp, r((req) => borrar(req.params.id)));
   app.post('/api/landings/:id/medir', soloDesdeLaApp, r((req) => medirDeNuevo(req.params.id)));
