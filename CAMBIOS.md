@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-25a · Kads en internet gratis y con cuentas
+
+- En un servidor, la app ahora pide **correo y clave**: las mismas cuentas del Centro de Control (mismo Supabase). El primero que entra queda **dueño**; los demás esperan a que los apruebes en **Tu cuenta › Usuarios** (socio, empleado o rechazado).
+- Socios y empleados usan la app; solo el dueño cambia ajustes, claves, la IA conectada, el guardado y las tiendas conectadas.
+- Guía nueva **DESPLEGAR-GRATIS.md**: la app en el servidor gratis de Oracle Cloud, paso a paso.
+- En tu Mac no cambia nada: ahí no pide ingreso.
+
 ## 2026-11-24s · Borrar carpetas y generaciones
 
 - Puedes borrar una generación desde su tarjeta o borrar una carpeta con las generaciones de esa sección. Disponible en imágenes, videos, Embudo, Landings, Sketch y Cambiar producto.

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Building2, CirclePause, Clapperboard, House, LayoutTemplate, MessageCircle, Package, Rocket, Scissors, GraduationCap, Images, LayoutGrid, Library, Palette, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, ShoppingBag, Telescope, FolderOpen } from 'lucide-react';
+import { Building2, CirclePause, Clapperboard, House, LayoutTemplate, MessageCircle, Package, Rocket, Scissors, GraduationCap, Images, LayoutGrid, Library, Palette, Wallet, LogOut, PanelLeftClose, PanelLeftOpen, Plus, Settings, Users, ShoppingBag, Telescope, FolderOpen } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -200,7 +200,46 @@ function Conexion({ ok, nombre, para, falta = 'Falta', plegado }) {
   );
 }
 
+/** (2026-11-25a) La cuenta, en la app en un servidor con ingreso (lib/acceso.js): { activo, correo, nombre, rol }. */
+function useCuenta() {
+  const [cuenta, setCuenta] = useState(null);
+  useEffect(() => {
+    let vivo = true;
+    fetch('/api/acceso/yo', { headers: { Accept: 'application/json' } })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => vivo && setCuenta(d?.activo ? d : null))
+      .catch(() => {});
+    return () => {
+      vivo = false;
+    };
+  }, []);
+  return cuenta;
+}
+
+function BloqueCuenta({ cuenta, plegado }) {
+  const salir = async () => {
+    try {
+      await fetch('/api/acceso/salir', { method: 'POST', headers: { Accept: 'application/json' } });
+    } finally {
+      location.href = '/entrar';
+    }
+  };
+  return (
+    <div className="nav__grupo">
+      {!plegado ? <span className="nav__grupo-titulo">Tu cuenta</span> : null}
+      {cuenta.rol === 'owner' ? <ItemMenu item={{ id: 'usuarios', texto: 'Usuarios', icono: Users, href: '/usuarios' }} plegado={plegado} /> : null}
+      <button type="button" className="nav__item" onClick={salir} title={cuenta.correo || ''} style={{ background: 'none', border: 0, width: '100%', textAlign: 'left', font: 'inherit', color: 'inherit', cursor: 'pointer' }}>
+        <span className="nav__icono" aria-hidden="true">
+          <LogOut size={18} strokeWidth={2} />
+        </span>
+        <span className="nav__texto">Salir{cuenta.nombre ? ` (${cuenta.nombre})` : ''}</span>
+      </button>
+    </div>
+  );
+}
+
 export function MenuLateral({ activo, plegado, onPlegar }) {
+  const cuenta = useCuenta();
   // lo mismo que cuentan la barra de arriba y el tablero (src/datos/produccion.js). Mientras algo se produce se
   // mira cada 5 s, como el tablero: el avance y la etapa no se quedan atrás de la pantalla de producción
   const [cadaMs, setCadaMs] = useState(15000);
@@ -272,6 +311,7 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
             ))}
           </div>
         ))}
+        {cuenta ? <BloqueCuenta cuenta={cuenta} plegado={plegado} /> : null}
       </nav>
 
       {necesitan.length ? (
