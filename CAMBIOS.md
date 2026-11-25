@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-25g · Landings creadas con la identidad de tu producto
+
+- Las landings que crea el equipo ya no se ven como la plantilla: **Antonia** (diseñadora visual) mira el empaque de tu producto y su kit de marca y elige los colores y las tipografías; la página entera se pinta con eso (botones, precios, fondos, títulos).
+- **Mateo** (director de imágenes) hace todas las imágenes con esa misma identidad.
+- No queda nada de la plantilla: si una imagen no sale, la galería usa la foto de tu producto y las demás se quitan; los textos que todavía nombraban la marca de la plantilla se cambian.
+- Las landings ya creadas no cambian: créala otra vez.
+
 ## 2026-11-25f · Crear landings desde cero con un equipo de agentes
 
 - En Landings ahora eliges **Clonar una landing** (tal cual, como antes) o **Crear con el equipo**: eliges tu producto y la landing nace de la plantilla (la de Be Well CEN: galería, oferta por combos con pago contra entrega, creativos, reseñas y preguntas).

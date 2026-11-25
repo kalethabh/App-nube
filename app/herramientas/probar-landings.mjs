@@ -256,12 +256,16 @@ async function principal() {
   if (id4) creados.landings.push(id4);
   const l4 = await esperar(300, () => leerLanding(id4), terminada);
   check('Crear con el equipo: termina lista, sin URL, modo crear', l4?.estado === 'lista' && l4.modo === 'crear' && !l4.url && l4.productoId === prod, l4);
-  check('Los 5 agentes trabajaron y dejaron su resumen', l4?.agentes?.length === 5 && l4.agentes.every((a) => a.estado === 'listo' && a.resumen), l4?.agentes);
+  check('Los 6 agentes trabajaron y dejaron su resumen', l4?.agentes?.length === 6 && l4.agentes.every((a) => a.estado === 'listo' && a.resumen), l4?.agentes);
   check('Renata deja lo que el dueño debe completar', l4?.agentes?.find((a) => a.id === 'revision')?.pendientes?.length >= 1);
   const h4 = id4 && fs.existsSync(path.join(RAIZ, 'temp', '_landings', id4, 'index.html')) ? html(id4) : '';
   check('La página es la plantilla con los textos del producto', /data-seccion="oferta"/.test(h4) && /Sueño Profundo/.test(h4) && !/Be Well CEN<sup>/.test(h4), (h4.match(/<h1[^>]*>[\s\S]{0,80}/) || [''])[0]);
   check('Los combos del script quedan con el producto', /"name": "Kit Trío Sueño Profundo"/.test(h4), (h4.match(/const OFFERS = [\s\S]{0,200}/) || [''])[0]);
   check('El tarro de los combos es la foto del producto y la imagen principal la nueva', /src="assets\/producto\.png"/.test(h4) && /src="assets\/ia-img0-/.test(h4) && l4?.creada?.imagenes === 1, l4?.creada);
+  // (2026-11-25g) la identidad del producto, no la de la plantilla
+  check('La paleta es la del producto (y el texto ilegible que dio el diseño se corrigió)', /--accent:#A62737/i.test(h4) && !/--accent:#8a4fc4/i.test(h4) && !/--fg:#ffffff/i.test(h4) && /--star:#FACF42/i.test(h4), (h4.match(/:root\{[\s\S]{0,500}/) || [''])[0]);
+  check('Las fuentes son las elegidas', /id="kads-fuentes"[^>]+family=Lato[^>]+family=Anton|family=Lato[^"]*family=Anton/.test(h4) && /--f-display:"Anton"/.test(h4), (h4.match(/<link id="kads-fuentes"[^>]*>/) || [''])[0]);
+  check('No queda ninguna imagen ni marca de la plantilla', !/assets\/cen-/.test(h4) && !/\b(Be ?Well|CEN)\b/.test(h4.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>/g, '')), [...new Set(h4.match(/assets\/cen-[\w.-]+|\b(Be ?Well|CEN)\b[^<]{0,40}/g) || [])].slice(0, 8));
   check('Mide solo la landing (no hay original)', l4?.puntajes?.copia && !l4.puntajes.original, l4?.puntajes);
 
   // medir y borrar
