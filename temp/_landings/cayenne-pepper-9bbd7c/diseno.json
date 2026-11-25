@@ -1,0 +1,22 @@
+{
+  "paleta": {
+    "accent": "#A62737",
+    "accent_hover": "#8C1F2D",
+    "accent_deep": "#5E1420",
+    "accent_soft": "#FBE9E6",
+    "tinte": "#FFF7F2",
+    "topbar_ink": "#FACF42",
+    "star": "#F2B705",
+    "bg": "#FFFFFF",
+    "fg": "#2A1A1C",
+    "muted": "#6E5B5D",
+    "line": "#EFDCD8",
+    "texto_2": "#4A3537"
+  },
+  "fuentes": {
+    "display": "Anton",
+    "body": "Nunito Sans"
+  },
+  "estilo_imagenes": "Luz cálida de tarde o de lámpara de casa, como de hogar acogedor en tierra fría. Fondos en rojo cayena suave o rosado empolvado, como el del empaque, y superficies claras (mármol blanco, madera clara, cobijas de lana en crema o vinotinto). Toques de amarillo maíz en detalles: una taza, una vela, la luz de la ventana. Siempre presentes la bolsa roja del producto y las cápsulas rojas brillantes; ajíes rojos frescos como acento. Personas colombianas de 50 a 65 años, naturales y sonrientes, en su casa: pies con medias de lana, manos alrededor de una taza caliente, caminando tranquilas. Nada de hospitales ni imágenes médicas. Colores saturados pero suaves, sin filtros fríos ni azules.",
+  "resumen": "Tomé el rojo cayena del empaque para los botones y el precio, porque el texto blanco se lee muy bien encima, y un vinotinto más oscuro para la barra de arriba y los títulos. El amarillo maíz de las letras de la bolsa queda para resaltar y para las estrellas, y los fondos son blancos y crema cálida para que todo se lea fácil en el celular. Usé Anton en los títulos, la misma letra gruesa del empaque, y Nunito Sans en el texto porque es redondita y cómoda de leer para una señora de 50 a 65 años. Las imágenes van cálidas y caseras, para transmitir el 'calorcito' que promete la página."
+}
