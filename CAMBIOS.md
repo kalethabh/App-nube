@@ -2,6 +2,15 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-25k · Landings creadas: revisadas de verdad contra la base
+
+- Probé el proceso completo con CAYENNE PEPPER y su investigación real, y comparé cada sección con la base. Arreglos:
+  - **Renata ahora mira la página terminada**, sección por sección, contra capturas de la base, y corrige lo que vea.
+  - **Lo que no aplica se quita** en vez de inventarse: una fila de la comparación, una cifra, un profesional (con su filtro), una reseña, una pregunta, o una sección entera.
+  - **Renata recibe los textos que quedaron igual que en la base** y los que pudieron quedar en el lugar equivocado (una pregunta donde iba una respuesta).
+  - **Calificación, número de opiniones y «+40.000» ya no salen inventados**: quedan «X,X» y «XX» para tus datos reales.
+  - Las negritas automáticas resaltan las palabras de tu producto, y la barra fija de abajo ya trae tu precio.
+
 ## 2026-11-25j · Landings creadas con todas las secciones de la base
 
 - La plantilla es ahora la versión completa de la base: sello del registro sanitario, encuesta a clientas, médico asesor, opiniones de profesionales con filtros, comparación de costo y reseñas.
