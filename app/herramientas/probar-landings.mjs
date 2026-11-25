@@ -251,7 +251,7 @@ async function principal() {
   // (2026-11-25f) CREAR desde la plantilla, con el equipo de agentes
   r = await pedir('/api/landings/crear', { json: {} });
   check('Crear sin producto: lo pide', r.st === 400, r);
-  r = await pedir('/api/landings/crear', { json: { productoId: prod, prompt: 'tono cercano' } });
+  r = await pedir('/api/landings/crear', { json: { productoId: prod, prompt: 'tono cercano', precios: { uno: '89.900', dos: '152900', tres: '199900', antes: '89900' } } });
   const id4 = r.datos?.id;
   if (id4) creados.landings.push(id4);
   const l4 = await esperar(300, () => leerLanding(id4), terminada);
@@ -266,6 +266,17 @@ async function principal() {
   check('La paleta es la del producto (y el texto ilegible que dio el diseño se corrigió)', /--accent:#A62737/i.test(h4) && !/--accent:#8a4fc4/i.test(h4) && !/--fg:#ffffff/i.test(h4) && /--star:#FACF42/i.test(h4), (h4.match(/:root\{[\s\S]{0,500}/) || [''])[0]);
   check('Las fuentes son las elegidas', /id="kads-fuentes"[^>]+family=Lato[^>]+family=Anton|family=Lato[^"]*family=Anton/.test(h4) && /--f-display:"Anton"/.test(h4), (h4.match(/<link id="kads-fuentes"[^>]*>/) || [''])[0]);
   check('No queda ninguna imagen ni marca de la plantilla', !/assets\/cen-/.test(h4) && !/\b(Be ?Well|CEN)\b/.test(h4.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>/g, '')), [...new Set(h4.match(/assets\/cen-[\w.-]+|\b(Be ?Well|CEN)\b[^<]{0,40}/g) || [])].slice(0, 8));
+  // (2026-11-25h) precios del dueño, e imágenes con el aspecto y la guía de la plantilla
+  const trio = (h4.match(/<button class="offer"[^>]*data-key="trio"[\s\S]*?<\/button>/) || [''])[0];
+  check('Los precios del dueño: precio, tachado y «Ahorras» calculados', /<strong>\$199\.900<\/strong>/.test(trio) && /<s>\$269\.700<\/s>/.test(trio) && /Ahorras \$69\.800/.test(trio) && /"price": "\$199\.900 COP"/.test(h4), trio.slice(0, 600));
+  const env = JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', '_landings', id4, 'prueba-imagenes.json'), 'utf8'));
+  check('La imagen principal sale con el aspecto de la plantilla (9:16) y su guía de composición', env.some((e) => e.imagen === 'img0' && e.aspecto === '9:16' && e.guia), env);
+  r = await pedir('/api/landings/crear', { json: { productoId: prod } });
+  const id5 = r.datos?.id;
+  if (id5) creados.landings.push(id5);
+  const l5 = await esperar(300, () => leerLanding(id5), terminada);
+  const h5 = id5 && fs.existsSync(path.join(RAIZ, 'temp', '_landings', id5, 'index.html')) ? html(id5) : '';
+  check('Sin precios: sin tachados ni «Ahorras» de la plantilla', l5?.estado === 'lista' && !/<s>\$/.test(h5) && !/Ahorras/.test(h5) && /Precio por definir/.test(h5), [l5?.estado, (h5.match(/<s>[^<]*|Ahorras[^<]*/g) || []).slice(0, 4)]);
   check('Mide solo la landing (no hay original)', l4?.puntajes?.copia && !l4.puntajes.original, l4?.puntajes);
 
   // medir y borrar

@@ -123,7 +123,7 @@ export function crear({ url, prompt = '', modo = null, motor = null, productoId 
  * (2026-11-25f) CREAR desde la plantilla, con el equipo de agentes (plantilla.js): { productoId, prompt?, motor? }.
  * Sin URL: la landing nace de la plantilla y la investigación de mercado del producto.
  */
-export function crearDesdePlantilla({ productoId, prompt = '', motor = null } = {}) {
+export function crearDesdePlantilla({ productoId, prompt = '', motor = null, precios = null } = {}) {
   const prod = listarProductos().find((p) => p.id === productoId);
   if (!prod) throw new ErrorApp(400, 'Elige el producto para el que creas la landing.');
   if (!motor) {
@@ -137,7 +137,7 @@ export function crearDesdePlantilla({ productoId, prompt = '', motor = null } = 
   const base = String(prod.nombre || productoId).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'landing';
   const id = `${base}-${crypto.randomBytes(3).toString('hex')}`;
   fs.mkdirSync(carpetaDe(id), { recursive: true });
-  guardar(id, { id, url: null, modo: 'crear', motor, prompt: String(prompt || '').trim().slice(0, 4000), productoId, analizar: false, titulo: prod.nombre, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, informe: null, puntajes: null });
+  guardar(id, { id, url: null, modo: 'crear', motor, prompt: String(prompt || '').trim().slice(0, 4000), precios: precios && typeof precios === 'object' ? precios : null, productoId, analizar: false, titulo: prod.nombre, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, informe: null, puntajes: null });
   crearConElEquipo(id);
   return leer(id);
 }
@@ -147,7 +147,7 @@ async function crearConElEquipo(id) {
   try {
     const l = leer(id);
     const { crearConEquipo } = await import('./plantilla.js');
-    const r = await crearConEquipo({ carpeta: carpetaDe(id), productoId: l.productoId, pedido: l.prompt, motor: l.motor, guardar: (c) => guardar(id, c), avanzar: (t) => avanzar(id, t) });
+    const r = await crearConEquipo({ carpeta: carpetaDe(id), productoId: l.productoId, pedido: l.prompt, precios: l.precios, motor: l.motor, guardar: (c) => guardar(id, c), avanzar: (t) => avanzar(id, t) });
     guardar(id, { titulo: r.titulo, creada: { textos: r.cambiados, imagenes: r.imagenes.hechas, pedidas: r.imagenes.pedidas } });
     guardar(id, { estado: 'midiendo' });
     await medir(id);

@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-25h · Landings creadas: imágenes como las de la base y tus precios
+
+- **Mateo y Simón miran las imágenes de la plantilla** antes de trabajar: la imagen principal ya no sale como una foto suelta, sino como el creativo de la base (titular grande, beneficios con íconos, sellos, el producto), con la misma proporción y sin franjas blancas. ChatGPT recibe la imagen de la plantilla solo como guía de cómo acomodar todo, nunca su marca.
+- **Tus precios al crear:** 1, 2 y 3 unidades y el precio normal (opcional). Con el precio normal se calculan el tachado y el «Ahorras». Sin precios, los combos dicen «Precio por definir» y no quedan los precios tachados de la plantilla.
+
 ## 2026-11-25g · Landings creadas con la identidad de tu producto
 
 - Las landings que crea el equipo ya no se ven como la plantilla: **Antonia** (diseñadora visual) mira el empaque de tu producto y su kit de marca y elige los colores y las tipografías; la página entera se pinta con eso (botones, precios, fondos, títulos).

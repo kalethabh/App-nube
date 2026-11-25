@@ -29,6 +29,9 @@ import { RAIZ } from '../rutas.js';
 import { leerJSON } from '../archivos.js';
 import { escribirJSON, leerFicha, listarProductos, rutaFoto } from '../productos.js';
 import { modoPrueba } from '../procesos.js';
+import { execFileSync } from 'node:child_process';
+import { medidas } from './clonar.js';
+import { rutaFfmpeg } from '../miniaturas.js';
 
 const Q = (id) => EQUIPO.find((q) => q.id === id);
 const PLANTILLAS = path.join(path.dirname(fileURLToPath(import.meta.url)), 'plantillas');
@@ -113,6 +116,36 @@ async function agente({ carpeta, motor, quien, prompt, valida, avanzar, timeoutM
   return d;
 }
 
+// ---------------------------------------------------------------- imágenes y precios (2026-11-25h)
+const ASPECTOS = { '1:1': 1, '4:5': 0.8, '9:16': 0.5625, '16:9': 1.7778 };
+/** El aspecto de ChatGPT más cercano a w×h. */
+export const aspectoDe = (w, h) => Object.entries(ASPECTOS).sort((a, b) => Math.abs(a[1] - w / h) - Math.abs(b[1] - w / h))[0][0];
+const quitar = (n) => n?.parentNode?.removeChild(n);
+/** La imagen de la plantilla en PNG (para pasarla de guía a ChatGPT); si no se puede convertir, la original. */
+function referenciaPng(ruta, carpeta) {
+  if (!ruta || !fs.existsSync(ruta)) return null;
+  const png = path.join(carpeta, '_guias', `${path.basename(ruta, path.extname(ruta))}.png`);
+  if (fs.existsSync(png)) return png;
+  try {
+    fs.mkdirSync(path.dirname(png), { recursive: true });
+    execFileSync(rutaFfmpeg(), ['-v', 'error', '-y', '-i', ruta, png], { stdio: 'pipe', timeout: 60000 });
+    return png;
+  } catch {
+    return ruta;
+  }
+}
+const entero = (x) => {
+  const v = Math.round(Number(String(x ?? '').replace(/[^\d]/g, '')));
+  return Number.isFinite(v) && v > 0 ? v : null;
+};
+/** { uno, dos, tres, antes } en pesos enteros, o null si no vienen los tres precios. */
+export function limpiarPrecios(x) {
+  if (!x || typeof x !== 'object') return null;
+  const p = { uno: entero(x.uno), dos: entero(x.dos), tres: entero(x.tres), antes: entero(x.antes) };
+  return p.uno && p.dos && p.tres ? p : null;
+}
+export const cop = (v) => `$${Math.round(v).toLocaleString('es-CO').replace(/,/g, '.')}`;
+
 // ---------------------------------------------------------------- la identidad visual (2026-11-25g)
 export const FUENTES_DISPLAY = ['Anton', 'Bebas Neue', 'Archivo Black', 'Oswald', 'Montserrat', 'Poppins', 'Playfair Display', 'DM Serif Display', 'Fraunces', 'Sora'];
 export const FUENTES_CUERPO = ['Inter', 'Nunito Sans', 'Lato', 'Work Sans', 'Poppins', 'Source Sans 3', 'DM Sans', 'Manrope'];
@@ -193,7 +226,7 @@ export function aplicarDiseno(raiz, d) {
  * Arma la landing en `carpeta` con el equipo. `guardar(cambios)` y `avanzar(texto)` son los de landings/index.js.
  * -> { titulo, agentes, imagenes }
  */
-export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, guardar, avanzar }) {
+export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, guardar, avanzar, precios = null }) {
   const prod = listarProductos().find((p) => p.id === productoId);
   const ficha = leerFicha(productoId) || {};
   let investigacion = '';
@@ -208,6 +241,21 @@ export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, 
   for (const f of fs.readdirSync(path.join(base, 'img'))) fs.copyFileSync(path.join(base, 'img', f), path.join(carpeta, 'assets', f));
   const raiz = leerHtml(fs.readFileSync(path.join(base, 'index.html'), 'utf8').replace(/(["'(])img\//g, '$1assets/'));
   const { textos, imagenes } = piezasDe(raiz);
+  // (2026-11-25h) cada imagen de la plantilla con su archivo, su tamaño y su aspecto: el equipo las MIRA (Read) y las
+  // nuevas salen con la misma proporción
+  for (const im of imagenes) {
+    im.ruta = path.join(base, 'img', path.basename(im.src));
+    const m = fs.existsSync(im.ruta) ? medidas(fs.readFileSync(im.ruta)) : null;
+    im.w = m?.w || null;
+    im.h = m?.h || null;
+    im.aspecto = m ? aspectoDe(m.w, m.h) : '1:1';
+  }
+  const verPlantilla = imagenes.filter((im) => !/tarro/i.test(im.src) && fs.existsSync(im.ruta)).map((im) => im.ruta);
+  const listaImgs = imagenes.map((im, k) => `img${k}\t${im.alt || '(sin alt)'}\t${im.w || '?'}x${im.h || '?'} (${im.aspecto})\tarchivo: ${path.relative(RAIZ, im.ruta).replace(/\\/g, '/')}\tsecciones: ${im.usos.join(', ')}`).join('\n');
+  const p = limpiarPrecios(precios);
+  const preciosTxt = p
+    ? `\nPRECIOS DEL DUEÑO (fijos, úsalos tal cual): 1 unidad ${cop(p.uno)}, 2 unidades ${cop(p.dos)}, 3 unidades ${cop(p.tres)}${p.antes ? `; precio normal de 1 unidad (tachado) ${cop(p.antes)}` : ''}. trio = 3 unidades, duo = 2, uno = 1.\n`
+    : '\nEl dueño NO dio precios: en los precios escribe «Precio por definir» y no inventes descuentos ni «ahorras».\n';
   const agentes = EQUIPO.map((q) => ({ id: q.id, nombre: q.nombre, rol: q.rol, estado: 'esperando', resumen: null }));
   const marcar = (id, cambios) => {
     Object.assign(agentes.find((a) => a.id === id), cambios);
@@ -229,7 +277,7 @@ export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, 
   });
   const mapa = [...porSeccion].map(([s, v]) => `## ${s}\nTextos (índice<TAB>[etiqueta] texto de la plantilla):\n${v.textos.join('\n') || '(ninguno)'}\nImágenes:\n${v.imagenes.join('\n') || '(ninguna)'}`).join('\n\n');
   const producto = `Su producto: ${prod?.nombre || productoId}\nFicha: ${JSON.stringify(ficha).slice(0, 6000)}`;
-  const pedidoTxt = pedido ? `\nLO QUE PIDE EL DUEÑO (manda sobre todo lo demás):\n${pedido}\n` : '';
+  const pedidoTxt = `${pedido ? `\nLO QUE PIDE EL DUEÑO (manda sobre todo lo demás):\n${pedido}\n` : ''}${preciosTxt}`;
 
   // 1. Emilio: la estrategia
   marcar('estratega', { estado: 'trabajando' });
@@ -253,10 +301,14 @@ Lee la investigación como un estratega de respuesta directa y decide la estrate
     motor,
     quien: Q('conversion'),
     avanzar,
+    leer: verPlantilla,
     valida: (d) => d && T(d.resumen) && Array.isArray(d.secciones) && d.secciones.length >= 3,
     prompt: `${producto}\nLa estrategia de Emilio:\n${JSON.stringify(estrategia).slice(0, 8000)}\n${pedidoTxt}
 La plantilla, sección por sección (está diseñada para otro producto: importa QUÉ HACE cada parte, no lo que dice):
 ${mapa}
+
+Las imágenes de la plantilla (ábrelas con Read: mira qué muestran y cómo están armadas, bloque por bloque):
+${listaImgs}
 
 Entiende de verdad la plantilla: para qué está cada sección en ese lugar del recorrido de compra, qué hace cada título (enganchar, nombrar el dolor, prometer, dar prueba, quitar una objeción, empujar a comprar…) y qué trabajo hace cada imagen. Después decide cómo cumple ESA MISMA FUNCIÓN para este producto con la estrategia. Escribe ${rel(carpeta, Q('conversion').archivo)}:
 { "secciones": [ { "seccion": "<nombre de arriba>", "funcion_en_la_plantilla": "", "objetivo_para_este_producto": "", "que_debe_sentir_el_cliente": "", "titulo": "qué debe lograr su título y con qué idea", "imagenes": [ { "imagen": "img<n>", "funcion": "qué trabajo hace esa imagen", "que_debe_mostrar": "" } ] } ],
@@ -317,12 +369,13 @@ Escribe TODOS los textos de la landing para este producto: cada uno cumple la in
       motor,
       quien: Q('imagenes'),
       avanzar,
+      leer: verPlantilla,
       valida: (d) => d && T(d.resumen) && Array.isArray(d.imagenes),
       prompt: `${comun}
-Las imágenes de la plantilla (cada una puede aparecer en varias secciones):
-${imagenes.map((im, k) => `img${k}\t${im.alt || '(sin alt)'}\tsecciones: ${im.usos.join(', ')}`).join('\n')}
+Las imágenes de la plantilla (cada una puede aparecer en varias secciones). ÁBRELAS TODAS con Read antes de escribir:
+${listaImgs}
 
-Para cada imagen, entiende qué trabajo hace en la plantilla (enganche, problema, mecanismo, ingredientes, prueba, modo de uso…) y diseña la de este producto con la intención de Simón: misma función, misma proporción, estilo de creativo de e-commerce que vende en Meta (textos grandes en español dentro de la imagen cuando la original los tiene). Todas las imágenes con la identidad de Antonia: ${T(disenoIA.estilo_imagenes, 1200) || 'coherentes entre sí'}; colores de la paleta ${diseno.accent} (principal), ${diseno.accent_deep} y ${diseno.star}. Nunca la marca ni el empaque de la plantilla. Usa la FOTO DEL PRODUCTO como referencia (se adjunta al generar). El tarro chico de los combos («cen-tarro») NO se genera: va la foto del producto tal cual (ponle "usar_foto": true). Escribe ${rel(carpeta, Q('imagenes').archivo)}:
+Para cada imagen, mírala y entiende qué trabajo hace (enganche, problema, mecanismo, ingredientes, prueba, modo de uso…) y CÓMO está armada: sus bloques, su jerarquía y su distribución (titular grande arriba, beneficios con íconos, sellos de garantía, el producto, la persona, la franja de abajo…). Diseña la de este producto como una TRADUCCIÓN ESTRUCTURAL de esa imagen: los mismos bloques en el mismo orden y lugar, con la intención de Simón, los datos reales del producto y textos grandes en español; la misma proporción que la original (va fija). Nunca pongas sellos, registros sanitarios, garantías o cifras que el producto no tenga: cambia ese bloque por algo verdadero. Al generar, ChatGPT recibe la foto del producto y la imagen de la plantilla solo como guía de composición. Todas las imágenes con la identidad de Antonia: ${T(disenoIA.estilo_imagenes, 1200) || 'coherentes entre sí'}; colores de la paleta ${diseno.accent} (principal), ${diseno.accent_deep} y ${diseno.star}. Nunca la marca ni el empaque de la plantilla. Usa la FOTO DEL PRODUCTO como referencia (se adjunta al generar). El tarro chico de los combos («cen-tarro») NO se genera: va la foto del producto tal cual (ponle "usar_foto": true). Escribe ${rel(carpeta, Q('imagenes').archivo)}:
 { "imagenes": [ { "imagen": "img<n>", "funcion": "", "prompt": "<en inglés, detallado; los textos que van dentro de la imagen, en español y entre comillas>", "aspecto": "1:1" | "4:5" | "9:16" | "16:9", "usar_foto": false } ], "resumen": "" }`,
     }).then((d) => {
       marcar('imagenes', { estado: 'listo', resumen: T(d.resumen, 800) });
@@ -367,6 +420,31 @@ ${(() => {
   for (let k = 0; k < textos.length; k++) if (RE_PLANTILLA.test(textos[k].texto)) poner(k, sinPlantilla(textos[k].texto, prod?.nombre || 'nuestro producto'));
   marcar('revision', { estado: 'listo', resumen: T(revision.resumen, 800), pendientes: (Array.isArray(revision.pendientes) ? revision.pendientes : []).map((p) => T(p, 300)).filter(Boolean).slice(0, 10) });
 
+  // (2026-11-25h) los precios en la página: los del dueño (con tachado y «Ahorras» calculados) o, sin precios, nada de
+  // tachados ni ahorros de la plantilla
+  const n = { trio: 3, duo: 2, uno: 1 };
+  for (const card of raiz.querySelectorAll('.offer[data-key]')) {
+    const k = card.getAttribute('data-key');
+    const precio = p ? p[{ trio: 'tres', duo: 'dos', uno: 'uno' }[k]] : null;
+    const antes = p?.antes ? p.antes * n[k] : null;
+    const strong = card.querySelector('.o-price strong');
+    // (sin precios del dueño: nunca los de la plantilla)
+    if (strong) strong.set_content(precio ? cop(precio) : 'Precio por definir');
+    let tachado = card.querySelector('.o-price s');
+    if (precio && antes && antes > precio) {
+      if (!tachado) {
+        card.querySelector('.o-price')?.insertAdjacentHTML('beforeend', '<s></s>');
+        tachado = card.querySelector('.o-price s');
+      }
+      tachado?.set_content(cop(antes));
+      const ahorro = card.querySelector('.o-save');
+      if (ahorro) ahorro.set_content(`Ahorras ${cop(antes - precio)}`);
+    } else {
+      quitar(tachado);
+      quitar(card.querySelector('.o-save'));
+    }
+  }
+
   // los combos y el título de la página
   const combos = { ...(copy.combos || {}) };
   for (const [k, v] of Object.entries(revision.combos || {})) if (v && typeof v === 'object') combos[k] = { ...(combos[k] || {}), ...v };
@@ -377,7 +455,8 @@ ${(() => {
       const ofertas = {};
       for (const k of ['trio', 'duo', 'uno']) {
         const c = combos[k] || {};
-        ofertas[k] = { name: T(c.name, 120) || k, short: T(c.short, 60) || T(c.name, 60) || k, price: T(c.price, 40) || '', url: '#' };
+        const fijo = p ? p[{ trio: 'tres', duo: 'dos', uno: 'uno' }[k]] : null;
+        ofertas[k] = { name: T(c.name, 120) || k, short: T(c.short, 60) || T(c.name, 60) || k, price: fijo ? `${cop(fijo)} COP` : 'Precio por definir', url: '#' };
       }
       script.set_content(script.rawText.replace(actual[1], JSON.stringify(ofertas, null, 2)));
     }
@@ -400,6 +479,7 @@ ${(() => {
     for (const im of imagenes) if (/tarro/i.test(im.src)) cambiarSrc(im.src, destino);
   }
   const generar = pedidas.filter((x) => !x.usar_foto && !/tarro/i.test(imagenes[Number(String(x.imagen).slice(3))].src));
+  const enviados = [];
   if (generar.length) {
     avanzar(`ChatGPT está haciendo ${generar.length} imágenes con tu producto…`);
     const { motorDeImagenes, codexParaImagenes } = await import('../motor-imagenes.js');
@@ -410,6 +490,7 @@ ${(() => {
         if (modoPrueba()) {
           if (!foto) continue;
           fs.copyFileSync(foto, destino);
+          enviados.push({ imagen: p.imagen, aspecto: im.aspecto, guia: Boolean(referenciaPng(im.ruta, carpeta)) });
         } else {
           const codex = motorDeImagenes() === 'chatgpt' ? codexParaImagenes() : null;
           if (!codex) {
@@ -417,8 +498,9 @@ ${(() => {
             break;
           }
           const { generarConChatGPT } = await import('../../../../produccion/chatgpt-imagen.js');
-          const prompt = correcciones.get(String(p.imagen)) || T(p.prompt, 3000);
-          await generarConChatGPT({ prompt, referencias: foto ? [foto] : [], aspecto: ['1:1', '4:5', '9:16', '16:9'].includes(p.aspecto) ? p.aspecto : '1:1', rutaDestino: destino, codex });
+          const prompt = `${foto ? 'Reference image 1 is the REAL PRODUCT: show it exactly as it is (same packaging, label and colors). ' : ''}The ${foto ? 'second' : 'first'} reference image is ONLY a LAYOUT guide from another brand: copy its composition, block layout and visual hierarchy, but NEVER its brand, product, packaging, people or texts.\n\n${correcciones.get(String(p.imagen)) || T(p.prompt, 3000)}`;
+          const guia = referenciaPng(im.ruta, carpeta);
+          await generarConChatGPT({ prompt, referencias: [...(foto ? [foto] : []), ...(guia ? [guia] : [])], aspecto: im.aspecto, rutaDestino: destino, codex });
         }
         cambiarSrc(im.src, `assets/${path.basename(destino)}`);
         if (T(p.funcion)) for (const n of raiz.querySelectorAll(`img[src="assets/${path.basename(destino)}"]`)) if (n.getAttribute('alt')) n.setAttribute('alt', T(p.funcion, 300));
@@ -446,5 +528,6 @@ ${(() => {
   for (const n of raiz.querySelectorAll('img[alt]')) if (RE_PLANTILLA.test(n.getAttribute('alt'))) n.setAttribute('alt', sinPlantilla(n.getAttribute('alt'), prod?.nombre || 'el producto'));
   if (restos.length) avanzar(`Quité ${restos.length} imagen(es) de la plantilla que no se pudieron rehacer (la galería usa la foto de tu producto).`);
   fs.writeFileSync(path.join(carpeta, 'index.html'), `<!doctype html>\n${raiz.querySelector('html')?.outerHTML || raiz.toString()}`);
+  if (modoPrueba()) escribirJSON(path.join(carpeta, 'prueba-imagenes.json'), enviados);
   return { titulo, agentes, cambiados, diseno, imagenes: { hechas, pedidas: generar.length, quitadas: restos.length } };
 }
