@@ -339,7 +339,7 @@ export default function Landings({ consulta }) {
               </Boton>
             </div>
             <p className="ld-ayuda">
-              La landing nace de la plantilla (galería, oferta por combos con pago contra entrega, creativos, reseñas y preguntas) y la arma el equipo con la investigación de mercado de tu producto: Emilio decide la estrategia, Simón entiende qué hace cada sección, título e imagen, Valeria escribe los textos, Antonia diseña las imágenes (ChatGPT, con la foto de tu producto) y Renata revisa que nada esté inventado. Usa tu plan de IA: unos 5 trabajos de IA y una imagen por foto de la galería.
+              La landing nace de la plantilla (galería, oferta por combos con pago contra entrega, creativos, reseñas y preguntas) y la arma el equipo con la investigación de mercado de tu producto: Emilio decide la estrategia, Simón entiende qué hace cada sección, título e imagen, Antonia le da la identidad de tu producto (colores de su empaque y tipografías), Valeria escribe los textos, Mateo diseña las imágenes (ChatGPT, con la foto de tu producto) y Renata revisa que nada esté inventado. Usa tu plan de IA: unos 6 trabajos de IA y una imagen por foto de la galería.
             </p>
           </>
         ) : <>
