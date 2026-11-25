@@ -1,7 +1,7 @@
--- KADS STUDIO EN EL SUPABASE DEL CENTRO DE CONTROL (2026-11-25a)
--- Se corre UNA vez: Supabase › tu proyecto «centro-de-control» › SQL Editor › New query › pega todo › Run.
--- Crea solo lo de Kads (la tabla kads_usuarios y 3 funciones). No toca las tablas ni los usuarios del Centro de Control:
--- las cuentas son las mismas (mismo correo y clave), los roles de Kads van aparte.
+-- LAS CUENTAS DE KADS STUDIO EN SU PROPIO SUPABASE (2026-11-25a; proyecto propio desde 2026-11-25b)
+-- Se corre UNA vez en el proyecto de Supabase SOLO de Kads (p. ej. «kads-studio»), nunca en el de otra app:
+-- Supabase › proyecto «kads-studio» › SQL Editor › New query › pega todo › Run.
+-- Crea la tabla kads_usuarios y 3 funciones.
 --
 --   · el PRIMERO que entra a Kads queda dueño (owner); los demás, «pendiente» hasta que el dueño los apruebe;
 --   · nadie lee ni escribe la tabla directo (seguridad por filas sin políticas): todo pasa por las funciones, que
