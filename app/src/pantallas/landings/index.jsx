@@ -271,6 +271,7 @@ export default function Landings({ consulta }) {
   const [prompt, setPrompt] = useState('');
   const [forma, setForma] = useState('clonar'); // (2026-11-25f) clonar una landing o crearla con el equipo
   const [productoId, setProductoId] = useState('');
+  const [precios, setPrecios] = useState({ uno: '', dos: '', tres: '', antes: '' });
   const [analizar, setAnalizar] = useState(true);
   const [ocupado, setOcupado] = useState(false);
   const [abierta, setAbierta] = useState(null);
@@ -284,7 +285,7 @@ export default function Landings({ consulta }) {
   const crearConEquipo = async () => {
     setOcupado(true);
     try {
-      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, prompt: prompt.trim() } });
+      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, prompt: prompt.trim(), precios } });
       setPrompt('');
       await recargar?.();
       ir(`/landings?proyecto=${encodeURIComponent(creada.id)}`);
@@ -325,6 +326,18 @@ export default function Landings({ consulta }) {
                 {productos.map((p) => <option key={p.id} value={p.id}>{p.nombre}</option>)}
               </select>
             </label>
+            <div className="ld-precios">
+              <span className="ld-grupo__etiqueta">Tus precios en pesos (los combos de la página)</span>
+              <div className="ld-precios__campos">
+                {[['uno', '1 unidad'], ['dos', '2 unidades'], ['tres', '3 unidades'], ['antes', 'Precio normal (tachado)']].map(([k, t]) => (
+                  <label key={k}>
+                    <small>{t}</small>
+                    <input inputMode="numeric" placeholder={{ uno: '89900', dos: '152900', tres: '199900', antes: '89900' }[k]} value={precios[k]} onChange={(e) => setPrecios((x) => ({ ...x, [k]: e.target.value.replace(/[^\d.]/g, '') }))} />
+                  </label>
+                ))}
+              </div>
+              <small className="ld-ayuda">Sin precios, los combos dicen «Precio por definir». El precio normal es opcional: con él se calculan el tachado y el «Ahorras».</small>
+            </div>
             <AreaTexto
               etiqueta="Qué quieres (opcional)"
               placeholder={'Por ejemplo: «enfócala en mujeres de 45 a 60 con sofocos», «tono cercano», «combo 2x1 a 99.900».'}
