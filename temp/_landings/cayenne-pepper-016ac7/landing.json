@@ -17,7 +17,6 @@
   "creado": "2026-11-25T21:06:50.016Z",
   "estado": "trabajando",
   "progreso": [
-    "Emilio (estratega (investigación)) está trabajando…",
     "Simón (arquitecto de conversión) está trabajando…",
     "Antonia (diseñadora visual) está trabajando…",
     "Valeria (copywriter) está trabajando…",
@@ -28,12 +27,15 @@
     "Imagen 1 de 15 lista.",
     "Imagen 2 de 15 lista.",
     "Imagen 3 de 15 lista.",
-    "Imagen 4 de 15 lista."
+    "Imagen 4 de 15 lista.",
+    "Imagen 5 de 15 lista.",
+    "Imagen 6 de 15 lista.",
+    "Imagen 7 de 15 lista."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-25T21:15:19.337Z",
+  "actualizado": "2026-11-25T21:18:06.366Z",
   "agentes": [
     {
       "id": "estratega",
