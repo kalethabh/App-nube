@@ -1,0 +1,23 @@
+{
+  "id": "T007",
+  "piezas": {
+    "V05_1x1": {
+      "orden": "U0006",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 3,
+      "intentoAbierto": true,
+      "taskId": null
+    },
+    "V06_1x1": {
+      "orden": "U0007",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 2,
+      "intentoAbierto": true,
+      "taskId": null
+    }
+  },
+  "actualizado": "2026-11-26T20:40:02.066Z",
+  "terminado": false
+}

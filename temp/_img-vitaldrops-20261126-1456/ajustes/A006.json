@@ -1,0 +1,18 @@
+{
+  "pedidos": [
+    {
+      "id": "U0006",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Edit this image, keep everything else identical (headline bubble, woman, pose, park, hand holding the bottle, 'mi secreto' badge, arrow, drop icon, comment box, colors, fonts). Only change: softly blur the brand name and logo printed on the bottle label (the 'amua' logo and the 'VITALDROPS' name) so no brand can be read. Keep the bottle shape, amber glass, black dropper and yellow label colors. No new text.",
+      "resumen": "La marca y el logo del frasco quedan borrosos; todo lo demás sigue igual."
+    },
+    {
+      "id": "U0007",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Edit this image, keep the layout, headline, 'DÍA' labels, panel frames, product, offer box, colors and fonts identical, and keep the same woman (same face and afro hair) in all four panels. Make each day panel look like a different day: different place, outfit and pose. DÍA 1: home kitchen, loose gray sweatpants and beige tank top, mirror selfie in three-quarter view, hips look flat with no curve. DÍA 7: bedroom with a full-length mirror, light blue jeans and white t-shirt, three-quarter side view with one hand on her hip. DÍA 14: gym locker room, black leggings and olive sports top, side profile looking over her shoulder at the camera. DÍA 21: living room by a window, dark high-waist jeans and fitted terracotta top, three-quarter view, smiling. In every panel show her from head to knees in three-quarter or side view so the hip and glute curve reads in the silhouette and grows a little each day; not from straight behind, no close-up on any body part, no exaggerated arched pose. No new text.",
+      "resumen": "Cada día ahora tiene otro lugar, otra ropa y otra pose. Se sigue viendo la curva de la cadera y los glúteos, pero de lado o de medio lado y de cuerpo entero, no de espaldas, para que Meta no lo rechace."
+    }
+  ]
+}
