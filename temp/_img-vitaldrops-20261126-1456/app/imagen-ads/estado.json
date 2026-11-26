@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 13,
-    "T": 14
+    "A": 14,
+    "T": 15
   },
   "tandas": {
     "E001": {
@@ -134,6 +134,15 @@
         "U0013"
       ],
       "empezada": true
+    },
+    "A013": {
+      "tipo": "ajuste",
+      "uuid": "1fb33d54-ffb9-4712-a7de-171fecdd9ad3",
+      "estado": "hecha",
+      "pedidos": [
+        "U0014"
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -219,27 +228,20 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "listo",
-      "version": 3,
-      "firma": "2125516-1795725975269",
-      "orden": {
-        "id": "U0013",
-        "modo": "editar",
-        "version": 4,
-        "instruccion_en": "Apply a light blur of about 20% strength to every 'amua' word in the image: the 'amua' above 'VITALDROPS' at the top and the 'amua' on the bottle label. Make it slightly soft and out of focus, not erased and not heavily smeared. Keep 'VITALDROPS' and all other texts sharp and unchanged. Do not change anything else: same women, poses, background, bottle, labels, colors, layout and bottom block.",
-        "textos": false,
-        "trabajo": "T013"
-      },
+      "version": 4,
+      "firma": "2062866-1795726368019",
+      "orden": null,
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:46:16.472Z",
-      "pedido": "U0013",
-      "ultimaOrden": "U0009",
+      "desde": "2026-11-26T20:52:48.481Z",
+      "pedido": null,
+      "ultimaOrden": "U0013",
       "fallo": null
     },
     "V04_1x1": {
@@ -302,24 +304,28 @@
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "listo",
       "version": 1,
       "firma": "1692282-1795723493223",
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0014",
+        "modo": "editar",
+        "version": 2,
+        "instruccion_en": "Only in the right (VitalDrops, after) figure: give her lower body a slightly more defined, shapely curve and a more toned, firm, athletic look, realistic and healthy, not exaggerated or surgical. Keep the same woman, pose, leggings, framing and size. Do not change the left figure, any text, arrows, yellow highlights, the bottle, the whiteboard or the background.",
+        "textos": false,
+        "trabajo": "T014"
+      },
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T20:04:55.085Z",
-      "pedido": null,
+      "pedido": "U0014",
       "ultimaOrden": "U0008",
-      "fallo": {
-        "orden": "U0008",
-        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      }
+      "fallo": null
     },
     "V08_1x1": {
       "v": "V08",
@@ -636,7 +642,7 @@
       "pieza": "V03_1x1",
       "instruccion": "un 20% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:51:33.678Z",
-      "estado": "generando",
+      "estado": "listo",
       "ajuste": "A012",
       "instruccion_en": "Apply a light blur of about 20% strength to every 'amua' word in the image: the 'amua' above 'VITALDROPS' at the top and the 'amua' on the bottle label. Make it slightly soft and out of focus, not erased and not heavily smeared. Keep 'VITALDROPS' and all other texts sharp and unchanged. Do not change anything else: same women, poses, background, bottle, labels, colors, layout and bottom block.",
       "cambiaTextos": false,
@@ -647,6 +653,27 @@
           "orden": "U0013",
           "modo": "editar",
           "instruccion_en": "Apply a light blur of about 20% strength to every 'amua' word in the image: the 'amua' above 'VITALDROPS' at the top and the 'amua' on the bottle label. Make it slightly soft and out of focus, not erased and not heavily smeared. Keep 'VITALDROPS' and all other texts sharp and unchanged. Do not change anything else: same women, poses, background, bottle, labels, colors, layout and bottom block.",
+          "textos": false
+        }
+      ],
+      "paso": 0
+    },
+    "U0014": {
+      "id": "U0014",
+      "pieza": "V07_1x1",
+      "instruccion": "dale más forma a los gluteps, mas redondo, y un poco más tonificado",
+      "fecha": "2026-11-26T20:54:08.862Z",
+      "estado": "generando",
+      "ajuste": "A013",
+      "instruccion_en": "Only in the right (VitalDrops, after) figure: give her lower body a slightly more defined, shapely curve and a more toned, firm, athletic look, realistic and healthy, not exaggerated or surgical. Keep the same woman, pose, leggings, framing and size. Do not change the left figure, any text, arrows, yellow highlights, the bottle, the whiteboard or the background.",
+      "cambiaTextos": false,
+      "resumen": "En la figura del después, la zona de atrás se ve con más forma y más tonificada, de forma natural. Lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V07_1x1",
+          "orden": "U0014",
+          "modo": "editar",
+          "instruccion_en": "Only in the right (VitalDrops, after) figure: give her lower body a slightly more defined, shapely curve and a more toned, firm, athletic look, realistic and healthy, not exaggerated or surgical. Keep the same woman, pose, leggings, framing and size. Do not change the left figure, any text, arrows, yellow highlights, the bottle, the whiteboard or the background.",
           "textos": false
         }
       ],

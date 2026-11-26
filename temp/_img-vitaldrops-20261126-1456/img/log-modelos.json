@@ -1,16 +1,16 @@
 {
-  "generado": "2026-11-26T20:50:39.394Z",
-  "segundos": 79,
+  "generado": "2026-11-26T20:53:08.045Z",
+  "segundos": 74,
   "imagenes": [
     {
-      "id": "V06_1x1",
-      "archivo": "V06_1x1.png",
+      "id": "V03_1x1",
+      "archivo": "V03_1x1.png",
       "modelo": "gpt-image (ChatGPT)",
       "respaldo": false,
       "intentos": 1,
       "referencias": 2,
       "creditos": 0,
-      "taskId": "01a2199e-b54f-7593-b2f0-e8a1a0da5c9e"
+      "taskId": "01a219a1-0ec5-74c0-a241-1d50f9be1cf9"
     }
   ]
 }

@@ -32,20 +32,20 @@
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
       "estado": "corriendo",
-      "intentos": 7,
-      "inicio": "2026-11-26T20:51:33.680Z",
+      "intentos": 8,
+      "inicio": "2026-11-26T20:54:08.863Z",
       "detalle": "Creando 1 imagen · 9 de 10 listas"
     },
     {
       "id": "informe",
       "nombre": "Armando tu informe",
       "estado": "pendiente",
-      "intentos": 6
+      "intentos": 7
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-26T19:56:25.842Z",
   "aprobado": "2026-11-26T19:56:25.842Z",
-  "actualizado": "2026-11-26T20:51:54.435Z"
+  "actualizado": "2026-11-26T20:54:27.045Z"
 }
