@@ -39,6 +39,7 @@ import { cargarYNormalizar, guardar, leerEstado } from '../imagen-ads/estado.js'
 import { sesionEstrategia, sesionPrompts, sesionRevision, sesionAjuste, permisos } from '../imagen-ads/sesiones.js';
 import { esVariado, conAnalisis } from '../imagen-ads/variedad.js';
 import { copiarEstructuras, armarComparacion, estructurasDelLote } from '../imagen-ads/comparacion.js';
+import { asegurarReferencias, listaEstructuras } from '../imagen-ads/estructuras.js';
 import { verificarSesion, leerBloqueo, verificarRevision, verificarAjuste, verificarV } from '../imagen-ads/verificar.js';
 import { revisionSimulada, revisionDeLaTanda } from '../imagen-ads/revision-simulada.js';
 import { loteAnterior, usadosDe, armarInforme, piezasPorHacer, faltaDelBorrador } from '../imagen-ads/lotes.js';
@@ -202,6 +203,8 @@ async function saldo(ctx) {
 async function estrategia(ctx) {
   const c = ctx.carpeta;
   const b = ctx.brief;
+  // (2026-11-26b) las imágenes de las estructuras ganadoras, en tu biblioteca (la primera vez se bajan solas)
+  if (!plantillas.esLoteDePlantillas(b)) await asegurarReferencias(Array.isArray(b.estructuras) && b.estructuras.length ? b.estructuras : listaEstructuras().map((x) => x.id));
   // PLANTILLAS (2026-11-17p): la app arma los textos sola (de los ganchos, la ficha y la investigación) y dibuja la
   // vista previa enseguida; el modelo de imagen solo hace las escenas (sin texto) de las plantillas que las usan.
   if (plantillas.esLoteDePlantillas(b)) {
@@ -785,6 +788,7 @@ async function anuncios(ctx) {
   const est = cargarYNormalizar(c, ctx.brief, { uuidEstrategia, motorEstrategia, simulada }); // UNA lectura; despues, memoria
   guardar(c, est);
   // (2026-11-26b) las imágenes de las estructuras ganadoras que usa el plan, al lote (las mira la revisión)
+  await asegurarReferencias(Object.values(estructurasDelLote(c)).map((x) => x.formato_id));
   copiarEstructuras(c);
   // Los carriles de la IA y lo local van con su propia senal: la de Detener o la de un error del bucle (asi el paso
   // nunca vuelve con algo vivo escribiendo, ni siquiera si se cae).

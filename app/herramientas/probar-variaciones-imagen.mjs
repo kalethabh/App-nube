@@ -268,6 +268,13 @@ async function principal() {
       check('Se arman los 4 montajes lado a lado en comparacion/', ['V01', 'V02', 'V03', 'V04'].every((v) => fs.existsSync(path.join(c4, 'comparacion', `${v}.jpg`))), fs.existsSync(path.join(c4, 'comparacion')) ? fs.readdirSync(path.join(c4, 'comparacion')) : null);
       const inf = fs.existsSync(path.join(c4, 'comparacion', 'informe.md')) ? fs.readFileSync(path.join(c4, 'comparacion', 'informe.md'), 'utf8') : '';
       check('El informe trae los 7 puntajes de cada una: pasan las de 8 o más y V02/V03 quedan para rehacer (Texto limpio)', /\| V01 \|.*PASA/.test(inf) && /\| V02 \|.*REHACER \(Texto limpio\)/.test(inf) && /\| V03 \|.*REHACER/.test(inf) && /Prompt corregido propuesto/.test(inf), inf.slice(0, 900));
+      const vc = (await pedir(`/api/imagen-ads/${lote4}`)).datos?.comparacion;
+      const m1 = vc?.piezas?.find((x) => x.v === 'V01');
+      const img1 = m1?.montaje ? await fetch(BASE + m1.montaje) : null;
+      check('La pantalla del lote recibe la comparación: montaje, 7 puntajes, PASA / PARA REHACER con su corrección', vc?.piezas?.length === 4 && vc.criterios.length === 7 && m1?.pasa === true && img1?.status === 200 && vc.piezas.find((x) => x.v === 'V02')?.pasa === false && vc.piezas.find((x) => x.v === 'V02')?.correccion && vc.piezas.find((x) => x.v === 'V02')?.puedeRehacer, vc);
+      const le = (await pedir('/api/imagen-ads/estructuras')).datos?.estructuras || [];
+      const imgE = await fetch(`${BASE}/api/imagen-ads/estructuras/F35/imagen`);
+      check('La lista de estructuras (8) y la imagen de cada una para elegir', le.length === 8 && le.every((x) => x.hay) && imgE.status === 200 && /image\/jpeg/.test(imgE.headers.get('content-type') || ''), le.map((x) => `${x.id}:${x.hay}`));
       const v02 = vista4.variaciones.find((x) => x.v === 'V02')?.piezas['1:1'];
       check('V02 queda marcada (te necesita) con el criterio que falló, sin rehacerse sola', v02?.estado === 'te-necesita' && v02.problemas.some((t) => /Texto limpio \(5\)/.test(t)), v02);
       const ctx = cp.spawnSync(process.execPath, [path.join(RAIZ, 'produccion', 'rehacer-toma.js'), `temp/${lote4}`, '--pieza', 'V02_1x1', '--contexto'], { cwd: RAIZ, env: { ...env, PUERTO: String(PUERTO) }, encoding: 'utf8' });

@@ -7,6 +7,7 @@
 //   ?simular=1  el lote de ejemplo (src/datos/imagenes-simulacion.js): avanza solo y no se le pide nada al servidor
 import { AgenteLote } from './AgenteLote.jsx';
 import { AnalisisGanador } from './AnalisisGanador.jsx';
+import { ComparacionLote } from './ComparacionLote.jsx';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ImageOff, ImagePlus, Play, RotateCcw, SearchX, Sparkles, Trash2, Unplug } from 'lucide-react';
 import { Boton, CabeceraPagina, Esqueleto, EsqueletoMiniaturas, EstadoVacio, Modal, VistaPrevia, useAvisos, useBarraSuperior } from '../../componentes/index.js';
@@ -395,6 +396,7 @@ export default function PantallaLote({ params, consulta }) {
       {cabecera}
       <Avance vista={vista} simulando={simulando} onContinuar={continuar} onDetener={detener} ocupado={ocupado} enlaceOtro={enlaceOtro} />
       <AnalisisGanador vista={vista} />
+      <ComparacionLote vista={vista} onRehacer={(p) => setARegenerar(p)} />
       <AgenteLote vista={vista} />
       <Galeria
         vista={vista}

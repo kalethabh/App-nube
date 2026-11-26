@@ -2,6 +2,26 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-26b · Anuncios de imagen: estructuras ganadoras
+
+- **Nuevo modo «Estructuras ganadoras»** al crear anuncios de imagen:
+  - cada imagen sale del diseño de un anuncio ganador distinto (8 estructuras de Mayaverra: antes y después 3D, antes y después real con oferta, lo invisible hecho visible, línea de tiempo, personaje 3D, ilustración lado a lado, bodegón premium y carta de texto);
+  - se llenan con tu producto, tus textos y tu oferta, nunca con su texto ni su marca;
+  - vienen marcadas las 4 de la primera prueba.
+- **En todos los lotes**, cada imagen sale de una estructura distinta, y nunca se repiten seguidos el estilo (foto real, 3D, ilustración, bodegón, carta), la zona del cuerpo ni el segmento.
+- **Comparación con la referencia:** al terminar ves cada imagen lado a lado con su estructura y 7 puntajes de 0 a 10:
+  - estructura;
+  - dolor visual;
+  - titular;
+  - texto limpio;
+  - frasco fiel;
+  - oferta y confianza;
+  - diferencia real.
+
+  Pasa con 8 o más en todos. La que no, queda «Para rehacer» con el prompt corregido.
+- **Nada se rehace solo**: tú decides con «Rehacer con esta corrección». También desde Claude Code con `npm run rehacer temp/<lote> --pieza V02_1x1`, que muestra el costo antes.
+- Las imágenes de referencia se bajan solas a tu biblioteca privada la primera vez. No van en el instalador.
+
 ## 2026-11-26a · Anuncios de imagen: variaciones distintas de verdad
 
 - **«Qué tan distintas»** reemplaza a «Replicar validado (exacto)» al crear desde un anuncio ganador:
