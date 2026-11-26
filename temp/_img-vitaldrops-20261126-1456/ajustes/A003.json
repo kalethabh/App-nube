@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0003",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Change only the woman's outfit, pose, expression and setting in the four panels; keep the same woman's face, all texts, the grid, the product, the offer box and the layout exactly as they are. The four panels must NOT repeat the same sports bra and grey leggings. DAY 1: visibly very slim, thin straight legs and flat narrow hips, wearing baggy light-blue mom jeans and an oversized grey t-shirt; one hand pulls the loose waistband a fist away from her body showing the empty gap; frowning, unhappy, looking down at the jeans; bedroom with a mirror, cool light. DAY 7: slightly more shape, black straight trousers and white t-shirt, kitchen. DAY 14: noticeably more shaped, dark fitted jeans and striped top, sunny balcony. DAY 21: clearly the curviest silhouette, visibly wider hips and fuller-looking legs than Day 1, fitted high-waist terracotta jeans and cream bodysuit, three-quarter front pose turned about 45 degrees, hand on hip, whole figure in frame, confident happy smile, bright living room. Natural and believable. No back poses, no close-up or framing focused on any body zone.",
+      "resumen": "En el Día 1 se ve delgada y a disgusto con un jean que le queda grande; cada día cambia de ropa y lugar, y en el Día 21 posa de tres cuartos, segura y con la figura más llena en caderas y piernas."
+    }
+  ]
+}
