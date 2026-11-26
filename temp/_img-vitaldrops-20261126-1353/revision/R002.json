@@ -1,0 +1,32 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V01_1x1",
+      "ok": true,
+      "problemas": [],
+      "puntajes": {
+        "estructura": 9,
+        "dolor_visual": 9,
+        "titular": 9,
+        "texto_limpio": 9,
+        "frasco_fiel": 9,
+        "oferta_confianza": 9,
+        "diferencia_real": 9
+      }
+    },
+    {
+      "pieza": "V02_1x1",
+      "ok": true,
+      "problemas": [],
+      "puntajes": {
+        "estructura": 8,
+        "dolor_visual": 8,
+        "titular": 8,
+        "texto_limpio": 9,
+        "frasco_fiel": 9,
+        "oferta_confianza": 9,
+        "diferencia_real": 9
+      }
+    }
+  ]
+}
