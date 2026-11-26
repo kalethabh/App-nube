@@ -1,0 +1,31 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-26T16:42:03.094Z",
+  "variaciones": 5,
+  "archivos": 5,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 4,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V05_1x1",
+        "problemas": [
+          "Titular: no tiene ninguna palabra resaltada. «VITALDROPS» y «TU RITUAL DIARIO PARA TUS CURVAS» van en el mismo color café, así que nada destaca la promesa.",
+          "No llega a 8 en: Titular (7)."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

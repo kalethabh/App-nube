@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 2,
+    "R": 3,
     "A": 1,
     "T": 4
   },
@@ -52,6 +52,20 @@
         {
           "pieza": "V04_1x1",
           "firma": "1724471-1795710720964",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "8e500522-c220-4c9d-a06d-4799f22ea7a6",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "1957706-1795711265812",
           "ronda": 1
         }
       ],
@@ -216,25 +230,39 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g-r1",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T003"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1957706-1795711265812",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Titular: no tiene ninguna palabra resaltada. «VITALDROPS» y «TU RITUAL DIARIO PARA TUS CURVAS» van en el mismo color café, así que nada destaca la promesa.",
+          "No llega a 8 en: Titular (7)."
+        ],
+        "firma": "1957706-1795711265812",
+        "correccion_en": "Keep everything exactly as it is. Only change the subtitle: write it exactly as \"TU RITUAL DIARIO PARA TUS CURVAS\" and highlight the word \"CURVAS\" by setting it in bold gold #C9962B (or inside a small lemon-yellow #F5E13A highlight box with cocoa text), while the rest of the subtitle stays deep cocoa. Do not add any other text.",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 7,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
+      "desde": "2026-11-26T16:41:06.733Z",
       "pedido": null,
-      "ultimaOrden": "g",
+      "ultimaOrden": "g-r1",
       "rescates": 1
     }
   },

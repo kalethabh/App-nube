@@ -1,0 +1,21 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V05_1x1",
+      "ok": false,
+      "problemas": [
+        "Titular: no tiene ninguna palabra resaltada. «VITALDROPS» y «TU RITUAL DIARIO PARA TUS CURVAS» van en el mismo color café, así que nada destaca la promesa."
+      ],
+      "correccion_en": "Keep everything exactly as it is. Only change the subtitle: write it exactly as \"TU RITUAL DIARIO PARA TUS CURVAS\" and highlight the word \"CURVAS\" by setting it in bold gold #C9962B (or inside a small lemon-yellow #F5E13A highlight box with cocoa text), while the rest of the subtitle stays deep cocoa. Do not add any other text.",
+      "puntajes": {
+        "estructura": 9,
+        "dolor_visual": 8,
+        "titular": 7,
+        "texto_limpio": 9,
+        "frasco_fiel": 9,
+        "oferta_confianza": 8,
+        "diferencia_real": 9
+      }
+    }
+  ]
+}
