@@ -1,0 +1,176 @@
+
+=== 2026-11-21T21:29:51.610Z  node produccion/generar-imagen-ads.js temp/_img-aguaje-complex-3-en-1-20261121-1625 --motor chatgpt --concurrencia 3
+
+=== Anuncios de imagen — _img-aguaje-complex-3-en-1-20261121-1625 ===
+
+  Modelo: gpt-image (ChatGPT), con tu suscripcion (sin costo por imagen)
+  Hasta 3 a la vez; sale tras 20 s sin trabajo.
+
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: image generation failed: http 400 Bad Request: Som)
+  ..  V01_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar la imagen cuadrada con las dos referencias en el orden indicado. | ERROR: image generation failed: http 400 Ba)
+  ..  V03_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: image generation failed: http 400 Bad Request: Som)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll send the supplied prompt and both reference images to the image generator. | ERROR: The image generator did not return )
+  ..  V01_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using the two attached images in the specified order. | ERROR: image generation failed: http 400)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (180 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: image generation failed: http 400 Bad Request: Som)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll submit the square ad with both references in the order you provided. | ERROR: image generation failed: http 400 Bad Req)
+  --  V02_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: I’ll submit the square ad with both references in the order you provided. | ERROR: image generation failed: http 400 Bad Request: Some("{\n  \"error\": {\n    \"mes
+  ..  V01_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using the two attached images. | ERROR: undefined | 2026-11-21T21:36:16.680266Z ERROR codex_core)
+  --  V01_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using the two attached images. | ERROR: undefined | 2026-11-21T21:36:16.680266Z ERROR codex_core::tools::router: error=image generation 
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V03_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using the two attached images in the order provided. | ERROR: image generation failed: http 400 )
+  --  V03_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using the two attached images in the order provided. | ERROR: image generation failed: http 400 Bad Request: Some("{\n  \"error\": {\n  
+
+  Listo en 522 s: 0 listas, 3 sin imagen, 0 ya estaban.
+  Gasto real: 0 creditos = US$0.00
+
+
+--- termino con codigo 0 en 522 s
+
+=== 2026-11-21T21:53:08.679Z  node produccion/generar-imagen-ads.js temp/_img-aguaje-complex-3-en-1-20261121-1625 --motor chatgpt --concurrencia 3
+
+=== Anuncios de imagen — _img-aguaje-complex-3-en-1-20261121-1625 ===
+
+  Modelo: gpt-image (ChatGPT), con tu suscripcion (sin costo por imagen)
+  Hasta 3 a la vez; sale tras 20 s sin trabajo.
+
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V01_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes de referencia. | ERROR: image generation failed: http 400 Bad Request)
+  ..  V03_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using the two references in the order you specified. | ERROR: undefined | 2026-11-21T21:55:22.88)
+  ..  V02_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio con las dos imágenes adjuntas. | ERROR: image generation failed: http 400 Bad Request: Some("{\n  \)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: image generation failed: http 400 Bad Request: Som)
+  ..  V03_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar la imagen con las dos referencias adjuntas. | ERROR: Your request was rejected by the safety system. If you be)
+  ..  V01_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using the two references in the order you provided. | ERROR: image generation failed: http 400 B)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Generaré el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: The image generation tool returned no saved image path.)
+  --  V02_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: Generaré el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: The image generation tool returned no saved image path. | 2026-11-21T21:59:35.474586Z ERROR cod
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V03_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using both attached images in the order you specified. | ERROR: undefined | 2026-11-21T21:59:40.)
+  --  V03_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using both attached images in the order you specified. | ERROR: undefined | 2026-11-21T21:59:40.999869Z ERROR codex_core::tools::router:
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (180 s)
+  ..  V01_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using the two attached images. | ERROR: undefined | 2026-11-21T22:01:18.282850Z ERROR codex_core)
+  --  V01_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using the two attached images. | ERROR: undefined | 2026-11-21T22:01:18.282850Z ERROR codex_core::tools::router: error=image generation 
+
+  Listo en 512 s: 0 listas, 3 sin imagen, 0 ya estaban.
+  Gasto real: 0 creditos = US$0.00
+
+
+--- termino con codigo 0 en 512 s
+
+=== 2026-11-21T22:11:04.036Z  node produccion/generar-imagen-ads.js temp/_img-aguaje-complex-3-en-1-20261121-1625 --motor chatgpt --concurrencia 3
+
+=== Anuncios de imagen — _img-aguaje-complex-3-en-1-20261121-1625 ===
+
+  Modelo: gpt-image (ChatGPT), con tu suscripcion (sin costo por imagen)
+  Hasta 3 a la vez; sale tras 20 s sin trabajo.
+
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V01_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: image generation failed: http 400 Bad Request: Som)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V03_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: undefined | 2026-11-21T22:13:09.227746Z ERROR code)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (180 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar la imagen cuadrada con las dos referencias adjuntas. | ERROR: image generation failed: http 400 Bad Request: S)
+  ..  V01_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll submit the prompt and both references in the order you specified. | ERROR: undefined | 2026-11-21T22:15:07.566684Z ERRO)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V03_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: image generation failed: http 400 Bad Request: Som)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using the two attached images in the order you specified. | ERROR: The image generation tool ret)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V01_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: undefined | 2026-11-21T22:17:15.611317Z ERROR code)
+  --  V01_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: undefined | 2026-11-21T22:17:15.611317Z ERROR codex_core::tools::router: error=image gener
+  ..  V03_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: undefined | 2026-11-21T22:17:26.645998Z ERROR code)
+  --  V03_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: undefined | 2026-11-21T22:17:26.645998Z ERROR codex_core::tools::router: error=image gener
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (180 s)
+  ..  V02_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: image generation failed: http 400 Bad Request: Som)
+  --  V02_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: image generation failed: http 400 Bad Request: Some("{\n  \"error\": {\n    \"message\": \
+
+  Listo en 609 s: 0 listas, 3 sin imagen, 0 ya estaban.
+  Gasto real: 0 creditos = US$0.00
+
+
+--- termino con codigo 0 en 609 s
+
+=== 2026-11-21T22:42:34.779Z  node produccion/generar-imagen-ads.js temp/_img-aguaje-complex-3-en-1-20261121-1625 --motor chatgpt --concurrencia 3
+
+=== Anuncios de imagen — _img-aguaje-complex-3-en-1-20261121-1625 ===
+
+  Modelo: gpt-image (ChatGPT), con tu suscripcion (sin costo por imagen)
+  Hasta 3 a la vez; sale tras 20 s sin trabajo.
+
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V01_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: image generation failed: http 400 Bad Request: Som)
+  ..  V03_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes en el orden indicado. | ERROR: image generation failed: http 400 Bad )
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (180 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: intento 1/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes de referencia. | ERROR: image generation failed: http 400 Bad Request)
+  ..  V03_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar la imagen cuadrada con las dos referencias en el orden indicado. | ERROR: undefined | 2026-11-21T22:46:39.7237)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V01_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll generate the square ad from the two supplied images. | ERROR: image generation failed: http 400 Bad Request: Some("{\n )
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: intento 2/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar el anuncio cuadrado con las dos imágenes adjuntas. | ERROR: The image tool returned no saved file path in `out)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V03_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Voy a generar la imagen cuadrada con las dos referencias adjuntas. | ERROR: undefined | 2026-11-21T22:48:48.770763Z ERROR co)
+  --  V03_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: Voy a generar la imagen cuadrada con las dos referencias adjuntas. | ERROR: undefined | 2026-11-21T22:48:48.770763Z ERROR codex_core::tools::router: error=image gen
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V01_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: Generaré la imagen cuadrada con las dos referencias adjuntas. | ERROR: image generation failed: http 400 Bad Request: Some(")
+  --  V01_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: Generaré la imagen cuadrada con las dos referencias adjuntas. | ERROR: image generation failed: http 400 Bad Request: Some("{\n  \"error\": {\n    \"message\": \"Yo
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: intento 3/3 fallo en ChatGPT (ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using both images in the order you provided. | ERROR: image generation failed: http 400 Bad Requ)
+  --  V02_1x1: sin imagen (contenido-chatgpt) — ChatGPT no quiso hacer esta imagen: I’ll generate the square ad using both images in the order you provided. | ERROR: image generation failed: http 400 Bad Request: Some("{\n  \"error\": {\n    \"mess
+
+  Listo en 509 s: 0 listas, 3 sin imagen, 0 ya estaban.
+  Gasto real: 0 creditos = US$0.00
+
+
+--- termino con codigo 0 en 510 s

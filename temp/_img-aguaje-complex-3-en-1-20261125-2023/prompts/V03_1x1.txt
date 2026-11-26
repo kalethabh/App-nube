@@ -1,0 +1,52 @@
+The FIRST attached image is a REFERENCE AD. Create a new ad that is the same design made for a different product: keep its exact layout, composition, block structure, visual hierarchy, spacing, background treatment and graphic style, and keep its exact typography (same font style, weight, casing, relative sizes, text effects and text placement). Change only three things: (1) the product: replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle; (2) the texts: replace every text of the reference with the texts listed below, each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.
+
+FIRST, READ THE REFERENCE AD before designing anything: (a) its ANGLE: the exact body area, problem or desire it sells (for example glutes and curves, belly fat, swollen legs, cough and lungs, wrinkles, energy, sleep); (b) its HOOK: the idea that stops the scroll (a before/after, a big promise, a number or timeline, a question, a testimonial, a shocking fact, an us-vs-them comparison); (c) its FORMAT: what is shown and how (person, body close-up, split screen, product hero, chart, screenshot, collage). Your ad MUST sell the SAME angle with the SAME hook and format: if the reference is about glutes, yours is about glutes, shown the same way; never switch to another body area or another benefit.
+
+IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+
+SCENE DESCRIPTION (same composition as the reference):
+Square 1:1 photorealistic before/after split-screen supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. TOP (about 12% of the height, full width): two flat solid header blocks side by side; the left half is dark plum #2B1226 with the white word 'ANTES' in a very heavy geometric uppercase sans-serif and below it a two-line white subtitle in a rounded bold sans-serif, all centered in the left half; the right half is hot fuchsia #E6177F with the white word 'DESPUÉS' in the same heavy uppercase sans-serif and a two-line white subtitle below it, centered in the right half. The headers and subtitles are the same size on both sides. MIDDLE (from below the headers to about 68% of the height): a vertical split screen with a thin clean dividing line, two real photographs of the same young adult Latina woman with long dark wavy hair in a ponytail, seen from behind from head to mid-thigh, camera at hip height. LEFT PHOTO: a bright, simple bedroom with a white bed and wooden headboard and soft flat daylight; she wears a white t-shirt knotted at the lower back and grey cotton biker shorts; her silhouette looks flatter and less defined. RIGHT PHOTO: a tropical beach at golden sunset with turquoise sea, gentle waves and palm trees on the horizon, warm glowing light; she wears a coral bikini with a tasteful full-coverage bottom; her silhouette looks curvier, rounder and toned, confident posture. CENTER: the product stands upright, front-facing, exactly over the split line, from just below the headers to the top edge of the card row, about 48% of the height and 24% of the width, crisp studio lighting and a soft shadow. The product is a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; the black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh underline, three small black rounded boxes outlined in pink joined by plus signs ('200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'), and '60 CÁPSULAS' at the bottom. No stickers, seals or badges on or next to the bottle. BELOW THE PHOTOS (about 18% of the height): a full-width row of four equal rounded cards with small even gaps, filled with deep magenta #B0105E fading to dark plum #2B1226, each with a thin glowing fuchsia #E6177F border; each card has a white thin-line icon on top (card 1: two capsules; card 2: an open hand holding a delivery box; card 3: three rising bars; card 4: a shield with a check mark) and centered heavy uppercase white text below; in card 1 the last line is bubblegum pink #FF8CC0. BOTTOM (about 11% of the height): an almost full-width pill-shaped bar in deep magenta to dark plum with a bubblegum pink border; on its left two lines of heavy uppercase text, the first white and the second much larger in bubblegum pink with small pink rays on both sides; a thin vertical white divider; on its right a glossy pale blush pink #FBE3EE pill with extra-heavy deep magenta #B0105E text. A soft fuchsia glow sits behind the cards and the bar. Do not add any other text, seal, price, logo, button, star or badge.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (left) (Top left header block, centered, first line): "ANTES" — Very heavy geometric sans-serif (Montserrat Black look), all uppercase, white, largest text in the ad, no shadow
+- subtitle (left) (Top left header block, centered, two lines below 'ANTES'): "Pompis planas y sin curvas" — Rounded bold sans-serif (Poppins SemiBold/Bold look), sentence case, white, about 45% of the headline size, two centered lines
+- main headline (right) (Top right header block, centered, first line): "DESPUÉS" — Very heavy geometric sans-serif (Montserrat Black look), all uppercase, white, same size as 'ANTES', no shadow
+- subtitle (right) (Top right header block, centered, two lines below 'DESPUÉS'): "Pompis firmes, redonditas y naturales" — Rounded bold sans-serif (Poppins SemiBold/Bold look), sentence case, white, same size as the left subtitle, two centered lines
+- benefit card 1 (First card from the left in the card row, under the icon): "2 CÁPSULAS AL DÍA (CON TUS COMIDAS)" — Heavy uppercase sans-serif, centered; first two lines white, last line (in parentheses) bubblegum pink #FF8CC0
+- benefit card 2 (Second card from the left, under the icon): "PAGO CONTRA ENTREGA" — Heavy uppercase sans-serif, white, centered, three short lines
+- benefit card 3 (Third card from the left, under the icon): "TRIPLE ACCIÓN NATURAL" — Heavy uppercase sans-serif, white, centered, two lines
+- benefit card 4 (Fourth card from the left, under the icon): "SIN AGUJAS NI QUIRÓFANO" — Heavy uppercase sans-serif, white, centered, two lines
+- offer line 1 (Bottom offer bar, left side, first line): "TRATAMIENTO COMPLETO" — Heavy uppercase sans-serif, white, medium size
+- offer line 2 (Bottom offer bar, left side, second line, with small rays on both sides): "X3 FRASCOS" — Extra-heavy uppercase sans-serif, bubblegum pink #FF8CC0, about 1.5 times larger than line 1
+- price pill (no price available: treatment length instead) (Bottom offer bar, right side, inside the glossy pale blush pill after the vertical divider): "3 MESES" — Extra-heavy uppercase sans-serif, deep magenta #B0105E, large, fills the pill
+
+BRAND IDENTITY:
+- color_palette: 'Before' header block: dark plum #2B1226. 'After' header block: hot fuchsia #E6177F. Main texts: white #FFFFFF. Accent text: bubblegum pink #FF8CC0. Benefit cards and offer bar: deep magenta #B0105E fading to dark plum #2B1226, with glowing fuchsia #E6177F borders. Offer pill: pale blush pink #FBE3EE with deep magenta #B0105E text. Bottle: black #0E0E10 with fuchsia.
+
+MANDATORY ELEMENTS:
+- Two flat color header blocks: dark plum on the left, hot fuchsia on the right
+- Vertical split screen with two back-view photos of the same woman: bedroom on the left, sunset beach on the right
+- The user's exact black bottle with hot-pink cap and pink bottom band, front-facing in the center over the split line
+- Row of four equal rounded cards with glowing fuchsia borders and white thin-line icons (capsules, hand with box, three rising bars, shield with check)
+- Pill-shaped offer bar with a vertical white divider and a glossy pale blush pink pill on the right
+- Small pink rays on both sides of 'X3 FRASCOS'
+- Soft fuchsia glow behind the bottom section
+
+STRICT EXCLUSIONS:
+- No sanitary registration seal, INVIMA logo or certification badge anywhere.
+- No 'Calidad premium' sticker or any sticker on the bottle.
+- No price, currency symbol or amount.
+- No nudity, no thong-cut bikini, no sexualized posing; tasteful full-coverage swimwear only.
+- No arrows, measuring tapes or numbers on the bodies.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Sanitary registration seal or INVIMA seal (present in the reference but removed: not confirmed for this product)
+- Do not add: 'Calidad premium' gold sticker on the bottle (removed so the bottle matches the photo exactly)
+- Do not add: Any price or currency amount
+- Do not add: Logos other than what is printed on the real bottle
+- Do not add: Extra CTA buttons, star ratings, testimonials, extra badges, extra benefit lists or legal text blocks
+- Do not add: Before/after arrows, measurements or numbers on the bodies
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

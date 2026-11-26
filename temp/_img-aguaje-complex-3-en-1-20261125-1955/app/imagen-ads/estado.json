@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 10,
+    "R": 11,
     "A": 1,
     "T": 14
   },
@@ -154,6 +154,20 @@
         {
           "pieza": "V08_1x1",
           "firma": "2014378-1795656199876",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R010": {
+      "tipo": "revision",
+      "uuid": "c01c1991-f52a-46e8-89e9-faa271f9b68e",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V09_1x1",
+          "firma": "2236132-1795656536420",
           "ronda": 1
         }
       ],
@@ -430,15 +444,24 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2236132-1795656536420",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R010",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ],
+        "firma": "2236132-1795656536420",
+        "correccion_en": "Write the price exactly as \"$139.900\", with a period (not a comma) between 139 and 900."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T01:28:57.198Z",

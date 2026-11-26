@@ -1,0 +1,84 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-26T01:29:56.104Z",
+  "variaciones": 10,
+  "archivos": 10,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 0,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V01_1x1",
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ]
+      },
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ]
+      },
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ]
+      },
+      {
+        "pieza": "V04_1x1",
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ]
+      },
+      {
+        "pieza": "V05_1x1",
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ]
+      },
+      {
+        "pieza": "V06_1x1",
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ]
+      },
+      {
+        "pieza": "V07_1x1",
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe ser «$139.900» con punto."
+        ]
+      },
+      {
+        "pieza": "V08_1x1",
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ]
+      },
+      {
+        "pieza": "V09_1x1",
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ]
+      },
+      {
+        "pieza": "V10_1x1",
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}
