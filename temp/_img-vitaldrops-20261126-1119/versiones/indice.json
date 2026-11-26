@@ -1,0 +1,14 @@
+{
+  "piezas": {
+    "V01_1x1": [
+      {
+        "n": 1,
+        "archivo": "versiones/V01_1x1.v1.png",
+        "prompt": null,
+        "reemplazadaPor": "editor-1795711875174",
+        "motivo": "editor-zona",
+        "fecha": "2026-11-26T16:51:15.174Z"
+      }
+    ]
+  }
+}

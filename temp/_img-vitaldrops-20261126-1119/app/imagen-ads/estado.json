@@ -100,8 +100,8 @@
       "formato": "1:1",
       "fase": "final",
       "resultado": "listo",
-      "version": 1,
-      "firma": "1947979-1795710616804",
+      "version": 2,
+      "firma": "1874835-1795711875175",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
@@ -120,7 +120,8 @@
           "frasco_fiel": 9,
           "oferta_confianza": 8,
           "diferencia_real": 9
-        }
+        },
+        "editada": "editor-zona"
       },
       "motivo": null,
       "mensaje": null,
