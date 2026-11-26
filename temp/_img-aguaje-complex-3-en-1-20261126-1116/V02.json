@@ -1,0 +1,80 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format F80 (Testimonio honesto con revelación y viñetas) — winning structure mv-50",
+    "reference_style": "Premium product still life with an honest italic quote, a two-line reveal and a bullet list",
+    "angle_used": "Romper expectativas: no te faltaban sentadillas, te faltaba un apoyo diario",
+    "ad_format": "Product Hero Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F, deep magenta #B0105E, dark plum #2B1226 (reveal text), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (background gradient), white #FFFFFF, gold #D4A437 only for the badge border.",
+    "visual_style": "Clean premium still life with soft gradient background and the real bottle sharp; the gym photo inside a card is an ultra-realistic phone photo.",
+    "visual_atmosphere": "Honest, calm and confident; warm soft light, never clinical.",
+    "graphic_language": "Italic quote, huge condensed reveal word, round fuchsia bullet dots, one rounded photo card with a thin white border, a fuchsia pill and a round gold-bordered badge at the bottom.",
+    "text_typography": "Quote in an elegant italic sans-serif (Poppins Italic look); reveal in a very heavy condensed sans-serif (Montserrat Black look), uppercase; bullets in Poppins with bold key words."
+  },
+  "creative_objective": "Reframe the main frustration of the woman who trains legs and sees no change: it was not a lack of squats, her routine lacked daily support. Keep the reference order (quote → reveal → bullets → tilted bottle) and add the required pain scene card and the pay-on-delivery block.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The giant second line of the reveal 'TE FALTABA APOYO'; 2) the gym photo card and the tilted bottle; 3) the italic quote and the 4 bullets; 4) the bottom pill and badge.",
+    "composition_style": "Top 15% italic quote centered; 15-45% the two-line reveal centered, second line huge; 45-88% left 50% four bullets, right 50% the gym photo card with the tilted bottle overlapping its lower-left corner; bottom 12% the pill and the badge.",
+    "spacing_and_structure": "Wide airy spacing like the reference, bullets evenly spaced, nothing touching the edges, about 5% margins.",
+    "lighting_and_depth": "Soft diffused studio light from the upper left on the bottle with a subtle soft shadow on the gradient; the gym photo with cool overhead gym lights.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Reference image: a soft light-green gradient background fading to white at the bottom. Top: a two-line italic quote in black ('it is not magic... but wow'). Below it: a two-line reveal in dark green, the first line medium and the second line gigantic condensed. Middle-left: four bullet points with bold key words. Lower right: one large dropper bottle tilted about 25 degrees, partly cut off by the bottom edge. No people, no price, no button. Adapted: same quote → reveal → bullets → tilted bottle order on a blush-pink gradient; the percentages are replaced by true product facts; a photo card of the woman in the gym (the pain scene) is added on the right because every image must show the problem; a bottom pill with 'Pagas al recibir' and the registration badge is added because it is mandatory.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "italic quote", "position": "top center", "visual_function": "Honest hook", "adaptation_rule": "Brand voice, not a fake customer", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "two-line reveal headline", "position": "upper middle, centered", "visual_function": "The reframe", "adaptation_rule": "Plum first line, giant plum condensed second line", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "bullet list", "position": "middle left", "visual_function": "Proof", "adaptation_rule": "Four true product facts instead of percentages", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "product", "position": "lower right, tilted", "visual_function": "Product hero", "adaptation_rule": "Our closed bottle tilted about 20 degrees, label legible", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "pain scene photo card", "position": "middle right, behind the bottle", "visual_function": "Shows the problem (mandatory rule)", "adaptation_rule": "Woman in the gym in leggings looking at her legs in the mirror, frustrated", "present_in_reference": false },
+      { "block_id": "block_06", "block_type": "bottom trust block", "position": "bottom 12%", "visual_function": "Removes risk (mandatory rule)", "adaptation_rule": "Fuchsia pill 'Pagas al recibir' and round registration badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Percentages, numbers of customers, reviews or stars",
+      "Prices, discounts or free shipping",
+      "Extra icons or benefit cards",
+      "Any brand logo other than what is printed on the real bottle label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium supplement ad on a smooth vertical gradient from pale blush pink #FBE3EE at the top to warm white #FFF7FA at the bottom, no texture, no clutter. TOP 15%: a centered two-line italic quote in black #0E0E10, Poppins Italic look, medium size: 'No es magia…' on line 1 and '¡es un plan de 3 meses!' on line 2 with 'plan de 3 meses' in bold italic. 15-45%: a centered two-line reveal in dark plum #2B1226: line 1 'NO TE FALTABAN SENTADILLAS…' in Montserrat ExtraBold, uppercase, medium-large; line 2 'TE FALTABA APOYO' gigantic in a very heavy condensed sans-serif (Montserrat Black condensed look), the biggest text of the ad, with the word 'APOYO' in hot fuchsia #E6177F. 45-88% LEFT HALF: four bullet points with round fuchsia #E6177F dots, dark text #0E0E10 in Poppins, key words bold, evenly spaced: 'Aguaje, fenogreco y maca negra', 'Solo 2 cápsulas al día', 'Con vitaminas A y E', 'Tratamiento completo de 3 meses'. 45-88% RIGHT HALF: a rounded-corner photo card with a thin white border, about 40% of the canvas width and 40% of its height: an ultra-realistic phone photo inside a neighborhood gym with cool overhead lights, rubber floor, a squat rack and dumbbells blurred behind; an adult Colombian woman, about 25, tan skin with real pores and a light sheen of sweat, dark hair in a messy high ponytail with loose strands, black sports top and plain grey leggings, standing in profile in front of the gym mirror after leg day, her thin straight legs and flat seat in the leggings visible in profile, one hand on her hip, the other touching the back of her thigh, looking over her shoulder at the mirror with a disappointed frown; natural gesture, no studio makeup, never AI-looking, she faces sideways to the camera, not with her back to it. Overlapping the lower-left corner of the card and reaching toward the bottom: ONE large closed bottle of the product tilted about 20 degrees to the right, about 42% of the canvas height, label facing the camera and fully legible, soft diffused studio light from the upper left, soft shadow on the gradient, fully inside the canvas. Use the attached product photo as the only source of truth for the bottle; do not redesign, replace or reinterpret it. The bottle: A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows a small pink VITALABH emblem, a huge bold white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, the bold italic hot-pink 'TRIPLE ACCIÓN', three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed, no loose capsules, no pills; label never mirrored. BOTTOM 12%: on the left a large rounded pill in solid hot fuchsia #E6177F with a white thin-line hand-and-package icon and the text 'Pagas al recibir' in white Poppins Bold; on the right a round trust badge with a solid gold #D4A437 border, white center and 'REGISTRO INVIMA RSA-0030271-2024' in plum #2B1226 bold small caps on two lines.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "italic quote", "reference_position": "top center, two lines", "text_style": "Black Poppins Italic look, 'plan de 3 meses' in bold italic", "text": "No es magia… ¡es un plan de 3 meses!" },
+    { "block_id": "text_block_02", "reference_function": "reveal line 1", "reference_position": "upper middle, centered", "text_style": "Dark plum #2B1226 Montserrat ExtraBold uppercase", "text": "NO TE FALTABAN SENTADILLAS…" },
+    { "block_id": "text_block_03", "reference_function": "reveal line 2 (main headline)", "reference_position": "below line 1, centered, gigantic", "text_style": "Very heavy condensed uppercase, plum with 'APOYO' in fuchsia #E6177F", "text": "TE FALTABA APOYO" },
+    { "block_id": "text_block_04", "reference_function": "bullet", "reference_position": "middle left, 1st", "text_style": "Dark Poppins, bold key words", "text": "Aguaje, fenogreco y maca negra" },
+    { "block_id": "text_block_05", "reference_function": "bullet", "reference_position": "middle left, 2nd", "text_style": "Dark Poppins, 'Solo 2 cápsulas' bold", "text": "Solo 2 cápsulas al día" },
+    { "block_id": "text_block_06", "reference_function": "bullet", "reference_position": "middle left, 3rd", "text_style": "Dark Poppins, 'vitaminas A y E' bold", "text": "Con vitaminas A y E" },
+    { "block_id": "text_block_07", "reference_function": "bullet", "reference_position": "middle left, 4th", "text_style": "Dark Poppins, '3 meses' bold", "text": "Tratamiento completo de 3 meses" },
+    { "block_id": "text_block_08", "reference_function": "trust item", "reference_position": "bottom left, inside a fuchsia pill", "text_style": "White Poppins Bold", "text": "Pagas al recibir" },
+    { "block_id": "text_block_09", "reference_function": "trust badge", "reference_position": "bottom right, inside a round gold-bordered badge", "text_style": "Plum bold small caps on two lines", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Blush pink to white vertical gradient background",
+    "Four round fuchsia bullet dots",
+    "Rounded photo card of the woman in profile in the gym mirror, in leggings, frustrated, at least 25% of the canvas",
+    "One large closed bottle tilted about 20 degrees, overlapping the card corner, label legible",
+    "Fuchsia pill with hand-and-package icon and a round gold-bordered registration badge at the bottom"
+  ],
+  "final_generation_exclusions": [
+    "No loose capsules, no pills, no open bottle",
+    "No percentages, no stars, no reviews, no customer counts, no prices, no free shipping",
+    "No words 'AGREGAR', 'LOGO' or 'SELLO DE' anywhere",
+    "No woman with her back fully to the camera, no underwear",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra badges, benefit icons, ratings, testimonials or discount labels beyond the bottom pill and the registration badge described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The quote is brand voice, not a fabricated testimonial; bullets are true label facts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

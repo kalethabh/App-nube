@@ -60,7 +60,7 @@
     { "block_id": "text_block_09", "reference_function": "disclaimer", "reference_position": "under the photo cards", "text_style": "Tiny plum Poppins Regular", "text": "Imagen ilustrativa. Los resultados varían." },
     { "block_id": "text_block_10", "reference_function": "offer seal", "reference_position": "round seal, top right of the middle zone", "text_style": "White Montserrat Black, centered on three lines, inside a fuchsia circle with a gold ring", "text": "TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES" },
     { "block_id": "text_block_11", "reference_function": "trust item", "reference_position": "bottom band, left", "text_style": "Large white Poppins Bold", "text": "Pagas al recibir" },
-    { "block_id": "text_block_12", "reference_function": "trust badge", "reference_position": "bottom band, right, inside a round gold-bordered badge", "text_style": "Plum bold small caps on two lines", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+    { "block_id": "text_block_12", "reference_function": "trust badge", "reference_position": "bottom band, right, inside a round gold-bordered badge", "text_style": "Plum bold small caps on two lines", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
   ],
   "mandatory_visual_elements": [
     "Two stacked photo cards of the same woman in profile: before with loose jeans and the hand pulling the waistband a fist away from her body, after with the same jeans fitted on a curvy hourglass figure",

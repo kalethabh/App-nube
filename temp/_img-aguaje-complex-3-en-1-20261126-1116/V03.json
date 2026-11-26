@@ -1,0 +1,79 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format F64 (Antes y después de una zona dividido al medio con dos palabras del mecanismo y el frasco al centro) — winning structure mv-34",
+    "reference_style": "Real-photo split-screen close-up of one body zone with two big mechanism words and the product on the seam",
+    "angle_used": "Mecanismo único: sin apoyo vs. triple acción",
+    "ad_format": "Single Image Ad (split before/after)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm beige wall tones from the photo, white #FFFFFF for the big words, dark plum #2B1226 for the bottom band, hot fuchsia #E6177F accent, gold #D4A437 only for the badge border, bottle black #0E0E10.",
+    "visual_style": "Ultra-realistic close-up photograph split in two halves, like the reference, with the real bottle sharp on the seam.",
+    "visual_atmosphere": "Intimate, honest, everyday; soft window light, never clinical.",
+    "graphic_language": "A thin white vertical seam, a soft white glow behind the bottle, huge white words with a soft dark shadow, a thin plum band with a round gold-bordered badge.",
+    "text_typography": "Big words in a bold condensed sans-serif (Roboto Condensed Bold / Montserrat SemiBold look), lowercase like the reference, white with soft shadow; band text in Poppins Bold."
+  },
+  "creative_objective": "Make the single mechanism of the batch visible in one second: the same hips in the same jeans, 'sin apoyo' on the left (loose, flat) and 'triple acción' on the right (filled, curved), with the bottle as the bridge between the two. Close with pay-on-delivery and the registration badge.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The contrast between the two halves; 2) the two big words; 3) the bottle on the seam; 4) the bottom band.",
+    "composition_style": "Two equal vertical halves joined by a thin white line at the exact center. Top 25%: the waist and top of each half, no headline. Middle 50%: the hips and seat of the jeans in profile, with the bottle centered on the seam in the lower part. Lower 17%: the two big words, each centered under its half, over the thighs. Bottom 8%: thin plum band.",
+    "spacing_and_structure": "Both halves framed identically (same height, scale and crop) so the only difference is the body shape and the fit of the jeans.",
+    "lighting_and_depth": "Soft natural window light from the left on both halves, same white balance; a soft white halo behind the bottle separates it from the photos.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Reference image: a square split into two equal vertical halves by a thin white line. Both halves show the same body zone (the belly) in the same clothes (beige crop top and beige joggers), framed identically from under the bust to mid-thigh: left the problem, right the result. A small product bottle stands on the seam in the lower center with a soft white glow behind it. Under each half, two big white lowercase words on two lines name the mechanism (blocked state / released state). No headline, no price, no button. Adapted: our zone is the hips and the seat of the jeans in profile, same jeans in both halves; words 'sin apoyo' / 'triple acción'; our bottle on the seam; a thin plum band at the bottom with 'Pagas al recibir', the registration badge and a tiny disclaimer is added because it is mandatory.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "left half photo (problem)", "position": "left 50%", "visual_function": "Shows the problem", "adaptation_rule": "Hips in profile, loose jeans at the back, hand pulling the waistband a fist away from the body", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "right half photo (result)", "position": "right 50%", "visual_function": "Shows the result", "adaptation_rule": "Same woman, same jeans and tee, filled curved hips", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "white center seam", "position": "vertical center line", "visual_function": "Splits the two states", "adaptation_rule": "Thin white line", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "product", "position": "on the seam, lower center", "visual_function": "The bridge between states", "adaptation_rule": "Our closed bottle with a soft white glow", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "two mechanism words", "position": "under each half", "visual_function": "Names the mechanism", "adaptation_rule": "'sin apoyo' left, 'triple acción' right, white", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "bottom trust band", "position": "bottom 8%", "visual_function": "Removes risk (mandatory rule)", "adaptation_rule": "Plum band with 'Pagas al recibir', disclaimer and round registration badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Any headline above the photos",
+      "Prices, discounts, free shipping",
+      "Labels, arrows or callout lines on the body",
+      "Stars, reviews or percentages",
+      "Any brand logo other than what is printed on the real bottle label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 ultra-realistic photographic ad split into two equal vertical halves joined by a thin straight white line exactly at the center, like a before/after comparison. Both halves show the SAME slim adult Colombian woman, about 23, light-tan skin with real pores and fine natural texture on her forearm, photographed in strict side profile facing left, from just above the waist to mid-thigh, against a plain warm beige painted wall, camera at hip height, 85 mm lens, soft natural window light from the left, identical framing, scale and white balance in both halves, ultra-realistic phone-quality photo, never AI-looking, no face visible, no blurred patches. She wears the SAME plain white cotton t-shirt tucked in and the SAME closed light-blue jeans with a brown leather belt loop area visible in both halves. TOP 25%: the waist and the tucked t-shirt in both halves. MIDDLE 50% LEFT HALF (the problem): the jeans are one size too big at the back: a baggy fold of extra denim below the seat, drooping back pocket, one straight flat vertical line from waist to thigh, a thin straight thigh not filling the leg; her hand pulls the waistband away from her lower back by a full fist, so the empty gap between denim and skin is clearly visible. MIDDLE 50% RIGHT HALF (the result): same jeans now filled and smooth: small waist, wide rounded hip curve, a fuller lifted seat that projects clearly behind the line of her lower back, a thicker thigh filling the jean leg, no fold, the pocket sitting on the curve; her hand rests relaxed on her hip; the difference is obvious at first glance, believable, never cartoonish. ON THE SEAM, lower center, overlapping both halves: ONE closed bottle of the product standing upright, about 30% of the canvas height, label facing the camera and legible, with a soft white glow behind it. Use the attached product photo as the only source of truth for the bottle; do not redesign, replace or reinterpret it. The bottle: A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows a small pink VITALABH emblem, a huge bold white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, the bold italic hot-pink 'TRIPLE ACCIÓN', three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed, no loose capsules, no pills; label never mirrored. LOWER 17%: under the left half, the big white words 'sin apoyo' in a bold condensed sans-serif, lowercase, with a soft dark drop shadow, centered on the thigh; under the right half, 'triple acción' in the same style and size. BOTTOM 8%: a thin full-width band in dark plum #2B1226: left 'Pagas al recibir' in white Poppins Bold with a small white hand-and-package line icon; center a tiny line 'Imagen ilustrativa. Los resultados varían.' in pale pink #FBE3EE Poppins Regular; right a small round trust badge with a solid gold #D4A437 border, white center and 'REGISTRO INVIMA RSA-0030271-2024' in plum bold small caps.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "mechanism word (problem)", "reference_position": "under the left half", "text_style": "White bold condensed sans-serif, lowercase, soft dark shadow, very large", "text": "sin apoyo" },
+    { "block_id": "text_block_02", "reference_function": "mechanism word (result)", "reference_position": "under the right half", "text_style": "White bold condensed sans-serif, lowercase, soft dark shadow, very large", "text": "triple acción" },
+    { "block_id": "text_block_03", "reference_function": "trust item", "reference_position": "bottom band, left", "text_style": "White Poppins Bold", "text": "Pagas al recibir" },
+    { "block_id": "text_block_04", "reference_function": "disclaimer", "reference_position": "bottom band, center", "text_style": "Tiny pale pink Poppins Regular", "text": "Imagen ilustrativa. Los resultados varían." },
+    { "block_id": "text_block_05", "reference_function": "trust badge", "reference_position": "bottom band, right, inside a round gold-bordered badge", "text_style": "Plum bold small caps", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Two identical side-profile halves of the same woman in the same light-blue jeans and white tee",
+    "Left half: loose jeans with the hand pulling the waistband a fist away, the empty gap visible",
+    "Right half: the same jeans filled on a curved hip, obvious difference",
+    "Thin white vertical seam at the exact center",
+    "One closed bottle on the seam with a soft white glow, label legible",
+    "Thin plum bottom band with a round gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "No loose capsules, no pills, no open bottle",
+    "No headline above the photos, no arrows or labels on the body",
+    "No prices, no percentages, no stars, no free shipping",
+    "No words 'AGREGAR', 'LOGO' or 'SELLO DE' anywhere",
+    "No underwear, no bare skin below the waistband, no crop centered on the crotch",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra badges, benefit icons, ratings, testimonials or discount labels beyond the bottom band and the registration badge described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. Includes 'Imagen ilustrativa. Los resultados varían.'",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

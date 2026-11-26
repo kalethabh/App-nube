@@ -1,0 +1,87 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F69 (Ilustración de la mujer aliviada al centro con frascos alrededor, etiquetas y sello del pack) — winning structure mv-39",
+    "reference_style": "Flat illustration offer ad: illustrated woman at the center surrounded by the product bottles, hanging tags, a round pack seal and a pill button",
+    "angle_used": "Oferta: tu plan completo, tratamiento de 3 frascos para 3 meses",
+    "ad_format": "Single Image Ad (illustrated offer)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Pale cream-pink background #FBEFF3, dark plum #2B1226 (headline, seal), hot fuchsia #E6177F (button, blouse), bubblegum pink #FF8CC0 (sparkles), pale blush #FBE3EE (tags), white #FFFFFF, gold #D4A437 for seal borders, bottle black #0E0E10.",
+    "visual_style": "Clean flat vector illustration with soft outlines for the woman and decorative elements; the bottles stay photo-real and identical to the product photo.",
+    "visual_atmosphere": "Cheerful, warm, confident and safe.",
+    "graphic_language": "Flat illustrated character with brown outlines and rosy cheeks, small pink sparkles, hanging paper tags with string, a scalloped round seal with gold ring, a rounded pill button, a curved hand-drawn arrow.",
+    "text_typography": "Headline in an elegant high-contrast serif (Playfair Display Bold look), uppercase with « » quotes; seal, button and tags in Montserrat ExtraBold / Poppins Bold."
+  },
+  "creative_objective": "Present the 3-bottle treatment as her complete 3-month plan, with a woman who already feels confident in her jeans, a small illustrated 'before' card for the pain, and the same offer wording, button and trust block as the rest of the batch.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The illustrated woman and the headline; 2) the three bottles with MES tags; 3) the round seal with the offer; 4) the button and the trust line.",
+    "composition_style": "Top 15% centered serif headline in quotes; middle 60% the woman at the center from head to knees, two bottles lower-left and one bottle lower-right with hanging tags, a small rounded 'before' card upper-left with a curved arrow toward her; bottom 25% the round seal centered overlapping the woman's knees, '90 DÍAS DE RUTINA' under it, the pill button, then 'Pagas al recibir' and the registration badge.",
+    "spacing_and_structure": "Symmetric balance around the woman, bottles well inside the canvas, never touching the edges; generous cream space.",
+    "lighting_and_depth": "Flat illustration lighting; bottles with soft studio light and a soft contact shadow on the cream floor line.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Reference image: cream background. Top: a one-line serif headline between « » quotes, centered, in dark green. Center: a flat illustrated smiling woman from head to knees with hands on her waist, surrounded by small decorative drops; three dropper bottles grouped on the left and two on the right, the two right ones with hanging 'free' paper tags. Bottom center: a scalloped round dark seal with a gold ring and a wax stamp containing the pack, a line with the days of routine under it, and a wide rounded dark button. Adapted: same layout; our woman wears fitted jeans and a fuchsia blouse; drops become pink sparkles; we have three bottles (two left, one right) with tags 'MES 1', 'MES 2', 'MES 3' instead of 'free'; the seal carries our treatment offer; the button says 'QUIERO PROBARLO'; a small illustrated 'before' card and a trust line with 'Pagas al recibir' and the registration badge are added because they are mandatory.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline in quotes", "position": "top center", "visual_function": "Offer hook", "adaptation_rule": "«TU PLAN COMPLETO» in plum serif", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "illustrated woman", "position": "center", "visual_function": "Emotional result", "adaptation_rule": "Adult woman in her mid 30s, front-facing, confident, fitted high-waist jeans on curvy hips", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "decorative elements", "position": "around the woman", "visual_function": "Energy and lightness", "adaptation_rule": "Small pink sparkles instead of water drops", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "product bottles", "position": "lower left (2) and lower right (1)", "visual_function": "The pack", "adaptation_rule": "Three identical closed bottles", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "hanging tags", "position": "on the bottle caps", "visual_function": "Pack detail", "adaptation_rule": "'MES 1', 'MES 2', 'MES 3' instead of 'free'", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "round pack seal", "position": "bottom center", "visual_function": "The offer", "adaptation_rule": "Plum scalloped seal with gold ring and the treatment offer", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "routine days line", "position": "under the seal", "visual_function": "Shrinks the commitment", "adaptation_rule": "'90 DÍAS DE RUTINA'", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "pill button", "position": "bottom center", "visual_function": "Call to action", "adaptation_rule": "Fuchsia pill 'QUIERO PROBARLO'", "present_in_reference": true },
+      { "block_id": "block_09", "block_type": "before card", "position": "upper left of the middle zone", "visual_function": "Shows the problem (mandatory rule)", "adaptation_rule": "Small illustrated card of the same woman pulling her loose jeans, with a curved arrow toward her", "present_in_reference": false },
+      { "block_id": "block_10", "block_type": "trust line", "position": "very bottom, under the button", "visual_function": "Removes risk (mandatory rule)", "adaptation_rule": "'Pagas al recibir' and round registration badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "'Gratis' or 'free' tags, free units, discounts or percentages",
+      "Prices or crossed-out prices",
+      "Free shipping",
+      "Stars, reviews or customer counts",
+      "Any brand logo other than what is printed on the real bottle label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 offer ad in clean flat vector illustration style on a smooth pale cream-pink background #FBEFF3. TOP 15%: centered one-line headline '«TU PLAN COMPLETO»' with French quotation marks, in an elegant high-contrast serif (Playfair Display Bold look), uppercase, dark plum #2B1226. MIDDLE 60%, CENTER: a flat illustrated adult Colombian woman in her mid 30s, clearly adult features, warm tan skin, long wavy dark-brown hair, rosy cheeks, soft brown outlines, front-facing with a happy confident smile, both hands on her waist, from head to knees; she wears a fitted fuchsia #E6177F short-sleeve blouse tucked into high-waist medium-blue jeans that fit snugly: small waist, wide rounded hips, full thighs filling the jean legs, a curvy hourglass figure, tasteful and never sexualized, facing the camera, never with her back to it. Around her, small four-point sparkles in bubblegum pink #FF8CC0 instead of drops. UPPER LEFT of the middle zone: a small rounded card with a thin plum border (about 20% of the canvas width) showing the same illustrated woman before, in side profile, wearing a grey t-shirt and baggy loose jeans, her hand pulling the waistband a fist away from her back, the empty gap visible, a worried frown; a curved hand-drawn plum arrow goes from the card toward the central woman. LOWER LEFT: two closed bottles of the product standing side by side, slightly overlapping; LOWER RIGHT: one closed bottle; each about 28% of the canvas height, labels facing the camera and legible, rendered photo-real with soft studio light and a soft contact shadow, all well inside the canvas, never cut by the edges. Each bottle has a small pale blush #FBE3EE paper tag hanging from its cap on a thin string, with plum Montserrat ExtraBold text: 'MES 1', 'MES 2' and 'MES 3' from left to right. Use the attached product photo as the only source of truth for the bottles; do not redesign, replace or reinterpret them. The bottle: A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows a small pink VITALABH emblem, a huge bold white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, the bold italic hot-pink 'TRIPLE ACCIÓN', three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed, no loose capsules, no pills; labels never mirrored. BOTTOM 25%: centered and overlapping the woman's knees, a scalloped round seal in dark plum #2B1226 with a thin gold #D4A437 ring and a small gold wax stamp at its bottom edge, white Montserrat ExtraBold text on three lines: 'TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES'. Under it, '90 DÍAS DE RUTINA' in plum Poppins SemiBold, uppercase. Below, a wide rounded pill button in solid hot fuchsia #E6177F with 'QUIERO PROBARLO' in white Montserrat ExtraBold uppercase. Under the button, one small line: 'Pagas al recibir' in plum Poppins Bold with a tiny hand-and-package icon, and next to it a small round trust badge with a solid gold border, white center and 'REGISTRO INVIMA RSA-0030271-2024' in plum bold small caps.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top center", "text_style": "Dark plum serif, Playfair Display Bold look, uppercase, with « » quotes", "text": "«TU PLAN COMPLETO»" },
+    { "block_id": "text_block_02", "reference_function": "tag", "reference_position": "hanging from the first bottle (left)", "text_style": "Plum Montserrat ExtraBold on a pale blush paper tag", "text": "MES 1" },
+    { "block_id": "text_block_03", "reference_function": "tag", "reference_position": "hanging from the second bottle (left)", "text_style": "Plum Montserrat ExtraBold on a pale blush paper tag", "text": "MES 2" },
+    { "block_id": "text_block_04", "reference_function": "tag", "reference_position": "hanging from the third bottle (right)", "text_style": "Plum Montserrat ExtraBold on a pale blush paper tag", "text": "MES 3" },
+    { "block_id": "text_block_05", "reference_function": "offer seal", "reference_position": "bottom center, round seal", "text_style": "White Montserrat ExtraBold on three lines inside a plum scalloped seal with gold ring", "text": "TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES" },
+    { "block_id": "text_block_06", "reference_function": "routine days", "reference_position": "under the seal", "text_style": "Plum Poppins SemiBold uppercase", "text": "90 DÍAS DE RUTINA" },
+    { "block_id": "text_block_07", "reference_function": "CTA button", "reference_position": "bottom center pill", "text_style": "White Montserrat ExtraBold uppercase on a fuchsia pill", "text": "QUIERO PROBARLO" },
+    { "block_id": "text_block_08", "reference_function": "trust item", "reference_position": "under the button, left", "text_style": "Plum Poppins Bold", "text": "Pagas al recibir" },
+    { "block_id": "text_block_09", "reference_function": "trust badge", "reference_position": "under the button, right, round gold-bordered badge", "text_style": "Plum bold small caps", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Flat illustrated adult woman at the center, front-facing, confident, in fitted high-waist jeans on curvy hips",
+    "Small rounded 'before' card of the same woman pulling her loose jeans, with a curved arrow toward her",
+    "Pink sparkles around the woman",
+    "Three identical closed photo-real bottles (two left, one right) with hanging paper tags",
+    "Scalloped plum seal with gold ring and wax stamp",
+    "Fuchsia pill button",
+    "Round gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "No loose capsules, no pills, no open bottle",
+    "No 'gratis' tags, no free units, no percentages, no prices, no free shipping",
+    "No words 'AGREGAR', 'LOGO' or 'SELLO DE' anywhere",
+    "No childlike or teenage look for the woman; no underwear; no back pose for the central woman",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra badges, benefit icons, ratings, testimonials or discount labels beyond the seal, the button, the trust line and the registration badge described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The offer only states the real treatment (3 bottles, 3 months, 90 days).",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
