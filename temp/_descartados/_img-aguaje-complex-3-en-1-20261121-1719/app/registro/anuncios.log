@@ -1,0 +1,58 @@
+
+=== 2026-11-21T22:32:32.843Z  node produccion/generar-imagen-ads.js temp/_img-aguaje-complex-3-en-1-20261121-1719 --motor chatgpt --concurrencia 3
+
+=== Anuncios de imagen — _img-aguaje-complex-3-en-1-20261121-1719 ===
+
+  Modelo: gpt-image (ChatGPT), con tu suscripcion (sin costo por imagen)
+  Hasta 3 a la vez; sale tras 20 s sin trabajo.
+
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V01_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V02_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V03_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  OK  V02_1x1 — 0 cr
+  OK  V01_1x1 — 0 cr
+  OK  V03_1x1 — 0 cr
+  ..  V04_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V04_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  OK  V04_1x1 — 0 cr
+
+  Listo en 290 s: 4 listas, 0 sin imagen, 0 ya estaban.
+  Gasto real: 0 creditos = US$0.00
+
+
+--- termino con codigo 0 en 290 s
+
+=== 2026-11-21T22:46:54.022Z  node produccion/generar-imagen-ads.js temp/_img-aguaje-complex-3-en-1-20261121-1719 --motor chatgpt --concurrencia 3
+
+=== Anuncios de imagen — _img-aguaje-complex-3-en-1-20261121-1719 ===
+
+  Modelo: gpt-image (ChatGPT), con tu suscripcion (sin costo por imagen)
+  Hasta 3 a la vez; sale tras 20 s sin trabajo.
+
+  ..  V05_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V06_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V07_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V05_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V06_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V07_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  OK  V07_1x1 — 0 cr
+  OK  V05_1x1 — 0 cr
+  OK  V06_1x1 — 0 cr
+  ..  V08_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V09_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V10_1x1: ChatGPT sigue haciendo la imagen (60 s)
+  ..  V08_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V09_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  ..  V10_1x1: ChatGPT sigue haciendo la imagen (120 s)
+  OK  V08_1x1 — 0 cr
+  OK  V09_1x1 — 0 cr
+  OK  V10_1x1 — 0 cr
+
+  Listo en 287 s: 6 listas, 0 sin imagen, 0 ya estaban.
+  Gasto real: 0 creditos = US$0.00
+
+
+--- termino con codigo 0 en 287 s
