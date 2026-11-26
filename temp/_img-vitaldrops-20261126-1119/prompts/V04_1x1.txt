@@ -1,0 +1,39 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 flat-illustration image ad on a warm white background (#FFFDF6). TOP 25 %: centered two-line headline in Poppins ExtraBold, title case, deep cocoa #2B1A10, very large and heavy, the words 'Ritual En Gotas' in lemon yellow #F5E13A with a thick cocoa outline; directly under it a two-line centered subtitle in Poppins Regular, near-black #1A1A1A. MIDDLE 66 %: two equal panels separated by a thin deep-cocoa vertical line, both in the same flat illustration style with bold dark outlines and simple cel shading, showing the SAME adult Colombian woman in her mid-20s (long dark-brown straight hair, warm tan skin, small gold studs, plain lemon-yellow t-shirt tucked in), each figure in three-quarter side view turned slightly away from the viewer with her face looking back over her shoulder at the viewer, framed from the shoulders to the knees, camera at hip height, plain cream background. LEFT PANEL = RESULT: she smiles confidently; dark-blue jeans fit snug; small waist, hips clearly wider than the waist, round lifted glutes and fuller thighs filling the jeans with a smooth curved outline, no loose fabric. RIGHT PANEL = PAIN: same woman, sad frustrated face; light-blue jeans one size too big hang loose at the back with a baggy fold of extra denim under the seat and drooping back pockets, straight narrow hips, thin straight thighs, and her hand pulls the back waistband about a fist away from her lower back so the empty gap inside the jeans is clearly visible. On each panel, over the hip area, a large lemon-yellow label with wavy rounded edges and a thin cocoa outline, with two words in Poppins ExtraBold cocoa. BOTTOM 9 %: a full-width cream (#FFF6DC) strip with a thin gold (#C9962B) top line; on its left the real product bottle, small, standing upright at about 14 % of the canvas height so it pokes above the strip, label facing front and legible; to its right a rounded badge with a 2 px deep-cocoa border, white fill, a small hand-and-box icon and cocoa Poppins ExtraBold text; then a short line of cocoa Poppins SemiBold text. PRODUCT: use the attached product photo as the only source of truth: ONE amber-brown glass dropper bottle about 2.6 times taller than wide, Boston-round body with rounded shoulders, ribbed matte black collar about 55 % of the body width, tall matte black rubber dropper bulb, wrap-around label lemon-yellow fading to white with 'amua', the big white outlined word 'VITALDROPS', five outlined ingredient circles and 'Dietary Supplement 2 fl. oz. (60mL)'. The bottle is photographic, everything else is flat illustration. Not slim, not squat, never mirrored, matte, no rainbow, no lens flare, no yellow '60ml' circle.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top, 2 lines, centered): "Deja Las Gomitas. Prueba Tu Ritual En Gotas." — Poppins ExtraBold title case, deep cocoa, 'Ritual En Gotas' in lemon yellow with cocoa outline
+- subtitle (under the headline, 2 lines): "Acompaña tu apetito y tu pila mientras trabajas tus curvas." — Poppins Regular, near-black, centered
+- label left (left figure, over the hip area): "Jean lleno" — Poppins ExtraBold, cocoa on lemon-yellow wavy label
+- label right (right figure, over the hip area): "Jean bailando" — Poppins ExtraBold, cocoa on lemon-yellow wavy label
+- trust item (bottom strip, bordered badge right of the bottle): "Pagas al recibir" — Poppins ExtraBold, cocoa on white with 2 px cocoa border
+- strip text (bottom strip, right of the badge): "1 toma al día · Sin agujas" — Poppins SemiBold, deep cocoa
+
+BRAND IDENTITY:
+- color_palette: Lemon yellow #F5E13A, amber brown #9A4F12, deep cocoa #2B1A10, warm cream #FFF6DC, white #FFFFFF, gold #C9962B. No red (no offer in this ad).
+- text_typography: Poppins ExtraBold headline in title case; Poppins Regular/SemiBold for the rest
+
+MANDATORY ELEMENTS:
+- Two flat outlined illustrations of the same woman in jeans, result on the LEFT and pain on the RIGHT
+- Right figure pulls the waistband a fist away showing the empty gap
+- Thin deep-cocoa vertical divider
+- Two lemon-yellow wavy-edged labels
+- Bottom cream strip with the small real VITALDROPS bottle and the bordered 'Pagas al recibir' badge
+
+STRICT EXCLUSIONS:
+- No gummies, candy, pills or capsules
+- No price, discount or unit count
+- No underwear or bare lower body; jeans only
+- No logos besides the label printed on the bottle
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add ratings, testimonials, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Gummies, candy, pills or capsules drawn anywhere
+- Do not add: Competitor brands or logos
+- Do not add: Any price, discount or unit count
+- Do not add: Any extra text not listed in text_layers
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

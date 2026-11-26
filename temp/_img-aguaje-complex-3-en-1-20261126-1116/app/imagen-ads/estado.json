@@ -2,9 +2,9 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 1,
+    "R": 2,
     "A": 1,
-    "T": 2
+    "T": 3
   },
   "tandas": {
     "E001": {
@@ -22,9 +22,38 @@
     "E002": {
       "tipo": "prompts",
       "uuid": "d592d87f-1ddd-4b32-be7d-315ea3374db9",
-      "estado": "en-curso",
+      "estado": "hecha",
       "ids": [
         "V05"
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "c49bb236-449d-4d43-89c9-b7a141c85166",
+      "estado": "en-curso",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "2135612-1795710297205",
+          "ronda": 1
+        },
+        {
+          "pieza": "V02_1x1",
+          "firma": "1856139-1795710285614",
+          "ronda": 1
+        },
+        {
+          "pieza": "V03_1x1",
+          "firma": "2510736-1795710276666",
+          "ronda": 1
+        },
+        {
+          "pieza": "V04_1x1",
+          "firma": "1797531-1795710393378",
+          "ronda": 1
+        }
       ]
     }
   },
@@ -46,7 +75,7 @@
       "tanda": "E001"
     },
     "V05": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     }
   },
@@ -54,7 +83,7 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "por-revisar",
+      "fase": "revisando",
       "resultado": null,
       "version": 1,
       "firma": "2135612-1795710297205",
@@ -67,12 +96,13 @@
       "mensaje": null,
       "desde": "2026-11-26T16:24:58.795Z",
       "pedido": null,
-      "ultimaOrden": "g"
+      "ultimaOrden": "g",
+      "tandaRevision": "R001"
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "por-revisar",
+      "fase": "revisando",
       "resultado": null,
       "version": 1,
       "firma": "1856139-1795710285614",
@@ -85,12 +115,13 @@
       "mensaje": null,
       "desde": "2026-11-26T16:24:46.592Z",
       "pedido": null,
-      "ultimaOrden": "g"
+      "ultimaOrden": "g",
+      "tandaRevision": "R001"
     },
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "por-revisar",
+      "fase": "revisando",
       "resultado": null,
       "version": 1,
       "firma": "2510736-1795710276666",
@@ -103,12 +134,13 @@
       "mensaje": null,
       "desde": "2026-11-26T16:24:38.250Z",
       "pedido": null,
-      "ultimaOrden": "g"
+      "ultimaOrden": "g",
+      "tandaRevision": "R001"
     },
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "por-revisar",
+      "fase": "revisando",
       "resultado": null,
       "version": 1,
       "firma": "1797531-1795710393378",
@@ -121,17 +153,23 @@
       "mensaje": null,
       "desde": "2026-11-26T16:26:35.158Z",
       "pedido": null,
-      "ultimaOrden": "g"
+      "ultimaOrden": "g",
+      "tandaRevision": "R001"
     },
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 0,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,

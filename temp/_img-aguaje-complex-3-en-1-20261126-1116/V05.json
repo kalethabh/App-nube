@@ -1,0 +1,196 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "library format F40 (Carta de texto) — winning structure mv-08 (text letter on a dark solid background, bottle tilted and cut by the right edge, italic signature)",
+    "reference_style": "Text-letter static ad: flat dark solid background, big bold white headline top left, short letter paragraphs with bold phrases, product cut-out on the right, italic signature",
+    "angle_used": "Objeción de confianza — for the woman who wants more curves but is afraid of surgery, injections or losing money on random pills",
+    "ad_format": "Single Image Ad (text letter)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Dark plum #2B1226 as the full flat background; white #FFFFFF for the headline and letter text; hot fuchsia #E6177F and bubblegum pink #FF8CC0 for the bold phrases and the highlighted headline line; bottle black #0E0E10 and hot fuchsia on the bottle; pale blush pink #FBE3EE for the bottom strip; warm gold #D4A23A only for the registration badge border. No offer red in this image (there is no price circle).",
+    "visual_style": "Clean text-letter ad, flat design with one small real phone photo inset and the real bottle as a sharp cut-out.",
+    "visual_atmosphere": "Calm, honest and reassuring, like a personal note from the brand; warm, never clinical.",
+    "graphic_language": "Flat solid background, generous margins, short left-aligned paragraphs with bold colored phrases, one rounded-corner photo card with a thin fuchsia border, a thin blush bottom strip with a round gold-bordered seal.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; letter body in Poppins Regular with bold phrases in Poppins Bold; signature in an elegant handwritten italic script."
+  },
+  "creative_objective": "Remove the fear objection: a short, sincere letter from the brand telling the woman who will never go under the knife that there is a natural, simple 3-month plan (2 capsules a day, full treatment, pay on delivery, sanitary registration). Keep the exact text-letter structure of the reference (headline top left, letter on the left 70 %, tilted bottle cut by the right edge, italic signature), adding only the mandatory small photo card with the fitting-room before/after of the glutes in jeans and the thin trust strip at the bottom.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Big white headline 'SIN AGUJAS. / SIN QUIRÓFANO.' top left. 2) The fitting-room photo card top right (loose jeans gap vs. fitted rounder glutes). 3) The letter paragraphs with their fuchsia bold phrases. 4) The tilted real bottle bottom right. 5) The italic signature and the thin trust strip at the bottom.",
+    "composition_style": "Asymmetric editorial layout like the reference: text column on the left (about 60-65 % width), product column on the right cut by the right edge; a small photo card added in the upper right.",
+    "spacing_and_structure": "Wide left margin (about 6 % of width), equal spacing between the four paragraphs, generous line height, nothing touching the edges except the bottle that is intentionally cropped by the right edge.",
+    "lighting_and_depth": "Flat background with no gradient or a barely visible soft vignette; the bottle has a soft warm key light from the upper left and a gentle shadow; the photo card is warm fitting-room light.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Reference (mv-08): solid dark flat background. Top left (about 20 % of height): a 2-line headline in huge heavy white uppercase. Center left (about 65-70 % of width, 70 % of height): a letter of short paragraphs in white regular sans-serif with some phrases in bold. Center right: one supplement bottle cut-out, slightly tilted, partly cut by the right edge. Bottom left (about 10 %): a signature in italic ('the team…'). No people, no buttons, no price, no strip in the reference. Translated for this product: same background, headline, letter and tilted bottle positions; the bottle moves slightly lower to leave room for the mandatory small rounded photo card in the upper right (before/after of the glutes in jeans, about 25 % of the canvas), and a thin blush strip is added at the very bottom with 'Pagas al recibir' and the registration seal (mandatory brand trust block).",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Calm solid dark field that makes the letter read like a personal note",
+        "adaptation_rule": "Dark green becomes flat dark plum #2B1226",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top left, about 20 % of height, 2 lines",
+        "visual_function": "Stops the scroll with a short, bold statement",
+        "adaptation_rule": "'SIN AGUJAS.' in white, 'SIN QUIRÓFANO.' in bubblegum pink, same heavy uppercase type",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "letter body",
+        "position": "Center left, about 62 % of width, from 24 % to 82 % of height",
+        "visual_function": "Sincere letter that dissolves the objection, with bold key phrases",
+        "adaptation_rule": "Four short paragraphs about the fear of surgery, the 3 ingredients in 2 capsules, the full treatment and paying on delivery; bold phrases in fuchsia",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "Right side, lower half, tilted about 12 degrees, cropped by the right edge",
+        "visual_function": "Shows the real product as the answer",
+        "adaptation_rule": "The real matte black AGUAJE COMPLEX 3 EN 1 bottle with fuchsia cap, label legible",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "signature",
+        "position": "Bottom left, just above the strip",
+        "visual_function": "Closes the letter with a human, brand voice",
+        "adaptation_rule": "'Tu equipo Vitalabh' in white handwritten italic",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "photo card (mandatory pain/result scene)",
+        "position": "Top right, about 40 % of width and 60 % of height (about 25 % of the canvas)",
+        "visual_function": "Shows the pain (jeans loose at the back) next to the result (same jeans filled by rounder, lifted glutes)",
+        "adaptation_rule": "Rounded-corner phone mirror photo in a fitting room, split in two halves with a thin white divider, tiny disclaimer at its bottom edge",
+        "present_in_reference": false
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "bottom trust strip (mandatory)",
+        "position": "Bottom 8 % of the canvas, full width",
+        "visual_function": "Removes risk: pay on delivery plus the sanitary registration seal",
+        "adaptation_rule": "Thin blush pink strip with 'Pagas al recibir' and a round gold-bordered badge with the registration",
+        "present_in_reference": false
+      }
+    ],
+    "forbidden_additions": [
+      "Price, price circle or discount label",
+      "Urgency text, countdown, dates or 'last chance' claims",
+      "Star ratings, review counts, testimonials with names",
+      "Magazine logos, doctors, lab coats, medical icons",
+      "Benefit icon lists or checkmark lists",
+      "Brand logo as a separate element (only the bottle's own label)",
+      "Loose capsules or pills",
+      "The words 'AGREGAR', 'LOGO' or 'SELLO DE' anywhere"
+    ]
+  },
+  "visual_prompt": "Square 1:1 text-letter ad on a completely flat dark plum background (#2B1226), editorial asymmetric layout. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it. TOP ZONE (0-22 % of height, left 58 % of width): a two-line headline, left aligned with a 6 % margin, in a very heavy geometric sans-serif (Montserrat Black look), uppercase, tight leading: line 1 'SIN AGUJAS.' in pure white #FFFFFF, line 2 'SIN QUIRÓFANO.' in bubblegum pink #FF8CC0, both large enough to read on a phone. TOP RIGHT (from 4 % to 62 % of height, right 40 % of width, about 25 % of the canvas): a rounded-corner photo card (radius about 24 px) with a thin 3 px hot fuchsia #E6177F border, looking like a real smartphone mirror photo in a small clothing-store fitting room: beige curtain, warm tungsten ceiling light from above, slight phone grain. The card is split vertically into two halves by a thin white line, same adult Latina woman (about 30, long dark wavy hair) seen from the side at hip height, back view toward the mirror. LEFT HALF (before): she wears loose light-blue mom jeans and a plain grey t-shirt; with one hand she pulls the back waistband away from her body by a full fist, showing a clear empty gap and the flat glutes inside; the denim sags and wrinkles under the seat; her face in the mirror looks frustrated, lips pressed. RIGHT HALF (after, another day, different top): the same woman in fitted dark-indigo skinny jeans and a fitted black tank top, confident small smile, the glutes look rounder, fuller and lifted, the denim hugs the hips and glutes with no gap, believable and natural, not exaggerated. Real skin texture with pores, real denim weave and seams. At the bottom edge inside the card a tiny white disclaimer 'Imagen ilustrativa. Los resultados varían.' on a translucent dark band. CENTER LEFT (from 24 % to 82 % of height, left 60 % of width): the letter, four short left-aligned paragraphs in white Poppins Regular, generous line height, equal spacing; key phrases in Poppins Bold hot fuchsia #E6177F or bubblegum pink #FF8CC0 exactly as listed in the text layers. RIGHT LOWER ZONE (from 58 % to 90 % of height): the real product, a matte black cylindrical wide-mouth supplement bottle about 1.6 times taller than wide, glossy hot-pink screw cap almost as wide as the body printed with tiny white 'VITALABH' pattern, hot-pink band on the bottom fifth, black label with the big white condensed word 'AGUAJE', 'COMPLEX 3 EN 1', the pink banner and 'TRIPLE ACCIÓN', facing the camera and legible, never mirrored; it is tilted about 12 degrees clockwise and about 30 % of the canvas height, its right side cut off by the right edge of the image like a cut-out, soft warm key light from upper left, soft shadow, matte finish, no rainbow, no lens flare, cap closed, no capsules. BOTTOM LEFT (82-90 %): signature 'Tu equipo Vitalabh' in an elegant white handwritten italic script. BOTTOM STRIP (last 9 % of height, full width): a thin flat pale blush pink #FBE3EE strip; on the left the text 'Pagas al recibir' in Poppins Bold dark plum #2B1226; on the right a round trust badge with a solid warm gold #D4A23A border and white fill reading 'REGISTRO INVIMA RSA-0030271-2024' in small bold dark plum capitals. No other text, no logos, no price, no urgency.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline (line 1)",
+      "reference_position": "Top left, line 1",
+      "text_style": "Montserrat Black look, uppercase, huge, white #FFFFFF, left aligned",
+      "text": "SIN AGUJAS."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "main headline (line 2, highlighted)",
+      "reference_position": "Top left, line 2",
+      "text_style": "Montserrat Black look, uppercase, huge, bubblegum pink #FF8CC0, left aligned",
+      "text": "SIN QUIRÓFANO."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "letter paragraph 1",
+      "reference_position": "Center left, first paragraph",
+      "text_style": "Poppins Regular white; the phrase 'no querer operarte' in Poppins Bold bubblegum pink #FF8CC0",
+      "text": "Sabemos lo que es querer más curvas y no querer operarte."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "letter paragraph 2",
+      "reference_position": "Center left, second paragraph",
+      "text_style": "Poppins Regular white; 'AGUAJE COMPLEX 3 EN 1' and 'solo 2 cápsulas al día' in Poppins Bold hot fuchsia #E6177F",
+      "text": "Por eso AGUAJE COMPLEX 3 EN 1 junta aguaje, fenogreco y maca negra en solo 2 cápsulas al día."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "letter paragraph 3 (offer)",
+      "reference_position": "Center left, third paragraph",
+      "text_style": "Whole paragraph in Poppins Bold uppercase bubblegum pink #FF8CC0, on its own line",
+      "text": "TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "letter paragraph 4 (risk removal)",
+      "reference_position": "Center left, fourth paragraph",
+      "text_style": "Poppins Regular white; 'nada por adelantado' in Poppins Bold hot fuchsia #E6177F",
+      "text": "No pagas nada por adelantado: lo recibes en tu casa."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "signature",
+      "reference_position": "Bottom left, above the strip",
+      "text_style": "Elegant handwritten italic script, white",
+      "text": "Tu equipo Vitalabh"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "disclaimer of the before/after photo",
+      "reference_position": "Bottom edge inside the photo card",
+      "text_style": "Tiny Poppins Regular white on a translucent dark band",
+      "text": "Imagen ilustrativa. Los resultados varían."
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "trust item (pay on delivery)",
+      "reference_position": "Bottom strip, left",
+      "text_style": "Poppins Bold, dark plum #2B1226 on pale blush #FBE3EE",
+      "text": "Pagas al recibir"
+    },
+    {
+      "block_id": "text_block_10",
+      "reference_function": "badge (sanitary registration)",
+      "reference_position": "Bottom strip, right, inside a round gold-bordered badge",
+      "text_style": "Small bold uppercase Poppins, dark plum #2B1226 on white, solid gold #D4A23A border",
+      "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Flat dark plum solid background",
+    "Rounded-corner fitting-room phone photo card in the upper right, split before/after: loose jeans with the waistband pulled a fist away from the body (gap visible) vs. the same woman in fitted jeans with rounder, lifted glutes",
+    "The real matte black AGUAJE COMPLEX 3 EN 1 bottle with hot-pink cap, tilted and cut by the right edge, label legible",
+    "Italic signature at bottom left",
+    "Thin pale blush bottom strip with 'Pagas al recibir' and the round gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "No price, no discount, no urgency, no dates, no countdown.",
+    "No stars, no review counts, no named testimonials, no doctors or medical imagery.",
+    "No loose capsules or pills; the bottle is always closed.",
+    "No underwear or bikinis; only jeans.",
+    "No extra logos; never write 'AGREGAR', 'LOGO' or 'SELLO DE'.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers (the bottom strip and the registration badge ARE listed and must appear).",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The before/after carries the 'Imagen ilustrativa. Los resultados varían.' disclaimer.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

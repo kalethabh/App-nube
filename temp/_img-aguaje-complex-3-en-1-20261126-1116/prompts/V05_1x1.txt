@@ -1,0 +1,48 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 text-letter ad on a completely flat dark plum background (#2B1226), editorial asymmetric layout. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it. TOP ZONE (0-22 % of height, left 58 % of width): a two-line headline, left aligned with a 6 % margin, in a very heavy geometric sans-serif (Montserrat Black look), uppercase, tight leading: line 1 'SIN AGUJAS.' in pure white #FFFFFF, line 2 'SIN QUIRÓFANO.' in bubblegum pink #FF8CC0, both large enough to read on a phone. TOP RIGHT (from 4 % to 62 % of height, right 40 % of width, about 25 % of the canvas): a rounded-corner photo card (radius about 24 px) with a thin 3 px hot fuchsia #E6177F border, looking like a real smartphone mirror photo in a small clothing-store fitting room: beige curtain, warm tungsten ceiling light from above, slight phone grain. The card is split vertically into two halves by a thin white line, same adult Latina woman (about 30, long dark wavy hair) seen from the side at hip height, back view toward the mirror. LEFT HALF (before): she wears loose light-blue mom jeans and a plain grey t-shirt; with one hand she pulls the back waistband away from her body by a full fist, showing a clear empty gap and the flat glutes inside; the denim sags and wrinkles under the seat; her face in the mirror looks frustrated, lips pressed. RIGHT HALF (after, another day, different top): the same woman in fitted dark-indigo skinny jeans and a fitted black tank top, confident small smile, the glutes look rounder, fuller and lifted, the denim hugs the hips and glutes with no gap, believable and natural, not exaggerated. Real skin texture with pores, real denim weave and seams. At the bottom edge inside the card a tiny white disclaimer 'Imagen ilustrativa. Los resultados varían.' on a translucent dark band. CENTER LEFT (from 24 % to 82 % of height, left 60 % of width): the letter, four short left-aligned paragraphs in white Poppins Regular, generous line height, equal spacing; key phrases in Poppins Bold hot fuchsia #E6177F or bubblegum pink #FF8CC0 exactly as listed in the text layers. RIGHT LOWER ZONE (from 58 % to 90 % of height): the real product, a matte black cylindrical wide-mouth supplement bottle about 1.6 times taller than wide, glossy hot-pink screw cap almost as wide as the body printed with tiny white 'VITALABH' pattern, hot-pink band on the bottom fifth, black label with the big white condensed word 'AGUAJE', 'COMPLEX 3 EN 1', the pink banner and 'TRIPLE ACCIÓN', facing the camera and legible, never mirrored; it is tilted about 12 degrees clockwise and about 30 % of the canvas height, its right side cut off by the right edge of the image like a cut-out, soft warm key light from upper left, soft shadow, matte finish, no rainbow, no lens flare, cap closed, no capsules. BOTTOM LEFT (82-90 %): signature 'Tu equipo Vitalabh' in an elegant white handwritten italic script. BOTTOM STRIP (last 9 % of height, full width): a thin flat pale blush pink #FBE3EE strip; on the left the text 'Pagas al recibir' in Poppins Bold dark plum #2B1226; on the right a round trust badge with a solid warm gold #D4A23A border and white fill reading 'REGISTRO INVIMA RSA-0030271-2024' in small bold dark plum capitals. No other text, no logos, no price, no urgency.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (line 1) (Top left, line 1): "SIN AGUJAS." — Montserrat Black look, uppercase, huge, white #FFFFFF, left aligned
+- main headline (line 2, highlighted) (Top left, line 2): "SIN QUIRÓFANO." — Montserrat Black look, uppercase, huge, bubblegum pink #FF8CC0, left aligned
+- letter paragraph 1 (Center left, first paragraph): "Sabemos lo que es querer más curvas y no querer operarte." — Poppins Regular white; the phrase 'no querer operarte' in Poppins Bold bubblegum pink #FF8CC0
+- letter paragraph 2 (Center left, second paragraph): "Por eso AGUAJE COMPLEX 3 EN 1 junta aguaje, fenogreco y maca negra en solo 2 cápsulas al día." — Poppins Regular white; 'AGUAJE COMPLEX 3 EN 1' and 'solo 2 cápsulas al día' in Poppins Bold hot fuchsia #E6177F
+- letter paragraph 3 (offer) (Center left, third paragraph): "TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES" — Whole paragraph in Poppins Bold uppercase bubblegum pink #FF8CC0, on its own line
+- letter paragraph 4 (risk removal) (Center left, fourth paragraph): "No pagas nada por adelantado: lo recibes en tu casa." — Poppins Regular white; 'nada por adelantado' in Poppins Bold hot fuchsia #E6177F
+- signature (Bottom left, above the strip): "Tu equipo Vitalabh" — Elegant handwritten italic script, white
+- disclaimer of the before/after photo (Bottom edge inside the photo card): "Imagen ilustrativa. Los resultados varían." — Tiny Poppins Regular white on a translucent dark band
+- trust item (pay on delivery) (Bottom strip, left): "Pagas al recibir" — Poppins Bold, dark plum #2B1226 on pale blush #FBE3EE
+- badge (sanitary registration) (Bottom strip, right, inside a round gold-bordered badge): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Small bold uppercase Poppins, dark plum #2B1226 on white, solid gold #D4A23A border
+
+BRAND IDENTITY:
+- color_palette: Dark plum #2B1226 as the full flat background; white #FFFFFF for the headline and letter text; hot fuchsia #E6177F and bubblegum pink #FF8CC0 for the bold phrases and the highlighted headline line; bottle black #0E0E10 and hot fuchsia on the bottle; pale blush pink #FBE3EE for the bottom strip; warm gold #D4A23A only for the registration badge border. No offer red in this image (there is no price circle).
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; letter body in Poppins Regular with bold phrases in Poppins Bold; signature in an elegant handwritten italic script.
+
+MANDATORY ELEMENTS:
+- Flat dark plum solid background
+- Rounded-corner fitting-room phone photo card in the upper right, split before/after: loose jeans with the waistband pulled a fist away from the body (gap visible) vs. the same woman in fitted jeans with rounder, lifted glutes
+- The real matte black AGUAJE COMPLEX 3 EN 1 bottle with hot-pink cap, tilted and cut by the right edge, label legible
+- Italic signature at bottom left
+- Thin pale blush bottom strip with 'Pagas al recibir' and the round gold-bordered registration badge
+
+STRICT EXCLUSIONS:
+- No price, no discount, no urgency, no dates, no countdown.
+- No stars, no review counts, no named testimonials, no doctors or medical imagery.
+- No loose capsules or pills; the bottle is always closed.
+- No underwear or bikinis; only jeans.
+- No extra logos; never write 'AGREGAR', 'LOGO' or 'SELLO DE'.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers (the bottom strip and the registration badge ARE listed and must appear).
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Price, price circle or discount label
+- Do not add: Urgency text, countdown, dates or 'last chance' claims
+- Do not add: Star ratings, review counts, testimonials with names
+- Do not add: Magazine logos, doctors, lab coats, medical icons
+- Do not add: Benefit icon lists or checkmark lists
+- Do not add: Brand logo as a separate element (only the bottle's own label)
+- Do not add: Loose capsules or pills
+- Do not add: The words 'AGREGAR', 'LOGO' or 'SELLO DE' anywhere
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
