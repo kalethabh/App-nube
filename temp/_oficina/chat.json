@@ -1048,6 +1048,15 @@
       "texto": "¡Uy, esta quedó muy buena! 🔥 El antes y después se nota de una y la oferta se lee clarita. ¿Quieres que te saque variaciones de esta para AGUAJE, siguiendo tu prompt? Dime cuántas y si van solo en cuadrado o también en vertical.",
       "acciones": [],
       "fecha": "2026-11-26T00:51:50.979Z"
+    },
+    {
+      "id": "d4977ba219",
+      "de": "tu",
+      "texto": "(te pasé estos archivos)",
+      "adjuntos": [
+        "138bd17d74f1"
+      ],
+      "fecha": "2026-11-26T00:55:18.892Z"
     }
   ],
   "encargos": [
