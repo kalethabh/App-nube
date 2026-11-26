@@ -1,0 +1,42 @@
+{
+  "lote": "_img-aguaje-complex-3-en-1-20261125-2023",
+  "identidad_visual": {
+    "color_palette": "Adapted from the winning reference to the bottle's colors. 'Before' header block: dark plum #2B1226. 'After' header block: hot fuchsia #E6177F. Main texts: white #FFFFFF. Accent text (replaces the reference yellow): bubblegum pink #FF8CC0. Benefit cards and offer bar: deep magenta #B0105E fading to dark plum #2B1226, with glowing fuchsia #E6177F borders. Offer pill (replaces the reference yellow price pill): pale blush pink #FBE3EE with deep magenta #B0105E text. Bottle: black #0E0E10 with fuchsia.",
+    "visual_style": "Photorealistic before/after split-screen supplement ad, exactly like the winning reference: two solid color header blocks on top, two real-photo back-view panels of the same woman, the real bottle as hero in the center over the split line, a row of four glowing icon cards and a pill-shaped offer bar at the bottom.",
+    "visual_atmosphere": "Contrast between a plain, muted bedroom on the left and a warm golden sunset beach on the right; bold, glossy, feminine and high-energy at the bottom with soft fuchsia glow.",
+    "graphic_language": "Solid flat header blocks, hard vertical split line, rounded cards with thin glowing fuchsia borders and white thin-line icons, a rounded pill offer bar with a vertical divider and small accent rays beside the big accent line.",
+    "text_typography": "Same as the reference: 'ANTES' and 'DESPUÉS' in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), all uppercase, white, no shadow; subtitles in a rounded bold sans-serif (Poppins SemiBold / Bold look), sentence case, white, two centered lines; card labels in heavy uppercase sans-serif, white, centered, with the last line of the first card in the accent color; offer bar: 'TRATAMIENTO COMPLETO' in heavy uppercase sans-serif white, 'X3 FRASCOS' larger in extra-heavy uppercase sans-serif in the accent color; pill text in extra-heavy uppercase sans-serif.",
+    "art_direction": "Keep the exact composition of the winning reference in every variation: same split, same blocks, same positions and same type sizes. Only the two subtitles under ANTES and DESPUÉS change. The bottle always sharp and identical to the photo. Everything readable on a phone."
+  },
+  "descripcion_visual_en": "A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type.",
+  "paleta": [
+    {
+      "hex": "#E6177F",
+      "nombre": "Fucsia"
+    },
+    {
+      "hex": "#B0105E",
+      "nombre": "Magenta profundo"
+    },
+    {
+      "hex": "#2B1226",
+      "nombre": "Ciruela oscuro"
+    },
+    {
+      "hex": "#0E0E10",
+      "nombre": "Negro frasco"
+    },
+    {
+      "hex": "#FF8CC0",
+      "nombre": "Rosa chicle"
+    },
+    {
+      "hex": "#FBE3EE",
+      "nombre": "Rosa pálido"
+    },
+    {
+      "hex": "#FFFFFF",
+      "nombre": "Blanco"
+    }
+  ]
+}

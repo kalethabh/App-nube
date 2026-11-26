@@ -1,0 +1,40 @@
+{
+  "deseo_central": "Tener glúteos firmes, redondos y naturales para sentirse segura y atractiva, incluso en bikini.",
+  "dolor_principal": "Sentir que sus glúteos son planos y sin forma, y tener que esconderse con ropa holgada.",
+  "promesa": "Pasar de glúteos planos a glúteos firmes y redondos con un tratamiento en cápsulas, sin engordar.",
+  "emocion": "Deseo y orgullo: imaginarse como la mujer de la playa, con la confianza de mostrarse.",
+  "nivel_conciencia": "consciente-del-problema",
+  "mecanismo_persuasion": "Antes y después de la misma mujer de espaldas, con el frasco en el centro como el puente entre los dos estados, reforzado con beneficios que quitan miedos (no engorda, pago contra entrega, registro sanitario) y una oferta de tratamiento completo con precio.",
+  "hook_visual": {
+    "que": "Dos mujeres de espaldas lado a lado: a la izquierda en short gris en un cuarto apagado, a la derecha en bikini en una playa al atardecer, con títulos gigantes ANTES y DESPUÉS.",
+    "por_que": "El contraste de cuerpo, ropa y luz se entiende en menos de un segundo, sin leer nada; quien compra se reconoce en el antes y desea el después."
+  },
+  "invariables": [
+    "El antes y después en pantalla dividida, con la misma postura de espaldas en las dos mitades",
+    "El contraste de ambiente: el antes apagado y en casa, el después luminoso y aspiracional",
+    "El frasco grande en el centro, montado sobre la línea que separa el antes del después",
+    "Las etiquetas cortas que nombran el problema (planos y sin forma) y el resultado (firmes, redondos y naturales)",
+    "La franja de beneficios que quitan miedos: no engorda y pago contra entrega",
+    "El cierre con la oferta del tratamiento completo y el precio bien visible"
+  ],
+  "modificables": [
+    "La modelo (edad, tono de piel, cabello), siempre del mismo público",
+    "La escena del después: piscina, gimnasio, espejo de casa, salida con jeans en vez de playa",
+    "La escena del antes: probador, espejo del baño, cuarto",
+    "La ropa: leggins, jeans o vestido en lugar de short y bikini",
+    "Los colores secundarios y la forma de los bloques de beneficios",
+    "La redacción de los títulos, manteniendo la idea de planos contra firmes",
+    "Cuáles beneficios van en los íconos (por ejemplo, triple acción o sin ejercicio de fuerza)"
+  ],
+  "experimentales": [
+    "Mostrar el cambio por etapas (día 1, día 15, día 30) en vez de solo dos fotos",
+    "Un ángulo de beneficio sin sacrificio: resultados sin hacer ejercicio de fuerza",
+    "Un formato que parezca contenido real, como una selfie de espejo o un chat entre amigas contando su cambio",
+    "Explicar la triple acción de sus 3 extractos naturales como el porqué funciona",
+    "Atacar el miedo a engordar como mensaje principal",
+    "Probar la vista de perfil o tres cuartos en lugar de espaldas"
+  ],
+  "esencia": "Ver en un segundo el cambio de glúteos planos a firmes y redondos, con el frasco como la causa.",
+  "formato_ganador": "F03",
+  "angulo_ganador": "transformacion"
+}
