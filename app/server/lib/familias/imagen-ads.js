@@ -48,6 +48,7 @@ import { loteAnterior, usadosDe, armarInforme, piezasPorHacer, faltaDelBorrador 
 import { nombreIA, datosIA, alPreguntarLotesOcupados } from '../motor-ia.js';
 import { motorDeImagenes, entornoParaImagenes, codexParaImagenes } from '../motor-imagenes.js';
 import { prepararRapido } from '../imagen-ads/rapido.js';
+import { pendientesMas, prepararVariantes, verificarMas, unirMas, sesionMas } from '../imagen-ads/mas.js';
 import * as plantillas from '../imagen-ads/plantillas.js';
 import { calentar as calentarPlantillas } from '../plantillas/render.js';
 
@@ -719,7 +720,7 @@ async function correrTanda(ctx, est, run, d, brief) {
 
 /** La revision del modo prueba: siempre igual y sin la IA (revision-simulada.js). */
 function aplicarSimuladas(carpeta, est, piezas) {
-  for (const f of ['1:1', '9:16']) {
+  for (const f of ['1:1', '9:16', '4:5']) {
     const de = piezas.filter((p) => formatoDe(p) === f);
     const tope = f === '1:1' ? plan.revisionCuadrados() : plan.TOPES.revisionVerticales;
     for (let i = 0; i < de.length; i += tope) {
@@ -809,6 +810,12 @@ async function anuncios(ctx) {
   const pasoEstrategia = ctx.conductor?.pasos?.find((p) => p.id === 'estrategia');
   const uuidEstrategia = pasoEstrategia?.uuid || null;
   const motorEstrategia = pasoEstrategia?.motor || null; // la IA que hizo la estrategia (estado.json la guarda en E001)
+  // (2026-11-26i) «Más imágenes»: antes de todo, las entradas del plan de las V que se sumaron
+  if (pendientesMas(c, leerJSON(R.brief(c)) || ctx.brief).length) {
+    const r = await prepararMas(ctx);
+    if (r) return r;
+  }
+  ctx.brief = leerJSON(R.brief(c)) || ctx.brief;
   const est = cargarYNormalizar(c, ctx.brief, { uuidEstrategia, motorEstrategia, simulada }); // UNA lectura; despues, memoria
   guardar(c, est);
   // (2026-11-26b) las imágenes de las estructuras ganadoras que usa el plan, al lote (las mira la revisión)
@@ -845,6 +852,8 @@ async function anuncios(ctx) {
     for (;;) {
       if (ctx.senal.aborted) break;
       const brief = leerJSON(R.brief(c)) || ctx.brief; // el logo puede cambiar mientras corre
+      // (2026-11-26i) «Crear otro tamaño» mientras corre: su pieza entra en esta misma vuelta
+      if (brief?.extras && !conPlantillas) plan.asegurarPiezas(est, { cantidad: Object.keys(est.variaciones).length, formatos: brief.formatos?.length ? brief.formatos : ['1:1'], extras: brief.extras });
       absorber(est, c, run);
       // (2026-11-21h) lo que kie rechazó por contenido: la IA lo reescribe y se pide otra vez (hasta 3 veces)
       for (const [pieza, r] of rescates) {
@@ -921,6 +930,72 @@ async function anuncios(ctx) {
     guardar(c, est);
     return { cancelado: true };
   }
+}
+
+/**
+ * (2026-11-26i) «Más imágenes»: las entradas de plan.json de las V nuevas. «Variantes» las arma la app; «nuevos», una
+ * sesión corta de la IA (mas.js). -> null si quedó listo, o lo que devuelve el paso (error, límite, cancelado).
+ */
+async function prepararMas(ctx) {
+  const c = ctx.carpeta;
+  for (const m of pendientesMas(c, leerJSON(R.brief(c)) || ctx.brief)) {
+    const brief = leerJSON(R.brief(c)) || ctx.brief;
+    if (m.modo === 'variantes') {
+      ctx.avance(`Preparando ${m.hasta - m.desde + 1} variantes de ${m.base}`);
+      const r = prepararVariantes(c, brief, m);
+      const v = r.ok ? verificarMas(c, brief, m) : { ok: false, errores: [r.motivo] };
+      anotarRegistro(c, m.id, { variantes: v.ok, errores: v.ok ? null : v.errores });
+      if (!v.ok) return error('No pude preparar las variantes. Toca “Continuar” para intentarlo otra vez.', 'mas', v.errores.slice(0, 3).join(' · '));
+      unirMas(c, brief, m);
+      continue;
+    }
+    if (verificarMas(c, brief, m).ok) {
+      unirMas(c, brief, m);
+      continue;
+    }
+    const s = sesionMas({ carpeta: c, lote: ctx.slug, brief, m });
+    ctx.avance('Esperando su turno con la IA');
+    if (!(await turnoClaude.esperar(ctx.slug, 3, ctx.senal))) return { cancelado: true };
+    try {
+      const claude = await ctx.claude();
+      if (!claude?.lanzarSesion) return error(sinProgramaDeLaIA(), 'claude');
+      let r = null;
+      for (let i = 1; i <= 2; i++) {
+        ctx.avance(`La IA está pensando ${m.hasta - m.desde + 1} anuncios nuevos para tu lote`);
+        r = await claude.lanzarSesion({
+          tipo: 'imagen-ads-mas',
+          cwd: RAIZ,
+          uuid: crypto.randomUUID(),
+          prompt: s.prompt,
+          ...permisos(ctx.slug, s.escribe, { conSkill: true, claude }),
+          material: s.material,
+          esfuerzo: 'alto',
+          maxTurnos: 40,
+          timeoutMs: 20 * 60000,
+          silencioMs: SILENCIO_MS,
+          correcciones: 2,
+          verificar: s.verificar,
+          senal: ctx.senal,
+          alProgreso: (f) => ctx.avance(f),
+          registro: R.registro(c, m.id),
+        });
+        if (r?.ok) break;
+        if (ctx.senal.aborted || r?.cancelado) return { cancelado: true };
+        if (r?.limite || r?.enPausa) return errorDeLimite(r);
+        if (r?.sinSesion || r?.sinClaude || r?.planSinCodex) return error(r.error, 'claude');
+        if (r?.ocupada) {
+          await dormir(5000, ctx.senal);
+          i--;
+          if (ctx.senal.aborted) return { cancelado: true };
+        }
+      }
+      if (!r?.ok || !verificarMas(c, leerJSON(R.brief(c)) || brief, m).ok) return error('La IA no pudo pensar los anuncios nuevos. Toca “Continuar” para que lo intente otra vez.', 'claude', r?.detalle || r?.error);
+      unirMas(c, leerJSON(R.brief(c)) || brief, m);
+    } finally {
+      turnoClaude.soltar(ctx.slug);
+    }
+  }
+  return null;
 }
 
 // ---------------------------------------------------------------- 5. informe

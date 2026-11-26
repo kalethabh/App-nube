@@ -24,7 +24,7 @@ const r2 = (x) => Math.round(Number(x || 0) * 100) / 100;
 
 /** Lo que dice el nombre de un anuncio hecho con la app: producto, variación, formato y ángulo (o null). */
 export function leerNombre(nombre) {
-  const t = String(nombre || '').trim().replace(/\.(png|jpe?g|webp)$/i, '').replace(/-9x16$/i, '');
+  const t = String(nombre || '').trim().replace(/\.(png|jpe?g|webp)$/i, '').replace(/-(9x16|4x5)$/i, '');
   const m = /^(.+?)_(V\d{2,3})-([FG]\d{2})(?:-(.+))?$/i.exec(t);
   if (!m) return null;
   const formato_id = m[3].toUpperCase();

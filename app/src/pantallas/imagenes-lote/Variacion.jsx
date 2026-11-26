@@ -3,7 +3,7 @@
 // esté revisando. Las insignias dicen lo que no es "lista": con aviso, sin revisar, sin imagen… Desde 2026-11-09 la
 // revisión no rehace nada sola: lo que notó queda debajo («La revisión notó: …») con «Corregir esto» y Regenerar.
 import { memo, useContext, useState } from 'react';
-import { Clock, Copy, Download, ImageOff, LoaderCircle, PencilRuler, PenLine, RefreshCw, ScanEye, WandSparkles } from 'lucide-react';
+import { Clock, Copy, CopyPlus, Download, ImageOff, LoaderCircle, PencilRuler, PenLine, RefreshCw, ScanEye, WandSparkles } from 'lucide-react';
 import { Boton, BotonFunciona, Insignia, Tooltip, GuardarEnCarpeta } from '../../componentes/index.js';
 import { LoteFunciona } from '../../datos/funcionan.js';
 import { ESTADOS_PIEZA, PIEZA_EN_MARCHA, PIEZA_FINAL, partesDePieza } from '../../datos/imagenes.js';
@@ -26,7 +26,7 @@ export function InsigniaPieza({ p, variante = 'vidrio', tamano = 'chico' }) {
 export function porQueNo(p, { cuadrado = null, sinPrompt = false } = {}) {
   if (p.pedido) return 'Ya tiene un cambio en camino';
   if (sinPrompt) return 'Primero toca «Escribir de nuevo»';
-  if (partesDePieza(p.pieza).formato === '9:16' && cuadrado && PIEZA_FINAL.has(cuadrado.estado) && !cuadrado.url) return 'Regenera primero el cuadrado';
+  if (partesDePieza(p.pieza).formato !== '1:1' && cuadrado && PIEZA_FINAL.has(cuadrado.estado) && !cuadrado.url) return 'Regenera primero el cuadrado';
   if (!PIEZA_FINAL.has(p.estado)) return 'Espera a que termine de crearse';
   return 'Ahora no se puede regenerar';
 }
@@ -73,21 +73,21 @@ export const TarjetaPieza = memo(function TarjetaPieza({ p, formato, onAbrir, on
       {src && !cargada ? <span className="lote-pieza__cargando" aria-hidden="true" /> : null}
       {enMarcha ? <span className="lote-pieza__barrido" aria-hidden="true" /> : null}
       <span className="lote-pieza__arriba">
-        <span className="lote-pieza__formato">{vertical ? '9:16' : '1:1'}</span>
+        <span className="lote-pieza__formato">{formato || '1:1'}</span>
         <InsigniaPieza p={p} />
       </span>
     </>
   );
 
   return (
-    <div className={`lote-pieza lote-pieza--${p.estado}${vertical ? ' lote-pieza--vertical' : ''}`}>
+    <div className={`lote-pieza lote-pieza--${p.estado}${vertical ? ' lote-pieza--vertical' : ''}${formato === '4:5' ? ' lote-pieza--retrato' : ''}`}>
       {nombre ? <span className="lote-pieza__nombre t-mini">{nombre}</span> : null}
       {abrible ? (
-        <button type="button" className="lote-pieza__marco" style={{ aspectRatio: vertical ? '9 / 16' : '1 / 1' }} onClick={() => onAbrir(p.pieza)} aria-label={`${quien}: ${estado.texto}. Verla en grande`}>
+        <button type="button" className="lote-pieza__marco" style={{ aspectRatio: vertical ? '9 / 16' : formato === '4:5' ? '4 / 5' : '1 / 1' }} onClick={() => onAbrir(p.pieza)} aria-label={`${quien}: ${estado.texto}. Verla en grande`}>
           {contenido}
         </button>
       ) : (
-        <div className="lote-pieza__marco" style={{ aspectRatio: vertical ? '9 / 16' : '1 / 1' }} role="img" aria-label={`${quien}: ${estado.texto}`}>
+        <div className="lote-pieza__marco" style={{ aspectRatio: vertical ? '9 / 16' : formato === '4:5' ? '4 / 5' : '1 / 1' }} role="img" aria-label={`${quien}: ${estado.texto}`}>
           {contenido}
         </div>
       )}
@@ -114,9 +114,11 @@ export const TarjetaPieza = memo(function TarjetaPieza({ p, formato, onAbrir, on
   );
 });
 
-export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical, onAbrir, onRegenerar, onCopiar, onEscribir, escribiendo, onEditarTextos, onPulir }) {
+export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical, onAbrir, onRegenerar, onCopiar, onEscribir, escribiendo, onEditarTextos, onPulir, onMasComoEsta = null }) {
   const cuadrado = x.piezas?.['1:1'];
-  const vertical = conVertical ? x.piezas?.['9:16'] : null;
+  const vertical = x.piezas?.['9:16'] || null;
+  // (2026-11-26i) el retrato 4:5, si se creó para este anuncio
+  const retrato = x.piezas?.['4:5'] || null;
   const datos = [x.angulo, x.formato].filter(Boolean).join(' · ');
 
   if (x.estado === 'sin-prompt') {
@@ -139,13 +141,20 @@ export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical,
 
   const conProblemas = [cuadrado, vertical].filter((p) => p?.estado === 'te-necesita' && (p.problemas || []).length);
   return (
-    <article className={`lote-var${vertical ? ' lote-var--doble' : ''}`} aria-label={`${x.v}${x.titular ? `: ${x.titular}` : ''}`}>
+    <article className={`lote-var${vertical || retrato ? ' lote-var--doble' : ''}${vertical && retrato ? ' lote-var--triple' : retrato ? ' lote-var--retrato' : ''}`} aria-label={`${x.v}${x.titular ? `: ${x.titular}` : ''}`}>
       <header className="lote-var__cabecera">
         <span className="lote-var__v t-num">{x.v}</span>
         {datos ? (
           <span className="lote-var__datos t-mini t-recortar" title={datos}>
             {datos}
           </span>
+        ) : null}
+        {/* (2026-11-26i) de qué imagen es variante y «Más como esta» */}
+        {x.varianteDe ? <span className="lote-var__variante t-mini">Variante de {x.varianteDe}</span> : null}
+        {onMasComoEsta && cuadrado?.url && PIEZA_FINAL.has(cuadrado.estado) && cuadrado.estado !== 'sin-imagen' ? (
+          <Boton variante="fantasma" tamano="chico" icono={CopyPlus} className="lote-var__mas" onClick={() => onMasComoEsta(x.v)}>
+            Más como esta
+          </Boton>
         ) : null}
       </header>
       {x.titular ? <p className="lote-var__titular t-dos-lineas">{x.titular}</p> : null}
@@ -178,6 +187,7 @@ export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical,
       <div className="lote-var__par">
         <TarjetaPieza p={cuadrado} formato="1:1" onAbrir={onAbrir} onRegenerar={onRegenerar} onCopiar={onCopiar} />
         {vertical ? <TarjetaPieza p={vertical} formato="9:16" cuadrado={cuadrado} onAbrir={onAbrir} onRegenerar={onRegenerar} onCopiar={onCopiar} /> : null}
+        {retrato ? <TarjetaPieza p={retrato} formato="4:5" cuadrado={cuadrado} onAbrir={onAbrir} onRegenerar={onRegenerar} onCopiar={onCopiar} /> : null}
       </div>
       {conProblemas.length ? (
         <div className="lote-var__revision">
@@ -189,7 +199,7 @@ export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical,
               p.problemas.map((t, i) => (
                 <li key={`${p.pieza}-${i}`}>
                   <span>
-                    <strong>{partesDePieza(p.pieza).formato === '9:16' ? 'Vertical' : 'Cuadrado'}:</strong> {t}
+                    <strong>{{ '9:16': 'Vertical', '4:5': 'Retrato 4:5' }[partesDePieza(p.pieza).formato] || 'Cuadrado'}:</strong> {t}
                   </span>
                 </li>
               ))
@@ -198,7 +208,7 @@ export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical,
           <div className="lote-var__corregir">
             {conProblemas.map((p) => (
               <Boton key={p.pieza} variante="secundario" tamano="chico" icono={WandSparkles} onClick={() => onRegenerar(p, { corregir: true })} disabled={!p.puedeRegenerar}>
-                {conProblemas.length > 1 ? `Corregir el ${partesDePieza(p.pieza).formato === '9:16' ? 'vertical' : 'cuadrado'}` : 'Corregir esto'}
+                {conProblemas.length > 1 ? `Corregir el ${{ '9:16': 'vertical', '4:5': 'retrato' }[partesDePieza(p.pieza).formato] || 'cuadrado'}` : 'Corregir esto'}
               </Boton>
             ))}
           </div>

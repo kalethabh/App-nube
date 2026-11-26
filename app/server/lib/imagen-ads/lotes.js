@@ -34,7 +34,7 @@ import { historialDe } from './ventas.js';
 import { estructurasAlAzar } from './estructuras.js';
 import {
   FAMILIA, RE_LOTE, RE_PIEZA, RE_V, R, POSICIONES, NOMBRE_POSICION, MAXIMO_VARIACIONES, MAXIMO_REFERENCIAS, carpetaDe, guardarJSON, idsDelLote,
-  vDe, formatoDe, piezaId, ordenDePiezas, ordenDeV, fotoDelLote,
+  vDe, formatoDe, piezaId, ordenDePiezas, ordenDeV, fotoDelLote, formatosDe, nombreFormato,
 } from './disco.js';
 
 const IDIOMAS = ['es', 'en', 'pt'];
@@ -484,7 +484,7 @@ export function agregarPedido(lote, cuerpo = {}) {
     pedido = { tipo: 'prompt', v };
   } else {
     const pieza = String(cuerpo.pieza || '');
-    if (!RE_PIEZA.test(pieza) || !est.piezas?.[pieza] || !(brief.formatos || []).includes(formatoDe(pieza))) throw new ErrorApp(404, 'No encuentro esa imagen en el lote.');
+    if (!RE_PIEZA.test(pieza) || !est.piezas?.[pieza] || !formatosDe(brief, vDe(pieza)).includes(formatoDe(pieza))) throw new ErrorApp(404, 'No encuentro esa imagen en el lote.');
     const instruccion = typeof cuerpo.instruccion === 'string' ? cuerpo.instruccion.trim() : '';
     if (instruccion.length > 600) throw new ErrorApp(400, 'Lo que quieres cambiar es demasiado largo (hasta 600 caracteres).');
     // (2026-11-26h) las imágenes adjuntas (subidas antes con PUT …/adjuntos): hasta 3, del lote, y con una instrucción
@@ -496,7 +496,7 @@ export function agregarPedido(lote, cuerpo = {}) {
     const p = est.piezas[pieza];
     if (est.variaciones?.[vDe(pieza)]?.prompt === 'sin-prompt') throw new ErrorApp(409, 'Este anuncio quedó sin escribir: usa «Escribir de nuevo».');
     if (p.fase !== 'final') throw new ErrorApp(409, 'Esta imagen todavía se está creando: espera a que termine.');
-    if (formatoDe(pieza) === '9:16') {
+    if (formatoDe(pieza) !== '1:1') {
       const c = est.piezas[piezaId(vDe(pieza), '1:1')];
       if (c && (c.fase !== 'final' || !existe(R.img(carpeta, piezaId(vDe(pieza), '1:1'))))) throw new ErrorApp(409, 'Su imagen cuadrada no salió: rehaz primero la cuadrada.');
     }
@@ -507,6 +507,27 @@ export function agregarPedido(lote, cuerpo = {}) {
   const nuevo = { id: `U${String(n).padStart(4, '0')}`, ...pedido, fecha: ahora() };
   guardarJSON(R.pedidos(carpeta), { pedidos: [...lista, nuevo] });
   return nuevo;
+}
+
+/**
+ * (2026-11-26i) «CREAR OTRO TAMAÑO» de un anuncio: { v, formato } con formato 1:1, 9:16 o 4:5. Se agrega solo a esa
+ * variación (brief.extras[v]); la nueva pieza sale de su cuadrado ya hecho, como el vertical. Nada de lo que ya existe
+ * se toca. 409 si ese tamaño ya está o si su cuadrado todavía no salió.
+ */
+export function agregarTamano(lote, { v, formato } = {}) {
+  const carpeta = carpetaDe(lote);
+  const brief = leerBrief(carpeta);
+  const est = leerEstado(carpeta);
+  if (!est) throw new ErrorApp(409, 'Este lote todavía se está preparando.');
+  if (!RE_V.test(String(v || '')) || !est.variaciones?.[v]) throw new ErrorApp(404, 'No encuentro ese anuncio en el lote.');
+  if (!['1:1', '9:16', '4:5'].includes(formato)) throw new ErrorApp(400, 'Elige cuadrado 1:1, vertical 9:16 o retrato 4:5.');
+  if (formatosDe(brief, v).includes(formato)) throw new ErrorApp(409, `Este anuncio ya tiene su ${nombreFormato(formato)}.`);
+  const c = est.piezas[piezaId(v, '1:1')];
+  if (!c || c.fase !== 'final' || !existe(R.img(carpeta, piezaId(v, '1:1')))) throw new ErrorApp(409, 'Su imagen cuadrada todavía no está: espera a que termine.');
+  if (pedidosSinTerminar(carpeta).some((x) => (x.v || vDe(x.pieza || '')) === v)) throw new ErrorApp(409, 'Este anuncio ya tiene un cambio en camino.');
+  brief.extras = { ...(brief.extras || {}), [v]: [...new Set([...(brief.extras?.[v] || []), formato])] };
+  guardarJSON(R.brief(carpeta), brief);
+  return { v, formato, pieza: piezaId(v, formato) };
 }
 
 /**

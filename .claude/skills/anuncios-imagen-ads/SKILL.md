@@ -51,6 +51,10 @@ Después de cada lote, cada imagen se compara contra su referencia (montaje lado
 
 **ADJUNTOS AL REGENERAR (2026-11-26h):** en «¿Regenerar esta imagen?» el usuario puede adjuntar hasta 3 imágenes (subir, arrastrar, pegar o desde Mis piezas). Quedan en `temp/<lote>/entrada/adjuntos/A0001.png`, viajan en el pedido (`adjuntos`) y llegan al modelo de imagen como la 3.ª, 4.ª… imagen (después de la imagen actual y el producto). En el ajuste, la IA las mira y en `instruccion_en` dice exactamente cómo usarlas («use the THIRD attached image as…»). Con adjuntos, la instrucción es obligatoria.
 
+**OTRO TAMAÑO Y MÁS IMÁGENES (2026-11-26i):**
+- **Otro tamaño:** una variación puede sumar un tamaño propio (`brief.extras = { "V03": ["9:16", "4:5"] }`). El retrato 4:5 (`V03_4x5`) sale, como el vertical, de su cuadrado ya hecho (mismos textos, sin la zona segura del 9:16).
+- **Más imágenes en el lote (1 a 10):** `brief.mas` anota cada pedido (`M01`: desde, hasta, modo). En «nuevos», la tarea `imagen-ads-mas` escribe solo `app/imagen-ads/mas/M01.json` con las entradas del plan de las V nuevas: estructuras que el lote no tiene, otro gancho y otro ángulo, el mismo kit del lote y el estilo que rota. En «variantes», la app copia la entrada de la base con `"variante_de": "V02"`: su anuncio es otra foto del mismo (otra modelo, pose, ropa, escena y luz, con la misma oferta letra por letra), y la imagen base (`entrada/variantes/V02.png`) va al modelo como referencia de variante.
+
 **CADA MOMENTO, OTRO DÍA (2026-11-26g):** todo antes/después, progreso o línea de tiempo con personas (Antes · 24 horas · 1 semana · 4 semanas; Día 1 · Día 30; Mes 1 · 2 · 3) cambia en CADA momento la pose, la ropa (siempre jean o leggins abajo), el peinado, el escenario y la iluminación u hora del día, para que se note que pasó el tiempo. Se conservan la persona y el producto. El `visual_prompt` describe cada momento por separado; nunca «same outfit / pose / lighting / background». Lo revisa `erroresMomentos` (cuerpo.js).
 
 **TÍTULOS COMO MAYAVERRA (2026-11-26f):** cada imagen lleva 2 o 3 niveles de texto:

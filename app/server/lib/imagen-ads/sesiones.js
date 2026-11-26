@@ -20,7 +20,7 @@ import path from 'node:path';
 import { textoClaude, prohibidasComunes as prohibidasDeClaude } from '../claude.js';
 import { leerJSON, existe } from '../archivos.js';
 import { leerSkill, verificarSesion, DIR_SKILL } from './verificar.js';
-import { R, idsDelLote, piezaId, vDe, formatoDe, fotoDelLote, nombreFormato } from './disco.js';
+import { R, RE_V, idsDelLote, piezaId, vDe, formatoDe, fotoDelLote, nombreFormato } from './disco.js';
 import { esVariado, nivelDe, cupos, VARIABLES, ESTILOS, CRITERIOS, NOTA_MINIMA } from './variedad.js';
 import { estructurasDelLote, copiarEstructuras, copiarReferenciasDe, NOMBRES_CRITERIOS } from './comparacion.js';
 import { textoReglasImagen } from './supervisor.js';
@@ -405,6 +405,7 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
   const deEsteLote = `temp/${lote}/`;
   // (2026-11-26b) las variaciones que salen de una estructura ganadora: su ficha y su imagen (copiada al lote)
   const conEstructura = copiarEstructuras(carpeta);
+  const variantes = variaciones.filter((x) => RE_V.test(String(x.variante_de || '')));
   const material = {
     textos: unicas([
       deLaSkill('SKILL.md'),
@@ -422,9 +423,12 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
         .filter((x) => x.fuente === 'referencia' && x.referencia && String(x.referencia).startsWith(deEsteLote))
         .map((x) => delLote(carpeta, lote, String(x.referencia).slice(deEsteLote.length)))
         .concat(ids.map((v) => (conEstructura[v] ? delLote(carpeta, lote, conEstructura[v].copia) : null)))
+        // (2026-11-26i) «Más como esta»: la imagen base de cada variante
+        .concat(variantes.map((x) => delLote(carpeta, lote, `entrada/variantes/${x.variante_de}.png`)))
         .filter(Boolean)
     ),
   };
+  material.textos.push(...unicas(variantes.map((x) => delLote(carpeta, lote, `${x.variante_de}.json`))).filter((r) => !material.textos.includes(r)));
   return {
     tipo: 'prompts',
     ids,
@@ -439,6 +443,7 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
       (usaEstructuras(brief) || esVariado(brief) ? textoMomentos() : '') +
       (usaEstructuras(brief) || esVariado(brief) ? textoTitulosMayaverra(brief) : '') +
       textoVenta(brief) +
+      textoVariantes(lote, variantes) +
       (esDelAgente(brief)
         ? `\n## Agente de variaciones (guía \`${GUIA_AGENTE}\`, pegada)\nCada prompt respeta el nivel, el cambio y los invariables de su variación (plan.json y \`analisis-ganador.json\`), y la dirección de arte LIMPIA de la guía: fondo simple con espacio negativo, sin brillos, destellos, partículas ni objetos que compitan; jerarquía titular → imagen del deseo → producto → beneficios → oferta; Montserrat ExtraBold en el titular e Inter en lo secundario; máximo tres niveles de texto; producto con su envase, logo y etiqueta reales; una sola pieza por imagen, sin collage ni rótulos de «Variante».\n`
         : ''),
@@ -452,10 +457,20 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
   };
 }
 
+/** (2026-11-26i) «Más como esta»: cada variante es otra foto del MISMO anuncio que eligió el usuario. */
+function textoVariantes(lote, variantes) {
+  if (!variantes.length) return '';
+  return `
+## Variantes de una imagen («Más como esta», lo pidió el usuario)
+${variantes.map((x) => `- ${x.id} es variante de ${x.variante_de}: su imagen \`temp/${lote}/entrada/variantes/${x.variante_de}.png\` (mírala con Read) y su anuncio \`temp/${lote}/${x.variante_de}.json\`.`).join('\n')}
+Cada variante es OTRA FOTO DEL MISMO ANUNCIO: mantén su estructura, sus zonas y proporciones, su estilo, su ángulo, su gancho y su oferta (la oferta y los sellos letra por letra). Cambia la modelo (otra mujer del mismo público), su pose, su ropa, su peinado, la escena, el encuadre y la luz, y escribe el gancho y la propuesta de valor con otras palabras (la misma idea). Que ninguna variante se parezca a otra ni a la base: cada una, una escena distinta. El motor le pasa al modelo de imagen la base como referencia de diseño.
+`;
+}
+
 // ---------------------------------------------------------------- la revision
 
 export function sesionRevision({ carpeta, lote, brief, tanda, t }) {
-  const vertical = t.formato === '9:16';
+  const vertical = t.formato === '9:16' || t.formato === '4:5'; // (2026-11-26i) el retrato 4:5 también sale de su cuadrado
   const conLogo = Boolean(brief?.logo?.posicion);
   const c = `temp/${lote}`;
   const foto = (fotoDelLote(carpeta) || 'entrada/producto.png').replace(/^entrada\//, '');

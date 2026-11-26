@@ -265,6 +265,39 @@ async function prompts(texto, intento) {
   return 'LISTO';
 }
 
+/** (2026-11-26i) «Más imágenes»: las entradas del plan de las V nuevas (con las estructuras sorteadas, si las hay). */
+async function mas(texto) {
+  const lote = texto.match(/Carpeta del lote: temp\/(\S+)/)[1];
+  const C = `temp/${lote}`;
+  const salida = (texto.match(/escribe SOLO `(temp\/\S+\/app\/imagen-ads\/mas\/M\d{2}\.json)`/) || [])[1];
+  const ids = idsDe((texto.match(/DISTINTOS de los que ya tiene: ([^.\n]+)\./) || [])[1] || '');
+  const plan = leer(path.join(RAIZ, C, 'plan.json'));
+  await usar('Read', { file_path: path.join(RAIZ, C, 'plan.json') });
+  const { angulos, formatos } = catalogo();
+  const usados = new Set((plan?.variaciones || []).map((x) => x.formato_id));
+  const sorteadas = [...texto.matchAll(/^- ([FP]\d{2,3}) · /gm)].map((m) => m[1]);
+  let lista = sorteadas.length ? sorteadas.map((id) => formatos.find((f) => f.id === id)).filter(Boolean) : formatos.filter((f) => !usados.has(f.id) && !f.estructura).slice(0, ids.length);
+  // el estilo rota (contando la última del lote)
+  const ultimo = plan?.variaciones?.[plan.variaciones.length - 1]?.estilo || null;
+  const orden = [];
+  while (lista.length) {
+    const antes = orden.length ? orden[orden.length - 1].estilo : ultimo;
+    const cuenta = (e) => lista.filter((f) => f.estilo === e).length;
+    const libres = lista.filter((f) => !f.estilo || f.estilo !== antes).sort((a, b) => cuenta(b.estilo) - cuenta(a.estilo));
+    const f = libres[0] || lista[0];
+    orden.push(f);
+    lista = lista.filter((y) => y !== f);
+  }
+  const zonas = plan?.cuerpo?.zonas?.length ? plan.cuerpo.zonas : ['glúteos', 'piernas'];
+  const variaciones = ids.map((v, i) => {
+    const f = orden[i] || formatos[i];
+    const a = angulos.find((y) => y.id === f?.angulos_compatibles?.[0]) || angulos[i % angulos.length];
+    return { id: v, fuente: 'biblioteca', formato_id: f.id, formato: f.nombre, angulo_id: a.id, angulo: a.nombre, concepto: `Concepto nuevo de prueba ${v}`, titular: `Titular nuevo de prueba ${v}`, escena: `Escena nueva de prueba ${v}`, camara: 'Plano medio frontal', ...(f.estilo ? { estilo: f.estilo } : {}), zona_del_cuerpo: zonas[i % zonas.length], segmento: 'mujeres 25-45', propuesta_valor: `Glúteos más redondos y firmes en solo ${i + 4} semanas, para volver a lucir tus jeans con seguridad` };
+  });
+  await escribir(salida, { variaciones });
+  return 'LISTO';
+}
+
 async function revision(texto) {
   const lote = texto.match(/Carpeta del lote: temp\/(\S+)/)[1];
   const archivo = texto.match(/Escribe `(temp\/\S+\/revision\/R\d{3}\.json)`/)[1];
@@ -347,6 +380,7 @@ async function alMensaje(texto) {
     if (tarea === 'imagen-ads-estrategia') r = await estrategia(textoTarea, intento);
     else if (tarea === 'imagen-ads-prompts') r = await prompts(textoTarea, intento);
     else if (tarea === 'imagen-ads-revision') r = await revision(textoTarea);
+    else if (tarea === 'imagen-ads-mas') r = await mas(textoTarea);
     else if (tarea === 'imagen-ads-ajuste') r = await ajuste(textoTarea);
   } catch (e) {
     anotar(`fin ${tarea} ${sesion} error ${e.message}`);

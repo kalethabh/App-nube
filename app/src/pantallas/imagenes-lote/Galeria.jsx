@@ -2,7 +2,7 @@
 // variación con su cuadrado y su vertical; "Cuadrados" y "Verticales", solo esas. Arriba: "Descargar todo" (con logo,
 // sin logo, con los prompts) y "Hacer otro lote".
 import { useEffect, useRef, useState } from 'react';
-import { Check, ChevronDown, Download, Images, Plus } from 'lucide-react';
+import { Check, ChevronDown, Download, ImagePlus, Images, Plus } from 'lucide-react';
 import { Boton, EstadoVacio, Pestanas, Seccion, Tooltip } from '../../componentes/index.js';
 import { PIEZA_FINAL, motorDelLote } from '../../datos/imagenes.js';
 import { MOTORES, mayuscula, useMotor } from '../ajustes/datos.js';
@@ -129,7 +129,7 @@ function DescargarTodo({ conLogo, conSuLogo = 0, conImagen = 0, deshabilitado, u
   );
 }
 
-export function Galeria({ vista, variaciones, filtro, onFiltro, onAbrir, onRegenerar, onCopiar, onEscribir, escribiendo, enlaceOtro, urlDescarga, onDescargarSimulado, onEditarTextos, onPulir }) {
+export function Galeria({ vista, variaciones, filtro, onFiltro, onAbrir, onRegenerar, onCopiar, onEscribir, escribiendo, enlaceOtro, urlDescarga, onDescargarSimulado, onEditarTextos, onPulir, onMas = null, onMasComoEsta = null }) {
   // la IA que escribe los anuncios de este lote: la que lo hizo (si el servidor la manda) o la elegida
   const elegida = mayuscula(useMotor().nombre);
   const ia = MOTORES[motorDelLote(vista)]?.nombre || elegida;
@@ -146,6 +146,11 @@ export function Galeria({ vista, variaciones, filtro, onFiltro, onAbrir, onRegen
   const acciones = (
     <div className="fila fila--envolver" style={{ '--hueco': '8px' }}>
       <DescargarTodo conLogo={Boolean(vista.brief?.logo?.url)} conSuLogo={conSuLogo} conImagen={conImagen} deshabilitado={!conImagen} urlDescarga={urlDescarga} onSimulado={onDescargarSimulado} />
+      {onMas ? (
+        <Boton variante="secundario" icono={ImagePlus} onClick={onMas}>
+          Más imágenes
+        </Boton>
+      ) : null}
       <Boton variante="secundario" icono={Plus} href={enlaceOtro}>
         Hacer otro lote
       </Boton>
@@ -167,7 +172,7 @@ export function Galeria({ vista, variaciones, filtro, onFiltro, onAbrir, onRegen
     contenido = (
       <div className={`rejilla lote-rejilla${conVertical ? ' lote-rejilla--doble' : ''}`}>
         {variaciones.map((x) => (
-          <Variacion key={x.v} x={x} ia={ia} conVertical={conVertical} onAbrir={onAbrir} onRegenerar={onRegenerar} onCopiar={onCopiar} onEscribir={onEscribir} escribiendo={escribiendo} onEditarTextos={onEditarTextos} onPulir={onPulir} />
+          <Variacion key={x.v} x={x} ia={ia} conVertical={conVertical} onAbrir={onAbrir} onRegenerar={onRegenerar} onCopiar={onCopiar} onEscribir={onEscribir} escribiendo={escribiendo} onEditarTextos={onEditarTextos} onPulir={onPulir} onMasComoEsta={onMasComoEsta} />
         ))}
       </div>
     );

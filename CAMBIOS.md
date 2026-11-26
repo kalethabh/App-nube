@@ -2,6 +2,18 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-26i · Anuncios de imagen: otro tamaño y más imágenes en el mismo lote
+
+- **Otro tamaño de un anuncio:** en «¿Regenerar esta imagen?» elige «+ Vertical 9:16», «+ Retrato 4:5» o «+ Cuadrado 1:1».
+  - Se crea ese tamaño del mismo anuncio, a partir de su cuadrado y con los mismos textos.
+  - Cuesta 1 imagen y antes ves el costo.
+  - La imagen que ya tienes no cambia.
+  - Los tamaños que el anuncio ya tiene salen marcados con ✓.
+- **Más imágenes en el lote:** con el botón «Más imágenes» (junto a «Hacer otro lote») eliges de 1 a 10.
+  - **Anuncios nuevos:** distintos de los que ya tienes, con otras estructuras ganadoras y otros ganchos, y con tu mismo producto y tu oferta.
+  - **Variantes de una imagen:** otra foto del mismo anuncio, con el mismo diseño, gancho y oferta, pero otra modelo, otra pose, otra escena y otra luz. Se piden con «Más como esta» en la imagen o desde «¿Regenerar esta imagen?».
+  - Antes ves el costo. Las imágenes nuevas aparecen al final del lote y las que ya tenías no cambian.
+
 ## 2026-11-26h · Anuncios de imagen: adjuntar imágenes al pedir un cambio
 
 - **En «¿Regenerar esta imagen?» puedes adjuntar hasta 3 imágenes:** una pose, una persona, un fondo o un sello. Las subes, las arrastras, las pegas con Cmd/Ctrl + V o las eliges de «Mis piezas».
