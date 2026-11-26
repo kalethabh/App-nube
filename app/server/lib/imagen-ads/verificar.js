@@ -15,6 +15,7 @@ import { construirPrompt, construirPromptVertical } from '../../../../produccion
 import { R, RE_V, idsDelLote, piezaId } from './disco.js';
 import { esVariado, nivelDe, reglasDelPlan, reglasDelAnuncio } from './variedad.js';
 import { leerPropias, marcaPropias } from './propias-disco.js';
+import { erroresCuerpoPlan, erroresCuerpoAnuncio, zonasDe } from './cuerpo.js';
 
 export const DIR_SKILL = path.join(SKILLS, 'anuncios-imagen-ads');
 export const TOPE_PROMPT_VERIFICADO = 19000;
@@ -145,7 +146,7 @@ export function verificarPlan(carpeta, brief) {
     const faltan = fijas.filter((id) => !usadas.includes(id));
     if (faltan.length || new Set(usadas).size !== usadas.length) errores.push(`plan.json: usa exactamente las estructuras ${fijas.join(', ')}, una por variación (faltan: ${faltan.join(', ') || 'ninguna'}; no repitas)`);
     if (!variado) {
-      const r = reglasDelPlan(datos, { nivel: 'estructuras', analisis: null, skill: leerSkill(), historial: [], tipoProducto: null });
+      const r = reglasDelPlan(datos, { nivel: 'estructuras', analisis: null, skill: leerSkill(), historial: [], tipoProducto: null, rotarZona: zonasDe(brief, datos).length !== 1 });
       errores.push(...r.errores.filter((e) => /van seguidas|estructura distinta|\.estilo:|\.zona_del_cuerpo:|\.segmento:|estilos; usa/.test(e)));
     }
   }
@@ -156,10 +157,13 @@ export function verificarPlan(carpeta, brief) {
       skill: leerSkill(),
       historial: brief?.historial || [],
       tipoProducto: leerJSON(R.productoJson(carpeta))?.tipo_producto || null,
+      rotarZona: zonasDe(brief, datos).length !== 1,
     });
     // (los de fuente/formato/ángulo ya los dijo el bucle de arriba)
     errores.push(...r.errores.filter((e) => !/\.(fuente|formato_id|angulo_id):/.test(e)));
   }
+  // (2026-11-26e) el cuerpo de ESTE producto: las variaciones con cuerpo usan su zona (y se ve el resultado)
+  if (vs.length === n) errores.push(...erroresCuerpoPlan(datos, brief));
   return { datos, errores };
 }
 
@@ -204,8 +208,14 @@ export function verificarV(carpeta, v, { brief, plan = null, usados = [] } = {})
   if (esVariado(brief) || conEstructuras) {
     const fPlan = ((plan || leerJSON(R.plan(carpeta)))?.variaciones || []).find((x) => x?.id === v)?.formato_id;
     const nativo = leerSkill().formatos.get(fPlan)?.nativo === true;
-    const venta = brief?.venta ? { ...brief.venta, ...(nativo ? { oferta: '', sellos: [] } : {}) } : null;
+    // (2026-11-26e) las nativas (foto casera) van sin la oferta, pero con un titular corto y la franja de sellos
+    // (decisión del usuario: «titular + franja»)
+    const venta = brief?.venta ? { ...brief.venta, ...(nativo ? { oferta: '' } : {}) } : null;
     errores.push(...reglasDelAnuncio(datos, { venta, estricto: true }).map((e) => `${v}.json → ${e}`));
+    const capaTitular = (Array.isArray(datos.text_layers) ? datos.text_layers : []).find((t) => !/offer|oferta|price|precio|seal|sello|trust|cta|button|bot[oó]n|badge|strip|franja/i.test(`${t?.block_id || ''} ${t?.reference_function || ''}`) && String(t?.text || '').trim());
+    if (nativo && !capaTitular) errores.push(`${v}.json → text_layers: esta foto casera lleva un titular corto (máximo 8 palabras) arriba y la franja con los sellos abajo`);
+    // (2026-11-26e) el cuerpo de ESTE producto, con su resultado y con jean o leggins
+    errores.push(...erroresCuerpoAnuncio(datos, ((plan || leerJSON(R.plan(carpeta)))?.variaciones || []).find((x) => x?.id === v), plan || leerJSON(R.plan(carpeta)), brief).map((e) => `${v}.json → ${e}`));
     // como Mayaverra: la oferta escrita IGUAL en todas las imágenes del lote que la llevan
     if (!venta?.oferta) {
       const ofertaDe = (d) => (Array.isArray(d?.text_layers) ? d.text_layers : []).filter((t) => /offer|oferta|price|precio/i.test(`${t?.reference_function || ''} ${t?.block_id || ''}`)).map((t) => String(t?.text || '').replace(/\s+/g, ' ').trim()).filter(Boolean);

@@ -88,6 +88,27 @@ check('La mezcla de Mayaverra reparte un lote de 8 en sus ganchos (más resultad
   const cuenta = sorteo.reduce((m, id) => ({ ...m, [gDe.get(id)]: (m[gDe.get(id)] || 0) + 1 }), {});
   check('«Al azar» sortea solo de Mayaverra, con su misma mezcla de ganchos', sorteo.length === 8 && sorteo.every((id) => gDe.has(id)) && Object.entries(cupos8).every(([g, c]) => (cuenta[g] || 0) === c), { sorteo, cuenta, cupos8 });
 }
+// (2026-11-26e) el cuerpo de ESTE producto, los sellos sin instrucciones y las fichas revisadas
+{
+  const { selloLimpio, limpiarAjustes } = await import('../server/lib/imagen-ads/ajustes-producto.js');
+  check('Un sello escrito como instrucción se limpia («Agregar logo y sello de registro INVIMA RSA-1» → «REGISTRO INVIMA RSA-1»); nunca logo', selloLimpio('Agregar logo y sello de registro INVIMA RSA-1') === 'REGISTRO INVIMA RSA-1' && selloLimpio('Poner el logo') === '' && selloLimpio('Pago contra entrega') === 'Pago contra entrega' && limpiarAjustes({ sellos: 'Agregar logo y sello de registro INVIMA RSA-1\nPoner el logo' }).sellos.join('|') === 'REGISTRO INVIMA RSA-1');
+  check('La zona del cuerpo del producto se guarda limpia (glúteos, cola → glúteos; pies no es una zona)', JSON.stringify(limpiarAjustes({ cuerpo: { zonas: ['Glúteos', 'cola', 'piernas', 'pies'] } }).cuerpo) === JSON.stringify({ zonas: ['glúteos', 'piernas'] }));
+  const { erroresCuerpoPlan, erroresCuerpoAnuncio, tieneCuerpo } = await import('../server/lib/imagen-ads/cuerpo.js');
+  const ficha = (id) => JSON.parse(fs.readFileSync(path.join(DIR_EST, `${id}.json`), 'utf8'));
+  check('Las fichas revisadas: mv-31 es antes/después en la misma foto; las que no muestran cuerpo no tienen zona; todas traen «traduccion»', /MISMA foto/.test(ficha('mv-31').dolor_visual.como) && !tieneCuerpo(ficha('mv-04')) && !tieneCuerpo(ficha('mv-13')) && tieneCuerpo(ficha('mv-31')) && fs.readdirSync(DIR_EST).filter((n) => /^mv-\d+\.json$/.test(n)).every((n) => String(ficha(n.slice(0, -5)).traduccion || '').length > 40));
+  const briefC = { venta: { cuerpo: { zonas: ['glúteos', 'piernas'] } } };
+  const conCuerpo = (extra = {}) => ({ variaciones: [{ id: 'V01', formato_id: 'F61', zona_del_cuerpo: 'piernas' }, { id: 'V02', formato_id: 'F43', zona_del_cuerpo: 'ninguna' }], ...extra });
+  const cuerpoOk = { zonas: ['glúteos', 'piernas'], antes: 'glúteo plano', despues: 'glúteo redondo y levantado' };
+  check('Un plan con una estructura con cuerpo y sin «cuerpo» FALLA', erroresCuerpoPlan(conCuerpo(), briefC).some((e) => /cuerpo: falta/.test(e)));
+  check('…con «cuerpo» y la zona del producto pasa', erroresCuerpoPlan(conCuerpo({ cuerpo: cuerpoOk }), briefC).length === 0, erroresCuerpoPlan(conCuerpo({ cuerpo: cuerpoOk }), briefC));
+  const otraZona = { cuerpo: cuerpoOk, variaciones: [{ id: 'V01', formato_id: 'F61', zona_del_cuerpo: 'pies' }] };
+  check('Una variación con cuerpo en una zona que no es del producto (pies, de la referencia) FALLA', erroresCuerpoPlan(otraZona, briefC).some((e) => /no es una zona de este producto/.test(e)));
+  const x = { id: 'V01', formato_id: 'F61', zona_del_cuerpo: 'piernas' };
+  const malo = erroresCuerpoAnuncio({ visual_prompt: 'Home photo of two feet on a wooden floor, one swollen.' }, x, { cuerpo: cuerpoOk }, briefC);
+  check('Un visual_prompt sin la zona del producto, sin el resultado y sin jean/leggins FALLA (las 3)', malo.length === 3, malo);
+  const bueno = erroresCuerpoAnuncio({ visual_prompt: 'Home mirror photo from behind: left half flat glutes, right half lifted, rounder glutes after; toned legs in high-waisted leggings.' }, x, { cuerpo: cuerpoOk }, briefC);
+  check('…y con glúteos/piernas, el resultado y leggins pasa', bueno.length === 0, bueno);
+}
 const manualMv = fs.readFileSync(path.join(DIR_EST, 'mayaverra-manual.md'), 'utf8');
 check('El manual de Mayaverra existe: lo fijo, los titulares, cómo vende y lo que no se copia', /NUNCA cambia/.test(manualMv) && /titulares/i.test(manualMv) && /Cómo venden/.test(manualMv) && /NO se copia/.test(manualMv));
 const dosIguales = { variaciones: bueno.variaciones.map((x, i) => (i === 3 ? { ...x, formato_id: bueno.variaciones[2].formato_id, estilo: bueno.variaciones[2].estilo, mismo_formato_que_ganador: bueno.variaciones[2].mismo_formato_que_ganador } : x)) };
@@ -304,6 +325,23 @@ async function principal() {
         fs.writeFileSync(archivo, antes);
         check('Una imagen con la oferta escrita distinto al resto del lote FALLA (el kit fijo de Mayaverra)', r.errores.some((e) => /oferta tiene que ir escrita IGUAL|falta la oferta del formulario letra por letra/.test(e)), r.errores);
       } else check('(el lote de prueba trae la oferta en al menos 2 imágenes)', false, conOferta);
+      // (2026-11-26e) una foto casera (nativa) va con titular corto y la franja de sellos
+      {
+        const planF = path.join(c4, 'plan.json');
+        const vF = path.join(c4, 'V01.json');
+        const [planAntes, vAntes] = [fs.readFileSync(planF, 'utf8'), fs.readFileSync(vF, 'utf8')];
+        const pl = JSON.parse(planAntes);
+        pl.variaciones[0] = { ...pl.variaciones[0], formato_id: 'F53', zona_del_cuerpo: 'glúteos' };
+        fs.writeFileSync(planF, JSON.stringify(pl, null, 2));
+        const d = JSON.parse(vAntes);
+        d.text_layers = (d.text_layers || []).filter((t) => /offer|oferta|seal|sello/i.test(`${t.reference_function} ${t.block_id || ''}`));
+        fs.writeFileSync(vF, JSON.stringify(d, null, 2));
+        const r = verificarV(c4, 'V01', { brief: b4 });
+        fs.writeFileSync(planF, planAntes);
+        fs.writeFileSync(vF, vAntes);
+        check('Una foto casera (nativa) sin titular FALLA: lleva titular corto y la franja de sellos', r.errores.some((e) => /foto casera lleva un titular corto/.test(e)), r.errores);
+        check('…y con cuerpo, sin glúteos/resultado/jean en el visual_prompt también FALLA', r.errores.some((e) => /visual_prompt: tiene que (mostrar|verse)/.test(e)) || /glute/.test(d.visual_prompt || ''), r.errores);
+      }
     }
     check('A cada imagen le llegó su estructura como guía (solo estructura) y el frasco como segunda imagen', enviados4.every((t) => /STRUCTURE REFERENCE from another brand/.test(t)));
     if (hayRefs) {

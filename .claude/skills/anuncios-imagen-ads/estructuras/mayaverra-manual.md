@@ -49,7 +49,9 @@ Venden un solo producto (gotas de drenaje linfático) con decenas de anuncios di
 - la bodega con cajas;
 - los pies sobre el piso de madera.
 
-El texto de esos va en el anuncio, no en la imagen.
+En Mayaverra el texto de esos va en el anuncio, no en la imagen. **En esta app (decisión del usuario) las nativas llevan un titular corto arriba y una franja delgada abajo con sus sellos (pagas al recibir, registro), sin la oferta: la foto sigue viéndose casera.**
+
+**El cuerpo siempre es el del producto del usuario:** el recurso de Mayaverra (una pierna hinchada junto a la normal, la selfie, la zona en 3 momentos) se repite con LA ZONA QUE MEJORA SU PRODUCTO y se ve el resultado, con jean o leggins.
 
 **Cómo saltan de un anuncio al siguiente:** nunca repiten la misma combinación. Si uno es foto real de resultado, el siguiente es oferta en bodegón o una ilustración de mecanismo.
 

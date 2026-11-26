@@ -2,6 +2,17 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-26e · Anuncios de imagen: se ve el resultado en TU zona del cuerpo
+
+- **La imagen muestra la zona que mejora tu producto, con el resultado.** Antes la IA copiaba la escena de Mayaverra: pies hinchados, o una mujer mostrando el problema. Ahora la traduce a tu producto.
+  - Para Aguaje son glúteos y piernas, mostrando el resultado (glúteo redondo y levantado) o el antes junto al después, siempre con jean o leggins.
+  - Ejemplo: la foto de una pierna hinchada junto a la normal se vuelve el glúteo plano junto al levantado, en la misma foto.
+- **Nuevo en el formulario:** «Zona del cuerpo que mejora» (glúteos, piernas, abdomen…). Si no la eliges, la IA la deduce y la recuerda.
+- **Sellos sin instrucciones:** si escribes «Agregar logo y sello de registro INVIMA…», la app deja solo «REGISTRO INVIMA…». Ya no se imprime la instrucción y no se agrega logo.
+- **Fotos caseras:** llevan un titular corto arriba y la franja con «pagas al recibir» y tu registro.
+- **Fichas revisadas una por una contra su imagen.** Cada una trae cómo se adapta a cualquier producto.
+- **«Al azar» no repite el estilo seguido:** ningún estilo pasa de la mitad del lote.
+
 ## 2026-11-26d · Anuncios de imagen: solo Mayaverra, su manual y tus estructuras
 
 - **Solo Mayaverra:** las estructuras ganadoras ahora son solo suyas, 55 anuncios. Se agregaron 35 de su tienda principal, la que más vende (sus anuncios llegan a más de 350 mil personas), y se quitaron las de otras marcas.

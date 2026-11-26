@@ -570,3 +570,10 @@ a.o3-zona:hover { background: #000; }
 .enc-tuyas__funciona { display: flex; flex-direction: column; gap: 6px; }
 .enc-tuyas__funciona .enc-funciona button { border: 2px solid transparent; }
 .enc-tuyas__acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+
+/* (2026-11-26e) la zona del cuerpo que mejora el producto */
+.enc-chips-multi { display: flex; flex-wrap: wrap; gap: 6px; }
+.enc-chips-multi button { height: 30px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--borde-2); background: none; color: var(--texto-2); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.enc-chips-multi button:hover { color: var(--texto-1); }
+.enc-chips-multi button.activo { border-color: var(--acento); color: var(--texto-1); background: color-mix(in srgb, var(--acento) 14%, transparent); }
+.enc-opcional { font-weight: 500; color: var(--texto-3); margin-left: 4px; }

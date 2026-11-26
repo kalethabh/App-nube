@@ -67,6 +67,10 @@ function catalogo() {
   return { angulos: leer(path.join(SKILL, 'angulos.json'))?.angulos || [], formatos: [...(leer(path.join(SKILL, 'formatos', 'indice.json'))?.formatos || []), ...leerPropias().map((x) => ({ ...x, marca: 'propia' }))] };
 }
 
+/** (2026-11-26e) La zona del producto con su resultado y la ropa, como pide la verificación. */
+const EN = { 'glúteos': 'glutes', piernas: 'legs', caderas: 'hips', cintura: 'waist', abdomen: 'belly', brazos: 'arms', cara: 'face', piel: 'skin', cabello: 'hair', busto: 'bust' };
+const cuerpoDe = (entrada) => (entrada?.zona_del_cuerpo && EN[entrada.zona_del_cuerpo] ? ` The woman shows the RESULT on her ${EN[entrada.zona_del_cuerpo]}: lifted, rounder and toned after, wearing high-waisted jeans.` : '');
+
 /** Un V##.json valido para la app, con los bloques de su formato (asi no hay avisos). */
 function anuncio(v, entrada, brief, numero) {
   const formato = entrada?.formato_id ? catalogo().formatos.find((f) => f.id === entrada.formato_id) : null;
@@ -93,8 +97,9 @@ function anuncio(v, entrada, brief, numero) {
   // («Vecinas»/«Conceptos»: la oferta y los sellos del formulario, letra por letra, salvo en los formatos nativos)
   // (2026-11-26d) con estructuras ganadoras, como Mayaverra: la misma oferta, igual en todas las del lote
   const conEstructuras = Array.isArray(brief?.estructuras) && brief.estructuras.length > 0;
-  if ((variado || conEstructuras) && !formato?.nativo) {
-    const oferta = brief?.venta?.oferta || (conEstructuras ? 'TRATAMIENTO COMPLETO X3 $139.900' : '');
+  // (2026-11-26e) las nativas: sin la oferta, pero con titular corto y la franja de sellos
+  if (variado || conEstructuras) {
+    const oferta = formato?.nativo ? '' : brief?.venta?.oferta || (conEstructuras ? 'TRATAMIENTO COMPLETO X3 $139.900' : '');
     if (oferta) capas.push({ block_id: 'text_oferta', reference_function: 'offer', reference_position: 'bottom strip', text_style: 'Bold', text: oferta });
     for (const [k, sello] of (brief?.venta?.sellos || []).entries()) capas.push({ block_id: `text_sello_${k + 1}`, reference_function: 'trust seal', reference_position: 'bottom corner', text_style: 'Small caps', text: sello });
   }
@@ -106,7 +111,7 @@ function anuncio(v, entrada, brief, numero) {
     creative_objective: 'Test ad for the app (fake Claude).',
     art_direction: { design_quality: 'Premium', visual_hierarchy: 'Headline, product, details', composition_style: 'Centered', spacing_and_structure: 'Generous margins', lighting_and_depth: 'Soft studio light', conversion_feel: 'Persuasive' },
     reference_structure_analysis: { layout_summary: 'Headline on top, product in the center.', detected_visual_blocks: bloques, forbidden_additions: ['Price badges', 'Rating stars'] },
-    visual_prompt: `Square premium product advertisement for a test product (${brief?.datos?.nombre || 'test product'}). The attached product photo is the only source of truth for the product: keep its exact shape, label, colors and proportions, never redesign it. Headline at the top center in bold sans-serif, the product large in the center on a deep navy seamless backdrop with soft studio light and a gentle shadow. Variation ${v}.${process.env.HUMO_POLITICA === '1' && v === 'V02' ? ' SIM-PROHIBIDO' : ''} Top zone (20% of the canvas): the headline in heavy condensed sans, all caps, white #FFFFFF with a thin navy #1E3A8A outline, centered. Center zone (55%): the product photographed straight on at eye level with a 50 mm lens, soft key light from the upper left, a warm rim light, realistic glass reflections and a crisp readable label. Bottom zone (25%): a cream #F5E9D7 strip with the offer and the trust seals in small caps, generous margins.`,
+    visual_prompt: `Square premium product advertisement for a test product (${brief?.datos?.nombre || 'test product'}). The attached product photo is the only source of truth for the product: keep its exact shape, label, colors and proportions, never redesign it. Headline at the top center in bold sans-serif, the product large in the center on a deep navy seamless backdrop with soft studio light and a gentle shadow. Variation ${v}.${process.env.HUMO_POLITICA === '1' && v === 'V02' ? ' SIM-PROHIBIDO' : ''} Top zone (20% of the canvas): the headline in heavy condensed sans, all caps, white #FFFFFF with a thin navy #1E3A8A outline, centered. Center zone (55%): the product photographed straight on at eye level with a 50 mm lens, soft key light from the upper left, a warm rim light, realistic glass reflections and a crisp readable label. Bottom zone (25%): a cream #F5E9D7 strip with the offer and the trust seals in small caps, generous margins.${cuerpoDe(entrada)}`,
     text_layers: capas,
     mandatory_visual_elements: ['The product, exactly as in the attached photo'],
     final_generation_exclusions: ['Do not add any visual module that is not described in this prompt.', 'Do not add any text that is not listed in the EXACT VISIBLE TEXT section.'],
@@ -231,6 +236,10 @@ async function estrategia(texto, intento) {
       return { ...x, fuente: 'biblioteca', formato_id: f.id, formato: f.nombre, angulo_id: a.id, angulo: a.nombre, estilo: f.estilo, zona_del_cuerpo: zonas[i % 4], segmento: segmentos[i % 4] };
     });
   }
+  // (2026-11-26e) el cuerpo de ESTE producto: sus zonas (las del formulario o glúteos y piernas), alternadas
+  const zonasProducto = brief?.venta?.cuerpo?.zonas?.length ? brief.venta.cuerpo.zonas : ['glúteos', 'piernas'];
+  plan.cuerpo = { zonas: zonasProducto, antes: 'Glúteo plano y caído; el jean sobra atrás.', despues: 'Glúteo redondo y levantado que llena el jean; piernas torneadas.' };
+  plan.variaciones = (plan.variaciones || []).map((x, i) => ({ ...x, zona_del_cuerpo: zonasProducto[i % zonasProducto.length] }));
   await escribir(`${C}/plan.json`, plan);
   for (const v of ids) await escribir(`${C}/${v}.json`, anuncio(v, plan.variaciones.find((x) => x.id === v), brief, Number(v.slice(1))));
   return 'LISTO';

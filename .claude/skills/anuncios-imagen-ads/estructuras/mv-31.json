@@ -1,6 +1,6 @@
 {
   "id": "mv-31",
-  "nombre": "Foto cenital de pies y piernas con el problema sobre piso de madera, sin texto",
+  "nombre": "Foto casera cenital de las dos piernas: una con el problema y la otra normal, en el mismo cuadro, sin texto",
   "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-31.jpg",
   "url_origen": "https://medias.trendtrack.io/facebook/image/612caf723206286089567d1afaa61ddbb385a7351c955a7b6b6daca008b34cca.jpg",
   "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
@@ -8,7 +8,7 @@
   "oculta": true,
   "zonas": {
     "arriba": "Piso de madera. 15 %",
-    "centro": "Las piernas y los pies de una mujer vistos desde arriba, con el problema visible y luz natural. 75 %",
+    "centro": "Las dos piernas de una mujer vistas desde arriba, lado a lado: la izquierda hinchada (el problema) y la derecha normal (el resultado), con la misma luz natural. 75 %",
     "abajo": "Piso de madera. 10 %"
   },
   "titular": {
@@ -21,7 +21,7 @@
   },
   "dolor_visual": {
     "tipo": "cuerpo-real-antes-despues",
-    "como": "Solo el antes: el problema tal cual, como foto del celular."
+    "como": "Antes y después dentro de la MISMA foto: un lado de la zona con el problema y el otro sin él."
   },
   "zona_del_cuerpo": "piernas",
   "segmento": "general",
@@ -40,5 +40,6 @@
   },
   "franja_confianza": "ninguna",
   "estilo": "foto-real",
-  "cuidado": "Nativo, sin texto ni producto. Para Aguaje: glúteo plano en jean visto desde atrás en el espejo."
+  "cuidado": "Nativo.",
+  "traduccion": "UNA sola foto casera con la zona del producto: un lado con el problema y el otro con el resultado, en el mismo encuadre y la misma luz (como la pierna hinchada junto a la normal). Glúteos y piernas: de espaldas frente al espejo en leggins, partida al medio: izquierda glúteo plano, derecha glúteo redondo y levantado. En esta app (foto casera): un titular corto arriba (máx. 8 palabras) y una franja delgada abajo con los sellos, sin la oferta."
 }
