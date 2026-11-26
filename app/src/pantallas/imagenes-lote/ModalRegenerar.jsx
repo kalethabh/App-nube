@@ -2,22 +2,37 @@
 // sale otra versión con el mismo anuncio. La versión anterior queda guardada. Si la revisión marcó algo en esta imagen,
 // se muestra arriba con «Corregir esto» (llena la caja con eso) y «otra versión» también le dice a la IA qué salió mal.
 // (2026-11-26g) «que en esa ventana flotante también aparezca el anuncio»: la imagen va a la izquierda (arriba en el celular).
-import { useEffect, useRef, useState } from 'react';
-import { CircleAlert, RefreshCw, ScanEye } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { CircleAlert, ImagePlus, RefreshCw, ScanEye, X } from 'lucide-react';
 import { AreaTexto, Boton, Chip, Modal } from '../../componentes/index.js';
+import { pedirNuevo, useDatos } from '../../datos/api.js';
 import { partesDePieza } from '../../datos/imagenes.js';
 import { costoDelLote } from '../../datos/costo-lote.js';
 import { dinero } from '../../datos/formato.js';
 
 const SUGERENCIAS = ['Corrige un texto', 'Titular más grande', 'Más contraste en los textos', 'Más grande el producto', 'Otro fondo', 'Otra persona', 'Más luz'];
 const MAXIMO = 600;
+// (2026-11-26h) «necesito poder adjuntar imágenes»: hasta 3 (subir, arrastrar, pegar o de «Mis piezas»)
+const MAX_ADJUNTOS = 3;
 // «Corregir esto»: la caja empieza así (el servidor lo reconoce y el aviso de listo dice «Corregí lo que notó la revisión»)
 const CORREGIR = 'Corrige lo que notó la revisión:';
 /** Lo que notó la revisión, después de los dos puntos (la primera letra en minúscula, salvo una sigla). */
 const textoCorregir = (problemas) => `${CORREGIR} ${problemas.map((t) => t.replace(/^\p{Lu}(?!\p{Lu})/u, (c) => c.toLowerCase())).join(' ')}`.slice(0, MAXIMO);
 
-export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConfirmar }) {
+export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConfirmar, lote = null, productoId = null }) {
   const [texto, setTexto] = useState('');
+  // { id, archivo?: File, pieza?: id de Mis piezas, url }
+  const [adjuntos, setAdjuntos] = useState([]);
+  const subir = useRef(null);
+  const { datos: piezasDatos } = useDatos(lote ? `imagen-ads:piezas:${productoId || ''}` : null, () => pedirNuevo(`/api/imagen-ads/piezas${productoId ? `?producto=${encodeURIComponent(productoId)}` : ''}`));
+  const misPiezas = (piezasDatos?.piezas || []).slice(0, 12);
+  const urls = useMemo(() => new Map(adjuntos.filter((a) => a.archivo).map((a) => [a.id, URL.createObjectURL(a.archivo)])), [adjuntos]);
+  useEffect(() => () => urls.forEach((u) => URL.revokeObjectURL(u)), [urls]);
+  const agregarArchivos = (lista) => {
+    const nuevos = [...(lista || [])].filter((f) => /^image\//.test(f.type)).map((f) => ({ id: `f-${f.name}-${f.size}-${Math.random().toString(36).slice(2, 6)}`, archivo: f }));
+    if (nuevos.length) setAdjuntos((l) => [...l, ...nuevos].slice(0, MAX_ADJUNTOS));
+  };
+  const alternarPieza = (x) => setAdjuntos((l) => (l.some((a) => a.pieza === x.id) ? l.filter((a) => a.pieza !== x.id) : [...l, { id: `p-${x.id}`, pieza: x.id, url: x.url }].slice(0, MAX_ADJUNTOS)));
   const [enviando, setEnviando] = useState(false);
   const [error, setError] = useState(null);
   const area = useRef(null);
@@ -28,10 +43,26 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
   const conCorreccion = Boolean(p?.corregirAlAbrir) && problemas.length > 0;
   useEffect(() => {
     setTexto(conCorreccion ? textoCorregir(problemas) : '');
+    setAdjuntos([]);
     setError(null);
     setEnviando(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clave, conCorreccion]);
+
+  // pegar una imagen (Cmd/Ctrl + V) mientras la ventana está abierta la adjunta
+  useEffect(() => {
+    if (!p || !lote) return undefined;
+    const alPegar = (e) => {
+      const fs = [...(e.clipboardData?.files || [])].filter((f) => /^image\//.test(f.type));
+      if (fs.length) {
+        e.preventDefault();
+        agregarArchivos(fs);
+      }
+    };
+    window.addEventListener('paste', alPegar);
+    return () => window.removeEventListener('paste', alPegar);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clave, lote]);
 
   if (!p) return null;
   const { nombre, formato } = partesDePieza(p.pieza);
@@ -67,12 +98,21 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
     });
   };
 
+  const faltaInstruccion = adjuntos.length > 0 && !texto.trim();
   const confirmar = async () => {
-    if (!costo || enviando) return;
+    if (!costo || enviando || faltaInstruccion) return;
     setEnviando(true);
     setError(null);
     try {
-      await onConfirmar(p, texto.trim().slice(0, MAXIMO), costo.max);
+      // primero se suben las imágenes adjuntas al lote; después va el pedido con sus rutas
+      const archivos = [];
+      for (const a of adjuntos) {
+        const r = a.pieza
+          ? await pedirNuevo(`/api/imagen-ads/${encodeURIComponent(lote)}/adjuntos?pieza=${encodeURIComponent(a.pieza)}`, { metodo: 'PUT' })
+          : await pedirNuevo(`/api/imagen-ads/${encodeURIComponent(lote)}/adjuntos`, { metodo: 'PUT', binario: a.archivo });
+        archivos.push(r.archivo);
+      }
+      await onConfirmar(p, texto.trim().slice(0, MAXIMO), costo.max, archivos);
     } catch (e) {
       // (un 409 trae su porqué del servidor: un cambio en camino, la imagen todavía creándose, su cuadrado sin imagen…)
       setError(e?.estado === 409 ? (e?.datos?.error && typeof e.datos.error === 'string' ? e.datos.error : 'Esta imagen ya tiene un cambio en camino.') : e?.message || 'No pude pedirlo. Vuelve a intentarlo.');
@@ -103,7 +143,7 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
           <Boton variante="fantasma" onClick={onCerrar} disabled={enviando}>
             Cancelar
           </Boton>
-          <Boton variante="primario" icono={RefreshCw} cargando={enviando} disabled={!costo} onClick={confirmar}>
+          <Boton variante="primario" icono={RefreshCw} cargando={enviando} disabled={!costo || faltaInstruccion} onClick={confirmar}>
             {texto.trim() ? 'Hacer el cambio' : 'Hacer otra versión'}
           </Boton>
         </>
@@ -156,6 +196,48 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
           disabled={enviando}
           data-autofocus
         />
+        {lote ? (
+          <div
+            className="lote-regenerar__adjuntos"
+            onDragOver={(e) => e.preventDefault()}
+            onDrop={(e) => {
+              e.preventDefault();
+              agregarArchivos(e.dataTransfer?.files);
+            }}
+          >
+            <div className="lote-regenerar__adjuntos-fila">
+              {adjuntos.map((a) => (
+                <span key={a.id} className="lote-regenerar__adjunto">
+                  <img src={a.url || urls.get(a.id)} alt="Imagen adjunta" />
+                  <button type="button" onClick={() => setAdjuntos((l) => l.filter((y) => y.id !== a.id))} aria-label="Quitar la imagen adjunta" disabled={enviando}>
+                    <X size={12} />
+                  </button>
+                </span>
+              ))}
+              {adjuntos.length < MAX_ADJUNTOS ? (
+                <Boton variante="secundario" tamano="chico" icono={ImagePlus} onClick={() => subir.current?.click()} disabled={enviando}>
+                  Adjuntar imagen
+                </Boton>
+              ) : null}
+              <input ref={subir} type="file" accept="image/*" multiple hidden onChange={(e) => { agregarArchivos(e.target.files); e.target.value = ''; }} />
+            </div>
+            <span className="t-chico t-3">Una pose, una persona, un fondo, un sello… (hasta 3). También puedes arrastrarla o pegarla con Cmd/Ctrl + V.</span>
+            {misPiezas.length ? (
+              <div className="lote-regenerar__piezas" aria-label="De Mis piezas">
+                <span className="t-chico t-3">De Mis piezas:</span>
+                {misPiezas.map((x) => {
+                  const activa = adjuntos.some((a) => a.pieza === x.id);
+                  return (
+                    <button key={x.id} type="button" className={activa ? 'activo' : ''} aria-pressed={activa} title={x.nombre} onClick={() => alternarPieza(x)} disabled={enviando || (!activa && adjuntos.length >= MAX_ADJUNTOS)}>
+                      <img src={x.url} alt={x.nombre} />
+                    </button>
+                  );
+                })}
+              </div>
+            ) : null}
+            {faltaInstruccion ? <span className="lote-regenerar__falta">Escribe qué hacer con la imagen adjunta (por ejemplo: «Usa la pose de la imagen adjunta»).</span> : null}
+          </div>
+        ) : null}
         <div className="fila fila--envolver" style={{ '--hueco': '6px' }} aria-label="Ideas">
           {SUGERENCIAS.map((s) => (
             <Chip key={s} tamano="chico" onClick={() => sumar(s)} disabled={enviando}>

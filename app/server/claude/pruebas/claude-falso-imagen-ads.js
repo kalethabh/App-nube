@@ -311,7 +311,11 @@ async function ajuste(texto) {
         await escribir(`${C}/${v}.json`, ad);
       }
     }
-    pedidos.push({ id: u, aplicado: true, cambia_textos: cambiaTextos, instruccion_en: `Apply this change and keep everything else: ${instr.slice(0, 200)}`, resumen: `Hice lo que pediste: ${instr.slice(0, 80)}` });
+    // (2026-11-26h) con imágenes adjuntas: las mira y dice cómo usarlas (llegan como 3.ª, 4.ª…)
+    const adjuntas = [...l.matchAll(/(temp\/\S+\/entrada\/adjuntos\/A\d{4}\.(?:png|jpg))/g)].map((x) => x[1]);
+    for (const a of adjuntas) await usar('Read', { file_path: path.join(RAIZ, a) });
+    const conAdjuntas = adjuntas.length ? ` Use the THIRD attached image as the reference the user attached.` : '';
+    pedidos.push({ id: u, aplicado: true, cambia_textos: cambiaTextos, instruccion_en: `Apply this change and keep everything else: ${instr.slice(0, 200)}${conAdjuntas}`, resumen: `Hice lo que pediste: ${instr.slice(0, 80)}` });
   }
   await escribir(archivo, { pedidos });
   return 'LISTO';

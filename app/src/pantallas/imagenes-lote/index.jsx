@@ -139,8 +139,8 @@ export default function PantallaLote({ params, consulta }) {
   );
 
   /** El pedido de "Regenerar": lo tira de vuelta si falla (el modal muestra por qué, p. ej. el 409). */
-  const pedirRegenerar = async (p, instruccion, costoMaximoConfirmado) => {
-    const r = await acciones.regenerar({ pieza: p.pieza, ...(instruccion ? { instruccion } : {}), costoMaximoConfirmado });
+  const pedirRegenerar = async (p, instruccion, costoMaximoConfirmado, adjuntos = []) => {
+    const r = await acciones.regenerar({ pieza: p.pieza, ...(instruccion ? { instruccion } : {}), ...(adjuntos.length ? { adjuntos } : {}), costoMaximoConfirmado });
     if (r?.gratis) {
       aviso({ tipo: 'ok', titulo: 'Otra versión lista', texto: `La app la dibujó con otros textos${r.ms ? ` en ${(r.ms / 1000).toFixed(1)} s` : ''}, sin costo.`, duracion: 5000 });
     } else if (r?.pedido?.estado === 'en-espera') {
@@ -439,7 +439,7 @@ export default function PantallaLote({ params, consulta }) {
       />
       {confirmacionCosto}
       <ModalTextos variacion={aEditar} onGuardar={guardarTextos} onCerrar={() => setAEditar(null)} />
-      <ModalRegenerar pieza={aRegenerar} conVertical={conVertical} precio={precio} onCerrar={() => setARegenerar(null)} onConfirmar={pedirRegenerar} />
+      <ModalRegenerar pieza={aRegenerar} conVertical={conVertical} precio={precio} lote={simulando ? null : lote} productoId={vista?.producto?.id || null} onCerrar={() => setARegenerar(null)} onConfirmar={pedirRegenerar} />
       <PanelEstrategia estrategia={vista.estrategia} abierto={verEstrategia && Boolean(vista.estrategia)} onCerrar={() => setVerEstrategia(false)} />
     </div>
     </LoteFunciona.Provider>
