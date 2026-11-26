@@ -1,0 +1,116 @@
+{
+  "ad_info": {
+    "variation_id": "V02"
+  },
+  "global_identity": {
+    "color_palette": "exactly the same as the reference: Texto negro de marcador (#1A1A1A) sobre pizarra blanca (#F7F7F5); flechas y líneas de forma en rojo (#D63A2F); zonas resaltadas en amarillo (#F5D94A); marco gris aluminio (#B8BCC0); etiqueta del frasco amarilla (#F4D23C) con letras negras; vidrio ámbar oscuro (#4A2A12); fondo de cocina crema y beige (#E8E2D6)",
+    "text_typography": "exactly the same as the reference: Todo parece escrito a mano con marcador sobre pizarra: letra de imprenta redondeada, trazo grueso, en mayúsculas y minúsculas. Encabezados grandes y subrayados; titular el texto más grande y grueso, con subrayado a mano; etiquetas de los dibujos más pequeñas y delgadas, con flechas rojas. Sin sombras ni efectos"
+  },
+  "visual_prompt": "PRODUCT: VITALDROPS. It replaces the product of the reference, in the same zone, size and angle.\nMAP OF THE REFERENCE (fixed, nothing moves):\n- Headline: Abajo, en el tercio inferior de una pizarra blanca, debajo de una línea horizontal negra: dos líneas grandes escritas a mano que ocupan cerca del 75% del ancho de la imagen, centradas, con un trazo subrayado debajo de la segunda línea\n- Model / before-after: No hay modelo real: dentro de la pizarra hay dos dibujos a mano de una mujer de espaldas en ropa interior (antes a la izquierda, después a la derecha), separados por una línea vertical negra; juntos ocupan cerca del 55% de la imagen, en la parte central y alta. El de la izquierda marca la panza y la hinchazón en amarillo con flechas rojas; el de la derecha marca glúteos y caderas en amarillo con líneas rojas de forma\n- Product bottle: Abajo a la derecha, delante de la pizarra y apoyado en un mesón de cocina: frasco gotero de vidrio ámbar con tapa negra y etiqueta amarilla, de frente, recto, ocupa cerca del 45% del alto de la imagen\n- Benefit bullets / checks: No hay bullets ni checks: en su lugar hay etiquetas escritas a mano con flechas rojas alrededor de cada dibujo. Izquierda: Panza, Hinchazón, Poca forma atrás, Sueño. Derecha: Más forma, Glúteos, Caderas, Rutina diaria\n- Offer block and CTA: no hay\n- Other blocks: Arriba de cada columna, un encabezado escrito a mano y subrayado: a la izquierda la opción común, a la derecha el nombre del producto. Fondo: cocina clara con ventana, planta verde en maceta blanca arriba a la derecha y repisa de madera. La pizarra tiene marco de aluminio gris con esquinas plásticas grises y ocupa casi toda la imagen\nREADING HIERARCHY (unchanged): 1) Los dos dibujos de antes y después con sus encabezados (Vitaminas para engordar / VitalDrops)  2) El titular de abajo: No es subir por subir. Es que se note donde tú quieres.  3) El frasco del producto y las etiquetas con flechas\nTYPOGRAPHY: Todo parece escrito a mano con marcador sobre pizarra: letra de imprenta redondeada, trazo grueso, en mayúsculas y minúsculas. Encabezados grandes y subrayados; titular el texto más grande y grueso, con subrayado a mano; etiquetas de los dibujos más pequeñas y delgadas, con flechas rojas. Sin sombras ni efectos\nPALETTE: Texto negro de marcador (#1A1A1A) sobre pizarra blanca (#F7F7F5); flechas y líneas de forma en rojo (#D63A2F); zonas resaltadas en amarillo (#F5D94A); marco gris aluminio (#B8BCC0); etiqueta del frasco amarilla (#F4D23C) con letras negras; vidrio ámbar oscuro (#4A2A12); fondo de cocina crema y beige (#E8E2D6)\nTEXT BLOCK BACKGROUNDS: Ningún texto tiene cinta, badge ni recuadro: todo va escrito directo sobre la pizarra blanca. Separación por líneas negras dibujadas a mano: una vertical entre las dos columnas y una horizontal sobre el titular\nSALES ANGLE (identical): desire: Ganar curvas y forma justo donde ella quiere (glúteos y caderas), no subir de peso en cualquier parte; main benefit: Que el cambio se note en la parte de atrás y las caderas, como parte de una rutina diaria; pain: Las vitaminas para engordar que dan panza, hinchazón y poca forma atrás.\nWHAT CHANGES IN THIS IMAGE (and only this):\n- MODEL: a 22 years old woman, petite, fair skin with freckles, a messy bun, ordinary and believable (not a fashion model), natural makeup. If the reference has a before/after, it is this same new woman in both halves.\n- SETTING / BACKGROUND OF THE PHOTO: a city sidewalk in daylight, everyday street.\n- POSE AND FRAMING: standing, three-quarter back view, looking over her shoulder, full body framing, inside the same zone and the same % of the image as the reference.\n- HEADLINE WORDING: the one given in TEXTS (same promise, other words).",
+  "text_layers": [
+    {
+      "reference_function": "main headline",
+      "reference_position": "Abajo, en el tercio inferior de una pizarra blanca, debajo de una línea horizontal negra: dos líneas grandes escritas a mano que ocupan cerca del 75% del ancho de la imagen, centradas, con un trazo subrayado debajo de la segunda línea",
+      "text": "No es engordar por engordar. Es que se vea donde tú quieres.",
+      "text_style": "the same style, size and background as the headline of the reference"
+    },
+    {
+      "reference_function": "encabezado izquierdo",
+      "reference_position": "the same zone as in the reference",
+      "text": "Vitaminas para engordar",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "encabezado derecho",
+      "reference_position": "the same zone as in the reference",
+      "text": "VitalDrops",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta izquierda 1",
+      "reference_position": "the same zone as in the reference",
+      "text": "Sueño",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta izquierda 2",
+      "reference_position": "the same zone as in the reference",
+      "text": "Panza",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta izquierda 3",
+      "reference_position": "the same zone as in the reference",
+      "text": "Hinchazón",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta izquierda 4",
+      "reference_position": "the same zone as in the reference",
+      "text": "Poca forma atrás",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta derecha 1",
+      "reference_position": "the same zone as in the reference",
+      "text": "Rutina diaria",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta derecha 2",
+      "reference_position": "the same zone as in the reference",
+      "text": "Más forma",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta derecha 3",
+      "reference_position": "the same zone as in the reference",
+      "text": "Caderas",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta derecha 4",
+      "reference_position": "the same zone as in the reference",
+      "text": "Glúteos",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "titular",
+      "reference_position": "the same zone as in the reference",
+      "text": "No es subir por subir. Es que se note donde tú quieres.",
+      "text_style": "the same style and background as in the reference"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo, where the reference has its bottle",
+    "a different woman: a 22 years old woman, petite, fair skin with freckles, a messy bun, ordinary and believable (not a fashion model), natural makeup"
+  ],
+  "final_generation_exclusions": [
+    "moving, adding or removing any block",
+    "a different font or palette",
+    "any new claim, number or testimonial",
+    "the reference's brand or logo",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "new blocks",
+      "new claims"
+    ],
+    "detected_visual_blocks": [
+      "titular",
+      "modelo",
+      "producto",
+      "beneficios",
+      "oferta_cta",
+      "otros"
+    ]
+  },
+  "language_rule": "All visible text in Spanish.",
+  "app_rapido": "replicar",
+  "app_replicar": {
+    "modelo": "a 22 years old woman, petite, fair skin with freckles, a messy bun, ordinary and believable (not a fashion model), natural makeup",
+    "escenario": "a city sidewalk in daylight, everyday street",
+    "pose": "standing, three-quarter back view, looking over her shoulder, full body framing"
+  }
+}

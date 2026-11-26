@@ -1,0 +1,131 @@
+{
+  "producto": "VITALDROPS",
+  "lote": "_img-vitaldrops-20261126-1456",
+  "cantidad": 10,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "AYUDA A LLENAR TUS CURVAS EN 21 DÍAS",
+      "escena": "a living room with a sofa and plants · standing, one hand adjusting her waistband, three-quarter front view, thighs-up framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R02.png",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "No es engordar por engordar. Es que se vea donde tú quieres.",
+      "escena": "a city sidewalk in daylight, everyday street · standing, three-quarter back view, looking over her shoulder, full body framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R03.png",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "VITALDROPS — Fórmula en gotas de fácil absorción",
+      "escena": "a balcony or terrace at sunset · seated on the edge of a bed or bench, side view, full body framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R04.png",
+      "angulo_id": "prueba-social",
+      "angulo": "Prueba social",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: NADIE LA VEÍA. HOY: TODOS LA MIRAN.",
+      "escena": "in front of a full-length mirror at home (mirror selfie feel) · back view, slightly turned, from mid-back to knees",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R05.png",
+      "angulo_id": "curiosidad",
+      "angulo": "Curiosidad",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "El jean que hace 2 meses me quedaba grande hoy me queda justo 😭🍑",
+      "escena": "a park path with trees, morning light · standing with crossed legs, front view, knees-up framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V06",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "mecanismo-unico",
+      "angulo": "Mecanismo único",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "TU FIGURA MÁS LLENA EN 21 DÍAS",
+      "escena": "a kitchen at home, natural light · mirror pose holding the phone, three-quarter view, thighs-up framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V07",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R02.png",
+      "angulo_id": "objecion-confianza",
+      "angulo": "Objeción de confianza",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "No se trata de solo subir. Se trata de notarlo donde tú quieres.",
+      "escena": "a small home gym corner with a yoga mat and dumbbells · stretching with arms up, three-quarter back view, full body framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V08",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R03.png",
+      "angulo_id": "promesa-emocional",
+      "angulo": "Promesa emocional",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "VITALDROPS — Gotas líquidas que tu cuerpo absorbe bien",
+      "escena": "her bedroom at home, unmade bed and soft window light · side profile, standing straight, hands on her hips, knees-up framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V09",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R04.png",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: PASABA DESAPERCIBIDA. AHORA: NADIE LA OLVIDA.",
+      "escena": "a bathroom with a large mirror, warm light · walking towards the camera, full body framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V10",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R05.png",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "Volví a ponerme ese jean que hace 2 meses me sobraba atrás 😭🍑",
+      "escena": "a beach at golden hour · kneeling on a mat, side view, full body framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    }
+  ],
+  "rapido": true
+}

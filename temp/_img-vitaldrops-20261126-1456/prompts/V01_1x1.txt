@@ -1,0 +1,50 @@
+MODE: REPLICATE A VALIDATED AD. The FIRST attached image is a VALIDATED, WINNING AD. Reproduce it EXACTLY, as a pixel-faithful layout clone: every block stays in the same position, the same size and the same alignment (headline, model or before/after, product bottle, benefit bullets or checks, offer block and call to action); the same reading hierarchy (what is read first, second and third does not change); the same fonts (style, weight, casing, size and effects), the same colors and the same background of every text block (ribbon, badge, box). The sales angle is IDENTICAL: same central desire, same main benefit, same pain. ONLY these things change, and they MUST change: (1) the MODEL is a different woman (the age, body type and skin tone given below), believable and ordinary, never a fashion model; (2) the SETTING/background of the photo (the one given below); (3) her POSE and the FRAMING (given below); (4) the WORDING of the main headline (given below: same promise, other words, about the same length, so it fits the same zone). FORBIDDEN: moving, adding or removing blocks; changing fonts; changing the palette; changing the angle; inventing new claims, numbers or testimonials; changing the offer or the call to action. Replace the product bottle of the reference with the product of the SECOND attached image, in the same place, size and angle. Every other text keeps exactly the text given below, in its same zone and style, perfectly spelled. GLOBAL RULES: the brand name and the label of the bottle EXACT, letter by letter, as in the product photo; no text closer than 5% to any edge; legible on a phone at half screen. IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+
+WHAT TO MAKE:
+PRODUCT: VITALDROPS. It replaces the product of the reference, in the same zone, size and angle.
+MAP OF THE REFERENCE (fixed, nothing moves):
+- Headline: Arriba, en dos líneas centradas, ocupa cerca del 92% del ancho y el 12% del alto; texto grande y centrado sobre el fondo crema
+- Model / before-after: Antes/después en una cuadrícula de 2x2 recuadros (Día 1, Día 7, Día 14, Día 21) en el centro, del 15% al 73% del alto; la misma modelo de espaldas, en top deportivo beige y leggings grises, cuya figura se ve más llena en cada recuadro; ocupa cerca del 58% de la imagen
+- Product bottle: Abajo a la izquierda: la caja amarilla de pie y delante el frasco gotero ámbar con etiqueta amarilla, de frente y un poco de lado; el frasco mide cerca del 30% del alto y la caja el 30%; una rama dorada decorativa detrás del frasco
+- Benefit bullets / checks: no hay
+- Offer block and CTA: Abajo a la derecha: recuadro dorado con degradado y esquinas redondeadas (cerca del 45% del ancho), con tres líneas centradas separadas por líneas finas: título de la oferta, descuento más regalo y plazo. No hay botón
+- Other blocks: Etiquetas «DÍA 1», «DÍA 7», «DÍA 14», «DÍA 21» arriba a la izquierda de cada recuadro; logo de la marca en letras espaciadas abajo a la derecha, bajo la oferta
+READING HIERARCHY (unchanged): 1) El titular de arriba  2) La secuencia de antes/después por días  3) El recuadro dorado de la oferta junto al producto
+TYPOGRAPHY: Titular: sans serif muy gruesa, todo en mayúsculas, sin efectos. Etiquetas de días: sans serif gruesa en mayúsculas, color dorado. Oferta: sans serif gruesa en mayúsculas, la línea del descuento más grande; logo: serif delgada en mayúsculas con letras espaciadas
+PALETTE: Titular negro #111111; etiquetas de días dorado #C9A24A; textos de la oferta negro #1A1A1A; fondo general crema #F6F0E4; recuadros de los días casi blanco #FAF6EE con borde beige #E6DCC8; recuadro de oferta dorado #D4B26A a #B8913E; caja y etiqueta del producto amarillo #F2C84B; logo gris oscuro #333333
+TEXT BLOCK BACKGROUNDS: Titular: directo sobre el fondo crema, sin cinta. Días: recuadros claros con esquinas redondeadas y borde fino. Oferta: recuadro dorado degradado con borde más claro y líneas finas que separan cada línea de texto
+SALES ANGLE (identical): desire: Tener curvas más llenas y marcadas; main benefit: Ver el cambio en la figura poco a poco, en pocas semanas; pain: Sentir que a la figura le falta volumen y forma.
+WHAT CHANGES IN THIS IMAGE (and only this):
+- MODEL: a 41 years old woman, plus-size, pale pink skin, long curly hair, ordinary and believable (not a fashion model), natural makeup. If the reference has a before/after, it is this same new woman in both halves.
+- SETTING / BACKGROUND OF THE PHOTO: a living room with a sofa and plants.
+- POSE AND FRAMING: standing, one hand adjusting her waistband, three-quarter front view, thighs-up framing, inside the same zone and the same % of the image as the reference.
+- HEADLINE WORDING: the one given in TEXTS (same promise, other words).
+
+TEXTS (render each one EXACTLY as written, no spelling changes, in its zone and with the same style as in the reference):
+- main headline (Arriba, en dos líneas centradas, ocupa cerca del 92% del ancho y el 12% del alto; texto grande y centrado sobre el fondo crema): "AYUDA A LLENAR TUS CURVAS EN 21 DÍAS" — the same style, size and background as the headline of the reference
+- etiqueta recuadro 1 (the same zone as in the reference): "DÍA 1" — the same style and background as in the reference
+- etiqueta recuadro 2 (the same zone as in the reference): "DÍA 7" — the same style and background as in the reference
+- etiqueta recuadro 3 (the same zone as in the reference): "DÍA 14" — the same style and background as in the reference
+- etiqueta recuadro 4 (the same zone as in the reference): "DÍA 21" — the same style and background as in the reference
+- oferta título (the same zone as in the reference): "OFERTA ESPECIAL" — the same style and background as in the reference
+- oferta descuento (the same zone as in the reference): "60% DE DESCUENTO + REGALO GRATIS" — the same style and background as in the reference
+- oferta plazo (the same zone as in the reference): "SOLO ESTA SEMANA" — the same style and background as in the reference
+- logo (the same zone as in the reference): "VITALDROPS" — the same style and background as in the reference
+
+BRAND IDENTITY:
+- color_palette: exactly the same as the reference: Titular negro #111111; etiquetas de días dorado #C9A24A; textos de la oferta negro #1A1A1A; fondo general crema #F6F0E4; recuadros de los días casi blanco #FAF6EE con borde beige #E6DCC8; recuadro de oferta dorado #D4B26A a #B8913E; caja y etiqueta del producto amarillo #F2C84B; logo gris oscuro #333333
+
+MANDATORY ELEMENTS:
+- the real product from the attached product photo, where the reference has its bottle
+- a different woman: a 41 years old woman, plus-size, pale pink skin, long curly hair, ordinary and believable (not a fashion model), natural makeup
+
+STRICT EXCLUSIONS:
+- moving, adding or removing any block
+- a different font or palette
+- any new claim, number or testimonial
+- the reference's brand or logo
+- misspelled words
+- Do not add: new blocks
+- Do not add: new claims
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

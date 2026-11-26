@@ -1,0 +1,35 @@
+{
+  "zonas": {
+    "titular": "Arriba, en un globo blanco redondeado con borde amarillo que ocupa cerca del 92% del ancho y el 15% del alto; dos líneas centradas; la cifra «2 meses» va resaltada en una cápsula amarilla; termina con emojis 😭🍑",
+    "modelo": "Lado derecho, de la cabeza hasta los muslos, ocupa cerca del 50% del ancho y el 85% del alto; selfie en el espejo de un probador, de espaldas en tres cuartos, mirando a la cámara con cara de sorpresa, celular rosado en la mano, camiseta blanca corta y jean azul ajustado que resalta los glúteos; fondo de cortinas rosadas de probador",
+    "producto": "Lado izquierdo, sostenido por una mano en primer plano (uñas largas claras), ocupa cerca del 60% del alto y el 32% del ancho; frasco gotero ámbar con tapa negra y etiqueta amarilla, de frente y casi recto, apenas inclinado",
+    "beneficios": "no hay",
+    "oferta_cta": "no hay",
+    "otros": "Etiqueta tipo badge amarillo «mi secreto 🤫» a la izquierda a media altura, con una flecha blanca curva que apunta al frasco; ícono de gota de agua en círculo blanco arriba a la izquierda del frasco; abajo a la izquierda, un recuadro blanco tipo comentario de redes con foto de perfil redonda de una mujer, usuario en negrilla y pregunta de una amiga"
+  },
+  "jerarquia": [
+    "El titular del jean (globo blanco arriba, con «2 meses» resaltado en amarillo)",
+    "La modelo con el jean ajustado en el probador",
+    "El frasco con el badge «mi secreto» y el comentario de la amiga abajo"
+  ],
+  "tipografia_paleta": {
+    "fuentes": "Titular en sans redondeada muy gruesa (extra bold), en minúsculas con mayúscula inicial, sin sombra; «2 meses» igual de grueso dentro de cápsula. Badge «mi secreto» en sans gruesa minúscula. Comentario en sans normal, usuario en negrilla, estilo chat informal",
+    "colores": "Texto del titular negro #111111; globo blanco #FFFFFF con borde amarillo #F5C518; cápsula de «2 meses» amarilla #FFD43B; badge amarillo #FFD43B con texto negro; comentario blanco #FFFFFF con texto negro; fondo de cortinas rosa viejo #D9938C; jean azul #6F93C4; etiqueta del frasco amarilla #F7D21E",
+    "fondos_de_bloques": "Titular en globo/recuadro blanco redondeado con borde amarillo; «2 meses» en cápsula amarilla; «mi secreto» en badge amarillo redondeado; comentario en recuadro blanco redondeado con borde gris suave"
+  },
+  "angulo": {
+    "deseo": "Tener más glúteos y curvas que llenen el jean",
+    "beneficio": "La ropa que antes quedaba floja ahora se ve ajustada y llena atrás",
+    "dolor": "Que el jean quede flojo o vacío atrás por falta de curvas"
+  },
+  "titular_original": "Me probé el mismo jean que hace 2 meses me quedaba flojo 😭🍑",
+  "textos": [
+    { "zona": "titular", "texto": "Me probé el mismo jean que hace 2 meses me quedaba flojo 😭🍑" },
+    { "zona": "badge", "texto": "mi secreto 🤫" },
+    { "zona": "comentario", "texto": "@laurita_m: amiga y eso?? pásame el nombre 👀" }
+  ],
+  "titulares": [
+    "El jean que hace 2 meses me quedaba grande hoy me queda justo 😭🍑",
+    "Volví a ponerme ese jean que hace 2 meses me sobraba atrás 😭🍑"
+  ]
+}

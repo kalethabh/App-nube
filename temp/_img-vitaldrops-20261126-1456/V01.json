@@ -1,0 +1,98 @@
+{
+  "ad_info": {
+    "variation_id": "V01"
+  },
+  "global_identity": {
+    "color_palette": "exactly the same as the reference: Titular negro #111111; etiquetas de días dorado #C9A24A; textos de la oferta negro #1A1A1A; fondo general crema #F6F0E4; recuadros de los días casi blanco #FAF6EE con borde beige #E6DCC8; recuadro de oferta dorado #D4B26A a #B8913E; caja y etiqueta del producto amarillo #F2C84B; logo gris oscuro #333333",
+    "text_typography": "exactly the same as the reference: Titular: sans serif muy gruesa, todo en mayúsculas, sin efectos. Etiquetas de días: sans serif gruesa en mayúsculas, color dorado. Oferta: sans serif gruesa en mayúsculas, la línea del descuento más grande; logo: serif delgada en mayúsculas con letras espaciadas"
+  },
+  "visual_prompt": "PRODUCT: VITALDROPS. It replaces the product of the reference, in the same zone, size and angle.\nMAP OF THE REFERENCE (fixed, nothing moves):\n- Headline: Arriba, en dos líneas centradas, ocupa cerca del 92% del ancho y el 12% del alto; texto grande y centrado sobre el fondo crema\n- Model / before-after: Antes/después en una cuadrícula de 2x2 recuadros (Día 1, Día 7, Día 14, Día 21) en el centro, del 15% al 73% del alto; la misma modelo de espaldas, en top deportivo beige y leggings grises, cuya figura se ve más llena en cada recuadro; ocupa cerca del 58% de la imagen\n- Product bottle: Abajo a la izquierda: la caja amarilla de pie y delante el frasco gotero ámbar con etiqueta amarilla, de frente y un poco de lado; el frasco mide cerca del 30% del alto y la caja el 30%; una rama dorada decorativa detrás del frasco\n- Benefit bullets / checks: no hay\n- Offer block and CTA: Abajo a la derecha: recuadro dorado con degradado y esquinas redondeadas (cerca del 45% del ancho), con tres líneas centradas separadas por líneas finas: título de la oferta, descuento más regalo y plazo. No hay botón\n- Other blocks: Etiquetas «DÍA 1», «DÍA 7», «DÍA 14», «DÍA 21» arriba a la izquierda de cada recuadro; logo de la marca en letras espaciadas abajo a la derecha, bajo la oferta\nREADING HIERARCHY (unchanged): 1) El titular de arriba  2) La secuencia de antes/después por días  3) El recuadro dorado de la oferta junto al producto\nTYPOGRAPHY: Titular: sans serif muy gruesa, todo en mayúsculas, sin efectos. Etiquetas de días: sans serif gruesa en mayúsculas, color dorado. Oferta: sans serif gruesa en mayúsculas, la línea del descuento más grande; logo: serif delgada en mayúsculas con letras espaciadas\nPALETTE: Titular negro #111111; etiquetas de días dorado #C9A24A; textos de la oferta negro #1A1A1A; fondo general crema #F6F0E4; recuadros de los días casi blanco #FAF6EE con borde beige #E6DCC8; recuadro de oferta dorado #D4B26A a #B8913E; caja y etiqueta del producto amarillo #F2C84B; logo gris oscuro #333333\nTEXT BLOCK BACKGROUNDS: Titular: directo sobre el fondo crema, sin cinta. Días: recuadros claros con esquinas redondeadas y borde fino. Oferta: recuadro dorado degradado con borde más claro y líneas finas que separan cada línea de texto\nSALES ANGLE (identical): desire: Tener curvas más llenas y marcadas; main benefit: Ver el cambio en la figura poco a poco, en pocas semanas; pain: Sentir que a la figura le falta volumen y forma.\nWHAT CHANGES IN THIS IMAGE (and only this):\n- MODEL: a 41 years old woman, plus-size, pale pink skin, long curly hair, ordinary and believable (not a fashion model), natural makeup. If the reference has a before/after, it is this same new woman in both halves.\n- SETTING / BACKGROUND OF THE PHOTO: a living room with a sofa and plants.\n- POSE AND FRAMING: standing, one hand adjusting her waistband, three-quarter front view, thighs-up framing, inside the same zone and the same % of the image as the reference.\n- HEADLINE WORDING: the one given in TEXTS (same promise, other words).",
+  "text_layers": [
+    {
+      "reference_function": "main headline",
+      "reference_position": "Arriba, en dos líneas centradas, ocupa cerca del 92% del ancho y el 12% del alto; texto grande y centrado sobre el fondo crema",
+      "text": "AYUDA A LLENAR TUS CURVAS EN 21 DÍAS",
+      "text_style": "the same style, size and background as the headline of the reference"
+    },
+    {
+      "reference_function": "etiqueta recuadro 1",
+      "reference_position": "the same zone as in the reference",
+      "text": "DÍA 1",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta recuadro 2",
+      "reference_position": "the same zone as in the reference",
+      "text": "DÍA 7",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta recuadro 3",
+      "reference_position": "the same zone as in the reference",
+      "text": "DÍA 14",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta recuadro 4",
+      "reference_position": "the same zone as in the reference",
+      "text": "DÍA 21",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "oferta título",
+      "reference_position": "the same zone as in the reference",
+      "text": "OFERTA ESPECIAL",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "oferta descuento",
+      "reference_position": "the same zone as in the reference",
+      "text": "60% DE DESCUENTO + REGALO GRATIS",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "oferta plazo",
+      "reference_position": "the same zone as in the reference",
+      "text": "SOLO ESTA SEMANA",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "logo",
+      "reference_position": "the same zone as in the reference",
+      "text": "VITALDROPS",
+      "text_style": "the same style and background as in the reference"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo, where the reference has its bottle",
+    "a different woman: a 41 years old woman, plus-size, pale pink skin, long curly hair, ordinary and believable (not a fashion model), natural makeup"
+  ],
+  "final_generation_exclusions": [
+    "moving, adding or removing any block",
+    "a different font or palette",
+    "any new claim, number or testimonial",
+    "the reference's brand or logo",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "new blocks",
+      "new claims"
+    ],
+    "detected_visual_blocks": [
+      "titular",
+      "modelo",
+      "producto",
+      "beneficios",
+      "oferta_cta",
+      "otros"
+    ]
+  },
+  "language_rule": "All visible text in Spanish.",
+  "app_rapido": "replicar",
+  "app_replicar": {
+    "modelo": "a 41 years old woman, plus-size, pale pink skin, long curly hair, ordinary and believable (not a fashion model), natural makeup",
+    "escenario": "a living room with a sofa and plants",
+    "pose": "standing, one hand adjusting her waistband, three-quarter front view, thighs-up framing"
+  }
+}

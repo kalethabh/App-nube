@@ -2,7 +2,7 @@
   "slug": "_img-vitaldrops-20261126-1456",
   "familia": "imagen-ads",
   "estado": "corriendo",
-  "paso": "estrategia",
+  "paso": "anuncios",
   "pasos": [
     {
       "id": "preparar",
@@ -23,16 +23,18 @@
     {
       "id": "estrategia",
       "nombre": "La IA arma la estrategia",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-26T19:56:25.905Z",
-      "detalle": "Leyendo el mapa de tu anuncio validado 4 de 5"
+      "fin": "2026-11-26T19:59:56.862Z"
     },
     {
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-26T19:59:56.862Z",
+      "detalle": "Creando 10 imágenes · 0 de 10 listas"
     },
     {
       "id": "informe",
@@ -45,5 +47,5 @@
   "modoPrueba": false,
   "creado": "2026-11-26T19:56:25.842Z",
   "aprobado": "2026-11-26T19:56:25.842Z",
-  "actualizado": "2026-11-26T19:58:31.445Z"
+  "actualizado": "2026-11-26T19:59:56.865Z"
 }

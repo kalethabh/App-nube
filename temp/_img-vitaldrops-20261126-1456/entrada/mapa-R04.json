@@ -1,0 +1,46 @@
+{
+  "zonas": {
+    "titular": "Arriba a la derecha, en dos bloques apilados (cerca del 45% del ancho), alineado a la izquierda; debajo un subtítulo más pequeño de 3 líneas",
+    "modelo": "Antes y después de la misma modelo de espaldas mirando sobre el hombro: el antes en la franja izquierda oscura (cerca del 35% del ancho) y el después al centro, más grande (cerca del 45% del ancho); entre las dos ocupan cerca del 75% de la imagen, de arriba hasta abajo. Etiquetas «ANTES» y «DESPUÉS» en píldoras arriba de cada una, y una flecha blanca curva del antes al después",
+    "producto": "Abajo a la derecha, frasco gotero ámbar con tapa negra y etiqueta amarilla, cerca del 45% del alto, de frente y un poco inclinado, con flores rosadas detrás",
+    "beneficios": "Notas escritas a mano en blanco con flechas o corazones: tres en el lado del antes (izquierda, en columna) con lo negativo, y tres en el lado del después (centro derecha, en columna junto al frasco) con lo positivo. Abajo, una fila de tres íconos lineales blancos con texto corto debajo, separados por líneas finas",
+    "oferta_cta": "no hay",
+    "otros": "Sello redondo negro con borde dorado y estrellas, abajo al centro derecha, junto a las piernas de la modelo; destellos y corazones blancos dibujados sobre el fondo rosado; garabato de nube oscura junto a la cabeza del antes"
+  },
+  "jerarquia": [
+    "El titular de contraste «Antes: invisible. Ahora: imposible de ignorar.»",
+    "El cambio de la modelo del antes al después",
+    "El frasco con las notas positivas y el sello de garantía"
+  ],
+  "tipografia_paleta": {
+    "fuentes": "Titular en letra sans muy gruesa y condensada, todo en mayúsculas; subtítulo en sans normal, en minúsculas; notas en letra manuscrita informal; etiquetas ANTES/DESPUÉS en sans gruesa mayúscula; sello en sans gruesa mayúscula con «90 DÍAS» grande; textos de los íconos en sans pequeña",
+    "colores": "Titular: «ANTES:» e «INVISIBLE.» en blanco (#FFFFFF), «AHORA:» e «IMPOSIBLE DE IGNORAR.» en amarillo (#FFD21F); subtítulo y notas en blanco; fondo del antes morado muy oscuro (#2A1E2E), fondo del después rosado fucsia (#F25FB4 a #FF8FD0); etiqueta del frasco amarilla (#F7D21E) con letras negras; sello negro (#111111) con borde y letras doradas (#D4A93C) y blancas",
+    "fondos_de_bloques": "Titular y subtítulo sin recuadro, directo sobre el rosado; etiquetas ANTES y DESPUÉS en píldoras redondeadas (gris oscuro con letra gris clara en el antes, rosada clara con letra blanca en el después); sello en círculo negro con borde dorado; íconos inferiores sin fondo"
+  },
+  "angulo": {
+    "deseo": "Que la vean, sentirse atractiva y con curvas",
+    "beneficio": "Un cambio visible en su figura que atrae miradas y le da confianza",
+    "dolor": "Sentirse invisible, sin curvas y sin confianza, la que nadie nota"
+  },
+  "titular_original": "ANTES: INVISIBLE. AHORA: IMPOSIBLE DE IGNORAR.",
+  "textos": [
+    { "zona": "etiqueta antes", "texto": "ANTES" },
+    { "zona": "etiqueta después", "texto": "DESPUÉS" },
+    { "zona": "subtítulo", "texto": "El cambio que hizo que todos empezaran a mirarla diferente." },
+    { "zona": "nota antes 1", "texto": "Sin curvas" },
+    { "zona": "nota antes 2", "texto": "Sin confianza" },
+    { "zona": "nota antes 3", "texto": "La que nadie nota" },
+    { "zona": "nota después 1", "texto": "Curvas naturales" },
+    { "zona": "nota después 2", "texto": "Más confianza" },
+    { "zona": "nota después 3", "texto": "Todos la notan" },
+    { "zona": "etiqueta del frasco", "texto": "VITALDROPS" },
+    { "zona": "sello", "texto": "90 DÍAS DE GARANTÍA" },
+    { "zona": "ícono 1", "texto": "Ingredientes de origen vegetal" },
+    { "zona": "ícono 2", "texto": "Resultados reales" },
+    { "zona": "ícono 3", "texto": "Sin cirugía" }
+  ],
+  "titulares": [
+    "ANTES: NADIE LA VEÍA. HOY: TODOS LA MIRAN.",
+    "ANTES: PASABA DESAPERCIBIDA. AHORA: NADIE LA OLVIDA."
+  ]
+}

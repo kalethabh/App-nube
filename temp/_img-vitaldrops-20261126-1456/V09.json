@@ -1,0 +1,122 @@
+{
+  "ad_info": {
+    "variation_id": "V09"
+  },
+  "global_identity": {
+    "color_palette": "exactly the same as the reference: Titular: «ANTES:» e «INVISIBLE.» en blanco (#FFFFFF), «AHORA:» e «IMPOSIBLE DE IGNORAR.» en amarillo (#FFD21F); subtítulo y notas en blanco; fondo del antes morado muy oscuro (#2A1E2E), fondo del después rosado fucsia (#F25FB4 a #FF8FD0); etiqueta del frasco amarilla (#F7D21E) con letras negras; sello negro (#111111) con borde y letras doradas (#D4A93C) y blancas",
+    "text_typography": "exactly the same as the reference: Titular en letra sans muy gruesa y condensada, todo en mayúsculas; subtítulo en sans normal, en minúsculas; notas en letra manuscrita informal; etiquetas ANTES/DESPUÉS en sans gruesa mayúscula; sello en sans gruesa mayúscula con «90 DÍAS» grande; textos de los íconos en sans pequeña"
+  },
+  "visual_prompt": "PRODUCT: VITALDROPS. It replaces the product of the reference, in the same zone, size and angle.\nMAP OF THE REFERENCE (fixed, nothing moves):\n- Headline: Arriba a la derecha, en dos bloques apilados (cerca del 45% del ancho), alineado a la izquierda; debajo un subtítulo más pequeño de 3 líneas\n- Model / before-after: Antes y después de la misma modelo de espaldas mirando sobre el hombro: el antes en la franja izquierda oscura (cerca del 35% del ancho) y el después al centro, más grande (cerca del 45% del ancho); entre las dos ocupan cerca del 75% de la imagen, de arriba hasta abajo. Etiquetas «ANTES» y «DESPUÉS» en píldoras arriba de cada una, y una flecha blanca curva del antes al después\n- Product bottle: Abajo a la derecha, frasco gotero ámbar con tapa negra y etiqueta amarilla, cerca del 45% del alto, de frente y un poco inclinado, con flores rosadas detrás\n- Benefit bullets / checks: Notas escritas a mano en blanco con flechas o corazones: tres en el lado del antes (izquierda, en columna) con lo negativo, y tres en el lado del después (centro derecha, en columna junto al frasco) con lo positivo. Abajo, una fila de tres íconos lineales blancos con texto corto debajo, separados por líneas finas\n- Offer block and CTA: no hay\n- Other blocks: Sello redondo negro con borde dorado y estrellas, abajo al centro derecha, junto a las piernas de la modelo; destellos y corazones blancos dibujados sobre el fondo rosado; garabato de nube oscura junto a la cabeza del antes\nREADING HIERARCHY (unchanged): 1) El titular de contraste «Antes: invisible. Ahora: imposible de ignorar.»  2) El cambio de la modelo del antes al después  3) El frasco con las notas positivas y el sello de garantía\nTYPOGRAPHY: Titular en letra sans muy gruesa y condensada, todo en mayúsculas; subtítulo en sans normal, en minúsculas; notas en letra manuscrita informal; etiquetas ANTES/DESPUÉS en sans gruesa mayúscula; sello en sans gruesa mayúscula con «90 DÍAS» grande; textos de los íconos en sans pequeña\nPALETTE: Titular: «ANTES:» e «INVISIBLE.» en blanco (#FFFFFF), «AHORA:» e «IMPOSIBLE DE IGNORAR.» en amarillo (#FFD21F); subtítulo y notas en blanco; fondo del antes morado muy oscuro (#2A1E2E), fondo del después rosado fucsia (#F25FB4 a #FF8FD0); etiqueta del frasco amarilla (#F7D21E) con letras negras; sello negro (#111111) con borde y letras doradas (#D4A93C) y blancas\nTEXT BLOCK BACKGROUNDS: Titular y subtítulo sin recuadro, directo sobre el rosado; etiquetas ANTES y DESPUÉS en píldoras redondeadas (gris oscuro con letra gris clara en el antes, rosada clara con letra blanca en el después); sello en círculo negro con borde dorado; íconos inferiores sin fondo\nSALES ANGLE (identical): desire: Que la vean, sentirse atractiva y con curvas; main benefit: Un cambio visible en su figura que atrae miradas y le da confianza; pain: Sentirse invisible, sin curvas y sin confianza, la que nadie nota.\nWHAT CHANGES IN THIS IMAGE (and only this):\n- MODEL: a 55 years old woman, curvy, golden latina skin, braids, ordinary and believable (not a fashion model), natural makeup. If the reference has a before/after, it is this same new woman in both halves.\n- SETTING / BACKGROUND OF THE PHOTO: a bathroom with a large mirror, warm light.\n- POSE AND FRAMING: walking towards the camera, full body framing, inside the same zone and the same % of the image as the reference.\n- HEADLINE WORDING: the one given in TEXTS (same promise, other words).",
+  "text_layers": [
+    {
+      "reference_function": "main headline",
+      "reference_position": "Arriba a la derecha, en dos bloques apilados (cerca del 45% del ancho), alineado a la izquierda; debajo un subtítulo más pequeño de 3 líneas",
+      "text": "ANTES: PASABA DESAPERCIBIDA. AHORA: NADIE LA OLVIDA.",
+      "text_style": "the same style, size and background as the headline of the reference"
+    },
+    {
+      "reference_function": "etiqueta antes",
+      "reference_position": "the same zone as in the reference",
+      "text": "ANTES",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta después",
+      "reference_position": "the same zone as in the reference",
+      "text": "DESPUÉS",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "subtítulo",
+      "reference_position": "the same zone as in the reference",
+      "text": "El cambio que hizo que todos empezaran a mirarla diferente.",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "nota antes 1",
+      "reference_position": "the same zone as in the reference",
+      "text": "Sin curvas",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "nota antes 2",
+      "reference_position": "the same zone as in the reference",
+      "text": "Sin confianza",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "nota antes 3",
+      "reference_position": "the same zone as in the reference",
+      "text": "La que nadie nota",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "nota después 1",
+      "reference_position": "the same zone as in the reference",
+      "text": "Curvas naturales",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "nota después 2",
+      "reference_position": "the same zone as in the reference",
+      "text": "Más confianza",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "nota después 3",
+      "reference_position": "the same zone as in the reference",
+      "text": "Todos la notan",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "etiqueta del frasco",
+      "reference_position": "the same zone as in the reference",
+      "text": "VITALDROPS",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "sello",
+      "reference_position": "the same zone as in the reference",
+      "text": "90 DÍAS DE GARANTÍA",
+      "text_style": "the same style and background as in the reference"
+    },
+    {
+      "reference_function": "ícono 1",
+      "reference_position": "the same zone as in the reference",
+      "text": "Ingredientes de origen vegetal",
+      "text_style": "the same style and background as in the reference"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo, where the reference has its bottle",
+    "a different woman: a 55 years old woman, curvy, golden latina skin, braids, ordinary and believable (not a fashion model), natural makeup"
+  ],
+  "final_generation_exclusions": [
+    "moving, adding or removing any block",
+    "a different font or palette",
+    "any new claim, number or testimonial",
+    "the reference's brand or logo",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "new blocks",
+      "new claims"
+    ],
+    "detected_visual_blocks": [
+      "titular",
+      "modelo",
+      "producto",
+      "beneficios",
+      "oferta_cta",
+      "otros"
+    ]
+  },
+  "language_rule": "All visible text in Spanish.",
+  "app_rapido": "replicar",
+  "app_replicar": {
+    "modelo": "a 55 years old woman, curvy, golden latina skin, braids, ordinary and believable (not a fashion model), natural makeup",
+    "escenario": "a bathroom with a large mirror, warm light",
+    "pose": "walking towards the camera, full body framing"
+  }
+}
