@@ -1,0 +1,14 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V07_1x1",
+      "ok": false,
+      "problemas": [
+        "Regla del borde: «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+        "Regla del borde: «(CON TUS COMIDAS)» y «NI QUIRÓFANO» quedan a menos del 5 % de los bordes de los lados, y «X3 FRASCOS» y «3 MESES» a menos del 5 % del borde de abajo. Hay que meterlos más hacia adentro.",
+        "En la foto de «después» el bikini es tipo tanga, y el anuncio pedía uno de cobertura completa. Además puede dar problemas con las reglas de los anuncios."
+      ],
+      "correccion_en": "Keep every text, block, color and angle exactly as they are, but keep all text at least 5% away from every edge: move 'ANTES' and 'DESPUÉS' slightly down from the top edge, add more inner side margin so '(CON TUS COMIDAS)' and 'NI QUIRÓFANO' sit further from the left and right edges, and raise the bottom offer bar so 'X3 FRASCOS' and '3 MESES' sit further from the bottom edge. In the right 'after' photo, the coral bikini bottom must be a tasteful full-coverage cut, not a thong."
+    }
+  ]
+}

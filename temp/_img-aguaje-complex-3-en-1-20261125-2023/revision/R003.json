@@ -1,0 +1,14 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V05_1x1",
+      "ok": false,
+      "problemas": [
+        "El bikini de la foto de «después» es de corte tanga. El anuncio pedía un bikini que cubra bien, y este puede hacer que la red social lo rechace.",
+        "«ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+        "Los textos de la primera y la cuarta tarjeta («(CON TUS COMIDAS)» y «SIN AGUJAS NI QUIRÓFANO») quedan a menos del 5 % de los bordes de los lados. Hay que dejarles más margen."
+      ],
+      "correccion_en": "In the right 'after' photo, change the coral bikini bottom to a tasteful full-coverage bikini bottom (not thong or cheeky cut). Move the 'ANTES' and 'DESPUÉS' headlines down so they sit at least 5% of the height away from the top edge. Add more side margin to the card row so the texts '(CON TUS COMIDAS)' and 'SIN AGUJAS NI QUIRÓFANO' stay at least 5% of the width away from the left and right edges. Keep everything else exactly the same."
+    }
+  ]
+}

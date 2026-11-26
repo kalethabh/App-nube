@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 4,
+    "R": 6,
     "A": 1,
     "T": 3
   },
@@ -74,12 +74,40 @@
     "R003": {
       "tipo": "revision",
       "uuid": "35e13d95-4952-45a4-923c-2dd91f81d266",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
           "pieza": "V05_1x1",
           "firma": "1987134-1795657028438",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "c407ec40-53d4-4b6c-8062-487e666d1ba9",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V07_1x1",
+          "firma": "1965656-1795657074063",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R005": {
+      "tipo": "revision",
+      "uuid": "b90d6c7f-2c06-4c00-a641-86ca922c09d3",
+      "estado": "en-curso",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V08_1x1",
+          "firma": "1988169-1795657149822",
           "ronda": 1
         }
       ]
@@ -244,21 +272,31 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1987134-1795657028438",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El bikini de la foto de «después» es de corte tanga. El anuncio pedía un bikini que cubra bien, y este puede hacer que la red social lo rechace.",
+          "«ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+          "Los textos de la primera y la cuarta tarjeta («(CON TUS COMIDAS)» y «SIN AGUJAS NI QUIRÓFANO») quedan a menos del 5 % de los bordes de los lados. Hay que dejarles más margen."
+        ],
+        "firma": "1987134-1795657028438",
+        "correccion_en": "In the right 'after' photo, change the coral bikini bottom to a tasteful full-coverage bikini bottom (not thong or cheeky cut). Move the 'ANTES' and 'DESPUÉS' headlines down so they sit at least 5% of the height away from the top edge. Add more side margin to the card row so the texts '(CON TUS COMIDAS)' and 'SIN AGUJAS NI QUIRÓFANO' stay at least 5% of the width away from the left and right edges. Keep everything else exactly the same."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T01:37:09.870Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R003"
+      "ultimaOrden": "g"
     },
     "V06_1x1": {
       "v": "V06",
@@ -273,7 +311,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -285,46 +323,50 @@
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1965656-1795657074063",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Regla del borde: «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+          "Regla del borde: «(CON TUS COMIDAS)» y «NI QUIRÓFANO» quedan a menos del 5 % de los bordes de los lados, y «X3 FRASCOS» y «3 MESES» a menos del 5 % del borde de abajo. Hay que meterlos más hacia adentro.",
+          "En la foto de «después» el bikini es tipo tanga, y el anuncio pedía uno de cobertura completa. Además puede dar problemas con las reglas de los anuncios."
+        ],
+        "firma": "1965656-1795657074063",
+        "correccion_en": "Keep every text, block, color and angle exactly as they are, but keep all text at least 5% away from every edge: move 'ANTES' and 'DESPUÉS' slightly down from the top edge, add more inner side margin so '(CON TUS COMIDAS)' and 'NI QUIRÓFANO' sit further from the left and right edges, and raise the bottom offer bar so 'X3 FRASCOS' and '3 MESES' sit further from the bottom edge. In the right 'after' photo, the coral bikini bottom must be a tasteful full-coverage cut, not a thong."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T01:37:54.123Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "revisando",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "version": 1,
+      "firma": "1988169-1795657149822",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T01:39:10.444Z",
+      "pedido": null,
+      "ultimaOrden": "g",
+      "tandaRevision": "R005"
     },
     "V09_1x1": {
       "v": "V09",
@@ -339,7 +381,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -361,7 +403,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
