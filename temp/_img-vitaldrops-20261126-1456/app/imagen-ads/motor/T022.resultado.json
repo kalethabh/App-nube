@@ -1,0 +1,15 @@
+{
+  "id": "T022",
+  "piezas": {
+    "V01_4x5": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
+    }
+  },
+  "actualizado": "2026-11-26T23:10:54.252Z",
+  "terminado": false
+}

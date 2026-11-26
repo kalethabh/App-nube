@@ -4,7 +4,7 @@
     "E": 2,
     "R": 1,
     "A": 21,
-    "T": 22
+    "T": 24
   },
   "tandas": {
     "E001": {
@@ -446,6 +446,50 @@
       "pedido": null,
       "ultimaOrden": "U0025",
       "fallo": null
+    },
+    "V01_4x5": {
+      "v": "V01",
+      "formato": "4:5",
+      "fase": "pedida",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T022"
+      },
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
+    },
+    "V02_4x5": {
+      "v": "V02",
+      "formato": "4:5",
+      "fase": "pedida",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T023"
+      },
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
     }
   },
   "pedidos": {

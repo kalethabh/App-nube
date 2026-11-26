@@ -1,0 +1,25 @@
+Recreate this exact advertisement (the FIRST attached image) without changing anything in its design. Keep absolutely everything the same: the same texts word for word with exactly the same spelling and accents, the same typography, the same colors, the same photographic style and lighting, the same person (same face, hair, clothes, pose and expression), the same background and the same product. Specifically preserve: the same colors (exactly the same as the reference: Texto negro de marcador (#1A1A1A) sobre pizarra blanca (#F7F7F5); flechas y líneas de forma en rojo (#D63A2F); zonas resaltadas en amarillo (#F5D94A); marco gris aluminio (#B8BCC0); etiqueta del frasco amarilla (#F4D23C) con letras negras; vidrio ámbar oscuro (#4A2A12); fondo de cocina crema y beige (#E8E2D6)), the same typography (exactly the same as the reference: Todo parece escrito a mano con marcador sobre pizarra: letra de imprenta redondeada, trazo grueso, en mayúsculas y minúsculas. Encabezados grandes y subrayados; titular el texto más grande y grueso, con subrayado a mano; etiquetas de los dibujos más pequeñas y delgadas, con flechas rojas. Sin sombras ni efectos), the same visual blocks: the real product from the attached product photo, where the reference has its bottle; a different woman: a 22 years old woman, petite, fair skin with freckles, a messy bun, ordinary and believable (not a fashion model), natural makeup.
+
+CRITICAL - colors must not change: the background keeps exactly the same color as in the first attached image, and every text, graphic element and highlight keeps exactly the color it already has there. Never turn a colored background into white or into a lighter tone. Never swap, invert or reassign colors between the background, the texts and the graphic elements. If the original background is a flat solid color, the vertical version must use that same flat solid color edge to edge.
+
+The ONLY change is the dimension: convert it to a 4:5 portrait layout for the Facebook and Instagram feed. Re-arrange the same elements so they fit naturally in the slightly taller canvas: give the headline a bit more air at the top and the person and the product a bit more vertical room. Do not simply add empty bands, borders, blurred strips or solid color bars above and below the original square. Do not crop or cut off any element. Keep the same visual hierarchy.
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
+
+Exact visible texts (each appears exactly once, correctly spelled, nothing else added):
+- main headline: "No es engordar por engordar. Es que se vea donde tú quieres."
+- encabezado izquierdo: "Vitaminas para engordar"
+- encabezado derecho: "VitalDrops"
+- etiqueta izquierda 1: "Sueño"
+- etiqueta izquierda 2: "Panza"
+- etiqueta izquierda 3: "Hinchazón"
+- etiqueta izquierda 4: "Poca forma atrás"
+- etiqueta derecha 1: "Rutina diaria"
+- etiqueta derecha 2: "Más forma"
+- etiqueta derecha 3: "Caderas"
+- etiqueta derecha 4: "Glúteos"
+- titular: "No es subir por subir. Es que se note donde tú quieres."
+
+All visible text in Spanish.
+
+Do not add, remove or rewrite any text, price, badge, seal, icon or visual block. Do not change the design, the palette, the typography, the person or the product.
