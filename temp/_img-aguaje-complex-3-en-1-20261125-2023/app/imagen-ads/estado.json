@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 6,
+    "R": 7,
     "A": 1,
     "T": 3
   },
@@ -102,12 +102,26 @@
     "R005": {
       "tipo": "revision",
       "uuid": "b90d6c7f-2c06-4c00-a641-86ca922c09d3",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
           "pieza": "V08_1x1",
           "firma": "1988169-1795657149822",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R006": {
+      "tipo": "revision",
+      "uuid": "6759b336-14bf-4b57-9ff4-315031e50331",
+      "estado": "en-curso",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V10_1x1",
+          "firma": "1966646-1795657272636",
           "ronda": 1
         }
       ]
@@ -301,24 +315,20 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "por-revisar",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "version": 1,
+      "firma": "1969605-1795657276494",
+      "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T01:41:17.097Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V07_1x1": {
       "v": "V07",
@@ -352,21 +362,32 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1988169-1795657149822",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Regla del borde: «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+          "Regla del borde: «X3 FRASCOS» queda muy cerca del borde de abajo, y «(CON TUS COMIDAS)» y «NI QUIRÓFANO» quedan muy cerca de los lados, a menos del 5 %. Hay que meterlos más hacia adentro.",
+          "El bikini de la foto de la derecha es de corte muy pequeño, casi tipo tanga. El anuncio pedía un traje de baño que cubra bien.",
+          "Regla de la etiqueta: en la foto real el frasco dice «60 CAPSULAS», sin tilde. En el anuncio dice «60 CÁPSULAS», con tilde."
+        ],
+        "firma": "1988169-1795657149822",
+        "correccion_en": "Keep every element, text, color and position as is, but: move all texts at least 5% away from every canvas edge (shift the 'ANTES' and 'DESPUÉS' headlines slightly down, lift the 'X3 FRASCOS' offer bar slightly up and add more side margin to the card row). In the right photo, change the coral bikini bottom to a modest full-coverage cut (no cheeky or thong cut). On the bottle label, write '60 CAPSULAS' with no accent, exactly as on the real product photo."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T01:39:10.444Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R005"
+      "ultimaOrden": "g"
     },
     "V09_1x1": {
       "v": "V09",
@@ -381,7 +402,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -393,24 +414,21 @@
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "revisando",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "version": 1,
+      "firma": "1966646-1795657272636",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T01:41:12.784Z",
+      "pedido": null,
+      "ultimaOrden": "g",
+      "tandaRevision": "R006"
     }
   },
   "pedidos": {}

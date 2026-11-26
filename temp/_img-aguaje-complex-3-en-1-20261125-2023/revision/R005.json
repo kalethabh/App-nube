@@ -1,0 +1,15 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V08_1x1",
+      "ok": false,
+      "problemas": [
+        "Regla del borde: «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+        "Regla del borde: «X3 FRASCOS» queda muy cerca del borde de abajo, y «(CON TUS COMIDAS)» y «NI QUIRÓFANO» quedan muy cerca de los lados, a menos del 5 %. Hay que meterlos más hacia adentro.",
+        "El bikini de la foto de la derecha es de corte muy pequeño, casi tipo tanga. El anuncio pedía un traje de baño que cubra bien.",
+        "Regla de la etiqueta: en la foto real el frasco dice «60 CAPSULAS», sin tilde. En el anuncio dice «60 CÁPSULAS», con tilde."
+      ],
+      "correccion_en": "Keep every element, text, color and position as is, but: move all texts at least 5% away from every canvas edge (shift the 'ANTES' and 'DESPUÉS' headlines slightly down, lift the 'X3 FRASCOS' offer bar slightly up and add more side margin to the card row). In the right photo, change the coral bikini bottom to a modest full-coverage cut (no cheeky or thong cut). On the bottle label, write '60 CAPSULAS' with no accent, exactly as on the real product photo."
+    }
+  ]
+}

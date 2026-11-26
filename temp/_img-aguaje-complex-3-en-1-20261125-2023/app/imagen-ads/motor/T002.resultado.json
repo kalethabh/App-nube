@@ -16,12 +16,17 @@
     },
     "V06_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 3,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null,
-      "ultimoMotivo": "contenido-chatgpt"
+      "intentoAbierto": false,
+      "taskId": "01a21581-cb9d-7783-88b4-4b079d055dfe",
+      "ultimoMotivo": "contenido-chatgpt",
+      "firma": "1969605-1795657276494",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     },
     "V07_1x1": {
       "orden": "g",
@@ -52,20 +57,26 @@
     "V09_1x1": {
       "orden": "g",
       "estado": "generando",
-      "intentosApi": 1,
+      "intentosApi": 2,
       "version": 1,
       "intentoAbierto": true,
-      "taskId": null
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt"
     },
     "V10_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": "01a21581-ad9b-7591-8659-43f86a80a760",
+      "firma": "1966646-1795657272636",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     }
   },
-  "actualizado": "2026-11-26T01:39:17.499Z",
+  "actualizado": "2026-11-26T01:41:16.500Z",
   "terminado": false
 }
