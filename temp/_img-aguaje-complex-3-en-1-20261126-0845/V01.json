@@ -1,0 +1,87 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format F52 (Before/after of one body zone with labels, two bottles and a circle badge) — structure mv-22",
+    "reference_style": "Real-photo before/after supplement ad with labeled body photos, product still life on a rock and a bottom trust strip",
+    "angle_used": "Transformation / result: the same jean that hung loose at the back now fits",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (header text and bottom strip), bottle black #0E0E10, bubblegum pink #FF8CC0 (highlighted second headline line), pale blush pink #FBE3EE (photo cards and soft surfaces), white #FFFFFF. Secondary for this variation: tropical leaf green #3E7A3A and warm stone beige #CDB89A.",
+    "visual_style": "Bold, feminine real-photo supplement ad for Colombian women; the real bottle always sharp and identical to the photo, with fuchsia and plum brand accents.",
+    "visual_atmosphere": "Warm, confident, believable and everyday; soft fuchsia glow on branded elements, never clinical.",
+    "graphic_language": "Rounded photo cards, pill-shaped ANTES / DESPUÉS tabs, thin pointer lines ending in dots, one solid circle badge, a rounded bottom strip with white thin-line icons.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat Black look), uppercase; labels and strip texts in a rounded bold sans-serif (Poppins SemiBold / Bold look)."
+  },
+  "creative_objective": "Make the woman who feels her jeans hang loose at the back see, before reading, the same jean fitting better on the same woman, and connect that change to a natural 3-month plan with the real bottle, closing with pay-on-delivery and the user's exact registration seal.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Two-line headline on top. 2) The stacked before/after photos on the left with their labels. 3) The two bottles on the rock with the circle badge. 4) The bottom strip.",
+    "composition_style": "Top band headline (18%), middle split (70%): left 45% two stacked photo cards, right 55% product still life with circle badge at upper right; bottom strip (12%) across the full width.",
+    "spacing_and_structure": "Generous margins (about 4% of the canvas), the two photo cards the same size with a thin gap between them, labels aligned to the right edge of each photo, the strip centered with a vertical divider.",
+    "lighting_and_depth": "Before photo cool and flat, after photo warm and soft; bottles lit from the upper left with soft shadows on the rock, blurred green leaves behind for depth.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top: two-line centered headline (first line dark plum, second line fuchsia). Middle left: two stacked rounded photo cards of the same body zone in profile, the upper one with an 'ANTES' tab, the lower one with a 'DESPUÉS' tab; each card has two text labels on its right side connected by thin lines ending in dots on the body. Middle right: two bottles (one large in front, one smaller behind to the right) standing on a natural rock with tropical leaves, and a large solid circle badge at the upper right overlapping the leaves. Bottom: a full-width rounded dark strip with two items separated by a vertical line, each with a white line icon.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top center, 18% of height", "visual_function": "States the zone and the promise", "adaptation_rule": "Two lines in heavy uppercase: zone-in-jean first, natural second", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "person (before photo)", "position": "middle left, upper card", "visual_function": "Shows the problem: jean loose at the back", "adaptation_rule": "Same woman, side profile from waist to knee in jeans, cool morning light, grey cotton t-shirt", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "person (after photo)", "position": "middle left, lower card", "visual_function": "Shows the result: jean filled and fitted", "adaptation_rule": "Same woman, same framing, another day: warm light, fuchsia fitted top, curvier silhouette", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "labels with pointer lines", "position": "right side of each photo card", "visual_function": "Name what changed", "adaptation_rule": "Two short labels per card with thin lines and dots", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product", "position": "middle right on a rock", "visual_function": "Shows the real product as the solution", "adaptation_rule": "Two identical closed real bottles, one large in front and one about 75% of its size behind to the right", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "circle badge", "position": "upper right of the product area", "visual_function": "Offer anchor", "adaptation_rule": "No price was given: the circle shows the 3-month plan instead of a price", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "bottom trust strip", "position": "bottom, full width", "visual_function": "Payment and trust", "adaptation_rule": "Left: pay on delivery with a hand-and-cash icon. Right: the user's exact seal text with a shield icon", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Price numbers, strikethrough prices or currency symbols",
+      "Free shipping claims or truck icons",
+      "Star ratings, customer counts, testimonials or names",
+      "CTA buttons",
+      "Loose capsules, pills or an open bottle",
+      "Any brand logo other than the label printed on the real bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 real-photo supplement ad on a warm off-white background (#FFF8FB) with soft blurred tropical leaves (#3E7A3A) on the right half. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore the hand and the counter in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, bottle, people or colors.\n\nTOP BAND (0-18% of height): a centered two-line headline in a very heavy geometric sans-serif (Montserrat Black look), all caps, tight letter spacing. Line 1 'CURVAS EN TU JEAN' in dark plum #2B1226 with a thin white outline; line 2 'DE FORMA NATURAL' slightly smaller in hot fuchsia #E6177F. The two lines span about 85% of the width.\n\nMIDDLE (18-88%), LEFT 45%: two stacked rounded photo cards (corner radius about 3% of the canvas, thin white border, pale blush #FBE3EE backing), same size, separated by a 1% gap. Each card has a pill tab on its upper left corner: the upper tab is a deep plum #2B1226 pill with white bold text 'ANTES'; the lower tab is a hot fuchsia #E6177F pill with white bold text 'DESPUÉS'. Inside both cards: the SAME adult Colombian woman of about 28, light-brown skin with real texture and pores, photographed in strict side profile from the waist to just above the knee, standing straight, arms relaxed in front of her body so they do not cover the hip, same blue mid-wash jeans, same plain cream wall, camera at hip height with a 50 mm lens, framed exactly the same in both cards. BEFORE card: cool flat window light from the left, slightly desaturated; she wears a loose grey cotton t-shirt tucked in; the jeans look one size too big at the back, a baggy fold of extra denim below the seat, drooping back pockets, one straight flat vertical line from the lower back to the thigh, thin straight thighs with loose fabric. AFTER card: another day, warm golden window light, richer colors; she wears a fitted fuchsia ribbed top tucked in; a curvy hourglass figure: small waist, hips clearly wider and rounded, a full rounded silhouette behind the lower back, thicker fuller thighs filling the jean legs, the jeans fitting snugly with no loose fabric; the change is obvious at a glance but natural, never exaggerated. The jeans are fully closed and the framing is never centered on the crotch. On the right side of each card, two short labels in Poppins Bold, dark plum #2B1226 on a semi-transparent white pill, each connected to the body by a thin plum line ending in a small round dot: BEFORE card: 'Jean suelto atrás' (dot on the loose fabric below the seat) and 'Pierna delgada' (dot on the thigh). AFTER card: 'El jean horma' (dot on the fitted back of the jean) and 'Pierna más firme' (dot on the thigh).\n\nMIDDLE (18-88%), RIGHT 55%: a natural grey-beige stone (#CDB89A) in the lower part with glossy green tropical palm and leaf sprigs around it. On the stone stand TWO identical closed real bottles: the front one about 48% of the canvas height, centered in the right area, label facing the camera straight and fully legible; the second one behind it to the right, about 75% of its size, slightly overlapped. Both are matte black cylinders about 1.6 times taller than wide, straight sides, no neck, wide glossy hot-pink cap almost as wide as the body with a small white 'VITALABH' pattern, hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', 'TRIPLE ACCIÓN' in pink italic and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'. Soft light from the upper left, a soft contact shadow on the stone, matte, no rainbow, no prism light, no lens flare, no capsules anywhere. At the upper right of this area, partly over the leaves and above the small bottle, a solid hot fuchsia #E6177F circle (about 26% of the canvas width) with a thin white ring: inside, white Montserrat Black 'PLAN DE' on one line, 'MESES' under a big '3' (the text reads 'PLAN DE 3 MESES' exactly), and a smaller white Poppins SemiBold line '3 frascos · 2 cápsulas al día'.\n\nBOTTOM STRIP (88-100%): a full-width rounded dark plum #2B1226 bar with a thin fuchsia top edge and a short vertical white divider in the middle. Left half: a white thin-line icon of a hand receiving cash and the white Poppins Bold text 'Pagas al recibir'. Right half: a white thin-line shield-with-check icon and the white Poppins SemiBold text 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024' on one or two lines, fully legible.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline line 1", "reference_position": "top center", "text_style": "Montserrat Black look, uppercase, dark plum #2B1226, thin white outline, largest text", "text": "CURVAS EN TU JEAN" },
+    { "block_id": "text_block_02", "reference_function": "main headline line 2", "reference_position": "top center, under line 1", "text_style": "Montserrat Black look, uppercase, hot fuchsia #E6177F, slightly smaller", "text": "DE FORMA NATURAL" },
+    { "block_id": "text_block_03", "reference_function": "badge", "reference_position": "upper left tab of the upper photo card", "text_style": "Poppins Bold, white on dark plum pill, uppercase", "text": "ANTES" },
+    { "block_id": "text_block_04", "reference_function": "badge", "reference_position": "upper left tab of the lower photo card", "text_style": "Poppins Bold, white on hot fuchsia pill, uppercase", "text": "DESPUÉS" },
+    { "block_id": "text_block_05", "reference_function": "label", "reference_position": "right side of the before card, upper", "text_style": "Poppins Bold, dark plum on semi-transparent white pill, pointer line with dot", "text": "Jean suelto atrás" },
+    { "block_id": "text_block_06", "reference_function": "label", "reference_position": "right side of the before card, lower", "text_style": "Poppins Bold, dark plum on semi-transparent white pill, pointer line with dot", "text": "Pierna delgada" },
+    { "block_id": "text_block_07", "reference_function": "label", "reference_position": "right side of the after card, upper", "text_style": "Poppins Bold, dark plum on semi-transparent white pill, pointer line with dot", "text": "El jean horma" },
+    { "block_id": "text_block_08", "reference_function": "label", "reference_position": "right side of the after card, lower", "text_style": "Poppins Bold, dark plum on semi-transparent white pill, pointer line with dot", "text": "Pierna más firme" },
+    { "block_id": "text_block_09", "reference_function": "badge (offer anchor)", "reference_position": "fuchsia circle, upper right of the product area", "text_style": "Montserrat Black look, white, the '3' biggest", "text": "PLAN DE 3 MESES" },
+    { "block_id": "text_block_10", "reference_function": "badge subline", "reference_position": "inside the fuchsia circle, under the main line", "text_style": "Poppins SemiBold, white, small", "text": "3 frascos · 2 cápsulas al día" },
+    { "block_id": "text_block_11", "reference_function": "trust item", "reference_position": "bottom strip, left half, with hand-and-cash icon", "text_style": "Poppins Bold, white on dark plum", "text": "Pagas al recibir" },
+    { "block_id": "text_block_12", "reference_function": "trust item (user seal, exact)", "reference_position": "bottom strip, right half, with shield icon", "text_style": "Poppins SemiBold, white on dark plum, one or two lines", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "The same woman in both photo cards, strict side profile, waist to knee, same jeans and same framing",
+    "Visible difference: loose baggy jean at the back before, fitted curvy silhouette after",
+    "Thin pointer lines ending in dots from each label to the body",
+    "Two identical closed real bottles on a natural stone with tropical leaves, front one with the label fully legible",
+    "Solid hot fuchsia circle badge with white ring",
+    "Full-width dark plum bottom strip with two items, white line icons and a vertical divider"
+  ],
+  "final_generation_exclusions": [
+    "No price, no currency, no strikethrough price, no free shipping claim, no truck icon.",
+    "No loose capsules, no pills, no open bottle, no second hand holding anything.",
+    "No view from behind centered on the buttocks, no crotch-centered framing, no underwear, the jeans always closed.",
+    "No stars, ratings, customer counts, testimonials or names.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The before/after shows the fit of the jean on the same woman in profile, fully clothed.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

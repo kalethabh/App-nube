@@ -1,0 +1,76 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format F64 (Aspirational lifestyle with a two-part phrase and the bottle) — structure np-08",
+    "reference_style": "Aspirational outdoor lifestyle supplement ad with a two-part statement, a CTA pill and the product on a rock",
+    "angle_used": "Identity / aspiration: not only the backside, also her legs and her confidence",
+    "ad_format": "Lifestyle Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (accent word, divider line and CTA pill), deep magenta #B0105E, dark plum #2B1226 (main text), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF. Secondary for this variation: clear morning sky blue #CFE4F2 and coffee-mountain green #4F7A45.",
+    "visual_style": "Bold, feminine real-photo lifestyle ad; ultra-realistic person like a real phone or editorial photo, the real bottle sharp and identical to the photo.",
+    "visual_atmosphere": "Free, proud and sunny; a weekend morning outdoors, believable and warm.",
+    "graphic_language": "Clean text directly on the sky (no boxes), one thin fuchsia divider line, one rounded fuchsia CTA pill with a small circled arrow.",
+    "text_typography": "Main statement in a very heavy geometric sans-serif (Montserrat Black look); second part in Montserrat ExtraBold, sentence case; CTA in Poppins Bold."
+  },
+  "creative_objective": "Widen the desire for the mom who feels she lost her shape: not only the backside, also her legs and, above all, her confidence. Show it as a real, happy woman in jeans enjoying her day, with the bottle as the quiet signature.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) 'NO SOLO LA COLA.' 2) The happy woman on the right. 3) The second part of the phrase with 'seguridad' in fuchsia. 4) The CTA pill. 5) The bottle.",
+    "composition_style": "Text column on the upper left 55% over clear sky; the woman on the right 45% from head to knees, seated on a stone wall; the bottle in the lower left foreground on the same stone wall; landscape fills the bottom.",
+    "spacing_and_structure": "Left margin about 6%; the first line, the divider, the second part and the CTA pill stacked with even gaps; the bottle stands below the pill, never touching the text.",
+    "lighting_and_depth": "Soft side morning sunlight from the left, clear sky, distant hazy green mountains for depth, shallow depth of field on the far landscape only.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Upper left: a short impact phrase in big heavy type with a thin colored line under it. Below it: the second part of the phrase in 3-4 lines with one word in the accent color, then a rounded CTA pill with a circled arrow. Lower left: the bottle standing on a rock. Right half: a smiling woman seated on a rock in an outdoor mountain viewpoint, looking into the distance. Bottom: landscape and rock.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline (part 1)", "position": "upper left", "visual_function": "Impact phrase that breaks the expectation", "adaptation_rule": "'NO SOLO LA COLA.'", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "divider line", "position": "under part 1", "visual_function": "Separates the two parts", "adaptation_rule": "Thin hot fuchsia line", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "headline (part 2)", "position": "left, under the divider", "visual_function": "Widens the desire, accent word in color", "adaptation_rule": "'También tus piernas y tu seguridad' with 'seguridad' in fuchsia", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "CTA pill", "position": "left, under part 2", "visual_function": "Invites to start", "adaptation_rule": "Fuchsia pill 'Empieza tu plan de 3 meses' with a white circled arrow", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product", "position": "lower left on the stone", "visual_function": "Brand signature", "adaptation_rule": "The real closed bottle standing on the stone wall", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "person", "position": "right half", "visual_function": "The aspiration", "adaptation_rule": "Colombian mom of about 38 in jeans, smiling, facing the camera, seated on the wall", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "landscape", "position": "background and bottom", "visual_function": "Freedom and well-being", "adaptation_rule": "Colombian coffee-region green mountains under a clear sky", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "user trust seal (required by the user)", "position": "small line at the bottom left, on the stone under the bottle", "visual_function": "Registration seal the user asked for", "adaptation_rule": "Exact text, small, white with a soft dark shadow", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Benefit lists, icons, price, offer boxes, stars or testimonials",
+      "Before/after panels",
+      "Loose capsules or an open bottle",
+      "Poses from behind or body-focused close-ups"
+    ]
+  },
+  "visual_prompt": "Square 1:1 ultra-realistic outdoor lifestyle photo ad, like a real editorial photo taken on a sunny weekend morning at a viewpoint in the Colombian coffee region: clear pale sky #CFE4F2 in the upper half, layered hazy green mountains #4F7A45 in the distance, and a rough grey stone wall in the foreground across the bottom 30%. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore the hand and the counter in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, bottle, person or colors.\n\nUPPER LEFT (0-25% of height, left 58% of width), directly on the sky with no box: 'NO SOLO LA COLA.' in a very heavy geometric sans-serif (Montserrat Black look), dark plum #2B1226, uppercase, one line, about 55% of the width. Under it a thin hot fuchsia #E6177F line about one third of the width.\n\nLEFT COLUMN (25-60%): the second part in Montserrat ExtraBold, sentence case, dark plum #2B1226, three lines: 'También tus piernas' / 'y tu' / 'seguridad', where the word 'seguridad' is hot fuchsia #E6177F. Under it a rounded hot fuchsia #E6177F pill with white Poppins Bold text 'Empieza tu plan de 3 meses' and a small white circle with a right arrow at its right end.\n\nRIGHT 45% (from the top margin down to the stone wall): an adult Colombian woman of about 38, warm tan skin with real texture, visible pores, a few freckles and fine smile lines, natural brows, no studio makeup, long dark-brown wavy hair loose with flyaway strands moving in the breeze. She sits on the stone wall facing the camera at three-quarters, body turned slightly to the left, laughing naturally and looking just past the camera, one hand resting on her knee, the other on the stone. She wears a white linen button shirt with rolled sleeves and real wrinkles, tucked into high-waisted mid-blue jeans that fit her hips and thighs snugly and look natural, a thin brown belt and white sneakers; she is framed from the top of her head to just below the knees, never from behind. Soft side morning sunlight from the left, natural shadows, real phone-photo look, no plastic skin.\n\nLOWER LEFT (60-92%), on the stone wall in the foreground: ONE closed real bottle standing upright, about 30% of the canvas height (about as tall as her forearm in the photo, because it is closer to the camera), label facing the camera, fully legible and never mirrored: a matte black cylinder about 1.6 times taller than wide with straight sides and no neck, a wide glossy hot-pink cap almost as wide as the body with a small white 'VITALABH' pattern, a hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', the pink banner, the italic pink 'TRIPLE ACCIÓN' and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'. Same sunlight from the left, a natural contact shadow on the stone; matte, no rainbow, no prism light, no lens flare.\n\nBOTTOM (92-100%): the stone wall, and under the bottle a small line of white Poppins SemiBold text with a soft dark shadow: 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024', fully legible.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline (part 1)", "reference_position": "upper left", "text_style": "Montserrat Black look, uppercase, dark plum #2B1226, largest", "text": "NO SOLO LA COLA." },
+    { "block_id": "text_block_02", "reference_function": "subtitle (part 2)", "reference_position": "left, under the fuchsia divider, three lines", "text_style": "Montserrat ExtraBold, sentence case, dark plum with 'seguridad' in hot fuchsia #E6177F", "text": "También tus piernas y tu seguridad" },
+    { "block_id": "text_block_03", "reference_function": "CTA", "reference_position": "left, under part 2, inside a fuchsia pill with circled arrow", "text_style": "Poppins Bold, white on hot fuchsia", "text": "Empieza tu plan de 3 meses" },
+    { "block_id": "text_block_04", "reference_function": "trust item (user seal, exact)", "reference_position": "bottom left, on the stone under the bottle", "text_style": "Poppins SemiBold, white with soft dark shadow, small", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Ultra-realistic Colombian woman of about 38 in jeans, smiling, facing the camera, seated on a stone wall on the right half",
+    "Coffee-region green mountains under a clear morning sky",
+    "Thin hot fuchsia divider line under the first line",
+    "Hot fuchsia CTA pill with a white circled arrow",
+    "One closed real bottle standing on the stone wall in the lower left, label legible"
+  ],
+  "final_generation_exclusions": [
+    "No loose capsules, no pills, no open bottle; the woman holds nothing.",
+    "No pose from behind, no body close-ups.",
+    "No benefit icons, stars, prices or testimonials.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The phrase speaks of desire and confidence, not of a defect.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

@@ -1,0 +1,83 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format F44 (Bottle on a pedestal with 4 corner facts and curved arrows) — structure mv-14",
+    "reference_style": "Premium product still life with big typographic facts around the bottle",
+    "angle_used": "Main benefit: the daily support her leg routine was missing",
+    "ad_format": "Product Hero Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (headline and big facts), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (top of the background), white #FFFFFF (pedestal). Secondary for this variation: dusty mauve #D9A7BE for the lower background and dry-leaf tan #B79B72.",
+    "visual_style": "Bold, feminine premium still-life supplement ad; the real bottle sharp and identical to the photo, with fuchsia and plum brand accents.",
+    "visual_atmosphere": "Calm, confident and premium, warm and soft; never clinical.",
+    "graphic_language": "Big typographic facts, hand-drawn curved black arrows, one solid circle sticker, a white cylindrical pedestal and dry botanicals at the base.",
+    "text_typography": "Headline and big fact numbers in a very heavy geometric sans-serif (Montserrat Black look); fact captions in a rounded bold sans-serif (Poppins Bold look), uppercase."
+  },
+  "creative_objective": "Stop the woman who trains legs and sees no change, and answer her in one look with four true, simple facts that point to the real bottle: easy (2 capsules a day), what it has (3 in 1 plus vitamins A and E) and how long the plan is (3 months).",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Two-line headline. 2) The bottle on the pedestal. 3) The four corner facts with arrows. 4) The circle sticker. 5) The small seal line on the pedestal.",
+    "composition_style": "Symmetric: headline centered on top (20%), bottle centered (70% zone) with two facts on each side pointing inward with curved arrows, botanicals at the base (10%).",
+    "spacing_and_structure": "Wide margins, the four facts aligned to the outer edges at two heights (upper pair at 32-45% of height, lower pair at 58-75%), arrows starting next to each fact and ending near the bottle edge without touching the label.",
+    "lighting_and_depth": "Soft key light from the upper left, gentle rim light on the cap, soft gradient background from blush pink to dusty mauve, soft contact shadow on the pedestal, blurred foreground leaves for depth.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top: two-line dark headline centered. Center: the bottle standing on a white cylindrical pedestal, a solid circle sticker overlapping its right shoulder, and four big facts in the four corners (big word or number plus a short uppercase caption) with curved hand-drawn arrows pointing to the bottle. Bottom: dry leaves and herbs scattered at the foot of the pedestal.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top center, 20% of height", "visual_function": "Names the segment and the problem", "adaptation_rule": "Squats without change: your routine needs support", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "product on pedestal", "position": "center", "visual_function": "The hero", "adaptation_rule": "The real closed bottle on a white cylindrical pedestal", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "circle sticker", "position": "over the right shoulder of the bottle", "visual_function": "Offer anchor ('from X per day' in the reference)", "adaptation_rule": "No price was given: true fact '60 CÁPSULAS / 1 MES POR FRASCO'", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "four corner facts with arrows", "position": "upper left, upper right, lower left, lower right", "visual_function": "Proof points around the product", "adaptation_rule": "Only verifiable facts: dose, formula, vitamins, plan length. No customer numbers, no weight numbers, no guarantee", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "botanicals at the base", "position": "bottom 10%", "visual_function": "Natural origin cue", "adaptation_rule": "Dry palm leaves, fenugreek seeds and dried maca root slices", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "user trust seal (required by the user)", "position": "printed small on the front of the pedestal", "visual_function": "Registration seal the user asked for", "adaptation_rule": "Exact text, small, centered on the pedestal front", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Star ratings, customer counts, money-back guarantee",
+      "Weight-loss or centimeter numbers",
+      "Price or per-day cost",
+      "CTA buttons or bottom bars",
+      "Loose capsules, pills or an open bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium still-life supplement ad. Background: a smooth vertical gradient from pale blush pink #FBE3EE at the top to dusty mauve #D9A7BE at the bottom, softly lit, with a faint warm glow behind the bottle. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore the hand and the counter in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, bottle, numbers or colors.\n\nTOP (0-20% of height): a centered two-line headline in a very heavy geometric sans-serif (Montserrat Black look), dark plum #2B1226, uppercase: line 1 'SENTADILLAS SIN CAMBIO:' and line 2 'TU RUTINA PIDE APOYO', the word 'APOYO' in hot fuchsia #E6177F. Both lines about 88% of the width.\n\nCENTER (20-90%): a white matte cylindrical pedestal (about 45% of the canvas width, 12% tall) sits at the bottom center. On it stands ONE closed real bottle, centered, about 52% of the canvas height, perfectly frontal, label facing the camera, fully legible and never mirrored: a matte black cylinder about 1.6 times taller than wide with straight sides and no neck, a wide glossy hot-pink cap almost as wide as the body printed with a small white 'VITALABH' pattern, a hot-pink band on the bottom fifth, black label with the huge white word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, the pink banner, the italic pink 'TRIPLE ACCIÓN' with swoosh, and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'. Soft key light from the upper left, thin rim light on the cap edge, soft contact shadow on the pedestal; matte, no rainbow, no prism light, no lens flare. Overlapping the bottle's right shoulder (not covering 'AGUAJE'), a solid deep magenta #B0105E circle about 17% of the canvas width with white Poppins Bold text in two lines: '60 CÁPSULAS' and '1 MES POR FRASCO'.\nFour big facts placed in the corners of this zone, each one a big word in Montserrat Black and a two-line uppercase caption in Poppins Bold under it, all in dark plum #2B1226 except where noted, each with a hand-drawn black curved arrow (thin brush stroke with an open arrowhead) pointing inward to the bottle edge: UPPER LEFT: big '2 CÁPSULAS' in hot fuchsia #E6177F, caption 'AL DÍA CON TUS COMIDAS'. UPPER RIGHT: big '3 EN 1', caption 'AGUAJE, FENOGRECO Y MACA NEGRA'. LOWER LEFT: big '3 MESES', caption 'TU PLAN COMPLETO'. LOWER RIGHT: big 'VITAMINAS', caption 'A Y E'. The upper facts sit at about 32-45% of the height, the lower ones at about 58-75%, all inside a 5% outer margin.\nOn the front face of the white pedestal, small centered dark plum Poppins SemiBold text: 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024', fully legible.\n\nBOTTOM (90-100%): dry botanicals in the foreground at both lower corners, slightly blurred and overlapping the pedestal base: dry tan palm leaves #B79B72, a small pile of golden fenugreek seeds and a few dried dark maca root slices. Nothing else.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline line 1", "reference_position": "top center", "text_style": "Montserrat Black look, uppercase, dark plum #2B1226", "text": "SENTADILLAS SIN CAMBIO:" },
+    { "block_id": "text_block_02", "reference_function": "main headline line 2", "reference_position": "top center, under line 1", "text_style": "Montserrat Black look, uppercase, dark plum with 'APOYO' in hot fuchsia #E6177F", "text": "TU RUTINA PIDE APOYO" },
+    { "block_id": "text_block_03", "reference_function": "big fact", "reference_position": "upper left corner", "text_style": "Montserrat Black look, hot fuchsia #E6177F, big", "text": "2 CÁPSULAS" },
+    { "block_id": "text_block_04", "reference_function": "fact caption", "reference_position": "upper left, under the big fact", "text_style": "Poppins Bold, uppercase, dark plum, two lines", "text": "AL DÍA CON TUS COMIDAS" },
+    { "block_id": "text_block_05", "reference_function": "big fact", "reference_position": "upper right corner", "text_style": "Montserrat Black look, dark plum, big", "text": "3 EN 1" },
+    { "block_id": "text_block_06", "reference_function": "fact caption", "reference_position": "upper right, under the big fact", "text_style": "Poppins Bold, uppercase, dark plum, two lines", "text": "AGUAJE, FENOGRECO Y MACA NEGRA" },
+    { "block_id": "text_block_07", "reference_function": "big fact", "reference_position": "lower left corner", "text_style": "Montserrat Black look, dark plum, big", "text": "3 MESES" },
+    { "block_id": "text_block_08", "reference_function": "fact caption", "reference_position": "lower left, under the big fact", "text_style": "Poppins Bold, uppercase, dark plum", "text": "TU PLAN COMPLETO" },
+    { "block_id": "text_block_09", "reference_function": "big fact", "reference_position": "lower right corner", "text_style": "Montserrat Black look, dark plum, big", "text": "VITAMINAS" },
+    { "block_id": "text_block_10", "reference_function": "fact caption", "reference_position": "lower right, under the big fact", "text_style": "Poppins Bold, uppercase, dark plum", "text": "A Y E" },
+    { "block_id": "text_block_11", "reference_function": "badge", "reference_position": "magenta circle on the bottle's right shoulder", "text_style": "Poppins Bold, white, two lines", "text": "60 CÁPSULAS" },
+    { "block_id": "text_block_12", "reference_function": "badge subline", "reference_position": "magenta circle, second line", "text_style": "Poppins Bold, white", "text": "1 MES POR FRASCO" },
+    { "block_id": "text_block_13", "reference_function": "trust item (user seal, exact)", "reference_position": "front face of the pedestal", "text_style": "Poppins SemiBold, dark plum, small, centered", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "One closed real bottle centered on a white cylindrical pedestal, label frontal and legible",
+    "Four big facts in the four corners, each with a hand-drawn curved arrow pointing to the bottle",
+    "Solid deep magenta circle sticker on the bottle's right shoulder",
+    "Dry botanicals (palm leaves, fenugreek seeds, maca slices) at the base"
+  ],
+  "final_generation_exclusions": [
+    "No star ratings, customer counts, guarantees, weight or centimeter numbers.",
+    "No price or per-day cost.",
+    "No loose capsules, no pills, no open bottle, no hands.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. Only label facts (dose, formula, vitamins, duration).",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}
