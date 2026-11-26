@@ -66,6 +66,11 @@ export const apiImagenes = {
   /** El kit de marca de un producto: { kit: { primario, secundario, fuenteTitulo, fuenteScript, sticker, automatico }, fuentesTitulo, fuentesMano, stickers } */
   kit: (productoId) => pedirNuevo(`${BASE}/kit/${enc(productoId)}`),
   guardarKit: (productoId, kit) => pedirNuevo(`${BASE}/kit/${enc(productoId)}`, { metodo: 'PUT', cuerpo: { kit } }),
+  /** (2026-11-26a) Lo de venta de un producto: { ajustes: { oferta, sellos, pais, prohibido }, paises: [{ codigo, nombre }] } */
+  ajustes: (productoId) => pedirNuevo(`${BASE}/ajustes/${enc(productoId)}`),
+  /** (2026-11-26a) Lo que vendió en Meta cada formato + ángulo (de «Aprender de mis ventas»): { fecha, productos } */
+  ventas: () => pedirNuevo(`${BASE}/ventas`),
+  aprenderDeVentas: () => pedirNuevo(`${BASE}/ventas/aprender`, { metodo: 'POST', cuerpo: { rango: '90d' } }),
   /** La muestra de una plantilla con tu producto y tu kit (una imagen 1:1 que arma el servidor y guarda). */
   urlMuestra: (id, { producto = null, foto = null, kit = null, anuncio = null, version = null } = {}) => {
     const q = new URLSearchParams();

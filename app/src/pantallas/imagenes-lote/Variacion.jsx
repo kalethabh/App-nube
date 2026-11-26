@@ -144,6 +144,18 @@ export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical,
         ) : null}
       </header>
       {x.titular ? <p className="lote-var__titular t-dos-lineas">{x.titular}</p> : null}
+      {/* (2026-11-26a) «Qué tan distintas»: el formato (con su id), por qué debería vender y la nota de la revisión */}
+      {x.porQueVende || Number.isInteger(x.nota) ? (
+        <div className="lote-var__venta">
+          {Number.isInteger(x.nota) ? (
+            <span className={`lote-var__nota lote-var__nota--${x.nota >= 8 ? 'alta' : x.nota >= 6 ? 'media' : 'baja'}`} title="Qué tan probable es que venda, según la revisión (1 a 10)">
+              {x.nota}/10
+            </span>
+          ) : null}
+          {x.formatoId ? <span className="t-mini t-3">{x.formatoId}</span> : null}
+          {x.porQueVende ? <p className="lote-var__porque t-mini">{x.porQueVende}</p> : null}
+        </div>
+      ) : null}
       {x.plantilla && onEditarTextos ? (
         <div className="lote-var__plantilla">
           <Boton variante="secundario" tamano="chico" icono={PenLine} onClick={() => onEditarTextos(x)}>

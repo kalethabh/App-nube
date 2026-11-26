@@ -17,6 +17,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { completarVariacionesFieles } from './variaciones-fieles.js';
 import { leerJSON, existe, listar } from '../archivos.js';
+import { nivelDe, esVariado, REHACER_SOLO, nombreDeDescarga } from './variedad.js';
 import { nuevoEstado, asegurarPiezas, aplicarRevision, listaDePiezas, cuentas, PEDIDO_TERMINADO } from './planificador.js';
 import { verificarRevision, leerSkill } from './verificar.js';
 import { borrarRecortes, finalAlDia, sha1DelLogo } from './local.js';
@@ -90,6 +91,8 @@ export function cargarYNormalizar(carpeta, brief, { uuidEstrategia = null, motor
     // (un estado de antes, sin la IA de la estrategia: se completa con la del paso, si se sabe)
     if (est.tandas?.E001 && !est.tandas.E001.motor && motor) est.tandas.E001.motor = motor;
   }
+  // (2026-11-26a) «Vecinas» y «Conceptos nuevos»: lo que la revisión no aprueba se rehace solo (hasta 2)
+  est.autoRehacer = esVariado(brief) ? REHACER_SOLO : 0;
   // PLANTILLAS: lo que dibuja solo la app (las plantillas sin escena y los verticales, que reutilizan la escena del
   // cuadrado) nunca va al motor: queda «final» de entrada y la pantalla lo muestra cuando está dibujado.
   if (brief?.plantillas) {
@@ -247,6 +250,14 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
   const pedidos = todosLosPedidos(carpeta, est);
   const nombre = kebab(brief?.titulo || brief?.datos?.nombre || 'anuncio', 30);
   const delPlan = new Map((plan?.variaciones || []).map((x) => [x.id, x]));
+  // (2026-11-26a) el nombre de descarga con el formato y el ángulo ('aguaje_V03-F17-ugc-selfie-transformacion.png'):
+  // así «Aprender de mis ventas» reconoce cada anuncio en Meta. Sin formato de la biblioteca, el nombre de antes.
+  const descargaDe = (v, f) => {
+    const x = delPlan.get(v);
+    return x?.formato_id && x?.angulo_id && x.fuente !== 'referencia'
+      ? nombreDeDescarga({ producto: brief?.datos?.nombre || brief?.titulo, v, formatoId: x.formato_id, anguloId: x.angulo_id, formato: f, skill: leerSkill() })
+      : `${nombre}-${v}-${nombreFormato(f)}.png`;
+  };
 
   const vistaDePieza = (v, f) => (brief?.plantillas ? vistaDePiezaPlantilla(v, f) : vistaDePiezaComun(v, f));
 
@@ -279,7 +290,7 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
       url: fFinal ? `${base}/final/${id}.png?v=${fFinal}` : null,
       urlSinLogo: fFinal ? `${base}/final/${id}.png?v=${fFinal}` : null,
       miniatura: fFinal ? `${mini}/final/${id}.png?ancho=480&v=${fFinal}` : null,
-      descarga: `${nombre}-${v}-${nombreFormato(f)}.png`,
+      descarga: descargaDe(v, f),
       version: p?.version || 0,
       versiones,
       problemas: [],
@@ -326,7 +337,7 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
       url: fImg ? `${base}/${rel}?v=${marca}` : null,
       urlSinLogo: fImg ? `${base}/img/${id}.png?v=${fImg}` : null,
       miniatura: fImg ? `${mini}/${rel}?ancho=480&v=${marca}` : null,
-      descarga: `${nombre}-${v}-${nombreFormato(f)}.png`,
+      descarga: descargaDe(v, f),
       version: p?.version || 0,
       versiones,
       problemas,
@@ -338,7 +349,7 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
     };
   };
 
-  const variaciones = ids.map((v) => {
+  const variaciones0 = ids.map((v) => {
     const x = delPlan.get(v);
     const sinPrompt = est?.variaciones?.[v]?.prompt === 'sin-prompt';
     const ap = brief?.plantillas ? plantillaDe(carpeta, v) : null;
@@ -350,10 +361,21 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
       titular: x?.titular || '',
       // (agente de variaciones) qué nivel es, qué cambió respecto del ganador y qué se quiere probar
       ...(x?.nivel ? { nivel: String(x.nivel).slice(0, 1), cambio: String(x.cambio || '').slice(0, 300), hipotesis: String(x.hipotesis || '').slice(0, 300), faceta: String(x.faceta || '').slice(0, 120) } : {}),
+      // (2026-11-26a) «Qué tan distintas»: el id del formato, por qué debería vender y la nota de la revisión (1-10)
+      ...(nivelDe(brief) && x
+        ? {
+            formatoId: x.formato_id || null,
+            porQueVende: String(x.por_que_vende || '').slice(0, 300),
+            nota: Number.isInteger(est?.piezas?.[piezaId(v, '1:1')]?.revision?.nota) ? est.piezas[piezaId(v, '1:1')].revision.nota : null,
+          }
+        : {}),
       estado: sinPrompt ? 'sin-prompt' : 'ok',
       piezas: Object.fromEntries(formatos.map((f) => [f, vistaDePieza(v, f)])),
     };
   });
+
+  // (2026-11-26a) «Qué tan distintas»: las de mejor nota primero (las que no tienen nota todavía, en su orden, al final)
+  const variaciones = nivelDe(brief) ? [...variaciones0].sort((a, b) => (b.nota ?? -1) - (a.nota ?? -1)) : variaciones0;
 
   // el avance
   const c = est ? cuentas(est) : { total: ids.length * formatos.length, listas: 0, escritas: 0 };
@@ -378,6 +400,8 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
     modoPrueba: Boolean(modoPrueba),
     // (2026-11-20) hecho por el agente de variaciones: su análisis del anuncio ganador
     ...(brief?.agente === 'variaciones' ? { agente: 'variaciones', analisis: resumenAnalisis(leerJSON(path.join(carpeta, 'analisis-ganador.json'))) } : {}),
+    // (2026-11-26a) «Qué tan distintas»: el nivel y el análisis del ganador (analisis.json), arriba de las imágenes
+    ...(nivelDe(brief) ? { variacion: nivelDe(brief), ganador: analisisParaLaPantalla(leerJSON(path.join(carpeta, 'analisis.json'))) } : {}),
     // la IA que hizo la estrategia del lote, 'claude' | 'codex' (null si todavia no la hizo ninguna): «… los hizo
     // {Claude|ChatGPT} con tu plan» (la pantalla la lee con motorDelLote de datos/imagenes.js)
     motor: motorDelLote(est, conductor),
@@ -479,3 +503,26 @@ function ultimaModificacion(carpeta, fechas) {
 }
 
 export { listaDePiezas, ordenDeV };
+
+/** (2026-11-26a) El análisis del ganador como lo muestra la pantalla (solo los campos conocidos, cortos). */
+function analisisParaLaPantalla(a) {
+  if (!a || typeof a !== 'object') return null;
+  const t = (x, max = 300) => (typeof x === 'string' ? x.replace(/\s+/g, ' ').trim().slice(0, max) : '');
+  const l = (x) => (Array.isArray(x) ? x.map((y) => t(y, 200)).filter(Boolean).slice(0, 8) : []);
+  const { angulos, formatos } = leerSkill();
+  return {
+    esencia: t(a.esencia),
+    deseo: t(a.deseo_central),
+    dolor: t(a.dolor_principal),
+    promesa: t(a.promesa),
+    emocion: t(a.emocion, 120),
+    conciencia: t(a.nivel_conciencia, 60),
+    mecanismo: t(a.mecanismo_persuasion),
+    hook: { que: t(a.hook_visual?.que), porQue: t(a.hook_visual?.por_que) },
+    invariables: l(a.invariables),
+    modificables: l(a.modificables),
+    experimentales: l(a.experimentales),
+    formato: formatos.get(a.formato_ganador)?.nombre || t(a.formato_ganador, 40),
+    angulo: angulos.get(a.angulo_ganador)?.nombre || t(a.angulo_ganador, 40),
+  };
+}

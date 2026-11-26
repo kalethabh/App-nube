@@ -232,7 +232,7 @@ export function leerLote(carpeta) {
   if (lote.logo != null && !(typeof lote.logo === 'object' && POSICIONES[lote.logo.posicion])) {
     throw new ErrorInvalido(`lote.json: logo ${JSON.stringify(lote.logo)} (tiene que ser null o { "posicion": una de ${Object.keys(POSICIONES).join(', ')} }).`);
   }
-  return { ...lote, rutaProducto: producto, logo: lote.logo ? { posicion: lote.logo.posicion } : null, fiel: lote.fiel === true };
+  return { ...lote, rutaProducto: producto, logo: lote.logo ? { posicion: lote.logo.posicion } : null, fiel: lote.fiel === true, ganador: typeof lote.ganador === 'string' ? lote.ganador : null };
 }
 
 /** Valida una orden T###.json. Devuelve la lista de sus piezas (normalizada) o lanza ErrorInvalido. */
@@ -546,6 +546,12 @@ class Motor {
    * imagen no esta (entonces se genera como siempre, solo con la foto).
    */
   referenciaDe(v) {
+    // (2026-11-26a) «Vecinas»/«Conceptos»: el ganador va como referencia de estilo en todas (ver modoReferencia)
+    if (this.lote.ganador) {
+      const m = /(entrada\/referencias\/R\d{2}\.[a-z]+)$/i.exec(this.lote.ganador.replace(/\\/g, '/'));
+      const abs = m ? path.join(this.carpeta, ...m[1].split('/')) : null;
+      return abs && existe(abs) ? abs : null;
+    }
     if (!this.lote.fiel) return null;
     const plan = leerJSON(path.join(this.carpeta, 'plan.json'));
     const x = (plan?.variaciones || []).find((y) => y?.id === v);
@@ -556,6 +562,18 @@ class Motor {
     return existe(abs) ? abs : null;
   }
 
+  /**
+   * (2026-11-26a) Cómo usa el modelo la referencia de una variación: 'composicion' (copia el diseño: «Fieles» y las de
+   * su mismo formato), 'estilo' (solo estilo, producto y oferta: el resto de «Vecinas»/«Conceptos») o null.
+   */
+  modoReferencia(v) {
+    if (!this.referenciaDe(v)) return null;
+    if (!this.lote.ganador) return 'composicion';
+    const plan = leerJSON(path.join(this.carpeta, 'plan.json'));
+    const x = (plan?.variaciones || []).find((y) => y?.id === v);
+    return x?.mismo_formato_que_ganador === true ? 'composicion' : 'estilo';
+  }
+
   armarPrompt(item, ad) {
     const formato = formatoDePieza(item.pieza);
     const logo = this.lote.logo;
@@ -563,7 +581,8 @@ class Motor {
     if (item.modo === 'editar') {
       armar = (a) => construirPromptEdicion(a, { instruccion: item.instruccion_en, formato, textos: item.textos === true, logo });
     } else if (formato === '1:1') {
-      const referencia = Boolean(this.referenciaDe(vDePieza(item.pieza)));
+      const modo = this.modoReferencia(vDePieza(item.pieza));
+      const referencia = modo === 'estilo' ? 'estilo' : Boolean(modo);
       armar = (a) => construirPrompt(a, { logo, correccion: item.correccion_en, referencia });
     } else {
       armar = (a) => construirPromptVertical(a, { conProducto: true, logo, correccion: item.correccion_en });

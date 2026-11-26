@@ -47,6 +47,9 @@ explorar diversidad, no una garantía de rendimiento).
 - C · Conceptos expandidos: otra forma de presentar el mismo producto (historia visual, experiencia cotidiana,
   demostración, comparación, beneficio secundario relacionado, objeción). Nunca cambies de ángulo solo por variedad.
 
+### En la app: «Qué tan distintas» (2026-11-26a)
+En «Variantes» de Anuncios de imagen el usuario elige **Fieles** (el diseño exacto), **Vecinas** (por defecto: la mitad con el ángulo del ganador, el resto con al menos 3 ángulos más, al menos 2 variables cambiadas en cada una) o **Conceptos nuevos** (un formato distinto en cada una). Las reglas duras de Vecinas y Conceptos (máximo 2 por formato, ≥4 ángulos, ≥3 nativas, ≥3 con el producto protagonista, escena/modelo/vestuario/cámara/paleta secundaria sin repetir) las revisa la app (`app/server/lib/imagen-ads/variedad.js`) y la IA rehace el plan si falla alguna. El análisis del ganador va en `analisis.json` del lote.
+
 ## 6. Dirección de arte: diseño limpio de alta conversión (obligatoria)
 MENOS RUIDO VISUAL, MÁS ATENCIÓN AL MENSAJE.
 - Fondos limpios: sólidos o degradados suaves, tonos de la marca, luz natural o de estudio, texturas sutiles, espacio

@@ -1233,3 +1233,15 @@ button.lote-pieza__marco:hover .lote-pieza__img {
 .agl__nivel--A { color: #A3FF12; }
 .agl__nivel--B { color: #38bdf8; }
 .agl__nivel--C { color: #c084fc; }
+
+/* (2026-11-26a) Qué hace vender a tu ganador (AnalisisGanador.jsx) y la nota de cada variación */
+.agl__datos { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px 14px; }
+.agl__datos div { min-width: 0; }
+.agl__datos dt { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--texto-3); }
+.agl__datos dd { margin: 2px 0 0; font-size: 13px; color: var(--texto-1); }
+.lote-var__venta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; padding: 0 2px; }
+.lote-var__nota { flex: none; padding: 1px 7px; border-radius: 999px; font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.lote-var__nota--alta { background: color-mix(in srgb, #22c55e 18%, transparent); color: #16a34a; }
+.lote-var__nota--media { background: color-mix(in srgb, #eab308 18%, transparent); color: #a16207; }
+.lote-var__nota--baja { background: color-mix(in srgb, #ef4444 16%, transparent); color: #dc2626; }
+.lote-var__porque { flex-basis: 100%; margin: 0; color: var(--texto-2); }

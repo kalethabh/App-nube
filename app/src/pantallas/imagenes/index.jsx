@@ -7,9 +7,9 @@
 //   #/imagenes?simular=1       la vista previa del diseño, con productos y lotes de ejemplo (no se guarda nada)
 //   …&vacio=1                  la vista previa sin lotes (la bienvenida)
 import { useEffect, useMemo, useState } from 'react';
-import { Images, Package, PenLine, Plus, RotateCcw, Sparkles, TriangleAlert } from 'lucide-react';
-import { Boton, CabeceraPagina, Esqueleto, EsqueletoMiniaturas, EstadoVacio, VistaPrevia } from '../../componentes/index.js';
-import { useLotes, useProductosImagen } from '../../datos/imagenes.js';
+import { ChartNoAxesCombined, Images, Package, PenLine, Plus, RotateCcw, Sparkles, TriangleAlert } from 'lucide-react';
+import { Boton, CabeceraPagina, Esqueleto, EsqueletoMiniaturas, EstadoVacio, VistaPrevia, useAvisos } from '../../componentes/index.js';
+import { apiImagenes, useLotes, useProductosImagen } from '../../datos/imagenes.js';
 import { lotesDeEjemplo, productosDeEjemplo } from '../../datos/imagenes-simulacion.js';
 import { enlace, ir, rutas } from '../../datos/rutas.js';
 import { mayuscula, useMotor } from '../ajustes/datos.js';
@@ -22,6 +22,37 @@ const PASOS = [
   { icono: PenLine, titulo: 'Cuenta cómo se vende', texto: 'Público, precio, país y cuántos anuncios quieres.' },
   { icono: Sparkles, titulo: 'La IA hace el resto', texto: 'Arma la estrategia, crea cada imagen en cuadrado y, si quieres, también en vertical, y las revisa.' },
 ];
+
+/**
+ * (2026-11-26a) «Aprender de mis ventas»: lee tus anuncios en Meta (SEP), reconoce en su nombre el formato y el ángulo
+ * (el nombre de descarga: producto_V03-F17-ugc-selfie-transformacion.png) y guarda lo que más vendió de cada producto.
+ * Los lotes nuevos de «Vecinas» y «Conceptos» lo priorizan y prueban siempre 3 combinaciones nuevas.
+ */
+function AprenderDeVentas() {
+  const { aviso } = useAvisos();
+  const [ocupado, setOcupado] = useState(false);
+  const aprender = async () => {
+    setOcupado(true);
+    try {
+      const r = await apiImagenes.aprenderDeVentas();
+      const productos = Object.keys(r?.productos || {}).length;
+      aviso(
+        r?.reconocidos
+          ? { tipo: 'exito', titulo: 'Listo: aprendí de tus ventas', texto: `Reconocí ${r.reconocidos} de tus ${r.anuncios} anuncios en Meta (${productos} producto${productos === 1 ? '' : 's'}). Tus próximos lotes priorizan lo que más vendió.` }
+          : { tipo: 'info', titulo: 'Todavía no reconozco tus anuncios', texto: `Leí ${r?.anuncios || 0} anuncios en Meta, pero ninguno tiene el nombre con el que la app descarga las imágenes (por ejemplo producto_V03-F17-ugc-selfie-transformacion). Súbelas a Meta con ese nombre.` },
+      );
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude leer tus ventas', texto: e?.message || 'Vuelve a intentarlo.' });
+    } finally {
+      setOcupado(false);
+    }
+  };
+  return (
+    <Boton variante="secundario" icono={ChartNoAxesCombined} cargando={ocupado} onClick={aprender}>
+      Aprender de mis ventas
+    </Boton>
+  );
+}
 
 function Bienvenida({ hrefCrear }) {
   return (
@@ -123,9 +154,12 @@ export default function PantallaImagenes({ consulta }) {
         }
         acciones={
           sinLotes ? null : (
-            <Boton variante="primario" tamano="grande" icono={Plus} href={hrefCrear}>
-              Crear anuncios de imagen
-            </Boton>
+            <>
+              {simulando ? null : <AprenderDeVentas />}
+              <Boton variante="primario" tamano="grande" icono={Plus} href={hrefCrear}>
+                Crear anuncios de imagen
+              </Boton>
+            </>
           )
         }
       />

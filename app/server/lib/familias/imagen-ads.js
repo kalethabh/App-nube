@@ -37,6 +37,7 @@ import * as local from '../imagen-ads/local.js';
 import { R, firma, guardarJSON, conCeros, siguienteEnDisco, fotoDelLote, formatoDe, vDe } from '../imagen-ads/disco.js';
 import { cargarYNormalizar, guardar } from '../imagen-ads/estado.js';
 import { sesionEstrategia, sesionPrompts, sesionRevision, sesionAjuste, permisos } from '../imagen-ads/sesiones.js';
+import { esVariado, conAnalisis } from '../imagen-ads/variedad.js';
 import { verificarSesion, leerBloqueo, verificarRevision, verificarAjuste, verificarV } from '../imagen-ads/verificar.js';
 import { revisionSimulada, revisionDeLaTanda } from '../imagen-ads/revision-simulada.js';
 import { loteAnterior, usadosDe, armarInforme, piezasPorHacer, faltaDelBorrador } from '../imagen-ads/lotes.js';
@@ -163,6 +164,9 @@ async function preparar(ctx) {
     logo: b.logo?.posicion ? { posicion: b.logo.posicion } : null,
     // «más de lo mismo»: el modelo de imagen recibe también la referencia de cada variación (generar-imagen-ads.js)
     fiel: Boolean(b.fiel && (b.referencias || []).length),
+    // (2026-11-26a) «Vecinas» y «Conceptos nuevos»: el ganador va como referencia de ESTILO (no de composición), salvo
+    // las variaciones de su mismo formato (plan.json: mismo_formato_que_ganador)
+    ...(esVariado(b) && (b.referencias || []).length ? { ganador: b.referencias[0] } : {}),
   });
   return { ok: true };
 }
@@ -234,6 +238,19 @@ async function estrategia(ctx) {
     anotarRegistro(c, 'E001', { desde0: true, formatos: r.formatos, errores: v.ok ? null : v.errores.slice(0, 10) });
     if (!v.ok) return error('Los anuncios quedaron incompletos. Toca “Continuar” para intentarlo otra vez.', 'desde0', v.errores.slice(0, 3).join(' · '));
     return { ok: true };
+  }
+  // (2026-11-26a) EL ANÁLISIS DEL GANADOR: en todo lote de «Variantes» con el selector «Qué tan distintas», antes de
+  // cualquier variación (analisis.json; la pantalla lo muestra arriba de las imágenes)
+  if (conAnalisis(b)) {
+    const { analisisListo, analizarGanador } = await import('../imagen-ads/analisis.js');
+    if (!analisisListo(c)) {
+      const r = await analizarGanador(c, b, { lote: ctx.slug, avance: (t) => ctx.avance(t) });
+      anotarRegistro(c, 'E001', { analisis: r.ok, motivo: r.motivo || null });
+      if (!r.ok) {
+        if (r.motivo === 'limite') return errorDeLimite(r.resultado);
+        return error(r.motivo === 'sin-ia' ? 'Para analizar tu anuncio ganador, la app usa tu IA: conéctala en Ajustes › Conexiones y toca “Continuar”.' : 'No pude analizar tu anuncio ganador. Toca “Continuar” para intentarlo otra vez.', 'analisis', r.motivo);
+      }
+    }
   }
   // (2026-11-21) MODO REPLICAR VALIDADO: antes, la IA saca el mapa de cada referencia (replicar.js)
   if (b.replicar && b.modo === 'variantes') {

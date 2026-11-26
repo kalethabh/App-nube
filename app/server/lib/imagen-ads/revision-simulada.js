@@ -22,7 +22,9 @@ const FALLAN = { V02_1x1: [1], V03_1x1: [1], V02_9x16: [1] };
 /** Lo que "ve" la revision simulada de una pieza en su ronda: { pieza, ok, problemas }. */
 export function revisarSimulada(pieza, ronda) {
   const falla = ronda !== 'u' && (FALLAN[pieza] || []).includes(Number(ronda));
-  return { pieza, ok: !falla, problemas: falla ? [PROBLEMA_DE_PRUEBA] : [], ...(falla ? { correccion_en: CORRECCION_DE_PRUEBA } : {}) };
+  // (2026-11-26a) con su nota de venta (1-10): la que falla, 4; las demás, entre 6 y 10 (para ordenar el lote)
+  const nota = falla ? 4 : 6 + (Number(String(pieza).slice(1, 4).replace(/\D/g, '')) % 5);
+  return { pieza, ok: !falla, problemas: falla ? [PROBLEMA_DE_PRUEBA] : [], nota, ...(falla ? { correccion_en: CORRECCION_DE_PRUEBA } : {}) };
 }
 
 /** El R###.json de una tanda simulada: { revisadas: [...] }. */

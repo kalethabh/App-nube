@@ -13,7 +13,8 @@
           "pieza": { "type": "string", "pattern": "^V\\d{2,3}_(1x1|9x16)$" },
           "ok": { "type": "boolean" },
           "problemas": { "type": "array", "maxItems": 12, "items": { "type": "string", "minLength": 1, "maxLength": 400 } },
-          "correccion_en": { "type": "string", "maxLength": 600 }
+          "correccion_en": { "type": "string", "maxLength": 600 },
+          "nota": { "type": "integer", "minimum": 1, "maximum": 10 }
         }
       }
     }
