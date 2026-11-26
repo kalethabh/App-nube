@@ -208,10 +208,16 @@ async function saldo(ctx) {
  */
 function recordarCuerpo(carpeta, brief) {
   try {
-    if (!brief?.productoId || brief?.venta?.cuerpo?.zonas?.length) return;
-    const cuerpo = limpiarCuerpo(leerJSON(R.plan(carpeta))?.cuerpo);
-    if (!cuerpo) return;
-    guardarAjustes(brief.productoId, { ...ajustesDe(brief.productoId), cuerpo: { ...cuerpo, resultado: cuerpo.resultado || String(leerJSON(R.plan(carpeta))?.cuerpo?.despues || '').slice(0, 240) } });
+    if (!brief?.productoId) return;
+    const plan = leerJSON(R.plan(carpeta));
+    const antes = ajustesDe(brief.productoId);
+    const nuevo = { ...antes };
+    const cuerpo = brief?.venta?.cuerpo?.zonas?.length ? null : limpiarCuerpo(plan?.cuerpo);
+    if (cuerpo) nuevo.cuerpo = { ...cuerpo, resultado: cuerpo.resultado || String(plan?.cuerpo?.despues || '').slice(0, 240) };
+    // (2026-11-26f) y el tiempo de transformación que dedujo la IA
+    if (!antes.tiempo && !brief?.venta?.tiempo && String(plan?.tiempo || '').trim()) nuevo.tiempo = String(plan.tiempo).trim().slice(0, 140);
+    if (nuevo.cuerpo === antes.cuerpo && nuevo.tiempo === antes.tiempo) return;
+    guardarAjustes(brief.productoId, nuevo);
   } catch (e) {
     console.error(`[imagen-ads] no pude guardar el cuerpo del producto: ${e?.message || e}`);
   }

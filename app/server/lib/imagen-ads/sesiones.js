@@ -25,6 +25,7 @@ import { esVariado, nivelDe, cupos, VARIABLES, ESTILOS, CRITERIOS, NOTA_MINIMA }
 import { estructurasDelLote, copiarEstructuras, copiarReferenciasDe, NOMBRES_CRITERIOS } from './comparacion.js';
 import { textoReglasImagen } from './supervisor.js';
 import { textoCuerpo } from './cuerpo.js';
+import { textoTitulosMayaverra } from './titulares.js';
 import { textoParaClaude } from '../aprendizajes.js';
 import { PAISES } from './precios.js';
 
@@ -134,7 +135,7 @@ Sigue la guía \`${GUIA_AGENTE}\` de la skill (va pegada): eres su Director Crea
    { "referencias": [{ "ref": "R01", "angulo": { "deseo": "…", "problema": "…", "beneficio": "…", "beneficios_secundarios": ["…"], "promesa": "…", "emocion": "…", "conciencia": "…", "mecanismo": "…" }, "estructura": "orden de lectura, titular, foto, producto, confianza, oferta (2-3 frases)", "primeros_segundos": "lo que se entiende al instante", "invariables": ["…"], "modificables": ["…"], "experimentales": ["…"] }], "facetas": ["…", "…", "…"], "resumen": "el ángulo ganador en una frase" }
 2. Arma la matriz (puntos 4 y 5) y reparte las ${n} variaciones así: ${cuenta('A')} de nivel A (cercanas), ${cuenta('B')} de nivel B (conceptos vecinos) y ${cuenta('C')} de nivel C (expandidas), en ese orden (V01 las más cercanas). En las B y C cambia al menos DOS variables de la matriz sin abandonar el deseo principal.
 3. En \`plan.json\`, cada variación sigue saliendo de su referencia (\`"fuente": "referencia"\`) y agrega estos campos: \`"nivel"\` ("A" | "B" | "C"), \`"variables"\` (las que cambió: "faceta", "problema", "contexto", "formato", o "ejecucion" en las A), \`"faceta"\`, \`"contexto"\`, \`"formato_creativo"\`, \`"cambio"\` (qué cambió respecto del ganador, una frase) e \`"hipotesis"\` (qué se quiere probar con ella, una frase). Conserva SIEMPRE los invariables de su referencia.
-4. Dirección de arte limpia (punto 6), jerarquía (titular → imagen del deseo → producto → beneficios → oferta), composición (punto 9) y copy (punto 8): nada de testimonios, cifras, plazos ni certificaciones inventadas; el producto con su envase y etiqueta reales. Una variante por imagen: nunca collages ni «Variante 1» dentro de la pieza.
+4. Dirección de arte limpia (punto 6), jerarquía (titular → imagen del deseo → producto → beneficios → oferta), composición (punto 9) y copy (punto 8): nada de testimonios, cifras ni certificaciones inventadas (el tiempo, el del tratamiento del producto); el producto con su envase y etiqueta reales. Una variante por imagen: nunca collages ni «Variante 1» dentro de la pieza.
 `;
 }
 
@@ -142,7 +143,7 @@ Sigue la guía \`${GUIA_AGENTE}\` de la skill (va pegada): eres su Director Crea
 function textoAgenteInvestigacion(lote, brief, n, cuenta) {
   return `
 ## Agente de variaciones creativas, DESDE LA INVESTIGACIÓN (lo encargó el usuario: sin anuncio de referencia)
-Sigue la guía \`${GUIA_AGENTE}\` de la skill (va pegada): eres su Director Creativo Senior. Aquí no hay anuncio ganador: el ángulo sale de la INVESTIGACIÓN DE MERCADO del producto (léela entera; es la fuente principal). Nunca inventes datos, testimonios, cifras ni plazos que no estén en ella.
+Sigue la guía \`${GUIA_AGENTE}\` de la skill (va pegada): eres su Director Creativo Senior. Aquí no hay anuncio ganador: el ángulo sale de la INVESTIGACIÓN DE MERCADO del producto (léela entera; es la fuente principal). Nunca inventes datos, testimonios ni cifras que no estén en ella (el tiempo de transformación sí: el del tratamiento del producto).
 
 1. ANTES del plan, escribe \`temp/${lote}/analisis-ganador.json\` con el ángulo central que sale de la investigación (punto 3 de la guía, como si fuera el ganador):
    { "referencias": [], "angulo_central": { "deseo": "…", "problema": "…", "beneficio": "…", "beneficios_secundarios": ["…"], "promesa": "…", "emocion": "…", "conciencia": "…", "mecanismo": "…" }, "invariables": ["lo que todo anuncio debe conservar: el deseo, el producto real…"], "modificables": ["…"], "experimentales": ["…"], "facetas": ["…", "…", "…"], "objeciones": ["…"], "resumen": "el ángulo central en una frase" }
@@ -169,11 +170,11 @@ export function textoVenta(brief) {
 }
 
 const REGLAS_CONVERSION = `## Reglas de conversión (todas las variaciones)
-- UN solo mensaje por imagen. Titular AFIRMATIVO de máximo 8 palabras, sin preguntas (sin «¿?»).
+- UN solo mensaje por imagen. GANCHO afirmativo de máximo 7 palabras, sin preguntas (sin «¿?»), y debajo la PROPUESTA DE VALOR con el resultado y el tiempo (ver «Títulos como Mayaverra»).
 - El producto IDÉNTICO a la foto (forma, etiqueta, colores) y legible; nunca rediseñado.
 - Prueba visual del beneficio (se ve, no solo se dice). Antes/después: la misma persona en dos momentos distintos (otra luz, otra ropa, otro día), natural, con una diferencia que se note; nunca el mismo cuadro retocado.
 - Jerarquía: titular → prueba o producto → beneficios (máximo 4) → oferta → confianza (sellos).
-- Políticas de Meta: sin promesas médicas ni garantías de resultados, sin señalar defectos del cuerpo de quien mira («¿tienes…?», «tu grasa»), sin antes/después exagerados ni cifras inventadas. Claims suaves («ayuda a», «de forma natural»).`;
+- Políticas de Meta: sin promesas médicas, sin señalar defectos del cuerpo de quien mira («¿tienes…?», «tu grasa»), sin antes/después exagerados ni cifras inventadas. La promesa es directa y con tiempo (decisión del usuario), sin cifras inventadas, enfermedades ni «garantizado» sin garantía real.`;
 
 /** «Vecinas» o «Conceptos nuevos»: el ganador como estilo, el análisis y las reglas duras del plan. */
 export function textoVariado(lote, brief) {
@@ -259,7 +260,7 @@ const sinSaltos = (t, max = 600) => String(t || '').replace(/[\r\n]+/g, ' ').rep
 export function textoTitulosElegidos(brief) {
   const s = brief?.seleccionTitulos;
   if (!s?.titulos?.length) return '';
-  return `\n## Títulos ya elegidos por el usuario (obligatorio)\nNo vuelvas a proponer ni reescribir títulos ni investigar de nuevo. Conserva esta esencia: ${s.esencia}\n${s.titulos.map((x, i) => `${idsDelLote(s.titulos.length)[i]}: ${JSON.stringify(x.titulo)}. Base: ${x.base}`).join('\n')}\nEn plan.json, titular tiene que ser EXACTAMENTE ese texto. En cada V##.json, una sola capa text_layers lleva ese titular completo y exacto (usa saltos de línea solo para ajustar diseño). Si hay referencia fiel, entre sus variaciones conserva idénticos visual_prompt, global_identity, escena, prueba y todos los textos secundarios: solo cambia esa capa de titular y variation_id. Analiza cada referencia UNA sola vez y reutiliza su estructura. Estas decisiones mandan sobre cualquier instrucción de diversificar ángulos o escenas de la skill.\n`;
+  return `\n## Títulos ya elegidos por el usuario (obligatorio)\nNo vuelvas a proponer ni reescribir títulos ni investigar de nuevo. Conserva esta esencia: ${s.esencia}\n${s.titulos.map((x, i) => `${idsDelLote(s.titulos.length)[i]}: ${JSON.stringify(x.titulo)}${x.propuesta ? ` + propuesta de valor ${JSON.stringify(x.propuesta)} (en \`propuesta_valor\` y en su capa «value proposition»)` : ''}. Base: ${x.base}`).join('\n')}\nEn plan.json, titular tiene que ser EXACTAMENTE ese texto. En cada V##.json, una sola capa text_layers lleva ese titular completo y exacto (usa saltos de línea solo para ajustar diseño). Si hay referencia fiel, entre sus variaciones conserva idénticos visual_prompt, global_identity, escena, prueba y todos los textos secundarios: solo cambia esa capa de titular y variation_id. Analiza cada referencia UNA sola vez y reutiliza su estructura. Estas decisiones mandan sobre cualquier instrucción de diversificar ángulos o escenas de la skill.\n`;
 }
 
 // ---------------------------------------------------------------- el material (lo que lee cada sesion)
@@ -364,7 +365,7 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
   return {
     tipo: 'estrategia',
     ids,
-    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoEstructuras(brief, lote, refsEstructuras) + (usaEstructuras(brief) ? textoManualMayaverra() : '') + (usaEstructuras(brief) || esVariado(brief) ? textoCuerpo(brief) : '') + textoVenta(brief) + `\n${DETALLE_VISUAL}\n` + textoReglasImagen() + textoAprendizajesGenerales() + textoValidados(lote, validados) + textoTitulosElegidos(brief),
+    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoEstructuras(brief, lote, refsEstructuras) + (usaEstructuras(brief) ? textoManualMayaverra() : '') + (usaEstructuras(brief) || esVariado(brief) ? textoCuerpo(brief) + textoTitulosMayaverra(brief) : '') + textoVenta(brief) + `\n${DETALLE_VISUAL}\n` + textoReglasImagen() + textoAprendizajesGenerales() + textoValidados(lote, validados) + textoTitulosElegidos(brief),
     escribe: ['producto.json', 'estrategia.json', 'plan.json', ...ids.map((v) => `${v}.json`), 'app/imagen-ads/bloqueo.json', ...(esDelAgente(brief) ? ['analisis-ganador.json'] : [])],
     maxTurnos: 80 + 2 * k + 2 * validados.length,
     timeoutMin: Math.min(120, 25 + 0.4 * n),
@@ -435,6 +436,7 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
       textoReglasImagen() +
       textoEstructurasPrompts(lote, ids, conEstructura, formatos) +
       (ids.some((v) => conEstructura[v]) ? textoManualMayaverra() + textoCuerpo(brief) : '') +
+      (usaEstructuras(brief) || esVariado(brief) ? textoTitulosMayaverra(brief) : '') +
       textoVenta(brief) +
       (esDelAgente(brief)
         ? `\n## Agente de variaciones (guía \`${GUIA_AGENTE}\`, pegada)\nCada prompt respeta el nivel, el cambio y los invariables de su variación (plan.json y \`analisis-ganador.json\`), y la dirección de arte LIMPIA de la guía: fondo simple con espacio negativo, sin brillos, destellos, partículas ni objetos que compitan; jerarquía titular → imagen del deseo → producto → beneficios → oferta; Montserrat ExtraBold en el titular e Inter en lo secundario; máximo tres niveles de texto; producto con su envase, logo y etiqueta reales; una sola pieza por imagen, sin collage ni rótulos de «Variante».\n`
@@ -495,7 +497,7 @@ export function sesionRevision({ carpeta, lote, brief, tanda, t }) {
     prompt:
       textoClaude('tarea-imagen-ads-revision', valores) +
       (esDelAgente(brief)
-        ? `\n## Agente de variaciones: control de calidad (guía \`${GUIA_AGENTE}\`, puntos 7 y 11)\nAdemás de lo de siempre, cada pieza pasa la prueba de 1 segundo (un elemento claramente dominante), la de 3 (se entiende el deseo, el problema o el beneficio central) y la de 5 (se reconoce el producto y hay una razón para interesarse), y los 10 puntos: conserva el ángulo ganador, titular con un deseo claro, producto reconocible, la imagen refuerza el mensaje, fondo limpio (sin destellos, partículas ni objetos que compitan), jerarquía clara, beneficios legibles, se entiende en el celular, un cambio estratégico real y nada sin verificar (testimonios, cifras, plazos, certificaciones). Una pieza que falla un punto importante no pasa: en su motivo di cuál punto y qué corregir. No apruebes una pieza solo porque se ve bonita. Es un collage o tiene «Variante» escrito: no pasa.\n`
+        ? `\n## Agente de variaciones: control de calidad (guía \`${GUIA_AGENTE}\`, puntos 7 y 11)\nAdemás de lo de siempre, cada pieza pasa la prueba de 1 segundo (un elemento claramente dominante), la de 3 (se entiende el deseo, el problema o el beneficio central) y la de 5 (se reconoce el producto y hay una razón para interesarse), y los 10 puntos: conserva el ángulo ganador, titular con un deseo claro, producto reconocible, la imagen refuerza el mensaje, fondo limpio (sin destellos, partículas ni objetos que compitan), jerarquía clara, beneficios legibles, se entiende en el celular, un cambio estratégico real y nada sin verificar (testimonios, cifras, certificaciones; el tiempo, solo el del tratamiento del producto). Una pieza que falla un punto importante no pasa: en su motivo di cuál punto y qué corregir. No apruebes una pieza solo porque se ve bonita. Es un collage o tiene «Variante» escrito: no pasa.\n`
         : '') +
       (brief?.desde0 || brief?.replicar
         ? `\n## Reglas de estos anuncios (${brief?.desde0 ? 'modo «Desde 0»: 6 zonas' : 'modo «Replicar validado»'})\nAdemás de lo de siempre, una pieza NO pasa si: el nombre de la marca o la etiqueta del frasco no son EXACTOS a la foto del producto (revísalos letra por letra); algún texto queda a menos del 5 % del borde; hay una promesa médica, una garantía o una cifra que no está en su V##.json; un texto tiene faltas o no se lee en el celular a media pantalla.${brief?.desde0 ? ' Y en «Desde 0»: faltan alguna de las 6 zonas (gancho arriba en mayúsculas, el visual principal de 45-55 %, 2 o 3 beneficios con check, el frasco de al menos el 15 % con su sello, la oferta con «Pagas al recibir», un solo CTA) o no respeta la estructura de su formato.' : ' Y en «Replicar validado»: se movió un bloque, cambiaron las letras o los colores de la referencia, o cambió el ángulo.'} En su motivo di cuál regla falla y qué corregir.\n`
@@ -550,6 +552,7 @@ export function sesionAjuste({ carpeta, lote, brief, tanda, pedidos }) {
     prompt:
       textoClaude('tarea-imagen-ads-ajuste', { lote, pedidos: lineas, tanda }) +
       textoReglasImagen() +
+      (usaEstructuras(brief) || esVariado(brief) ? textoTitulosMayaverra(brief) : '') +
       (esDelAgente(brief) ? `\nEste lote es del agente de variaciones: al corregir, conserva el nivel, los invariables y la hipótesis de la variación (plan.json, \`analisis-ganador.json\`) y la dirección de arte limpia de \`${GUIA_AGENTE}\`.\n` : ''),
     escribe: [...vs, `ajustes/${tanda}.json`],
     maxTurnos: 40,
@@ -609,9 +612,9 @@ export function textoManualMayaverra() {
 ## Cómo trabaja Mayaverra (copia su FORMA, nunca su marca, texto ni cifras; manual entero: \`${DE_LA_SKILL}/${MANUAL_MAYAVERRA}\`)
 - LO FIJO en todo el lote (su «kit»): el MISMO frasco real con la etiqueta legible, la misma paleta del producto (un color de base + rojo solo para ofertas + dorado para precios), la MISMA oferta escrita igual letra por letra en todas las imágenes que la lleven, el mismo botón (píldora con «Comprar ahora» o «Quiero probarlo») y UN SOLO enemigo o mecanismo simple repetido de mil formas (como su «no es grasa, es agua»).
 - LO QUE VARÍA: la idea de cada imagen. Su mezcla: 27 % resultado, 20 % mecanismo, 15 % emoción (frase de clienta), 15 % oferta, 13 % urgencia, 10 % segmento; la mitad foto real; un tercio NATIVAS (fotos de celular: la zona en 3 momentos, la selfie, el producto en la cocina, la bodega); EN ESTA APP las nativas llevan un titular corto arriba (máx. 8 palabras, en una píldora o con contorno) y una franja delgada abajo con los sellos del formulario, sin la oferta: la foto sigue viéndose casera. Nunca dos seguidas iguales en gancho ni estilo.
-- SUS TITULARES (2 a 8 palabras, una línea o palabra en otro color): reencuadre «No es [lo que crees]. Es [la causa].»; orden + promesa «Deja de [X]. [Resultado] de verdad.»; alivio en primera persona «Por fin mi [parte] volvió»; número + resultado (solo con cifras del usuario); segmento + diagnóstico simple «[Segmento]: tu [mecanismo] está [problema].»; frase de clienta; urgencia «La oferta [X] termina esta noche»; oferta «Compra [N] y llévate [M] gratis». En esta app el titular es afirmativo (sus preguntas se reescriben como afirmación).
+- SUS TITULARES: 2 o 3 niveles. GANCHO gigante (2 a 7 palabras, una palabra o línea en otro color) + PROPUESTA DE VALOR con TIEMPO («Elimina la hinchazón en tus brazos» + «en solo 3 semanas»; «La rutina para recuperar tu mandíbula» + «Elimina la hinchazón facial en 5 días»; «Programa amigable con la menopausia» + «Programa de 30 días para mujeres de 45+»; «Caderas estilizadas. Semana 5.»; «Por fin mi vieja cintura volvió» + Antes · 24 horas · 1 semana · 4 semanas) + a veces la línea de tiempo. Fórmulas para este producto en «Títulos como Mayaverra». El gancho es afirmativo (sus preguntas se reescriben como afirmación).
 - CÓMO VENDEN: el precio se achica (por frasco o por día, el suelto tachado contra el pack, «tratamiento completo»); quitan el riesgo (garantía, envío gratis, pago contra entrega); la prueba en 4 momentos (antes, 24 horas, 1 semana, 4 semanas); urgencia con historia o con fecha de temporada; síntomas de todos los días, nunca enfermedades.
-- NUNCA: sus cifras («889+», «-6 kg», «4,8/5»), logos de revistas, personal de salud, «disculpas oficiales», urgencias o escasez falsas, ni plazos como garantía. Lo que no se pueda sostener se cambia por algo verdadero (uso, ingredientes, envío, pago al recibir).
+- NUNCA: sus cifras («889+», «-6 kg», «4,8/5»), logos de revistas, personal de salud, «disculpas oficiales», urgencias o escasez falsas. Los plazos SÍ (el tiempo del tratamiento, con promesa directa). Lo que no se pueda sostener se cambia por algo verdadero (uso, ingredientes, envío, pago al recibir).
 `;
 }
 

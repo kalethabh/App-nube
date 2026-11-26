@@ -109,8 +109,27 @@ check('La mezcla de Mayaverra reparte un lote de 8 en sus ganchos (más resultad
   const bueno = erroresCuerpoAnuncio({ visual_prompt: 'Home mirror photo from behind: left half flat glutes, right half lifted, rounder glutes after; toned legs in high-waisted leggings.' }, x, { cuerpo: cuerpoOk }, briefC);
   check('…y con glúteos/piernas, el resultado y leggins pasa', bueno.length === 0, bueno);
 }
+// (2026-11-26f) títulos como Mayaverra: gancho + propuesta de valor con tiempo, promesa directa
+{
+  const { erroresTitularesPlan, erroresPropuestaAnuncio, TIEMPO } = await import('../server/lib/imagen-ads/titulares.js');
+  const { limpiarAjustes } = await import('../server/lib/imagen-ads/ajustes-producto.js');
+  check('El tiempo de transformación del producto se guarda limpio', limpiarAjustes({ tiempo: '  Tratamiento de 3 meses ·  se nota desde la semana 4 ' }).tiempo === 'Tratamiento de 3 meses · se nota desde la semana 4');
+  check('Se reconoce el tiempo («en solo 4 semanas», «semana 4», «tu tratamiento de 3 meses») y no un titular sin tiempo', ['Más firmes en solo 4 semanas', 'CURVAS NATURALES. SEMANA 4.', 'Tu tratamiento de 3 meses'].every((t) => TIEMPO.test(t)) && !TIEMPO.test('Glúteos más bonitos'));
+  // (la fórmula del usuario: PROPUESTA DE VALOR = deseo principal + tiempo de transformación + deseo central)
+  const plan = (conTiempo, tiempo = 'Tratamiento de 3 meses', deseos = true) => ({ tiempo, ...(deseos ? { deseo_principal: 'Glúteos más redondos y firmes', deseo_central: 'Volver a lucir sus jeans con seguridad' } : {}), variaciones: Array.from({ length: 4 }, (_, i) => ({ id: `V0${i + 1}`, titular: 'LEVANTA TUS GLÚTEOS', propuesta_valor: i < conTiempo ? 'Glúteos más redondos y firmes en solo 4 semanas, para volver a lucir tus jeans con seguridad' : 'Glúteos más redondos y firmes, para volver a lucir tus jeans' })) });
+  check('Una variación cuya propuesta de valor no dice el tiempo FALLA', erroresTitularesPlan(plan(3), {}).some((e) => /V04\.propuesta_valor/.test(e)), erroresTitularesPlan(plan(3), {}));
+  check('…sin «tiempo» del producto FALLA', erroresTitularesPlan(plan(4, ''), {}).some((e) => /plan.json → tiempo/.test(e)));
+  check('…sin el deseo principal y el deseo central FALLA', erroresTitularesPlan(plan(4, 'Tratamiento de 3 meses', false), {}).filter((e) => /deseo_(principal|central)/.test(e)).length === 2);
+  check('…con deseo principal + tiempo + deseo central en todas pasa (las fotos caseras y cartas, exentas)', erroresTitularesPlan(plan(4), {}).length === 0 && erroresTitularesPlan(plan(3), {}, { exenta: (x) => x.id === 'V04' }).length === 0);
+  const capas = (extra) => ({ text_layers: [{ block_id: 'text_titular', reference_function: 'main headline', text: 'LEVANTA TUS GLÚTEOS' }, ...extra] });
+  check('Una imagen sin capa de propuesta de valor FALLA', erroresPropuestaAnuncio(capas([]), {}).some((e) => /falta la PROPUESTA DE VALOR/.test(e)));
+  check('…con su propuesta (deseo principal + tiempo + deseo central) pasa', erroresPropuestaAnuncio(capas([{ block_id: 'text_propuesta', reference_function: 'value proposition', text: 'Glúteos más redondos y firmes en solo 4 semanas, para volver a lucir tus jeans con seguridad' }]), {}).length === 0);
+  check('…una propuesta sin el tiempo FALLA', erroresPropuestaAnuncio(capas([{ reference_function: 'value proposition', text: 'Glúteos más redondos y firmes para volver a lucir tus jeans con seguridad' }]), {}).some((e) => /no dice el TIEMPO/.test(e)));
+  check('…una foto casera o una carta de texto no la necesitan', erroresPropuestaAnuncio(capas([]), { sinPropuesta: true }).length === 0);
+  check('«Garantizado» sin garantía en el formulario FALLA (con garantía real, pasa)', erroresPropuestaAnuncio(capas([{ reference_function: 'value proposition', text: 'Resultados garantizados en solo 4 semanas para volver a lucir tus jeans con seguridad' }]), {}).some((e) => /garantizado/.test(e)) && erroresPropuestaAnuncio(capas([{ reference_function: 'value proposition', text: 'Resultados garantizados en solo 4 semanas para volver a lucir tus jeans con seguridad' }]), { venta: { sellos: ['Garantía de 30 días'] } }).length === 0);
+}
 const manualMv = fs.readFileSync(path.join(DIR_EST, 'mayaverra-manual.md'), 'utf8');
-check('El manual de Mayaverra existe: lo fijo, los titulares, cómo vende y lo que no se copia', /NUNCA cambia/.test(manualMv) && /titulares/i.test(manualMv) && /Cómo venden/.test(manualMv) && /NO se copia/.test(manualMv));
+check('El manual de Mayaverra existe: lo fijo, los titulares (gancho + propuesta de valor + tiempo), cómo vende y lo que no se copia', /NUNCA cambia/.test(manualMv) && /gancho \+ propuesta de valor \+ tiempo/i.test(manualMv) && /en solo 3 semanas/i.test(manualMv) && /Cómo venden/.test(manualMv) && /NO se copia/.test(manualMv) && !/Plazos exactos de resultado como promesa/.test(manualMv));
 const dosIguales = { variaciones: bueno.variaciones.map((x, i) => (i === 3 ? { ...x, formato_id: bueno.variaciones[2].formato_id, estilo: bueno.variaciones[2].estilo, mismo_formato_que_ganador: bueno.variaciones[2].mismo_formato_que_ganador } : x)) };
 check('Un lote con dos imágenes de la misma estructura FALLA', reglasDelPlan(dosIguales, { nivel: 'vecinas', analisis, skill }).errores.some((e) => /estructura distinta/.test(e)));
 const estiloSeguido = { variaciones: bueno.variaciones.map((x, i) => (i === 5 ? { ...x, estilo: bueno.variaciones[4].estilo } : x)) };
@@ -309,6 +328,7 @@ async function principal() {
       const { sesionEstrategia } = await import('../server/lib/imagen-ads/sesiones.js');
       const b4 = JSON.parse(fs.readFileSync(path.join(c4, 'app', 'brief.json'), 'utf8'));
       const sE4 = sesionEstrategia({ carpeta: c4, lote: lote4, brief: b4 });
+      check('(2026-11-26f) …y los títulos como Mayaverra: gancho + propuesta de valor + tiempo, promesa agresiva', /Títulos como Mayaverra/.test(sE4.prompt) && /PROPUESTA DE VALOR/.test(sE4.prompt) && /AGRESIVA/.test(sE4.prompt) && !/sin promesas médicas ni garantías de resultados/.test(sE4.prompt));
       check('(2026-11-26d) La estrategia de un lote con estructuras lleva cómo trabaja Mayaverra (lo fijo, su mezcla, sus titulares, cómo vende, lo que nunca)', /Cómo trabaja Mayaverra/.test(sE4.prompt) && /LO FIJO/.test(sE4.prompt) && /SUS TITULARES/.test(sE4.prompt) && /CÓMO VENDEN/.test(sE4.prompt) && sE4.material.aPedido.some((r) => r.endsWith('mayaverra-manual.md')));
       check('…y el lote tiene el mapa de imágenes de sus estructuras para el generador', fs.existsSync(path.join(c4, 'entrada', 'estructuras', 'mapa.json')));
       // como Mayaverra: la oferta escrita IGUAL en todo el lote

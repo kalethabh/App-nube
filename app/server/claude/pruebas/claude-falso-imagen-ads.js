@@ -97,6 +97,8 @@ function anuncio(v, entrada, brief, numero) {
   // («Vecinas»/«Conceptos»: la oferta y los sellos del formulario, letra por letra, salvo en los formatos nativos)
   // (2026-11-26d) con estructuras ganadoras, como Mayaverra: la misma oferta, igual en todas las del lote
   const conEstructuras = Array.isArray(brief?.estructuras) && brief.estructuras.length > 0;
+  // (2026-11-26f) títulos como Mayaverra: la propuesta de valor con tiempo debajo del gancho (no en nativas ni cartas)
+  if ((variado || conEstructuras) && !formato?.nativo && formato?.estilo !== 'carta-de-texto') capas.splice(1, 0, { block_id: 'text_propuesta', reference_function: 'value proposition', reference_position: 'below headline', text_style: 'Bold', text: entrada?.propuesta_valor || 'Glúteos más redondos y firmes en solo 4 semanas, para volver a lucir tus jeans con seguridad' });
   // (2026-11-26e) las nativas: sin la oferta, pero con titular corto y la franja de sellos
   if (variado || conEstructuras) {
     const oferta = formato?.nativo ? '' : brief?.venta?.oferta || (conEstructuras ? 'TRATAMIENTO COMPLETO X3 $139.900' : '');
@@ -239,7 +241,10 @@ async function estrategia(texto, intento) {
   // (2026-11-26e) el cuerpo de ESTE producto: sus zonas (las del formulario o glúteos y piernas), alternadas
   const zonasProducto = brief?.venta?.cuerpo?.zonas?.length ? brief.venta.cuerpo.zonas : ['glúteos', 'piernas'];
   plan.cuerpo = { zonas: zonasProducto, antes: 'Glúteo plano y caído; el jean sobra atrás.', despues: 'Glúteo redondo y levantado que llena el jean; piernas torneadas.' };
-  plan.variaciones = (plan.variaciones || []).map((x, i) => ({ ...x, zona_del_cuerpo: zonasProducto[i % zonasProducto.length] }));
+  plan.tiempo = brief?.venta?.tiempo || 'Tratamiento de 3 meses · se nota desde la semana 4';
+  plan.variaciones = (plan.variaciones || []).map((x, i) => ({ ...x, zona_del_cuerpo: zonasProducto[i % zonasProducto.length], propuesta_valor: x.propuesta_valor || `Glúteos más redondos y firmes en solo ${i + 3} semanas, para volver a lucir tus jeans con seguridad` }));
+  plan.deseo_principal = 'Glúteos más redondos, firmes y levantados';
+  plan.deseo_central = 'Volver a lucir sus jeans con seguridad';
   await escribir(`${C}/plan.json`, plan);
   for (const v of ids) await escribir(`${C}/${v}.json`, anuncio(v, plan.variaciones.find((x) => x.id === v), brief, Number(v.slice(1))));
   return 'LISTO';

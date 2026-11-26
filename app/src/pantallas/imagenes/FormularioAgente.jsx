@@ -145,6 +145,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
   const [prohibido, setProhibido] = useState('');
   const [zonas, setZonas] = useState([]);
   const [resultado, setResultado] = useState('');
+  const [tiempo, setTiempo] = useState('');
   const [paises, setPaises] = useState([]);
   // (2026-11-21) MODO NUEVO DESDE 0: las 6 zonas y los 8 formatos (sin referencia)
   const [desde0, setDesde0] = useState(true);
@@ -177,6 +178,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         setProhibido((a.prohibido || []).join(', '));
         setZonas(Array.isArray(a.cuerpo?.zonas) ? a.cuerpo.zonas : []);
         setResultado(a.cuerpo?.resultado || '');
+        setTiempo(a.tiempo || '');
       })
       .catch(() => {});
     return () => {
@@ -233,7 +235,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         ...(conEstructuras ? { estructuras: alAzar ? 'azar' : elegidasEst } : {}),
         ...(modo === 'referencia' ? { variacion, ...(replicar ? { replicar: true, rapido: true } : { rapido: false }) } : conEstructuras ? { rapido: false } : desde0 ? { desde0: true, rapido: false } : { agente: 'variaciones', rapido: false }),
         // lo de venta (se guarda con el producto)
-        venta: { oferta: oferta.trim(), sellos: sellos.split(/\r?\n/).map((x) => x.trim()).filter(Boolean), pais: paisPrecio || null, prohibido: prohibido.split(/[,\n]/).map((x) => x.trim()).filter(Boolean), cuerpo: zonas.length ? { zonas, resultado: resultado.trim() } : null },
+        venta: { oferta: oferta.trim(), sellos: sellos.split(/\r?\n/).map((x) => x.trim()).filter(Boolean), pais: paisPrecio || null, prohibido: prohibido.split(/[,\n]/).map((x) => x.trim()).filter(Boolean), cuerpo: zonas.length ? { zonas, resultado: resultado.trim() } : null, tiempo: tiempo.trim() },
         fiel: modo === 'referencia',
         usarInvestigacion: true,
         ...(modo === 'referencia'
@@ -412,8 +414,8 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
       </div>
       <details className="enc-plegable enc-plegable--venta">
         <summary>
-          <ChevronDown size={14} aria-hidden="true" /> Sellos, resultado, precio por país y palabras prohibidas
-          {[sellos, paisPrecio, prohibido, resultado].some((x) => String(x || '').trim()) ? <span className="enc-cuenta">{[sellos, paisPrecio, prohibido, resultado].filter((x) => String(x || '').trim()).length}</span> : null}
+          <ChevronDown size={14} aria-hidden="true" /> Tiempo, resultado, sellos, precio por país y palabras prohibidas
+          {[sellos, paisPrecio, prohibido, resultado, tiempo].some((x) => String(x || '').trim()) ? <span className="enc-cuenta">{[sellos, paisPrecio, prohibido, resultado, tiempo].filter((x) => String(x || '').trim()).length}</span> : null}
         </summary>
         <div className="enc-paso--datos">
           <Selector
@@ -424,6 +426,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
             opciones={[{ valor: '', etiqueta: 'El del campo País' }, ...paises.map((x) => ({ valor: x.codigo, etiqueta: x.nombre }))]}
           />
           <AreaTexto etiqueta="Sellos de confianza" opcional filas={2} maxLength={800} value={sellos} onChange={(e) => setSellos(e.target.value)} placeholder={'REGISTRO INVIMA RSA-…\nPagas al recibir'} ayuda="Solo el texto que va en la imagen, uno por línea (si escribes «agregar…», la app deja solo el texto). No se inventa ningún otro." />
+          <CampoTexto etiqueta="Tiempo de transformación" opcional maxLength={140} value={tiempo} onChange={(e) => setTiempo(e.target.value)} placeholder="Tratamiento de 3 meses · se nota desde la semana 4" ayuda="Los títulos lo prometen como Mayaverra («en solo 4 semanas»). Si lo dejas vacío, la IA lo deduce de tu oferta." />
           <CampoTexto etiqueta="Cómo se ve el resultado" opcional maxLength={240} value={resultado} onChange={(e) => setResultado(e.target.value)} placeholder="Glúteo redondo y levantado que llena el jean" ayuda="En la zona del cuerpo que elegiste." />
           <CampoTexto etiqueta="Prohibido decir" opcional maxLength={600} value={prohibido} onChange={(e) => setProhibido(e.target.value)} placeholder="cura, milagroso, garantizado" ayuda="Separado por comas." />
         </div>

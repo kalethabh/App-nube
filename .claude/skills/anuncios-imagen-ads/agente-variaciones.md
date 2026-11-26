@@ -81,7 +81,7 @@ misma importancia, nada destaca.
 Preserva la esencia del ganador. Estructuras: contraste inesperado; deseo + beneficio; problema cotidiano + aspiración;
 situación reconocible + solución; beneficio principal + complementario. Lenguaje natural del mercado. Evita frases
 genéricas, exceso de adjetivos, titulares largos, promesas exageradas, urgencia artificial, testimonios inventados,
-resultados garantizados y plazos sin respaldo. En salud, belleza y suplementos distingue características verificables,
+resultados garantizados y cifras sin respaldo (el tiempo de transformación sí va: el del tratamiento del producto, con promesa directa). En salud, belleza y suplementos distingue características verificables,
 beneficios respaldados y aspiraciones visuales: una foto aspiracional no es prueba de resultados.
 
 ## 9. Composición
