@@ -1,0 +1,55 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-26T14:00:54.403Z",
+  "variaciones": 10,
+  "archivos": 10,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 6,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "Dolor visual: no se ve el problema. Solo hay frasco y textos, así que hay que leer para entender de qué se trata.",
+          "Oferta y confianza: no hay bloque de oferta ni la línea «Pagas al recibir». Solo está el sello de registro en el pedestal.",
+          "No llega a 8 en: Dolor visual (5), Oferta y confianza (7)."
+        ]
+      },
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "Dolor visual: la foto solo muestra el resultado feliz. El problema no se entiende sin leer.",
+          "Oferta y confianza: solo están el botón y el sello. Falta la línea «Pagas al recibir».",
+          "No llega a 8 en: Dolor visual (5), Oferta y confianza (7)."
+        ]
+      },
+      {
+        "pieza": "V04_1x1",
+        "problemas": [
+          "Dolor visual: el personaje abraza el jean con esperanza, pero el problema (querer curvas y temer la cirugía) no se ve sin leer.",
+          "No llega a 8 en: Dolor visual (6)."
+        ]
+      },
+      {
+        "pieza": "V08_1x1",
+        "problemas": [
+          "Dolor visual (6): la imagen muestra la fruta y el frasco, pero no se ve ningún problema. En 1 segundo no se entiende qué te resuelve.",
+          "Oferta y confianza (6): no hay bloque de oferta. La confianza es solo una línea pequeña de texto abajo, sin un sello visible.",
+          "No llega a 8 en: Dolor visual (6), Oferta y confianza (6)."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

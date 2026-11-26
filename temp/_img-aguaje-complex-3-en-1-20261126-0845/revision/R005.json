@@ -1,0 +1,22 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V08_1x1",
+      "ok": false,
+      "problemas": [
+        "Dolor visual (6): la imagen muestra la fruta y el frasco, pero no se ve ningún problema. En 1 segundo no se entiende qué te resuelve.",
+        "Oferta y confianza (6): no hay bloque de oferta. La confianza es solo una línea pequeña de texto abajo, sin un sello visible."
+      ],
+      "correccion_en": "Keep the exact same layout, texts and bottle. Turn the bottom line into a small, clearly visible rounded trust seal centered under the bottle, with exactly 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024', without covering the fruit, the stream or the headlines. Add one small, clear visual cue of the problem the product addresses near the hand with the glass, with no extra text. Do not add prices, CTA buttons, stars or icons.",
+      "puntajes": {
+        "estructura": 9,
+        "dolor_visual": 6,
+        "titular": 9,
+        "texto_limpio": 9,
+        "frasco_fiel": 9,
+        "oferta_confianza": 6,
+        "diferencia_real": 9
+      }
+    }
+  ]
+}

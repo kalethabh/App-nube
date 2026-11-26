@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 4,
+    "R": 7,
     "A": 1,
     "T": 3
   },
@@ -90,6 +90,48 @@
         {
           "pieza": "V07_1x1",
           "firma": "2026121-1795701510534",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "d9ab44d4-efd9-4619-b06b-d9fbb6f891b8",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V10_1x1",
+          "firma": "1529423-1795701601386",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R005": {
+      "tipo": "revision",
+      "uuid": "2daf7bc0-0f8a-4844-8cdc-77443a750e33",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V08_1x1",
+          "firma": "2024069-1795701621842",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R006": {
+      "tipo": "revision",
+      "uuid": "07ef2165-aeb7-42e4-abcb-f1521d29c6e0",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V09_1x1",
+          "firma": "2044778-1795701633326",
           "ronda": 1
         }
       ],
@@ -387,68 +429,106 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2024069-1795701621842",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Dolor visual (6): la imagen muestra la fruta y el frasco, pero no se ve ningún problema. En 1 segundo no se entiende qué te resuelve.",
+          "Oferta y confianza (6): no hay bloque de oferta. La confianza es solo una línea pequeña de texto abajo, sin un sello visible.",
+          "No llega a 8 en: Dolor visual (6), Oferta y confianza (6)."
+        ],
+        "firma": "2024069-1795701621842",
+        "correccion_en": "Keep the exact same layout, texts and bottle. Turn the bottom line into a small, clearly visible rounded trust seal centered under the bottle, with exactly 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024', without covering the fruit, the stream or the headlines. Add one small, clear visual cue of the problem the product addresses near the hand with the glass, with no extra text. Do not add prices, CTA buttons, stars or icons.",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 6,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 6,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T14:00:22.299Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2044778-1795701633326",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R006",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2044778-1795701633326",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T14:00:34.619Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1529423-1795701601386",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1529423-1795701601386",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 9,
+          "titular": 9,
+          "texto_limpio": 10,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T14:00:02.729Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

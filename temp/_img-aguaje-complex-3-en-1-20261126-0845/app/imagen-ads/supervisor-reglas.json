@@ -1,0 +1,16 @@
+{
+  "reglas": [
+    {
+      "regla": "Cada imagen muestra el problema con una escena, no solo con texto: una persona en el momento del dolor (frente al espejo, con la prenda que no le queda, con el gesto de frustración) que ocupa al menos el 25 % del lienzo. Si la estructura es de producto solo, se agrega un recuadro o una mitad partida con esa escena del «antes». El visual_prompt lo describe con postura, gesto y lugar concretos, y la foto nunca muestra solo el resultado feliz.",
+      "por_que": "Evita anuncios donde hay que leer para entender qué problema resuelve el producto."
+    },
+    {
+      "regla": "Cada imagen lleva un bloque de oferta y confianza visible abajo (franja o botón grande) con el texto exacto «Pagas al recibir» en text_layers, aunque no haya precio. El sello va como insignia gráfica con borde (no como una línea suelta de texto pequeño). En forbidden_additions y final_generation_exclusions nunca se prohíben botones ni franjas inferiores si ese bloque es obligatorio.",
+      "por_que": "Evita imágenes sin bloque de oferta, sin la línea «Pagas al recibir» y con la confianza escondida en texto pequeño."
+    },
+    {
+      "regla": "Cuando el sello pedido viene escrito como una orden (por ejemplo «agregar logo y sello de registro …»), en la imagen solo va el sello en sí (por ejemplo «REGISTRO SANITARIO» y el número exacto) dentro de la insignia; las palabras de la orden («agregar», «logo y sello de») nunca aparecen en text_layers.",
+      "por_que": "Evita que la imagen muestre impresa la instrucción del usuario en vez del sello."
+    }
+  ]
+}

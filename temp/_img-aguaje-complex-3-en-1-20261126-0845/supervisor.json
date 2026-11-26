@@ -1,0 +1,102 @@
+{
+  "fecha": "2026-11-26T14:00:55.639Z",
+  "firma": "bf7b19afe6f8c842",
+  "pedido": {
+    "producto": "AGUAJE COMPLEX 3 EN 1",
+    "modo": "Estructuras F44, F52, F37, F46, F57, F63, F38, F64, F70, F62",
+    "oferta": "",
+    "sellos": [
+      "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024"
+    ],
+    "cantidad": 10
+  },
+  "total": 10,
+  "fallas": [
+    {
+      "criterio": "dolor_visual",
+      "nombre": "Dolor visual",
+      "cuantas": 4,
+      "piezas": [
+        "V02_1x1",
+        "V03_1x1",
+        "V04_1x1",
+        "V08_1x1"
+      ],
+      "ejemplos": [
+        "Dolor visual: no se ve el problema. Solo hay frasco y textos, así que hay que leer para entender de qué se trata.",
+        "Oferta y confianza: no hay bloque de oferta ni la línea «Pagas al recibir». Solo está el sello de registro en el pedestal.",
+        "Dolor visual: la foto solo muestra el resultado feliz. El problema no se entiende sin leer.",
+        "Oferta y confianza: solo están el botón y el sello. Falta la línea «Pagas al recibir»."
+      ]
+    },
+    {
+      "criterio": "oferta_confianza",
+      "nombre": "Oferta y confianza",
+      "cuantas": 3,
+      "piezas": [
+        "V02_1x1",
+        "V03_1x1",
+        "V08_1x1"
+      ],
+      "ejemplos": [
+        "Dolor visual: no se ve el problema. Solo hay frasco y textos, así que hay que leer para entender de qué se trata.",
+        "Oferta y confianza: no hay bloque de oferta ni la línea «Pagas al recibir». Solo está el sello de registro en el pedestal.",
+        "Dolor visual: la foto solo muestra el resultado feliz. El problema no se entiende sin leer.",
+        "Oferta y confianza: solo están el botón y el sello. Falta la línea «Pagas al recibir»."
+      ]
+    }
+  ],
+  "problemas": [
+    {
+      "pieza": "V02_1x1",
+      "problema": "Dolor visual: no se ve el problema. Solo hay frasco y textos, así que hay que leer para entender de qué se trata."
+    },
+    {
+      "pieza": "V02_1x1",
+      "problema": "Oferta y confianza: no hay bloque de oferta ni la línea «Pagas al recibir». Solo está el sello de registro en el pedestal."
+    },
+    {
+      "pieza": "V03_1x1",
+      "problema": "Dolor visual: la foto solo muestra el resultado feliz. El problema no se entiende sin leer."
+    },
+    {
+      "pieza": "V03_1x1",
+      "problema": "Oferta y confianza: solo están el botón y el sello. Falta la línea «Pagas al recibir»."
+    },
+    {
+      "pieza": "V04_1x1",
+      "problema": "Dolor visual: el personaje abraza el jean con esperanza, pero el problema (querer curvas y temer la cirugía) no se ve sin leer."
+    },
+    {
+      "pieza": "V08_1x1",
+      "problema": "Dolor visual (6): la imagen muestra la fruta y el frasco, pero no se ve ningún problema. En 1 segundo no se entiende qué te resuelve."
+    },
+    {
+      "pieza": "V08_1x1",
+      "problema": "Oferta y confianza (6): no hay bloque de oferta. La confianza es solo una línea pequeña de texto abajo, sin un sello visible."
+    }
+  ],
+  "sinImagen": 0,
+  "rechazos": 0,
+  "reglas": [
+    {
+      "regla": "Cada imagen muestra el problema con una escena, no solo con texto: una persona en el momento del dolor (frente al espejo, con la prenda que no le queda, con el gesto de frustración) que ocupa al menos el 25 % del lienzo. Si la estructura es de producto solo, se agrega un recuadro o una mitad partida con esa escena del «antes». El visual_prompt lo describe con postura, gesto y lugar concretos, y la",
+      "nueva": true,
+      "veces": 1,
+      "por_que": "Evita anuncios donde hay que leer para entender qué problema resuelve el producto."
+    },
+    {
+      "regla": "Cada imagen lleva un bloque de oferta y confianza visible abajo (franja o botón grande) con el texto exacto «Pagas al recibir» en text_layers, aunque no haya precio. El sello va como insignia gráfica con borde (no como una línea suelta de texto pequeño). En forbidden_additions y final_generation_exclusions nunca se prohíben botones ni franjas inferiores si ese bloque es obligatorio.",
+      "nueva": true,
+      "veces": 1,
+      "por_que": "Evita imágenes sin bloque de oferta, sin la línea «Pagas al recibir» y con la confianza escondida en texto pequeño."
+    },
+    {
+      "regla": "Cuando el sello pedido viene escrito como una orden (por ejemplo «agregar logo y sello de registro …»), en la imagen solo va el sello en sí (por ejemplo «REGISTRO SANITARIO» y el número exacto) dentro de la insignia; las palabras de la orden («agregar», «logo y sello de») nunca aparecen en text_layers.",
+      "nueva": true,
+      "veces": 1,
+      "por_que": "Evita que la imagen muestre impresa la instrucción del usuario en vez del sello."
+    }
+  ],
+  "resumen": "4 de 10 fallan «Dolor visual» (V02, V03, V04, V08) · 3 de 10 fallan «Oferta y confianza» (V02, V03, V08)"
+}
