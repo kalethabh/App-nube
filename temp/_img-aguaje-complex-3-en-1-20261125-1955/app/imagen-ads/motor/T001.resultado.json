@@ -1,0 +1,40 @@
+{
+  "id": "T001",
+  "piezas": {
+    "V01_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 2,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt"
+    },
+    "V02_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 2,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt"
+    },
+    "V03_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 2,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt"
+    },
+    "V04_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    }
+  },
+  "actualizado": "2026-11-26T01:02:51.550Z",
+  "terminado": false
+}
