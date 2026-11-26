@@ -29,7 +29,7 @@
     "tipo": "ninguno",
     "como": "Solo texto."
   },
-  "zona_del_cuerpo": "cuerpo entero",
+  "zona_del_cuerpo": "ninguna",
   "segmento": "general",
   "beneficios": {
     "tipo": "ninguno"
@@ -69,5 +69,7 @@
     "cta": "ninguno",
     "franja": "en la carta",
     "nota": "Sin «la oferta se acaba»: no hay fecha real."
-  }
+  },
+  "traduccion": "No tiene cuerpo: se usa con el producto del usuario tal cual. Si se agrega una persona, muestra el RESULTADO en la zona que mejora su producto (glúteos y piernas: con jean o leggins), nunca solo el problema. En esta app (foto casera): un titular corto arriba (máx. 8 palabras) y una franja delgada abajo con los sellos, sin la oferta.",
+  "cuidado": "Nada de cifras, sellos ni urgencias que el producto del usuario no tenga."
 }

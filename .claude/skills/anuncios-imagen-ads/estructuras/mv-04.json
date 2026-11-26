@@ -30,7 +30,7 @@
     "tipo": "ninguno",
     "como": "No hay cuerpo: el cambio se cuenta en la línea de tiempo."
   },
-  "zona_del_cuerpo": "cuerpo entero",
+  "zona_del_cuerpo": "ninguna",
   "segmento": "45+ / menopausia",
   "beneficios": {
     "tipo": "linea-de-tiempo",
@@ -84,5 +84,7 @@
     "oferta": "barra amarilla abajo: «TRATAMIENTO COMPLETO X3 $139.900 · PAGO CONTRA ENTREGA · ENVÍO GRATIS»",
     "cta": "ninguno",
     "franja": "Registro INVIMA RSA-0030271-2024 en letra pequeña sobre la barra"
-  }
+  },
+  "traduccion": "No tiene cuerpo: se usa con el producto del usuario tal cual. Si se agrega una persona, muestra el RESULTADO en la zona que mejora su producto (glúteos y piernas: con jean o leggins), nunca solo el problema.",
+  "cuidado": "Nada de cifras, sellos ni urgencias que el producto del usuario no tenga."
 }

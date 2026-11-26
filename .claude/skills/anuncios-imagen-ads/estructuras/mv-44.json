@@ -23,7 +23,7 @@
     "tipo": "ninguno",
     "como": "El producto en mano, limpio y editorial."
   },
-  "zona_del_cuerpo": "cadera",
+  "zona_del_cuerpo": "ninguna",
   "segmento": "general",
   "beneficios": {
     "tipo": "iconos",
@@ -41,5 +41,6 @@
   },
   "franja_confianza": "ninguna",
   "estilo": "foto-real",
-  "cuidado": "Sin cifras de centímetros inventadas: «Cadera con forma. Semana 4.» y viñetas con lo que hace cada ingrediente."
+  "cuidado": "Sin cifras de centímetros inventadas: «Cadera con forma. Semana 4.» y viñetas con lo que hace cada ingrediente.",
+  "traduccion": "No tiene cuerpo: se usa con el producto del usuario tal cual. Si se agrega una persona, muestra el RESULTADO en la zona que mejora su producto (glúteos y piernas: con jean o leggins), nunca solo el problema."
 }

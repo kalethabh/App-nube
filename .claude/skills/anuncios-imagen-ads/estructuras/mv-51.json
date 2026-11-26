@@ -23,7 +23,7 @@
     "tipo": "cuerpo-real-antes-despues",
     "como": "La misma zona en 3 semanas."
   },
-  "zona_del_cuerpo": "muslos",
+  "zona_del_cuerpo": "glúteos y muslos",
   "segmento": "general",
   "beneficios": {
     "tipo": "linea-de-tiempo",
@@ -41,5 +41,6 @@
   },
   "franja_confianza": "ninguna",
   "estilo": "foto-real",
-  "cuidado": "Formato vertical. Titular afirmativo para la regla («Muslos con hoyuelos: se van»)."
+  "cuidado": "Formato vertical. Titular afirmativo para la regla («Muslos con hoyuelos: se van»).",
+  "traduccion": "Pregunta del problema, 3 fotos de la zona por semanas y la oferta. Glúteos y muslos: de espaldas en leggins, cada semana con más forma."
 }

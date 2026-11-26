@@ -106,6 +106,9 @@ export function estructurasAlAzar(n, { semilla = '' } = {}) {
   );
   const k = Math.min(n, todas.length);
   const elegidas = [];
+  // ningún estilo en más de la mitad del lote (si no, no hay orden sin dos seguidas)
+  const tope = Math.ceil(k / 2);
+  const cabe = (f) => elegidas.filter((y) => y.estilo === f.estilo).length < tope;
   const tomar = (f) => {
     elegidas.push(f);
     todas.splice(todas.indexOf(f), 1);
@@ -117,10 +120,10 @@ export function estructurasAlAzar(n, { semilla = '' } = {}) {
   const cupos = cuposDeGanchos(k);
   for (const f of elegidas) if (cupos[f.gancho] > 0) cupos[f.gancho]--;
   for (const [g, c] of Object.entries(cupos)) for (let i = 0; i < c && elegidas.length < k; i++) {
-    const f = todas.find((y) => y.gancho === g);
+    const f = todas.find((y) => y.gancho === g && cabe(y)) || todas.find((y) => y.gancho === g);
     if (f) tomar(f);
   }
-  while (elegidas.length < k && todas.length) tomar(todas[0]);
+  while (elegidas.length < k && todas.length) tomar(todas.find(cabe) || todas[0]);
   // el orden: nunca el mismo estilo seguido (primero el estilo que más queda, para no trabarse al final)
   const orden = [];
   const quedan = [...elegidas];

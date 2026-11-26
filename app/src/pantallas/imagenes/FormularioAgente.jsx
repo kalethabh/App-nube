@@ -25,6 +25,8 @@ import { MisEstructuras } from './MisEstructuras.jsx';
 import { enlace } from '../../datos/rutas.js';
 
 const CANTIDADES = [3, 5, 8, 10];
+// (2026-11-26e) las zonas del cuerpo que mejora el producto: la imagen muestra SU resultado (no la zona de la referencia)
+const ZONAS = ['glúteos', 'piernas', 'caderas', 'cintura', 'abdomen', 'brazos', 'cara', 'piel', 'cabello', 'busto'];
 // (2026-11-26b) ESTRUCTURAS GANADORAS: las 4 de la primera prueba vienen marcadas (mv-01, mv-03, mv-04 y mv-06)
 const ESTRUCTURAS_INICIALES = ['F33', 'F35', 'F36', 'F38'];
 const ESTILO = { 'foto-real': 'Foto real', '3d-pixar': '3D', 'ilustracion-plana': 'Ilustración', 'bodegon-premium': 'Bodegón', 'carta-de-texto': 'Carta de texto' };
@@ -141,6 +143,8 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
   const [sellos, setSellos] = useState('');
   const [paisPrecio, setPaisPrecio] = useState('');
   const [prohibido, setProhibido] = useState('');
+  const [zonas, setZonas] = useState([]);
+  const [resultado, setResultado] = useState('');
   const [paises, setPaises] = useState([]);
   // (2026-11-21) MODO NUEVO DESDE 0: las 6 zonas y los 8 formatos (sin referencia)
   const [desde0, setDesde0] = useState(true);
@@ -171,6 +175,8 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         setSellos((a.sellos || []).join('\n'));
         setPaisPrecio(a.pais || '');
         setProhibido((a.prohibido || []).join(', '));
+        setZonas(Array.isArray(a.cuerpo?.zonas) ? a.cuerpo.zonas : []);
+        setResultado(a.cuerpo?.resultado || '');
       })
       .catch(() => {});
     return () => {
@@ -227,7 +233,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         ...(conEstructuras ? { estructuras: alAzar ? 'azar' : elegidasEst } : {}),
         ...(modo === 'referencia' ? { variacion, ...(replicar ? { replicar: true, rapido: true } : { rapido: false }) } : conEstructuras ? { rapido: false } : desde0 ? { desde0: true, rapido: false } : { agente: 'variaciones', rapido: false }),
         // lo de venta (se guarda con el producto)
-        venta: { oferta: oferta.trim(), sellos: sellos.split(/\r?\n/).map((x) => x.trim()).filter(Boolean), pais: paisPrecio || null, prohibido: prohibido.split(/[,\n]/).map((x) => x.trim()).filter(Boolean) },
+        venta: { oferta: oferta.trim(), sellos: sellos.split(/\r?\n/).map((x) => x.trim()).filter(Boolean), pais: paisPrecio || null, prohibido: prohibido.split(/[,\n]/).map((x) => x.trim()).filter(Boolean), cuerpo: zonas.length ? { zonas, resultado: resultado.trim() } : null },
         fiel: modo === 'referencia',
         usarInvestigacion: true,
         ...(modo === 'referencia'
@@ -303,6 +309,25 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
           </p>
         )}
       </div>
+
+      {p ? (
+        <div className="enc-grupo">
+          <span className="enc-etiqueta">
+            Zona del cuerpo que mejora <small className="enc-opcional">opcional</small>
+          </span>
+          <div className="enc-chips-multi" role="group" aria-label="Zona del cuerpo que mejora">
+            {ZONAS.map((z) => {
+              const activa = zonas.includes(z);
+              return (
+                <button key={z} type="button" className={activa ? 'activo' : ''} aria-pressed={activa} onClick={() => setZonas((l) => (activa ? l.filter((y) => y !== z) : [...l, z].slice(-3)))}>
+                  {z}
+                </button>
+              );
+            })}
+          </div>
+          <p className="enc-ayuda">{zonas.length ? `Las personas de las imágenes muestran el resultado en ${zonas.join(' y ')}, con jean o leggins.` : 'Si no eliges, la IA la deduce de tu producto y la recuerda para la próxima vez.'}</p>
+        </div>
+      ) : null}
 
       {conEstructuras ? (
         <div className="enc-grupo">
@@ -387,8 +412,8 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
       </div>
       <details className="enc-plegable enc-plegable--venta">
         <summary>
-          <ChevronDown size={14} aria-hidden="true" /> Sellos, precio por país y palabras prohibidas
-          {[sellos, paisPrecio, prohibido].some((x) => String(x || '').trim()) ? <span className="enc-cuenta">{[sellos, paisPrecio, prohibido].filter((x) => String(x || '').trim()).length}</span> : null}
+          <ChevronDown size={14} aria-hidden="true" /> Sellos, resultado, precio por país y palabras prohibidas
+          {[sellos, paisPrecio, prohibido, resultado].some((x) => String(x || '').trim()) ? <span className="enc-cuenta">{[sellos, paisPrecio, prohibido, resultado].filter((x) => String(x || '').trim()).length}</span> : null}
         </summary>
         <div className="enc-paso--datos">
           <Selector
@@ -398,7 +423,8 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
             onChange={(e) => setPaisPrecio(e.target.value)}
             opciones={[{ valor: '', etiqueta: 'El del campo País' }, ...paises.map((x) => ({ valor: x.codigo, etiqueta: x.nombre }))]}
           />
-          <AreaTexto etiqueta="Sellos de confianza" opcional filas={2} maxLength={800} value={sellos} onChange={(e) => setSellos(e.target.value)} placeholder={'REGISTRO SANITARIO INVIMA …\nPago contra entrega'} ayuda="Uno por línea, exactos. No se inventa ningún otro." />
+          <AreaTexto etiqueta="Sellos de confianza" opcional filas={2} maxLength={800} value={sellos} onChange={(e) => setSellos(e.target.value)} placeholder={'REGISTRO INVIMA RSA-…\nPagas al recibir'} ayuda="Solo el texto que va en la imagen, uno por línea (si escribes «agregar…», la app deja solo el texto). No se inventa ningún otro." />
+          <CampoTexto etiqueta="Cómo se ve el resultado" opcional maxLength={240} value={resultado} onChange={(e) => setResultado(e.target.value)} placeholder="Glúteo redondo y levantado que llena el jean" ayuda="En la zona del cuerpo que elegiste." />
           <CampoTexto etiqueta="Prohibido decir" opcional maxLength={600} value={prohibido} onChange={(e) => setProhibido(e.target.value)} placeholder="cura, milagroso, garantizado" ayuda="Separado por comas." />
         </div>
       </details>

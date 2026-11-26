@@ -21,7 +21,7 @@
   },
   "dolor_visual": {
     "tipo": "cuerpo-real-antes-despues",
-    "como": "Solo el antes, sincero, como foto del celular."
+    "como": "Selfie de espejo sincera de la zona (en Mayaverra, el antes). En esta app se hace la selfie del RESULTADO o dos selfies antes/después."
   },
   "zona_del_cuerpo": "vientre",
   "segmento": "general",
@@ -40,5 +40,6 @@
   },
   "franja_confianza": "ninguna",
   "estilo": "foto-real",
-  "cuidado": "Nativo, sin producto ni texto. Para Aguaje: selfie de perfil en jean mostrando el glúteo plano."
+  "cuidado": "Nativo, sin producto ni texto.",
+  "traduccion": "La selfie de espejo — pero del RESULTADO (o dos selfies antes/después). Glúteos y piernas: de perfil en jean, glúteo redondo y levantado. En esta app (foto casera): un titular corto arriba (máx. 8 palabras) y una franja delgada abajo con los sellos, sin la oferta."
 }

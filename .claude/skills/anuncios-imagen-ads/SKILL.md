@@ -49,6 +49,15 @@ Después de cada lote, cada imagen se compara contra su referencia (montaje lado
 - **Las tuyas (P01, P02…):** el usuario sube un anuncio que le funciona y una sesión «TAREA: ficha de estructura» escribe su ficha con el mismo esquema. Viven en `mis_archivos/biblioteca/estructuras/` (índice, ficha e `img/`), nunca en la skill. `leerSkill()` las suma a los formatos. Al usarlas, su imagen y su ficha se copian al lote (`entrada/estructuras/`, con `mapa.json` para el generador): **lee su ficha desde `temp/<lote>/entrada/estructuras/P01.json`**. Entran al sorteo: si hay alguna, un lote de 3 o más lleva al menos una.
 - **El kit fijo se verifica:** en lotes con estructuras, la oferta va escrita IGUAL en todas las imágenes que la llevan, y el titular es afirmativo y de máximo 8 palabras.
 
+**EL CUERPO DE ESTE PRODUCTO (2026-11-26e):** la referencia se traduce a la zona que mejora EL PRODUCTO DEL USUARIO, nunca a la de la referencia.
+- Las zonas vienen del formulario (`venta.cuerpo.zonas`: glúteos, piernas, caderas, cintura, abdomen, brazos, cara, piel, cabello, busto). Si no hay, la IA las deduce y escribe en plan.json `"cuerpo": { "zonas", "antes", "despues" }`, y la app las guarda con el producto.
+- Toda imagen con persona o cuerpo usa una de esas zonas y muestra el RESULTADO, o el antes/después con el mismo recurso de la referencia. Por ejemplo, la pierna hinchada junto a la normal se vuelve el glúteo plano junto al levantado, en el mismo encuadre. Nunca solo el problema.
+- Siempre con jean o leggins.
+- Cada ficha trae `traduccion`: cómo se adapta su recurso a cualquier producto, con el ejemplo de glúteos y piernas.
+- **Se verifica:** el `visual_prompt` nombra la zona, el resultado y la ropa. Una zona que no es del producto es error.
+- **Fotos caseras (nativas):** llevan un titular corto arriba y una franja con los sellos, sin la oferta.
+- **Sellos:** la app quita las instrucciones («Agregar logo y sello de…» → «REGISTRO INVIMA…»). Nunca se agrega logo.
+
 **DETALLE VISUAL (2026-11-26c):** cada `visual_prompt` describe por zona (con su %) la composición, la luz y la cámara, las texturas (piel real), la tipografía de cada texto (familia, peso, color hex, contorno o fondo), el frasco (posición, tamaño, ángulo) y, si hay antes y después, ropa, pose y lugar de cada momento. En lotes de Variantes o de estructuras, un `visual_prompt` de menos de 700 caracteres es error.
 
 **SUPERVISOR QUE APRENDE (2026-11-26c):** al final de cada lote la app junta lo pedido y lo que salió (puntajes bajo 8, problemas, imágenes sin generar o rechazadas) en `temp/<lote>/supervisor.json` y una sesión corta escribe 1 a 3 reglas concretas en `mis_archivos/biblioteca/aprendizajes/imagen-ads.md` (las repetidas suben su contador). Esas reglas entran en la estrategia, los prompts y los ajustes del lote siguiente: respétalas.

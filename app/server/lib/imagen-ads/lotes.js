@@ -300,7 +300,7 @@ export function crearLote(cuerpo = {}) {
     const venta = v ? guardarAjustes(productoId, { ...guardado, ...v, pais: v.pais || guardado.pais || paisDe(datos.pais) }) : { ...guardado };
     venta.pais ||= paisDe(datos.pais);
     if (venta.oferta && venta.pais) venta.oferta = normalizarOferta(venta.oferta, venta.pais);
-    if (venta.oferta || venta.sellos.length || venta.prohibido.length || venta.pais) brief.venta = venta;
+    if (venta.oferta || venta.sellos.length || venta.prohibido.length || venta.pais || venta.cuerpo) brief.venta = venta;
   }
   // (2026-11-26a) lo que ya vendió este producto en Meta (formato + ángulo, de «Aprender de mis ventas»): la estrategia
   // lo prioriza y prueba siempre combinaciones nuevas
