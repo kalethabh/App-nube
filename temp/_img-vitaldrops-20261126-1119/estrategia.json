@@ -1,0 +1,48 @@
+{
+  "resumen": "VitalDrops se vende como el ritual diario de gotas de la mujer delgada que quiere curvas sin agujas: acompaña su apetito y su energía mientras trabaja glúteos, caderas y piernas con comida y ejercicio. Todo el lote repite una sola idea: tus curvas empiezan por el apetito. Cada imagen muestra el jean que antes quedaba bailando y después se llena, y cierra con «Pagas al recibir».",
+  "paleta": [
+    { "hex": "#F5E13A", "nombre": "Amarillo limón" },
+    { "hex": "#9A4F12", "nombre": "Ámbar del frasco" },
+    { "hex": "#2B1A10", "nombre": "Cacao oscuro" },
+    { "hex": "#FFF6DC", "nombre": "Crema cálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#C9962B", "nombre": "Dorado" }
+  ],
+  "tipografia": "Poppins ExtraBold en mayúsculas para los titulares, con la palabra clave en amarillo limón. Poppins normal para el resto.",
+  "estilo": "Anuncios claros y cálidos, con el mismo frasco ámbar de etiqueta amarilla en todos. Se alternan foto real, ilustración plana y personaje animado en 3D. Siempre con jean o leggins y la misma insignia de «Pagas al recibir» abajo.",
+  "beneficios": [
+    "Acompaña tu apetito: muchas mujeres notan más ganas de comer desde las primeras semanas",
+    "Más pila para tu día y para entrenar",
+    "Días más tranquilos, con ashwagandha para los días pesados",
+    "Un apoyo diario para trabajar tus curvas con comida y ejercicio"
+  ],
+  "caracteristicas": [
+    "Cinco ingredientes de plantas: ashwagandha, maca, L-arginina, fenogreco y remolacha",
+    "Gotas: una sola toma al día",
+    "Frasco de 60 ml que rinde un mes",
+    "Sin agujas y sin pastillas"
+  ],
+  "deseo_central": "Verme con curvas y llenar el jean sin operarme ni inyectarme nada, y dejar de sentirme la flaca del grupo.",
+  "beneficio_principal": "Un ritual diario de gotas que acompaña tu apetito y tu energía mientras trabajas tus curvas de forma natural.",
+  "puntos_dolor": [
+    "Como y como y no me engorda nada",
+    "Los jeans me quedan bailando en la cola",
+    "Voy al gym y no veo cambios en la pierna ni en la cola",
+    "Me da miedo el quirófano y más los biopolímeros",
+    "Ya compré gomitas y pastillas y no vi nada",
+    "Se me olvida comer y me lleno con nada"
+  ],
+  "aprendido_de_validados": [
+    "Tu anuncio que ya funciona («Curvas más llenas en 21 días») muestra a la misma mujer en varios momentos y el frasco grande con su etiqueta. Eso lo usamos en la línea de tiempo (V02) y en los antes y después (V01, V03, V04 y V05).",
+    "Los ganadores de la categoría muestran el resultado antes de que se lea el texto: jean lleno contra jean suelto, en el mismo cuadro. Lo aplicamos en todas las imágenes.",
+    "Titulares cortos, de una sola idea, con una palabra en otro color. Lo aplicamos en todo el lote.",
+    "La franja de abajo con «Paga al recibir» da confianza en todos los que te gustan. Va en todas las imágenes como «Pagas al recibir»."
+  ],
+  "decisiones": [
+    "Elegimos como idea central «tus curvas empiezan por el apetito», porque es lo que el producto sí puede decir con honestidad.",
+    "No pusiste precio ni oferta, así que ninguna imagen lleva precio, descuento ni cantidad de frascos. Donde la estructura tenía la oferta pusimos «Pagas al recibir» y «1 toma al día».",
+    "No ponemos registros ni sellos, porque no los diste.",
+    "Los textos hablan de apoyo, apetito y energía, sin prometer aumento de glúteos, para cuidar las reglas de los anuncios.",
+    "Orden del lote para no repetir estilo seguido: foto real, ilustración, 3D, ilustración y foto real."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format F35 (Lo invisible hecho visible) — winning structure mv-03",
+    "reference_style": "Split-screen real-photo before/after body ad with an 'invisible made visible' overlay, bold mechanism headline and pill button",
+    "angle_used": "Mecanismo único: tus curvas empiezan por el apetito (segment: the woman who eats everything and does not gain)",
+    "ad_format": "Single Image Ad (split-screen before/after)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Lemon yellow #F5E13A, amber brown #9A4F12, deep cocoa #2B1A10, warm cream #FFF6DC, white #FFFFFF, gold #C9962B. No red (no offer in this ad).",
+    "visual_style": "Clean, bold direct-response health ad built around the real amber dropper bottle with its yellow label",
+    "visual_atmosphere": "Warm, sunny, honest and hopeful",
+    "graphic_language": "Rounded pills, one curved arrow from before to after, thin lines, a bordered 'Pagas al recibir' badge; no logos, no medical imagery",
+    "text_typography": "Poppins ExtraBold uppercase headlines; Poppins Regular/SemiBold for the rest"
+  },
+  "creative_objective": "Stop the scroll with the same legs shown twice in one frame: on the left the 'invisible' problem painted on (a dull grey veil over thin legs in baggy jeans), on the right the result (fuller, toned legs and wider hips in leggings with warm golden lines of energy). The headline reframes the cause: curves start with appetite.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the grey-veiled thin legs against the golden glowing fuller legs, 2) the headline, 3) the segment line, 4) the yellow button and the 'Pagas al recibir' badge, 5) the bottle",
+    "composition_style": "Full-bleed split screen divided by a thin white vertical line, a curved yellow arrow crossing the line at mid-height, text block over the lower-left, bottle in the lower-right over the after legs",
+    "spacing_and_structure": "Photos fill the whole canvas; the lower 35 % holds the text on the left 55 % over a soft dark fade so it reads; the bottle stands in the lower-right corner",
+    "lighting_and_depth": "Soft studio key light from the upper left, gentle shadows, the golden lines glow softly on the skin of the after side only",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "The reference image shows, on an intense solid color background, a canvas split in two by a thin white vertical line: left half the same body from the waist to the feet, front view, with the problem painted on the skin as thick blobs; right half the same body clean with thin golden glowing lines running down the legs. A curved yellow arrow points from left to right at mid-height. Lower-left 55 %: a huge two-line headline (first line white, second line yellow and taller), a two-line subtitle in white caps with the segment highlighted in yellow, a thin yellow swoosh line and a wide yellow pill button with dark text. Lower-right: one dropper bottle standing over the after legs. No logo, no price, no offer. Our version keeps this exact scene and order, changes the background to lemon yellow, the body zone to legs and hips in jeans/leggings, and adds a small bordered 'Pagas al recibir' badge under the button.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "background", "position": "full canvas", "visual_function": "intense brand color that makes the bodies pop", "adaptation_rule": "solid lemon yellow #F5E13A with a subtle darker vignette at the edges", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "person (before)", "position": "left half, top 0 % to 70 %", "visual_function": "shows the problem made visible", "adaptation_rule": "thin straight legs in baggy light-wash jeans, hand pulling the waistband away, a dull grey veil over the thighs", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "person (after)", "position": "right half, top 0 % to 85 %", "visual_function": "shows the result", "adaptation_rule": "same woman another day in black leggings, fuller toned thighs and wider rounded hips, thin golden glowing lines following the leg muscles", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "decorative element", "position": "center, thin white vertical divider plus curved yellow arrow at mid-height", "visual_function": "reads as before to after", "adaptation_rule": "same, arrow in lemon yellow with a soft shadow", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "headline + subtitle + swoosh + pill button", "position": "lower-left 55 %, bottom 35 % of the canvas", "visual_function": "mechanism headline, segment callout and action", "adaptation_rule": "our texts, same sizes and order", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "product", "position": "lower-right corner, standing over the after legs", "visual_function": "shows the product", "adaptation_rule": "the real amber VITALDROPS dropper bottle, about 34 % of canvas height", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "trust badge (mandatory in this app)", "position": "directly under the pill button, left side", "visual_function": "removes risk", "adaptation_rule": "small rounded badge with a 2 px border reading 'Pagas al recibir'", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Any logo or brand mark outside the bottle label",
+      "Any price, discount, percentage, star rating or number of units",
+      "Registration seals, certificates or medical icons",
+      "Underwear, bikinis or bare legs without clothing",
+      "Any extra text not listed in text_layers"
+    ]
+  },
+  "visual_prompt": "Square 1:1 photographic image ad. BACKGROUND: solid lemon-yellow (#F5E13A) studio backdrop with a soft darker vignette at the corners, split exactly in half by a thin 6 px white vertical line from top to about 70 % of the height. TOP AND CENTER (0 % to 68 % of the canvas), LEFT HALF = BEFORE: ultra-realistic photo, front view, camera at hip height, 50 mm lens, framed from just under the bust to the ankles, of an adult Colombian woman about 25 years old with warm light-brown skin with real pores and fine texture, wearing a fitted white cotton crop t-shirt with small wrinkles and light-wash blue jeans one size too big: the jeans hang loose on her thighs with vertical folds, the hips are straight and almost as narrow as her waist, her thighs are thin and straight with a visible gap, and her right hand pulls the front waistband about a fist away from her belly so the empty space inside the jeans is clearly visible. Over her thighs and hips floats a dull, semi-transparent grey haze, like a cold veil with tiny grey dust particles, that makes that side look tired and switched off; her skin under it is slightly desaturated. LEFT AND RIGHT ARE THE SAME WOMAN. RIGHT HALF = AFTER, another day: same woman, same front view and framing, now in a fitted plain black cotton t-shirt and matte black high-waisted leggings; her hips are clearly wider than her waist, her thighs are fuller, rounder and toned, filling the leggings with a smooth curved outline, standing relaxed and confident, hands resting at her sides. Thin warm golden lines of light (#F5E13A to #C9962B) run down the front of each thigh and along the curve of the hips with a few soft glowing dots, like gentle energy, subtle and elegant, not medical, no veins, no anatomy. A thick curved lemon-yellow arrow with a soft shadow crosses the white divider at mid-height pointing from the left half to the right half. Soft studio key light from the upper left, gentle natural shadows, fabric texture visible on denim and leggings. BOTTOM 35 %: a soft deep-cocoa (#2B1A10) gradient rises from the bottom edge to about 35 % of the height so the text reads. LOWER-LEFT 55 % of the width, stacked and left-aligned: line 1 of the headline in Poppins ExtraBold uppercase, white #FFFFFF, very large; line 2 in Poppins ExtraBold uppercase, lemon yellow #F5E13A, even taller, with a slight top-to-bottom yellow-to-gold gradient; under it a two-line subtitle in Poppins SemiBold uppercase white with the segment words in lemon yellow; a thin curved yellow swoosh line; then a wide rounded pill button in solid lemon yellow with the button text in Poppins ExtraBold deep cocoa; directly below the button a small rounded badge with a 2 px white border and a cocoa fill with a tiny hand-and-box icon and the trust text in white Poppins SemiBold. LOWER-RIGHT CORNER, standing in front of the after legs, the product bottle at about 34 % of the canvas height, upright, label facing the camera and fully legible, with a soft contact shadow. PRODUCT: use the attached product photo as the only source of truth: ONE amber-brown glass dropper bottle about 2.6 times taller than wide, Boston-round body with rounded shoulders, ribbed matte black collar about 55 % of the body width, tall matte black rubber dropper bulb, wrap-around label lemon-yellow fading to white with 'amua', the big white outlined word 'VITALDROPS', 'All-In-One Multi-Herbal Supplement', five small outlined ingredient circles (A, MA, L, F, BR) and 'Dietary Supplement 2 fl. oz. (60mL)'. Not a slim bottle, not a squat jar, label never mirrored, matte, no rainbow, no prism light, no lens flare, no yellow '60ml' circle. Natural realistic people, not plastic skin, no studio make-up.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline line 1", "reference_position": "lower-left, first line", "text_style": "Poppins ExtraBold uppercase, white #FFFFFF, very large, left-aligned", "text": "TUS CURVAS EMPIEZAN" },
+    { "block_id": "text_block_02", "reference_function": "main headline line 2 (highlighted)", "reference_position": "lower-left, second line, taller", "text_style": "Poppins ExtraBold uppercase, lemon yellow #F5E13A with yellow-to-gold gradient, the largest text", "text": "POR EL APETITO" },
+    { "block_id": "text_block_03", "reference_function": "subtitle with segment", "reference_position": "lower-left, under the headline, two lines", "text_style": "Poppins SemiBold uppercase, white, with 'COMES DE TODO Y NO SUBES' in lemon yellow", "text": "Tu ritual de gotas si comes de todo y no subes" },
+    { "block_id": "text_block_04", "reference_function": "CTA", "reference_position": "lower-left, wide yellow pill under the swoosh", "text_style": "Poppins ExtraBold uppercase, deep cocoa #2B1A10 on lemon yellow pill", "text": "QUIERO PROBARLO" },
+    { "block_id": "text_block_05", "reference_function": "trust item", "reference_position": "directly under the pill button, small bordered badge", "text_style": "Poppins SemiBold, white on cocoa with a 2 px white border and a small icon", "text": "Pagas al recibir" }
+  ],
+  "mandatory_visual_elements": [
+    "Split screen with thin white vertical divider",
+    "Before: same woman, front view, thin legs in baggy light-wash jeans with the hand pulling the waistband a fist away and a dull grey veil over the thighs",
+    "After: same woman another day in black leggings with fuller toned thighs, wider hips and thin golden glowing lines",
+    "Curved lemon-yellow arrow from before to after",
+    "Real amber VITALDROPS dropper bottle in the lower-right, label legible",
+    "Lemon-yellow pill button and bordered 'Pagas al recibir' badge"
+  ],
+  "final_generation_exclusions": [
+    "No underwear, bikini or bare lower body; jeans and leggings only",
+    "No veins, organs, mud, slime or medical imagery",
+    "No price, discount, percentage, rating stars or unit count",
+    "No logos besides the label printed on the bottle",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add prices, badges, benefits, icons, trust seals, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}
