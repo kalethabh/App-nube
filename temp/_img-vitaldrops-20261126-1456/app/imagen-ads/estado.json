@@ -3,7 +3,7 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 21,
+    "A": 22,
     "T": 26
   },
   "tandas": {
@@ -210,6 +210,15 @@
       "estado": "hecha",
       "pedidos": [
         "U0027"
+      ],
+      "empezada": true
+    },
+    "A021": {
+      "tipo": "ajuste",
+      "uuid": "e80cfb83-a9a7-4b1a-840a-8ccca1eb00b1",
+      "estado": "hecha",
+      "pedidos": [
+        "U0028"
       ],
       "empezada": true
     }
@@ -496,7 +505,7 @@
         "version": 1,
         "trabajo": "T024"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -508,24 +517,20 @@
     "V06_4x5": {
       "v": "V06",
       "formato": "4:5",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T025"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1838192-1795736529050",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T23:42:10.100Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {
@@ -1096,6 +1101,15 @@
         }
       ],
       "paso": 0
+    },
+    "U0028": {
+      "id": "U0028",
+      "pieza": "V10_1x1",
+      "instruccion": "Que la modelo esté en vestido de baño y tenga más volumen en glúteos piernas y caderas",
+      "fecha": "2026-11-26T23:41:46.620Z",
+      "estado": "no-aplicado",
+      "ajuste": "A021",
+      "motivo": "Meta suele rechazar anuncios con una persona en vestido de baño y la atención puesta en glúteos, caderas o piernas. Además, el titular habla del jean, y si la modelo no lo tiene puesto la imagen deja de tener sentido. Por eso la dejamos como está: con su jean, de frente o de lado, con un cuerpo natural para su edad."
     }
   }
 }
