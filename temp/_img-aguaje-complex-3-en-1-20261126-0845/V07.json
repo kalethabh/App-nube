@@ -1,0 +1,78 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V07",
+    "structure_source": "library format F63 (Person with the problem on the left, symptom list and bottle on a pedestal) — structure np-07",
+    "reference_style": "Real-photo supplement ad: frustrated person, three icon symptoms, product on pedestal over a colored wave, promise pill",
+    "angle_used": "Pain / problem: women who train legs and don't see the change",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (bottom wave, icon circles, pill), deep magenta #B0105E, dark plum #2B1226 (giant first headline line and icon labels), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (pedestal), white #FFFFFF. Secondary for this variation: cool gym grey-blue #DDE3EA light, concrete grey #A7ADB4 and black rubber #2A2A2A.",
+    "visual_style": "Real photographic ad: a real woman in a neighborhood gym, natural skin, combined with clean flat graphic elements and the real bottle, sharp and identical to the photo.",
+    "visual_atmosphere": "Honest frustration after a workout that turns into a hopeful solution.",
+    "graphic_language": "One big curved fuchsia wave across the lower part, three solid fuchsia circles with white thin-line icons, a round pedestal, one rounded pill with an icon.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; icon labels and pill in Poppins SemiBold / Bold."
+  },
+  "creative_objective": "Mirror the exact frustration of the woman who does squats and still has loose jeans, list her three pains, and place the bottle as the support for her leg routine.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Giant 'SENTADILLAS'. 2) 'Y EL JEAN SIGUE SUELTO' and the frustrated woman. 3) The three pain icons. 4) The bottle on its pedestal. 5) The pill and the seal line.",
+    "composition_style": "Headline centered across the top 28%; woman on the left 50% from the waist up; icons stacked in the center-right; bottle on a pedestal at the lower right over the wave; pill at the lower left over the wave.",
+    "spacing_and_structure": "Icons aligned left with their labels to the right, even spacing; the wave rises from the lower left to the right, cutting the woman at the waist; seal line at the bottom right edge.",
+    "lighting_and_depth": "Cool soft window light from the upper left on the woman (gym daylight), background blurred; the bottle lit by a soft studio key from the left with a small contact shadow on the pedestal.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top 28%: 3-line headline, first line giant and darker, two more lines in a second color. Left: a real person from the waist up with a hand on the forehead, eyes closed, frustrated. Center-right: three icons inside solid circles stacked vertically with a short label each. Bottom: a big colored wave; the bottle on a round pedestal at the lower right; a rounded pill with an icon and the promise at the lower left.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top center (0-28%)", "visual_function": "Name the pain", "adaptation_rule": "'SENTADILLAS' giant + 'Y EL JEAN' + 'SIGUE SUELTO'", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "person with the problem", "position": "left, waist up", "visual_function": "Emotional mirror", "adaptation_rule": "Woman in gym clothes sitting on a bench after training, hand on forehead", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "3 icon symptoms", "position": "center-right, stacked", "visual_function": "Specific pains", "adaptation_rule": "Jeans, leg and battery icons with the plan's labels", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "product on pedestal", "position": "lower right", "visual_function": "Solution", "adaptation_rule": "Real closed bottle on a round blush pedestal", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "colored wave", "position": "lower part, full width", "visual_function": "Brand color base", "adaptation_rule": "Hot fuchsia wave", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "promise pill", "position": "lower left", "visual_function": "The promise", "adaptation_rule": "'Acompaña tu rutina de pierna' with a dumbbell icon", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "trust line (user seal, form rule)", "position": "bottom right edge", "visual_function": "The user's exact seal text", "adaptation_rule": "Small white line on the wave", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Price, offer, stars, testimonials or customer counts",
+      "A CTA button different from the promise pill",
+      "Loose capsules, open bottle or leaves next to the bottle",
+      "Exaggerated body close-ups"
+    ]
+  },
+  "visual_prompt": "Square 1:1 real-photo ad. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore any hand or surface in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, product, person or colors.\n\nBACKGROUND: a small neighborhood gym in Colombia, blurred (f/2): a high window letting in cool daylight on the upper left, light grey-blue walls #DDE3EA, a rack of black rubber dumbbells #2A2A2A and a squat rack softly out of focus, concrete grey floor #A7ADB4. The upper area is light and airy so the headline reads clearly.\n\nTOP (0-28% of height): centered headline in three lines, very heavy geometric sans-serif (Montserrat Black look), uppercase. Line 1 'SENTADILLAS' giant, about 90% of the width, dark plum #2B1226. Lines 2 and 3 smaller, in hot fuchsia #E6177F: 'Y EL JEAN' and 'SIGUE SUELTO'.\n\nCENTER-LEFT (28-100%, left 50% of width): a real Colombian woman of about 29, warm olive-brown skin with visible pores and a light sheen of sweat on the forehead and collarbones, dark hair in a messy high ponytail with loose strands, wearing a dusty-rose sports bra-top under an open grey zip hoodie and black leggings. She sits on a padded gym bench, shown from the waist up, facing the camera at a slight three-quarter angle, her right hand on her forehead, eyes closed, brows pulled together, mouth tense: tired frustration after training. Plano medio, 35 mm lens at eye level. The fuchsia wave cuts her at the waist.\n\nCENTER-RIGHT (30-62%, from 50% to 80% of width): three stacked rows, evenly spaced. Each row: a solid hot fuchsia #E6177F circle about 9% of the width with a white thin-line icon, and to its right a two-line label in Poppins Bold, dark plum #2B1226. Row 1: jeans icon, 'Jean suelto atrás'. Row 2: leg icon, 'Piernas delgadas'. Row 3: low battery icon, 'Sin energía para entrenar'.\n\nBOTTOM (62-100%): a large smooth hot fuchsia #E6177F wave rising from the lower left toward the right, with a darker magenta #B0105E edge line. Lower right (55-95% of height): ONE closed bottle on a round pale blush #FBE3EE pedestal, the bottle about 34% of the canvas height, label facing the camera, straight on, fully legible and never mirrored, photographic and sharp: matte black cylinder about 1.6 times taller than wide, straight sides, no neck, wide glossy hot-pink cap almost as wide as the body with a small white 'VITALABH' pattern, hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', the pink banner, italic pink 'TRIPLE ACCIÓN' and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'; matte, no rainbow, no prism light, no lens flare. Lower left (84-94%): a rounded dark plum #2B1226 pill about 45% of the width with a white circle holding a fuchsia dumbbell icon at its left, and the text 'Acompaña tu rutina de pierna' in white Poppins Bold, with 'rutina de pierna' heavier. Very bottom right (96-99%), small white Poppins SemiBold on the wave: 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline line 1 (problem word)", "reference_position": "top center, giant", "text_style": "Montserrat Black look, uppercase, dark plum #2B1226", "text": "SENTADILLAS" },
+    { "block_id": "text_block_02", "reference_function": "main headline line 2", "reference_position": "top center, under line 1", "text_style": "Montserrat Black look, uppercase, hot fuchsia #E6177F", "text": "Y EL JEAN" },
+    { "block_id": "text_block_03", "reference_function": "main headline line 3", "reference_position": "top center, under line 2", "text_style": "Montserrat Black look, uppercase, hot fuchsia #E6177F", "text": "SIGUE SUELTO" },
+    { "block_id": "text_block_04", "reference_function": "symptom 1", "reference_position": "center-right, row 1, next to jeans icon", "text_style": "Poppins Bold, dark plum", "text": "Jean suelto atrás" },
+    { "block_id": "text_block_05", "reference_function": "symptom 2", "reference_position": "center-right, row 2, next to leg icon", "text_style": "Poppins Bold, dark plum", "text": "Piernas delgadas" },
+    { "block_id": "text_block_06", "reference_function": "symptom 3", "reference_position": "center-right, row 3, next to battery icon", "text_style": "Poppins Bold, dark plum", "text": "Sin energía para entrenar" },
+    { "block_id": "text_block_07", "reference_function": "promise pill", "reference_position": "lower left, inside the dark plum pill", "text_style": "Poppins Bold, white", "text": "Acompaña tu rutina de pierna" },
+    { "block_id": "text_block_08", "reference_function": "trust item (user seal, exact)", "reference_position": "very bottom right, on the wave", "text_style": "Poppins SemiBold, small, white", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Real frustrated woman in gym clothes on a bench, hand on forehead, waist up on the left",
+    "Three fuchsia circles with white line icons stacked center-right",
+    "Hot fuchsia wave across the lower part",
+    "The real closed bottle on a round pedestal at the lower right, label legible",
+    "Dark plum pill with a dumbbell icon at the lower left"
+  ],
+  "final_generation_exclusions": [
+    "No loose capsules, no pills, no open bottle, no leaves next to the bottle.",
+    "No question marks in the headline.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. The headline describes a common situation, not the reader's body; the promise is 'acompaña', not a guaranteed result.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

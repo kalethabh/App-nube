@@ -1,0 +1,49 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 ad. Background: warm cream #FFF4EC blending into pale blush pink #FBE3EE, with soft sage #A9C4A0 watercolor washes of smooth oval palm and leaf shapes faintly in the corners. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore the hand and the counter in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, bottle, character or colors.
+
+TOP (0-20% of height): centered headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase, dark plum #2B1226, one line across about 90% of the width: 'MÁS CURVAS, SIN QUIRÓFANO', with 'SIN QUIRÓFANO' in hot fuchsia #E6177F. Under it, centered, the subtitle in Poppins SemiBold, deep magenta #B0105E: 'Aguaje, fenogreco y maca negra · 2 cápsulas al día'.
+
+LEFT (20-100% of height, left 45% of width): a high-quality 3D animated feature-film style character: an adult Colombian woman clearly in her early 30s with adult facial features (defined cheekbones, adult jaw, fine smile lines at the eyes), warm medium-brown skin with soft subsurface shading and a few freckles, long dark wavy hair with loose strands, small gold hoop earrings. She is shown from the head to the waist, cut by the left and bottom edges, body at three-quarters facing right. With both arms she hugs a neatly folded pair of blue jeans against her chest. Her face shows hope and a soft relieved smile, eyebrows slightly raised, big expressive brown eyes looking toward the bottle on the right. She wears a soft lilac v-neck t-shirt with gentle fabric folds. Warm key light from the upper right on her face.
+
+RIGHT (22-72% of height, right 55%): ONE closed real bottle standing upright in the center of this zone, about 42% of the canvas height, label facing the camera, fully legible and never mirrored, photographic and sharp: a matte black cylinder about 1.6 times taller than wide with straight sides and no neck, a wide glossy hot-pink cap almost as wide as the body with a small white 'VITALABH' pattern, a hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', the pink banner, the italic pink 'TRIPLE ACCIÓN' and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'; matte, no rainbow, no prism light, no lens flare. Around it, in soft illustrated painterly style, botanicals that never cover the label: on the left a cluster of round aguaje fruits with glossy red-brown scaly skin #8A3A22, one cut in half showing bright orange pulp #F28C28; on the right slender sprigs of fenugreek with small pale yellow flowers and thin pods; at the base two dark knobby black maca roots; smooth oval green leaves in groups of three, never serrated.
+
+LOWER RIGHT (74-92%): a rounded hot fuchsia #E6177F button about 40% of the width with white Poppins Bold uppercase text 'PÍDELO HOY'. Under it, centered, one line in Poppins SemiBold dark plum #2B1226: 'Plan de 3 meses · Pagas al recibir'.
+
+VERY BOTTOM (93-100%): one centered line across the width in Poppins SemiBold, dark plum #2B1226 on the light background (white with a soft shadow where it passes over the character): 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024', fully legible.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top center): "MÁS CURVAS, SIN QUIRÓFANO" — Montserrat Black look, uppercase, dark plum #2B1226 with 'SIN QUIRÓFANO' in hot fuchsia #E6177F
+- subtitle (under the headline, centered): "Aguaje, fenogreco y maca negra · 2 cápsulas al día" — Poppins SemiBold, deep magenta #B0105E
+- CTA (lower right, inside the fuchsia button): "PÍDELO HOY" — Poppins Bold, uppercase, white on hot fuchsia
+- trust item (under the button, centered): "Plan de 3 meses · Pagas al recibir" — Poppins SemiBold, dark plum #2B1226
+- trust item (user seal, exact) (very bottom, centered line): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Poppins SemiBold, dark plum, small
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (CTA button and highlighted words), deep magenta #B0105E, dark plum #2B1226 (headline), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (background), white #FFFFFF. Secondary for this variation: warm cream #FFF4EC, soft watercolor sage #A9C4A0 and aguaje red-brown #8A3A22 with orange pulp #F28C28.
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; subtitle, button and small lines in a rounded bold sans-serif (Poppins SemiBold / Bold look).
+
+MANDATORY ELEMENTS:
+- 3D animated adult woman (early 30s, adult features) on the left, cut by the edges, hugging folded jeans and looking at the bottle with hope
+- The real closed bottle on the right, sharp and photographic, label legible
+- Aguaje fruits (one cut with orange pulp), fenugreek sprigs and maca roots around the bottle
+- Watercolor leaf washes on a cream-blush background
+- Rounded hot fuchsia CTA button
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle.
+- No childlike or teenage look: she is clearly an adult woman.
+- No serrated or pointed leaves.
+- No price, stars, customer counts, guarantees or free shipping claims.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Price, discounts, stars, customer counts or testimonials
+- Do not add: Money-back guarantee or free shipping claims
+- Do not add: Benefit icons or lists
+- Do not add: Loose capsules or an open bottle
+- Do not add: Serrated or pointed leaves
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
