@@ -1,41 +1,48 @@
 {
-  "slug": "_img-aguaje-complex-3-en-1-20261125-1955",
+  "slug": "aguaje-complex-3-en-1",
   "nombre": "AGUAJE COMPLEX 3 EN 1",
-  "analisis": "Suplemento en cápsulas a base de aguaje, fenogreco y maca negra para aumentar glúteos, piernas y caderas de forma natural.",
-  "tipo_producto": "fisico",
-  "descripcion_visual_en": "Use the attached product photo exactly as it is (packaging, label, colors and proportions).",
-  "foto_producto": "entrada/producto.png",
+  "analisis": "Suplemento dietario en cápsulas (nutracéutico) con aguaje, fenogreco y maca negra, más vitaminas A y E. Se vende como apoyo natural para acompañar el proceso de curvas de la mujer, junto con su comida y su rutina de pierna. Viene en un frasco negro mate con tapa fucsia y una franja fucsia abajo, etiqueta negra con letras blancas grandes y detalles en fucsia. 60 cápsulas por frasco (un mes). La oferta es el tratamiento de 3 frascos con pago contra entrega.",
+  "tipo_producto": "nutraceutico",
+  "descripcion_visual_en": "A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type.",
+  "foto_producto": "temp/_img-aguaje-complex-3-en-1-20261125-1955/entrada/producto.png",
   "datos": {
-    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "angulo_preferido": "",
     "publico": "Mujeres colombianas que quieren glúteos más firmes y redondos de forma natural",
-    "precio": "",
-    "moneda": "",
+    "precio": "139.900",
+    "moneda": "COP",
     "cta": "",
     "pais": "Colombia",
     "idioma": "es",
-    "adicional": "Variaciones de su anuncio ganador de AGUAJE COMPLEX: antes y después de espaldas, frasco grande al centro, sello REGISTRO SANITARIO INVIMA RSA-0030271-2024, 4 beneficios (SIN EFECTO REBOTE (no engorda), PAGO CONTRA ENTREGA, RESULTADOS EN 3-4 SEMANAS, REGISTRO INVIMA) y barra de oferta TRATAMIENTO COMPLETO X3 UNIDADES $139.900.",
-    "angulo": null
+    "adicional": "Variaciones de su anuncio ganador de AGUAJE COMPLEX: antes y después de espaldas, frasco grande al centro, sello REGISTRO SANITARIO INVIMA RSA-0030271-2024, 4 beneficios (SIN EFECTO REBOTE (no engorda), PAGO CONTRA ENTREGA, RESULTADOS EN 3-4 SEMANAS, REGISTRO INVIMA) y barra de oferta TRATAMIENTO COMPLETO X3 UNIDADES $139.900."
   },
   "identidad_visual": {
-    "color_palette": "the colors of the product packaging",
-    "visual_style": "the style of the reference ad",
-    "visual_atmosphere": "the atmosphere of the reference ad",
-    "graphic_language": "the graphic language of the reference ad",
-    "text_typography": "the typography of the reference ad",
-    "art_direction": "same design as the reference ad"
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, dark plum #2B1226 (the 'before' header), deep wine #4A0B2E (benefit panel and offer bar), bubblegum pink #FF8CC0 (accent words, replaces the yellow accent of the reference), pale blush pink #FBE3EE (price pill) and white #FFFFFF.",
+    "visual_style": "Winning reference style: photorealistic before/after split screen of the same woman seen from behind (muted bedroom on the left, golden-hour beach on the right), solid color header bands on top, the real black-and-fuchsia bottle as large hero on the center line, a dark wine benefit panel with four neon-outlined cards and a rounded offer bar at the bottom.",
+    "visual_atmosphere": "Aspirational, feminine, confident and commercial; flat and neutral on the 'before' side, warm sunset glow on the 'after' side, soft neon fuchsia glow on the bottom panels.",
+    "graphic_language": "Two flat color header blocks, thin white center divider, rounded-rectangle cards with glowing fuchsia outlines and white thin-line icons, a round registration seal over the bottle, a fully rounded offer pill with burst lines and a glossy inner price pill.",
+    "text_typography": "Same as the reference: heavy rounded geometric sans-serif (Nunito Black / Gotham Rounded Bold look) for everything. 'ANTES' and 'DESPUÉS' huge, all uppercase, white, centered; their subtitles bold, sentence case, white, centered, two lines, about 45% of the header word size; benefit card labels bold all uppercase, white, centered, 2-3 lines, with an accent line in bubblegum pink; offer bar: 'TRATAMIENTO COMPLETO' heavy uppercase white, 'X3 UNIDADES' heavier and larger uppercase in bubblegum pink, price in the heaviest weight, huge, deep magenta inside a pale pink pill.",
+    "art_direction": "Keep the exact composition of the winning reference: same split, same two photos, same blocks and positions; the bottle always sharp and identical to the photo; everything readable on a phone. Only the two header subtitles change between variations."
   },
   "beneficios": [
-    "Aumento de glúteos",
-    "Aumento de piernas y caderas",
-    "Triple acción con 3 extractos naturales",
-    "Sin efecto rebote (no engorda)",
-    "Sin necesidad de hacer ejercicio de fuerza",
-    "Resultados visibles y naturales"
+    "Acompaña tu proceso de curvas de forma natural",
+    "Sin agujas, sin quirófano y sin recuperación",
+    "Más energía y ánimo para cumplirle a tu rutina",
+    "Fácil de cumplir: solo 2 cápsulas al día con tus comidas"
   ],
   "caracteristicas": [
-    "Producto real de la foto",
-    "Empaque original",
-    "Uso diario",
-    "Envío a domicilio"
+    "Triple acción: aguaje, fenogreco y maca negra",
+    "Con vitaminas A y E",
+    "Frasco de 60 cápsulas que rinde un mes",
+    "Tratamiento completo de 3 frascos con pago contra entrega"
+  ],
+  "deseo_central": "Verse con más curvas y sentirse segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas y no tengo forma",
+    "Ya compré pastillas por internet y no vi nada",
+    "Me comparo con las de Instagram y me siento plana"
   ]
 }

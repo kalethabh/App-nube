@@ -1,30 +1,46 @@
 {
-  "resumen": "Modo rápido: 10 variaciones de lo que ya te funciona, con un titular distinto en cada una.",
+  "resumen": "Las 10 variaciones copian tu anuncio ganador tal cual: el antes y después de espaldas, el frasco grande al centro, el sello del INVIMA, los 4 beneficios y la barra del tratamiento x3 a $139.900. Lo único que cambia es la frase debajo de ANTES y de DESPUÉS: cada una toca un dolor distinto de tu clienta, sacado de tu investigación. Así puedes probar qué frase vende más sin tocar lo que ya te funciona.",
+  "por_que_vende": "Hipótesis, no garantía: el anuncio muestra en un segundo el cambio que ella quiere ver, pone el frasco justo en medio como el puente entre las dos fotos y cierra con lo que quita el miedo a comprar (pago contra entrega y registro sanitario) y con una oferta clara de 3 frascos. Todo se lee de arriba abajo sin esfuerzo en el celular.",
   "paleta": [
-    {
-      "hex": "#000000",
-      "nombre": "la del empaque del producto"
-    },
-    {
-      "hex": "#FFFFFF",
-      "nombre": "la de cada referencia"
-    }
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#2B1226", "nombre": "Ciruela oscuro" },
+    { "hex": "#4A0B2E", "nombre": "Vino" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" }
   ],
-  "tipografia": "la de cada referencia",
-  "estilo": "el de cada referencia",
+  "tipografia": "La misma de tu anuncio: letra redondeada y muy gruesa. ANTES y DESPUÉS enormes en mayúsculas; debajo, la frase en dos líneas, gruesa y en minúsculas. Los beneficios y la oferta en mayúsculas gruesas.",
+  "estilo": "Foto realista de antes y después de espaldas: a la izquierda una habitación con luz plana, a la derecha la playa al atardecer. Arriba dos bandas de color (ciruela y fucsia), el frasco grande al centro y abajo un panel vino con 4 tarjetas de borde fucsia brillante y la barra de oferta.",
   "beneficios": [
-    "Aumento de glúteos",
-    "Aumento de piernas y caderas",
-    "Triple acción con 3 extractos naturales",
-    "Sin efecto rebote (no engorda)",
-    "Sin necesidad de hacer ejercicio de fuerza",
-    "Resultados visibles y naturales"
+    "Acompaña tu proceso de curvas de forma natural",
+    "Sin agujas, sin quirófano y sin recuperación",
+    "Más energía y ánimo para cumplirle a tu rutina",
+    "Fácil de cumplir: solo 2 cápsulas al día con tus comidas"
   ],
   "caracteristicas": [
-    "Producto real de la foto",
-    "Empaque original",
-    "Uso diario",
-    "Envío a domicilio"
+    "Triple acción: aguaje, fenogreco y maca negra",
+    "Con vitaminas A y E",
+    "Frasco de 60 cápsulas que rinde un mes",
+    "Tratamiento completo de 3 frascos con pago contra entrega"
   ],
-  "rapido": true
+  "deseo_central": "Verse con más curvas y sentirse segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas y no tengo forma",
+    "Ya compré pastillas por internet y no vi nada",
+    "Me comparo con las de Instagram y me siento plana"
+  ],
+  "decisiones": [
+    "El ángulo lo elegí yo: transformación (el antes y después), porque es el que ya usa tu anuncio ganador.",
+    "Cambié el frasco de la referencia por el tuyo (Aguaje Complex 3 en 1 de Vitalabh). No copié las cifras ni el sello de calidad del otro frasco.",
+    "Los colores siguen los de tu frasco: fucsia, ciruela, vino y negro. El amarillo de la referencia pasa a rosa chicle y el precio va en una pastilla rosa pálido con números magenta, con el mismo contraste.",
+    "El precio $139.900 y el registro RSA-0030271-2024 los tomé de lo que escribiste. Escribí el precio con punto, como se usa en Colombia.",
+    "Dejé los 4 beneficios tal como los pediste. Ojo: tu investigación avisa que «no engorda» y «resultados en 3-4 semanas» son frases de riesgo para la publicidad en Colombia, y que Meta suele frenar los antes y después. Si te rechazan alguno, cámbialas por «No es para subir de peso» y «Plan de 3 meses».",
+    "Antes de pautar, confirma que el número de registro sea el correcto en la consulta del INVIMA."
+  ]
 }
