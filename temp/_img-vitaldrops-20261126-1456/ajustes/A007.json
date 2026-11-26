@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0008",
+      "aplicado": true,
+      "cambia_textos": true,
+      "instruccion_en": "Change only two things. 1) Replace the bottom handwritten headline with exactly: \"No es subir por subir.\" on the first line and \"Es que se vaya a donde tiene que ir.\" on the second line, same handwritten marker style, size, position and underline; check spelling. 2) In the right-side (VitalDrops) figure, make the legs and glutes look naturally more toned and firm, a realistic healthy look, not exaggerated. Keep everything else identical: the left figure, all labels and arrows, the headers, the whiteboard, the background and the product bottle.",
+      "resumen": "Cambié el texto de abajo y en el después las piernas y glúteos se ven más tonificados, de forma natural."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0009",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Change only the bottle label. Make the 'VITALDROPS' product logo on the bottle label sharp, clean and fully readable, same colors and font as the original label. Only the small word 'amua' on the label stays softly blurred so it cannot be read. Keep everything else exactly as it is: the headline 'AUMENTA LO QUE DEBE AUMENTAR' at the top with no brand logo above it, the yellow subtitle ribbon, both women, the before/after labels, the arrow, the bottom treatment strip, the background and the bottle shape, size and position.",
+      "resumen": "El logo VITALDROPS del frasco ahora se ve claro; solo queda borrosa la palabra «amua»."
+    }
+  ]
+}

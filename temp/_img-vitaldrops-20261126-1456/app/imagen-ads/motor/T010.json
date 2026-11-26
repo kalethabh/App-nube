@@ -1,0 +1,14 @@
+{
+  "id": "T010",
+  "creado": "2026-11-26T20:45:37.424Z",
+  "piezas": [
+    {
+      "pieza": "V08_1x1",
+      "orden": "U0010",
+      "modo": "editar",
+      "version": 3,
+      "instruccion_en": "On the bottle label, blur only the small word 'amua' so it cannot be read. Keep the 'VITALDROPS' logo on the label sharp and fully readable, with its original colors. Do not add 'amua' anywhere else. Change nothing else: same headline, labels, offer strip, women, pose, scene, layout and colors.",
+      "textos": false
+    }
+  ]
+}

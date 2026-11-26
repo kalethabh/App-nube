@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0011",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "On the bottle label only, make the small brand word 'amua' above 'VITALDROPS' much less noticeable: soften it with a light blur and low contrast so it blends into the yellow label and is not readable at a glance. Do not remove or change the bottle, the label color, 'VITALDROPS' or any other label detail. Keep everything else exactly the same: women, poses, headline, subtitle, handwritten notes, seal, icons, colors, layout and framing.",
+      "resumen": "Suavizamos la palabra «amua» del frasco para que casi no se note. Todo lo demás queda igual."
+    }
+  ]
+}

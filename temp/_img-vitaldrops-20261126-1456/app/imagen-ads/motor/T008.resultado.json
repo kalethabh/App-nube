@@ -1,0 +1,16 @@
+{
+  "id": "T008",
+  "piezas": {
+    "V07_1x1": {
+      "orden": "U0008",
+      "estado": "generando",
+      "intentosApi": 2,
+      "version": 2,
+      "intentoAbierto": true,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt"
+    }
+  },
+  "actualizado": "2026-11-26T20:45:42.871Z",
+  "terminado": false
+}
