@@ -1277,3 +1277,14 @@ button.lote-pieza__marco:hover .lote-pieza__img {
 .sup__reglas small { color: var(--texto-3); }
 .sup__marca { display: inline-block; margin-right: 4px; padding: 0 7px; border-radius: 999px; font-size: 11px; font-weight: 800; background: color-mix(in srgb, #A3FF12 20%, transparent); color: #5c8f0a; }
 .sup__marca--repite { background: color-mix(in srgb, #f59e0b 20%, transparent); color: #b45309; }
+
+/* (2026-11-26g) el anuncio dentro de «¿Regenerar esta imagen?» */
+.lote-regenerar__cuerpo { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 20px; align-items: start; }
+.lote-regenerar__anuncio { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--borde-2); background: var(--superficie-2); position: sticky; top: 0; }
+.lote-regenerar__anuncio img { display: block; width: 100%; height: auto; max-height: 60vh; object-fit: contain; }
+.lote-regenerar__anuncio--vertical img { max-height: 62vh; }
+@media (max-width: 760px) {
+  .lote-regenerar__cuerpo { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .lote-regenerar__anuncio { position: static; max-width: 260px; justify-self: center; }
+  .lote-regenerar__anuncio img { max-height: 40vh; }
+}

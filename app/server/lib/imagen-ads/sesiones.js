@@ -24,7 +24,7 @@ import { R, idsDelLote, piezaId, vDe, formatoDe, fotoDelLote, nombreFormato } fr
 import { esVariado, nivelDe, cupos, VARIABLES, ESTILOS, CRITERIOS, NOTA_MINIMA } from './variedad.js';
 import { estructurasDelLote, copiarEstructuras, copiarReferenciasDe, NOMBRES_CRITERIOS } from './comparacion.js';
 import { textoReglasImagen } from './supervisor.js';
-import { textoCuerpo } from './cuerpo.js';
+import { textoCuerpo, textoMomentos } from './cuerpo.js';
 import { textoTitulosMayaverra } from './titulares.js';
 import { textoParaClaude } from '../aprendizajes.js';
 import { PAISES } from './precios.js';
@@ -172,7 +172,7 @@ export function textoVenta(brief) {
 const REGLAS_CONVERSION = `## Reglas de conversión (todas las variaciones)
 - UN solo mensaje por imagen. GANCHO afirmativo de máximo 7 palabras, sin preguntas (sin «¿?»), y debajo la PROPUESTA DE VALOR con el resultado y el tiempo (ver «Títulos como Mayaverra»).
 - El producto IDÉNTICO a la foto (forma, etiqueta, colores) y legible; nunca rediseñado.
-- Prueba visual del beneficio (se ve, no solo se dice). Antes/después: la misma persona en dos momentos distintos (otra luz, otra ropa, otro día), natural, con una diferencia que se note; nunca el mismo cuadro retocado.
+- Prueba visual del beneficio (se ve, no solo se dice). Antes/después y progreso (días, semanas, meses): la misma persona, pero CADA MOMENTO con otra pose, ropa, peinado, escenario e iluminación, para que se note que pasó el tiempo; natural, con una diferencia que se note; nunca el mismo cuadro retocado.
 - Jerarquía: titular → prueba o producto → beneficios (máximo 4) → oferta → confianza (sellos).
 - Políticas de Meta: sin promesas médicas, sin señalar defectos del cuerpo de quien mira («¿tienes…?», «tu grasa»), sin antes/después exagerados ni cifras inventadas. La promesa es directa y con tiempo (decisión del usuario), sin cifras inventadas, enfermedades ni «garantizado» sin garantía real.`;
 
@@ -365,7 +365,7 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
   return {
     tipo: 'estrategia',
     ids,
-    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoEstructuras(brief, lote, refsEstructuras) + (usaEstructuras(brief) ? textoManualMayaverra() : '') + (usaEstructuras(brief) || esVariado(brief) ? textoCuerpo(brief) + textoTitulosMayaverra(brief) : '') + textoVenta(brief) + `\n${DETALLE_VISUAL}\n` + textoReglasImagen() + textoAprendizajesGenerales() + textoValidados(lote, validados) + textoTitulosElegidos(brief),
+    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoEstructuras(brief, lote, refsEstructuras) + (usaEstructuras(brief) ? textoManualMayaverra() : '') + (usaEstructuras(brief) || esVariado(brief) ? textoCuerpo(brief) + textoMomentos() + textoTitulosMayaverra(brief) : '') + textoVenta(brief) + `\n${DETALLE_VISUAL}\n` + textoReglasImagen() + textoAprendizajesGenerales() + textoValidados(lote, validados) + textoTitulosElegidos(brief),
     escribe: ['producto.json', 'estrategia.json', 'plan.json', ...ids.map((v) => `${v}.json`), 'app/imagen-ads/bloqueo.json', ...(esDelAgente(brief) ? ['analisis-ganador.json'] : [])],
     maxTurnos: 80 + 2 * k + 2 * validados.length,
     timeoutMin: Math.min(120, 25 + 0.4 * n),
@@ -436,6 +436,7 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
       textoReglasImagen() +
       textoEstructurasPrompts(lote, ids, conEstructura, formatos) +
       (ids.some((v) => conEstructura[v]) ? textoManualMayaverra() + textoCuerpo(brief) : '') +
+      (usaEstructuras(brief) || esVariado(brief) ? textoMomentos() : '') +
       (usaEstructuras(brief) || esVariado(brief) ? textoTitulosMayaverra(brief) : '') +
       textoVenta(brief) +
       (esDelAgente(brief)
@@ -552,7 +553,7 @@ export function sesionAjuste({ carpeta, lote, brief, tanda, pedidos }) {
     prompt:
       textoClaude('tarea-imagen-ads-ajuste', { lote, pedidos: lineas, tanda }) +
       textoReglasImagen() +
-      (usaEstructuras(brief) || esVariado(brief) ? textoTitulosMayaverra(brief) : '') +
+      (usaEstructuras(brief) || esVariado(brief) ? textoTitulosMayaverra(brief) + textoMomentos() : '') +
       (esDelAgente(brief) ? `\nEste lote es del agente de variaciones: al corregir, conserva el nivel, los invariables y la hipótesis de la variación (plan.json, \`analisis-ganador.json\`) y la dirección de arte limpia de \`${GUIA_AGENTE}\`.\n` : ''),
     escribe: [...vs, `ajustes/${tanda}.json`],
     maxTurnos: 40,
