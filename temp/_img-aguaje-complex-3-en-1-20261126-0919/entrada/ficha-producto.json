@@ -1,0 +1,56 @@
+{
+  "nombre": "AGUAJE COMPLEX 3 EN 1",
+  "queEs": "Suplemento en cápsulas a base de aguaje, fenogreco y maca negra para aumentar glúteos, piernas y caderas de forma natural.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas y caderas",
+    "Triple acción con 3 extractos naturales",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio de fuerza",
+    "Resultados visibles y naturales"
+  ],
+  "publico": "Mujeres de 20 a 45 años que quieren más volumen en glúteos, piernas y caderas sin cirugía y de forma natural.",
+  "dolor": "Siente que tiene poco glúteo y piernas delgadas, no le luce la ropa ni los shorts, y no quiere cirugías ni pasar horas en el gimnasio.",
+  "oferta": "",
+  "comoCompra": "",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "",
+  "prueba": "",
+  "ingredientes": "Por porción (2 cápsulas): aguaje en polvo 200 mg, fenogreco en polvo 400 mg, maca negra en polvo 200 mg, vitamina A y vitamina E. Frasco de 60 cápsulas de 0,5 g (30 g netos).",
+  "comoSeUsa": "Tomar 2 cápsulas al día, de preferencia con las comidas principales. Uso continuo por varios meses para resultados más duraderos y sin efecto rebote.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "Frasco real en la mano, etiqueta negra y rosada bien legible."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": true,
+      "nota": "Diseño completo de la etiqueta: beneficios, ingredientes y modo de uso. No es foto real del frasco."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "idioma",
+    "mercado"
+  ],
+  "falta": [
+    {
+      "campo": "oferta",
+      "pregunta": "¿Cuánto cuesta y tienes alguna oferta o envío gratis?"
+    },
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿Cómo compra el cliente: web, WhatsApp o pago contra entrega?"
+    },
+    {
+      "campo": "probo",
+      "pregunta": "¿Qué suelen probar antes tus clientas que no les funcionó?"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261126-0919",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "AGUAJE COMPLEX 3 EN 1",
+  "productoId": "producto-edb1",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "publico": "Mujeres colombianas que quieren glúteos y piernas más firmes y redondos de forma natural, sin ir al gym, ni dietas ni pagar cirugías costosas",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "",
+    "angulo": null
+  },
+  "cantidad": 10,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [],
+  "modo": "nuevos",
+  "referenciasPropias": [],
+  "conceptosReferencias": [],
+  "fiel": false,
+  "elegirTitulos": false,
+  "rapido": false,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-26T14:19:26.759Z",
+  "estructuras": [
+    "F42",
+    "F33",
+    "F70",
+    "F68",
+    "F43",
+    "F38",
+    "F61",
+    "F59",
+    "F65",
+    "F40"
+  ],
+  "venta": {
+    "oferta": "",
+    "sellos": [
+      "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024"
+    ],
+    "pais": "CO",
+    "prohibido": []
+  },
+  "investigacionDelProducto": true,
+  "validados": [
+    {
+      "archivo": "entrada/validados/A01.png",
+      "origen": "me-funciona",
+      "mismoProducto": false,
+      "producto": "VITALDROPS",
+      "titulo": "CURVAS MÁS LLENAS EN 21 DÍAS",
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "entrada/validados/A02.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A03.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A04.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A05.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p22",
+      "nombre": "No solo X: también Y",
+      "familia": "dolor",
+      "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]», con «Tu mejor versión» a mano",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A06.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p30",
+      "nombre": "Día 0 · 7 · 21",
+      "familia": "tiempo",
+      "titular": "Los días (Día 0 · 7 · 21) + el nombre del producto + 2 resultados concretos en sus palabras («Empiezas a [resultado visible]»)",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A07.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p23",
+      "nombre": "Producto héroe",
+      "familia": "beneficios",
+      "titular": "«Descubre el poder de [producto]» + el resultado principal en 3 a 5 palabras + íconos de ingredientes",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A08.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p29",
+      "nombre": "Antes y después lado a lado",
+      "familia": "antes-despues",
+      "titular": "«[Zona] [resultado] así de fácil» (o «en el mismo lugar»), con el antes y el después",
+      "relacionada": true
+    }
+  ]
+}
