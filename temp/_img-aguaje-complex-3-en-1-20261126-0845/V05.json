@@ -1,0 +1,78 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "library format F46 (Instagram story with question box and product in hand) — structure mv-16",
+    "reference_style": "Native UGC-style Instagram story: question sticker, plain-text answer and a phone photo of a hand holding the product over a bed",
+    "angle_used": "Trust objection: for women who already lost money on pills bought online",
+    "ad_format": "Single Image Ad (native story)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion native-looking image ad"
+  },
+  "global_identity": {
+    "color_palette": "Native story look: the question sticker in Instagram style (dark charcoal #262626 header, white #FFFFFF body), answer box white #FFFFFF with black #111111 text. Brand colors appear only through the real bottle (bottle black #0E0E10, hot fuchsia #E6177F cap and band). Secondary for this variation: morning cream #F6EFE6 curtains and soft white bedding #F4F2EE.",
+    "visual_style": "Real smartphone photo, unpolished and believable, like a story posted by a real Colombian woman; the bottle sharp and identical to the product photo.",
+    "visual_atmosphere": "Quiet, honest early-morning moment at home; calm and sincere, no studio feel.",
+    "graphic_language": "Native Instagram story sticker (rounded rectangle with dark header), a plain white text box behind the answer, nothing else: no icons, no brand graphics.",
+    "text_typography": "Sticker texts in the Instagram system sans-serif look (SF Pro / Helvetica Neue Medium); the answer in a classic serif (Georgia / Times look) regular with key phrases in bold, black."
+  },
+  "creative_objective": "Stop the scroll of a woman who already bought pills online and saw nothing: it looks like a real story where someone asks the doubt she has, and the answer is sincere and grounded (no magic, routine and food are the base), with the real bottle in a real hand.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong — while looking 100% native",
+    "visual_hierarchy": "1) The question in the sticker. 2) The answer with its bold phrases. 3) The hand holding the bottle. 4) The small seal line.",
+    "composition_style": "Vertical story recropped to square: sticker centered on top, answer box centered under it, hand with bottle centered in the lower 60%.",
+    "spacing_and_structure": "Sticker about 70% of the width; answer box about 90% of the width, tight padding; the bottle cap starts right below the answer box; seal line at the very bottom over the sheets.",
+    "lighting_and_depth": "Soft diffuse window light from the upper back, slightly cool morning tone, shallow depth of field: window and curtains blurred, the hand and bottle sharp.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Background: blurred bedroom window with light curtains and an unmade white bed. Top: Instagram 'ask me a question' sticker with a dark header and the question in the white body. Middle: a white rectangular box with a 4-line answer in serif with bold phrases. Bottom 60%: a woman's hand holding the closed bottle in front of the white sheets.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "question sticker", "position": "top center (8-26%)", "visual_function": "The customer's doubt as the hook", "adaptation_rule": "Header 'Hazme una pregunta' and the doubt '¿Eso sí sirve o es puro cuento?'", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "answer text box", "position": "center (28-48%)", "visual_function": "Sincere answer that disarms the objection", "adaptation_rule": "4 short lines, no figures or customer counts, bold key phrases", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "hand holding product", "position": "bottom center (46-100%)", "visual_function": "Real-life proof that she uses it", "adaptation_rule": "Natural hand with short natural nails holding the closed real bottle over white sheets", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "background", "position": "full canvas", "visual_function": "Home, morning, intimacy", "adaptation_rule": "Bedroom window with light curtains, rumpled white sheets", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "trust line (user seal, form rule)", "position": "very bottom, centered", "visual_function": "The user's exact seal text", "adaptation_rule": "Small white text with soft shadow over the sheets", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Customer counts, figures, percentages, weeks or days of results",
+      "Price, CTA button, offer box, stars or ratings",
+      "Benefit icons or lists",
+      "Emojis, hearts or extra stickers",
+      "Any brand logo apart from the real bottle label",
+      "Loose capsules or an open bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 image that looks like a real Instagram story screenshot taken on a phone and cropped to square. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore any hand or surface in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, bottle or hand.\n\nBACKGROUND (full canvas): a real bedroom in the early morning. Upper half: a window with sheer cream #F6EFE6 curtains, heavily blurred (f/1.8 phone portrait look), soft daylight glowing through, slightly cool white balance. Lower half: an unmade bed with rumpled white cotton sheets #F4F2EE, visible soft folds and wrinkles, fine cotton weave texture, out of focus behind the hand. Subtle phone-camera grain, no filters.\n\nTOP (8-26% of height): a native Instagram question sticker, centered, about 70% of the canvas width, rounded corners. Its header strip is dark charcoal #262626 with the text 'Hazme una pregunta' in white, Instagram system sans-serif Medium (SF Pro look), centered. Its body is white #FFFFFF with the question '¿Eso sí sirve o es puro cuento?' in black #111111, same sans-serif Medium, larger, centered on one line.\n\nCENTER (28-46%): a plain white #FFFFFF rectangular box, about 90% of the width, no rounded corners, tight padding, with four centered lines in a classic serif (Georgia look) regular, black #111111, the key phrases in bold: line 1 'Te soy sincera: yo también dudaba.' (bold: 'yo también dudaba'); line 2 'No es magia, es un apoyo natural.' (bold: 'es un apoyo natural'); line 3 'Lo tomo 2 cápsulas al día con mis comidas' (bold: '2 cápsulas al día'); line 4 'y le cumplo a mi rutina de pierna.' (bold: 'mi rutina de pierna').\n\nBOTTOM (46-94%): a real woman's hand, light-medium Latina skin with visible pores, fine knuckle creases and natural tone variation, short natural unpainted nails, entering from the lower left and holding ONE closed bottle upright, centered, the bottle about 44% of the canvas height, label facing the camera, straight on, fully legible and never mirrored, fingers wrapped around the lower half without covering the word 'AGUAJE'. The bottle: a matte black cylinder about 1.6 times taller than wide with straight sides and no neck, a wide glossy hot-pink #E6177F screw cap almost as wide as the body with a small white 'VITALABH' pattern, a hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', the thin pink banner, the italic pink 'TRIPLE ACCIÓN' and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'. Matte surface with only a soft window highlight on the cap; no rainbow, no prism light, no lens flare. Camera: phone held at about 40 cm, slightly above, natural perspective.\n\nVERY BOTTOM (95-99%): one small centered line in white sans-serif (Poppins SemiBold look) with a soft dark shadow for legibility over the sheets: 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "sticker header", "reference_position": "top center, dark header strip of the sticker", "text_style": "Instagram system sans-serif Medium, white on dark charcoal #262626", "text": "Hazme una pregunta" },
+    { "block_id": "text_block_02", "reference_function": "main headline (customer question)", "reference_position": "top center, white body of the sticker", "text_style": "Instagram system sans-serif Medium, larger, black #111111 on white", "text": "¿Eso sí sirve o es puro cuento?" },
+    { "block_id": "text_block_03", "reference_function": "answer line 1", "reference_position": "center, white answer box, line 1", "text_style": "Georgia-look serif, black, 'yo también dudaba' in bold", "text": "Te soy sincera: yo también dudaba." },
+    { "block_id": "text_block_04", "reference_function": "answer line 2", "reference_position": "center, white answer box, line 2", "text_style": "Georgia-look serif, black, 'es un apoyo natural' in bold", "text": "No es magia, es un apoyo natural." },
+    { "block_id": "text_block_05", "reference_function": "answer line 3", "reference_position": "center, white answer box, line 3", "text_style": "Georgia-look serif, black, '2 cápsulas al día' in bold", "text": "Lo tomo 2 cápsulas al día con mis comidas" },
+    { "block_id": "text_block_06", "reference_function": "answer line 4", "reference_position": "center, white answer box, line 4", "text_style": "Georgia-look serif, black, 'mi rutina de pierna' in bold", "text": "y le cumplo a mi rutina de pierna." },
+    { "block_id": "text_block_07", "reference_function": "trust item (user seal, exact)", "reference_position": "very bottom, centered", "text_style": "Poppins SemiBold look, small, white with soft dark shadow", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Native Instagram question sticker with dark header",
+    "Plain white answer box with 4 serif lines and bold phrases",
+    "Real hand with short natural nails holding the closed real bottle, label legible",
+    "Blurred bedroom window with sheer curtains and rumpled white sheets, morning light"
+  ],
+  "final_generation_exclusions": [
+    "No loose capsules, no pills, no open bottle.",
+    "No emojis, hearts, stickers or icons apart from the question sticker.",
+    "No customer counts, figures of results, days or weeks.",
+    "No long manicured or painted nails.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. The question is the customer's voice; the answer is honest ('no es magia'), promises no result and has no figures.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

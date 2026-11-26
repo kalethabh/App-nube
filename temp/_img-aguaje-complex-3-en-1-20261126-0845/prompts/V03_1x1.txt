@@ -1,0 +1,46 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 ultra-realistic outdoor lifestyle photo ad, like a real editorial photo taken on a sunny weekend morning at a viewpoint in the Colombian coffee region: clear pale sky #CFE4F2 in the upper half, layered hazy green mountains #4F7A45 in the distance, and a rough grey stone wall in the foreground across the bottom 30%. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore the hand and the counter in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, bottle, person or colors.
+
+UPPER LEFT (0-25% of height, left 58% of width), directly on the sky with no box: 'NO SOLO LA COLA.' in a very heavy geometric sans-serif (Montserrat Black look), dark plum #2B1226, uppercase, one line, about 55% of the width. Under it a thin hot fuchsia #E6177F line about one third of the width.
+
+LEFT COLUMN (25-60%): the second part in Montserrat ExtraBold, sentence case, dark plum #2B1226, three lines: 'También tus piernas' / 'y tu' / 'seguridad', where the word 'seguridad' is hot fuchsia #E6177F. Under it a rounded hot fuchsia #E6177F pill with white Poppins Bold text 'Empieza tu plan de 3 meses' and a small white circle with a right arrow at its right end.
+
+RIGHT 45% (from the top margin down to the stone wall): an adult Colombian woman of about 38, warm tan skin with real texture, visible pores, a few freckles and fine smile lines, natural brows, no studio makeup, long dark-brown wavy hair loose with flyaway strands moving in the breeze. She sits on the stone wall facing the camera at three-quarters, body turned slightly to the left, laughing naturally and looking just past the camera, one hand resting on her knee, the other on the stone. She wears a white linen button shirt with rolled sleeves and real wrinkles, tucked into high-waisted mid-blue jeans that fit her hips and thighs snugly and look natural, a thin brown belt and white sneakers; she is framed from the top of her head to just below the knees, never from behind. Soft side morning sunlight from the left, natural shadows, real phone-photo look, no plastic skin.
+
+LOWER LEFT (60-92%), on the stone wall in the foreground: ONE closed real bottle standing upright, about 30% of the canvas height (about as tall as her forearm in the photo, because it is closer to the camera), label facing the camera, fully legible and never mirrored: a matte black cylinder about 1.6 times taller than wide with straight sides and no neck, a wide glossy hot-pink cap almost as wide as the body with a small white 'VITALABH' pattern, a hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', the pink banner, the italic pink 'TRIPLE ACCIÓN' and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'. Same sunlight from the left, a natural contact shadow on the stone; matte, no rainbow, no prism light, no lens flare.
+
+BOTTOM (92-100%): the stone wall, and under the bottle a small line of white Poppins SemiBold text with a soft dark shadow: 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024', fully legible.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (part 1) (upper left): "NO SOLO LA COLA." — Montserrat Black look, uppercase, dark plum #2B1226, largest
+- subtitle (part 2) (left, under the fuchsia divider, three lines): "También tus piernas y tu seguridad" — Montserrat ExtraBold, sentence case, dark plum with 'seguridad' in hot fuchsia #E6177F
+- CTA (left, under part 2, inside a fuchsia pill with circled arrow): "Empieza tu plan de 3 meses" — Poppins Bold, white on hot fuchsia
+- trust item (user seal, exact) (bottom left, on the stone under the bottle): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Poppins SemiBold, white with soft dark shadow, small
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (accent word, divider line and CTA pill), deep magenta #B0105E, dark plum #2B1226 (main text), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF. Secondary for this variation: clear morning sky blue #CFE4F2 and coffee-mountain green #4F7A45.
+- text_typography: Main statement in a very heavy geometric sans-serif (Montserrat Black look); second part in Montserrat ExtraBold, sentence case; CTA in Poppins Bold.
+
+MANDATORY ELEMENTS:
+- Ultra-realistic Colombian woman of about 38 in jeans, smiling, facing the camera, seated on a stone wall on the right half
+- Coffee-region green mountains under a clear morning sky
+- Thin hot fuchsia divider line under the first line
+- Hot fuchsia CTA pill with a white circled arrow
+- One closed real bottle standing on the stone wall in the lower left, label legible
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle; the woman holds nothing.
+- No pose from behind, no body close-ups.
+- No benefit icons, stars, prices or testimonials.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Benefit lists, icons, price, offer boxes, stars or testimonials
+- Do not add: Before/after panels
+- Do not add: Loose capsules or an open bottle
+- Do not add: Poses from behind or body-focused close-ups
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

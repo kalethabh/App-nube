@@ -1,0 +1,78 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F37 (Emotional 3D character with botanicals around the bottle) — structure mv-05",
+    "reference_style": "3D animated character ad with the real product surrounded by illustrated botanicals and a CTA button",
+    "angle_used": "Emotional promise: more curves, without the operating room",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (CTA button and highlighted words), deep magenta #B0105E, dark plum #2B1226 (headline), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (background), white #FFFFFF. Secondary for this variation: warm cream #FFF4EC, soft watercolor sage #A9C4A0 and aguaje red-brown #8A3A22 with orange pulp #F28C28.",
+    "visual_style": "High-quality 3D animated feature-film character render (soft subsurface skin, expressive eyes) combined with the real photographic bottle, sharp and identical to the photo.",
+    "visual_atmosphere": "Hopeful, tender and warm; a quiet moment of relief and excitement.",
+    "graphic_language": "Watercolor leaf washes on a cream-blush background, illustrated botanicals around the bottle, one rounded fuchsia button, clean centered text lines.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; subtitle, button and small lines in a rounded bold sans-serif (Poppins SemiBold / Bold look)."
+  },
+  "creative_objective": "Touch the woman who wants more curves but is terrified of surgery: a warm character who hugs her favorite jeans and looks at the bottle with hope, telling her there is a natural way, and inviting her to order with pay-on-delivery.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Headline. 2) The character's hopeful face. 3) The bottle with botanicals. 4) The fuchsia button. 5) The plan line and the seal line.",
+    "composition_style": "Headline and subtitle centered on top (20%); character on the left 45% cut by the left and bottom edges; bottle with botanicals on the right (55% zone); button and small lines on the lower right; seal line across the very bottom.",
+    "spacing_and_structure": "The character's gaze crosses the canvas toward the bottle; the button sits under the botanicals with clear space; small lines centered under the button.",
+    "lighting_and_depth": "Soft warm key light from the upper right falling on the character's face and the bottle, gentle ambient fill, the watercolor background flat and soft behind.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top: one-line emotional headline in heavy dark type and a subtitle with two ideas separated by a dot. Left: a 3D animated woman from the chest up, cut by the left and bottom edges, looking with hope toward the right. Right: the bottle standing among branches, flowers and berries. Lower right: a rounded red button with a buy text, two short lines of guarantee/shipping under it. Very bottom: one line about origin.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top center", "visual_function": "Emotional promise", "adaptation_rule": "'MÁS CURVAS, SIN QUIRÓFANO'", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "subtitle", "position": "under the headline", "visual_function": "What it is, two ideas separated by a dot", "adaptation_rule": "Ingredients · dose", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "3D character", "position": "left, cut by the edges", "visual_function": "Emotion carrier", "adaptation_rule": "Adult Colombian woman of about 32, hugging folded jeans, hopeful gaze at the bottle", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "product with botanicals", "position": "right", "visual_function": "Natural solution", "adaptation_rule": "Real closed bottle with aguaje fruits, fenugreek sprigs and maca roots around it", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "CTA button", "position": "lower right", "visual_function": "Call to action", "adaptation_rule": "Hot fuchsia rounded button 'PÍDELO HOY' (no CTA given: truthful generic text)", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "guarantee/shipping lines", "position": "under the button", "visual_function": "Reduce risk", "adaptation_rule": "No guarantee or free shipping given: 'Plan de 3 meses · Pagas al recibir'", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "bottom origin line", "position": "very bottom", "visual_function": "Trust", "adaptation_rule": "The user's exact seal text", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Price, discounts, stars, customer counts or testimonials",
+      "Money-back guarantee or free shipping claims",
+      "Benefit icons or lists",
+      "Loose capsules or an open bottle",
+      "Serrated or pointed leaves"
+    ]
+  },
+  "visual_prompt": "Square 1:1 ad. Background: warm cream #FFF4EC blending into pale blush pink #FBE3EE, with soft sage #A9C4A0 watercolor washes of smooth oval palm and leaf shapes faintly in the corners. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore the hand and the counter in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, bottle, character or colors.\n\nTOP (0-20% of height): centered headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase, dark plum #2B1226, one line across about 90% of the width: 'MÁS CURVAS, SIN QUIRÓFANO', with 'SIN QUIRÓFANO' in hot fuchsia #E6177F. Under it, centered, the subtitle in Poppins SemiBold, deep magenta #B0105E: 'Aguaje, fenogreco y maca negra · 2 cápsulas al día'.\n\nLEFT (20-100% of height, left 45% of width): a high-quality 3D animated feature-film style character: an adult Colombian woman clearly in her early 30s with adult facial features (defined cheekbones, adult jaw, fine smile lines at the eyes), warm medium-brown skin with soft subsurface shading and a few freckles, long dark wavy hair with loose strands, small gold hoop earrings. She is shown from the head to the waist, cut by the left and bottom edges, body at three-quarters facing right. With both arms she hugs a neatly folded pair of blue jeans against her chest. Her face shows hope and a soft relieved smile, eyebrows slightly raised, big expressive brown eyes looking toward the bottle on the right. She wears a soft lilac v-neck t-shirt with gentle fabric folds. Warm key light from the upper right on her face.\n\nRIGHT (22-72% of height, right 55%): ONE closed real bottle standing upright in the center of this zone, about 42% of the canvas height, label facing the camera, fully legible and never mirrored, photographic and sharp: a matte black cylinder about 1.6 times taller than wide with straight sides and no neck, a wide glossy hot-pink cap almost as wide as the body with a small white 'VITALABH' pattern, a hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', the pink banner, the italic pink 'TRIPLE ACCIÓN' and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'; matte, no rainbow, no prism light, no lens flare. Around it, in soft illustrated painterly style, botanicals that never cover the label: on the left a cluster of round aguaje fruits with glossy red-brown scaly skin #8A3A22, one cut in half showing bright orange pulp #F28C28; on the right slender sprigs of fenugreek with small pale yellow flowers and thin pods; at the base two dark knobby black maca roots; smooth oval green leaves in groups of three, never serrated.\n\nLOWER RIGHT (74-92%): a rounded hot fuchsia #E6177F button about 40% of the width with white Poppins Bold uppercase text 'PÍDELO HOY'. Under it, centered, one line in Poppins SemiBold dark plum #2B1226: 'Plan de 3 meses · Pagas al recibir'.\n\nVERY BOTTOM (93-100%): one centered line across the width in Poppins SemiBold, dark plum #2B1226 on the light background (white with a soft shadow where it passes over the character): 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024', fully legible.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top center", "text_style": "Montserrat Black look, uppercase, dark plum #2B1226 with 'SIN QUIRÓFANO' in hot fuchsia #E6177F", "text": "MÁS CURVAS, SIN QUIRÓFANO" },
+    { "block_id": "text_block_02", "reference_function": "subtitle", "reference_position": "under the headline, centered", "text_style": "Poppins SemiBold, deep magenta #B0105E", "text": "Aguaje, fenogreco y maca negra · 2 cápsulas al día" },
+    { "block_id": "text_block_03", "reference_function": "CTA", "reference_position": "lower right, inside the fuchsia button", "text_style": "Poppins Bold, uppercase, white on hot fuchsia", "text": "PÍDELO HOY" },
+    { "block_id": "text_block_04", "reference_function": "trust item", "reference_position": "under the button, centered", "text_style": "Poppins SemiBold, dark plum #2B1226", "text": "Plan de 3 meses · Pagas al recibir" },
+    { "block_id": "text_block_05", "reference_function": "trust item (user seal, exact)", "reference_position": "very bottom, centered line", "text_style": "Poppins SemiBold, dark plum, small", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "3D animated adult woman (early 30s, adult features) on the left, cut by the edges, hugging folded jeans and looking at the bottle with hope",
+    "The real closed bottle on the right, sharp and photographic, label legible",
+    "Aguaje fruits (one cut with orange pulp), fenugreek sprigs and maca roots around the bottle",
+    "Watercolor leaf washes on a cream-blush background",
+    "Rounded hot fuchsia CTA button"
+  ],
+  "final_generation_exclusions": [
+    "No loose capsules, no pills, no open bottle.",
+    "No childlike or teenage look: she is clearly an adult woman.",
+    "No serrated or pointed leaves.",
+    "No price, stars, customer counts, guarantees or free shipping claims.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. It offers a natural option without promising a result.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

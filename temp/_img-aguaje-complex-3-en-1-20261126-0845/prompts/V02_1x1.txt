@@ -1,0 +1,53 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 premium still-life supplement ad. Background: a smooth vertical gradient from pale blush pink #FBE3EE at the top to dusty mauve #D9A7BE at the bottom, softly lit, with a faint warm glow behind the bottle. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore the hand and the counter in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, bottle, numbers or colors.
+
+TOP (0-20% of height): a centered two-line headline in a very heavy geometric sans-serif (Montserrat Black look), dark plum #2B1226, uppercase: line 1 'SENTADILLAS SIN CAMBIO:' and line 2 'TU RUTINA PIDE APOYO', the word 'APOYO' in hot fuchsia #E6177F. Both lines about 88% of the width.
+
+CENTER (20-90%): a white matte cylindrical pedestal (about 45% of the canvas width, 12% tall) sits at the bottom center. On it stands ONE closed real bottle, centered, about 52% of the canvas height, perfectly frontal, label facing the camera, fully legible and never mirrored: a matte black cylinder about 1.6 times taller than wide with straight sides and no neck, a wide glossy hot-pink cap almost as wide as the body printed with a small white 'VITALABH' pattern, a hot-pink band on the bottom fifth, black label with the huge white word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, the pink banner, the italic pink 'TRIPLE ACCIÓN' with swoosh, and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'. Soft key light from the upper left, thin rim light on the cap edge, soft contact shadow on the pedestal; matte, no rainbow, no prism light, no lens flare. Overlapping the bottle's right shoulder (not covering 'AGUAJE'), a solid deep magenta #B0105E circle about 17% of the canvas width with white Poppins Bold text in two lines: '60 CÁPSULAS' and '1 MES POR FRASCO'.
+Four big facts placed in the corners of this zone, each one a big word in Montserrat Black and a two-line uppercase caption in Poppins Bold under it, all in dark plum #2B1226 except where noted, each with a hand-drawn black curved arrow (thin brush stroke with an open arrowhead) pointing inward to the bottle edge: UPPER LEFT: big '2 CÁPSULAS' in hot fuchsia #E6177F, caption 'AL DÍA CON TUS COMIDAS'. UPPER RIGHT: big '3 EN 1', caption 'AGUAJE, FENOGRECO Y MACA NEGRA'. LOWER LEFT: big '3 MESES', caption 'TU PLAN COMPLETO'. LOWER RIGHT: big 'VITAMINAS', caption 'A Y E'. The upper facts sit at about 32-45% of the height, the lower ones at about 58-75%, all inside a 5% outer margin.
+On the front face of the white pedestal, small centered dark plum Poppins SemiBold text: 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024', fully legible.
+
+BOTTOM (90-100%): dry botanicals in the foreground at both lower corners, slightly blurred and overlapping the pedestal base: dry tan palm leaves #B79B72, a small pile of golden fenugreek seeds and a few dried dark maca root slices. Nothing else.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (top center): "SENTADILLAS SIN CAMBIO:" — Montserrat Black look, uppercase, dark plum #2B1226
+- main headline line 2 (top center, under line 1): "TU RUTINA PIDE APOYO" — Montserrat Black look, uppercase, dark plum with 'APOYO' in hot fuchsia #E6177F
+- big fact (upper left corner): "2 CÁPSULAS" — Montserrat Black look, hot fuchsia #E6177F, big
+- fact caption (upper left, under the big fact): "AL DÍA CON TUS COMIDAS" — Poppins Bold, uppercase, dark plum, two lines
+- big fact (upper right corner): "3 EN 1" — Montserrat Black look, dark plum, big
+- fact caption (upper right, under the big fact): "AGUAJE, FENOGRECO Y MACA NEGRA" — Poppins Bold, uppercase, dark plum, two lines
+- big fact (lower left corner): "3 MESES" — Montserrat Black look, dark plum, big
+- fact caption (lower left, under the big fact): "TU PLAN COMPLETO" — Poppins Bold, uppercase, dark plum
+- big fact (lower right corner): "VITAMINAS" — Montserrat Black look, dark plum, big
+- fact caption (lower right, under the big fact): "A Y E" — Poppins Bold, uppercase, dark plum
+- badge (magenta circle on the bottle's right shoulder): "60 CÁPSULAS" — Poppins Bold, white, two lines
+- badge subline (magenta circle, second line): "1 MES POR FRASCO" — Poppins Bold, white
+- trust item (user seal, exact) (front face of the pedestal): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Poppins SemiBold, dark plum, small, centered
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (headline and big facts), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (top of the background), white #FFFFFF (pedestal). Secondary for this variation: dusty mauve #D9A7BE for the lower background and dry-leaf tan #B79B72.
+- text_typography: Headline and big fact numbers in a very heavy geometric sans-serif (Montserrat Black look); fact captions in a rounded bold sans-serif (Poppins Bold look), uppercase.
+
+MANDATORY ELEMENTS:
+- One closed real bottle centered on a white cylindrical pedestal, label frontal and legible
+- Four big facts in the four corners, each with a hand-drawn curved arrow pointing to the bottle
+- Solid deep magenta circle sticker on the bottle's right shoulder
+- Dry botanicals (palm leaves, fenugreek seeds, maca slices) at the base
+
+STRICT EXCLUSIONS:
+- No star ratings, customer counts, guarantees, weight or centimeter numbers.
+- No price or per-day cost.
+- No loose capsules, no pills, no open bottle, no hands.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Star ratings, customer counts, money-back guarantee
+- Do not add: Weight-loss or centimeter numbers
+- Do not add: Price or per-day cost
+- Do not add: CTA buttons or bottom bars
+- Do not add: Loose capsules, pills or an open bottle
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
