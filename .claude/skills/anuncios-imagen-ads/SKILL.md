@@ -49,6 +49,20 @@ Después de cada lote, cada imagen se compara contra su referencia (montaje lado
 - **Las tuyas (P01, P02…):** el usuario sube un anuncio que le funciona y una sesión «TAREA: ficha de estructura» escribe su ficha con el mismo esquema. Viven en `mis_archivos/biblioteca/estructuras/` (índice, ficha e `img/`), nunca en la skill. `leerSkill()` las suma a los formatos. Al usarlas, su imagen y su ficha se copian al lote (`entrada/estructuras/`, con `mapa.json` para el generador): **lee su ficha desde `temp/<lote>/entrada/estructuras/P01.json`**. Entran al sorteo: si hay alguna, un lote de 3 o más lleva al menos una.
 - **El kit fijo se verifica:** en lotes con estructuras, la oferta va escrita IGUAL en todas las imágenes que la llevan, y el titular es afirmativo y de máximo 8 palabras.
 
+**TÍTULOS COMO MAYAVERRA (2026-11-26f):** cada imagen lleva 2 o 3 niveles de texto:
+1. el **gancho** gigante: de 2 a 7 palabras, con una palabra o línea en color;
+2. la **propuesta de valor**: de 10 a 20 palabras, en su capa `"reference_function": "value proposition"`, con la fórmula del usuario **deseo principal + tiempo de transformación + deseo central**. Por ejemplo: «LEVANTA TUS GLÚTEOS» + «Glúteos más redondos y firmes en solo 4 semanas, para volver a lucir tus jeans con seguridad»;
+3. a veces, la línea de tiempo.
+
+- **La promesa es AGRESIVA** (decisión del usuario): directa y con tiempo.
+- **El tiempo:** sale del campo «Tiempo de transformación» del producto (`venta.tiempo`) o lo deduce la IA de la oferta y la dosis. Va en `plan.json → tiempo`; en cada variación, en `propuesta_valor`.
+- **Se verifica:**
+  - `plan.json` trae `tiempo`, `deseo_principal` y `deseo_central`;
+  - cada variación y cada imagen (salvo las fotos caseras y las cartas de texto) lleva la propuesta de valor con el tiempo;
+  - «garantizado» o «100 %» solo si el formulario trae una garantía real.
+- **Sigue prohibido:** cifras inventadas, testimonios con nombre, avales y enfermedades.
+- **Las fórmulas** están en `estructuras/mayaverra-manual.md` §3.
+
 **EL CUERPO DE ESTE PRODUCTO (2026-11-26e):** la referencia se traduce a la zona que mejora EL PRODUCTO DEL USUARIO, nunca a la de la referencia.
 - Las zonas vienen del formulario (`venta.cuerpo.zonas`: glúteos, piernas, caderas, cintura, abdomen, brazos, cara, piel, cabello, busto). Si no hay, la IA las deduce y escribe en plan.json `"cuerpo": { "zonas", "antes", "despues" }`, y la app las guarda con el producto.
 - Toda imagen con persona o cuerpo usa una de esas zonas y muestra el RESULTADO, o el antes/después con el mismo recurso de la referencia. Por ejemplo, la pierna hinchada junto a la normal se vuelve el glúteo plano junto al levantado, en el mismo encuadre. Nunca solo el problema.

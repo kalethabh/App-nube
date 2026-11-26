@@ -16,6 +16,7 @@ import { R, RE_V, idsDelLote, piezaId } from './disco.js';
 import { esVariado, nivelDe, reglasDelPlan, reglasDelAnuncio } from './variedad.js';
 import { leerPropias, marcaPropias } from './propias-disco.js';
 import { erroresCuerpoPlan, erroresCuerpoAnuncio, zonasDe } from './cuerpo.js';
+import { erroresTitularesPlan, erroresPropuestaAnuncio } from './titulares.js';
 
 export const DIR_SKILL = path.join(SKILLS, 'anuncios-imagen-ads');
 export const TOPE_PROMPT_VERIFICADO = 19000;
@@ -164,6 +165,8 @@ export function verificarPlan(carpeta, brief) {
   }
   // (2026-11-26e) el cuerpo de ESTE producto: las variaciones con cuerpo usan su zona (y se ve el resultado)
   if (vs.length === n) errores.push(...erroresCuerpoPlan(datos, brief));
+  // (2026-11-26f) títulos como Mayaverra: el tiempo de transformación y la propuesta con tiempo en la mitad del lote
+  if (vs.length === n && (variado || fijas.length)) errores.push(...erroresTitularesPlan(datos, brief, { exenta: (x) => formatos.get(x?.formato_id)?.nativo === true || formatos.get(x?.formato_id)?.estilo === 'carta-de-texto' }));
   return { datos, errores };
 }
 
@@ -214,6 +217,9 @@ export function verificarV(carpeta, v, { brief, plan = null, usados = [] } = {})
     errores.push(...reglasDelAnuncio(datos, { venta, estricto: true }).map((e) => `${v}.json → ${e}`));
     const capaTitular = (Array.isArray(datos.text_layers) ? datos.text_layers : []).find((t) => !/offer|oferta|price|precio|seal|sello|trust|cta|button|bot[oó]n|badge|strip|franja/i.test(`${t?.block_id || ''} ${t?.reference_function || ''}`) && String(t?.text || '').trim());
     if (nativo && !capaTitular) errores.push(`${v}.json → text_layers: esta foto casera lleva un titular corto (máximo 8 palabras) arriba y la franja con los sellos abajo`);
+    // (2026-11-26f) la propuesta de valor con tiempo debajo del gancho (salvo fotos caseras y cartas de texto)
+    const carta = leerSkill().formatos.get(fPlan)?.estilo === 'carta-de-texto';
+    errores.push(...erroresPropuestaAnuncio(datos, { sinPropuesta: nativo || carta, venta: brief?.venta || null }).map((e) => `${v}.json → ${e}`));
     // (2026-11-26e) el cuerpo de ESTE producto, con su resultado y con jean o leggins
     errores.push(...erroresCuerpoAnuncio(datos, ((plan || leerJSON(R.plan(carpeta)))?.variaciones || []).find((x) => x?.id === v), plan || leerJSON(R.plan(carpeta)), brief).map((e) => `${v}.json → ${e}`));
     // como Mayaverra: la oferta escrita IGUAL en todas las imágenes del lote que la llevan

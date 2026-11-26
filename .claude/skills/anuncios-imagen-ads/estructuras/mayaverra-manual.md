@@ -62,19 +62,43 @@ En Mayaverra el texto de esos va en el anuncio, no en la imagen. **En esta app (
 
 También le cambian solo el sello de temporada (Black Friday, Halloween).
 
-## 3. Sus titulares (las fórmulas)
+## 3. Sus titulares: gancho + propuesta de valor + tiempo
 
-Son cortos: de 2 a 8 palabras, en mayúsculas o en serif grande. Una línea o una palabra va en otro color. Fórmulas, con el patrón para cualquier producto:
+Mayaverra nunca deja un titular solo. Escribe en **2 o 3 niveles**:
 
-1. **Reencuadre:** «No es [lo que crees]. Es [la causa].» → «No era grasa… era agua», «Esa hinchazón no es peso posparto. Es linfática.»
-2. **Orden y promesa:** «Deja de [lo que haces por el problema]. [Resultado] de verdad.» → «Deja de meter la barriga. Desinflama de verdad.»
-3. **Alivio en primera persona:** «Por fin mi [parte del cuerpo] volvió» o «Tomé esto durante [tiempo]. Mi cuerpo dejó de [problema].»
-4. **Número y resultado:** «+[N] mujeres [resultado]» o «[Resultado medido]. Semana [N].» (solo con cifras reales).
-5. **Segmento y diagnóstico simple:** «[Segmento]: tu [mecanismo] está [problema].» → «Menopausia: tu linfa está bloqueada.»
-6. **Frase de clienta:** «Desde [momento] me sentía [problema] todo el tiempo», «¡Siempre parezco [X], pero estaré bien!»
-7. **Síntoma y promesa:** «[Síntoma visible]: finalmente se va.» Mayaverra la escribe como pregunta; en esta app el titular es afirmativo.
-8. **Urgencia:** «La oferta [X] termina esta noche», «Solo por esta noche», «Última oportunidad», «Atención: [plazo]».
-9. **Oferta:** «Compra [N] y llévate [M] gratis», «La mejor oferta», «Oferta extra».
+1. **GANCHO**: gigante, de 2 a 7 palabras, con una palabra o línea en otro color.
+2. **PROPUESTA DE VALOR**, con la fórmula del usuario: **DESEO PRINCIPAL + TIEMPO DE TRANSFORMACIÓN + DESEO CENTRAL**. Por ejemplo: «Glúteos más redondos y firmes» + «en solo 4 semanas» + «para volver a lucir tus jeans con seguridad».
+3. A veces, **la línea de tiempo**: Día 1 … Día 30, o Antes · 24 horas · 1 semana · 4 semanas.
+
+| Gancho | Propuesta de valor / tiempo |
+|---|---|
+| ELIMINA LA HINCHAZÓN EN TUS BRAZOS | EN SOLO 3 SEMANAS |
+| DRENA EL LODO LINFÁTICO | Y reduce la hinchazón después de la menopausia |
+| LA RUTINA PARA RECUPERAR TU MANDÍBULA | Elimina la hinchazón facial en 5 días y recupera tu mandíbula |
+| PROGRAMA AMIGABLE CON LA MENOPAUSIA | Programa de 30 días para mujeres de 45+ (y Día 1 … Día 30) |
+| CADERAS ESTILIZADAS DE 3 CM | SEMANA 5 |
+| POR FIN MI VIEJA CINTURA VOLVIÓ | Antes · 24 horas · 1 semana · 4 semanas |
+| TOMÉ ESTO DURANTE 2 SEMANAS | MI CUERPO DEJÓ DE INFLAMARSE |
+| DON'T DIET, DRAIN IT. | A better method. 21 days. From within. |
+| NO ERA GRASA… | ERA AGUA |
+| ELIMINA LA RETENCIÓN DE LÍQUIDOS | + 4 beneficios con ícono |
+
+**Las fórmulas**, con su versión para glúteos y piernas. La promesa es AGRESIVA, por decisión del usuario:
+
+- «[Resultado] en solo [N semanas]» → «LEVANTA TUS GLÚTEOS» + «Más redondos y firmes en solo 4 semanas, para lucir tus jeans con seguridad».
+- «Semana [N]: [resultado visible]» → «CURVAS NATURALES. SEMANA 4.» + «El jean ya se llena atrás».
+- «Tu programa de [N días] para [resultado]» → «PROGRAMA CURVAS 90 DÍAS» + «Tu tratamiento de 3 meses para glúteos y piernas firmes».
+- «Por fin mi [zona] volvió» → «POR FIN MIS CURVAS VOLVIERON» + Antes · Semana 2 · Semana 4 · Mes 3.
+- «Tomé esto [tiempo]. [Resultado].» → «LO TOMÉ 30 DÍAS» + «Y mi jean dejó de bailar atrás».
+- «No es [creencia]. Es [causa]» → «NO ES GENÉTICA. ES NUTRICIÓN.» + «Glúteos con forma en 30 días, sin vivir en el gym».
+- «[Segmento]: [diagnóstico simple]» → «DESPUÉS DE LOS 30 TU GLÚTEO SE APLANA» + «Recupera la forma en solo 8 semanas».
+- «Deja de [X]. [Resultado] de verdad» → «DEJA DE RELLENAR EL JEAN» + «Glúteo levantado en 4 semanas, de verdad».
+
+**De dónde sale el tiempo:**
+- es el del tratamiento del producto, del campo «Tiempo de transformación» o deducido de la oferta y la dosis (x3 con 1 frasco por mes = 3 meses);
+- TODAS las propuestas de valor lo dicen (salvo las fotos caseras y las cartas de texto).
+
+**El gancho es afirmativo:** las preguntas de Mayaverra se reescriben como afirmación.
 
 ## 4. Cómo venden
 
@@ -94,4 +118,4 @@ Son cortos: de 2 a 8 palabras, en mayúsculas o en serif grande. Una línea o un
 - **Sus cifras:** «889+ mujeres», «-6 kg», «12.000 mujeres», «4,8/5», «97 %», «90.000+ clientes» y «#1 en Amazon» solo valen si el usuario da las suyas.
 - **Lo que inventa aval:** logos de revistas, personal de salud, «disculpa oficial» con historias falsas, nada de esto se hace.
 - **Urgencias falsas:** «quedan 27», «expira a medianoche» o «hicimos demasiado» solo si es verdad. Si no, «Nuevo lote listo · envío hoy».
-- Plazos exactos de resultado como promesa: se dicen como momentos de uso («semana 1, semana 4»), no como garantía.
+- «Garantizado» o «100 %», salvo la garantía real del formulario. El tiempo SÍ se promete: el del tratamiento.
