@@ -3,7 +3,7 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 19,
+    "A": 20,
     "T": 20
   },
   "tandas": {
@@ -194,6 +194,14 @@
         "U0025"
       ],
       "empezada": true
+    },
+    "A019": {
+      "tipo": "ajuste",
+      "uuid": "b4cf545f-98fd-4874-a6a6-08362497af08",
+      "estado": "en-curso",
+      "pedidos": [
+        "U0026"
+      ]
     }
   },
   "variaciones": {
@@ -280,7 +288,7 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 5,
       "firma": "2036164-1795726868395",
@@ -956,6 +964,14 @@
         }
       ],
       "paso": 0
+    },
+    "U0026": {
+      "id": "U0026",
+      "pieza": "V03_1x1",
+      "instruccion": "quita el difuminado de amua",
+      "fecha": "2026-11-26T21:06:15.224Z",
+      "estado": "ajustando",
+      "ajuste": "A019"
     }
   }
 }

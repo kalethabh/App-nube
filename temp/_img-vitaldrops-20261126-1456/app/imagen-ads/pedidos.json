@@ -149,6 +149,12 @@
       "pieza": "V10_1x1",
       "instruccion": "cambia el difuminado a un  un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:58:57.040Z"
+    },
+    {
+      "id": "U0026",
+      "pieza": "V03_1x1",
+      "instruccion": "quita el difuminado de amua",
+      "fecha": "2026-11-26T21:06:15.224Z"
     }
   ]
 }
