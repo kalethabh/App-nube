@@ -105,6 +105,16 @@ const ESTILO_REFERENCIA =
   'Take from it only the visual quality, the feel of the brand, how the product looks and how the offer is presented. ' +
   'Build a completely different composition: the one described below.';
 
+// (2026-11-26b) ESTRUCTURA GANADORA (formatos F33-F40, de anuncios ganadores de otra marca): la referencia pone SOLO la
+// estructura; el texto, la marca, el producto y la modelo son los nuestros.
+const ESTRUCTURA_REFERENCIA =
+  'The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, ' +
+  'with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), ' +
+  'the same kind of headline block, benefit layout, offer block and trust strip. ' +
+  'Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: ' +
+  'the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. ' +
+  'If the reference has a block this ad does not list, leave that area as clean background.';
+
 // MODO RÁPIDO («como pedirle a ChatGPT que me las varíe», 2026-11-16): la app arma cada V##.json sin la IA de texto.
 // El modelo ve la referencia (primera imagen) y el producto (segunda); el titular va exacto y los demás textos los
 // escribe el modelo, cortos y en español, con los beneficios del producto (app_rapido: 'copiar' | 'inspirar').
@@ -396,12 +406,15 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
   const pos = posicionDe(logo);
   // «Más de lo mismo» (referencia: true): la PRIMERA imagen adjunta es el anuncio de referencia y la SEGUNDA, el producto
   const estilo = referencia === 'estilo';
+  const estructura = referencia === 'estructura';
   const rapido = referencia === true && ['copiar', 'inspirar', 'plantilla', 'replicar'].includes(ad?.app_rapido) ? ad.app_rapido : null;
   const desde0 = !rapido && ad?.app_desde0 ? DESDE0 : null;
   const partes = desde0
     ? [desde0, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : rapido
     ? [{ copiar: RAPIDO_COPIAR, inspirar: RAPIDO_INSPIRAR, plantilla: RAPIDO_PLANTILLA, replicar: RAPIDO_REPLICAR }[rapido], 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
+    : estructura
+      ? [ESTRUCTURA_REFERENCIA, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : estilo
       ? [ESTILO_REFERENCIA, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : referencia

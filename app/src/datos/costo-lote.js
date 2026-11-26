@@ -9,12 +9,8 @@
  * (la revisión no rehace nada sola): no se suma ningún margen, aunque el servidor todavía mande uno. Lo que el usuario
  * regenere después se cobra aparte.
  */
-//
-// (2026-11-26a) `rehacer`: las imágenes que la revisión puede rehacer sola («Vecinas» y «Conceptos nuevos»: hasta 2 por
-// cuadrado). El mínimo es si todas pasan a la primera; el máximo las cuenta todas (el mismo que pide el servidor).
-export function costoDelLote(costo, piezas, { rehacer = 0 } = {}) {
+export function costoDelLote(costo, piezas) {
   const k = Math.max(0, Math.round(Number(piezas) || 0));
-  const extra = Math.max(0, Math.round(Number(rehacer) || 0));
   // Con tu suscripción de ChatGPT no se cobra por imagen.
   if (costo?.conChatGPT) return k ? { min: 0, max: 0, conChatGPT: true } : null;
   const porImagen = Number(costo?.dolaresPorImagen);
@@ -23,5 +19,5 @@ export function costoDelLote(costo, piezas, { rehacer = 0 } = {}) {
   const porCredito = Number(costo?.dolaresPorCredito);
   // (con los créditos, si vienen: el mismo número que da kie)
   const de = (x) => (cr > 0 && porCredito > 0 ? Math.round(x * cr * porCredito * 100) / 100 : Math.round(x * porImagen * 100) / 100);
-  return { min: de(k), max: de(k + extra) };
+  return { min: de(k), max: de(k) };
 }

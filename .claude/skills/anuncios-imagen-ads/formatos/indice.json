@@ -1318,6 +1318,198 @@
       "nativo": false,
       "protagonista": false,
       "familia": "testimonio"
+    },
+    {
+      "id": "F33",
+      "nombre": "Antes y después 3D con descuento en estrella",
+      "origen": "estructura-ganadora",
+      "descripcion": "Marca centrada entre dos líneas finas y debajo una cinta roja brillante de campaña («BLACK FRIDAY» con etiqueta de precio). 15 % Antes y después lado a lado con una línea vertical clara al medio: a la izquierda el personaje con el problema y cara de susto, a la derecha la misma mujer feliz sosteniendo el frasco. Flecha amarilla curva del antes al después. 50 % Izquierda: titular sobre un panel ver",
+      "angulos_compatibles": [
+        "transformacion",
+        "dolor",
+        "beneficio-principal",
+        "beneficio-sin-sacrificio",
+        "oferta"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico"
+      ],
+      "archivo": "estructuras/mv-01.json",
+      "estructura": "estructuras/mv-01.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-01.jpg",
+      "slug": "F33-antes-despues-3d",
+      "estilo": "3d-pixar",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F33"
+    },
+    {
+      "id": "F34",
+      "nombre": "Antes y después real con banda de oferta y precio por unidad",
+      "origen": "estructura-ganadora",
+      "descripcion": "Marca con hoja entre líneas doradas, titular serif enorme en verde oscuro (nombre del producto) y una línea de subtítulo en mayúsculas espaciadas. 25 % Izquierda (60 %): foto real del vientre antes y después en dos tarjetas redondeadas con etiquetas «ANTES»/«DESPUÉS» en píldoras verdes y un círculo con flecha entre ellas. Derecha: el frasco grande, de pie. 50 % Izquierda: banda diagonal de pincel ",
+      "angulos_compatibles": [
+        "transformacion",
+        "oferta",
+        "objecion-precio",
+        "beneficio-principal"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico"
+      ],
+      "archivo": "estructuras/mv-02.json",
+      "estructura": "estructuras/mv-02.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-02.jpg",
+      "slug": "F34-antes-despues-oferta",
+      "estilo": "foto-real",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F34"
+    },
+    {
+      "id": "F35",
+      "nombre": "Lo invisible hecho visible",
+      "origen": "estructura-ganadora",
+      "descripcion": "Nada de texto: la imagen ocupa todo el lienzo. 0 % Lienzo partido en dos por una línea blanca vertical sobre fondo verde intenso: a la izquierda las piernas cubiertas de un lodo naranja con gotas; a la derecha las mismas piernas limpias con líneas doradas que brillan siguiendo el recorrido de la pierna. Flecha amarilla curva al medio. 65 % Izquierda (55 %): titular grande de 2 renglones (el segund",
+      "angulos_compatibles": [
+        "mecanismo-unico",
+        "dolor",
+        "agitacion",
+        "enemigo-comun",
+        "transformacion"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico"
+      ],
+      "archivo": "estructuras/mv-03.json",
+      "estructura": "estructuras/mv-03.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-03.jpg",
+      "slug": "F35-invisible-visible",
+      "estilo": "foto-real",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F35"
+    },
+    {
+      "id": "F36",
+      "nombre": "Línea de tiempo con sello de segmento",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular de 2 líneas en verde oscuro, mayúsculas gruesas; debajo una píldora verde con la promesa del programa y el segmento. A la derecha, un sello cuadrado verde con borde «PARA MUJERES DE 45+». 22 % Izquierda (50 %): línea de tiempo vertical con 6 puntos (Día 1, 5, 10, 15, 20, 30), cada uno con su texto de 2 líneas y una ilustración de hierba a su izquierda. Derecha: el frasco grande. 66 % Barra",
+      "angulos_compatibles": [
+        "rutina-uso",
+        "identidad",
+        "mecanismo-unico",
+        "rapido-y-facil",
+        "transformacion"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico"
+      ],
+      "archivo": "estructuras/mv-04.json",
+      "estructura": "estructuras/mv-04.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-04.jpg",
+      "slug": "F36-linea-tiempo-segmento",
+      "estilo": "ilustracion-plana",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F36"
+    },
+    {
+      "id": "F37",
+      "nombre": "Personaje 3D emocional con botánicos",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular emocional de una línea, sans gruesa verde oscura, y un subtítulo gris verdoso con dos ideas separadas por un punto. 20 % Izquierda: personaje 3D estilo Pixar (mujer 45+, cara esperanzada mirando al frasco) cortado por el borde. Derecha: el frasco con ramas, flores y bayas a su alrededor. 55 % Derecha: botón rojo «comprar ahora», debajo garantía y envío en 2 líneas; abajo de todo una línea ",
+      "angulos_compatibles": [
+        "promesa-emocional",
+        "identidad",
+        "nueva-oportunidad",
+        "dolor"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-05.json",
+      "estructura": "estructuras/mv-05.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-05.jpg",
+      "slug": "F37-personaje-emocional",
+      "estilo": "3d-pixar",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F37"
+    },
+    {
+      "id": "F38",
+      "nombre": "Ilustración plana lado a lado",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular de 2 líneas en verde oscuro muy grueso y un subtítulo negro de 2 líneas con la promesa y los días. 25 % Dos retratos en ilustración plana con contorno, separados por una línea verde vertical: izquierda la mujer SIN el problema (sonríe), derecha CON el problema (cara hinchada, manchas). Cada uno con una etiqueta amarilla grande de bordes ondulados sobre la camiseta. 75 %",
+      "angulos_compatibles": [
+        "comparacion",
+        "dolor",
+        "transformacion",
+        "curiosidad"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico"
+      ],
+      "archivo": "estructuras/mv-06.json",
+      "estructura": "estructuras/mv-06.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-06.jpg",
+      "slug": "F38-ilustracion-lado-a-lado",
+      "estilo": "ilustracion-plana",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F38"
+    },
+    {
+      "id": "F39",
+      "nombre": "Bodegón premium con oferta y pruebas en círculo",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular de oferta de 3 líneas, serif crema enorme, atravesado por un hilo de miel que cae sobre el frasco. 30 % El frasco grande sobre un pedestal, cubierto por la miel que gotea, dentro de un círculo fino verde con 4 pruebas alrededor (palabra clave en serif verde + 2-3 palabras). 60 % Pedestal de piedra. 10 %",
+      "angulos_compatibles": [
+        "oferta",
+        "objecion-precio",
+        "objecion-confianza",
+        "autoridad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-07.json",
+      "estructura": "estructuras/mv-07.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-07.jpg",
+      "slug": "F39-bodegon-oferta",
+      "estilo": "bodegon-premium",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F39"
+    },
+    {
+      "id": "F40",
+      "nombre": "Carta de texto",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular de 2 líneas en blanco grueso, arriba a la izquierda. 20 % Izquierda (70 %): carta de 5 párrafos cortos en blanco con frases en negrita. Derecha: el frasco recortado, inclinado, cortado por el borde. 70 % Firma en cursiva («el equipo…»). 10 %",
+      "angulos_compatibles": [
+        "oferta",
+        "objecion-confianza",
+        "promesa-emocional",
+        "identidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-08.json",
+      "estructura": "estructuras/mv-08.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-08.jpg",
+      "slug": "F40-carta-de-texto",
+      "estilo": "carta-de-texto",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F40"
     }
   ]
 }

@@ -140,6 +140,8 @@ const PERMITIDOS = [
   /^entrada\/producto\.(png|jpe?g|webp)$/,
   /^entrada\/referencias\/R\d{2}\.(png|jpe?g|webp)$/,
   /^entrada\/logo\.png$/,
+  // (2026-11-26b) la comparación contra cada estructura ganadora (montajes lado a lado)
+  /^comparacion\/V\d{2,3}\.jpg$/,
 ];
 
 function archivoDelLote(req) {
@@ -197,6 +199,34 @@ function filaDe(lote) {
 export default function rutasImagenAds(app) {
   // con el costo de cada imagen para el estimado del formulario (null si no se pudo leer: el formulario va sin numero)
   app.get('/api/imagen-ads/opciones', async (req, res) => res.json({ ...lotes.opciones(), costo: await costoDeImagenAds() }));
+
+  // (van antes de /api/imagen-ads/:lote, que si no las toma como un lote)
+  // (2026-11-26b) LAS ESTRUCTURAS GANADORAS: la lista (para elegir) y la imagen de cada una (se baja si falta)
+  app.get('/api/imagen-ads/estructuras', conErrores(async (req, res) => {
+    const { listaEstructuras } = await import('../lib/imagen-ads/estructuras.js');
+    res.set('Cache-Control', 'no-store').json({ estructuras: listaEstructuras() });
+  }));
+  app.get('/api/imagen-ads/estructuras/:id/imagen', conErrores(async (req, res) => {
+    const { asegurarReferencia, rutaReferencia } = await import('../lib/imagen-ads/estructuras.js');
+    const id = String(req.params.id || '');
+    if (!/^F\d{2}$/.test(id) || !rutaReferencia(id)) throw new ErrorApp(404, 'No existe esa estructura.');
+    if (!(await asegurarReferencia(id))) throw new ErrorApp(404, 'No pude traer la imagen de esa estructura (revisa tu internet).');
+    res.set({ 'Cache-Control': 'private, max-age=86400', 'X-Content-Type-Options': 'nosniff' }).type('image/jpeg').sendFile(rutaReferencia(id));
+  }));
+
+  // (2026-11-26a) APRENDER DE MIS VENTAS: lee tus anuncios en Meta (SEP) y guarda qué formato + ángulo vendió por producto
+  app.get('/api/imagen-ads/ventas', conErrores(async (req, res) => {
+    const { ARCHIVO_VENTAS } = await import('../lib/imagen-ads/ventas.js');
+    const d = leerJSON(ARCHIVO_VENTAS);
+    res.set('Cache-Control', 'no-store').json({ fecha: d?.fecha || null, productos: d?.productos || {} });
+  }));
+  app.post('/api/imagen-ads/ventas/aprender', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { aprenderDeVentas } = await import('../lib/imagen-ads/ventas.js');
+    const r = await aprenderDeVentas({ rango: ['30d', '90d'].includes(req.body?.rango) ? req.body.rango : '90d' });
+    if (!r.ok) throw new ErrorApp(409, 'Conecta tu cuenta de Meta en el SEP para aprender de tus ventas.');
+    res.json({ productos: r.productos, anuncios: r.anuncios, reconocidos: r.reconocidos });
+  }));
+
 
   app.get('/api/imagen-ads/productos', (req, res) => res.set('Cache-Control', 'no-store').json({ productos: lotes.productosConFoto() }));
 
@@ -571,19 +601,6 @@ export default function rutasImagenAds(app) {
     if (!idValido(id)) throw new ErrorApp(404, 'No encuentro ese producto.');
     const { guardarAjustes } = await import('../lib/imagen-ads/ajustes-producto.js');
     res.json({ ajustes: guardarAjustes(id, req.body?.ajustes || req.body || {}) });
-  }));
-
-  // (2026-11-26a) APRENDER DE MIS VENTAS: lee tus anuncios en Meta (SEP) y guarda qué formato + ángulo vendió por producto
-  app.get('/api/imagen-ads/ventas', conErrores(async (req, res) => {
-    const { ARCHIVO_VENTAS } = await import('../lib/imagen-ads/ventas.js');
-    const d = leerJSON(ARCHIVO_VENTAS);
-    res.set('Cache-Control', 'no-store').json({ fecha: d?.fecha || null, productos: d?.productos || {} });
-  }));
-  app.post('/api/imagen-ads/ventas/aprender', soloDesdeLaApp, conErrores(async (req, res) => {
-    const { aprenderDeVentas } = await import('../lib/imagen-ads/ventas.js');
-    const r = await aprenderDeVentas({ rango: ['30d', '90d'].includes(req.body?.rango) ? req.body.rango : '90d' });
-    if (!r.ok) throw new ErrorApp(409, 'Conecta tu cuenta de Meta en el SEP para aprender de tus ventas.');
-    res.json({ productos: r.productos, anuncios: r.anuncios, reconocidos: r.reconocidos });
   }));
 
   // ------------------------------------------------------------ la muestra de cada plantilla (con tu producto y tu kit)

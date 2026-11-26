@@ -1,0 +1,79 @@
+{
+  "id": "mv-01",
+  "nombre": "Antes y después 3D con descuento en estrella",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-01.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/4710d7f99ac354dfff8b3f4c3680bfabd133733437cccf1e4944a8a353efec0b.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su frasco",
+  "formato_id": "F33",
+  "proporcion": "1:1 (casi cuadrado, 1199x1312)",
+  "zonas": {
+    "arriba": "Marca centrada entre dos líneas finas y debajo una cinta roja brillante de campaña («BLACK FRIDAY» con etiqueta de precio). 15 %",
+    "centro": "Antes y después lado a lado con una línea vertical clara al medio: a la izquierda el personaje con el problema y cara de susto, a la derecha la misma mujer feliz sosteniendo el frasco. Flecha amarilla curva del antes al después. 50 %",
+    "abajo": "Izquierda: titular sobre un panel verde oscuro diagonal, debajo 4 íconos de beneficio en una tarjeta crema y la franja de confianza. Centro: el frasco grande, encima de todo. Derecha: estrella roja con el descuento y botón amarillo. 35 %"
+  },
+  "orden_de_lectura": [
+    "cinta de campaña",
+    "antes y después",
+    "titular",
+    "frasco",
+    "estrella de descuento",
+    "botón"
+  ],
+  "titular": {
+    "lineas": 3,
+    "palabras": 5,
+    "texto_ejemplo_no_copiar": "tres líneas en mayúsculas, cursiva gruesa blanca",
+    "resaltada": "las dos últimas palabras (el objeto del problema)",
+    "color_resaltado": "amarillo #FFE11A sobre verde oscuro",
+    "posicion": "abajo a la izquierda",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "3d-cartoon-antes-despues",
+    "como": "El cuerpo del antes con textura naranja de burbujas sobre la zona del problema (vientre) y órganos que brillan; cara de susto. El después: misma mujer, zona plana, sonrisa, con el frasco en la mano."
+  },
+  "zona_del_cuerpo": "vientre",
+  "segmento": "general (mujer 35-45)",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 4,
+    "forma": "ícono de línea arriba y 2-3 palabras en mayúsculas debajo, separados por líneas finas"
+  },
+  "prueba": [
+    "garantia"
+  ],
+  "oferta": {
+    "tipo": "porcentaje-estrella",
+    "como": "estrella roja de muchas puntas con el porcentaje gigante en amarillo y «de descuento» en blanco"
+  },
+  "cta": {
+    "tipo": "boton",
+    "como": "píldora amarilla grande con texto verde oscuro y círculo rojo con flecha"
+  },
+  "franja_confianza": "píldora verde oscura: escudo + garantía de días | camión + envío gratis",
+  "estilo": "3d-pixar",
+  "paleta": "celeste claro de fondo, verde oscuro, amarillo, rojo de campaña",
+  "diferencias_con_lo_que_vio_el_usuario": [
+    "Arriba también hay una cinta roja de campaña («BLACK FRIDAY»), no solo la marca.",
+    "El titular tiene 3 líneas, no 2; lo amarillo son las dos últimas palabras.",
+    "En el antes, además del vientre, brillan unos pulmones (un detalle médico que NO se debe copiar)."
+  ],
+  "aguaje": {
+    "titular": "Llena tu jean / con GLÚTEOS / MÁS FIRMES",
+    "resaltada": "GLÚTEOS MÁS FIRMES",
+    "gancho": "resultado",
+    "dolor": "Antes en 3D Pixar: mujer de espaldas a tres cuartos, jean que le queda flojo y plano atrás, cara de frustración, una zona gris apagada sobre el glúteo. Después (otro momento: otra blusa, otra pose, sonriendo por encima del hombro): el mismo jean lleno y redondo, con el frasco de Aguaje en la mano. Nada médico: sin órganos.",
+    "zona": "glúteos",
+    "segmento": "mujeres 25-45",
+    "beneficios": [
+      "Aumento de glúteos",
+      "Piernas y caderas",
+      "Sin efecto rebote",
+      "Triple acción natural"
+    ],
+    "cinta_arriba": "en vez de una campaña falsa: «AGUAJE COMPLEX 3 EN 1» o la oferta (no inventar un Black Friday)",
+    "oferta": "estrella con «X3» grande y debajo «TRATAMIENTO COMPLETO X3 $139.900» (sin porcentaje inventado)",
+    "cta": "píldora «PÍDELO HOY»",
+    "franja": "Registro INVIMA RSA-0030271-2024 | Pago contra entrega | Envío gratis"
+  }
+}

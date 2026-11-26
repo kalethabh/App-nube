@@ -1,0 +1,88 @@
+{
+  "id": "mv-04",
+  "nombre": "Línea de tiempo por días con sello de segmento",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-04.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/b5ace9ff84124059cac63ae5c1bf9cc21d2218244ce1e8739259062fbac3bab3.png",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su frasco",
+  "formato_id": "F36",
+  "proporcion": "4:5 (1125x1398)",
+  "zonas": {
+    "arriba": "Titular de 2 líneas en verde oscuro, mayúsculas gruesas; debajo una píldora verde con la promesa del programa y el segmento. A la derecha, un sello cuadrado verde con borde «PARA MUJERES DE 45+». 22 %",
+    "centro": "Izquierda (50 %): línea de tiempo vertical con 6 puntos (Día 1, 5, 10, 15, 20, 30), cada uno con su texto de 2 líneas y una ilustración de hierba a su izquierda. Derecha: el frasco grande. 66 %",
+    "abajo": "Barra amarilla de borde a borde con la oferta en mayúsculas negras. 12 %"
+  },
+  "orden_de_lectura": [
+    "titular",
+    "sello del segmento",
+    "línea de tiempo",
+    "frasco",
+    "barra de oferta"
+  ],
+  "titular": {
+    "lineas": 2,
+    "palabras": 5,
+    "resaltada": "ninguna en color; el segmento va resaltado en la píldora y el sello",
+    "color_resaltado": "verde oscuro sobre crema",
+    "posicion": "arriba",
+    "gancho": "segmento"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "No hay cuerpo: el cambio se cuenta en la línea de tiempo."
+  },
+  "zona_del_cuerpo": "cuerpo entero",
+  "segmento": "45+ / menopausia",
+  "beneficios": {
+    "tipo": "linea-de-tiempo",
+    "cantidad": 6,
+    "forma": "puntos verdes unidos por una línea, «DÍA N» en verde grueso y 2 líneas de texto"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "barra",
+    "como": "barra amarilla abajo: oferta del segmento · 2+1 gratis + envío gratis"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "la misma barra de oferta",
+  "estilo": "ilustracion-plana",
+  "paleta": "crema, verde oscuro, amarillo; hierbas en acuarela",
+  "diferencias_con_lo_que_vio_el_usuario": [
+    "Coincide. Ojo: promete resultados por día; para Aguaje se cuenta la RUTINA del tratamiento, no plazos de resultado."
+  ],
+  "aguaje": {
+    "titular": "TU RUTINA PARA / GLÚTEOS Y CADERAS",
+    "resaltada": "GLÚTEOS Y CADERAS (en rosado del frasco)",
+    "gancho": "segmento",
+    "pildora": "TRATAMIENTO DE 3 MESES PARA MAMÁS",
+    "sello": "PARA MAMÁS DESPUÉS DEL EMBARAZO",
+    "linea_de_tiempo": [
+      [
+        "DÍA 1",
+        "Empiezas: 2 cápsulas al día"
+      ],
+      [
+        "MES 1",
+        "Con el almuerzo, sin gym de fuerza"
+      ],
+      [
+        "MES 2",
+        "Triple acción: aguaje, fenogreco y maca negra"
+      ],
+      [
+        "MES 3",
+        "Resultados visibles y naturales"
+      ]
+    ],
+    "dolor": "Sin cuerpo (como la referencia): ilustraciones de aguaje, fenogreco y maca negra junto a cada punto.",
+    "zona": "glúteos y caderas",
+    "segmento": "mamás después del embarazo",
+    "beneficios": [],
+    "oferta": "barra amarilla abajo: «TRATAMIENTO COMPLETO X3 $139.900 · PAGO CONTRA ENTREGA · ENVÍO GRATIS»",
+    "cta": "ninguno",
+    "franja": "Registro INVIMA RSA-0030271-2024 en letra pequeña sobre la barra"
+  }
+}

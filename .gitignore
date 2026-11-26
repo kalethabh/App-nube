@@ -35,6 +35,8 @@ temp/_img-*/**/*.png
 temp/_img-*/**/*.jpg
 temp/_img-*/**/*.jpeg
 temp/_img-*/**/*.webp
+# (2026-11-26b) los montajes de la comparación con las estructuras ganadoras sí se suben (livianos): así se revisan desde otra sesión
+!temp/_img-*/comparacion/*.jpg
 !temp/*/portada.jpg
 
 # Lo que no sirve guardar

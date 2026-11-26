@@ -1245,3 +1245,28 @@ button.lote-pieza__marco:hover .lote-pieza__img {
 .lote-var__nota--media { background: color-mix(in srgb, #eab308 18%, transparent); color: #a16207; }
 .lote-var__nota--baja { background: color-mix(in srgb, #ef4444 16%, transparent); color: #dc2626; }
 .lote-var__porque { flex-basis: 100%; margin: 0; color: var(--texto-2); }
+
+/* (2026-11-26b) Comparación con la estructura ganadora (ComparacionLote.jsx) */
+.cmp { display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 16px; border: 1px solid var(--borde-2); background: var(--superficie-1); }
+.cmp__ayuda { margin: 0; font-size: 13px; color: var(--texto-2); }
+.cmp__lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 12px; }
+.cmp__item { display: flex; flex-direction: column; gap: 8px; padding: 10px; border-radius: 12px; border: 1px solid var(--borde-2); min-width: 0; }
+.cmp__item--pasa { border-color: color-mix(in srgb, #22c55e 45%, var(--borde-2)); }
+.cmp__item--rehacer { border-color: color-mix(in srgb, #ef4444 45%, var(--borde-2)); }
+.cmp__cabecera { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+.cmp__estado { margin-left: auto; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 800; }
+.cmp__estado--pasa { background: color-mix(in srgb, #22c55e 18%, transparent); color: #16a34a; }
+.cmp__estado--rehacer { background: color-mix(in srgb, #ef4444 16%, transparent); color: #dc2626; }
+.cmp__estado--espera { background: rgba(var(--tinte-rgb), 0.06); color: var(--texto-3); }
+.cmp__montaje { width: 100%; height: auto; border-radius: 8px; display: block; }
+.cmp__par { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.cmp__par img { width: 100%; height: auto; border-radius: 8px; }
+.cmp__falta { display: grid; place-items: center; border-radius: 8px; background: rgba(var(--tinte-rgb), 0.05); color: var(--texto-3); }
+.cmp__puntajes { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 4px 8px; }
+.cmp__puntajes div { display: flex; justify-content: space-between; gap: 6px; font-size: 12px; }
+.cmp__puntajes dt { color: var(--texto-2); }
+.cmp__puntajes dd { margin: 0; font-weight: 800; font-variant-numeric: tabular-nums; }
+.cmp__bajo dd, .cmp__bajo dt { color: #dc2626; }
+.cmp__rehacer { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.cmp__rehacer p { margin: 0; }
+.cmp__prompt { color: var(--texto-2); overflow-wrap: anywhere; }

@@ -14,7 +14,20 @@
           "ok": { "type": "boolean" },
           "problemas": { "type": "array", "maxItems": 12, "items": { "type": "string", "minLength": 1, "maxLength": 400 } },
           "correccion_en": { "type": "string", "maxLength": 600 },
-          "nota": { "type": "integer", "minimum": 1, "maximum": 10 }
+          "nota": { "type": "integer", "minimum": 1, "maximum": 10 },
+          "puntajes": {
+            "type": "object",
+            "required": ["estructura", "dolor_visual", "titular", "texto_limpio", "frasco_fiel", "oferta_confianza", "diferencia_real"],
+            "properties": {
+              "estructura": { "type": "integer", "minimum": 0, "maximum": 10 },
+              "dolor_visual": { "type": "integer", "minimum": 0, "maximum": 10 },
+              "titular": { "type": "integer", "minimum": 0, "maximum": 10 },
+              "texto_limpio": { "type": "integer", "minimum": 0, "maximum": 10 },
+              "frasco_fiel": { "type": "integer", "minimum": 0, "maximum": 10 },
+              "oferta_confianza": { "type": "integer", "minimum": 0, "maximum": 10 },
+              "diferencia_real": { "type": "integer", "minimum": 0, "maximum": 10 }
+            }
+          }
         }
       }
     }

@@ -15,9 +15,32 @@
 //   cupos(n, nivel)                                      -> { maxFormato, maxGanador, angulos, nativas, protagonistas, … }
 //   reglasDelPlan(plan, { nivel, analisis, skill, historial, venta }) -> { errores, avisos }
 //   nombreDeDescarga({ producto, v, formatoId, anguloId, formato, skill })  'producto_V03-F17-ugc-selfie-transformacion.png'
+//
+// (2026-11-26b) ESTRUCTURAS GANADORAS (Mayaverra): en un lote cada imagen sale de una ESTRUCTURA distinta y se rotan el
+// estilo (foto real, 3D, ilustración, bodegón, carta de texto), la zona del cuerpo y el segmento: nunca el mismo estilo,
+// la misma zona ni el mismo segmento dos veces seguidas. Las fichas de cada estructura (.claude/skills/
+// anuncios-imagen-ads/estructuras/mv-XX.json) se validan con errorDeFicha. Nada se rehace solo (decisión del usuario):
+// la revisión marca y propone el prompt corregido; rehacer necesita su sí (npm run rehacer).
 export const NIVELES = ['fieles', 'vecinas', 'conceptos'];
-/** Cuántas veces se rehace sola una imagen que la revisión no aprueba (el costo máximo ya las cuenta). */
-export const REHACER_SOLO = 2;
+export const ESTILOS = ['foto-real', '3d-pixar', 'ilustracion-plana', 'bodegon-premium', 'carta-de-texto'];
+export const GANCHOS = ['resultado', 'mecanismo', 'segmento', 'oferta', 'emocion', 'urgencia'];
+export const DOLORES = ['cuerpo-real-antes-despues', '3d-cartoon-antes-despues', 'ilustracion-plana', 'invisible-visible', 'ninguno'];
+export const BENEFICIOS = ['iconos', 'linea-de-tiempo', 'circulo-frasco', 'ninguno'];
+export const PRUEBAS = ['clientes', 'garantia', 'terceros', 'hecho-a-mano', 'ninguna'];
+export const OFERTAS = ['tachado-por-unidad', '3x2', '2+1', 'porcentaje-estrella', 'barra', 'ninguna'];
+export const CTAS = ['boton', 'pildora', 'ninguno'];
+/** Los 7 criterios de la comparación contra la referencia (0-10; pasa con 8 o más en todos). */
+export const CRITERIOS = ['estructura', 'dolor_visual', 'titular', 'texto_limpio', 'frasco_fiel', 'oferta_confianza', 'diferencia_real'];
+export const NOTA_MINIMA = 8;
+export const NOMBRES_CRITERIOS = {
+  estructura: 'Estructura',
+  dolor_visual: 'Dolor visual',
+  titular: 'Titular',
+  texto_limpio: 'Texto limpio',
+  frasco_fiel: 'Frasco fiel',
+  oferta_confianza: 'Oferta y confianza',
+  diferencia_real: 'Diferencia real',
+};
 
 export const nivelDe = (brief) => (brief?.modo === 'variantes' && NIVELES.includes(brief?.variacion) ? brief.variacion : null);
 /** «Vecinas» o «Conceptos nuevos»: la estrategia de la IA con las reglas duras (el ganador solo como estilo). */
@@ -58,6 +81,33 @@ export function errorDeAnalisis(a, skill) {
   return e;
 }
 
+// ---------------------------------------------------------------- la ficha de una estructura ganadora
+
+/** Los errores de una ficha de estructura (estructuras/mv-XX.json). Vacío = está bien. */
+export function errorDeFicha(f) {
+  if (!f || typeof f !== 'object') return ['no es JSON válido'];
+  const e = [];
+  if (!/^[a-z]{2,4}-\d{2}$/.test(String(f.id || ''))) e.push('"id" como mv-01');
+  if (!conTexto(f.referencia)) e.push('falta "referencia" (la imagen)');
+  if (!f.zonas || typeof f.zonas !== 'object' || Object.values(f.zonas).filter(conTexto).length < 2) e.push('"zonas": al menos 2 (arriba, centro, abajo) con su %');
+  else for (const [k, v] of Object.entries(f.zonas)) if (conTexto(v) && !/\d+ ?%/.test(v)) e.push(`zonas.${k}: falta el % aproximado del lienzo`);
+  const t = f.titular || {};
+  if (!(Number.isInteger(t.lineas) && t.lineas >= 1 && t.lineas <= 6)) e.push('titular.lineas: un número');
+  if (!(Number.isInteger(t.palabras) && t.palabras >= 1)) e.push('titular.palabras: un número');
+  if (!conTexto(t.resaltada)) e.push('titular.resaltada: qué palabra va resaltada (o «ninguna»)');
+  if (!GANCHOS.includes(t.gancho)) e.push(`titular.gancho: uno de ${GANCHOS.join(', ')}`);
+  if (!DOLORES.includes(f.dolor_visual?.tipo)) e.push(`dolor_visual.tipo: uno de ${DOLORES.join(', ')}`);
+  if (!conTexto(f.zona_del_cuerpo)) e.push('falta "zona_del_cuerpo"');
+  if (!conTexto(f.segmento)) e.push('falta "segmento"');
+  if (!BENEFICIOS.includes(f.beneficios?.tipo)) e.push(`beneficios.tipo: uno de ${BENEFICIOS.join(', ')}`);
+  if (!Array.isArray(f.prueba) || !f.prueba.length || f.prueba.some((x) => !PRUEBAS.includes(x))) e.push(`prueba: lista de ${PRUEBAS.join(', ')}`);
+  if (!OFERTAS.includes(f.oferta?.tipo)) e.push(`oferta.tipo: uno de ${OFERTAS.join(', ')}`);
+  if (!CTAS.includes(f.cta?.tipo)) e.push(`cta.tipo: uno de ${CTAS.join(', ')}`);
+  if (typeof f.franja_confianza !== 'string') e.push('falta "franja_confianza" (o «ninguna»)');
+  if (!ESTILOS.includes(f.estilo)) e.push(`estilo: uno de ${ESTILOS.join(', ')}`);
+  return e;
+}
+
 // ---------------------------------------------------------------- los cupos (con 10, tal cual el pedido; escalados)
 
 /**
@@ -68,8 +118,10 @@ export function cupos(n, nivel = 'vecinas') {
   const k = Math.max(1, Number(n) || 1);
   const r = (x) => Math.round(x * k / 10);
   const c = {
-    maxFormato: nivel === 'conceptos' ? Math.max(1, Math.ceil(k / 30)) : Math.max(2, Math.ceil(k / 5)),
-    maxGanador: nivel === 'conceptos' ? 1 : Math.max(1, Math.min(2, k - 1), Math.ceil(k / 5)),
+    // (2026-11-26b) cada imagen con una estructura distinta (con lotes muy grandes, lo mínimo que alcanza)
+    maxFormato: Math.max(1, Math.ceil(k / 40)),
+    maxGanador: 1,
+    estilos: Math.min(k, 3),
     angulos: Math.min(12, k <= 2 ? 1 : Math.max(2, r(4))),
     nativas: k < 3 ? 0 : Math.max(1, r(3)),
     protagonistas: k < 3 ? 0 : Math.max(1, r(3)),
@@ -82,7 +134,18 @@ export function cupos(n, nivel = 'vecinas') {
 
 // ---------------------------------------------------------------- las reglas duras del plan
 
+/** Cuántas estructuras distintas (familias de formato) sirven para un ángulo. */
+export function estructurasPara(skill, anguloId) {
+  return new Set([...skill.formatos.values()].filter((f) => !f.angulos_compatibles?.length || f.angulos_compatibles.includes(anguloId)).map((f) => f.familia || f.id)).size;
+}
+
 const CAMPOS = ['escena', 'modelo', 'vestuario', 'camara', 'paleta_secundaria'];
+// (2026-11-26b) lo que rota: nunca igual dos veces seguidas
+const ROTAN = [
+  ['estilo', 'el estilo'],
+  ['zona_del_cuerpo', 'la zona del cuerpo'],
+  ['segmento', 'el segmento'],
+];
 
 /**
  * Las reglas de «Vecinas» y «Conceptos» sobre plan.json (los errores, en frases que la IA entiende y corrige).
@@ -118,6 +181,9 @@ export function reglasDelPlan(plan, { nivel = 'vecinas', analisis = null, skill,
     if (f && skill.angulos.has(x?.angulo_id) && Array.isArray(f.angulos_compatibles) && f.angulos_compatibles.length && !f.angulos_compatibles.includes(x.angulo_id)) {
       errores.push(`${d}: el formato ${x.formato_id} no sirve para el ángulo ${x.angulo_id} (sus ángulos compatibles: ${f.angulos_compatibles.join(', ')})`);
     }
+    if (!ESTILOS.includes(x?.estilo)) errores.push(`${d}.estilo: uno de ${ESTILOS.join(', ')}`);
+    else if (f?.estilo && x.estilo !== f.estilo) errores.push(`${d}.estilo: el formato ${x.formato_id} es «${f.estilo}»`);
+    for (const k of ['zona_del_cuerpo', 'segmento']) if (!conTexto(x?.[k])) errores.push(`${d}.${k}: falta (por ejemplo ${k === 'segmento' ? '«mujeres 40+»' : '«glúteos»'}, o «ninguna»)`);
     if (f && tipoProducto && Array.isArray(f.tipos_producto) && !f.tipos_producto.includes('todos') && !f.tipos_producto.includes(tipoProducto)) {
       avisos.push(`${x.id}: el formato ${x.formato_id} no es de los pensados para un producto «${tipoProducto}»`);
     }
@@ -132,7 +198,9 @@ export function reglasDelPlan(plan, { nivel = 'vecinas', analisis = null, skill,
       errores.push(
         nivel === 'conceptos'
           ? `plan.json: «Conceptos nuevos» lleva un concepto de formato distinto en cada una, y ${ids.join(', ')} repiten el formato «${fam}»`
-          : `plan.json: el formato «${fam}»${fam === famGanador ? ' (el del ganador)' : ''} sale ${ids.length} veces (${ids.join(', ')}); máximo ${tope}`,
+          : tope === 1
+            ? `plan.json: cada imagen sale de una estructura distinta, y ${ids.join(', ')} repiten el formato «${fam}»${fam === famGanador ? ' (el del ganador: cambia de estructura)' : ''}`
+            : `plan.json: el formato «${fam}»${fam === famGanador ? ' (el del ganador)' : ''} sale ${ids.length} veces (${ids.join(', ')}); máximo ${tope}`,
       );
     }
   }
@@ -144,6 +212,8 @@ export function reglasDelPlan(plan, { nivel = 'vecinas', analisis = null, skill,
   if (ganadorA && vs[0]?.angulo_id !== ganadorA) errores.push(`plan.json → V01: va primero el ángulo del ganador (${ganadorA})`);
   if (nivel === 'vecinas' && ganadorA && c.mitad) {
     const conGanador = angulos.filter((a) => a === ganadorA).length;
+    // (cada imagen con una estructura distinta: no se pueden pedir más que las estructuras que sirven para ese ángulo)
+    c.mitad.min = Math.min(c.mitad.min, estructurasPara(skill, ganadorA));
     if (conGanador < c.mitad.min || conGanador > c.mitad.max) errores.push(`plan.json: en «Vecinas» la mitad usa el ángulo del ganador (${ganadorA}): entre ${c.mitad.min} y ${c.mitad.max} (hay ${conGanador})`);
   }
 
@@ -157,6 +227,17 @@ export function reglasDelPlan(plan, { nivel = 'vecinas', analisis = null, skill,
       else vistos.set(t, x.id);
     }
   }
+
+  // estilo, zona y segmento rotan: nunca iguales dos seguidas; y al menos 3 estilos (con 3 o más imágenes)
+  for (const [k, nombre] of ROTAN) {
+    for (let i = 1; i < n; i++) {
+      const a = normal(vs[i - 1]?.[k]);
+      const b = normal(vs[i]?.[k]);
+      if (a && b && a === b && !VACIO_VALIDO.test(b)) errores.push(`plan.json: ${vs[i - 1].id} y ${vs[i].id} van seguidas con ${nombre} «${vs[i][k]}»: rótalo`);
+    }
+  }
+  const estilos = new Set(vs.map((x) => x?.estilo).filter((x) => ESTILOS.includes(x))).size;
+  if (estilos < c.estilos) errores.push(`plan.json: hay ${estilos} estilos; usa al menos ${c.estilos} (${ESTILOS.join(', ')})`);
 
   // nativas y con el producto protagonista (las marcas las pone la app en indice.json, no la IA)
   const nativas = vs.filter((x) => fmt(x?.formato_id)?.nativo === true).length;
@@ -222,8 +303,9 @@ const kebab = (t, max = 40) => normal(t).replace(/ñ/g, 'n').replace(/\s+/g, '-'
 /** 'producto_V03-F17-ugc-selfie-transformacion.png' (sin formato: 'producto_V03.png'). `formato` '9:16' agrega '-9x16'. */
 export function nombreDeDescarga({ producto, v, formatoId = null, anguloId = null, formato = '1:1', skill = null }) {
   const p = kebab(producto, 30) || 'anuncio';
-  const archivo = formatoId && skill?.formatos?.get(formatoId)?.archivo;
-  const slugFormato = archivo ? String(archivo).split('/').pop().replace(/\.json$/i, '') : formatoId || '';
+  const entrada = formatoId && skill?.formatos?.get(formatoId);
+  const archivo = entrada?.archivo;
+  const slugFormato = entrada?.slug || (archivo ? String(archivo).split('/').pop().replace(/\.json$/i, '') : formatoId || '');
   const partes = [v, slugFormato, anguloId ? kebab(anguloId, 30) : ''].filter(Boolean).join('-');
   return `${p}_${partes}${formato === '9:16' ? '-9x16' : ''}.png`;
 }

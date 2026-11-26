@@ -1,0 +1,69 @@
+{
+  "id": "mv-05",
+  "nombre": "Personaje 3D emocional con botánicos alrededor del frasco",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-05.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/f9ce1ab8636ea5fe7a378a997b04b6326c0001287920c4946c559a05b9be06a5.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su frasco",
+  "formato_id": "F37",
+  "proporcion": "4:5 (1408x1760)",
+  "zonas": {
+    "arriba": "Titular emocional de una línea, sans gruesa verde oscura, y un subtítulo gris verdoso con dos ideas separadas por un punto. 20 %",
+    "centro": "Izquierda: personaje 3D estilo Pixar (mujer 45+, cara esperanzada mirando al frasco) cortado por el borde. Derecha: el frasco con ramas, flores y bayas a su alrededor. 55 %",
+    "abajo": "Derecha: botón rojo «comprar ahora», debajo garantía y envío en 2 líneas; abajo de todo una línea de origen («hecho a mano», «lotes pequeños»). 25 %"
+  },
+  "orden_de_lectura": [
+    "titular",
+    "personaje",
+    "frasco con botánicos",
+    "botón",
+    "garantía"
+  ],
+  "titular": {
+    "lineas": 1,
+    "palabras": 4,
+    "resaltada": "ninguna",
+    "color_resaltado": "verde oscuro",
+    "posicion": "arriba al centro",
+    "gancho": "emocion"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La emoción la carga la cara del personaje (cansada pero con esperanza)."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "45+",
+  "beneficios": {
+    "tipo": "ninguno",
+    "nota": "botánicos ilustrados alrededor del frasco"
+  },
+  "prueba": [
+    "garantia",
+    "hecho-a-mano"
+  ],
+  "oferta": {
+    "tipo": "ninguna"
+  },
+  "cta": {
+    "tipo": "boton",
+    "como": "botón rojo ladrillo redondeado"
+  },
+  "franja_confianza": "garantía de reembolso · envío gratis · hecho a mano",
+  "estilo": "3d-pixar",
+  "paleta": "crema con acuarela de hojas, verde oscuro, rojo ladrillo",
+  "diferencias_con_lo_que_vio_el_usuario": [
+    "Coincide."
+  ],
+  "aguaje": {
+    "titular": "Vuelve a lucir tu jean favorito",
+    "resaltada": "jean favorito (rosado)",
+    "gancho": "emocion",
+    "subtitulo": "Aguaje · Fenogreco · Maca negra",
+    "dolor": "Personaje 3D Pixar, mujer 40+ latina, sosteniendo un jean doblado contra el pecho y mirando el frasco con ilusión.",
+    "zona": "glúteos",
+    "segmento": "mujeres 40+",
+    "beneficios": [],
+    "oferta": "«TRATAMIENTO COMPLETO X3 $139.900» sobre el botón",
+    "cta": "botón rosado «PÍDELO HOY»",
+    "franja": "Registro INVIMA RSA-0030271-2024 · Pago contra entrega · Envío gratis"
+  }
+}

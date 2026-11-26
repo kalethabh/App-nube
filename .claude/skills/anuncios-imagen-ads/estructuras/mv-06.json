@@ -1,0 +1,64 @@
+{
+  "id": "mv-06",
+  "nombre": "Ilustración plana lado a lado en una sola zona",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-06.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/e49361d6cb2026a25b2da5addabb5662db427e39a5028776ffdab16590ee8cbb.png",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su frasco",
+  "formato_id": "F38",
+  "proporcion": "1:1",
+  "zonas": {
+    "arriba": "Titular de 2 líneas en verde oscuro muy grueso y un subtítulo negro de 2 líneas con la promesa y los días. 25 %",
+    "centro y abajo": "Dos retratos en ilustración plana con contorno, separados por una línea verde vertical: izquierda la mujer SIN el problema (sonríe), derecha CON el problema (cara hinchada, manchas). Cada uno con una etiqueta amarilla grande de bordes ondulados sobre la camiseta. 75 %"
+  },
+  "orden_de_lectura": [
+    "titular",
+    "los dos retratos",
+    "las etiquetas"
+  ],
+  "titular": {
+    "lineas": 2,
+    "palabras": 5,
+    "resaltada": "ninguna en color (la zona del cuerpo va en el titular)",
+    "color_resaltado": "verde oscuro sobre blanco",
+    "posicion": "arriba",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "ilustracion-plana",
+    "como": "Comparación lado a lado de una sola zona del cuerpo (la cara), con etiquetas «sin»/«con» el problema. El bueno a la IZQUIERDA."
+  },
+  "zona_del_cuerpo": "cara",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "ilustracion-plana",
+  "paleta": "blanco, naranja, verde oscuro, amarillo",
+  "diferencias_con_lo_que_vio_el_usuario": [
+    "No tiene frasco, oferta, botón ni franja: es solo la comparación.",
+    "El estado bueno va a la izquierda y el problema a la derecha (al revés del antes/después de siempre)."
+  ],
+  "aguaje": {
+    "titular": "La Rutina Para / Llenar Tu Jean Atrás",
+    "resaltada": "Llenar Tu Jean (rosado)",
+    "gancho": "resultado",
+    "subtitulo": "Glúteos y caderas con más volumen, de forma natural.",
+    "dolor": "Ilustración plana con contorno, dos mujeres de espaldas en jean: izquierda glúteo redondo (sonríe por encima del hombro), derecha glúteo plano y jean que cuelga. Etiquetas amarillas: «Con Aguaje» / «Sin Aguaje».",
+    "zona": "glúteos",
+    "segmento": "mujeres 25-45",
+    "beneficios": [],
+    "oferta": "adaptación: franja delgada abajo con el frasco pequeño a la izquierda y «TRATAMIENTO COMPLETO X3 $139.900» (la referencia no la tiene)",
+    "cta": "ninguno",
+    "franja": "INVIMA RSA-0030271-2024 · Pago contra entrega"
+  }
+}
