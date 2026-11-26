@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 1,
+    "R": 3,
     "A": 1,
     "T": 6
   },
@@ -30,6 +30,34 @@
         "V08",
         "V09",
         "V10"
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "92dc81ce-5c76-42f5-a668-495888d67df5",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "2077351-1795655254632",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "b750d6b4-911c-400d-91a7-057fd1108b49",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V02_1x1",
+          "firma": "2038811-1795655281972",
+          "ronda": 1
+        }
       ],
       "empezada": true
     }
@@ -80,49 +108,57 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g-r1",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2077351-1795655254632",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ],
+        "firma": "2077351-1795655254632",
+        "correccion_en": "Write the price exactly as \"$139.900\", using a period (not a comma) as the thousands separator."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
+      "desde": "2026-11-26T01:07:35.670Z",
       "pedido": null,
-      "ultimaOrden": "g",
+      "ultimaOrden": "g-r1",
       "rescates": 1
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g-r1",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T003"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2038811-1795655281972",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ],
+        "firma": "2038811-1795655281972",
+        "correccion_en": "Write the price exactly as \"$139.900\", with a period (not a comma) as the thousands separator."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
+      "desde": "2026-11-26T01:08:02.221Z",
       "pedido": null,
-      "ultimaOrden": "g",
+      "ultimaOrden": "g-r1",
       "rescates": 1
     },
     "V03_1x1": {
@@ -162,7 +198,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -184,7 +220,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 0,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -206,7 +242,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 0,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,

@@ -3,13 +3,18 @@
   "piezas": {
     "V02_1x1": {
       "orden": "g-r1",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": "01a21563-721d-7660-a78d-379d0873f934",
+      "firma": "2038811-1795655281972",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     }
   },
-  "actualizado": "2026-11-26T01:06:08.512Z",
-  "terminado": false
+  "actualizado": "2026-11-26T01:08:01.976Z",
+  "terminado": true
 }
