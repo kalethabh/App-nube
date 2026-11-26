@@ -32,23 +32,23 @@
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
       "estado": "hecho",
-      "intentos": 10,
-      "inicio": "2026-11-26T21:06:15.227Z",
-      "fin": "2026-11-26T21:07:50.230Z"
+      "intentos": 11,
+      "inicio": "2026-11-26T22:14:42.370Z",
+      "fin": "2026-11-26T22:16:18.231Z"
     },
     {
       "id": "informe",
       "nombre": "Armando tu informe",
       "estado": "hecho",
-      "intentos": 10,
-      "inicio": "2026-11-26T21:07:50.231Z",
-      "fin": "2026-11-26T21:07:50.233Z"
+      "intentos": 11,
+      "inicio": "2026-11-26T22:16:18.231Z",
+      "fin": "2026-11-26T22:16:18.234Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-26T19:56:25.842Z",
   "aprobado": "2026-11-26T19:56:25.842Z",
-  "actualizado": "2026-11-26T21:07:50.233Z",
-  "terminado": "2026-11-26T21:07:50.233Z"
+  "actualizado": "2026-11-26T22:16:18.235Z",
+  "terminado": "2026-11-26T22:16:18.235Z"
 }

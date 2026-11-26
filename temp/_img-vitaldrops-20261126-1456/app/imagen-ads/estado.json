@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 20,
-    "T": 21
+    "A": 21,
+    "T": 22
   },
   "tandas": {
     "E001": {
@@ -203,6 +203,15 @@
         "U0026"
       ],
       "empezada": true
+    },
+    "A020": {
+      "tipo": "ajuste",
+      "uuid": "54daf88a-c6af-4bb4-8275-f243761d81e8",
+      "estado": "hecha",
+      "pedidos": [
+        "U0027"
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -291,8 +300,8 @@
       "formato": "1:1",
       "fase": "final",
       "resultado": "listo",
-      "version": 6,
-      "firma": "2026269-1795727250190",
+      "version": 7,
+      "firma": "2012085-1795731358198",
       "orden": null,
       "intentosApi": 1,
       "ronda": "u",
@@ -300,9 +309,9 @@
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T21:07:30.872Z",
+      "desde": "2026-11-26T22:15:59.841Z",
       "pedido": null,
-      "ultimaOrden": "U0026",
+      "ultimaOrden": "U0027",
       "fallo": null
     },
     "V04_1x1": {
@@ -982,6 +991,27 @@
           "orden": "U0026",
           "modo": "editar",
           "instruccion_en": "Remove any blur or softness from every 'amua' word (the logo at the top and the one on the bottle label): render them fully sharp, crisp and readable, same font, size, color and position. Change nothing else: keep the women, poses, background, bottle, labels, arrow, all other texts and the bottom block exactly as they are.",
+          "textos": false
+        }
+      ],
+      "paso": 0
+    },
+    "U0027": {
+      "id": "U0027",
+      "pieza": "V03_1x1",
+      "instruccion": "un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T22:14:42.367Z",
+      "estado": "listo",
+      "ajuste": "A020",
+      "instruccion_en": "Apply a soft, light blur of about 28% to every 'amua' word in the image (the one at the top and the one on the bottle label): slightly out of focus but still recognizable, same size, color and position. Keep 'VITALDROPS', all other texts, the women, the bottle, the layout and the colors exactly as they are and fully sharp.",
+      "cambiaTextos": false,
+      "resumen": "La palabra «amua» queda un poco difuminada (un 28%), arriba y en la etiqueta. Todo lo demás sigue igual y nítido.",
+      "pasos": [
+        {
+          "pieza": "V03_1x1",
+          "orden": "U0027",
+          "modo": "editar",
+          "instruccion_en": "Apply a soft, light blur of about 28% to every 'amua' word in the image (the one at the top and the one on the bottle label): slightly out of focus but still recognizable, same size, color and position. Keep 'VITALDROPS', all other texts, the women, the bottle, the layout and the colors exactly as they are and fully sharp.",
           "textos": false
         }
       ],
