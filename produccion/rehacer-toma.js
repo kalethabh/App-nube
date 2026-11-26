@@ -1043,6 +1043,12 @@ function imprimirSiguientesPasosH(carpetaArg, n, { conFrame, medidaQuitada, solo
 
 if (process.argv[1] && process.argv[1].endsWith('rehacer-toma.js')) {
   const args = process.argv.slice(2);
+  // (2026-11-26b) una imagen de un lote de anuncios de imagen (temp/_img-…): produccion/rehacer-imagen.js
+  const primero = args.find((a) => !a.startsWith('--'));
+  if (primero && /(^|[\\/])_img-[^\\/]+[\\/]?$/.test(primero)) {
+    const { main } = await import('./rehacer-imagen.js');
+    process.exit(await main(args));
+  }
   const carpetaArg = args.find((a) => !a.startsWith('--') && !args[args.indexOf(a) - 1]?.startsWith('--'));
   const iT = args.indexOf('--toma');
   const n = iT !== -1 ? Number(args[iT + 1]) : null;

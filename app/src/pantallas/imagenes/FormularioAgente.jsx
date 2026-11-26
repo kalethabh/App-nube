@@ -146,9 +146,6 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
   const precio = opciones?.costo || null;
   const imagenes = cantidad * formatos.length;
   const costo = precio?.conChatGPT ? 0 : precio?.dolaresPorImagen ? Math.round(precio.dolaresPorImagen * imagenes * 100) / 100 : null;
-  // («Vecinas» y «Conceptos»: la revisión rehace sola hasta 2 veces cada imagen que no aprueba; el máximo las cuenta)
-  const rehace = modo === 'referencia' && !replicar;
-  const costoMax = costo && rehace ? Math.round(precio.dolaresPorImagen * (imagenes + cantidad * 2) * 100) / 100 : costo;
   const falta = !p ? 'Elige tu producto.' : modo === 'referencia' && !elegidos.length ? 'Sube o elige tu anuncio de referencia.' : modo === 'investigacion' && !conInvestigacion ? 'Este producto todavía no tiene investigación de mercado.' : !pais.trim() ? 'Escribe el país.' : null;
   const listo = !falta && costo !== null && !fase;
 
@@ -207,7 +204,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         await apiImagenes.subirReferencia(r.lote, i + 1, archivos[i]);
       }
       setFase('Pasándoselo al agente');
-      await apiImagenes.generar(r.lote, costoMax, []);
+      await apiImagenes.generar(r.lote, costo, []);
       invalidar(CLAVE_LOTES);
       invalidar('oficina');
       aviso({ tipo: 'exito', titulo: modo === 'referencia' && replicar ? 'Replicando tu anuncio validado' : modo === 'referencia' ? 'Creando tus variaciones' : desde0 ? 'Creando tus anuncios desde 0' : 'El agente está trabajando', texto: modo === 'referencia' && replicar ? `${cantidad} réplicas exactas: cambian la modelo, el escenario, la pose y el titular.` : modo === 'referencia' ? `Primero tu IA analiza por qué vende tu ganador; después, ${cantidad} variaciones ${variacion === 'vecinas' ? 'vecinas' : 'con conceptos nuevos'}.` : `${cantidad} anuncios desde tu investigación.` });
@@ -241,7 +238,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         <Sparkles size={15} aria-hidden="true" />
         <span>
           {modo === 'referencia'
-            ? <>Primero tu IA <b>analiza por qué vende tu ganador</b> (el deseo, el dolor, el hook, lo que no se toca y lo que se puede probar) y te lo muestra. Después crea las variaciones con el nivel que elijas, las revisa una por una con nota del 1 al 10 y rehace sola las que fallan.</>
+            ? <>Primero tu IA <b>analiza por qué vende tu ganador</b> (el deseo, el dolor, el hook, lo que no se toca y lo que se puede probar) y te lo muestra. Después crea las variaciones con el nivel que elijas, las revisa una por una con nota del 1 al 10 y te marca las que conviene rehacer (se rehacen solo con tu sí).</>
             : <>El <b>agente</b> lo hace todo: analiza tu investigación (el ángulo, lo que no se toca y lo que se puede probar), arma la matriz de facetas y crea anuncios cercanos, conceptos vecinos y expandidos, con diseño limpio, una imagen por anuncio y control de calidad. Cada uno sale con qué cambió y qué hipótesis prueba.</>}
         </span>
       </p>
@@ -343,9 +340,9 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         <CampoTexto etiqueta="Prohibido decir" opcional maxLength={600} value={prohibido} onChange={(e) => setProhibido(e.target.value)} placeholder="cura, milagroso, garantizado" ayuda="Separado por comas." />
       </section>
       <div className="enc-pie">
-        <span className="enc-costo">{falta ? <span className="enc-falta">{falta}</span> : costo === null ? 'Calculando el costo…' : costo === 0 ? `${imagenes} imágenes con tu ChatGPT: sin costo por imagen` : costoMax > costo ? `${imagenes} imágenes · ${dinero(costo)}, máximo ${dinero(costoMax)} si la revisión rehace alguna (${dinero(precio.dolaresPorImagen)} cada una)` : `${imagenes} imágenes · ${dinero(costo)} (${dinero(precio.dolaresPorImagen)} cada una)`}</span>
+        <span className="enc-costo">{falta ? <span className="enc-falta">{falta}</span> : costo === null ? 'Calculando el costo…' : costo === 0 ? `${imagenes} imágenes con tu ChatGPT: sin costo por imagen`  : `${imagenes} imágenes · ${dinero(costo)} (${dinero(precio.dolaresPorImagen)} cada una)`}</span>
         <Boton variante="primario" icono={Briefcase} onClick={crear} cargando={Boolean(fase)} disabled={!listo}>
-          {fase || (modo === 'referencia' && replicar ? (costo ? `Replicar · ${dinero(costo)}` : 'Replicar') : modo === 'referencia' ? (costo ? `Crear variaciones · hasta ${dinero(costoMax)}` : 'Crear variaciones') : desde0 ? (costo ? `Crear desde 0 · ${dinero(costo)}` : 'Crear desde 0') : costo ? `Crear con el agente · ${dinero(costo)}` : 'Crear con el agente')}
+          {fase || (modo === 'referencia' && replicar ? (costo ? `Replicar · ${dinero(costo)}` : 'Replicar') : modo === 'referencia' ? (costo ? `Crear variaciones · ${dinero(costo)}` : 'Crear variaciones') : desde0 ? (costo ? `Crear desde 0 · ${dinero(costo)}` : 'Crear desde 0') : costo ? `Crear con el agente · ${dinero(costo)}` : 'Crear con el agente')}
         </Boton>
       </div>
     </div>

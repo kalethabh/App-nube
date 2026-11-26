@@ -125,6 +125,17 @@ export function verificarPlan(carpeta, brief) {
       if (!angulos.has(x.angulo_id)) errores.push(`${donde}.angulo_id: "${x.angulo_id ?? ''}" no está en angulos.json`);
     }
   });
+  // (2026-11-26b) estructuras fijas: cada una, una vez; y las reglas de rotación
+  const fijas = Array.isArray(brief?.estructuras) ? brief.estructuras : [];
+  if (fijas.length && vs.length === n) {
+    const usadas = vs.map((x) => x?.formato_id);
+    const faltan = fijas.filter((id) => !usadas.includes(id));
+    if (faltan.length || new Set(usadas).size !== usadas.length) errores.push(`plan.json: usa exactamente las estructuras ${fijas.join(', ')}, una por variación (faltan: ${faltan.join(', ') || 'ninguna'}; no repitas)`);
+    if (!variado) {
+      const r = reglasDelPlan(datos, { nivel: 'estructuras', analisis: null, skill: leerSkill(), historial: [], tipoProducto: null });
+      errores.push(...r.errores.filter((e) => /van seguidas|estructura distinta|\.estilo:|\.zona_del_cuerpo:|\.segmento:|estilos; usa/.test(e)));
+    }
+  }
   if (variado && vs.length === n) {
     const r = reglasDelPlan(datos, {
       nivel: nivelDe(brief),
@@ -190,7 +201,8 @@ export function verificarV(carpeta, v, { brief, plan = null, usados = [] } = {})
   // ---- solo avisos (nunca frenan), y solo en las variaciones de la biblioteca
   const enPlan = (plan?.variaciones || []).find((x) => x?.id === v);
   if (enPlan?.fuente === 'biblioteca' && enPlan.formato_id) {
-    const f = archivoDeFormato(enPlan.formato_id);
+    // (las estructuras ganadoras no traen bloques: su ficha es otra cosa)
+    const f = leerSkill().formatos.get(enPlan.formato_id)?.estructura ? null : archivoDeFormato(enPlan.formato_id);
     if (f) {
       const bloques = new Set((f.detected_visual_blocks || []).map((b) => b.block_id));
       const textos = new Set((f.text_layers || []).map((b) => b.block_id));

@@ -21,7 +21,8 @@ import { textoClaude, prohibidasComunes as prohibidasDeClaude } from '../claude.
 import { leerJSON, existe } from '../archivos.js';
 import { leerSkill, verificarSesion, DIR_SKILL } from './verificar.js';
 import { R, idsDelLote, piezaId, vDe, formatoDe, fotoDelLote, nombreFormato } from './disco.js';
-import { esVariado, nivelDe, cupos, VARIABLES } from './variedad.js';
+import { esVariado, nivelDe, cupos, VARIABLES, ESTILOS, CRITERIOS, NOTA_MINIMA } from './variedad.js';
+import { estructurasDelLote, copiarEstructuras, copiarReferenciasDe, NOMBRES_CRITERIOS } from './comparacion.js';
 import { PAISES } from './precios.js';
 
 export const HERRAMIENTAS = ['Read', 'Glob', 'Grep', 'Write', 'Edit'];
@@ -298,6 +299,8 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
   const ids = idsDelLote(Math.min(n, 4));
   const validados = validadosDelLote(carpeta, brief);
   const { angulos } = leerSkill();
+  // (2026-11-26b) estructuras fijas: sus imágenes al lote, para mirarlas (solo estructura)
+  const refsEstructuras = Array.isArray(brief.estructuras) ? copiarReferenciasDe(carpeta, brief.estructuras) : {};
   const angulo = brief.datos?.angulo ? angulos.get(brief.datos.angulo) : null;
   const datos = {
     nombre: brief.datos?.nombre || '',
@@ -352,13 +355,13 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
       esDelAgente(brief) ? deLaSkill(GUIA_AGENTE) : null,
       variado ? delLote(carpeta, lote, 'analisis.json') : null,
     ]),
-    imagenes: unicas([delLote(carpeta, lote, fotoDelLote(carpeta)), ...refs.map((r) => delLote(carpeta, lote, r)), variado ? delLote(carpeta, lote, subidas[0]) : null, ...validados.map((x) => delLote(carpeta, lote, x.archivo))]),
-    aPedido: unicas([...formatosDeLaSkill(), (brief.formatos || []).includes('9:16') && deLaSkill('proporciones.md')]),
+    imagenes: unicas([delLote(carpeta, lote, fotoDelLote(carpeta)), ...refs.map((r) => delLote(carpeta, lote, r)), ...Object.values(refsEstructuras).map((r) => delLote(carpeta, lote, r)), variado ? delLote(carpeta, lote, subidas[0]) : null, ...validados.map((x) => delLote(carpeta, lote, x.archivo))]),
+    aPedido: unicas([...formatosDeLaSkill(), ...estructurasDeLaSkill(), (brief.formatos || []).includes('9:16') && deLaSkill('proporciones.md')]),
   };
   return {
     tipo: 'estrategia',
     ids,
-    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoVenta(brief) + textoValidados(lote, validados) + textoTitulosElegidos(brief),
+    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoEstructuras(brief, lote, refsEstructuras) + textoVenta(brief) + textoValidados(lote, validados) + textoTitulosElegidos(brief),
     escribe: ['producto.json', 'estrategia.json', 'plan.json', ...ids.map((v) => `${v}.json`), 'app/imagen-ads/bloqueo.json', ...(esDelAgente(brief) ? ['analisis-ganador.json'] : [])],
     maxTurnos: 80 + 2 * k + 2 * validados.length,
     timeoutMin: Math.min(120, 25 + 0.4 * n),
@@ -396,6 +399,8 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
   // archivo del indice) y, adjunta, la referencia de cada una que sale de una (solo las de la carpeta del lote)
   const { formatos } = leerSkill();
   const deEsteLote = `temp/${lote}/`;
+  // (2026-11-26b) las variaciones que salen de una estructura ganadora: su ficha y su imagen (copiada al lote)
+  const conEstructura = copiarEstructuras(carpeta);
   const material = {
     textos: unicas([
       deLaSkill('SKILL.md'),
@@ -405,11 +410,14 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
       esDelAgente(brief) ? deLaSkill(GUIA_AGENTE) : null,
       esDelAgente(brief) ? delLote(carpeta, lote, 'analisis-ganador.json') : null,
       esVariado(brief) ? delLote(carpeta, lote, 'analisis.json') : null,
+      ...ids.map((v) => (conEstructura[v] ? deLaSkill(formatos.get(conEstructura[v].formato_id)?.estructura) : null)),
     ]),
     imagenes: unicas(
       variaciones
         .filter((x) => x.fuente === 'referencia' && x.referencia && String(x.referencia).startsWith(deEsteLote))
         .map((x) => delLote(carpeta, lote, String(x.referencia).slice(deEsteLote.length)))
+        .concat(ids.map((v) => (conEstructura[v] ? delLote(carpeta, lote, conEstructura[v].copia) : null)))
+        .filter(Boolean)
     ),
   };
   return {
@@ -419,6 +427,7 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
       textoClaude('tarea-imagen-ads-prompts', { lote, ids: listaDeIds(ids), variaciones: JSON.stringify(variaciones, null, 2), logo: textoLogo(brief) }) +
       textoTitulosElegidos(brief) +
       textoVariadoPrompts(lote, brief) +
+      textoEstructurasPrompts(lote, ids, conEstructura, formatos) +
       textoVenta(brief) +
       (esDelAgente(brief)
         ? `\n## Agente de variaciones (guía \`${GUIA_AGENTE}\`, pegada)\nCada prompt respeta el nivel, el cambio y los invariables de su variación (plan.json y \`analisis-ganador.json\`), y la dirección de arte LIMPIA de la guía: fondo simple con espacio negativo, sin brillos, destellos, partículas ni objetos que compitan; jerarquía titular → imagen del deseo → producto → beneficios → oferta; Montserrat ExtraBold en el titular e Inter en lo secundario; máximo tres niveles de texto; producto con su envase, logo y etiqueta reales; una sola pieza por imagen, sin collage ni rótulos de «Variante».\n`
@@ -465,6 +474,7 @@ export function sesionRevision({ carpeta, lote, brief, tanda, t }) {
   const material = {
     textos: unicas([...piezas.map((p) => delLote(carpeta, lote, `${vDe(p)}.json`)), esDelAgente(brief) ? deLaSkill(GUIA_AGENTE) : null]),
     imagenes: unicas([
+      ...[...new Set(piezas.map((p) => estructurasDelLote(carpeta)[vDe(p)]?.copia).filter(Boolean))].map((r) => delLote(carpeta, lote, r)),
       delLote(carpeta, lote, `entrada/${foto}`),
       ...piezas.flatMap((p) => [
         delLote(carpeta, lote, `revision/${p}_vista.jpg`),
@@ -483,7 +493,8 @@ export function sesionRevision({ carpeta, lote, brief, tanda, t }) {
       (brief?.desde0 || brief?.replicar
         ? `\n## Reglas de estos anuncios (${brief?.desde0 ? 'modo «Desde 0»: 6 zonas' : 'modo «Replicar validado»'})\nAdemás de lo de siempre, una pieza NO pasa si: el nombre de la marca o la etiqueta del frasco no son EXACTOS a la foto del producto (revísalos letra por letra); algún texto queda a menos del 5 % del borde; hay una promesa médica, una garantía o una cifra que no está en su V##.json; un texto tiene faltas o no se lee en el celular a media pantalla.${brief?.desde0 ? ' Y en «Desde 0»: faltan alguna de las 6 zonas (gancho arriba en mayúsculas, el visual principal de 45-55 %, 2 o 3 beneficios con check, el frasco de al menos el 15 % con su sello, la oferta con «Pagas al recibir», un solo CTA) o no respeta la estructura de su formato.' : ' Y en «Replicar validado»: se movió un bloque, cambiaron las letras o los colores de la referencia, o cambió el ángulo.'} En su motivo di cuál regla falla y qué corregir.\n`
         : '') +
-      textoRevisionVenta(lote, brief),
+      textoRevisionVenta(lote, brief) +
+      textoRevisionEstructuras(lote, piezas, estructurasDelLote(carpeta)),
     escribe: [`revision/${tanda}.json`],
     maxTurnos: 120,
     timeoutMin: 30,
@@ -505,7 +516,7 @@ Además de lo de siempre, una pieza NO pasa (\`ok\`: false, con el problema y su
 - el producto no es idéntico a la foto o su etiqueta no se lee;
 - es demasiado parecida a otra imagen de esta tanda o al ganador (\`temp/${lote}/${(brief.referencias || [])[0] || 'entrada/referencias/R01.png'}\`), si no es de su mismo formato;
 - es un antes/después sin una diferencia visible entre los dos momentos.
-En cada entrada agrega también \`"nota"\`: del 1 al 10, qué tan probable es que venda en Meta (se entiende en 1 segundo, un solo mensaje, prueba visual, producto claro, oferta y confianza). Una pieza que no pasa tiene nota de 5 o menos.${esVariado(brief) ? ' En este lote la app SÍ rehace sola (hasta 2 veces) lo que no pasa, con tu \`correccion_en\`: escríbela concreta.' : ''}
+En cada entrada agrega también \`"nota"\`: del 1 al 10, qué tan probable es que venda en Meta (se entiende en 1 segundo, un solo mensaje, prueba visual, producto claro, oferta y confianza). Una pieza que no pasa tiene nota de 5 o menos. Lo que no pasa NO se rehace solo: el usuario decide con tu \`correccion_en\` (escríbela concreta: es el prompt corregido que verá).
 `;
 }
 
@@ -539,4 +550,64 @@ export function sesionAjuste({ carpeta, lote, brief, tanda, pedidos }) {
     material,
     verificar: async () => verificarSesion({ carpeta, brief, tipo: 'ajuste', tanda, pedidos: pedidos.map((p) => ({ id: p.id, pieza: p.pieza })) }),
   };
+}
+
+// ---------------------------------------------------------------- estructuras ganadoras (2026-11-26b)
+
+/** Las fichas de las estructuras ganadoras de la skill (estructuras/*.json), para pedir. */
+function estructurasDeLaSkill() {
+  try {
+    return fs
+      .readdirSync(path.join(DIR_SKILL, 'estructuras'))
+      .filter((n) => /^[a-z]{2,4}-\d{2}\.json$/.test(n))
+      .sort()
+      .map((n) => `${DE_LA_SKILL}/estructuras/${n}`);
+  } catch {
+    return [];
+  }
+}
+
+/** La estrategia: qué son F33-F40 y las reglas de rotación; con `brief.estructuras`, cuáles van sí o sí. */
+export function textoEstructuras(brief, lote = '', refs = {}) {
+  const { formatos } = leerSkill();
+  const lista = [...formatos.values()].filter((f) => f.estructura);
+  if (!lista.length) return '';
+  const fijas = Array.isArray(brief?.estructuras) ? brief.estructuras.filter((id) => formatos.get(id)?.estructura) : [];
+  return `
+## Estructuras ganadoras (formatos ${lista[0].id}-${lista[lista.length - 1].id})
+Son estructuras de anuncios ganadores de OTRA marca, cada una con su ficha en \`.claude/skills/anuncios-imagen-ads/${'estructuras/'}\` (zonas con su %, titular, dolor visual, zona del cuerpo, segmento, beneficios, prueba, oferta, CTA, franja de confianza y estilo; el bloque \`aguaje\` es un ejemplo de traducción a otro producto). Si eliges una, lee su ficha y RESPETA SU ESTRUCTURA con lo de este producto: su dolor traducido, su segmento y su zona del cuerpo; texto, modelo, escena y frasco nuestros. Nunca su texto, su frase exacta, su marca ni sus cifras: lo de la referencia que no podamos sostener (clientes, «probado por terceros», «se agotó», descuentos que no da el formulario) se cambia por algo verdadero o se deja sin ese bloque.
+${lista.map((f) => `- ${f.id} · ${f.nombre} (${f.estilo})`).join('\n')}
+En plan.json cada variación lleva además \`"estilo"\` (${ESTILOS.join(', ')}; el de su formato si lo tiene), \`"zona_del_cuerpo"\` y \`"segmento"\`. En un lote, CADA imagen sale de una estructura distinta, y se rotan el estilo, la zona del cuerpo y el segmento: nunca el mismo dos veces seguidas.${fijas.length ? `\nEN ESTE LOTE (lo pidió el usuario): usa EXACTAMENTE estas estructuras, una por variación, en el orden que mejor rote el estilo: ${fijas.map((id) => `${id} (${formatos.get(id).estructura}${refs[id] ? `; imagen \`temp/${lote}/${refs[id]}\`, mírala con Read` : ''})`).join(', ')}.` : ''}
+`;
+}
+
+/** Los anuncios de las variaciones con estructura: su ficha y su referencia (solo estructura). */
+function textoEstructurasPrompts(lote, ids, conEstructura, formatos) {
+  const mias = ids.filter((v) => conEstructura[v]);
+  if (!mias.length) return '';
+  return `
+## Estructuras ganadoras de esta tanda
+${mias.map((v) => `- ${v}: ficha \`.claude/skills/anuncios-imagen-ads/${formatos.get(conEstructura[v].formato_id)?.estructura}\` e imagen \`temp/${lote}/${conEstructura[v].copia}\` (mírala con Read).`).join('\n')}
+Para cada una: el \`visual_prompt\` describe LAS MISMAS ZONAS de la ficha, en el mismo orden y con proporciones parecidas, en su mismo estilo, con el dolor traducido a este producto (antes y después en momentos distintos: otra ropa, otra pose, a veces otro lugar; la diferencia se nota clara). La app le pasa al modelo de imagen la referencia SOLO como estructura: en \`text_layers\` van todos los textos visibles (titular afirmativo de 2-3 líneas con la palabra resaltada y su color, beneficios, oferta, CTA, franja), letra por letra; nada de texto en sellos ni en la etiqueta que no esté ahí. El frasco, idéntico a la foto del producto y con la etiqueta legible.
+`;
+}
+
+/** La revisión: cada pieza contra su estructura, con los 7 puntajes. */
+function textoRevisionEstructuras(lote, piezas, conEstructura) {
+  const mias = piezas.filter((p) => conEstructura[vDe(p)]);
+  if (!mias.length) return '';
+  return `
+## Comparación contra la estructura ganadora
+Estas piezas salen de una estructura de referencia: ${mias.map((p) => `${p} ↔ \`temp/${lote}/${conEstructura[vDe(p)].copia}\``).join(' · ')}. Mira cada referencia con Read y, para cada una de esas piezas, agrega \`"puntajes"\` de 0 a 10:
+${CRITERIOS.map((k) => `- \`${k}\` (${NOMBRES_CRITERIOS[k]}): ${{
+    estructura: 'las mismas zonas, en el mismo orden y con proporciones parecidas a la referencia',
+    dolor_visual: 'el problema se entiende en 1 segundo sin leer',
+    titular: 'cabe en 2 o 3 líneas, se lee en el celular, tiene la palabra resaltada y es afirmativo',
+    texto_limpio: 'sin letras deformes, palabras inventadas ni texto basura en sellos o etiqueta; registros y precios exactos (el precio con punto de miles)',
+    frasco_fiel: 'igual al de la foto del producto, con la etiqueta legible',
+    oferta_confianza: 'el bloque de la oferta visible sin tapar el dolor, con los sellos de confianza',
+    diferencia_real: 'distinta en diseño de las otras imágenes de esta revisión (si dos se parecen, las dos bajan)',
+  }[k]}`).join('\n')}
+Pasa solo con ${NOTA_MINIMA} o más en los 7. Si alguno queda bajo ${NOTA_MINIMA}, \`ok\` es false, di en \`problemas\` qué criterio falló y por qué, y en \`correccion_en\` escribe el prompt corregido (corto, en inglés). La app NO la rehace sola: se la muestra al usuario.
+`;
 }

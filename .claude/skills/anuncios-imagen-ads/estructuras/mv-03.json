@@ -1,0 +1,67 @@
+{
+  "id": "mv-03",
+  "nombre": "Lo invisible hecho visible con titular de mecanismo",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-03.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su frasco",
+  "formato_id": "F35",
+  "proporcion": "1:1",
+  "zonas": {
+    "arriba": "Nada de texto: la imagen ocupa todo el lienzo. 0 %",
+    "centro": "Lienzo partido en dos por una línea blanca vertical sobre fondo verde intenso: a la izquierda las piernas cubiertas de un lodo naranja con gotas; a la derecha las mismas piernas limpias con líneas doradas que brillan siguiendo el recorrido de la pierna. Flecha amarilla curva al medio. 65 %",
+    "abajo": "Izquierda (55 %): titular grande de 2 renglones (el segundo en amarillo y más alto), subtítulo de 2 líneas con el segmento en amarillo, una raya amarilla y la píldora amarilla del CTA. Derecha: el frasco abajo a la derecha, sobre las piernas del después. 35 %"
+  },
+  "orden_de_lectura": [
+    "el lodo contra las líneas que brillan",
+    "titular",
+    "segmento",
+    "botón",
+    "frasco"
+  ],
+  "titular": {
+    "lineas": 2,
+    "palabras": 4,
+    "resaltada": "el objeto del mecanismo (segunda línea completa)",
+    "color_resaltado": "amarillo #FFD21F con degradé, sobre verde",
+    "posicion": "abajo a la izquierda",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "invisible-visible",
+    "como": "Lo que no se ve (retención) se pinta como lodo espeso con gotas sobre la piel; el después como líneas de luz dorada."
+  },
+  "zona_del_cuerpo": "piernas",
+  "segmento": "menopausia",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna"
+  },
+  "cta": {
+    "tipo": "pildora",
+    "como": "píldora amarilla ancha con texto verde oscuro"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "paleta": "verde intenso, amarillo, naranja del lodo, dorado de las líneas",
+  "diferencias_con_lo_que_vio_el_usuario": [
+    "Coincide. No tiene marca ni oferta en la imagen: solo el frasco."
+  ],
+  "aguaje": {
+    "titular": "DESPIERTA TUS / GLÚTEOS DORMIDOS",
+    "resaltada": "GLÚTEOS DORMIDOS",
+    "gancho": "mecanismo",
+    "subtitulo": "Triple acción para mujeres que van al gym y no ven glúteo.",
+    "resaltada_subtitulo": "van al gym y no ven glúteo",
+    "dolor": "Foto real de espaldas, cintura a rodillas, en leggings deportivos (ANTES: gris apagado, glúteo plano y «vacío», con un velo gris sin brillo sobre la zona). DESPUÉS (otro día, short de ciclista negro, otra pose): glúteo lleno y redondo con finas líneas doradas que brillan siguiendo la curva. Nada médico ni grotesco.",
+    "zona": "glúteos",
+    "segmento": "mujeres de gym que no ven glúteo",
+    "beneficios": [],
+    "oferta": "píldora blanca pequeña sobre el CTA: «TRATAMIENTO COMPLETO X3 $139.900» (la referencia no tiene: se agrega sin tapar el dolor)",
+    "cta": "píldora amarilla «PRUÉBALO HOY»",
+    "franja": "línea fina bajo el CTA: INVIMA RSA-0030271-2024 · Pago contra entrega · Envío gratis"
+  }
+}

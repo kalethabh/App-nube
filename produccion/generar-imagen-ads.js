@@ -54,7 +54,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { creditosAUsd, cargarEnv, requerirClave } from './config.js';
+import { creditosAUsd, cargarEnv, requerirClave, RAIZ } from './config.js';
 import { generarImagen, subirArchivo, esSigueEnKie, esPagadaSinBajar, clasificarFallo } from './kie-client.js';
 import { generarConChatGPT, codexDesdeEntorno, MODELO_CHATGPT } from './chatgpt-imagen.js';
 import {
@@ -545,7 +545,26 @@ class Motor {
    * la vea junto con la foto del producto. null si el lote no es asi, si la variacion sale de la biblioteca o si la
    * imagen no esta (entonces se genera como siempre, solo con la foto).
    */
+  /**
+   * (2026-11-26b) ESTRUCTURA GANADORA: si el formato de la variación (plan.json → formato_id) trae `referencia` en el
+   * índice de la skill (F33-F40: mis_archivos/biblioteca/referencias/…), esa imagen va como guía de diseño. null si no.
+   */
+  estructuraDe(v) {
+    const plan = leerJSON(path.join(this.carpeta, 'plan.json'));
+    const x = (plan?.variaciones || []).find((y) => y?.id === v);
+    if (!x?.formato_id) return null;
+    this.indice ||= leerJSON(path.join(RAIZ, '.claude', 'skills', 'anuncios-imagen-ads', 'formatos', 'indice.json')) || { formatos: [] };
+    const f = (this.indice.formatos || []).find((y) => y?.id === x.formato_id);
+    if (!f?.referencia) return null;
+    const abs = path.resolve(RAIZ, f.referencia);
+    const dentro = path.relative(path.join(RAIZ, 'mis_archivos'), abs);
+    if (dentro.startsWith('..') || path.isAbsolute(dentro)) return null;
+    return existe(abs) ? abs : null;
+  }
+
   referenciaDe(v) {
+    const estructura = this.estructuraDe(v);
+    if (estructura) return estructura;
     // (2026-11-26a) «Vecinas»/«Conceptos»: el ganador va como referencia de estilo en todas (ver modoReferencia)
     if (this.lote.ganador) {
       const m = /(entrada\/referencias\/R\d{2}\.[a-z]+)$/i.exec(this.lote.ganador.replace(/\\/g, '/'));
@@ -567,6 +586,7 @@ class Motor {
    * su mismo formato), 'estilo' (solo estilo, producto y oferta: el resto de «Vecinas»/«Conceptos») o null.
    */
   modoReferencia(v) {
+    if (this.estructuraDe(v)) return 'estructura';
     if (!this.referenciaDe(v)) return null;
     if (!this.lote.ganador) return 'composicion';
     const plan = leerJSON(path.join(this.carpeta, 'plan.json'));
@@ -582,7 +602,7 @@ class Motor {
       armar = (a) => construirPromptEdicion(a, { instruccion: item.instruccion_en, formato, textos: item.textos === true, logo });
     } else if (formato === '1:1') {
       const modo = this.modoReferencia(vDePieza(item.pieza));
-      const referencia = modo === 'estilo' ? 'estilo' : Boolean(modo);
+      const referencia = modo === 'estilo' || modo === 'estructura' ? modo : Boolean(modo);
       armar = (a) => construirPrompt(a, { logo, correccion: item.correccion_en, referencia });
     } else {
       armar = (a) => construirPromptVertical(a, { conProducto: true, logo, correccion: item.correccion_en });

@@ -357,7 +357,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
       ? planPlantillas.escenas
         ? costoDelLote(precio, planPlantillas.escenas)
         : { min: 0, max: 0, gratis: true }
-      : costoDelLote(precio, n * formatos.length, { rehacer: variantes && variacion !== 'fieles' ? n * 2 : 0 });
+      : costoDelLote(precio, n * formatos.length);
   const datosDelLote = () => ({
     nombre: f.nombre.trim(),
     publico: f.publico.trim(),
@@ -876,7 +876,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
             ? {
                 rango: rangoDinero(costoLote),
                 etiqueta: modoPrueba ? 'Lo que costaría' : 'Costo estimado',
-                chica: `Con ${precio.modelo || 'GPT Image 2.5'}, ${dinero(precio.dolaresPorImagen)} cada imagen.${costoLote.max > costoLote.min ? ' El máximo cuenta hasta 2 intentos más de cada imagen que la revisión no apruebe (se rehacen solas).' : ''} Si después regeneras alguna, se cobra aparte.`,
+                chica: `Con ${precio.modelo || 'GPT Image 2.5'}, ${dinero(precio.dolaresPorImagen)} cada imagen. Si después regeneras alguna, se cobra aparte.`,
               }
             : null
         }

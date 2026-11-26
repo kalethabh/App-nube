@@ -25,6 +25,23 @@ Cuando el usuario parte de un anuncio que ya vende, elige el nivel:
 - **Conceptos nuevos:** un concepto de formato distinto en cada una, elegido por `angulos_compatibles` y `tipos_producto` de `formatos/indice.json`.
 Antes de cualquier variación se analiza el ganador (deseo central, dolor, promesa, emoción, nivel de conciencia de Schwartz, mecanismo de persuasión, hook visual y por qué, INVARIABLES / MODIFICABLES / EXPERIMENTALES y la esencia en una frase). En Vecinas y Conceptos, para 10 variaciones: ningún formato más de 2 veces (el del ganador, máximo 2; se cuenta por `familia` del índice), al menos 4 ángulos (el del ganador primero), escena, modelo, vestuario, cámara y paleta secundaria distintos, al menos 3 nativas (`"nativo": true`) y al menos 3 con el producto protagonista (`"protagonista": true`). El ganador es solo referencia de estilo, producto y oferta («use the reference only for style, product and offer; do not copy its layout»), salvo en las variaciones de su mismo formato.
 
+**ESTRUCTURAS GANADORAS (2026-11-26b, formatos F33-F40):**
+Fichas en `estructuras/mv-XX.json`, sacadas de anuncios ganadores de otra marca (Mayaverra, drenaje linfático). Cada ficha trae:
+- zonas con su porcentaje;
+- titular (líneas, palabras, palabra resaltada, color y tipo de gancho);
+- dolor visual, zona del cuerpo y segmento;
+- beneficios, prueba, oferta, CTA y franja de confianza;
+- estilo, y un ejemplo de traducción a Aguaje.
+
+Su imagen vive en `mis_archivos/biblioteca/referencias/mayaverra/` y se adjunta al modelo SOLO como estructura (nunca su texto, su marca, su frasco ni sus personas).
+
+En un lote:
+- cada imagen sale de una estructura distinta;
+- se rotan el estilo (foto real, 3D, ilustración plana, bodegón premium, carta de texto), la zona del cuerpo y el segmento, y nunca se repite uno de ellos dos veces seguidas;
+- en «Variantes» de una ganadora se mantienen el ángulo y la oferta, y cambian la estructura, la modelo, la escena y la ropa.
+
+Después de cada lote, cada imagen se compara contra su referencia (montaje lado a lado en `comparacion/`) con 7 puntajes de 0 a 10: estructura, dolor visual, titular, texto limpio, frasco fiel, oferta y confianza, y diferencia real. Pasa con 8 o más en todos. La que falla solo se marca: se rehace con el sí del usuario (`npm run rehacer temp/_img-… --pieza V02_1x1`).
+
 **REGLAS DE CONVERSIÓN (todos los productos):**
 1. Un solo mensaje por imagen; titular afirmativo de máximo 8 palabras, sin preguntas.
 2. El producto idéntico a la foto y legible.

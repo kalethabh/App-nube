@@ -277,6 +277,18 @@ export function crearLote(cuerpo = {}) {
       Object.assign(brief, { rapido: false, fiel: false });
     }
   }
+  // (2026-11-26b) ESTRUCTURAS GANADORAS fijas: las que pidió el usuario (formatos con estructura), una por variación.
+  // Van con la estrategia de la IA (no el camino rápido) y sin copiar el diseño de una referencia propia.
+  if (Array.isArray(cuerpo.estructuras) && cuerpo.estructuras.length) {
+    const { formatos } = leerSkill();
+    const ids = [...new Set(cuerpo.estructuras.map(String))].filter((id) => formatos.get(id)?.estructura);
+    if (ids.length !== cuerpo.estructuras.length) throw new ErrorApp(400, 'Alguna de esas estructuras no existe.');
+    if (ids.length !== cantidad) throw new ErrorApp(400, `Elegiste ${ids.length} estructuras: la cantidad tiene que ser ${ids.length}.`);
+    Object.assign(brief, { estructuras: ids, rapido: false, fiel: false });
+    delete brief.desde0;
+    delete brief.plantillas;
+    delete brief.desdePlantillas;
+  }
   // (2026-11-26a) lo de venta del producto (oferta, sellos, país, prohibido decir): lo del formulario se guarda con el
   // producto para no repetirlo; si no vino, lo guardado. La oferta, con el separador de miles del país.
   {

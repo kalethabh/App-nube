@@ -206,6 +206,26 @@ async function estrategia(texto, intento) {
     fs.mkdirSync(path.join(RAIZ, C, 'app', 'registro'), { recursive: true });
     fs.appendFileSync(path.join(RAIZ, C, 'app', 'registro', 'falso-planes.log'), `intento ${intento}: ${plan.variaciones.map((x) => `${x.formato_id}/${x.angulo_id}`).join(' ')}\n`);
   }
+  // (2026-11-26b) estructuras fijas: una por variación, ordenadas para que el estilo no se repita seguido
+  if (Array.isArray(brief.estructuras) && brief.estructuras.length) {
+    const { formatos, angulos } = catalogo();
+    const pend = brief.estructuras.map((id) => formatos.find((f) => f.id === id)).filter(Boolean);
+    const orden = [];
+    while (pend.length) {
+      // (el estilo que más queda primero, sin repetir el de recién: así nunca quedan dos iguales al final)
+      const cuenta = (e) => pend.filter((f) => f.estilo === e).length;
+      const libres = pend.map((f, i) => [f, i]).filter(([f]) => f.estilo !== orden[orden.length - 1]?.estilo).sort((a, b) => cuenta(b[0].estilo) - cuenta(a[0].estilo));
+      const k = libres.length ? libres[0][1] : 0;
+      orden.push(pend.splice(k, 1)[0]);
+    }
+    const zonas = ['glúteos', 'caderas', 'cintura', 'piernas'];
+    const segmentos = ['mujeres 25-45', 'mamás después del embarazo', 'mujeres de gym', 'mujeres 40+'];
+    plan.variaciones = plan.variaciones.map((x, i) => {
+      const f = orden[i % orden.length];
+      const a = angulos.find((y) => y.id === f.angulos_compatibles[0]) || angulos[0];
+      return { ...x, fuente: 'biblioteca', formato_id: f.id, formato: f.nombre, angulo_id: a.id, angulo: a.nombre, estilo: f.estilo, zona_del_cuerpo: zonas[i % 4], segmento: segmentos[i % 4] };
+    });
+  }
   await escribir(`${C}/plan.json`, plan);
   for (const v of ids) await escribir(`${C}/${v}.json`, anuncio(v, plan.variaciones.find((x) => x.id === v), brief, Number(v.slice(1))));
   return 'LISTO';
