@@ -1,96 +1,16 @@
 {
-  "generado": "2026-11-26T01:26:33.083Z",
-  "segundos": 1503,
+  "generado": "2026-11-26T01:29:16.444Z",
+  "segundos": 149,
   "imagenes": [
     {
-      "id": "V01_1x1",
-      "archivo": "V01_1x1.png",
+      "id": "V09_1x1",
+      "archivo": "V09_1x1.png",
       "modelo": "gpt-image (ChatGPT)",
       "respaldo": false,
       "intentos": 1,
       "referencias": 2,
       "creditos": 0,
-      "taskId": "01a21563-0c6f-7813-937e-f9e10037ef46"
-    },
-    {
-      "id": "V02_1x1",
-      "archivo": "V02_1x1.png",
-      "modelo": "gpt-image (ChatGPT)",
-      "respaldo": false,
-      "intentos": 1,
-      "referencias": 2,
-      "creditos": 0,
-      "taskId": "01a21563-721d-7660-a78d-379d0873f934"
-    },
-    {
-      "id": "V03_1x1",
-      "archivo": "V03_1x1.png",
-      "modelo": "gpt-image (ChatGPT)",
-      "respaldo": false,
-      "intentos": 1,
-      "referencias": 2,
-      "creditos": 0,
-      "taskId": "01a2156b-9d2c-7323-97b0-5a5ddc6a724a"
-    },
-    {
-      "id": "V04_1x1",
-      "archivo": "V04_1x1.png",
-      "modelo": "gpt-image (ChatGPT)",
-      "respaldo": false,
-      "intentos": 1,
-      "referencias": 2,
-      "creditos": 0,
-      "taskId": "01a2156c-01ea-70a1-84fb-fa98e442710c"
-    },
-    {
-      "id": "V06_1x1",
-      "archivo": "V06_1x1.png",
-      "modelo": "gpt-image (ChatGPT)",
-      "respaldo": false,
-      "intentos": 1,
-      "referencias": 2,
-      "creditos": 0,
-      "taskId": "01a2156d-5936-79d1-ae22-c9a5295768d3"
-    },
-    {
-      "id": "V07_1x1",
-      "archivo": "V07_1x1.png",
-      "modelo": "gpt-image (ChatGPT)",
-      "respaldo": false,
-      "intentos": 1,
-      "referencias": 2,
-      "creditos": 0,
-      "taskId": "01a2156d-c41c-7c81-8a0d-e2bf49da1bd9"
-    },
-    {
-      "id": "V05_1x1",
-      "archivo": "V05_1x1.png",
-      "modelo": "gpt-image (ChatGPT)",
-      "respaldo": false,
-      "intentos": 2,
-      "referencias": 2,
-      "creditos": 0,
-      "taskId": "01a2156f-1232-7b93-b5cd-b64731f795eb"
-    },
-    {
-      "id": "V10_1x1",
-      "archivo": "V10_1x1.png",
-      "modelo": "gpt-image (ChatGPT)",
-      "respaldo": false,
-      "intentos": 1,
-      "referencias": 2,
-      "creditos": 0,
-      "taskId": "01a21571-179c-7da2-bb18-1dd8c454afae"
-    },
-    {
-      "id": "V08_1x1",
-      "archivo": "V08_1x1.png",
-      "modelo": "gpt-image (ChatGPT)",
-      "respaldo": false,
-      "intentos": 2,
-      "referencias": 2,
-      "creditos": 0,
-      "taskId": "01a21571-3ea6-7bb0-998b-84407413e1e2"
+      "taskId": "01a21576-59c3-7ae0-ac23-06bb0aee26d0"
     }
   ]
 }
