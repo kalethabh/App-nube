@@ -1,0 +1,43 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 premium editorial supplement ad on a warm cream #FBF3EC background with a very subtle silk texture. TOP 25%: centered, the product name as a huge heavy dark plum #2B1226 high-contrast serif headline, framed above and below by thin hot-fuchsia #E6177F lines; under it one line of spaced uppercase dark plum sans-serif subtitle with the last words in fuchsia. Nothing above the headline, no logo. MIDDLE 50%: on the left 60%, two equal rounded photo cards side by side, each with a dark plum pill label with white text sitting on its top edge, and a round dark plum badge with a white arrow between the two cards. LEFT CARD: a real slim Latina woman in her mid-twenties photographed from behind, from the waist to mid-thigh, wearing heather-gray leggings and a loose white tee, indoors at home with soft window light; her hips look straight and her glutes flat. RIGHT CARD: the same woman on another day, wearing medium-blue high-waisted jeans and a fitted black top, on a sunny city sidewalk, same framing from behind; her hips look more defined and her glutes rounder and fuller, a believable natural difference. Tasteful and non-explicit. On the right 40%, the large real product bottle standing upright with a soft shadow on the cream surface, razor sharp: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; black label with the small pink VITALABH emblem, the huge bold white word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', the small line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it. BOTTOM 25%: on the left, a diagonal dark plum dry-brush paint band with a giant white 'X3' and the treatment words in white beside it; on the right, two rounded boxes side by side separated by a thin vertical line: a pale blush #FBE3EE box with dark plum text and a dark plum box with white text. At the very bottom, centered, one thin line of small dark plum text with the registration. No prices anywhere. Do not add a logo, price, percentage, button, stars or any extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (product name) (top center, between thin fuchsia lines): "AGUAJE COMPLEX 3 EN 1" — Huge heavy dark plum high-contrast serif, uppercase, one line
+- subtitle (result) (top center, under the headline): "CADERAS CON MÁS FORMA, AL NATURAL" — Spaced uppercase bold sans-serif, dark plum, with 'AL NATURAL' in hot fuchsia
+- photo label (dark plum pill on top of the left photo card): "DÍA 1" — Bold white uppercase
+- photo label (dark plum pill on top of the right photo card): "MES 3" — Bold white uppercase
+- offer (big number) (brush band, left): "X3" — Giant heavy white sans-serif
+- offer (label) (brush band, right of X3, 2 lines): "TRATAMIENTO COMPLETO" — Heavy white uppercase, the word 'COMPLETO' in bubblegum pink
+- offer detail box (bottom right, pale blush box): "3 FRASCOS · 3 MESES DE PLAN" — Heavy dark plum uppercase, 2 lines, centered
+- offer detail box (bottom right, dark plum box): "PAGAS AL RECIBIR" — Heavy white uppercase, 2 lines, centered
+- trust item (very bottom, centered thin line): "REGISTRO INVIMA RSA-0030271-2024" — Small dark plum uppercase
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (thin divider lines, highlighted word), deep magenta #B0105E, dark plum #2B1226 (serif headline, pills, brush band, right box), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (left box), white #FFFFFF. Secondary for this variation: soft warm cream #FBF3EC background with a subtle silk texture.
+- text_typography: Product-name headline in a heavy elegant high-contrast serif (only this line); subtitle in spaced uppercase geometric sans-serif (Montserrat Bold look); labels and boxes in heavy uppercase sans-serif.
+
+MANDATORY ELEMENTS:
+- Warm cream background with subtle silk texture
+- Thin fuchsia lines framing the serif headline
+- Two equal rounded real-photo cards of the same woman from behind (Day 1 gray leggings at home, Month 3 blue jeans on the street) with pill labels
+- Round dark plum arrow badge between the cards
+- Large real product bottle on the right, identical to the attached photo
+- Diagonal dark plum dry-brush band at bottom left
+- Pale blush box and dark plum box side by side at bottom right
+
+STRICT EXCLUSIONS:
+- No prices, crossed-out prices, per-unit prices or percentages; no 'ANTES'/'DESPUÉS' words.
+- No brand logo above the headline; no underwear, nudity or bare torso.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Brand logo above the headline
+- Do not add: Prices, crossed-out prices, per-unit prices or percentages
+- Do not add: 'ANTES' / 'DESPUÉS' labels (use the day labels instead)
+- Do not add: Underwear, nudity or bare torso
+- Do not add: CTA button, stars, testimonials, free shipping or guarantee
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

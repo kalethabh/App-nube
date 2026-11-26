@@ -1,0 +1,177 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "library format F38 (Ilustración plana lado a lado) — winning structure mv-06",
+    "reference_style": "Flat vector illustration comparison ad with bold outlines, clean off-white background, side-by-side good state vs problem state",
+    "angle_used": "Dolor / problema — «Los jeans me quedan sueltos atrás y no me horman»",
+    "ad_format": "Side-by-side flat illustration comparison ad (native-looking)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette: hot fuchsia #E6177F (highlighted headline words, divider line), deep magenta #B0105E, dark plum #2B1226 (headline and label text), bubblegum pink #FF8CC0 (wavy labels), pale blush pink #FBE3EE, white #FFFFFF. Secondary support colors for this variation: warm off-white background #FBF7F2, denim blues #3E5F8A and #6F8DB5 for the jeans, warm tan and brown skin and hair tones, soft charcoal #3A3A3A for the subtitle.",
+    "visual_style": "Flat vector illustration with uniform thick dark outlines, simple cel shading, friendly and relatable characters, exactly like a winning side-by-side comparison ad; no photo, no 3D.",
+    "visual_atmosphere": "Warm, relatable, everyday and confident; light and clean, never clinical.",
+    "graphic_language": "Solid flat color fills, thick dark contour lines, one thin vertical divider line, two big bubbly wavy-edged labels, bold high-contrast typography readable on a phone, generous negative space.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; subtitle, labels and trust line in a rounded bold sans-serif (Poppins SemiBold / Bold look)."
+  },
+  "creative_objective": "Stop the scroll of Colombian women whose jeans hang loose at the back by showing, in one glance, the same simple flat-illustration comparison: on the left the good state (jean that fits and shapes, she smiles over her shoulder) and on the right the problem (baggy jean at the back). The headline promises the routine for the jean to fit, keeping the exact two-zone structure of the winning reference: headline on top, two side-by-side illustrations with wavy labels below, plus only the mandatory thin INVIMA trust line.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The two-line headline with «TU JEAN HORME» in hot fuchsia. 2) The two side-by-side illustrated women from behind and the contrast between the jeans. 3) The two big wavy labels. 4) The small subtitle under the headline. 5) The thin trust line at the very bottom.",
+    "composition_style": "Top 25%: centered headline (2 lines) and subtitle (2 lines). Bottom 75%: two equal vertical panels separated by one thin fuchsia vertical line in the exact center; one woman per panel, same size, same framing, both seen from behind; a big wavy-edged label sits over each woman's lower back / upper jean area. A very thin strip at the bottom edge for the trust line.",
+    "spacing_and_structure": "Symmetric left/right panels, centered text block on top with clear breathing space, labels at the same height in both panels, no other elements.",
+    "lighting_and_depth": "Flat illustration lighting with simple two-tone cel shading on the denim and skin; no gradients, no glow, no realistic shadows.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Off-white background. Top 25%: bold headline in 2 lines centered, then a 2-line subtitle in charcoal. Bottom 75%: two flat-outlined illustrated figures side by side separated by a thin vertical line; LEFT = good state (smiling), RIGHT = problem state. Each figure has one big wavy-edged colored label with 1-2 words over the lower part of the figure. No product, no offer, no CTA, no benefits; only a thin trust line added at the bottom because the user's trust seal is mandatory.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Clean neutral stage that makes the illustrations and text pop",
+        "adaptation_rule": "Warm off-white #FBF7F2 flat background, no texture",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top center, 2 lines",
+        "visual_function": "Result hook that names the body zone",
+        "adaptation_rule": "Dark plum uppercase heavy sans; the words «TU JEAN HORME» in hot fuchsia",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "subtitle",
+        "position": "Directly under the headline, centered, 2 lines",
+        "visual_function": "Promise and timeframe",
+        "adaptation_rule": "Charcoal rounded sans, promise of the 3-month plan with 2 capsules a day",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "divider line",
+        "position": "Vertical, exact center of the lower 75%",
+        "visual_function": "Separates good state from problem state",
+        "adaptation_rule": "Thin solid hot fuchsia #E6177F line instead of green",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "person (left, good state)",
+        "position": "Left panel of the lower 75%",
+        "visual_function": "Desired result",
+        "adaptation_rule": "Flat illustration of a young Latina woman seen from behind, from the head to just below the knees, in fitted dark-blue jeans that hug and shape her rounded glutes, a blush-pink fitted short-sleeve top tucked in, hair in a high ponytail; she turns her head over her shoulder and smiles confidently. Tasteful, not sexualized.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "person (right, problem state)",
+        "position": "Right panel of the lower 75%",
+        "visual_function": "The pain: jean loose at the back",
+        "adaptation_rule": "Flat illustration of the same woman on another day, seen from behind, same framing, in light-wash jeans that hang loose and baggy at the back with visible empty folds of fabric under the waistband and a gap at the waist, a loose grey oversized t-shirt, hair down; head slightly lowered, looking down at her jean with a disappointed expression in profile. Tasteful.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "label (left)",
+        "position": "Over the left woman's lower back / upper jean area",
+        "visual_function": "Names the good state",
+        "adaptation_rule": "Big bubblegum pink #FF8CC0 label with wavy, bubbly edges, dark plum bold text",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "label (right)",
+        "position": "Over the right woman's lower back / upper jean area, same height as the left label",
+        "visual_function": "Names the problem state",
+        "adaptation_rule": "Same bubblegum pink wavy label, dark plum bold text",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_09",
+        "block_type": "trust line",
+        "position": "Very bottom edge, centered, thin",
+        "visual_function": "Mandatory sanitary registration seal given by the user",
+        "adaptation_rule": "One small line of text only, no badge shape, no icons",
+        "present_in_reference": false
+      }
+    ],
+    "forbidden_additions": [
+      "Product bottle or any packaging",
+      "Price, offer box, discount label or bundle",
+      "CTA button or arrow",
+      "Benefit list, checkmarks or icons",
+      "Rating stars, testimonials, reviews or names",
+      "Extra badges, seals or certificates beyond the single trust line",
+      "Brand logos",
+      "Any third person or extra figure"
+    ]
+  },
+  "visual_prompt": "Square 1:1 flat vector illustration ad on a warm off-white #FBF7F2 background, in a clean flat cartoon style with uniform thick dark outlines and simple two-tone cel shading (no photo, no 3D, no gradients). TOP 25%: a centered two-line headline in very heavy uppercase geometric sans-serif: line 1 'LA RUTINA PARA' in dark plum #2B1226, line 2 'QUE TU JEAN HORME' where 'QUE' is dark plum and 'TU JEAN HORME' is hot fuchsia #E6177F. Directly below, a centered two-line subtitle in a smaller rounded bold sans-serif in charcoal #3A3A3A. LOWER 75%: two equal vertical panels separated by one thin solid hot fuchsia vertical line exactly in the center. Each panel shows one illustrated young Latina woman with warm tan skin and dark brown hair, seen FROM BEHIND, same size and same framing in both panels, from the head down to just below the knees, centered. LEFT PANEL (good state): she wears fitted dark-blue jeans that hug and shape rounded, lifted glutes, a blush-pink #FBE3EE fitted short-sleeve top tucked in, hair in a high ponytail; she turns her head over her shoulder and smiles confidently. RIGHT PANEL (problem state, another day): the same woman wears light-wash jeans that hang loose and baggy at the back, with visible empty folds of denim under the waistband and a gap at the waist, and a loose grey oversized t-shirt, hair down; her head is slightly lowered, looking down at her jean in profile with a disappointed face. The difference between the two jeans must be very clear at a glance. Bodies are tasteful and everyday, fully clothed, not sexualized. Over each woman's lower back / upper jean area sits one big bubblegum pink #FF8CC0 label with wavy, bubbly edges and dark plum bold rounded text; both labels at the same height. At the very bottom edge, one thin centered line of small dark plum text for the sanitary registration. No product bottle, no price, no offer, no button, no icons, no stars, no other text. All visible text must be exactly the text listed in text_layers, spelled letter by letter, in Spanish.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, 2 lines",
+      "text_style": "Very heavy uppercase geometric sans-serif (Montserrat Black look), largest text; line 1 dark plum #2B1226; line 2 'QUE' dark plum and 'TU JEAN HORME' hot fuchsia #E6177F; centered",
+      "text": "LA RUTINA PARA\nQUE TU JEAN HORME"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Under the headline, centered, 2 lines",
+      "text_style": "Rounded bold sans-serif (Poppins SemiBold look), medium size, charcoal #3A3A3A, centered",
+      "text": "Tu plan de 3 meses con 2 cápsulas al día\npara acompañar tu proceso de curvas."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "label (left, good state)",
+      "reference_position": "Over the left woman's lower back, inside a bubblegum pink wavy label",
+      "text_style": "Bold rounded sans-serif, dark plum #2B1226, large, centered in the label",
+      "text": "Con su plan"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "label (right, problem state)",
+      "reference_position": "Over the right woman's lower back, inside a bubblegum pink wavy label, same height as the left one",
+      "text_style": "Bold rounded sans-serif, dark plum #2B1226, large, centered in the label",
+      "text": "Sin su plan"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "trust item",
+      "reference_position": "Very bottom edge, centered, one thin line",
+      "text_style": "Small rounded sans-serif, dark plum #2B1226, uppercase, discreet but legible",
+      "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Warm off-white flat background",
+    "Thin hot fuchsia vertical divider line in the exact center of the lower 75%",
+    "Left: flat-illustrated woman from behind in fitted jeans that shape her glutes, smiling over her shoulder",
+    "Right: the same woman another day, from behind, in jeans that hang loose and baggy at the back, looking down disappointed",
+    "Two big bubblegum pink wavy-edged labels at the same height, one per woman",
+    "Thick dark outlines and flat cel shading on everything"
+  ],
+  "final_generation_exclusions": [
+    "No product bottle, no packaging, no price, no offer, no CTA button, no benefit list, no icons, no stars, no testimonials, no brand logos.",
+    "No photographic or 3D rendering: flat illustration only.",
+    "No nudity, no underwear, no sexualized poses; both women fully clothed in jeans and tops.",
+    "Do not swap sides: the good state (fitted jean, smiling) is on the LEFT and the problem (loose jean) on the RIGHT.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts: the headline talks about the jean fitting and the subtitle says the plan accompanies the process, without promising results or times.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
