@@ -1,0 +1,52 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 supplement ad rendered in a polished 3D animated-movie style (soft subsurface skin, expressive faces), background a soft vertical gradient from sky blue #CFE6F5 at the top to pale blush #FBE3EE at the bottom. TOP ZONE (0–15%): centered small caption 'PLAN NATURAL DE 3 MESES' in plum #2B1226 Poppins Bold uppercase between two thin plum horizontal lines; directly below, a wide glossy hot-fuchsia #E6177F ribbon banner with a thin white inner outline and a soft fuchsia glow, slightly tilted, with a small tag shape on its right end, carrying the white italic Montserrat Black text 'SIN AGUJAS NI QUIRÓFANO'. MIDDLE ZONE (15–65%): split in two equal halves by a thin white vertical line. LEFT HALF = BEFORE (about 28% of the canvas): an adult Latina woman in her late 20s with adult features, wavy dark-brown hair in a loose bun with strands falling, small gold hoop earrings, wearing a plain grey cotton tank top and mid-blue high-waist jeans that are one size too big at the back: a baggy fold of extra denim below the seat, drooping back pockets, one straight flat vertical line from waist to thigh, thin straight thighs with loose fabric. She stands three-quarters turned in front of a tall bedroom mirror with a beige wall behind, framed from head to mid-thigh, looking back over her shoulder at the camera with raised eyebrows, worried mouth and one hand pulling the loose waistband away from her back; flat cool morning light. RIGHT HALF = AFTER, another day: the same woman (same face, hair, earrings) now in a fitted white ribbed top, hair in a high ponytail, warmer golden afternoon light, framed from head to mid-thigh, three-quarters turned, big genuine smile toward the camera; curvy hourglass figure: her hips about one and a half times wider than her small waist, the same blue jeans now filled out and rounded at the back, thicker thighs filling the jean legs, the change obvious at first glance but natural, not caricature, tasteful and fully clothed. In her front hand, held next to her shoulder at the same distance from the camera as her face, she holds the closed product bottle facing the camera, label readable; her other hand rests on her hip and holds nothing. A thick curved warm-yellow #FFD23F arrow with a soft shadow goes from the before half toward the after half at mid-height. BOTTOM ZONE (63–100%): LEFT 45%: a diagonal dark plum #2B1226 panel with rounded corner carrying the 3-line headline in white italic Montserrat Black uppercase, the last line in bubblegum pink #FF8CC0; under it a rounded cream #FBE3EE card with four thin-line plum icons (a heart-shaped hourglass silhouette, a lightning bolt, a small calendar with a check mark, a leaf) each above two-line plum Poppins Bold uppercase labels, separated by thin vertical lines; under the card a dark plum pill with a fuchsia-bordered shield badge carrying the registration text in white, a thin divider, and a small box icon with '3 FRASCOS · 3 MESES' in white. CENTER: the real product bottle, large, about 40% of the canvas height, standing upright and facing the camera, overlapping the middle and bottom zones, soft contact shadow and faint fuchsia rim light. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth. The black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', the line 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed with its cap on; the label reads the right way round, never mirrored; the bottle stays photographic and sharp even inside the 3D scene. RIGHT 30% of the bottom zone: a bold many-pointed star badge in hot fuchsia #E6177F with a deep magenta #B0105E inner shadow and a thin yellow edge, carrying a huge yellow 'X3' with a plum outline and, under it, 'TRATAMIENTO COMPLETO' in white Montserrat ExtraBold on two lines; under the star a wide rounded fuchsia button with a soft drop shadow, white Montserrat Black text 'PAGAS AL RECIBIR' and a white circle with a plum arrow on its right end. All texts crisp, spelled exactly, accents correct, nothing else written anywhere.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- top caption (top center between two thin lines): "PLAN NATURAL DE 3 MESES" — Poppins Bold, uppercase, plum #2B1226, small
+- campaign ribbon (top center ribbon): "SIN AGUJAS NI QUIRÓFANO" — Montserrat Black italic, uppercase, white on glossy fuchsia ribbon
+- main headline line 1 (bottom left plum panel, line 1): "QUE EL JEAN" — Montserrat Black italic, uppercase, white
+- main headline line 2 (bottom left plum panel, line 2): "POR FIN" — Montserrat Black italic, uppercase, white
+- main headline line 3 (highlighted) (bottom left plum panel, line 3): "TE HORME" — Montserrat Black italic, uppercase, bubblegum pink #FF8CC0
+- benefit (icon card, 1st): "ACOMPAÑA TUS CURVAS" — Poppins Bold uppercase, plum, 2 lines
+- benefit (icon card, 2nd): "MÁS ENERGÍA" — Poppins Bold uppercase, plum, 2 lines
+- benefit (icon card, 3rd): "2 CÁPSULAS AL DÍA" — Poppins Bold uppercase, plum, 2 lines
+- benefit (icon card, 4th): "ORIGEN VEGETAL" — Poppins Bold uppercase, plum, 2 lines
+- trust badge (bottom left dark pill, inside a fuchsia-bordered shield badge): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number
+- trust item (bottom left dark pill, right of the divider): "3 FRASCOS · 3 MESES" — Poppins Bold uppercase, white
+- offer badge (big) (inside the star, top): "X3" — Montserrat Black, huge, yellow #FFD23F with plum outline
+- offer badge (sub) (inside the star, under X3): "TRATAMIENTO COMPLETO" — Montserrat ExtraBold uppercase, white, 2 lines
+- CTA button / offer and trust block (bottom right button): "PAGAS AL RECIBIR" — Montserrat Black uppercase, white on fuchsia #E6177F pill
+
+BRAND IDENTITY:
+- color_palette: Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: soft sky blue #CFE6F5 background gradient and a warm yellow #FFD23F arrow.
+- text_typography: Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look).
+
+MANDATORY ELEMENTS:
+- The same adult 3D woman in both halves, before on the left and after on the right, same framing (head to mid-thigh, three-quarters turned)
+- Before: grey tank top, jeans one size too big at the back with a baggy fold and drooping pockets, frustrated face, hand pulling the loose waistband, in front of a bedroom mirror
+- After: white ribbed top, ponytail, warmer light, jeans filled out, big smile, holding the closed bottle near her shoulder
+- Thin white vertical divider and the curved yellow arrow
+- Fuchsia ribbon at the top and the small caption between thin lines
+- Diagonal plum headline panel, cream icon card with 4 icons, dark trust pill with a bordered shield badge
+- The real closed product bottle, large, at bottom center, identical to the attached photo, label facing camera and readable
+- Fuchsia many-pointed star with 'X3' and the big fuchsia button 'PAGAS AL RECIBIR'
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle, no second product, no other brand
+- No organs, glowing body parts, cellulite or medical overlays
+- No nudity, no lingerie, no rear view crop centered on the body; both poses stay three-quarters with the face visible
+- No prices, percentages, 'Black Friday', countdowns, ratings, testimonials or 'envío gratis'
+- No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Brand logos of any kind (the app places the logo later)
+- Do not add: Percent discounts, prices, 'Black Friday', countdowns or 'last units'
+- Do not add: Rating stars, testimonials, customer counts
+- Do not add: 'Envío gratis', guarantees or money-back claims
+- Do not add: Organs, glowing body parts, medical overlays, cellulite textures
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

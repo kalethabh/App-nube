@@ -1,0 +1,90 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F68 (Diagrama problema → ingrediente → producto con flechas) — estructuras/rv-06.json",
+    "reference_style": "Educational infographic ad: illustrated problems, arrows to real ingredients, arrows converging on the product",
+    "angle_used": "Mecanismo único — triple action: each ingredient for one thing she feels (pain: comparing herself and feeling flat)",
+    "ad_format": "Infographic Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: warm cream #FFF7F2 background.",
+    "visual_style": "Flat illustration with thin outlines for the problems, photographic real ingredients, and the real bottles sharp and identical to the photo.",
+    "visual_atmosphere": "Clear, educational and friendly; she recognizes herself in each row.",
+    "graphic_language": "Four clean rows, thick fuchsia arrows, small ingredient photos with labels, arrows converging on the bottles, a bold bottom band with a bordered badge.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look)."
+  },
+  "creative_objective": "Explain the triple action at a glance: four things she feels every day, each linked by an arrow to the ingredient that accompanies it, all converging on the bottle, so the product reads as a complete natural plan, not one more pill.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the 2-line headline, 2) the four illustrated problem rows, 3) the ingredients with names, 4) the two bottles, 5) the closing line, 6) the bottom band.",
+    "composition_style": "Headline across the top; below, a left column of four illustrations with captions, a middle column of four ingredients, and the bottles on the right receiving converging arrows.",
+    "spacing_and_structure": "Four equal rows; arrows aligned; bottles centered vertically in the right column with at least 5% margin from the right edge.",
+    "lighting_and_depth": "Illustrations flat with no shadows; ingredient photos with soft top light and small contact shadows; bottles with soft studio light and a contact shadow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top 16%: 2-line headline, line 1 in black, line 2 in color. Middle 66%: four rows, each with a flat illustration of the same woman feeling a problem plus a bold caption (left), a thick arrow, a real ingredient photo with its bold name and a small note in parentheses (middle), and diagonal arrows converging to two bottles on the right. Under the bottles, a 2-line closing line. Added by batch rule: a slim bottom band with 'Pagas al recibir' and the registration badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top, 0–16%", "visual_function": "main message", "adaptation_rule": "affirmative, line 2 in fuchsia", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "four problem illustrations with captions", "position": "left column, 17–86%", "visual_function": "visual pain", "adaptation_rule": "same adult woman in 4 everyday moments", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "arrows", "position": "between columns and converging on the bottles", "visual_function": "reading path", "adaptation_rule": "thick hot-fuchsia arrows", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "four ingredients with names and notes", "position": "middle column", "visual_function": "mechanism", "adaptation_rule": "aguaje, fenogreco, maca negra, vitamins A and E", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "two products", "position": "right column, 35–75%", "visual_function": "the solution", "adaptation_rule": "two identical real closed bottles, front one overlapping", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "closing line", "position": "under the bottles", "visual_function": "summary", "adaptation_rule": "2 capsules a day to accompany your curves", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "bottom offer/trust band (batch rule)", "position": "bottom 90–100%", "visual_function": "mandatory 'Pagas al recibir' and registration badge", "adaptation_rule": "plum band with white text and a fuchsia-bordered badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Brand logos of any kind",
+      "Prices, discounts, ratings, testimonials, 'envío gratis'",
+      "Capsules in any ingredient image, an open bottle",
+      "Hormone, disease or medical words",
+      "Serrated leaves"
+    ]
+  },
+  "visual_prompt": "Square 1:1 infographic ad on a warm cream #FFF7F2 background. TOP ZONE (0–16%): 2-line headline centered, Montserrat Black uppercase, line 1 in bottle black #0E0E10, line 2 in hot fuchsia #E6177F, both large and tight. MIDDLE ZONE (17–88%), four equal rows. LEFT COLUMN (4–33% of the width, about 30% of the canvas in total): four flat vector illustrations with thin plum outlines and flat fills, each in a small soft-cornered vignette, all of the same slim adult Latina woman in her early 20s (adult features, long dark ponytail, light-brown skin, navy t-shirt), each with a bold black Poppins Bold caption under it (2 lines max). Row 1: she stands three-quarters turned in front of a fitting-room mirror in mid-blue jeans one size too big at the back, a baggy fold of extra denim below the seat, drooping back pockets, pulling the loose waistband, frowning. Row 2: she sits on her bed looking at her phone with a sad face, her thin straight legs in light-grey leggings with loose fabric at the thighs. Row 3: she slumps on a sofa after work, still in her bag strap, eyes half closed, a hand on her forehead, tired. Row 4: she stands in her kitchen pouring a glass of water, calm, thoughtful face (self-care moment). From each illustration a thick hot-fuchsia #E6177F arrow points right. MIDDLE COLUMN (36–62% of the width): four real photographic ingredients with soft top light and small shadows, each with its name in black Poppins ExtraBold and a small note in parentheses in grey Poppins Regular. Row 1: two whole aguaje fruits (oval, egg-sized, glossy overlapping maroon-brown scales like snake skin) and one halved showing its thin bright orange pulp. Row 2: a small heap of fenugreek seeds (tiny angular golden-ochre seeds) on a wooden spoon. Row 3: three black maca roots (round dark tubers with thin root tails). Row 4: a single glossy round golden drop of oil on a small smooth green oval leaf, clearly a liquid drop, not a capsule. From each ingredient a thick fuchsia arrow angles toward the bottles. RIGHT COLUMN (64–95% of the width, 30–74% height): two identical real closed product bottles, the front one about 38% of the canvas height, slightly overlapping the one behind it on the right, both facing the camera, labels readable, soft contact shadow, centered in the column and not touching the right edge. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth. The black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed; labels read the right way round, never mirrored. Under the bottles (76–88% height), the 2-line closing line in black Poppins ExtraBold, centered in the right column. BOTTOM BAND (90–100%): full-width dark plum #2B1226 band: left, white Montserrat Black 'PAGAS AL RECIBIR' with a small white hand-and-coin line icon; right, a rounded badge with a solid hot-fuchsia border and a small white shield icon containing the registration text in white Poppins Bold on two lines. All texts crisp, spelled exactly with correct accents, nothing else written.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline line 1", "reference_position": "top", "text_style": "Montserrat Black uppercase, black #0E0E10", "text": "JEAN SUELTO Y CERO ENERGÍA" },
+    { "block_id": "text_block_02", "reference_function": "main headline line 2 (highlighted)", "reference_position": "top, line 2", "text_style": "Montserrat Black uppercase, hot fuchsia #E6177F", "text": "TRIPLE ACCIÓN NATURAL" },
+    { "block_id": "text_block_03", "reference_function": "problem caption", "reference_position": "row 1, left", "text_style": "Poppins Bold, black, 2 lines", "text": "El jean te queda suelto atrás" },
+    { "block_id": "text_block_04", "reference_function": "problem caption", "reference_position": "row 2, left", "text_style": "Poppins Bold, black, 2 lines", "text": "Te sientes flaquita de piernas" },
+    { "block_id": "text_block_05", "reference_function": "problem caption", "reference_position": "row 3, left", "text_style": "Poppins Bold, black, 2 lines", "text": "Llegas sin energía a tu rutina" },
+    { "block_id": "text_block_06", "reference_function": "problem caption", "reference_position": "row 4, left", "text_style": "Poppins Bold, black, 2 lines", "text": "Quieres cuidarte por dentro" },
+    { "block_id": "text_block_07", "reference_function": "ingredient name", "reference_position": "row 1, middle", "text_style": "Poppins ExtraBold, black", "text": "Aguaje 200 mg" },
+    { "block_id": "text_block_08", "reference_function": "ingredient note", "reference_position": "row 1, middle, under the name", "text_style": "Poppins Regular, grey", "text": "(Fruto del Amazonas)" },
+    { "block_id": "text_block_09", "reference_function": "ingredient name", "reference_position": "row 2, middle", "text_style": "Poppins ExtraBold, black", "text": "Fenogreco 400 mg" },
+    { "block_id": "text_block_10", "reference_function": "ingredient note", "reference_position": "row 2, middle, under the name", "text_style": "Poppins Regular, grey", "text": "(Semilla tradicional)" },
+    { "block_id": "text_block_11", "reference_function": "ingredient name", "reference_position": "row 3, middle", "text_style": "Poppins ExtraBold, black", "text": "Maca negra 200 mg" },
+    { "block_id": "text_block_12", "reference_function": "ingredient note", "reference_position": "row 3, middle, under the name", "text_style": "Poppins Regular, grey", "text": "(Raíz de los Andes)" },
+    { "block_id": "text_block_13", "reference_function": "ingredient name", "reference_position": "row 4, middle", "text_style": "Poppins ExtraBold, black", "text": "Vitaminas A y E" },
+    { "block_id": "text_block_14", "reference_function": "ingredient note", "reference_position": "row 4, middle, under the name", "text_style": "Poppins Regular, grey", "text": "(En cada porción)" },
+    { "block_id": "text_block_15", "reference_function": "closing line", "reference_position": "under the bottles", "text_style": "Poppins ExtraBold, black, 2 lines, centered", "text": "2 cápsulas al día para acompañar tus curvas" },
+    { "block_id": "text_block_16", "reference_function": "offer and trust block (bottom band)", "reference_position": "bottom band, left", "text_style": "Montserrat Black uppercase, white on dark plum", "text": "PAGAS AL RECIBIR" },
+    { "block_id": "text_block_17", "reference_function": "trust badge", "reference_position": "bottom band, right, inside a fuchsia-bordered badge", "text_style": "Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Four flat illustrations of the same adult woman: loose jeans at the fitting-room mirror, thin legs looking at her phone, tired on the sofa, calm with a glass of water",
+    "Thick hot-fuchsia arrows from each problem to its ingredient and from each ingredient to the bottles",
+    "Real ingredient photos: aguaje fruits with maroon scales and orange pulp, fenugreek seeds on a wooden spoon, black maca roots, a golden oil drop on a smooth oval leaf",
+    "Two identical real closed product bottles on the right, labels readable, not touching the edge",
+    "Dark plum bottom band with 'PAGAS AL RECIBIR' and a bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "No capsules or pills anywhere, including the ingredient row of vitamins; no open bottle; no other brand",
+    "No serrated leaves; no body parts shaped like skin-colored anatomy",
+    "No prices, percentages, ratings, testimonials or 'envío gratis'",
+    "No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. Problems are told as feelings in second person without naming defects as conditions; ingredients are linked as support, with no medical or hormonal claims and no guarantees.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

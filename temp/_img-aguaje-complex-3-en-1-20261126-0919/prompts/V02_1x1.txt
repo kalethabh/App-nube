@@ -1,0 +1,45 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 ad, background a soft vertical gradient from pale blush #FBE3EE at the top to a light lilac-grey #E9E3EE at the bottom. TOP ZONE (0–20%): centered small line in plum #2B1226 Poppins SemiBold sentence case, and below it the 2-line headline in Montserrat Black uppercase, line 1 in dark plum #2B1226, line 2 larger in hot fuchsia #E6177F, tight leading, no outline. MIDDLE ZONE (22–56%, about 34% of the canvas): three equal flat vector illustration panels in a row on the same background, no frames, each with its label above in black Poppins Bold ('MES 1', 'MES 2', 'MES 3'). Each panel shows the same adult Latina woman in her late 20s (long straight dark hair, light-brown skin, small hoop earrings, office look) drawn from head to knees in a side three-quarter view, facing toward the right with her face turned to the viewer, thin plum outlines, flat fills, no gradients. MES 1: she wears a lilac blouse and mid-blue jeans that are one size too big: a baggy fold of extra denim below the seat, drooping back pocket, one straight flat vertical line from waist to thigh, thin straight thighs with empty fabric around them; she frowns, mouth turned down, one hand pulling the loose waistband away from her back; a fuchsia dashed circle surrounds the baggy fold. MES 2: same woman, a white blouse, the jeans fit a bit better, thighs slightly fuller, neutral calm face, a faint soft-pink glow circle on the same spot. MES 3: same woman, a fuchsia blouse, the same jeans now fitted and rounded at the back, hips clearly wider than her small waist, thicker thighs filling the jean legs, big smile, one hand relaxed on her hip; the change from month 1 is obvious at a glance but natural, fully clothed, tasteful. A thin curved clear water splash rises from the bottles below and curls up between MES 1 and MES 2. LOWER ZONE (56–90%): LEFT-CENTER (from 6% to 52% of the width, never touching the left edge): three identical real closed product bottles standing side by side on a glossy pale surface with a soft reflection, the middle one slightly forward and taller in frame (about 30% of the canvas height), the two others slightly behind, all labels facing the camera; a clear water splash wraps around their bases with crisp droplets, never covering the labels. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth. The black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed; labels read the right way round, never mirrored. RIGHT (55–95% of the width): the offer block right-aligned: small 'OFERTA ESPECIAL' in plum Montserrat ExtraBold, then the huge 'TRATAMIENTO COMPLETO X3' in dark plum Montserrat Black on three lines with 'X3' in hot fuchsia and larger, then the subtitle in plum Poppins SemiBold on two lines. BOTTOM BAND (90–100%): full-width dark plum #2B1226 band: on the left, white Montserrat Black 'PAGAS AL RECIBIR' with a small white hand-and-coin line icon; on the right, a rounded badge with a solid hot-fuchsia border and a small white shield icon, containing the registration text in white Poppins Bold on two lines. All texts crisp, spelled exactly with correct accents, nothing else written.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- small colloquial line (top center above the headline): "2 cápsulas al día, con tus comidas" — Poppins SemiBold, sentence case, plum #2B1226
+- main headline line 1 (top center): "TU PLAN NATURAL" — Montserrat Black uppercase, dark plum #2B1226
+- main headline line 2 (highlighted) (top center, under line 1): "DE 3 MESES" — Montserrat Black uppercase, hot fuchsia #E6177F, larger
+- timeline label (above the first illustration): "MES 1" — Poppins Bold uppercase, black
+- timeline label (above the second illustration): "MES 2" — Poppins Bold uppercase, black
+- timeline label (above the third illustration): "MES 3" — Poppins Bold uppercase, black
+- offer kicker (bottom right, top of offer block): "OFERTA ESPECIAL" — Montserrat ExtraBold uppercase, plum
+- offer (big) (bottom right, main offer): "TRATAMIENTO COMPLETO X3" — Montserrat Black uppercase, dark plum, 3 lines, 'X3' in hot fuchsia and larger
+- offer subtitle (bottom right, under the offer): "Un frasco para cada mes de tu plan" — Poppins SemiBold, plum, 2 lines
+- offer and trust block (bottom band) (bottom band, left): "PAGAS AL RECIBIR" — Montserrat Black uppercase, white on dark plum
+- trust badge (bottom band, right, inside a fuchsia-bordered badge): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number
+
+BRAND IDENTITY:
+- color_palette: Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: soft lilac-grey #E9E3EE gradient and clear water splash highlights.
+- text_typography: Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look).
+
+MANDATORY ELEMENTS:
+- Three flat illustrated panels of the same adult woman from head to knees, side three-quarter view: MES 1 frustrated with baggy jeans at the back, MES 2 in between, MES 3 smiling with fitted jeans and fuller legs
+- Fuchsia dashed circle over the baggy denim in MES 1
+- Three identical real closed product bottles with a clear water splash, centered in their area and not touching the left edge
+- Big offer block on the right
+- Dark plum bottom band with 'PAGAS AL RECIBIR' and a bordered registration badge
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle, no other brand or product
+- No prices, percentages, 'gratis', countdowns, ratings or testimonials
+- No nudity or underwear; the woman stays clothed in blouse and jeans in all three months
+- No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Brand logos of any kind
+- Do not add: Prices, percentages, '1 mes gratis', 'solo esta semana' or any countdown
+- Do not add: Ratings, testimonials, customer counts, 'envío gratis', guarantees
+- Do not add: Loose capsules or an open bottle
+- Do not add: Exact result promises in days or centimeters
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

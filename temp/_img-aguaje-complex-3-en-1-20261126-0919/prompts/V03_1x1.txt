@@ -1,0 +1,47 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 premium still life on a smooth pale blush #FBE3EE seamless background with a very soft vignette. TOP ZONE (0–35%): a large real aguaje fruit (moriche palm fruit: oval, about the size of an egg, covered in glossy overlapping maroon-brown #6B1E1E scales like a snake skin) cut in half, hanging upside down at top center and cropped by the top edge, its thin layer of bright orange #F28C28 pulp visible, pouring one thick glossy orange pulp stream that narrows and falls straight down the center of the canvas, with a few small orange droplets, photographic, ultra sharp. MIDDLE ZONE (30–52%): on the LEFT of the stream, a 2-line headline in hot fuchsia #E6177F Montserrat Black condensed uppercase, with a small detail line under it in fuchsia Poppins Regular; on the RIGHT of the stream, a 2-line headline in dark plum #2B1226 Montserrat Black condensed uppercase, right-aligned, with a 2-line detail under it in plum Poppins Regular. Both headlines at the same height, about 9% of the canvas tall each line. LEFT DATA COLUMN (55–86%, 4% from the left edge): four stacked data pairs, each a bold italic plum value on top (Poppins Bold Italic) and a regular italic plum word below. BOTTOM CENTER (52–90%): the real product bottle standing upright, facing the camera, about 36% of the canvas height, centered under the stream; the orange stream lands just behind the cap and pools softly at the base behind the bottle with a small glossy splash, never covering the label; soft contact shadow. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth. The black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed; the label reads the right way round, never mirrored. BOTTOM RIGHT (55–90% height, 66–96% width, about 26% of the canvas with its card): a rounded-corner photo card with a thin hot-fuchsia border and a soft shadow, slightly tilted 3 degrees, showing an ultra-realistic smartphone photo: a Colombian mom in her late 30s with real skin texture and pores, no studio makeup, shoulder-length dark wavy hair with loose strands, wearing a wrinkled white cotton t-shirt and mid-blue jeans that hang loose at the hips and the back: a baggy fold of extra denim below the seat, drooping back pockets, flat straight line from waist to thigh; she stands three-quarters turned in a small store fitting room with a curtain and a mirror, looking back over her shoulder at her reflection with a disappointed frown, one hand pulling the loose waistband; warm natural overhead light, slight phone-camera grain; her other hand is empty. BOTTOM BAND (90–100%): full-width dark plum #2B1226 band: left, white Montserrat Black 'PAGAS AL RECIBIR' with a small white hand-and-coin line icon; right, a rounded badge with a solid hot-fuchsia border and a small white shield icon containing the registration text in white Poppins Bold on two lines. All texts crisp, spelled exactly with correct accents, nothing else written.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- left headline (highlighted) (middle, left of the stream): "AGUAJE DEL AMAZONAS" — Montserrat Black condensed uppercase, hot fuchsia #E6177F, 2 lines
+- left detail (under the left headline): "200 mg por porción" — Poppins Regular, hot fuchsia
+- right headline (middle, right of the stream): "TRIPLE ACCIÓN NATURAL" — Montserrat Black condensed uppercase, dark plum #2B1226, 2 lines, right-aligned
+- right detail (under the right headline): "Fenogreco y maca negra" — Poppins Regular, plum, 2 lines, right-aligned
+- data value (left column, 1st): "400 mg" — Poppins Bold Italic, plum
+- data label (left column, 1st): "Fenogreco" — Poppins Italic, plum
+- data value (left column, 2nd): "200 mg" — Poppins Bold Italic, plum
+- data label (left column, 2nd): "Maca negra" — Poppins Italic, plum
+- data value (left column, 3rd): "Vitaminas" — Poppins Bold Italic, plum
+- data label (left column, 3rd): "A y E" — Poppins Italic, plum
+- data value (left column, 4th): "2 cápsulas" — Poppins Bold Italic, plum
+- data label (left column, 4th): "al día" — Poppins Italic, plum
+- offer and trust block (bottom band) (bottom band, left): "PAGAS AL RECIBIR" — Montserrat Black uppercase, white on dark plum
+- trust badge (bottom band, right, inside a fuchsia-bordered badge): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number
+
+BRAND IDENTITY:
+- color_palette: Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: aguaje pulp orange #F28C28 and fruit-skin maroon #6B1E1E.
+- text_typography: Headlines in a very heavy condensed geometric sans-serif (Montserrat Black / condensed look), uppercase; data and secondary texts in Poppins Bold Italic and Poppins Regular.
+
+MANDATORY ELEMENTS:
+- Halved real aguaje fruit with maroon scales and orange pulp at top center, cropped by the top edge, pouring a thick orange stream down the center
+- The real closed product bottle at bottom center, label fully visible, the stream landing behind it
+- Left data column with four data pairs
+- Rounded real-photo card bottom right: mom in a fitting room with jeans loose at the hips and back, disappointed look
+- Dark plum bottom band with 'PAGAS AL RECIBIR' and a bordered registration badge
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle, no shaker, no drink, no other product or brand
+- The pulp never covers or hides the label
+- No prices, percentages, ratings, testimonials or 'envío gratis'
+- No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Brand logos of any kind
+- Do not add: Prices, discounts, ratings, testimonials, 'envío gratis'
+- Do not add: Loose capsules, powders spilled as capsules, an open bottle, a shaker or drink
+- Do not add: Leaves with serrated edges
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
