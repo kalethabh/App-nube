@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 12,
-    "T": 13
+    "A": 13,
+    "T": 14
   },
   "tandas": {
     "E001": {
@@ -125,6 +125,15 @@
         "U0012"
       ],
       "empezada": true
+    },
+    "A012": {
+      "tipo": "ajuste",
+      "uuid": "c28012e1-eda5-445a-8cb1-a43f7e1a6050",
+      "estado": "hecha",
+      "pedidos": [
+        "U0013"
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -210,11 +219,18 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "listo",
       "version": 3,
       "firma": "2125516-1795725975269",
-      "orden": null,
+      "orden": {
+        "id": "U0013",
+        "modo": "editar",
+        "version": 4,
+        "instruccion_en": "Apply a light blur of about 20% strength to every 'amua' word in the image: the 'amua' above 'VITALDROPS' at the top and the 'amua' on the bottle label. Make it slightly soft and out of focus, not erased and not heavily smeared. Keep 'VITALDROPS' and all other texts sharp and unchanged. Do not change anything else: same women, poses, background, bottle, labels, colors, layout and bottom block.",
+        "textos": false,
+        "trabajo": "T013"
+      },
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
@@ -222,7 +238,7 @@
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T20:46:16.472Z",
-      "pedido": null,
+      "pedido": "U0013",
       "ultimaOrden": "U0009",
       "fallo": null
     },
@@ -610,6 +626,27 @@
           "orden": "U0012",
           "modo": "editar",
           "instruccion_en": "Make the progression across the day panels clearly stronger. DÍA 14: her hip line and overall silhouette look clearly more curved and shapely than DÍA 7, noticeable at first glance. DÍA 21: the most curved and shapely silhouette of the four, a clear visible step beyond DÍA 14, still natural and believable. Show her in three-quarter view, head-to-knees framing, not from behind, no close-up or crop on any body part, no exaggerated arched or sexualized pose. Keep the same woman, face, hair, panels, labels, headline, product, offer box, texts, fonts and colors exactly as they are.",
+          "textos": false
+        }
+      ],
+      "paso": 0
+    },
+    "U0013": {
+      "id": "U0013",
+      "pieza": "V03_1x1",
+      "instruccion": "un 20% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:51:33.678Z",
+      "estado": "generando",
+      "ajuste": "A012",
+      "instruccion_en": "Apply a light blur of about 20% strength to every 'amua' word in the image: the 'amua' above 'VITALDROPS' at the top and the 'amua' on the bottle label. Make it slightly soft and out of focus, not erased and not heavily smeared. Keep 'VITALDROPS' and all other texts sharp and unchanged. Do not change anything else: same women, poses, background, bottle, labels, colors, layout and bottom block.",
+      "cambiaTextos": false,
+      "resumen": "La palabra «amua» queda con un difuminado suave, de un 20 %, arriba y en la etiqueta del frasco. Todo lo demás sigue igual.",
+      "pasos": [
+        {
+          "pieza": "V03_1x1",
+          "orden": "U0013",
+          "modo": "editar",
+          "instruccion_en": "Apply a light blur of about 20% strength to every 'amua' word in the image: the 'amua' above 'VITALDROPS' at the top and the 'amua' on the bottle label. Make it slightly soft and out of focus, not erased and not heavily smeared. Keep 'VITALDROPS' and all other texts sharp and unchanged. Do not change anything else: same women, poses, background, bottle, labels, colors, layout and bottom block.",
           "textos": false
         }
       ],

@@ -1,5 +1,5 @@
 {
-  "pid": 64880,
+  "pid": 65080,
   "paso": "anuncios",
   "script": "generar-imagen-ads.js",
   "args": [
@@ -10,6 +10,6 @@
     "3"
   ],
   "comando": "node produccion/generar-imagen-ads.js temp/_img-vitaldrops-20261126-1456 --motor chatgpt --concurrencia 3",
-  "inicio": "2026-11-26T20:49:20.372Z",
+  "inicio": "2026-11-26T20:51:54.436Z",
   "app": 63359
 }
