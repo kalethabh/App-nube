@@ -1,0 +1,43 @@
+{
+  "resumen": "Tu clienta quiere que el jean le horme y sentirse segura con su cuerpo, sin agujas ni quirófano. Cada anuncio le habla de eso desde un lugar distinto: el probador, el espejo de su cuarto, el chat con una amiga, los ingredientes y el miedo a operarse. Todos cierran con lo que la tranquiliza: es natural, son 2 cápsulas al día y paga al recibir.",
+  "reparto": "Del ganador se conserva el cambio que se entiende en un segundo, con el frasco como la causa: la primera variación usa su mismo antes y después, y la segunda cuenta ese cambio como una selfie real. Las otras tres prueban ideas nuevas: los ingredientes de la triple acción, un chat entre amigas sobre las sentadillas que no rinden y el mito de que las curvas solo salen del quirófano.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#2B1226", "nombre": "Ciruela oscuro" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" }
+  ],
+  "tipografia": "Títulos en letra gruesa y geométrica (estilo Montserrat Black). Textos de apoyo en letra redondeada y firme (estilo Poppins Bold). Las selfies y los chats usan la letra propia de una historia o de un chat.",
+  "estilo": "Fotos realistas de mujeres colombianas en escenas de todos los días, con el frasco real siempre nítido. Toques fucsia y ciruela de la marca, tarjetas redondeadas y textos grandes que se leen bien en el celular.",
+  "beneficios": [
+    "Acompaña tu proceso de curvas de forma natural",
+    "Más energía para cumplirle a tu rutina de pierna",
+    "Fácil de cumplir: 2 cápsulas al día con tus comidas",
+    "Curvas a tu manera, sin agujas ni quirófano"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg",
+    "Con vitaminas A y E",
+    "60 cápsulas por frasco: rinde un mes",
+    "Tratamiento completo de 3 frascos y pagas al recibir"
+  ],
+  "deseo_central": "Verse con más curvas y que el jean le horme, sintiéndose segura con su cuerpo, sin agujas ni quirófano.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, que acompaña su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Evito las fotos de cuerpo entero y la ropa pegada",
+    "Ya compré pastillas por internet y no vi nada"
+  ],
+  "decisiones": [
+    "No pusiste precio, así que ningún anuncio lleva precio. En la franja de la oferta va «Tratamiento completo x3 frascos» y «Pagas al recibir».",
+    "No puse el sello de registro sanitario porque todavía no está confirmado. Cuando lo tengas, se puede sumar.",
+    "Cambié «no engorda» y «resultados en 3 a 4 semanas» por «sin agujas ni quirófano»: las promesas de resultados y de peso pueden hacer que Meta rechace el anuncio.",
+    "El antes y después muestra a la misma mujer con jean, en dos días distintos, en vez de bikini: es más natural y le habla directo al dolor del jean que no horma.",
+    "Mantuve los colores, las letras y la descripción del frasco del lote anterior, porque es la misma marca."
+  ]
+}
