@@ -1,0 +1,49 @@
+{
+  "slug": "aguaje-complex-3-en-1",
+  "nombre": "AGUAJE COMPLEX 3 EN 1",
+  "analisis": "Suplemento dietario en cápsulas, de la marca Vitalabh. Junta aguaje, fenogreco y maca negra, con vitaminas A y E. Se toman 2 cápsulas al día y cada frasco de 60 cápsulas dura un mes. El frasco es negro mate, con tapa fucsia brillante y una franja fucsia abajo. Es para la mujer que quiere más curvas sin agujas ni quirófano.",
+  "tipo_producto": "nutraceutico",
+  "descripcion_visual_en": "A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Matte finish, no rainbow, no prism light, no lens flare. The bottle is always closed with its cap on; no loose capsules, no pills anywhere. The label always reads the right way round, never mirrored.",
+  "foto_producto": "temp/_img-aguaje-complex-3-en-1-20261126-0919/entrada/producto.png",
+  "datos": {
+    "angulo_preferido": "",
+    "publico": "Mujeres colombianas que quieren glúteos y piernas más firmes y redondos de forma natural, sin ir al gym, ni dietas ni pagar cirugías costosas",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": ""
+  },
+  "identidad_visual": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Each variation adds its own secondary support colors from the batch plan.",
+    "visual_style": "Bold, feminine supplement ads for Colombian women built on proven winning ad structures; each variation keeps the rendering style of its structure (3D animated, real photo, flat illustration, premium still life or text letter) while the real bottle always stays sharp and identical to the photo, with fuchsia and plum brand accents.",
+    "visual_atmosphere": "Warm, confident and aspirational, believable and everyday; soft fuchsia glow on branded elements, never clinical.",
+    "graphic_language": "Solid flat color blocks, rounded cards and pills, thin glowing fuchsia borders, white thin-line icons inside circles, curved hand-drawn arrows, clean high-contrast typography readable on a phone. Clean backgrounds with negative space, no clutter. A trust badge with a solid border for the sanitary registration and a bold bottom band with 'Pagas al recibir'.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look).",
+    "art_direction": "Same brand family across the batch (palette, type, the real bottle), but each variation follows a different winning structure, rendering style, body zone, segment, model, wardrobe and camera. One message per image, readable on a phone. Every image shows the problem with a scene of a woman in the moment of the pain (loose jeans at the back, frustrated look) on at least 25% of the canvas. Bodies shown tastefully in jeans or everyday clothes, never explicit, never medical; before/after always the same adult woman on different days (other light, other top), with a believable difference. Only the closed bottle, never loose capsules."
+  },
+  "beneficios": [
+    "Acompaña tu proceso de curvas de forma natural",
+    "Más energía y ánimo para cumplirle a tu rutina",
+    "Fácil de cumplir: 2 cápsulas al día con tus comidas",
+    "Sin agujas, sin quirófano y sin días de recuperación"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg por porción",
+    "Con vitaminas A y E",
+    "Frasco de 60 cápsulas: te dura un mes",
+    "Tratamiento completo de 3 frascos para 3 meses, y pagas al recibir"
+  ],
+  "deseo_central": "Verme con más curvas y sentirme segura con mi cuerpo, sin agujas, sin quirófano y sin arriesgar mi salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar tu proceso de curvas.",
+  "puntos_dolor": [
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Soy flaquita de piernas y todo lo que como se me va a la barriga",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Ya compré pastillas por internet y no vi nada",
+    "No sé si lo que venden por redes tiene registro o es chimbo",
+    "Me comparo con las de Instagram y me siento plana"
+  ],
+  "sellos": ["REGISTRO INVIMA RSA-0030271-2024"]
+}

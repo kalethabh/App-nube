@@ -1,0 +1,52 @@
+{
+  "resumen": "Le hablamos a la mujer que quiere más curvas y que el jean le horme, pero le da miedo el quirófano. Cada anuncio muestra ese momento frente al espejo y presenta a Aguaje Complex como un apoyo natural y fácil: 2 cápsulas al día durante un plan de 3 meses. Todos cierran con «Pagas al recibir» y el sello del registro.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#2B1226", "nombre": "Ciruela oscuro" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" }
+  ],
+  "tipografia": "Títulos en letra muy gruesa y en mayúsculas (estilo Montserrat Black). Los demás textos en letra redondeada y gruesa (estilo Poppins).",
+  "estilo": "La misma marca que tu lote anterior: fucsia, ciruela y el frasco negro. Cada anuncio usa una estructura ganadora distinta y cambia de estilo: muñequita 3D, ilustración plana, bodegón del frasco, foto real y carta. Siempre sale la escena del jean que no horma, el frasco cerrado y una franja abajo con «Pagas al recibir».",
+  "beneficios": [
+    "Acompaña tu proceso de curvas de forma natural",
+    "Más energía y ánimo para cumplirle a tu rutina",
+    "Fácil de cumplir: 2 cápsulas al día con tus comidas",
+    "Sin agujas, sin quirófano y sin días de recuperación"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg por porción",
+    "Con vitaminas A y E",
+    "Frasco de 60 cápsulas: te dura un mes",
+    "Tratamiento completo de 3 frascos para 3 meses, y pagas al recibir"
+  ],
+  "deseo_central": "Verme con más curvas y sentirme segura con mi cuerpo, sin agujas, sin quirófano y sin arriesgar mi salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar tu proceso de curvas.",
+  "puntos_dolor": [
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Soy flaquita de piernas y todo lo que como se me va a la barriga",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Ya compré pastillas por internet y no vi nada",
+    "No sé si lo que venden por redes tiene registro o es chimbo",
+    "Me comparo con las de Instagram y me siento plana"
+  ],
+  "aprendido_de_validados": [
+    "El de «curvas más llenas» por días que ya te funciona y el de Día 0 · 7 · 21: el avance por etapas se entiende antes de leer. Lo usamos en V02, con los 3 meses del plan.",
+    "Los de antes y después lado a lado: la misma mujer, el mismo encuadre y la diferencia a la vista. Lo usamos en V01 (en 3D) y en V06 (en ilustración).",
+    "«No solo glúteos, también piernas»: ampliar el deseo a las piernas. Lo usamos en el titular de V06.",
+    "El frasco como héroe con íconos de ingredientes y franja de confianza abajo. Lo usamos en V03, V04 y V08.",
+    "Titulares cortos y en mayúsculas, con la palabra clave en color, y la franja de pago al recibir abajo. Va en todo el lote."
+  ],
+  "decisiones": [
+    "Elegí yo el ángulo de cada anuncio, porque no marcaste uno. Ninguno repite una mezcla de ángulo y estructura que ya usaste.",
+    "No pusiste precio, así que ningún anuncio lleva precio. La oferta es «Tratamiento completo x3» (3 frascos, 3 meses), como dice tu investigación.",
+    "No puse «envío gratis» ni descuentos porque no los confirmaste.",
+    "El sello va solo como «REGISTRO INVIMA RSA-0030271-2024», dentro de una insignia. Las palabras «agregar logo y sello de» no salen en la imagen. El logo lo pone la app.",
+    "Tu público quiere resultados sin gimnasio ni dietas. Por las reglas de publicidad no prometemos «aumento» ni «sin ejercicio»: decimos «acompaña tus curvas», «sin agujas ni quirófano» y «fácil: 2 cápsulas al día».",
+    "Las estructuras que no tienen persona (bodegón, carta, oferta) llevan un recuadro con la escena del jean que queda suelto atrás.",
+    "El frasco siempre sale cerrado. No se ven cápsulas sueltas."
+  ]
+}
