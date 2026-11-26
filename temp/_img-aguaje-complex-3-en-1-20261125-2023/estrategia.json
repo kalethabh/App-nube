@@ -1,30 +1,47 @@
 {
-  "resumen": "Modo rápido: 10 réplicas exactas de tu anuncio validado (cambian la modelo, el escenario, la pose y el titular), con un titular distinto en cada una.",
+  "resumen": "Hicimos 10 copias de tu anuncio de antes y después, con el mismo diseño, las mismas fotos de la mujer de espaldas, el frasco al centro, las 4 tarjetas y la barra del tratamiento. En cada una cambia solo la frase bajo ANTES y DESPUÉS, sacada de lo que dicen tus clientas: el jean que no horma, las sentadillas que no rinden y el miedo al quirófano.",
   "paleta": [
-    {
-      "hex": "#000000",
-      "nombre": "la del empaque del producto"
-    },
-    {
-      "hex": "#FFFFFF",
-      "nombre": "la de cada referencia"
-    }
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#2B1226", "nombre": "Ciruela oscuro" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" }
   ],
-  "tipografia": "la de cada referencia",
-  "estilo": "el de cada referencia",
+  "tipografia": "La misma de tu anuncio: ANTES y DESPUÉS en letra muy gruesa y en mayúsculas; las frases debajo en letra redondeada en negrita; las tarjetas y la barra de abajo en mayúsculas gruesas.",
+  "estilo": "Antes y después con fotos reales: a la izquierda una habitación sencilla, a la derecha la playa al atardecer. El frasco va al centro, sobre la línea que divide. Abajo, 4 tarjetas con íconos y una barra con el tratamiento de 3 frascos. Los colores son los de tu frasco: negro, fucsia y rosa.",
   "beneficios": [
-    "Aumento de glúteos",
-    "Aumento de piernas y caderas",
-    "Triple acción con 3 extractos naturales",
-    "Sin efecto rebote (no engorda)",
-    "Sin necesidad de hacer ejercicio de fuerza",
-    "Resultados visibles y naturales"
+    "Acompaña tu proceso de curvas junto con tu comida y tu rutina de pierna",
+    "Una opción natural, sin agujas ni quirófano",
+    "Fácil de cumplir: solo 2 cápsulas al día con tus comidas",
+    "Te ayuda a sentirte con más ánimo para cumplirle a tu rutina"
   ],
   "caracteristicas": [
-    "Producto real de la foto",
-    "Empaque original",
-    "Uso diario",
-    "Envío a domicilio"
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg",
+    "Con vitaminas A y E",
+    "Frasco de 60 cápsulas: rinde un mes",
+    "Tratamiento completo de 3 frascos (3 meses) y pagas al recibir"
   ],
-  "rapido": true
+  "deseo_central": "Verme con más curvas y sentirme segura con mi cuerpo, sin agujas, sin quirófano y sin arriesgar mi salud.",
+  "beneficio_principal": "Un apoyo natural y fácil (2 cápsulas al día) para acompañar tu proceso de curvas junto con tu comida y tu rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas y no tengo cuerpo",
+    "Me comparo con las de Instagram y me siento plana",
+    "Ya compré pastillas por internet y no vi nada"
+  ],
+  "por_que_podria_vender": "Tu anuncio muestra en un segundo el cambio que ella sueña: de la habitación a la playa, del jean suelto a sentirse segura. El frasco queda justo en medio, como el puente entre las dos fotos. Abajo resuelve sus miedos de una vez: es natural, es fácil y paga cuando lo recibe. Es una idea de por qué funciona, no una garantía.",
+  "decisiones": [
+    "No nos diste precio, así que en la píldora del precio pusimos «3 MESES». Cuando tengas el precio, puede ir ahí.",
+    "Quitamos el sello de registro sanitario: no está confirmado para tu producto. Si ya lo tienes, se puede volver a poner.",
+    "Quitamos el sello «Calidad premium» del frasco para que tu frasco salga igual a tu foto.",
+    "La tarjeta «Sin efecto rebote (no engorda)» la cambiamos por «2 cápsulas al día (con tus comidas)». Prometer que no engorda es riesgoso en Colombia.",
+    "La tarjeta del registro la cambiamos por «Sin agujas ni quirófano», y la de resultados por «Triple acción natural».",
+    "En la barra de abajo dice «X3 FRASCOS» en vez de «X3 UNIDADES», porque tu tratamiento es de 3 frascos.",
+    "Los colores amarillos del anuncio original pasaron a rosa, para que combinen con tu frasco.",
+    "El bikini de la foto de la derecha va un poco más cubierto, para que Meta no rechace el anuncio."
+  ]
 }

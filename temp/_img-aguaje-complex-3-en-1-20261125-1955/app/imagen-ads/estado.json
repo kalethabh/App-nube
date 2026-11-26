@@ -4,7 +4,7 @@
     "E": 3,
     "R": 10,
     "A": 1,
-    "T": 13
+    "T": 14
   },
   "tandas": {
     "E001": {
@@ -435,12 +435,12 @@
       "version": 0,
       "firma": null,
       "orden": {
-        "id": "g-r1",
+        "id": "g-r2",
         "modo": "generar",
         "version": 1,
-        "trabajo": "T011"
+        "trabajo": "T013"
       },
-      "intentosApi": 3,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -448,8 +448,8 @@
       "mensaje": null,
       "desde": null,
       "pedido": null,
-      "ultimaOrden": "g",
-      "rescates": 1
+      "ultimaOrden": "g-r1",
+      "rescates": 2
     },
     "V10_1x1": {
       "v": "V10",

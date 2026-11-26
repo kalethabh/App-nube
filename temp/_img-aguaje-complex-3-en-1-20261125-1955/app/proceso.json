@@ -1,5 +1,5 @@
 {
-  "pid": 19003,
+  "pid": 21174,
   "paso": "anuncios",
   "script": "generar-imagen-ads.js",
   "args": [
@@ -10,6 +10,6 @@
     "3"
   ],
   "comando": "node produccion/generar-imagen-ads.js temp/_img-aguaje-complex-3-en-1-20261125-1955 --motor chatgpt --concurrencia 3",
-  "inicio": "2026-11-26T01:01:29.733Z",
+  "inicio": "2026-11-26T01:26:47.113Z",
   "app": 17577
 }
