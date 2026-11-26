@@ -1,0 +1,139 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "library format F01 (Producto protagonista)",
+    "reference_style": "Premium minimalist product hero ad: the real bottle as the single hero standing on a folded blue jean, under a bold two-line headline and a short subtitle",
+    "angle_used": "Identidad / aspiración: que el jean te horme, al natural",
+    "ad_format": "Product Hero Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary colors for this variation: deep denim blue #1E3550 (background) and classic mid-blue denim #4A6E99 (the folded jean), with a soft fuchsia back light.",
+    "visual_style": "Clean, bold and feminine premium supplement hero ad, the real bottle sharp and identical to the photo.",
+    "visual_atmosphere": "Confident and aspirational, calm studio mood, plenty of negative space.",
+    "graphic_language": "Smooth plain background with negative space, one small rounded pill, clean high-contrast typography readable on a phone. No sparkles, flares, particles or competing objects.",
+    "text_typography": "Headline in Montserrat ExtraBold, uppercase; subtitle and seal in Inter (Medium / SemiBold). Maximum three text levels."
+  },
+  "creative_objective": "Say the core desire in one line with the object that sums it up (a folded jean) and the real bottle as the hero, with no person, so a cold audience that does not know the brand understands the promise in two seconds.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The bold headline at the top. 2) The large bottle standing on the folded jean, centered. 3) The short subtitle under the headline. 4) The small registration pill at the bottom.",
+    "composition_style": "Centered, symmetrical composition. The text stack is centered in the top area; the bottle stands slightly below the vertical center on top of a neatly folded blue jean, seen from a gentle low angle so the bottle feels heroic.",
+    "spacing_and_structure": "Headline 6-22% of the height, up to 88% of the width, 2 lines. Subtitle 24-28% of the height. Bottle centered, about 48-52% of the canvas height, from about 33% to 84% of the height. Folded jean under it, about 26-74% of the width and 78-90% of the height. Registration pill centered at about 92-96% of the height. Even safe margins of about 6-8%; nothing touches the edges.",
+    "lighting_and_depth": "Soft studio key light from the upper left, a thin fuchsia rim light along the right edge of the bottle, a very soft, low-intensity fuchsia back light behind the bottle that fades smoothly into the denim blue background (no flares, no sparkles), soft contact shadow of the bottle on the jean and of the jean on the implied surface.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a smooth deep denim blue background and a very soft fuchsia back light behind the center. Headline and subtitle stacked and centered in the top area. The real bottle, large and centered, stands on a neatly folded blue jean in the middle and lower part of the canvas, with a soft shadow. A small registration pill is centered at the bottom. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Brand-tinted backdrop with depth that makes the bottle pop",
+        "adaptation_rule": "Smooth deep denim blue #1E3550 gradient, slightly darker at the corners, with a very soft fuchsia back light behind the bottle. No texture, no pattern, no particles.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "product",
+        "position": "Center, about 33-84% of the height",
+        "visual_function": "Main visual anchor; shows exactly what is being sold",
+        "adaptation_rule": "The real bottle exactly as in the attached product photo, front view from a gentle low angle, upright, label fully readable, standing on the folded jean.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "simple surface (folded jean)",
+        "position": "Under the bottle, about 26-74% of the width and 78-90% of the height",
+        "visual_function": "The object that symbolizes the desire, acting as the product's pedestal",
+        "adaptation_rule": "A neatly folded classic mid-blue denim jean with visible stitching and a back pocket edge, folded into a flat rectangle. No brand labels, no leather patch text.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "headline",
+        "position": "Top center, 6-22% of the height",
+        "visual_function": "Stops the scroll and states the desire",
+        "adaptation_rule": "Two lines, white, with 'AL NATURAL' in bubblegum pink #FF8CC0.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "subheadline",
+        "position": "Directly below the headline, centered, 24-28% of the height",
+        "visual_function": "Completes the headline with how and without what",
+        "adaptation_rule": "One short white line with a middle dot separator.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "registration seal",
+        "position": "Bottom center, about 92-96% of the height",
+        "visual_function": "Trust: the sanitary registration given by the brand",
+        "adaptation_rule": "Small rounded pill in pale blush pink #FBE3EE with dark plum text. Text only, no logos, no icons other than a tiny check-shield.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount or offer badge",
+      "Benefit list or icons",
+      "Rating stars, reviews or testimonials",
+      "Bottom bar or banner",
+      "Logos or brand marks outside the bottle label",
+      "People, hands or bodies",
+      "Any trust seal other than the single registration pill",
+      "Extra props that compete with the product (only the folded jean)",
+      "Sparkles, lens flares, particles or glitter"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium product hero supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Smooth deep denim blue #1E3550 background, slightly darker in the corners, with a very soft, low-intensity hot-fuchsia back light behind the center that fades smoothly into the blue; no texture, no sparkles, no particles. Top center (6-22% of the height, up to 88% of the width) a two-line extra-bold uppercase white headline in Montserrat ExtraBold with the words 'AL NATURAL' in bubblegum pink #FF8CC0; directly below it (24-28% of the height) one short white subtitle line in Inter Medium. In the center, from about 33% to 84% of the height, the real product standing large and upright, seen from a gentle low angle so it feels heroic, label fully readable: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. The bottle stands on a neatly folded classic mid-blue denim jean (about 26-74% of the width, 78-90% of the height) with visible stitching and a back pocket edge, no brand patch. Soft studio key light from the upper left, a thin fuchsia rim light on the right edge of the bottle, soft contact shadows. Bottom center (92-96% of the height) a small rounded pale blush pink pill with a tiny dark plum check-shield icon and dark plum text. Clean, airy, lots of negative space, everything readable on a phone. No people, no other objects.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, first element of the text stack",
+      "text_style": "Montserrat ExtraBold, uppercase, each line about 8-9% of the canvas height, 2 lines, centered, white; 'AL NATURAL' in bubblegum pink #FF8CC0",
+      "text": "QUE EL JEAN TE HORME, AL NATURAL"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, centered",
+      "text_style": "Inter Medium, about 3.6% of the canvas height, 1 line, centered, white",
+      "text": "2 cápsulas al día · Sin agujas ni quirófano"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "trust seal",
+      "reference_position": "Bottom center, inside the small pale blush pill",
+      "text_style": "Inter SemiBold, uppercase, about 2.1% of the canvas height, 1 line, centered, dark plum #2B1226",
+      "text": "REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "The real bottle, large and centered, seen from a gentle low angle",
+    "A neatly folded blue denim jean under the bottle as its pedestal",
+    "Smooth deep denim blue background with a very soft fuchsia back light",
+    "Soft contact shadow under the bottle",
+    "Small pale blush registration pill at the bottom center"
+  ],
+  "final_generation_exclusions": [
+    "No people, bodies, mannequins or hands.",
+    "No brand labels or leather patches on the jean.",
+    "No sparkles, lens flares, glitter or particles.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

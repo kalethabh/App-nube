@@ -1,0 +1,44 @@
+Square 1:1 clean benefit-icons supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Smooth background gradient from dark plum #2B1226 at the top to a slightly lighter plum-magenta at the bottom, no texture. Top center (6-21% of the height, up to 88% of the width) a two-line extra-bold uppercase white headline with the word 'QUIRÓFANO' in bubblegum pink #FF8CC0. Left half: a tall solid deep magenta #B0105E arch with a fully rounded top (about 10-46% of the width, 28-94% of the height), faint soft shadow; in front of it, centered, the real product standing large (about 50-56% of the canvas height, base at about 90%), front view, soft contact shadow and a thin fuchsia rim light: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. Right half: four benefit rows evenly spaced between about 28% and 82% of the height, each with a solid fuchsia #E6177F rounded-square tile (about 9% of the canvas) holding a simple white line icon (crossed-out syringe, capsule, lightning bolt, leaf) and a short bold white benefit text to its right (about 66-94% of the width). Under the benefits (about 54-94% of the width, 86-92% of the height) a small rounded pale blush pink pill with a tiny dark plum check-shield icon and dark plum text. Clean, airy, premium, everything readable on a phone. No people, no other elements.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, spanning up to 88% of the width): "TUS CURVAS, SIN AGUJAS NI QUIRÓFANO" — Extra bold geometric sans-serif, uppercase, each line about 6.5-7.5% of the canvas height, max 2 lines, centered, white; 'QUIRÓFANO' in bubblegum pink
+- benefit 1 (Right column, first row, right of the crossed-out syringe tile): "Natural, sin agujas" — Bold rounded sans-serif, about 3.4-4% of the canvas height, max 2 lines, left-aligned, white
+- benefit 2 (Right column, second row, right of the capsule tile): "Solo 2 cápsulas al día" — Same style as benefit 1
+- benefit 3 (Right column, third row, right of the lightning tile): "Más energía para tu rutina" — Same style as benefit 1
+- benefit 4 (Right column, fourth row, right of the leaf tile): "Aguaje, fenogreco y maca negra" — Same style as benefit 1
+- trust seal (Under the benefit column, inside the small pale blush pill): "REGISTRO INVIMA RSA-0030271-2024" — Bold sans-serif, uppercase, about 2.2% of the canvas height, 1 line, centered, dark plum
+
+BRAND IDENTITY:
+- color_palette: Brand palette: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. For this variation: a dark plum to deep magenta background gradient, a deep magenta arch, fuchsia icon tiles and white texts.
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; benefits in a rounded bold sans-serif (Poppins SemiBold / Bold look).
+
+MANDATORY ELEMENTS:
+- Tall deep magenta arch panel with a fully rounded top in the left half
+- The real bottle, large, standing in front of the arch with a soft contact shadow
+- Four benefit rows stacked in the right half with equal spacing
+- Solid fuchsia rounded-square tile with a simple white line icon at the start of each row
+- Small pale blush registration pill under the benefits
+- Smooth dark plum gradient background
+
+STRICT EXCLUSIONS:
+- No realistic syringes, scalpels or medical scenes.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount, offer or urgency badge
+- Do not add: Any trust seal other than the single registration pill
+- Do not add: Callout lines or arrows pointing at the product
+- Do not add: Numbers on the benefit rows
+- Do not add: Divider lines, boxes or cards behind each benefit
+- Do not add: Round pedestal or circular backdrop shape
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Subheadline or paragraph text
+- Do not add: People or lifestyle scenes
+- Do not add: More than 4 benefits
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks outside the bottle label
+- Do not add: Syringes, needles or medical images other than the small crossed-out syringe icon
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
