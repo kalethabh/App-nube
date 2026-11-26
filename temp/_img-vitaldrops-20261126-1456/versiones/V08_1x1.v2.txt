@@ -1,0 +1,11 @@
+Edit this advertising image (the FIRST attached image) following this instruction: "Edit this image, keep everything else identical (layout, women, pose, bedroom, bottle position, arrow, labels, subtitle ribbon, colors, fonts). 1) Top: remove the small 'amua' logo and replace 'VITALDROPS' with '100% ORIGINAL' in the same big italic style ('100%' white #FFFFFF, 'ORIGINAL' yellow #F5C518). 2) Bottom strip: yellow block now reads 'TRATAMIENTO COMPLETO' (black, two lines) instead of '60% DE DESCUENTO'; red pill now reads 'RÁPIDO, DURADERO Y SIN EFECTO REBOTE' (white, two or three lines) with a white check icon instead of the gift icon. 3) Right 'after' woman only: same woman, pose and outfit, with a more curvy lower body: wider hips, thicker toned thighs and a more defined hip and glute curve, natural proportions. The left 'before' woman does not change. 4) Softly blur the brand name and logo printed on the bottle label so no brand can be read; keep the bottle shape, amber glass and yellow label. Spell every text exactly as written, no other new text.". Keep everything else exactly as it is (layout, texts, colors, typography, person, product) unless the instruction says otherwise. The SECOND attached image is the real product photo: the product must stay identical to it. Do not add new elements.
+
+Exact visible texts (each appears exactly once, correctly spelled, nothing else added):
+- main headline: "100% ORIGINAL"
+- subtítulo (cinta): "Fórmula líquida de alta absorción"
+- etiqueta antes: "GLÚTEOS SIN FORMA"
+- etiqueta después: "CURVAS MÁS DEFINIDAS"
+- oferta (bloque amarillo): "TRATAMIENTO COMPLETO"
+- oferta (píldora roja): "RÁPIDO, DURADERO Y SIN EFECTO REBOTE"
+
+All visible text in Spanish.

@@ -3,7 +3,7 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 11,
+    "A": 12,
     "T": 12
   },
   "tandas": {
@@ -116,6 +116,14 @@
         "U0011"
       ],
       "empezada": true
+    },
+    "A011": {
+      "tipo": "ajuste",
+      "uuid": "ea13604c-7717-472a-98dc-4e8b5b21408d",
+      "estado": "en-curso",
+      "pedidos": [
+        "U0012"
+      ]
     }
   },
   "variaciones": {
@@ -220,27 +228,20 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "listo",
-      "version": 1,
-      "firma": "2059859-1795723395176",
-      "orden": {
-        "id": "U0011",
-        "modo": "editar",
-        "version": 2,
-        "instruccion_en": "On the bottle label only, make the small brand word 'amua' above 'VITALDROPS' much less noticeable: soften it with a light blur and low contrast so it blends into the yellow label and is not readable at a glance. Do not remove or change the bottle, the label color, 'VITALDROPS' or any other label detail. Keep everything else exactly the same: women, poses, headline, subtitle, handwritten notes, seal, icons, colors, layout and framing.",
-        "textos": false,
-        "trabajo": "T011"
-      },
+      "version": 2,
+      "firma": "1988262-1795726031511",
+      "orden": null,
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:03:17.015Z",
-      "pedido": "U0011",
-      "ultimaOrden": "g",
+      "desde": "2026-11-26T20:47:12.583Z",
+      "pedido": null,
+      "ultimaOrden": "U0011",
       "fallo": null
     },
     "V05_1x1": {
@@ -265,7 +266,7 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 2,
       "firma": "1868062-1795725731696",
@@ -284,53 +285,42 @@
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "listo",
       "version": 1,
       "firma": "1692282-1795723493223",
-      "orden": {
-        "id": "U0008",
-        "modo": "editar",
-        "version": 2,
-        "instruccion_en": "Change only two things. 1) Replace the bottom handwritten headline with exactly: \"No es subir por subir.\" on the first line and \"Es que se vaya a donde tiene que ir.\" on the second line, same handwritten marker style, size, position and underline; check spelling. 2) In the right-side (VitalDrops) figure, make the legs and glutes look naturally more toned and firm, a realistic healthy look, not exaggerated. Keep everything else identical: the left figure, all labels and arrows, the headers, the whiteboard, the background and the product bottle.",
-        "textos": true,
-        "trabajo": "T008"
-      },
-      "intentosApi": 2,
+      "orden": null,
+      "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T20:04:55.085Z",
-      "pedido": "U0008",
-      "ultimaOrden": "g",
-      "fallo": null
+      "pedido": null,
+      "ultimaOrden": "U0008",
+      "fallo": {
+        "orden": "U0008",
+        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
     },
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "listo",
-      "version": 2,
-      "firma": "2021771-1795725620659",
-      "orden": {
-        "id": "U0010",
-        "modo": "editar",
-        "version": 3,
-        "instruccion_en": "On the bottle label, blur only the small word 'amua' so it cannot be read. Keep the 'VITALDROPS' logo on the label sharp and fully readable, with its original colors. Do not add 'amua' anywhere else. Change nothing else: same headline, labels, offer strip, women, pose, scene, layout and colors.",
-        "textos": false,
-        "trabajo": "T010"
-      },
+      "version": 3,
+      "firma": "2019060-1795725990934",
+      "orden": null,
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:40:21.107Z",
-      "pedido": "U0010",
-      "ultimaOrden": "U0005",
+      "desde": "2026-11-26T20:46:32.487Z",
+      "pedido": null,
+      "ultimaOrden": "U0010",
       "fallo": null
     },
     "V09_1x1": {
@@ -523,7 +513,7 @@
       "pieza": "V07_1x1",
       "instruccion": "QUE TENGA GLUTEOS, PIERNAS Y GLUTEOS MÁS TONIFICADOS NATURALMENTE.\n\nEl texto inferior que diga: No es subir por subir. Es que se vaya a donde tiene que ir.",
       "fecha": "2026-11-26T20:44:18.097Z",
-      "estado": "generando",
+      "estado": "no-aplicado",
       "ajuste": "A007",
       "instruccion_en": "Change only two things. 1) Replace the bottom handwritten headline with exactly: \"No es subir por subir.\" on the first line and \"Es que se vaya a donde tiene que ir.\" on the second line, same handwritten marker style, size, position and underline; check spelling. 2) In the right-side (VitalDrops) figure, make the legs and glutes look naturally more toned and firm, a realistic healthy look, not exaggerated. Keep everything else identical: the left figure, all labels and arrows, the headers, the whiteboard, the background and the product bottle.",
       "cambiaTextos": true,
@@ -537,7 +527,8 @@
           "textos": true
         }
       ],
-      "paso": 0
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no quiso hacer esta imagen por sus reglas de contenido. Quedó la imagen de antes."
     },
     "U0009": {
       "id": "U0009",
@@ -565,7 +556,7 @@
       "pieza": "V08_1x1",
       "instruccion": "Pero no sensures el logo, solo lo que dice \"amuna\"",
       "fecha": "2026-11-26T20:44:56.757Z",
-      "estado": "generando",
+      "estado": "listo",
       "ajuste": "A009",
       "instruccion_en": "On the bottle label, blur only the small word 'amua' so it cannot be read. Keep the 'VITALDROPS' logo on the label sharp and fully readable, with its original colors. Do not add 'amua' anywhere else. Change nothing else: same headline, labels, offer strip, women, pose, scene, layout and colors.",
       "cambiaTextos": false,
@@ -586,7 +577,7 @@
       "pieza": "V04_1x1",
       "instruccion": "solo sensura un poco lo que dice amua para que no se note tanto",
       "fecha": "2026-11-26T20:45:20.810Z",
-      "estado": "generando",
+      "estado": "listo",
       "ajuste": "A010",
       "instruccion_en": "On the bottle label only, make the small brand word 'amua' above 'VITALDROPS' much less noticeable: soften it with a light blur and low contrast so it blends into the yellow label and is not readable at a glance. Do not remove or change the bottle, the label color, 'VITALDROPS' or any other label detail. Keep everything else exactly the same: women, poses, headline, subtitle, handwritten notes, seal, icons, colors, layout and framing.",
       "cambiaTextos": false,
@@ -601,6 +592,14 @@
         }
       ],
       "paso": 0
+    },
+    "U0012": {
+      "id": "U0012",
+      "pieza": "V06_1x1",
+      "instruccion": "que el día 14 tenga más glúteos y caderas, el día 21 se vea más los resultados que el día 14",
+      "fecha": "2026-11-26T20:46:36.627Z",
+      "estado": "ajustando",
+      "ajuste": "A011"
     }
   }
 }
