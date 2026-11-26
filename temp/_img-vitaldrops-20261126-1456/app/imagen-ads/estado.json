@@ -4,7 +4,7 @@
     "E": 2,
     "R": 1,
     "A": 12,
-    "T": 12
+    "T": 13
   },
   "tandas": {
     "E001": {
@@ -120,10 +120,11 @@
     "A011": {
       "tipo": "ajuste",
       "uuid": "ea13604c-7717-472a-98dc-4e8b5b21408d",
-      "estado": "en-curso",
+      "estado": "hecha",
       "pedidos": [
         "U0012"
-      ]
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -266,10 +267,10 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "ajustando",
+      "fase": "final",
       "resultado": "listo",
-      "version": 2,
-      "firma": "1868062-1795725731696",
+      "version": 3,
+      "firma": "1871153-1795726219370",
       "orden": null,
       "intentosApi": 1,
       "ronda": "u",
@@ -277,9 +278,9 @@
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:42:13.190Z",
+      "desde": "2026-11-26T20:50:20.414Z",
       "pedido": null,
-      "ultimaOrden": "U0007",
+      "ultimaOrden": "U0012",
       "fallo": null
     },
     "V07_1x1": {
@@ -598,8 +599,21 @@
       "pieza": "V06_1x1",
       "instruccion": "que el día 14 tenga más glúteos y caderas, el día 21 se vea más los resultados que el día 14",
       "fecha": "2026-11-26T20:46:36.627Z",
-      "estado": "ajustando",
-      "ajuste": "A011"
+      "estado": "listo",
+      "ajuste": "A011",
+      "instruccion_en": "Make the progression across the day panels clearly stronger. DÍA 14: her hip line and overall silhouette look clearly more curved and shapely than DÍA 7, noticeable at first glance. DÍA 21: the most curved and shapely silhouette of the four, a clear visible step beyond DÍA 14, still natural and believable. Show her in three-quarter view, head-to-knees framing, not from behind, no close-up or crop on any body part, no exaggerated arched or sexualized pose. Keep the same woman, face, hair, panels, labels, headline, product, offer box, texts, fonts and colors exactly as they are.",
+      "cambiaTextos": false,
+      "resumen": "En el día 14 la figura se ve más curva que en el día 7, y en el día 21 el cambio se nota todavía más. La mujer queda de tres cuartos, sin tomas de espaldas, para que Meta lo apruebe. Los textos no cambian.",
+      "pasos": [
+        {
+          "pieza": "V06_1x1",
+          "orden": "U0012",
+          "modo": "editar",
+          "instruccion_en": "Make the progression across the day panels clearly stronger. DÍA 14: her hip line and overall silhouette look clearly more curved and shapely than DÍA 7, noticeable at first glance. DÍA 21: the most curved and shapely silhouette of the four, a clear visible step beyond DÍA 14, still natural and believable. Show her in three-quarter view, head-to-knees framing, not from behind, no close-up or crop on any body part, no exaggerated arched or sexualized pose. Keep the same woman, face, hair, panels, labels, headline, product, offer box, texts, fonts and colors exactly as they are.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     }
   }
 }

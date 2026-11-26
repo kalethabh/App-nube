@@ -80,6 +80,14 @@
         "reemplazadaPor": "U0007",
         "motivo": null,
         "fecha": "2026-11-26T20:42:11.698Z"
+      },
+      {
+        "n": 2,
+        "archivo": "versiones/V06_1x1.v2.png",
+        "prompt": "versiones/V06_1x1.v2.txt",
+        "reemplazadaPor": "U0012",
+        "motivo": null,
+        "fecha": "2026-11-26T20:50:19.371Z"
       }
     ],
     "V04_1x1": [
