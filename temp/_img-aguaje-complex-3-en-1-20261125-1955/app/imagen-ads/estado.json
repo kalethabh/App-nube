@@ -2,9 +2,9 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 3,
+    "R": 4,
     "A": 1,
-    "T": 10
+    "T": 12
   },
   "tandas": {
     "E001": {
@@ -56,6 +56,20 @@
         {
           "pieza": "V02_1x1",
           "firma": "2038811-1795655281972",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "ca578524-196e-467a-b2a3-b25a67ddc656",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V03_1x1",
+          "firma": "2028582-1795655817496",
           "ronda": 1
         }
       ],
@@ -164,25 +178,29 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g-r1",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T005"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2028582-1795655817496",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+        ],
+        "firma": "2028582-1795655817496",
+        "correccion_en": "Write the price exactly as \"$139.900\", with a period (not a comma) between 139 and 900."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
+      "desde": "2026-11-26T01:16:57.900Z",
       "pedido": null,
-      "ultimaOrden": "g",
+      "ultimaOrden": "g-r1",
       "rescates": 1
     },
     "V04_1x1": {
@@ -198,7 +216,7 @@
         "version": 1,
         "trabajo": "T006"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -222,7 +240,7 @@
         "version": 1,
         "trabajo": "T007"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -246,7 +264,7 @@
         "version": 1,
         "trabajo": "T008"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -284,6 +302,54 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
+      "fase": "pedida",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": {
+        "id": "g-r1",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T010"
+      },
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "g",
+      "rescates": 1
+    },
+    "V09_1x1": {
+      "v": "V09",
+      "formato": "1:1",
+      "fase": "pedida",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": {
+        "id": "g-r1",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T011"
+      },
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "g",
+      "rescates": 1
+    },
+    "V10_1x1": {
+      "v": "V10",
+      "formato": "1:1",
       "fase": "reescribiendo",
       "resultado": null,
       "version": 0,
@@ -302,50 +368,6 @@
         "dijo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
       },
       "ultimaOrden": "g"
-    },
-    "V09_1x1": {
-      "v": "V09",
-      "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T004"
-      },
-      "intentosApi": 3,
-      "ronda": 1,
-      "reintentoAuto": "no",
-      "revision": null,
-      "motivo": null,
-      "mensaje": null,
-      "desde": null,
-      "pedido": null
-    },
-    "V10_1x1": {
-      "v": "V10",
-      "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T004"
-      },
-      "intentosApi": 2,
-      "ronda": 1,
-      "reintentoAuto": "no",
-      "revision": null,
-      "motivo": null,
-      "mensaje": null,
-      "desde": null,
-      "pedido": null
     }
   },
   "pedidos": {}

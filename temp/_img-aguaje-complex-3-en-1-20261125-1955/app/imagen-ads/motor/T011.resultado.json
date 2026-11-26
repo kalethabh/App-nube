@@ -1,0 +1,13 @@
+{
+  "id": "T011",
+  "piezas": {
+    "V09_1x1": {
+      "orden": "g-r1",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    }
+  },
+  "actualizado": "2026-11-26T01:16:04.648Z",
+  "terminado": false
+}
