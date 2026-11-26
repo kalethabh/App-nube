@@ -1,0 +1,14 @@
+{
+  "id": "T015",
+  "creado": "2026-11-26T20:55:21.485Z",
+  "piezas": [
+    {
+      "pieza": "V10_1x1",
+      "orden": "U0015",
+      "modo": "editar",
+      "version": 2,
+      "instruccion_en": "Edit this image. 1) Apply a light blur (about 20%) only to the word 'amua' on the bottle label, so it looks softly out of focus but still faintly readable; the rest of the label stays sharp. 2) Make the woman's legs and lower body look slightly more toned and firm, in a natural, realistic way for a 50-year-old woman; same pose, same jeans, same body size, no exaggeration. Keep everything else exactly the same: all texts and their spelling, headline bubble, badge, arrow, comment box, bottle shape and position, her face, the beach background, colors and layout.",
+      "textos": false
+    }
+  ]
+}

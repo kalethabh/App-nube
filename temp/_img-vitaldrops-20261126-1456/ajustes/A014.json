@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0015",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Edit this image. 1) Apply a light blur (about 20%) only to the word 'amua' on the bottle label, so it looks softly out of focus but still faintly readable; the rest of the label stays sharp. 2) Make the woman's legs and lower body look slightly more toned and firm, in a natural, realistic way for a 50-year-old woman; same pose, same jeans, same body size, no exaggeration. Keep everything else exactly the same: all texts and their spelling, headline bubble, badge, arrow, comment box, bottle shape and position, her face, the beach background, colors and layout.",
+      "resumen": "Difuminé un poco la palabra «amua» del frasco y le di a la mujer piernas y glúteos un poco más tonificados, de forma natural. Lo demás queda igual."
+    }
+  ]
+}

@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 14,
-    "T": 15
+    "A": 15,
+    "T": 16
   },
   "tandas": {
     "E001": {
@@ -141,6 +141,15 @@
       "estado": "hecha",
       "pedidos": [
         "U0014"
+      ],
+      "empezada": true
+    },
+    "A014": {
+      "tipo": "ajuste",
+      "uuid": "3e3f01b7-d651-48b2-9a26-80fd95c3c126",
+      "estado": "hecha",
+      "pedidos": [
+        "U0015"
       ],
       "empezada": true
     }
@@ -304,27 +313,20 @@
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "listo",
-      "version": 1,
-      "firma": "1692282-1795723493223",
-      "orden": {
-        "id": "U0014",
-        "modo": "editar",
-        "version": 2,
-        "instruccion_en": "Only in the right (VitalDrops, after) figure: give her lower body a slightly more defined, shapely curve and a more toned, firm, athletic look, realistic and healthy, not exaggerated or surgical. Keep the same woman, pose, leggings, framing and size. Do not change the left figure, any text, arrows, yellow highlights, the bottle, the whiteboard or the background.",
-        "textos": false,
-        "trabajo": "T014"
-      },
-      "intentosApi": 1,
+      "version": 2,
+      "firma": "2040547-1795726579141",
+      "orden": null,
+      "intentosApi": 2,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:04:55.085Z",
-      "pedido": "U0014",
-      "ultimaOrden": "U0008",
+      "desde": "2026-11-26T20:56:19.530Z",
+      "pedido": null,
+      "ultimaOrden": "U0014",
       "fallo": null
     },
     "V08_1x1": {
@@ -369,18 +371,19 @@
       "formato": "1:1",
       "fase": "final",
       "resultado": "listo",
-      "version": 1,
-      "firma": "2251547-1795723584475",
+      "version": 2,
+      "firma": "2171510-1795726580908",
       "orden": null,
       "intentosApi": 1,
-      "ronda": 1,
+      "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:06:25.171Z",
+      "desde": "2026-11-26T20:56:21.533Z",
       "pedido": null,
-      "ultimaOrden": "g"
+      "ultimaOrden": "U0015",
+      "fallo": null
     }
   },
   "pedidos": {
@@ -663,7 +666,7 @@
       "pieza": "V07_1x1",
       "instruccion": "dale más forma a los gluteps, mas redondo, y un poco más tonificado",
       "fecha": "2026-11-26T20:54:08.862Z",
-      "estado": "generando",
+      "estado": "listo",
       "ajuste": "A013",
       "instruccion_en": "Only in the right (VitalDrops, after) figure: give her lower body a slightly more defined, shapely curve and a more toned, firm, athletic look, realistic and healthy, not exaggerated or surgical. Keep the same woman, pose, leggings, framing and size. Do not change the left figure, any text, arrows, yellow highlights, the bottle, the whiteboard or the background.",
       "cambiaTextos": false,
@@ -674,6 +677,27 @@
           "orden": "U0014",
           "modo": "editar",
           "instruccion_en": "Only in the right (VitalDrops, after) figure: give her lower body a slightly more defined, shapely curve and a more toned, firm, athletic look, realistic and healthy, not exaggerated or surgical. Keep the same woman, pose, leggings, framing and size. Do not change the left figure, any text, arrows, yellow highlights, the bottle, the whiteboard or the background.",
+          "textos": false
+        }
+      ],
+      "paso": 0
+    },
+    "U0015": {
+      "id": "U0015",
+      "pieza": "V10_1x1",
+      "instruccion": "un 20% difuminado para lo que dice amua\n\nQUE TENGA GLUTEOS, PIERNAS Y GLUTEOS MÁS TONIFICADOS NATURALMENTE.",
+      "fecha": "2026-11-26T20:55:00.543Z",
+      "estado": "listo",
+      "ajuste": "A014",
+      "instruccion_en": "Edit this image. 1) Apply a light blur (about 20%) only to the word 'amua' on the bottle label, so it looks softly out of focus but still faintly readable; the rest of the label stays sharp. 2) Make the woman's legs and lower body look slightly more toned and firm, in a natural, realistic way for a 50-year-old woman; same pose, same jeans, same body size, no exaggeration. Keep everything else exactly the same: all texts and their spelling, headline bubble, badge, arrow, comment box, bottle shape and position, her face, the beach background, colors and layout.",
+      "cambiaTextos": false,
+      "resumen": "Difuminé un poco la palabra «amua» del frasco y le di a la mujer piernas y glúteos un poco más tonificados, de forma natural. Lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V10_1x1",
+          "orden": "U0015",
+          "modo": "editar",
+          "instruccion_en": "Edit this image. 1) Apply a light blur (about 20%) only to the word 'amua' on the bottle label, so it looks softly out of focus but still faintly readable; the rest of the label stays sharp. 2) Make the woman's legs and lower body look slightly more toned and firm, in a natural, realistic way for a 50-year-old woman; same pose, same jeans, same body size, no exaggeration. Keep everything else exactly the same: all texts and their spelling, headline bubble, badge, arrow, comment box, bottle shape and position, her face, the beach background, colors and layout.",
           "textos": false
         }
       ],

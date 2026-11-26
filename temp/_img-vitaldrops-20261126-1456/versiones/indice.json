@@ -107,6 +107,26 @@
         "motivo": null,
         "fecha": "2026-11-26T20:47:11.513Z"
       }
+    ],
+    "V07_1x1": [
+      {
+        "n": 1,
+        "archivo": "versiones/V07_1x1.v1.png",
+        "prompt": "versiones/V07_1x1.v1.txt",
+        "reemplazadaPor": "U0014",
+        "motivo": null,
+        "fecha": "2026-11-26T20:56:19.149Z"
+      }
+    ],
+    "V10_1x1": [
+      {
+        "n": 1,
+        "archivo": "versiones/V10_1x1.v1.png",
+        "prompt": "versiones/V10_1x1.v1.txt",
+        "reemplazadaPor": "U0015",
+        "motivo": null,
+        "fecha": "2026-11-26T20:56:20.921Z"
+      }
     ]
   }
 }

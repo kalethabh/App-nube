@@ -1,16 +1,26 @@
 {
-  "generado": "2026-11-26T20:53:08.045Z",
-  "segundos": 74,
+  "generado": "2026-11-26T20:56:20.922Z",
+  "segundos": 114,
   "imagenes": [
     {
-      "id": "V03_1x1",
-      "archivo": "V03_1x1.png",
+      "id": "V07_1x1",
+      "archivo": "V07_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 2,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a219a4-3b05-7392-9956-f6204c161ce3"
+    },
+    {
+      "id": "V10_1x1",
+      "archivo": "V10_1x1.png",
       "modelo": "gpt-image (ChatGPT)",
       "respaldo": false,
       "intentos": 1,
       "referencias": 2,
       "creditos": 0,
-      "taskId": "01a219a1-0ec5-74c0-a241-1d50f9be1cf9"
+      "taskId": "01a219a4-383c-75b2-9ab2-caa1b4c816fa"
     }
   ]
 }
