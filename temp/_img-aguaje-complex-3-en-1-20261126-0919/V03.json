@@ -1,0 +1,86 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format F70 (Ingrediente que se derrama sobre el producto con dos titulares a los lados) — estructuras/xt-01.json",
+    "reference_style": "Premium still life: hero ingredient pouring over the product, two side headlines, a technical data column",
+    "angle_used": "Característica estrella — Amazon aguaje plus triple action (pain: fear of surgery or injections)",
+    "ad_format": "Product Hero Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: aguaje pulp orange #F28C28 and fruit-skin maroon #6B1E1E.",
+    "visual_style": "Premium photographic still life with a real-photo inset; the real bottle sharp and identical to the photo.",
+    "visual_atmosphere": "Fresh, natural and premium; Amazon fruit energy, warm and honest.",
+    "graphic_language": "Clean blush background, a thick glossy orange pulp stream, two bold side headlines, an italic data column, a rounded photo card with a thin fuchsia border, a bold bottom band with a bordered badge.",
+    "text_typography": "Headlines in a very heavy condensed geometric sans-serif (Montserrat Black / condensed look), uppercase; data and secondary texts in Poppins Bold Italic and Poppins Regular."
+  },
+  "creative_objective": "Make the natural origin visible and premium: a real cut aguaje fruit pouring its orange pulp toward the closed bottle, with the two key features on the sides (Amazon aguaje, triple action) and the dosage data, while a real-photo inset shows the mom in the fitting room with jeans loose at the hips, the pain that makes her want a natural option instead of a surgery.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the fruit and the orange stream, 2) the two side headlines, 3) the bottle, 4) the real-photo inset, 5) the data column, 6) the bottom band.",
+    "composition_style": "Vertical axis in the center: fruit at top center (cropped by the top edge), stream falling down the center, bottle at bottom center; headlines left and right of the stream; data column far left; photo inset bottom right.",
+    "spacing_and_structure": "Symmetric side headlines at the same height; the stream passes between them; 5% outer margins; the inset card does not overlap the bottle.",
+    "lighting_and_depth": "Soft studio key light from the upper left, glossy highlights on the pulp, soft contact shadow under the bottle; the inset keeps natural fitting-room light.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top 33%: a big halved fruit cropped by the top edge pouring a thick glossy stream that falls down the center. Middle 30%: two headlines on each side of the stream (left in color, right in black) each with a small detail line underneath. Left column: four short data pairs in bold italic + regular. Bottom 37%: the product receiving the stream at the center and, on the right, a hand with the prepared product (here replaced by the real-photo inset of the pain scene). Added by batch rule: a slim bottom band with 'Pagas al recibir' and the registration badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "hero ingredient pouring", "position": "top center, 0–35%", "visual_function": "natural origin, scroll stopper", "adaptation_rule": "a halved aguaje fruit with orange pulp, pouring a thick orange stream", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "left headline + detail", "position": "middle left of the stream, 30–50%", "visual_function": "feature 1", "adaptation_rule": "fuchsia condensed headline and its detail", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "right headline + detail", "position": "middle right of the stream, 30–50%", "visual_function": "feature 2", "adaptation_rule": "plum condensed headline and its detail", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "data column", "position": "left edge, 55–85%", "visual_function": "technical proof", "adaptation_rule": "four true data pairs from the label", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product", "position": "bottom center, 52–90%", "visual_function": "hero product", "adaptation_rule": "the real closed bottle; the stream lands behind it, never covers the label", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "right-bottom human element", "position": "bottom right, 55–90%", "visual_function": "human element; here the mandatory pain scene", "adaptation_rule": "rounded real-photo card: mom in a fitting room with jeans loose at the hips", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "bottom offer/trust band (batch rule)", "position": "bottom 90–100%", "visual_function": "mandatory 'Pagas al recibir' and registration badge", "adaptation_rule": "plum band with white text and a fuchsia-bordered badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Brand logos of any kind",
+      "Prices, discounts, ratings, testimonials, 'envío gratis'",
+      "Loose capsules, powders spilled as capsules, an open bottle, a shaker or drink",
+      "Leaves with serrated edges"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium still life on a smooth pale blush #FBE3EE seamless background with a very soft vignette. TOP ZONE (0–35%): a large real aguaje fruit (moriche palm fruit: oval, about the size of an egg, covered in glossy overlapping maroon-brown #6B1E1E scales like a snake skin) cut in half, hanging upside down at top center and cropped by the top edge, its thin layer of bright orange #F28C28 pulp visible, pouring one thick glossy orange pulp stream that narrows and falls straight down the center of the canvas, with a few small orange droplets, photographic, ultra sharp. MIDDLE ZONE (30–52%): on the LEFT of the stream, a 2-line headline in hot fuchsia #E6177F Montserrat Black condensed uppercase, with a small detail line under it in fuchsia Poppins Regular; on the RIGHT of the stream, a 2-line headline in dark plum #2B1226 Montserrat Black condensed uppercase, right-aligned, with a 2-line detail under it in plum Poppins Regular. Both headlines at the same height, about 9% of the canvas tall each line. LEFT DATA COLUMN (55–86%, 4% from the left edge): four stacked data pairs, each a bold italic plum value on top (Poppins Bold Italic) and a regular italic plum word below. BOTTOM CENTER (52–90%): the real product bottle standing upright, facing the camera, about 36% of the canvas height, centered under the stream; the orange stream lands just behind the cap and pools softly at the base behind the bottle with a small glossy splash, never covering the label; soft contact shadow. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth. The black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed; the label reads the right way round, never mirrored. BOTTOM RIGHT (55–90% height, 66–96% width, about 26% of the canvas with its card): a rounded-corner photo card with a thin hot-fuchsia border and a soft shadow, slightly tilted 3 degrees, showing an ultra-realistic smartphone photo: a Colombian mom in her late 30s with real skin texture and pores, no studio makeup, shoulder-length dark wavy hair with loose strands, wearing a wrinkled white cotton t-shirt and mid-blue jeans that hang loose at the hips and the back: a baggy fold of extra denim below the seat, drooping back pockets, flat straight line from waist to thigh; she stands three-quarters turned in a small store fitting room with a curtain and a mirror, looking back over her shoulder at her reflection with a disappointed frown, one hand pulling the loose waistband; warm natural overhead light, slight phone-camera grain; her other hand is empty. BOTTOM BAND (90–100%): full-width dark plum #2B1226 band: left, white Montserrat Black 'PAGAS AL RECIBIR' with a small white hand-and-coin line icon; right, a rounded badge with a solid hot-fuchsia border and a small white shield icon containing the registration text in white Poppins Bold on two lines. All texts crisp, spelled exactly with correct accents, nothing else written.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "left headline (highlighted)", "reference_position": "middle, left of the stream", "text_style": "Montserrat Black condensed uppercase, hot fuchsia #E6177F, 2 lines", "text": "AGUAJE DEL AMAZONAS" },
+    { "block_id": "text_block_02", "reference_function": "left detail", "reference_position": "under the left headline", "text_style": "Poppins Regular, hot fuchsia", "text": "200 mg por porción" },
+    { "block_id": "text_block_03", "reference_function": "right headline", "reference_position": "middle, right of the stream", "text_style": "Montserrat Black condensed uppercase, dark plum #2B1226, 2 lines, right-aligned", "text": "TRIPLE ACCIÓN NATURAL" },
+    { "block_id": "text_block_04", "reference_function": "right detail", "reference_position": "under the right headline", "text_style": "Poppins Regular, plum, 2 lines, right-aligned", "text": "Fenogreco y maca negra" },
+    { "block_id": "text_block_05", "reference_function": "data value", "reference_position": "left column, 1st", "text_style": "Poppins Bold Italic, plum", "text": "400 mg" },
+    { "block_id": "text_block_06", "reference_function": "data label", "reference_position": "left column, 1st", "text_style": "Poppins Italic, plum", "text": "Fenogreco" },
+    { "block_id": "text_block_07", "reference_function": "data value", "reference_position": "left column, 2nd", "text_style": "Poppins Bold Italic, plum", "text": "200 mg" },
+    { "block_id": "text_block_08", "reference_function": "data label", "reference_position": "left column, 2nd", "text_style": "Poppins Italic, plum", "text": "Maca negra" },
+    { "block_id": "text_block_09", "reference_function": "data value", "reference_position": "left column, 3rd", "text_style": "Poppins Bold Italic, plum", "text": "Vitaminas" },
+    { "block_id": "text_block_10", "reference_function": "data label", "reference_position": "left column, 3rd", "text_style": "Poppins Italic, plum", "text": "A y E" },
+    { "block_id": "text_block_11", "reference_function": "data value", "reference_position": "left column, 4th", "text_style": "Poppins Bold Italic, plum", "text": "2 cápsulas" },
+    { "block_id": "text_block_12", "reference_function": "data label", "reference_position": "left column, 4th", "text_style": "Poppins Italic, plum", "text": "al día" },
+    { "block_id": "text_block_13", "reference_function": "offer and trust block (bottom band)", "reference_position": "bottom band, left", "text_style": "Montserrat Black uppercase, white on dark plum", "text": "PAGAS AL RECIBIR" },
+    { "block_id": "text_block_14", "reference_function": "trust badge", "reference_position": "bottom band, right, inside a fuchsia-bordered badge", "text_style": "Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Halved real aguaje fruit with maroon scales and orange pulp at top center, cropped by the top edge, pouring a thick orange stream down the center",
+    "The real closed product bottle at bottom center, label fully visible, the stream landing behind it",
+    "Left data column with four data pairs",
+    "Rounded real-photo card bottom right: mom in a fitting room with jeans loose at the hips and back, disappointed look",
+    "Dark plum bottom band with 'PAGAS AL RECIBIR' and a bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "No loose capsules, no pills, no open bottle, no shaker, no drink, no other product or brand",
+    "The pulp never covers or hides the label",
+    "No prices, percentages, ratings, testimonials or 'envío gratis'",
+    "No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. Only label facts (ingredients, amounts, vitamins, dosage); no body-change promises, no guarantees, no personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

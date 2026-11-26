@@ -1,0 +1,84 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format F42 (Línea de tiempo de 3 meses ilustrada con oferta de tratamiento) — estructuras/mv-11.json",
+    "reference_style": "Flat illustrated month-by-month timeline with a premium 3-bottle still life and a big offer block",
+    "angle_used": "Rutina / momento de uso — your 3-month natural plan, 2 capsules a day (pain: thin legs, jeans that don't fill)",
+    "ad_format": "Single Image Ad (timeline + offer)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: soft lilac-grey #E9E3EE gradient and clear water splash highlights.",
+    "visual_style": "Clean flat vector illustration with thin dark outlines for the timeline, combined with a photographic premium still life of the real bottles.",
+    "visual_atmosphere": "Warm, hopeful and everyday; calm progress month after month.",
+    "graphic_language": "Flat color fills with thin plum outlines, month labels, a gentle water splash, big bold offer typography, a bold bottom band with a bordered badge.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look)."
+  },
+  "creative_objective": "Show the plan as a calm, believable progression: the same adult woman in month 1 (jeans hanging loose, frustrated), month 2 and month 3 (legs fuller, jeans fitting, smiling), then sell the full 3-bottle treatment as one bottle per month, closing with 'Pagas al recibir' and the registration badge.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the big 2-line headline, 2) the three illustrated months, 3) the three bottles with splash and the offer block, 4) the bottom trust band.",
+    "composition_style": "Top 20% headline; middle 34% three equal illustrated panels in a row; lower 36% bottles left-center and offer block right; last 10% a plum band.",
+    "spacing_and_structure": "Even gutters between the three months; bottles never touch the left edge (at least 6% margin); offer text right-aligned with 5% margin.",
+    "lighting_and_depth": "Illustrations are flat with no shadows; the bottles get soft studio light from the upper left, a soft reflection on a glossy floor and crisp water droplets.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top: a small colloquial line and a huge 2-line headline centered. Middle: three flat illustrations of the same body zone in a row, each labeled with its month above it, going from problem to result; a red dashed circle marks the problem in the first one. Bottom: three bottles standing together with a water splash curling around them on the left, and on the right a big offer block in uppercase with a small subtitle. Added by batch rule: a slim bottom band with 'Pagas al recibir' and the registration badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "small colloquial line", "position": "top center, 3–8%", "visual_function": "voice of the customer", "adaptation_rule": "short line about the 2 daily capsules", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "headline", "position": "top center, 8–20%", "visual_function": "main message", "adaptation_rule": "2 lines, second line in fuchsia", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "three month illustrations with labels", "position": "middle row, 22–56%", "visual_function": "progress and visual pain", "adaptation_rule": "the same adult woman from head to knees in side three-quarter view, month 1 frustrated with loose jeans, month 3 smiling with jeans that fit", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "dashed problem circle", "position": "over the month 1 figure, at the loose jean seat", "visual_function": "points to the problem", "adaptation_rule": "a fuchsia dashed circle around the baggy fold of denim, then a faint soft pink circle in month 2, nothing in month 3", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "three products with water splash", "position": "bottom left-center, 56–90%", "visual_function": "the 3-bottle treatment", "adaptation_rule": "three identical real closed bottles, centered in their area, not touching the edge", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "offer block", "position": "bottom right, 60–88%", "visual_function": "offer", "adaptation_rule": "no 'month free': 'TRATAMIENTO COMPLETO X3' with a subtitle 'Un frasco para cada mes de tu plan'", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "bottom offer/trust band (batch rule)", "position": "bottom 90–100%", "visual_function": "mandatory 'Pagas al recibir' and registration badge", "adaptation_rule": "plum band with white text and a fuchsia-bordered badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Brand logos of any kind",
+      "Prices, percentages, '1 mes gratis', 'solo esta semana' or any countdown",
+      "Ratings, testimonials, customer counts, 'envío gratis', guarantees",
+      "Loose capsules or an open bottle",
+      "Exact result promises in days or centimeters"
+    ]
+  },
+  "visual_prompt": "Square 1:1 ad, background a soft vertical gradient from pale blush #FBE3EE at the top to a light lilac-grey #E9E3EE at the bottom. TOP ZONE (0–20%): centered small line in plum #2B1226 Poppins SemiBold sentence case, and below it the 2-line headline in Montserrat Black uppercase, line 1 in dark plum #2B1226, line 2 larger in hot fuchsia #E6177F, tight leading, no outline. MIDDLE ZONE (22–56%, about 34% of the canvas): three equal flat vector illustration panels in a row on the same background, no frames, each with its label above in black Poppins Bold ('MES 1', 'MES 2', 'MES 3'). Each panel shows the same adult Latina woman in her late 20s (long straight dark hair, light-brown skin, small hoop earrings, office look) drawn from head to knees in a side three-quarter view, facing toward the right with her face turned to the viewer, thin plum outlines, flat fills, no gradients. MES 1: she wears a lilac blouse and mid-blue jeans that are one size too big: a baggy fold of extra denim below the seat, drooping back pocket, one straight flat vertical line from waist to thigh, thin straight thighs with empty fabric around them; she frowns, mouth turned down, one hand pulling the loose waistband away from her back; a fuchsia dashed circle surrounds the baggy fold. MES 2: same woman, a white blouse, the jeans fit a bit better, thighs slightly fuller, neutral calm face, a faint soft-pink glow circle on the same spot. MES 3: same woman, a fuchsia blouse, the same jeans now fitted and rounded at the back, hips clearly wider than her small waist, thicker thighs filling the jean legs, big smile, one hand relaxed on her hip; the change from month 1 is obvious at a glance but natural, fully clothed, tasteful. A thin curved clear water splash rises from the bottles below and curls up between MES 1 and MES 2. LOWER ZONE (56–90%): LEFT-CENTER (from 6% to 52% of the width, never touching the left edge): three identical real closed product bottles standing side by side on a glossy pale surface with a soft reflection, the middle one slightly forward and taller in frame (about 30% of the canvas height), the two others slightly behind, all labels facing the camera; a clear water splash wraps around their bases with crisp droplets, never covering the labels. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth. The black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed; labels read the right way round, never mirrored. RIGHT (55–95% of the width): the offer block right-aligned: small 'OFERTA ESPECIAL' in plum Montserrat ExtraBold, then the huge 'TRATAMIENTO COMPLETO X3' in dark plum Montserrat Black on three lines with 'X3' in hot fuchsia and larger, then the subtitle in plum Poppins SemiBold on two lines. BOTTOM BAND (90–100%): full-width dark plum #2B1226 band: on the left, white Montserrat Black 'PAGAS AL RECIBIR' with a small white hand-and-coin line icon; on the right, a rounded badge with a solid hot-fuchsia border and a small white shield icon, containing the registration text in white Poppins Bold on two lines. All texts crisp, spelled exactly with correct accents, nothing else written.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "small colloquial line", "reference_position": "top center above the headline", "text_style": "Poppins SemiBold, sentence case, plum #2B1226", "text": "2 cápsulas al día, con tus comidas" },
+    { "block_id": "text_block_02", "reference_function": "main headline line 1", "reference_position": "top center", "text_style": "Montserrat Black uppercase, dark plum #2B1226", "text": "TU PLAN NATURAL" },
+    { "block_id": "text_block_03", "reference_function": "main headline line 2 (highlighted)", "reference_position": "top center, under line 1", "text_style": "Montserrat Black uppercase, hot fuchsia #E6177F, larger", "text": "DE 3 MESES" },
+    { "block_id": "text_block_04", "reference_function": "timeline label", "reference_position": "above the first illustration", "text_style": "Poppins Bold uppercase, black", "text": "MES 1" },
+    { "block_id": "text_block_05", "reference_function": "timeline label", "reference_position": "above the second illustration", "text_style": "Poppins Bold uppercase, black", "text": "MES 2" },
+    { "block_id": "text_block_06", "reference_function": "timeline label", "reference_position": "above the third illustration", "text_style": "Poppins Bold uppercase, black", "text": "MES 3" },
+    { "block_id": "text_block_07", "reference_function": "offer kicker", "reference_position": "bottom right, top of offer block", "text_style": "Montserrat ExtraBold uppercase, plum", "text": "OFERTA ESPECIAL" },
+    { "block_id": "text_block_08", "reference_function": "offer (big)", "reference_position": "bottom right, main offer", "text_style": "Montserrat Black uppercase, dark plum, 3 lines, 'X3' in hot fuchsia and larger", "text": "TRATAMIENTO COMPLETO X3" },
+    { "block_id": "text_block_09", "reference_function": "offer subtitle", "reference_position": "bottom right, under the offer", "text_style": "Poppins SemiBold, plum, 2 lines", "text": "Un frasco para cada mes de tu plan" },
+    { "block_id": "text_block_10", "reference_function": "offer and trust block (bottom band)", "reference_position": "bottom band, left", "text_style": "Montserrat Black uppercase, white on dark plum", "text": "PAGAS AL RECIBIR" },
+    { "block_id": "text_block_11", "reference_function": "trust badge", "reference_position": "bottom band, right, inside a fuchsia-bordered badge", "text_style": "Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Three flat illustrated panels of the same adult woman from head to knees, side three-quarter view: MES 1 frustrated with baggy jeans at the back, MES 2 in between, MES 3 smiling with fitted jeans and fuller legs",
+    "Fuchsia dashed circle over the baggy denim in MES 1",
+    "Three identical real closed product bottles with a clear water splash, centered in their area and not touching the left edge",
+    "Big offer block on the right",
+    "Dark plum bottom band with 'PAGAS AL RECIBIR' and a bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "No loose capsules, no pills, no open bottle, no other brand or product",
+    "No prices, percentages, 'gratis', countdowns, ratings or testimonials",
+    "No nudity or underwear; the woman stays clothed in blouse and jeans in all three months",
+    "No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. It sells a 3-month plan and a routine, not a guaranteed enlargement; no dates or measurements promised; no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}
