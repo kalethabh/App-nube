@@ -21,7 +21,7 @@
       "camara": "A la altura de la cadera, de espaldas y a cuerpo casi entero (de los hombros a las rodillas), mismo encuadre en las dos mitades.",
       "modelo": "Mujer colombiana de unos 26 años, piel trigueña, cabello negro ondulado recogido en moño bajo, cuerpo delgado natural.",
       "vestuario": "Antes: jean azul claro de tiro medio que le queda suelto atrás y camiseta gris holgada. Después: jean azul oscuro de tiro alto bien ajustado y top corto fucsia.",
-      "paleta_secundaria": ["#F2B66D Dorado atardecer", "#E8D3B0 Arena"],
+      "paleta_secundaria": "Dorado atardecer #F2B66D y arena #E8D3B0 en la luz de la escena del después.",
       "variables_cambiadas": ["contexto", "faceta"],
       "por_que_vende": "Es el mismo cambio que ya te vende, contado con el jean que no horma, que es el dolor que más mencionan tus clientas."
     },
@@ -42,7 +42,7 @@
       "camara": "Selfie de espejo con el celular a la altura del pecho, vista de tres cuartos, encuadre algo torcido y grano de celular.",
       "modelo": "Mujer colombiana de unos 31 años, piel canela clara, cabello castaño liso a los hombros, maquillaje mínimo, sonrisa orgullosa.",
       "vestuario": "Jean negro ajustado de tiro alto y crop top blanco de algodón.",
-      "paleta_secundaria": ["#D9C7B2 Beige de cuarto", "#3E5A7E Azul denim"],
+      "paleta_secundaria": "Beige de cuarto #D9C7B2 en la cama y azul denim #3E5A7E en los detalles del cuarto.",
       "variables_cambiadas": ["formato", "contexto", "faceta"],
       "por_que_vende": "Parece la historia de una amiga y no un anuncio, así que frena el scroll y genera confianza."
     },
@@ -63,7 +63,7 @@
       "camara": "Cenital, a 90 grados, todo enfocado.",
       "modelo": "Sin modelo: solo el frasco y sus ingredientes.",
       "vestuario": "No aplica: foto de ingredientes sin personas.",
-      "paleta_secundaria": ["#5E7A3A Verde hoja", "#B5552B Terracota de aguaje"],
+      "paleta_secundaria": "Verde hoja #5E7A3A y terracota de aguaje #B5552B, que salen de los ingredientes.",
       "variables_cambiadas": ["formato", "deseo", "problema"],
       "por_que_vende": "Responde el «¿eso sí sirve?» mostrando lo que trae por dentro, con el producto como protagonista."
     },
@@ -84,7 +84,7 @@
       "camara": "Captura de pantalla plana; la foto del chat, en primer plano con el frasco en la mano a la altura del pecho.",
       "modelo": "La amiga del avatar: mujer colombiana de unos 23 años, piel morena, cabello rizado suelto. En la foto solo se ve la mano de quien recomienda.",
       "vestuario": "Avatar: blusa amarilla de tiras. En la foto: manga de buzo gris de gimnasio.",
-      "paleta_secundaria": ["#ECE7EF Gris perla", "#B9A3D6 Lila suave"],
+      "paleta_secundaria": "Gris perla #ECE7EF en el fondo del chat y lila suave #B9A3D6 en los íconos.",
       "variables_cambiadas": ["formato", "problema", "contexto"],
       "por_que_vende": "Nombra con sus propias palabras la frustración de entrenar y no ver cambios, y la amiga trae la solución de forma natural."
     },
@@ -105,7 +105,7 @@
       "camara": "Frontal, levemente desde arriba, de estudio.",
       "modelo": "Sin modelo: tarjetas y el frasco de pie, como bodegón.",
       "vestuario": "No aplica: bodegón de tarjetas sin personas.",
-      "paleta_secundaria": ["#F3EBDD Crema papel", "#C8202F Rojo sello"],
+      "paleta_secundaria": "Crema papel #F3EBDD en la ficha del mito y rojo sello #C8202F en el tachón y el sello.",
       "variables_cambiadas": ["formato", "problema", "deseo"],
       "por_que_vende": "Ataca el miedo más fuerte de tu clienta, operarse, y deja el frasco como la opción tranquila."
     }

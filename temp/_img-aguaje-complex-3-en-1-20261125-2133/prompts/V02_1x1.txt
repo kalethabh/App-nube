@@ -1,0 +1,43 @@
+The FIRST attached image is the winning ad of this brand: use the reference only for style, product and offer; do not copy its layout. Take from it only the visual quality, the feel of the brand, how the product looks and how the offer is presented. Build a completely different composition: the one described below.
+
+WHAT TO MAKE:
+Square 1:1 authentic smartphone mirror selfie, like an organic story posted by a real customer. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. The product is a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. SCENE: an apartment bedroom on a weekday morning, full-length mirror, made bed with beige linen, a small plant, a warm bedside lamp and a magenta cushion in the soft background; window daylight mixed with warm lamp light. A Colombian woman about 31 years old, light cinnamon skin, straight chestnut shoulder-length hair, minimal makeup, real skin texture with visible pores, stands in three-quarter view in front of the mirror, taking a selfie with a generic phone without logos held at chest height on the left (the phone covers only a small part of her chin side, her face and proud genuine smile are visible). She wears black high-rise skinny jeans that fit her well and a white cotton crop top; natural, confident pose that shows her full figure, never sexualized. With her other hand she holds the bottle up at chest height on the right side of the frame, label facing the mirror and readable, about 28% of the canvas height, sharp. Handheld framing with a slight 2-degree tilt, mild phone grain, no studio light, no cinematic grading. TEXT STICKERS: at the top center, a story-style caption with each line on its own rounded white box with near-black rounded sans-serif text, max 2 lines. In the lower-left corner, a smaller hot fuchsia #E6177F box with white text, and a single white wobbly hand-drawn marker arrow curving from it up toward the bottle, ending near but not over the label. No other graphics or text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- story caption (hook) (Top center, over the headroom): "Por fin me tomo fotos de cuerpo entero ✨" — Medium-to-bold rounded sans-serif story caption, about 4.5% of the canvas height, centered, near-black on rounded white boxes, max 2 lines
+- secondary sticker (Lower-left corner, connected to the arrow): "mi apoyo diario, sin quirófano" — Same story font, smaller (about 3.2% of the canvas height), left-aligned, max 2 lines, white text on a hot fuchsia box
+
+BRAND IDENTITY:
+- color_palette: Real, slightly imperfect home-photo colors. Brand accents only in details: hot fuchsia #E6177F on the secondary sticker box and the bottle, deep magenta #B0105E in a small decor object. Secondary for this variation: room beige #D9C7B2 and denim blue #3E5A7E.
+- text_typography: Native story-caption rounded sans-serif in the stickers.
+
+MANDATORY ELEMENTS:
+- Real-looking Colombian woman taking a mirror selfie and holding the bottle toward the mirror
+- Home bedroom setting with imperfect natural light and phone-camera grain
+- Story-style caption at the top on rounded white boxes
+- Smaller fuchsia sticker with a white hand-drawn arrow pointing to the bottle
+
+STRICT EXCLUSIONS:
+- No before/after split, no second photo.
+- No sexualized pose, no swimwear, no exaggerated body.
+- No platform interface, usernames or app logos.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Studio lighting, seamless backdrop or heavy retouching
+- Do not add: Graphic ad headline in display typography outside the stickers
+- Do not add: Real platform interface elements (progress bars, usernames, like or share buttons, platform logos)
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars or review cards
+- Do not add: Benefit list, checkmarks or icons
+- Do not add: Before/after split or collage
+- Do not add: Emoji, GIF, poll, question or location stickers
+- Do not add: More than two text stickers
+- Do not add: Additional people in the frame
+- Do not add: Visible phone brand logos
+- Do not add: Logos or brand marks
+- Do not add: Bottom bar or banner
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

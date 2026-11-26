@@ -1,0 +1,46 @@
+The FIRST attached image is the winning ad of this brand: use the reference only for style, product and offer; do not copy its layout. Take from it only the visual quality, the feel of the brand, how the product looks and how the offer is presented. Build a completely different composition: the one described below.
+
+WHAT TO MAKE:
+Square 1:1 editorial top-down flatlay photo, strict 90-degree overhead camera. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. The product is a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. The bottle lies flat in the center of a pale honed stone surface tinted soft blush pink, rotated about 18 degrees off vertical, front label facing the camera and fully readable, occupying about 32-68% of the width and 24-80% of the height. From the four corners, abundant organic piles cropped by the canvas edges: upper-left, whole glossy reddish-brown scaly aguaje fruits and a few halved ones showing bright orange-yellow flesh, with pieces of green palm leaf (#5E7A3A, #B5552B tones); upper-right, a generous pile of small golden-amber fenugreek seeds with a little powder; lower-left, small round black-purple maca roots, one cut open, and a mound of dark maca powder; lower-right, a loose pile of plain opaque capsules with no printing. A few seeds, a pinch of powder and two capsules drift toward the bottle without touching the label. Four small same-size rounded hot fuchsia #E6177F pills with white semi-bold text label the piles: under the two upper piles and above the two lower piles, facing the center, never touching the bottle. At the top center, on clear surface, a large two-line extra-bold headline in dark plum #2B1226 with the words 'Triple acción' in hot fuchsia. Soft diffused daylight from the upper left, short soft shadows toward the lower right, deep focus, rich realistic textures, natural appetizing colors. No people, no hands, no extra props, no other text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, on clear surface): "Triple acción en 2 cápsulas al día" — Extra bold sans-serif, each line about 7% of the canvas height, max 2 lines, centered, dark plum #2B1226 with 'Triple acción' in hot fuchsia #E6177F
+- component label 1 (Inside the pill under the upper-left pile): "Aguaje" — Semi-bold sans-serif, about 2.8% of the canvas height, white on hot fuchsia pill, 1 line, centered
+- component label 2 (Inside the pill under the upper-right pile): "Fenogreco" — Same style as label 1
+- component label 3 (Inside the pill above the lower-left pile): "Maca negra" — Same style as label 1
+- component label 4 (Inside the pill above the lower-right pile): "Vitaminas A y E" — Same style as label 1
+
+BRAND IDENTITY:
+- color_palette: Natural ingredient colors. Surface: pale stone tinted with pale blush pink #FBE3EE. Headline in dark plum #2B1226 with the key word in hot fuchsia #E6177F. Pills in hot fuchsia #E6177F with white text. Secondary for this variation: leaf green #5E7A3A and aguaje terracotta #B5552B from the ingredients.
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat Black look); pill labels in rounded semi-bold sans-serif (Poppins SemiBold look).
+
+MANDATORY ELEMENTS:
+- Strict top-down overhead camera angle
+- The real bottle lying in the center on a slight diagonal, front label facing the camera
+- Four abundant piles (aguaje fruits, fenugreek seeds, black maca roots and powder, plain capsules) entering from the corners and cropped by the edges
+- Four small fuchsia pill labels facing the center
+- A few stray pieces drifting toward the bottle
+- Pale pink-tinted stone surface with consistent soft shadows
+
+STRICT EXCLUSIONS:
+- No printing or logos on the loose capsules.
+- No people, hands or faces.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Perspective, eye-level or angled camera views
+- Do not add: Boxes, packaging lids, tissue paper or unboxing elements
+- Do not add: Neat grid or knolling arrangement
+- Do not add: More than four labels or any leader lines and arrows
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Benefit icons or checklists
+- Do not add: Subheadline or any text besides the headline and the four labels
+- Do not add: Bottom bar or banner
+- Do not add: People, hands or faces
+- Do not add: Unrelated props (cups, phones, plants, notebooks) that are not part of the product
+- Do not add: Logos or brand marks
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

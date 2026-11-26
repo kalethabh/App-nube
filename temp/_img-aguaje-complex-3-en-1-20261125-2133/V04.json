@@ -1,0 +1,177 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F12 (Conversación de chat)",
+    "reference_style": "Native-looking messaging-app screenshot of a short conversation between two friends, where one recommends the product and sends a real photo of it inside the chat",
+    "angle_used": "Dolor / problema: months of squats and no change",
+    "ad_format": "Native Chat Conversation Screenshot Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Native chat colors with brand accents: pearl grey #ECE7EF chat wallpaper, white incoming bubbles, outgoing bubbles in pale blush pink #FBE3EE with dark text, read ticks and icons in hot fuchsia #E6177F, header in dark plum #2B1226 with white text. Secondary for this variation: pearl grey #ECE7EF and soft lilac #B9A3D6 (subtle wallpaper pattern and input bar icons).",
+    "visual_style": "Flat, believable generic messaging-app screenshot; only the photo inside the chat is a real photo, with the real bottle sharp and identical to the photo.",
+    "visual_atmosphere": "Intimate, casual, friend-to-friend.",
+    "graphic_language": "Flat chat bubbles with tails, tiny timestamps and double ticks, a generic header and input bar.",
+    "text_typography": "Generic system sans-serif for all chat texts."
+  },
+  "creative_objective": "Name the pain in the client's own words (months of squats and no change) and let a friend bring the solution naturally, with a real photo of the bottle as proof, ending in desire.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The product photo bubble. 2) The first incoming message with the pain. 3) The outgoing recommendation and result. 4) The friend's reaction. 5) Header and input bar.",
+    "composition_style": "Full-bleed flat UI screenshot, no device frame: incoming bubbles on the left, outgoing on the right, the photo bubble right-aligned as a strong central block.",
+    "spacing_and_structure": "Header y 0-11%. Chat area y 12-89%. Input bar y 90-100%. Side margins 5%. Bubbles no wider than 65% of the canvas. Photo bubble about 50% of the width and 30% of the height, at x 45-95% and y 34-64%.",
+    "lighting_and_depth": "Flat interface. The photo inside the chat: natural morning kitchen daylight, casual phone look, mild depth of field.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square crop of a generic messaging app. Dark plum header with back arrow, circular avatar of the friend, her name and 'en línea', generic call icons. Pearl grey wallpaper. Incoming white bubble (pain), outgoing pale pink bubble (recommendation), outgoing photo bubble with the real bottle held in a hand over a kitchen counter with breakfast and a small heart-eyes emoji reaction on its corner, outgoing bubble (result), incoming bubble (reaction). Generic input bar at the bottom.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Between header and input bar",
+        "visual_function": "Native chat wallpaper",
+        "adaptation_rule": "Pearl grey #ECE7EF with an ultra-subtle soft lilac generic doodle pattern at very low contrast.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "chat header",
+        "position": "Top, y 0-11%",
+        "visual_function": "Who is talking; native look",
+        "adaptation_rule": "Thin generic status bar, back arrow, circular avatar of a Colombian woman about 23 with brown skin and loose curly hair wearing a yellow strappy blouse, her name and online status in white on dark plum, generic call and video line icons.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "incoming message bubble",
+        "position": "Left, x 5-68%, y 14-23%",
+        "visual_function": "The pain",
+        "adaptation_rule": "White bubble with left tail, up to 2 lines, tiny timestamp.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "outgoing message bubble",
+        "position": "Right, x 45-95%, y 25-32%",
+        "visual_function": "Recommendation",
+        "adaptation_rule": "Pale blush pink bubble with dark text, right tail, 1 line, timestamp and fuchsia double ticks.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "product photo message",
+        "position": "Right, x 45-95%, y 34-64%",
+        "visual_function": "Proof; visual anchor",
+        "adaptation_rule": "Casual well-lit phone photo: a woman's hand with a grey gym hoodie sleeve holding the real bottle at chest height over a kitchen counter with a breakfast plate (arepa and eggs) and a glass of water, label readable, bottle about 21% of the canvas height. Thin pale pink border, tiny timestamp, small round heart-eyes emoji reaction overlapping its bottom-left corner.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "outgoing message bubble",
+        "position": "Right, x 32-95%, y 66-75%",
+        "visual_function": "Personal experience",
+        "adaptation_rule": "Same outgoing style, up to 2 lines.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "incoming message bubble",
+        "position": "Left, x 5-70%, y 77-87%",
+        "visual_function": "Friend's reaction and desire",
+        "adaptation_rule": "Same incoming style, 1-2 lines.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "input bar",
+        "position": "Bottom, y 90-100%",
+        "visual_function": "Native screenshot look",
+        "adaptation_rule": "Rounded text field with grey placeholder, generic emoji, camera and microphone line icons in soft lilac.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Real messaging-app names, logos, wallpapers or signature colors",
+      "Phone device frame, hands holding a phone or perspective mockup",
+      "On-screen keyboard",
+      "Ad headline or graphic text outside the chat",
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars, review cards or testimonial graphics",
+      "Link previews, voice-note bubbles or a second photo",
+      "Group chat names or more than two participants",
+      "Benefit list, icons or arrows",
+      "Logos or brand marks",
+      "Notification banners or stickers"
+    ]
+  },
+  "visual_prompt": "Square 1:1 flat screenshot of a generic messaging app, no device frame, no perspective: the canvas is the phone screen. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. The product is a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. HEADER (top 11%): dark plum #2B1226 bar with a thin generic status bar (time, signal and battery glyphs), a back arrow, a small circular avatar of a Colombian woman about 23 with brown skin and loose curly hair wearing a yellow strappy blouse, her first name and an online status in white, and generic call and video line icons on the right. CHAT AREA on a pearl grey #ECE7EF wallpaper with an ultra-subtle soft lilac doodle pattern: (1) left, a white incoming bubble with the friend's message and a tiny timestamp; (2) right, a pale blush pink #FBE3EE outgoing bubble with dark text, tiny timestamp and fuchsia double read ticks; (3) right-aligned, an outgoing photo bubble about half the canvas wide: a casual, well-lit smartphone photo of a woman's hand with a grey gym hoodie sleeve holding the bottle at chest height over a kitchen counter with a breakfast plate (arepa and eggs) and a glass of water in morning daylight, label toward the camera and readable, sharp; a tiny timestamp at its bottom right and a small round heart-eyes emoji reaction on its bottom-left corner; (4) right, another pale pink outgoing bubble of up to 2 lines; (5) left, a white incoming bubble with the friend's reaction. INPUT BAR (bottom 10%): rounded text field with a grey placeholder and generic emoji, camera and microphone line icons in soft lilac #B9A3D6. Flat bubbles, hairline shadows at most, generic system sans-serif text, all texts exactly as listed. No real app names, colors or logos, no keyboard, no other text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "contact name + online status",
+      "reference_position": "Chat header, right of the avatar",
+      "text_style": "Name in semibold system sans-serif about 3% of the canvas height, white; status below in regular weight about 2%, white at reduced opacity",
+      "text": "Caro 💕 / en línea"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "incoming message 1 (problem)",
+      "reference_position": "First bubble, left",
+      "text_style": "Regular system sans-serif, about 3.3% of the canvas height, dark text, max 2 lines; tiny grey timestamp '7:12'",
+      "text": "Hago sentadillas hace meses y sigo igual 😩"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "outgoing message 2 (recommendation)",
+      "reference_position": "Second bubble, right, above the photo",
+      "text_style": "Regular system sans-serif, about 3.3% of the canvas height, dark text on pale pink, 1 line; tiny timestamp '7:14' and read ticks",
+      "text": "Yo le sumé esto a mi rutina"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "outgoing message 3 (result)",
+      "reference_position": "Bubble right, below the photo",
+      "text_style": "Same style as text_block_03, max 2 lines; tiny timestamp '7:15'",
+      "text": "2 cápsulas al día y entreno con más ganas"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "incoming message 4 (reaction)",
+      "reference_position": "Last bubble, left",
+      "text_style": "Same style as text_block_02, 1 line; tiny timestamp '7:16'",
+      "text": "Pásame el dato ya 😍"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "UI micro-labels (status bar time and input placeholder)",
+      "reference_position": "Status bar top left and inside the input field",
+      "text_style": "System sans-serif, about 2% of the canvas height, light on the header and grey in the input field",
+      "text": "7:16 / Mensaje"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Generic dark plum chat header with a circular avatar of the friend and generic icons",
+    "Pearl grey chat wallpaper (screenshot look, no device frame)",
+    "Incoming bubbles on the left in white",
+    "Outgoing bubbles on the right in pale blush pink with timestamps and fuchsia read ticks",
+    "Photo bubble with a casual real photo of the bottle in a hand over a breakfast counter and a small heart-eyes reaction on its corner",
+    "Generic message input bar at the bottom"
+  ],
+  "final_generation_exclusions": [
+    "No green or blue colors of real messaging apps, no app names or logos.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The pain is told by the friend about her own routine, and the result shared is energy for training, not a body change.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}
