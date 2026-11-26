@@ -78,8 +78,10 @@ export function Visor({ vista, variaciones, abierto, onCerrar, onIr, onFormato, 
   const irRef = useRef(onIr);
   irRef.current = onIr;
   const x = abierto ? variaciones.find((y) => y.v === abierto.v) : null;
-  const conVertical = (vista.brief?.formatos || []).includes('9:16');
-  const formato = abierto?.formato === '9:16' && conVertical ? '9:16' : '1:1';
+  // (2026-11-26i) los tamaños de ESTA variación (el lote, más los que se crearon para ella: 9:16 o 4:5)
+  const tamanos = x ? Object.keys(x.piezas || {}) : [];
+  const conVertical = tamanos.length > 1;
+  const formato = abierto?.formato && tamanos.includes(abierto.formato) ? abierto.formato : '1:1';
   const p = x?.piezas?.[formato] || null;
   const clave = p ? `${p.pieza}|${p.version}` : null;
 
@@ -154,7 +156,8 @@ export function Visor({ vista, variaciones, abierto, onCerrar, onIr, onFormato, 
             items={[
               { id: '1:1', etiqueta: 'Cuadrado' },
               { id: '9:16', etiqueta: 'Vertical' },
-            ]}
+              { id: '4:5', etiqueta: 'Retrato 4:5' },
+            ].filter((t) => tamanos.includes(t.id))}
             activa={formato}
             onCambio={onFormato}
           />
@@ -171,7 +174,7 @@ export function Visor({ vista, variaciones, abierto, onCerrar, onIr, onFormato, 
       </div>
 
       <div className={`lote-visor__escena${vertical ? ' lote-visor__escena--vertical' : ''}`}>
-        <div className="lote-visor__media" style={{ aspectRatio: vertical ? '9 / 16' : '1 / 1' }} tabIndex={-1} data-autofocus>
+        <div className="lote-visor__media" style={{ aspectRatio: vertical ? '9 / 16' : formato === '4:5' ? '4 / 5' : '1 / 1' }} tabIndex={-1} data-autofocus>
           {src ? (
             <img key={src} src={src} alt={`${nombre}${mostrar ? `, versión ${mostrar.n}` : ''}`} decoding="async" style={p?.miniatura && !mostrar ? { backgroundImage: `url("${p.miniatura}")` } : undefined} />
           ) : (

@@ -999,12 +999,14 @@ export function continuar(slug) {
  * en los anuncios de imagen. Si no estaba terminado: en pausa, con error o esperando a Claude, el usuario pidio algo y
  * se intenta ya (continuar); si esta en marcha, no hace nada (el paso toma el pedido en su proxima vuelta).
  */
-export function reabrir(slug, desde) {
+export function reabrir(slug, desde, { tambienPausado = false } = {}) {
   if (!slugDeLaApp(slug)) throw new ErrorDeApp('No encuentro ese anuncio.', 404);
   if (activos.has(slug) || fila.includes(slug)) return leerConductor(slug);
   const c = leerConductor(slug);
   if (!c) throw new ErrorDeApp('Este anuncio todavía no empezó a producirse.', 404);
-  if (c.estado === 'listo') {
+  // (2026-11-26i) «Más imágenes»: un lote parado DESPUÉS de `desde` (en el informe, por ejemplo) también vuelve a `desde`
+  const pasado = tambienPausado && c.estado !== 'listo' && c.pasos.findIndex((p) => p.id === c.paso) > c.pasos.findIndex((p) => p.id === desde) && c.pasos.some((p) => p.id === desde);
+  if (c.estado === 'listo' || pasado) {
     const i = Math.max(0, c.pasos.findIndex((p) => p.id === desde));
     c.pasos.forEach((p, k) => {
       if (k < i) return;

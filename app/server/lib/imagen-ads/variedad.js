@@ -308,5 +308,5 @@ export function nombreDeDescarga({ producto, v, formatoId = null, anguloId = nul
   const archivo = entrada?.archivo;
   const slugFormato = entrada?.slug || (archivo ? String(archivo).split('/').pop().replace(/\.json$/i, '') : formatoId || '');
   const partes = [v, slugFormato, anguloId ? kebab(anguloId, 30) : ''].filter(Boolean).join('-');
-  return `${p}_${partes}${formato === '9:16' ? '-9x16' : ''}.png`;
+  return `${p}_${partes}${formato === '9:16' ? '-9x16' : formato === '4:5' ? '-4x5' : ''}.png`;
 }

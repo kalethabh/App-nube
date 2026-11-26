@@ -42,15 +42,16 @@ export const POSICIONES = {
 };
 export const POSICION_POR_DEFECTO = 'arriba-centro';
 
-/** Una pieza: V01_1x1, V100_9x16. */
-export const RE_PIEZA = /^V\d{2,3}_(1x1|9x16)$/;
-export const piezaId = (v, formato) => `${v}_${formato === '1:1' ? '1x1' : '9x16'}`;
+/** Una pieza: V01_1x1, V100_9x16, V03_4x5 (2026-11-26i: retrato 4:5, un tamaño extra que sale del cuadrado). */
+export const RE_PIEZA = /^V\d{2,3}_(1x1|9x16|4x5)$/;
+const SUFIJO_FORMATO = { '1:1': '1x1', '9:16': '9x16', '4:5': '4x5' };
+export const piezaId = (v, formato) => `${v}_${SUFIJO_FORMATO[formato] || '9x16'}`;
 /** Para ordenar por numero (V100 va despues de V99), nunca como texto. */
 export const numeroDeV = (v) => Number(String(v).slice(1));
 /** 'V03_9x16' -> 'V03'. */
 export const vDePieza = (pieza) => String(pieza).split('_')[0];
 /** 'V03_9x16' -> '9:16'; 'V03_1x1' -> '1:1'. */
-export const formatoDePieza = (pieza) => (String(pieza).endsWith('_9x16') ? '9:16' : '1:1');
+export const formatoDePieza = (pieza) => (String(pieza).endsWith('_9x16') ? '9:16' : String(pieza).endsWith('_4x5') ? '4:5' : '1:1');
 
 // Copiadas letra por letra de extender_vertical.py.
 // Zona segura: Instagram y TikTok tapan arriba y abajo con su interfaz.
@@ -59,6 +60,13 @@ export const ZONA_SEGURA =
   'and free of the product label, because Instagram, Facebook and TikTok cover those ' +
   'areas with their own interface. All headlines, texts and the product label must stay ' +
   'inside the central safe zone and remain perfectly legible.';
+
+// (2026-11-26i) el retrato 4:5 del feed (sale del cuadrado, sin la zona segura del 9:16)
+export const CAMBIO_DIMENSION_4X5 =
+  'The ONLY change is the dimension: convert it to a 4:5 portrait layout for the Facebook and Instagram feed. ' +
+  'Re-arrange the same elements so they fit naturally in the slightly taller canvas: give the headline a bit more air at the top ' +
+  'and the person and the product a bit more vertical room. Do not simply add empty bands, borders, blurred strips or solid color ' +
+  'bars above and below the original square. Do not crop or cut off any element. Keep the same visual hierarchy.';
 
 export const CAMBIO_DIMENSION =
   'The ONLY change is the dimension: convert it to a vertical 9:16 portrait layout for ' +
@@ -114,6 +122,14 @@ const ESTRUCTURA_REFERENCIA =
   'Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: ' +
   'the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. ' +
   'If the reference has a block this ad does not list, leave that area as clean background.';
+
+// (2026-11-26i) «MÁS COMO ESTA»: la primera imagen es un anuncio de ESTE lote que el usuario eligió; sale otra versión del
+// mismo anuncio (mismo diseño y oferta) con otra modelo, otra pose, otra escena y otra luz.
+const VARIANTE_REFERENCIA =
+  'The FIRST attached image is an ad of THIS same brand that the user wants more of. Make a NEW VARIANT of it: ' +
+  'keep its layout, block structure, visual hierarchy, visual style, colors, typography and offer presentation, ' +
+  'but change the person (another woman of the same audience), her pose, her clothes, the scene, the camera angle and the lighting, ' +
+  'so it reads as a different photo of the same ad, never a copy. Every visible text is ONLY the one listed below.';
 
 // MODO RÁPIDO («como pedirle a ChatGPT que me las varíe», 2026-11-16): la app arma cada V##.json sin la IA de texto.
 // El modelo ve la referencia (primera imagen) y el producto (segunda); el titular va exacto y los demás textos los
@@ -413,6 +429,8 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
     ? [desde0, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : rapido
     ? [{ copiar: RAPIDO_COPIAR, inspirar: RAPIDO_INSPIRAR, plantilla: RAPIDO_PLANTILLA, replicar: RAPIDO_REPLICAR }[rapido], 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
+    : referencia === 'variante'
+      ? [VARIANTE_REFERENCIA, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : estructura
       ? [ESTRUCTURA_REFERENCIA, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : estilo
@@ -488,7 +506,8 @@ function resumenIdentidad(ad) {
  * (app_nota_vertical, la escribe la sesion de ajuste), lo que salio mal en un
  * intento anterior (`correccion`, la otra version que pidio el usuario) y la zona del logo.
  */
-export function construirPromptVertical(ad, { conProducto = true, logo = null, correccion = null } = {}) {
+export function construirPromptVertical(ad, { conProducto = true, logo = null, correccion = null, formato = '9:16' } = {}) {
+  const retrato = formato === '4:5';
   const pos = posicionDe(logo);
   let p1 = RECREAR;
   if (!vacioPy(ad)) {
@@ -497,7 +516,7 @@ export function construirPromptVertical(ad, { conProducto = true, logo = null, c
   }
   p1 += '.';
 
-  const bloques = [p1, FIDELIDAD_COLOR, CAMBIO_DIMENSION, ZONA_SEGURA];
+  const bloques = retrato ? [p1, FIDELIDAD_COLOR, CAMBIO_DIMENSION_4X5] : [p1, FIDELIDAD_COLOR, CAMBIO_DIMENSION, ZONA_SEGURA];
   if (conProducto) bloques.push(PRODUCTO_SEGUNDA);
 
   const textos = bloqueTextosVertical(ad);
@@ -507,10 +526,10 @@ export function construirPromptVertical(ad, { conProducto = true, logo = null, c
   if (!vacioPy(regla)) bloques.push(strPy(regla));
 
   const nota = ad && typeof ad.app_nota_vertical === 'string' ? ad.app_nota_vertical.trim() : '';
-  if (nota) bloques.push(`EXTRA LAYOUT NOTE FOR THE VERTICAL: ${nota}`);
+  if (nota && !retrato) bloques.push(`EXTRA LAYOUT NOTE FOR THE VERTICAL: ${nota}`);
   const fix = bloqueCorreccion(correccion);
   if (fix) bloques.push(fix);
-  if (pos) bloques.push(bloqueLogo('9:16', pos));
+  if (pos) bloques.push(bloqueLogo(retrato ? '1:1' : '9:16', pos));
   bloques.push(CIERRE);
   return bloques.join('\n\n');
 }
@@ -584,7 +603,7 @@ export function geometriaLogo({ W, H, formato, posicion, lw, lh }) {
   const lh0 = Number(lh);
   if (!(w0 > 0 && h0 > 0 && lw0 > 0 && lh0 > 0)) throw new Error(`geometriaLogo: medidas que no sirven (W=${W}, H=${H}, logo ${lw}x${lh}).`);
   const pos = POSICIONES[posicion] ? posicion : POSICION_POR_DEFECTO;
-  const vertical = formato === '9:16' || formato === '9x16';
+  const vertical = formato === '9:16' || formato === '9x16'; // (el 4:5 lleva el logo como el cuadrado)
   const caja = 0.12 * w0;
   let ancho = Math.round(caja);
   let alto = Math.round((ancho * lh0) / lw0);

@@ -22,7 +22,7 @@ import { estructurasDelLote, evaluarPuntajes } from './comparacion.js';
 import { nuevoEstado, asegurarPiezas, aplicarRevision, listaDePiezas, cuentas, PEDIDO_TERMINADO } from './planificador.js';
 import { verificarRevision, leerSkill } from './verificar.js';
 import { borrarRecortes, finalAlDia, sha1DelLogo } from './local.js';
-import { R, firma, guardarJSON, siguienteEnDisco, idsDelLote, piezaId, vDe, formatoDe, nombreFormato, kebab, ordenDeV, fotoDelLote } from './disco.js';
+import { R, firma, guardarJSON, siguienteEnDisco, idsDelLote, piezaId, vDe, formatoDe, nombreFormato, kebab, ordenDeV, fotoDelLote, formatosDe } from './disco.js';
 import { plantillaDe, piezaLocal, estadoComposicion } from './plantillas.js';
 import { POR_ID, CATALOGO } from './catalogo-plantillas.js';
 
@@ -81,6 +81,7 @@ export function cargarYNormalizar(carpeta, brief, { uuidEstrategia = null, motor
   let est = leerEstado(carpeta);
   if (!est) {
     est = nuevoEstado({ cantidad, formatos });
+    if (brief?.extras) asegurarPiezas(est, { cantidad, formatos, extras: brief.extras });
     // (el modo rápido escribe todos los anuncios de una vez: ninguno espera a la IA)
     // (y «Desde 0»: la app ya escribió todos los anuncios con sus 6 zonas)
     const ids = idsDelLote(brief?.rapido || brief?.desde0 ? cantidad : Math.min(cantidad, 4));
@@ -88,7 +89,7 @@ export function cargarYNormalizar(carpeta, brief, { uuidEstrategia = null, motor
     for (const v of ids) est.variaciones[v] = { prompt: 'listo', tanda: 'E001' };
     est.siguiente.E = 2;
   } else {
-    asegurarPiezas(est, { cantidad, formatos });
+    asegurarPiezas(est, { cantidad, formatos, extras: brief?.extras || null });
     // (un estado de antes, sin la IA de la estrategia: se completa con la del paso, si se sabe)
     if (est.tandas?.E001 && !est.tandas.E001.motor && motor) est.tandas.E001.motor = motor;
   }
@@ -360,6 +361,8 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
       angulo: x ? angulos.get(x.angulo_id)?.nombre || x.angulo || '' : '',
       formato: x ? (x.fuente === 'referencia' ? 'Tu referencia' : x.fuente === 'plantilla' ? POR_ID.get(x.plantilla)?.nombre || x.formato || '' : catalogo.get(x.formato_id)?.nombre || x.formato || '') : '',
       titular: x?.titular || '',
+      // (2026-11-26i) «Más como esta»: de qué imagen es variante
+      ...(x?.variante_de ? { varianteDe: x.variante_de } : {}),
       // (agente de variaciones) qué nivel es, qué cambió respecto del ganador y qué se quiere probar
       ...(x?.nivel ? { nivel: String(x.nivel).slice(0, 1), cambio: String(x.cambio || '').slice(0, 300), hipotesis: String(x.hipotesis || '').slice(0, 300), faceta: String(x.faceta || '').slice(0, 120) } : {}),
       // (2026-11-26a) «Qué tan distintas»: el id del formato, por qué debería vender y la nota de la revisión (1-10)
@@ -371,7 +374,8 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
           }
         : {}),
       estado: sinPrompt ? 'sin-prompt' : 'ok',
-      piezas: Object.fromEntries(formatos.map((f) => [f, vistaDePieza(v, f)])),
+      // (2026-11-26i) los tamaños de esta variación: los del lote y los extra que se pidieron para ella
+      piezas: Object.fromEntries(formatosDe(brief, v).map((f) => [f, vistaDePieza(v, f)])),
     };
   });
 
@@ -389,7 +393,7 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
     { id: 'prompts', hechas: c.escritas || 0, total: ids.length },
     { id: 'cuadrados', hechas: vivas.filter((p) => p.pieza.endsWith('_1x1') && (p.version >= 1 || p.estado === 'sin-imagen')).length, total: vivas.filter((p) => p.pieza.endsWith('_1x1')).length },
     { id: 'revision', hechas: vivas.filter(listaFinal).length, total: vivas.length },
-    ...(formatos.includes('9:16') ? [{ id: 'verticales', hechas: vivas.filter((p) => p.pieza.endsWith('_9x16') && (p.version >= 1 || p.estado === 'sin-imagen')).length, total: vivas.filter((p) => p.pieza.endsWith('_9x16')).length }] : []),
+    ...(vivas.some((p) => !p.pieza.endsWith('_1x1')) ? [{ id: 'verticales', hechas: vivas.filter((p) => !p.pieza.endsWith('_1x1') && (p.version >= 1 || p.estado === 'sin-imagen')).length, total: vivas.filter((p) => !p.pieza.endsWith('_1x1')).length }] : []),
     ...(conLogo ? [{ id: 'logo', hechas: vivas.filter((p) => p.url && p.url.includes('/final/')).length, total: vivas.filter((p) => p.version >= 1).length }] : []),
   ];
   const pasoAnuncios = conductor?.pasos?.find((p) => p.id === conductor?.paso);

@@ -79,7 +79,7 @@ export function nuevoEstado({ cantidad, formatos }) {
 }
 
 /** Que esten todas las variaciones y las piezas del lote (por si el estado viene de una version anterior). */
-export function asegurarPiezas(est, { cantidad, formatos }) {
+export function asegurarPiezas(est, { cantidad, formatos, extras = null }) {
   est.siguiente ||= { E: 1, R: 1, A: 1, T: 1 };
   est.tandas ||= {};
   est.variaciones ||= {};
@@ -87,7 +87,8 @@ export function asegurarPiezas(est, { cantidad, formatos }) {
   est.pedidos ||= {};
   for (const v of idsDelLote(cantidad)) {
     est.variaciones[v] ||= { prompt: 'falta', tanda: null };
-    for (const f of formatos) {
+    // (2026-11-26i) más los tamaños pedidos solo para esta variación («Crear otro tamaño»)
+    for (const f of [...new Set([...formatos, ...((extras && extras[v]) || [])])]) {
       const p = piezaId(v, f);
       est.piezas[p] ||= nuevaPieza(v, f);
     }
@@ -153,8 +154,11 @@ export function pasosDelPedido(est, ped, { instruccionEn = null, cambiaTextos = 
   const adjuntos = instruccionEn && Array.isArray(ped.adjuntos) && ped.adjuntos.length ? { adjuntos: ped.adjuntos } : {};
   const extra = instruccionEn ? { instruccion_en: instruccionEn, textos: Boolean(cambiaTextos), ...adjuntos } : {};
   const delVertical = { pieza: vertical, orden: `${ped.id}-v`, modo: 'generar', motivo: 'cuadrado-nuevo' };
-  if (formatoDe(ped.pieza) === '1:1') return [{ pieza: cuadrado, orden: ped.id, modo, ...extra }, ...(hayVertical ? [delVertical] : [])];
-  if (instruccionEn && cambiaTextos) return [{ pieza: cuadrado, orden: ped.id, modo: 'editar', instruccion_en: instruccionEn, textos: true, ...adjuntos }, delVertical];
+  // (2026-11-26i) y el retrato 4:5, si esta variación lo tiene: también sale del cuadrado nuevo
+  const retrato = piezaId(v, '4:5');
+  const delRetrato = est.piezas[retrato] && !est.piezas[retrato].local ? [{ pieza: retrato, orden: `${ped.id}-r`, modo: 'generar', motivo: 'cuadrado-nuevo' }] : [];
+  if (formatoDe(ped.pieza) === '1:1') return [{ pieza: cuadrado, orden: ped.id, modo, ...extra }, ...(hayVertical ? [delVertical] : []), ...delRetrato];
+  if (instruccionEn && cambiaTextos) return [{ pieza: cuadrado, orden: ped.id, modo: 'editar', instruccion_en: instruccionEn, textos: true, ...adjuntos }, ...(hayVertical ? [delVertical] : []), ...delRetrato];
   return [{ pieza: vertical, orden: ped.id, modo, ...extra }];
 }
 
@@ -281,7 +285,7 @@ const recortesListos = (est, hechos, p) => {
   const x = est.piezas[p];
   if (x.fase !== 'por-revisar' || !x.firma || hechos?.recortes?.[p] !== x.firma) return false;
   // el vertical se revisa al lado de su cuadrado: hace falta la vista del cuadrado
-  if (x.formato === '9:16' && est.piezas[piezaId(x.v, '1:1')] && !hechos?.vistas?.[piezaId(x.v, '1:1')]) return false;
+  if (x.formato !== '1:1' && est.piezas[piezaId(x.v, '1:1')] && !hechos?.vistas?.[piezaId(x.v, '1:1')]) return false;
   return true;
 };
 
@@ -406,6 +410,7 @@ function elegirTanda(est, hechos, opciones, { piezas, ahora, prompts: porTanda =
   for (const [f, tope] of [
     ['1:1', cuadrados],
     ['9:16', TOPES.revisionVerticales],
+    ['4:5', TOPES.revisionVerticales],
   ]) {
     const de = sinSimular.filter((p) => est.piezas[p].formato === f);
     if (!de.length) continue;
@@ -421,6 +426,7 @@ function elegirTanda(est, hechos, opciones, { piezas, ahora, prompts: porTanda =
   for (const [f, tope] of [
     ['1:1', cuadrados],
     ['9:16', TOPES.revisionVerticales],
+    ['4:5', TOPES.revisionVerticales],
   ]) {
     const de = sinSimular.filter((p) => est.piezas[p].formato === f);
     if (de.length) return revision(est, de.slice(0, tope), PRIORIDAD.revision);
@@ -442,7 +448,7 @@ function elegirLocal(est, hechos, piezas) {
   const vistaHace = new Set();
   for (const p of piezas) {
     const x = est.piezas[p];
-    if (x.formato === '9:16' && x.fase === 'por-revisar') vistaHace.add(piezaId(x.v, '1:1'));
+    if (x.formato !== '1:1' && x.fase === 'por-revisar') vistaHace.add(piezaId(x.v, '1:1'));
   }
   for (const ped of Object.values(est.pedidos || {})) if (ped.estado === 'pendiente' && ped.instruccion && ped.pieza) vistaHace.add(ped.pieza);
   for (const p of [...vistaHace].sort(ordenDePiezas)) {

@@ -19,7 +19,7 @@ const CORREGIR = 'Corrige lo que notó la revisión:';
 /** Lo que notó la revisión, después de los dos puntos (la primera letra en minúscula, salvo una sigla). */
 const textoCorregir = (problemas) => `${CORREGIR} ${problemas.map((t) => t.replace(/^\p{Lu}(?!\p{Lu})/u, (c) => c.toLowerCase())).join(' ')}`.slice(0, MAXIMO);
 
-export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConfirmar, lote = null, productoId = null }) {
+export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConfirmar, lote = null, productoId = null, formatosHechos = [], onTamano = null, onMasComoEsta = null }) {
   const [texto, setTexto] = useState('');
   // { id, archivo?: File, pieza?: id de Mis piezas, url }
   const [adjuntos, setAdjuntos] = useState([]);
@@ -248,6 +248,39 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
         </>
         )}
         {nota ? <p className="t-chico t-3">{nota}</p> : null}
+        {onTamano ? (
+          <div className="lote-regenerar__tamanos">
+            <span className="t-chico">
+              <strong>Otro tamaño de este anuncio</strong> · sale de su cuadrado, con los mismos textos (1 imagen). Lo que ya tienes no cambia.
+            </span>
+            <div className="fila">
+              {[
+                ['1:1', 'Cuadrado 1:1'],
+                ['9:16', 'Vertical 9:16'],
+                ['4:5', 'Retrato 4:5'],
+              ].map(([f, t]) => {
+                const ya = formatosHechos.includes(f);
+                return (
+                  <Chip key={f} tamano="chico" onClick={() => onTamano(partesDePieza(p.pieza).v, f)} disabled={enviando || ya} title={ya ? 'Ya tiene este tamaño' : `Crear su ${t.toLowerCase()}`}>
+                    {ya ? `${t} ✓` : `+ ${t}`}
+                  </Chip>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
+        {onMasComoEsta && partesDePieza(p.pieza).formato === '1:1' && p.url ? (
+          <div className="lote-regenerar__tamanos">
+            <span className="t-chico">
+              <strong>Más como esta</strong> · nuevas imágenes de este mismo anuncio con otra modelo, pose y escena (eliges cuántas).
+            </span>
+            <div className="fila">
+              <Chip tamano="chico" onClick={() => onMasComoEsta(partesDePieza(p.pieza).v)} disabled={enviando}>
+                + Variantes de esta imagen
+              </Chip>
+            </div>
+          </div>
+        ) : null}
         {error ? (
           <p className="lote-regenerar__error" role="alert">
             <CircleAlert size={14} strokeWidth={2.2} aria-hidden="true" />
