@@ -4,7 +4,7 @@
     "E": 3,
     "R": 3,
     "A": 1,
-    "T": 7
+    "T": 9
   },
   "tandas": {
     "E001": {
@@ -212,6 +212,54 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
+      "fase": "pedida",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": {
+        "id": "g-r1",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T007"
+      },
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "g",
+      "rescates": 1
+    },
+    "V06_1x1": {
+      "v": "V06",
+      "formato": "1:1",
+      "fase": "pedida",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": {
+        "id": "g-r1",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T008"
+      },
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "g",
+      "rescates": 1
+    },
+    "V07_1x1": {
+      "v": "V07",
+      "formato": "1:1",
       "fase": "reescribiendo",
       "resultado": null,
       "version": 0,
@@ -231,50 +279,6 @@
       },
       "ultimaOrden": "g"
     },
-    "V06_1x1": {
-      "v": "V06",
-      "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T004"
-      },
-      "intentosApi": 3,
-      "ronda": 1,
-      "reintentoAuto": "no",
-      "revision": null,
-      "motivo": null,
-      "mensaje": null,
-      "desde": null,
-      "pedido": null
-    },
-    "V07_1x1": {
-      "v": "V07",
-      "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T004"
-      },
-      "intentosApi": 2,
-      "ronda": 1,
-      "reintentoAuto": "no",
-      "revision": null,
-      "motivo": null,
-      "mensaje": null,
-      "desde": null,
-      "pedido": null
-    },
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
@@ -288,7 +292,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -310,7 +314,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 0,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -332,7 +336,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,

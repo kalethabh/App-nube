@@ -15,7 +15,7 @@
   },
   "global_identity": {
     "color_palette": "Hot fuchsia #E6177F, deep magenta #B0105E, dark plum #2B1226, deep wine #4A0B2E, bottle black #0E0E10, bubblegum pink #FF8CC0 (accent words, replaces the reference yellow), pale blush pink #FBE3EE (price pill), white #FFFFFF. Same contrast logic as the reference: dark header left, bright header right, dark glowing bottom panels, bright accent on key words and price.",
-    "visual_style": "Photorealistic before/after split screen of the same woman seen from behind, solid color header bands, large real bottle as hero on the center line, dark wine benefit panel with four neon-outlined cards and a rounded offer bar.",
+    "visual_style": "Photorealistic before/after split screen of the same fully clothed woman in two moments (unsure, then happy and confident), medium shot, solid color header bands, large real bottle as hero on the center line, dark wine benefit panel with four neon-outlined cards and a rounded offer bar.",
     "visual_atmosphere": "Aspirational, feminine, confident; flat neutral daylight on the 'before' side, warm golden-hour glow on the 'after' side, soft neon fuchsia glow on the bottom panels.",
     "graphic_language": "Flat color header blocks, thin white center divider, rounded-rectangle cards with glowing fuchsia outlines and white thin-line icons, round registration seal, fully rounded offer pill with burst lines and a glossy inner price pill.",
     "text_typography": "Exactly the reference typography: heavy rounded geometric sans-serif (Nunito Black / Gotham Rounded Bold look) for all text. 'ANTES' and 'DESPUÉS' huge, all uppercase, white, centered. Header subtitles bold, sentence case, white, centered, two lines, about 45% of the header word height. Benefit labels bold all uppercase, white, centered, 2-3 lines. Offer bar: 'TRATAMIENTO COMPLETO' heavy uppercase white; 'X3 UNIDADES' heavier and about 1.4x larger, uppercase, bubblegum pink; price in the heaviest weight, the largest text of the bottom area, deep magenta inside a pale pink pill."
@@ -26,7 +26,7 @@
     "visual_hierarchy": "1) 'ANTES' / 'DESPUÉS' headers and the before/after photos; 2) the large bottle on the center line; 3) the header subtitles; 4) the four benefit cards; 5) the offer bar with the price.",
     "composition_style": "Strict symmetrical split: two equal columns for headers and photos, bottle centered on the divider, full-width benefit row and offer bar below.",
     "spacing_and_structure": "Header band 0-12.5% of height; photos 12.5-68%; benefit panel 68-87% with four equal cards and small even gutters; offer bar 88-98% with small side margins.",
-    "lighting_and_depth": "Before photo flat cool daylight; after photo warm sunset backlight with rim light on skin; bottle with soft studio light and a soft contact shadow; neon fuchsia outer glow on cards and offer bar.",
+    "lighting_and_depth": "Before photo flat cool daylight; after photo warm sunset backlight with a soft rim light on her hair; bottle with soft studio light and a soft contact shadow; neon fuchsia outer glow on cards and offer bar.",
     "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
   },
   "reference_structure_analysis": {
