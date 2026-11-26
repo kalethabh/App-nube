@@ -1,0 +1,197 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format F03 (Antes / Después), following the layout of the winning reference ad (same format family)",
+    "reference_style": "Photorealistic before/after split-screen supplement ad with color header blocks, the product as hero on the split line, benefit cards and an offer bar",
+    "angle_used": "Transformación / resultado: from jeans that sit loose at the back to jeans that finally fit",
+    "ad_format": "Before / After Split Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand: hot fuchsia #E6177F, deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0 accent text, pale blush pink #FBE3EE, white #FFFFFF. Secondary for this variation: warm sunset gold #F2B66D and sand #E8D3B0 in the 'after' scene light.",
+    "visual_style": "Photorealistic, bold and feminine supplement ad: real-looking Colombian woman, real scenes, the real bottle sharp and identical to the photo, fuchsia and plum brand blocks.",
+    "visual_atmosphere": "Cold, flat fitting-room light on the left; warm golden sunset on the right; glossy fuchsia glow on the bottom cards.",
+    "graphic_language": "Solid flat header blocks, hard vertical split line, rounded cards with thin glowing fuchsia borders and white thin-line icons, rounded pill offer bar with a vertical divider.",
+    "text_typography": "ANTES / DESPUÉS in a very heavy geometric sans-serif (Montserrat Black look), uppercase, white; subtitles in rounded bold sans-serif (Poppins SemiBold look), sentence case, white; card and offer texts in heavy uppercase sans-serif."
+  },
+  "creative_objective": "Keep the essence of the winning ad (see in one second the change, with the bottle as the cause) while changing context and facet: the same woman seen from behind, first in a store fitting room where her light jeans sit loose at the back, then on another day at a sunset outdoor mall terrace wearing dark high-rise jeans that fit her well. The bottle bridges both states.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The before/after contrast of the same woman from behind. 2) ANTES / DESPUÉS headers with their subtitles. 3) The bottle in the center on the split line. 4) The four benefit cards. 5) The offer bar.",
+    "composition_style": "Same structure as the winning reference: two header blocks on top (left dark plum, right fuchsia), two photo panels below split exactly at 50% width, the bottle large in the center straddling the split line, a row of four cards and a full-width pill offer bar at the bottom.",
+    "spacing_and_structure": "Header blocks: top 0-12% of the height, each 50% wide. Photo panels: 12-68% of the height. Bottle: centered horizontally, from about 22% to 68% of the height, about 24% of the canvas width, bottom edge overlapping the top of the card row. Cards: 69-87% of the height, four equal cards with 2% gaps and 2% side margins. Offer bar: 89-98% of the height, 4% side margins.",
+    "lighting_and_depth": "Left panel: flat cool fluorescent light, slightly desaturated. Right panel: warm golden-hour backlight with sunset glow. Bottle: crisp studio highlights and soft shadow, in sharp focus. Bottom area: dark plum-to-magenta gradient with soft fuchsia glow around cards.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas. Top row: two solid header blocks side by side; left dark plum with 'ANTES' and a two-line subtitle, right hot fuchsia with 'DESPUÉS' and a two-line subtitle. Middle: two photo panels split vertically at 50% showing the same woman from behind in the same pose; left in a fitting room with loose light jeans, right on a sunset terrace with fitted dark jeans. The real bottle stands large in the center over the split line. Below: a row of four rounded cards with thin glowing fuchsia borders, each with a white line icon and a short uppercase benefit. Bottom: a full-width rounded pill offer bar with 'TRATAMIENTO COMPLETO' and 'X3 FRASCOS' on the left, a thin vertical divider, and a pale pink pill on the right reading 'PAGAS AL RECIBIR'.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "header blocks",
+        "position": "Top 0-12% of the height, left half dark plum #2B1226, right half hot fuchsia #E6177F",
+        "visual_function": "Name the two states in giant type and frame the comparison",
+        "adaptation_rule": "Flat solid colors, no texture, centered white text in each block.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "before photo panel",
+        "position": "Left 50%, from 12% to 68% of the height",
+        "visual_function": "The problem state the viewer recognizes: jeans that sit loose at the back",
+        "adaptation_rule": "A Colombian woman about 26, light-brown (trigueña) skin, black wavy hair in a low bun, slim natural body, seen from behind from shoulders to knees, standing straight in a store fitting room with a grey curtain and a small hook, cold flat fluorescent light. She wears light-blue mid-rise jeans that are visibly baggy and loose at the back and a loose grey t-shirt. Realistic, not exaggerated. No product in this half.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "after photo panel",
+        "position": "Right 50%, from 12% to 68% of the height",
+        "visual_function": "The desired state: the same woman, another day, with jeans that fit and confidence",
+        "adaptation_rule": "The SAME woman (same face shape, skin tone and hair), same back view and same framing, on another day: hair now loose and wavy, on an open-air mall terrace in Cali at golden hour, warm sunset light. She wears dark-blue high-rise jeans that fit her well at the back and a short fuchsia top. Her figure looks naturally a bit fuller and more shaped, a believable difference, never exaggerated.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "Center of the canvas, straddling the split line, from about 22% to 68% of the height",
+        "visual_function": "The bottle is the bridge and the cause of the change",
+        "adaptation_rule": "The user's bottle exactly as in the attached product photo, front view, large, sharp, label readable, soft shadow.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "benefit cards (4)",
+        "position": "Row from 69% to 87% of the height, four equal rounded cards",
+        "visual_function": "Remove fears and add reasons to believe",
+        "adaptation_rule": "Deep magenta-to-plum cards with thin glowing fuchsia borders, each with a simple white thin-line icon on top (shield with a cross-out syringe, two capsules, three leaves joined, a small vitamin drop) and a short uppercase label below.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "offer bar",
+        "position": "Full width pill from 89% to 98% of the height",
+        "visual_function": "Close with the complete treatment offer and the payment condition",
+        "adaptation_rule": "Rounded pill in deep magenta with a thin fuchsia glowing border; left part with two lines of text and small accent rays beside the big line; a thin vertical divider; right part a pale blush pink pill with deep magenta text.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Price or any number with a currency sign",
+      "Health registration, INVIMA or certification seals",
+      "Quality or premium badge on the bottle",
+      "Rating stars, reviews or testimonials",
+      "CTA button",
+      "Timeframes or result promises",
+      "Bikinis or swimwear",
+      "Logos or brand marks other than what is printed on the real bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 photorealistic before/after supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it, and do not copy the bottle or brand shown in the style reference. The product is a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. LAYOUT: top 12% of the canvas is two solid header blocks side by side: the left half dark plum #2B1226 with the giant white word 'ANTES' and a two-line white subtitle below it; the right half hot fuchsia #E6177F with the giant white word 'DESPUÉS' and a two-line white subtitle. Below, from 12% to 68% of the height, two photo panels split exactly at 50% width by a hard vertical line. LEFT PANEL (before): a Colombian woman about 26 years old, light-brown skin, black wavy hair in a low bun, slim natural body, seen from behind from shoulders to knees, standing straight inside a store fitting room with a grey curtain, under cold flat fluorescent light, slightly desaturated; she wears light-blue mid-rise jeans that are visibly loose and baggy at the back and a loose grey t-shirt. No product in this half. RIGHT PANEL (after): the SAME woman, same back view, same framing and same scale, on another day, hair now loose and wavy, on an open-air mall terrace in Cali at golden hour with warm sunset light in gold #F2B66D and sand #E8D3B0 tones; she wears dark-blue high-rise jeans that fit her well at the back and a short fuchsia top; her figure looks naturally a little fuller and more shaped, a believable and natural difference, not exaggerated. The bottle stands large in the exact center of the canvas, straddling the split line, from about 22% to 68% of the height, front view, sharp, label readable, with a soft shadow, its base slightly overlapping the top of the card row. BOTTOM AREA (68-100%): dark plum to deep magenta #B0105E gradient background with a soft fuchsia glow. A row of four equal rounded cards (69-87% of the height) with thin glowing fuchsia borders, each with a simple white thin-line icon on top and a short uppercase white label below: card 1 a shield icon, card 2 two capsules icon, card 3 three joined leaves icon, card 4 a small drop icon. Under them a full-width rounded pill offer bar (89-98% of the height) in deep magenta with a thin fuchsia glowing border: on the left two lines of heavy uppercase text, the second larger in bubblegum pink #FF8CC0 with small accent rays on both sides; a thin vertical divider; on the right a pale blush pink #FBE3EE pill with extra-heavy deep magenta text. All texts exactly as listed, readable on a phone. Do not add prices, seals, stars, badges, CTA buttons or any extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "before header",
+      "reference_position": "Left header block, centered, first line",
+      "text_style": "Very heavy geometric sans-serif, uppercase, white, about 8% of the canvas height",
+      "text": "ANTES"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "before subtitle",
+      "reference_position": "Left header block, centered, below ANTES, two lines",
+      "text_style": "Rounded bold sans-serif, sentence case, white, about 3.5% of the canvas height per line",
+      "text": "El jean me quedaba suelto atrás"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "after header",
+      "reference_position": "Right header block, centered, first line",
+      "text_style": "Very heavy geometric sans-serif, uppercase, white, about 8% of the canvas height",
+      "text": "DESPUÉS"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "after subtitle (main headline)",
+      "reference_position": "Right header block, centered, below DESPUÉS, two lines",
+      "text_style": "Rounded bold sans-serif, sentence case, white, about 3.5% of the canvas height per line",
+      "text": "Ahora el jean sí me horma"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit card 1",
+      "reference_position": "First card from the left, below its icon",
+      "text_style": "Heavy uppercase sans-serif, white, centered, 2-3 lines; the last line 'NI QUIRÓFANO' in bubblegum pink #FF8CC0",
+      "text": "SIN AGUJAS NI QUIRÓFANO"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "benefit card 2",
+      "reference_position": "Second card, below its icon",
+      "text_style": "Heavy uppercase sans-serif, white, centered, 2-3 lines",
+      "text": "2 CÁPSULAS AL DÍA"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "benefit card 3",
+      "reference_position": "Third card, below its icon",
+      "text_style": "Heavy uppercase sans-serif, white, centered, 2 lines",
+      "text": "TRIPLE ACCIÓN NATURAL"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "benefit card 4",
+      "reference_position": "Fourth card, below its icon",
+      "text_style": "Heavy uppercase sans-serif, white, centered, 2-3 lines",
+      "text": "CON VITAMINAS A Y E"
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "offer line 1",
+      "reference_position": "Offer bar, left part, top line",
+      "text_style": "Heavy uppercase sans-serif, white, about 3.5% of the canvas height",
+      "text": "TRATAMIENTO COMPLETO"
+    },
+    {
+      "block_id": "text_block_10",
+      "reference_function": "offer line 2",
+      "reference_position": "Offer bar, left part, bottom line, with small accent rays on both sides",
+      "text_style": "Extra-heavy uppercase sans-serif, bubblegum pink #FF8CC0, larger, about 5% of the canvas height",
+      "text": "X3 FRASCOS"
+    },
+    {
+      "block_id": "text_block_11",
+      "reference_function": "payment pill",
+      "reference_position": "Offer bar, right part, inside the pale pink pill",
+      "text_style": "Extra-heavy uppercase sans-serif, deep magenta #B0105E on pale blush pink, about 4.5% of the canvas height",
+      "text": "PAGAS AL RECIBIR"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Two solid header blocks on top: dark plum on the left, hot fuchsia on the right",
+    "Vertical 50/50 split of the same woman seen from behind with the same pose and framing",
+    "Before half cold and muted in a fitting room, without the product",
+    "After half warm golden sunset on an outdoor terrace",
+    "The real bottle large in the center, straddling the split line",
+    "Row of four rounded cards with glowing fuchsia borders and white line icons",
+    "Full-width rounded pill offer bar with a vertical divider and a pale pink pill on the right"
+  ],
+  "final_generation_exclusions": [
+    "No price, no currency signs, no discounts.",
+    "No health registration, INVIMA, quality or certification seals.",
+    "No rating stars, reviews, testimonials or result timeframes.",
+    "No bikini or swimwear; no exaggerated or sexualized body.",
+    "Do not copy the bottle, logo or brand of the style reference.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The before/after is natural (same woman, different day, clothes and light) and speaks about the fit of the jeans, not about defects.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

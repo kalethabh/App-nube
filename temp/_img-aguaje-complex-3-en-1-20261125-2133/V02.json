@@ -1,0 +1,135 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format F17 (Foto estilo cliente UGC)",
+    "reference_style": "Authentic customer-style smartphone mirror selfie holding the product, with native story-style text stickers; deliberately unpolished and real",
+    "angle_used": "Transformación / resultado: she finally takes full-body photos with confidence",
+    "ad_format": "UGC Selfie Story Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Real, slightly imperfect home-photo colors. Brand accents only in details: hot fuchsia #E6177F on the secondary sticker box and the bottle, deep magenta #B0105E in a small decor object. Secondary for this variation: room beige #D9C7B2 and denim blue #3E5A7E.",
+    "visual_style": "Authentic smartphone photo taken by a real Colombian customer, the real bottle sharp and identical to the photo.",
+    "visual_atmosphere": "Warm, proud, casual morning at home.",
+    "graphic_language": "Native story stickers: rounded white boxes with near-black text, one fuchsia box with white text and a white hand-drawn arrow.",
+    "text_typography": "Native story-caption rounded sans-serif in the stickers."
+  },
+  "creative_objective": "Tell the transformation as a real customer story: a woman proud of how her jeans fit takes a full-body mirror selfie at home and shows the bottle that is part of her daily plan. It must feel organic, not like an ad.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The top caption sticker. 2) The woman's proud smile and her full-body silhouette in the mirror. 3) The bottle held toward the mirror. 4) The secondary sticker and its hand-drawn arrow.",
+    "composition_style": "Handheld mirror selfie cropped to square, slight 2-degree tilt, three-quarter view. The woman fills about 65% of the frame, face upper-middle slightly left, phone (generic, no logos) covering only her chin side, bottle held up in her other hand at chest height on the right with the label toward the mirror.",
+    "spacing_and_structure": "Top caption sticker centered at x 10-90% and y 5-19%. Face around x 28-52% and y 22-40%. Bottle around x 56-84% and y 38-74%, about 28% of the canvas height. Secondary sticker at x 8-45% and y 78-88% with a white hand-drawn arrow curving to the bottle. 5% safe margins.",
+    "lighting_and_depth": "Morning window daylight mixed with a warm bedside lamp, mild phone sharpening and digital noise, natural skin texture, no retouching glow, background slightly soft.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square casual mirror selfie in an apartment bedroom. A Colombian woman about 31 stands in three-quarter view in front of a full-length mirror, phone in one hand, the bottle held up in the other toward the mirror, smiling proudly. Story caption at the top on rounded white boxes; a smaller fuchsia sticker in the lower-left corner with a white hand-drawn arrow curving to the bottle.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "home setting",
+        "position": "Full canvas, behind the woman, seen in the mirror",
+        "visual_function": "Real home environment that proves a real customer took the photo",
+        "adaptation_rule": "Apartment bedroom in the morning: made bed with beige #D9C7B2 linen, a small plant, a bedside lamp, a magenta cushion; lived-in but tidy, slightly out of focus.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "person",
+        "position": "Center to center-left, about 65% of the frame",
+        "visual_function": "The customer; her pride gives the ad credibility and emotion",
+        "adaptation_rule": "Colombian woman about 31, light cinnamon skin, straight chestnut shoulder-length hair, minimal makeup, real skin texture, proud genuine smile looking at the phone screen in the mirror. She wears black high-rise skinny jeans that fit her well and a white cotton crop top; three-quarter body pose that shows her figure naturally, not sexualized.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "product",
+        "position": "Held up on the right at chest height, x 56-84%, y 38-74%",
+        "visual_function": "Shows exactly what she is talking about",
+        "adaptation_rule": "The user's bottle exactly as in the attached product photo, held in one hand with the label toward the mirror and readable, sharp focus, never covering her face.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "story caption sticker",
+        "position": "Top center, x 10-90%, y 5-19%",
+        "visual_function": "The hook in her own words",
+        "adaptation_rule": "Each line on its own rounded white box hugging the text, near-black text, max 2 lines.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "secondary sticker",
+        "position": "Lower-left, x 8-45%, y 78-88%",
+        "visual_function": "Points to the bottle as her daily support",
+        "adaptation_rule": "Hot fuchsia #E6177F box with white text, max 2 lines.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "hand-drawn arrow",
+        "position": "From the secondary sticker curving up to the bottle",
+        "visual_function": "Directs the eye to the product",
+        "adaptation_rule": "Single white freehand marker arrow, slightly wobbly, ending near but not over the label.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Studio lighting, seamless backdrop or heavy retouching",
+      "Graphic ad headline in display typography outside the stickers",
+      "Real platform interface elements (progress bars, usernames, like or share buttons, platform logos)",
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars or review cards",
+      "Benefit list, checkmarks or icons",
+      "Before/after split or collage",
+      "Emoji, GIF, poll, question or location stickers",
+      "More than two text stickers",
+      "Additional people in the frame",
+      "Visible phone brand logos",
+      "Logos or brand marks",
+      "Bottom bar or banner"
+    ]
+  },
+  "visual_prompt": "Square 1:1 authentic smartphone mirror selfie, like an organic story posted by a real customer. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. The product is a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. SCENE: an apartment bedroom on a weekday morning, full-length mirror, made bed with beige linen, a small plant, a warm bedside lamp and a magenta cushion in the soft background; window daylight mixed with warm lamp light. A Colombian woman about 31 years old, light cinnamon skin, straight chestnut shoulder-length hair, minimal makeup, real skin texture with visible pores, stands in three-quarter view in front of the mirror, taking a selfie with a generic phone without logos held at chest height on the left (the phone covers only a small part of her chin side, her face and proud genuine smile are visible). She wears black high-rise skinny jeans that fit her well and a white cotton crop top; natural, confident pose that shows her full figure, never sexualized. With her other hand she holds the bottle up at chest height on the right side of the frame, label facing the mirror and readable, about 28% of the canvas height, sharp. Handheld framing with a slight 2-degree tilt, mild phone grain, no studio light, no cinematic grading. TEXT STICKERS: at the top center, a story-style caption with each line on its own rounded white box with near-black rounded sans-serif text, max 2 lines. In the lower-left corner, a smaller hot fuchsia #E6177F box with white text, and a single white wobbly hand-drawn marker arrow curving from it up toward the bottle, ending near but not over the label. No other graphics or text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "story caption (hook)",
+      "reference_position": "Top center, over the headroom",
+      "text_style": "Medium-to-bold rounded sans-serif story caption, about 4.5% of the canvas height, centered, near-black on rounded white boxes, max 2 lines",
+      "text": "Por fin me tomo fotos de cuerpo entero ✨"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "secondary sticker",
+      "reference_position": "Lower-left corner, connected to the arrow",
+      "text_style": "Same story font, smaller (about 3.2% of the canvas height), left-aligned, max 2 lines, white text on a hot fuchsia box",
+      "text": "mi apoyo diario, sin quirófano"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Real-looking Colombian woman taking a mirror selfie and holding the bottle toward the mirror",
+    "Home bedroom setting with imperfect natural light and phone-camera grain",
+    "Story-style caption at the top on rounded white boxes",
+    "Smaller fuchsia sticker with a white hand-drawn arrow pointing to the bottle"
+  ],
+  "final_generation_exclusions": [
+    "No before/after split, no second photo.",
+    "No sexualized pose, no swimwear, no exaggerated body.",
+    "No platform interface, usernames or app logos.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The message is about her confidence, not about a promised body change.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}
