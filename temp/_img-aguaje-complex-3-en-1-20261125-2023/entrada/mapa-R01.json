@@ -1,0 +1,56 @@
+{
+  "zonas": {
+    "titular": "Arriba, en dos franjas de color que ocupan todo el ancho y cerca del 12% del alto: la mitad izquierda (fondo morado) dice ANTES con su subtítulo y la mitad derecha (fondo fucsia) dice DESPUÉS con su subtítulo. La palabra ANTES/DESPUÉS ocupa cerca del 30% del ancho de su mitad; el subtítulo, dos líneas, cerca del 80% del ancho de su mitad. Todo centrado en cada mitad.",
+    "modelo": "Antes/después en pantalla dividida, debajo de los titulares y hasta la franja de beneficios (cerca del 55% del alto total). Izquierda: la misma mujer de espaldas, de la cabeza a los muslos, en una habitación con cama blanca, camiseta blanca anudada y short gris, glúteos planos. Derecha: mujer de espaldas en la playa al atardecer, en bikini coral, glúteos redondos y firmes. Cada foto ocupa cerca del 50% del ancho.",
+    "producto": "Frasco negro con tapa negra y cinta fucsia, al centro, encima de la línea que divide el antes y el después, de frente (sin girar). Ocupa cerca del 48% del alto y el 24% del ancho, desde un poco debajo de los titulares hasta el borde de la franja de beneficios. Tiene un sello dorado pequeño a su izquierda en la etiqueta y un sello redondo dorado de registro en su esquina inferior derecha.",
+    "beneficios": "Franja horizontal bajo las fotos (cerca del 18% del alto) con 4 tarjetas iguales en fila, esquinas redondeadas, fondo vino con borde fucsia brillante. Cada una tiene un ícono blanco de línea arriba y el texto en mayúsculas blancas centrado debajo; en la primera, la última línea va en amarillo.",
+    "oferta_cta": "Abajo, ocupando casi todo el ancho (cerca del 11% del alto): una barra en forma de píldora con fondo vino y borde dorado. A la izquierda, 'TRATAMIENTO COMPLETO' en blanco y debajo 'X3 UNIDADES' en amarillo grande con rayitas amarillas a los lados. Una línea vertical blanca separa, y a la derecha va el precio en una píldora amarilla con texto vino muy grueso. No hay botón aparte.",
+    "otros": "Sello dorado 'CALIDAD PREMIUM' con estrellas sobre la etiqueta del frasco (arriba a la izquierda de la etiqueta). Sello redondo dorado y blanco de registro sanitario junto a la base derecha del frasco. Brillo fucsia detrás de la franja de beneficios."
+  },
+  "jerarquia": [
+    "ANTES / DESPUÉS con sus subtítulos (glúteos planos contra glúteos firmes y redondos) junto con las dos fotos",
+    "El frasco del producto en el centro",
+    "La barra de oferta (tratamiento completo x3 unidades y el precio) y luego las 4 tarjetas de beneficios"
+  ],
+  "tipografia_paleta": {
+    "fuentes": "ANTES y DESPUÉS: sans serif muy gruesa, mayúsculas, blanca, sin sombra. Subtítulos: sans serif redondeada en negrita, mayúscula y minúscula, blanca. Tarjetas de beneficios: sans serif gruesa en mayúsculas, blanca, con la última línea de la primera en amarillo. Oferta: 'TRATAMIENTO COMPLETO' sans serif gruesa mayúsculas blanca; 'X3 UNIDADES' sans serif extra gruesa mayúsculas amarilla, más grande. Precio: sans serif extra gruesa vino sobre amarillo con brillo.",
+    "colores": "Franja ANTES: morado oscuro #4A0E4E. Franja DESPUÉS: fucsia #E5197A. Textos principales: blanco #FFFFFF. Acento amarillo: #FFD21F. Tarjetas y barra de oferta: vino #6B0F35 a #4A0A28. Bordes con brillo: fucsia #FF2E8A. Borde de la barra de oferta: dorado #F2C230. Texto del precio: vino #7A0A1E. Frasco: negro #111111 con fucsia #FF1F7A.",
+    "fondos_de_bloques": "Titular ANTES: bloque sólido morado oscuro. Titular DESPUÉS: bloque sólido fucsia. Beneficios: 4 recuadros redondeados vino con borde fucsia brillante sobre fondo vino con degradé. Oferta: píldora vino con borde dorado; precio dentro de una píldora amarilla con brillo."
+  },
+  "angulo": {
+    "deseo": "Tener glúteos firmes, redondos y de aspecto natural, que luzcan bien en bikini",
+    "beneficio": "Pasar de glúteos planos a glúteos más redondos y firmes, sin efecto rebote",
+    "dolor": "Tener glúteos planos y sin forma"
+  },
+  "titular_original": "ANTES: Glúteos planos y sin forma / DESPUÉS: Glúteos firmes, redondos y naturales",
+  "textos": [
+    { "zona": "titular izquierdo", "texto": "ANTES" },
+    { "zona": "subtítulo izquierdo", "texto": "Glúteos planos y sin forma" },
+    { "zona": "titular derecho", "texto": "DESPUÉS" },
+    { "zona": "subtítulo derecho", "texto": "Glúteos firmes, redondos y naturales" },
+    { "zona": "tarjeta 1", "texto": "SIN EFECTO REBOTE (NO ENGORDA)" },
+    { "zona": "tarjeta 2", "texto": "PAGO CONTRA ENTREGA" },
+    { "zona": "tarjeta 3", "texto": "RESULTADOS VISIBLES Y NATURALES" },
+    { "zona": "tarjeta 4", "texto": "TRIPLE ACCIÓN NATURAL" },
+    { "zona": "sello del frasco", "texto": "CALIDAD PREMIUM" },
+    { "zona": "oferta", "texto": "TRATAMIENTO COMPLETO X3 UNIDADES" },
+    { "zona": "precio", "texto": "$139,900" }
+  ],
+  "titulares": [
+    "ANTES: Cola plana y sin forma / DESPUÉS: Cola firme, redonda y natural",
+    "ANTES: Glúteos caídos y sin volumen / DESPUÉS: Glúteos firmes, redondos y naturales",
+    "ANTES: Pompis planas y sin curvas / DESPUÉS: Pompis firmes, redonditas y naturales",
+    "ANTES: Glúteos lisos y sin forma / DESPUÉS: Glúteos con forma, firmes y naturales",
+    "ANTES: Cola plana y sin gracia / DESPUÉS: Cola redonda, firme y natural",
+    "ANTES: Glúteos planos, sin curva / DESPUÉS: Glúteos redondos y firmes, de forma natural",
+    "ANTES: Sin volumen y sin forma / DESPUÉS: Glúteos redondos, firmes y naturales",
+    "ANTES: Pompis caídas y planas / DESPUÉS: Pompis firmes y redondas, naturales",
+    "ANTES: Glúteos sin forma ni volumen / DESPUÉS: Curvas firmes, redondas y naturales",
+    "ANTES: Cola sin forma y plana / DESPUÉS: Cola con curvas, firme y natural"
+  ],
+  "decisiones": [
+    "La tarjeta 'Resultados en 3-4 semanas' se cambió por 'Resultados visibles y naturales', que es lo que dice tu ficha, para no prometer un plazo que no tenemos confirmado para tu producto.",
+    "La tarjeta 'Registro INVIMA' y su sello se cambiaron por 'Triple acción natural' (de tu ficha), porque no tenemos el registro de tu producto. Si lo tienes, puedes volver a ponerlo.",
+    "Se dejó el precio y la oferta de 3 unidades igual que en la referencia; cámbialos si tu precio es otro."
+  ]
+}

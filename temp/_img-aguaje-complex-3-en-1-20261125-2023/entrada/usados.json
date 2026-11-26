@@ -1,0 +1,22 @@
+[
+  {
+    "angulo_id": "prueba-social",
+    "formato_id": "F17"
+  },
+  {
+    "angulo_id": "beneficio-principal",
+    "formato_id": "G16"
+  },
+  {
+    "angulo_id": "transformacion",
+    "formato_id": "F03"
+  },
+  {
+    "angulo_id": "prueba-social",
+    "formato_id": "F29"
+  },
+  {
+    "angulo_id": "objecion-confianza",
+    "formato_id": "F04"
+  }
+]

@@ -20,7 +20,9 @@
   "formatos": [
     "1:1"
   ],
-  "referencias": [],
+  "referencias": [
+    "entrada/referencias/R01.png"
+  ],
   "modo": "variantes",
   "referenciasPropias": [],
   "conceptosReferencias": [
@@ -29,7 +31,7 @@
   "fiel": true,
   "replicar": true,
   "elegirTitulos": false,
-  "rapido": true,
+  "rapido": false,
   "investigacion": "entrada/investigacion.md",
   "logo": null,
   "creado": "2026-11-26T01:23:26.249Z",

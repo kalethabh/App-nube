@@ -1,0 +1,131 @@
+{
+  "producto": "AGUAJE COMPLEX 3 EN 1",
+  "lote": "_img-aguaje-complex-3-en-1-20261125-2023",
+  "cantidad": 10,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: Cola plana y sin forma / DESPUÉS: Cola firme, redonda y natural",
+      "escena": "a clothing store fitting room with a curtain and mirror · leaning on a wall, side view, full body framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: Glúteos caídos y sin volumen / DESPUÉS: Glúteos firmes, redondos y naturales",
+      "escena": "in front of a full-length mirror at home (mirror selfie feel) · back view, slightly turned, from mid-back to knees",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: Pompis planas y sin curvas / DESPUÉS: Pompis firmes, redonditas y naturales",
+      "escena": "a beach at golden hour · kneeling on a mat, side view, full body framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "prueba-social",
+      "angulo": "Prueba social",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: Glúteos lisos y sin forma / DESPUÉS: Glúteos con forma, firmes y naturales",
+      "escena": "by a residential swimming pool, sunny day · stretching with arms up, three-quarter back view, full body framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "curiosidad",
+      "angulo": "Curiosidad",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: Cola plana y sin gracia / DESPUÉS: Cola redonda, firme y natural",
+      "escena": "a living room with a sofa and plants · seated on the edge of a bed or bench, side view, full body framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V06",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "mecanismo-unico",
+      "angulo": "Mecanismo único",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: Glúteos planos, sin curva / DESPUÉS: Glúteos redondos y firmes, de forma natural",
+      "escena": "a bathroom with a large mirror, warm light · standing, one hand adjusting her waistband, three-quarter front view, thighs-up framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V07",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "objecion-confianza",
+      "angulo": "Objeción de confianza",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: Sin volumen y sin forma / DESPUÉS: Glúteos redondos, firmes y naturales",
+      "escena": "her bedroom at home, unmade bed and soft window light · mirror pose holding the phone, three-quarter view, thighs-up framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V08",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "promesa-emocional",
+      "angulo": "Promesa emocional",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: Pompis caídas y planas / DESPUÉS: Pompis firmes y redondas, naturales",
+      "escena": "a kitchen at home, natural light · walking towards the camera, full body framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V09",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: Glúteos sin forma ni volumen / DESPUÉS: Curvas firmes, redondas y naturales",
+      "escena": "a small home gym corner with a yoga mat and dumbbells · standing with crossed legs, front view, knees-up framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    },
+    {
+      "id": "V10",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "Réplica exacta del anuncio validado",
+      "titular": "ANTES: Cola sin forma y plana / DESPUÉS: Cola con curvas, firme y natural",
+      "escena": "a balcony or terrace at sunset · standing, three-quarter back view, looking over her shoulder, full body framing",
+      "camara": "la de la referencia",
+      "base_titular": "el mapa de la referencia"
+    }
+  ],
+  "rapido": true
+}
