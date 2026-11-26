@@ -45,14 +45,14 @@ const bueno = armarPlanVariado({ n: 10, nivel: 'vecinas', analisis, formatos, an
 check('Un plan de 10 «Vecinas» bien armado pasa', reglasDelPlan(bueno, { nivel: 'vecinas', analisis, skill }).errores.length === 0, reglasDelPlan(bueno, { nivel: 'vecinas', analisis, skill }).errores);
 const todoIgual = { variaciones: bueno.variaciones.map((x) => ({ ...x, formato_id: 'F17', angulo_id: 'transformacion', mismo_formato_que_ganador: false })) };
 const e1 = reglasDelPlan(todoIgual, { nivel: 'vecinas', analisis, skill }).errores;
-check('Un lote de 10 con el MISMO formato en todas FALLA (máximo 2 por formato)', e1.some((e) => /F17.*sale 10 veces.*máximo 2/.test(e)), e1);
+check('Un lote de 10 con el MISMO formato en todas FALLA (cada imagen, una estructura distinta)', e1.some((e) => /estructura distinta.*V01, V02.*«F17»/.test(e)), e1);
 check('…y con un solo ángulo FALLA (al menos 4 ángulos distintos)', e1.some((e) => /1 ángulos distintos; tienen que ser al menos 4/.test(e)), e1);
 const tresGanador = { variaciones: bueno.variaciones.map((x, i) => (i < 3 ? { ...x, formato_id: ['F03', 'G13', 'G24'][i], mismo_formato_que_ganador: true, angulo_id: 'transformacion' } : x)) };
 const e2 = reglasDelPlan(tresGanador, { nivel: 'vecinas', analisis, skill }).errores;
-check('Tres con el formato del ganador (antes/después, aunque sean 3 archivos distintos) FALLA', e2.some((e) => /antes-despues.*el del ganador.*máximo 2/.test(e)), e2);
+check('Tres con el formato del ganador (antes/después, aunque sean 3 archivos distintos) FALLA', e2.some((e) => /estructura distinta.*«antes-despues» \(el del ganador/.test(e)), e2);
 const formatoTriple = { variaciones: bueno.variaciones.map((x, i) => (i >= 5 && i < 8 ? { ...x, formato_id: 'F31', mismo_formato_que_ganador: false, angulo_id: 'beneficio-principal' } : x)) };
 const e3 = reglasDelPlan(formatoTriple, { nivel: 'vecinas', analisis, skill }).errores;
-check('Un formato que sale 3 veces FALLA', e3.some((e) => /«F31» sale 3 veces/.test(e)), e3);
+check('Un formato que sale 3 veces FALLA', e3.some((e) => /estructura distinta.*V06, V07, V08.*«F31»/.test(e)), e3);
 const sinNativas = { variaciones: bueno.variaciones.map((x) => (skill.formatos.get(x.formato_id)?.nativo ? { ...x, formato_id: 'F02', mismo_formato_que_ganador: false } : x)) };
 check('Sin formatos nativos FALLA (≥3 nativas)', reglasDelPlan(sinNativas, { nivel: 'vecinas', analisis, skill }).errores.some((e) => /con formato nativo.*al menos 3/.test(e)));
 const sinProta = { variaciones: bueno.variaciones.map((x) => (skill.formatos.get(x.formato_id)?.protagonista ? { ...x, formato_id: 'F06', mismo_formato_que_ganador: false } : x)) };
@@ -67,9 +67,27 @@ check('Una variación que cambia solo 1 variable de Andromeda FALLA', reglasDelP
 const conceptos = armarPlanVariado({ n: 10, nivel: 'conceptos', analisis, formatos, angulos });
 check('Un plan de 10 «Conceptos nuevos» bien armado pasa', reglasDelPlan(conceptos, { nivel: 'conceptos', analisis, skill }).errores.length === 0, reglasDelPlan(conceptos, { nivel: 'conceptos', analisis, skill }).errores);
 check('…y en «Conceptos» un formato repetido FALLA', reglasDelPlan({ variaciones: conceptos.variaciones.map((x, i) => (i === 1 ? { ...x, formato_id: conceptos.variaciones[2].formato_id, mismo_formato_que_ganador: conceptos.variaciones[2].mismo_formato_que_ganador } : x)) }, { nivel: 'conceptos', analisis, skill }).errores.some((e) => /concepto de formato distinto/.test(e)));
-check('Los cupos se escalan (5 y 20)', cupos(5).angulos === 2 && cupos(20).angulos === 8 && cupos(20).maxFormato === 4 && cupos(10).nativas === 3, [cupos(5), cupos(20)]);
+check('Los cupos se escalan (5 y 20)', cupos(5).angulos === 2 && cupos(20).angulos === 8 && cupos(20).maxFormato === 1 && cupos(60).maxFormato === 2 && cupos(10).nativas === 3, [cupos(5), cupos(20)]);
 for (const n of [5, 20]) check(`Un plan de ${n} bien armado pasa`, reglasDelPlan(armarPlanVariado({ n, nivel: 'vecinas', analisis, formatos, angulos }), { nivel: 'vecinas', analisis, skill }).errores.length === 0);
 check('El análisis del ganador exige sus campos y ids reales', errorDeAnalisis({ deseo_central: 'x', nivel_conciencia: 'otro', formato_ganador: 'F99' }, skill).length >= 10);
+
+console.log('\n  Estructuras ganadoras (Mayaverra)');
+const { errorDeFicha, ESTILOS } = await import('../server/lib/imagen-ads/variedad.js');
+const DIR_EST = path.join(RAIZ, '.claude', 'skills', 'anuncios-imagen-ads', 'estructuras');
+const fichas = fs.readdirSync(DIR_EST).filter((n) => /^mv-\d{2}\.json$/.test(n));
+check('Las 8 fichas de estructura son válidas (zonas con %, titular, dolor, segmento, oferta, estilo…)', fichas.length === 8 && fichas.every((n) => errorDeFicha(JSON.parse(fs.readFileSync(path.join(DIR_EST, n), 'utf8'))).length === 0), fichas.map((n) => [n, errorDeFicha(JSON.parse(fs.readFileSync(path.join(DIR_EST, n), 'utf8')))]));
+const est33 = [...skill.formatos.values()].filter((f) => f.estructura);
+check('F33-F40 están en el índice, cada una con su ficha, su referencia y su estilo', est33.map((f) => f.id).join() === 'F33,F34,F35,F36,F37,F38,F39,F40' && est33.every((f) => f.referencia?.startsWith('mis_archivos/biblioteca/referencias/mayaverra/') && ESTILOS.includes(f.estilo) && fs.existsSync(path.join(DIR_EST, path.basename(f.estructura)))));
+const dosIguales = { variaciones: bueno.variaciones.map((x, i) => (i === 3 ? { ...x, formato_id: bueno.variaciones[2].formato_id, estilo: bueno.variaciones[2].estilo, mismo_formato_que_ganador: bueno.variaciones[2].mismo_formato_que_ganador } : x)) };
+check('Un lote con dos imágenes de la misma estructura FALLA', reglasDelPlan(dosIguales, { nivel: 'vecinas', analisis, skill }).errores.some((e) => /estructura distinta/.test(e)));
+const estiloSeguido = { variaciones: bueno.variaciones.map((x, i) => (i === 5 ? { ...x, estilo: bueno.variaciones[4].estilo } : x)) };
+check('El mismo estilo dos veces seguidas FALLA', reglasDelPlan(estiloSeguido, { nivel: 'vecinas', analisis, skill }).errores.some((e) => /V05 y V06 van seguidas con el estilo/.test(e)), reglasDelPlan(estiloSeguido, { nivel: 'vecinas', analisis, skill }).errores);
+const zonaSeguida = { variaciones: bueno.variaciones.map((x, i) => (i === 1 ? { ...x, zona_del_cuerpo: bueno.variaciones[0].zona_del_cuerpo, segmento: bueno.variaciones[0].segmento } : x)) };
+const ez = reglasDelPlan(zonaSeguida, { nivel: 'vecinas', analisis, skill }).errores;
+check('La misma zona del cuerpo o el mismo segmento dos veces seguidas FALLA', ez.some((e) => /zona del cuerpo/.test(e)) && ez.some((e) => /el segmento/.test(e)), ez);
+const { construirPrompt: cp0 } = await import('../../produccion/imagen-ads.js');
+const pe = cp0({ visual_prompt: 'Square ad for Aguaje Complex.', text_layers: [{ text: 'TRATAMIENTO COMPLETO X3 $139.900', reference_function: 'offer' }] }, { referencia: 'estructura' });
+check('El prompt de estructura copia solo la estructura (nunca marca, texto, frasco ni personas de la referencia)', /STRUCTURE REFERENCE from another brand/.test(pe) && /Never copy its brand name, logo, product, bottle, label, wording/.test(pe) && /SECOND attached image is the real product/.test(pe) && !/keep its exact layout/.test(pe), pe.slice(0, 500));
 
 console.log('\n  Precio por país y sellos exactos');
 check('Colombia: 139900 → $139.900 (punto)', normalizarOferta('Tratamiento completo x3 $139900', 'CO') === 'Tratamiento completo x3 $139.900' && formatearPrecio(139900, 'CO') === '$139.900');
@@ -185,9 +203,9 @@ async function principal() {
   check('Lo de venta queda guardado con el producto (para no repetirlo)', guardados?.oferta === 'Tratamiento completo x3 $139.900' && guardados.sellos[1] === 'Pago contra entrega' && guardados.prohibido.join() === 'cura,milagroso', guardados);
   await pedir(`/api/imagen-ads/${lote}/referencias/1`, { metodo: 'PUT', cuerpo: fs.readFileSync(GANADOR), headers: { 'Content-Type': 'image/png' } });
   r = await pedir(`/api/imagen-ads/${lote}/generar`, { json: { costoMaximoConfirmado: 0 } });
-  check('Sin aceptar el costo máximo (que incluye las 2 regeneraciones) no arranca', porImagen === 0 || r.st !== 200, r);
-  r = await pedir(`/api/imagen-ads/${lote}/generar`, { json: { costoMaximoConfirmado: Math.round(porImagen * 10 * 3 * 100) / 100 } });
-  check('Con el costo máximo confirmado (10 imágenes + 2 regeneraciones cada una) arranca', r.st === 200, r);
+  check('Sin aceptar el costo no arranca', porImagen === 0 || r.st !== 200, r);
+  r = await pedir(`/api/imagen-ads/${lote}/generar`, { json: { costoMaximoConfirmado: Math.round(porImagen * 10 * 100) / 100 } });
+  check('Con el costo confirmado (10 imágenes, sin regeneraciones automáticas) arranca', r.st === 200, r);
   const vista = await esperar(8, async () => (await pedir(`/api/imagen-ads/${lote}`)).datos, (d) => ['listo', 'error'].includes(d?.conductor?.estado));
   if (!check('El lote termina', vista?.conductor?.estado === 'listo', { estado: vista?.conductor, tiempo: vista?._seAcaboElTiempo })) return;
   const carpeta = path.join(RAIZ, 'temp', lote);
@@ -207,10 +225,10 @@ async function principal() {
   check('Al modelo de imagen, el ganador va SOLO como estilo («do not copy its layout»)', /use the reference only for style, product and offer; do not copy its layout/.test(estilo) && !/keep its exact layout/.test(estilo), estilo.slice(0, 400));
   const { R } = await import('../server/lib/imagen-ads/disco.js');
   const enviados = vs.map(({ x }) => ({ x, txt: fs.existsSync(R.prompt(carpeta, `${x.id}_1x1`)) ? fs.readFileSync(R.prompt(carpeta, `${x.id}_1x1`), 'utf8') : '' }));
-  check('Lo que se mandó al generador: solo estilo en las de otro formato y composición en las del formato del ganador', enviados.every(({ x, txt }) => (x.mismo_formato_que_ganador ? /REFERENCE AD/.test(txt) && !/do not copy its layout/.test(txt) : /do not copy its layout/.test(txt))), enviados.map(({ x, txt }) => [x.id, x.mismo_formato_que_ganador, txt.slice(0, 120)]));
+  check('Lo que se mandó al generador: estructura en las de estructura ganadora, solo estilo en las demás, composición en las del formato del ganador', enviados.every(({ x, txt }) => (skill.formatos.get(x.formato_id)?.referencia ? /STRUCTURE REFERENCE from another brand/.test(txt) : x.mismo_formato_que_ganador ? /REFERENCE AD/.test(txt) && !/do not copy its layout/.test(txt) : /do not copy its layout/.test(txt))), enviados.map(({ x, txt }) => [x.id, x.mismo_formato_que_ganador, txt.slice(0, 120)]));
   const pedidos = fs.readdirSync(path.join(carpeta, 'app', 'imagen-ads', 'motor')).filter((n) => /^T\d+\.json$/.test(n)).flatMap((n) => JSON.parse(fs.readFileSync(path.join(carpeta, 'app', 'imagen-ads', 'motor', n), 'utf8')).piezas || []);
-  const rehechas = pedidos.filter((p) => /^rev\d$/.test(p.orden));
-  check('Lo que no pasó la revisión se rehízo solo, hasta 2 veces (V02 y V03: rev1 y rev2)', rehechas.filter((p) => p.pieza === 'V02_1x1').length === 2 && rehechas.filter((p) => p.pieza === 'V03_1x1').length === 2 && rehechas.every((p) => p.correccion_en), rehechas);
+  const rehechas = pedidos.filter((p) => p.orden !== 'g');
+  check('Nada se rehace solo: lo que no pasó queda marcado para rehacer (con tu sí)', rehechas.length === 0 && vista.variaciones.find((x) => x.v === 'V02')?.piezas['1:1']?.estado === 'te-necesita', { rehechas, v02: vista.variaciones.find((x) => x.v === 'V02')?.piezas['1:1']?.estado });
   const notas = vista.variaciones.map((x) => x.nota);
   check('Cada tarjeta trae formato, ángulo, «por qué debería vender» y su nota (1-10)', vista.variaciones.every((x) => x.formato && x.angulo && x.porQueVende && Number.isInteger(x.nota)), vista.variaciones.slice(0, 2));
   check('El lote viene ordenado de mayor a menor nota', notas.every((n, i) => i === 0 || notas[i - 1] >= n), notas);
@@ -222,11 +240,48 @@ async function principal() {
   const { r: r2, lote: lote2 } = await deUnLote(id, porImagen, { nivel: 'conceptos', cantidad: 5 });
   check('Sin oferta en el formulario, el lote usa la guardada del producto', r2.datos?.brief?.venta?.oferta === 'Tratamiento completo x3 $139.900', r2.datos?.brief?.venta);
   await pedir(`/api/imagen-ads/${lote2}/referencias/1`, { metodo: 'PUT', cuerpo: fs.readFileSync(GANADOR), headers: { 'Content-Type': 'image/png' } });
-  await pedir(`/api/imagen-ads/${lote2}/generar`, { json: { costoMaximoConfirmado: Math.round(porImagen * 5 * 3 * 100) / 100 } });
+  await pedir(`/api/imagen-ads/${lote2}/generar`, { json: { costoMaximoConfirmado: Math.round(porImagen * 5 * 100) / 100 } });
   const vista2 = await esperar(8, async () => (await pedir(`/api/imagen-ads/${lote2}`)).datos, (d) => ['listo', 'error'].includes(d?.conductor?.estado));
   const plan2 = vista2?.conductor?.estado === 'listo' ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', lote2, 'plan.json'), 'utf8')) : null;
   const fams = (plan2?.variaciones || []).map((x) => skill.formatos.get(x.formato_id)?.familia);
   check('«Conceptos nuevos»: termina y cada una con un concepto de formato distinto', plan2 && new Set(fams).size === 5, { estado: vista2?.conductor, fams });
+
+  // ---- ESTRUCTURAS GANADORAS fijas (la prueba del usuario: mv-01, mv-03, mv-04 y mv-06)
+  const refsMv = ['mv-01', 'mv-03', 'mv-04', 'mv-06'].map((m) => path.join(RAIZ, 'mis_archivos', 'biblioteca', 'referencias', 'mayaverra', `${m}.jpg`));
+  const hayRefs = refsMv.every((r) => fs.existsSync(r));
+  r = await pedir('/api/imagen-ads', { json: { productoId: id, fotoProducto: 1, datos: { nombre: 'Curvas Plus', pais: 'Colombia', idioma: 'es' }, cantidad: 4, formatos: ['1:1'], logo: null, modo: 'nuevos', estructuras: ['F33', 'F35', 'F36', 'F38'], usarInvestigacion: false } });
+  const lote4 = r.datos?.lote;
+  if (lote4) creados.lotes.push(lote4);
+  check('Se crea un lote con 4 estructuras fijas (con la estrategia de la IA)', r.st === 201 && r.datos.brief.estructuras?.length === 4 && r.datos.brief.rapido === false, r.datos);
+  const r5 = await pedir('/api/imagen-ads', { json: { productoId: id, fotoProducto: 1, datos: { nombre: 'Curvas Plus', pais: 'Colombia', idioma: 'es' }, cantidad: 3, formatos: ['1:1'], logo: null, modo: 'nuevos', estructuras: ['F33', 'F35', 'F36', 'F38'] } });
+  check('Con 4 estructuras y otra cantidad, no se crea', r5.st === 400, r5);
+  await pedir(`/api/imagen-ads/${lote4}/generar`, { json: { costoMaximoConfirmado: Math.round(porImagen * 4 * 100) / 100 } });
+  const vista4 = await esperar(8, async () => (await pedir(`/api/imagen-ads/${lote4}`)).datos, (d) => ['listo', 'error'].includes(d?.conductor?.estado));
+  const c4 = path.join(RAIZ, 'temp', lote4 || 'x');
+  if (check('El lote de estructuras termina', vista4?.conductor?.estado === 'listo', vista4?.conductor)) {
+    const plan4 = JSON.parse(fs.readFileSync(path.join(c4, 'plan.json'), 'utf8'));
+    const estilos4 = plan4.variaciones.map((x) => x.estilo);
+    check('El plan usa las 4 estructuras, una por imagen, sin el mismo estilo seguido', plan4.variaciones.map((x) => x.formato_id).sort().join() === 'F33,F35,F36,F38' && estilos4.every((e, i) => i === 0 || e !== estilos4[i - 1]), plan4.variaciones.map((x) => [x.formato_id, x.estilo]));
+    const enviados4 = plan4.variaciones.map((x) => fs.readFileSync(R.prompt(c4, `${x.id}_1x1`), 'utf8'));
+    check('A cada imagen le llegó su estructura como guía (solo estructura) y el frasco como segunda imagen', enviados4.every((t) => /STRUCTURE REFERENCE from another brand/.test(t)));
+    if (hayRefs) {
+      check('Se arman los 4 montajes lado a lado en comparacion/', ['V01', 'V02', 'V03', 'V04'].every((v) => fs.existsSync(path.join(c4, 'comparacion', `${v}.jpg`))), fs.existsSync(path.join(c4, 'comparacion')) ? fs.readdirSync(path.join(c4, 'comparacion')) : null);
+      const inf = fs.existsSync(path.join(c4, 'comparacion', 'informe.md')) ? fs.readFileSync(path.join(c4, 'comparacion', 'informe.md'), 'utf8') : '';
+      check('El informe trae los 7 puntajes de cada una: pasan las de 8 o más y V02/V03 quedan para rehacer (Texto limpio)', /\| V01 \|.*PASA/.test(inf) && /\| V02 \|.*REHACER \(Texto limpio\)/.test(inf) && /\| V03 \|.*REHACER/.test(inf) && /Prompt corregido propuesto/.test(inf), inf.slice(0, 900));
+      const v02 = vista4.variaciones.find((x) => x.v === 'V02')?.piezas['1:1'];
+      check('V02 queda marcada (te necesita) con el criterio que falló, sin rehacerse sola', v02?.estado === 'te-necesita' && v02.problemas.some((t) => /Texto limpio \(5\)/.test(t)), v02);
+      const ctx = cp.spawnSync(process.execPath, [path.join(RAIZ, 'produccion', 'rehacer-toma.js'), `temp/${lote4}`, '--pieza', 'V02_1x1', '--contexto'], { cwd: RAIZ, env: { ...env, PUERTO: String(PUERTO) }, encoding: 'utf8' });
+      check('npm run rehacer --contexto muestra los puntajes, la corrección y el costo', ctx.status === 0 && /texto_limpio 5/.test(ctx.stdout) && /Corrección propuesta/.test(ctx.stdout) && /cuesta/.test(ctx.stdout), ctx.stdout + ctx.stderr);
+      const nuevoJson = path.join(TMP, 'nuevo.json');
+      fs.writeFileSync(nuevoJson, JSON.stringify({ visual_prompt: 'Prompt corregido de prueba.' }));
+      const antes = fs.readFileSync(path.join(c4, 'V02.json'), 'utf8');
+      const plan1 = cp.spawnSync(process.execPath, [path.join(RAIZ, 'produccion', 'rehacer-toma.js'), `temp/${lote4}`, '--pieza', 'V02_1x1', '--aplicar', nuevoJson, '--solo-plan'], { cwd: RAIZ, env: { ...env, PUERTO: String(PUERTO) }, encoding: 'utf8' });
+      check('--solo-plan muestra el prompt nuevo y el costo sin tocar nada', plan1.status === 0 && /Prompt corregido de prueba/.test(plan1.stdout) && /No se pidió nada/.test(plan1.stdout) && fs.readFileSync(path.join(c4, 'V02.json'), 'utf8') === antes, plan1.stdout + plan1.stderr);
+      const si = cp.spawnSync(process.execPath, [path.join(RAIZ, 'produccion', 'rehacer-toma.js'), `temp/${lote4}`, '--pieza', 'V02_1x1', '--aplicar', nuevoJson, '--si'], { cwd: RAIZ, env: { ...env, PUERTO: String(PUERTO) }, encoding: 'utf8' });
+      const v4b = await esperar(4, async () => (await pedir(`/api/imagen-ads/${lote4}`)).datos, (d) => d?.conductor?.estado === 'listo' && (d.variaciones.find((x) => x.v === 'V02')?.piezas['1:1']?.version || 0) >= 2);
+      check('Con --si aplica el prompt aprobado y la app la rehace (versión 2)', si.status === 0 && JSON.parse(fs.readFileSync(path.join(c4, 'V02.json'), 'utf8')).visual_prompt === 'Prompt corregido de prueba.' && (v4b?.variaciones?.find((x) => x.v === 'V02')?.piezas['1:1']?.version || 0) >= 2, si.stdout + si.stderr);
+    } else check('(las referencias de Mayaverra no están en mis_archivos/biblioteca/referencias/mayaverra: sin montajes)', true);
+  }
 
   // ---- «Fieles» sigue siendo el camino de replicar (con el análisis antes)
   const { r: r3, lote: lote3 } = await deUnLote(id, porImagen, { nivel: 'fieles', cantidad: 2 });

@@ -25,6 +25,7 @@
 // aunque la IA haya cambiado entre una vuelta y otra: nunca se parte distinto.
 import { piezaId, vDe, formatoDe, numeroDeV, idsDelLote, ordenDePiezas, ordenDeV } from './disco.js';
 import { motorActual } from '../motor-ia.js';
+import { CRITERIOS, NOTA_MINIMA, NOMBRES_CRITERIOS } from './variedad.js';
 
 export const TOPES = {
   porOrden: 24, // piezas por orden al motor
@@ -625,27 +626,18 @@ export function aplicarRevision(est, id, json, firmas = {}) {
       p.fase = 'por-revisar';
       continue;
     }
-    const ok = e.ok === true;
-    const problemas = Array.isArray(e.problemas) ? e.problemas.map(String).filter((s) => s.trim()) : [];
+    // (2026-11-26b) los 7 puntajes contra la estructura ganadora: con alguno bajo 8, no pasa (queda para rehacer)
+    const puntajes = e.puntajes && typeof e.puntajes === 'object' ? Object.fromEntries(CRITERIOS.map((k) => [k, Math.max(0, Math.min(10, Math.round(Number(e.puntajes[k]) || 0)))])) : null;
+    const bajos = puntajes ? CRITERIOS.filter((k) => puntajes[k] < NOTA_MINIMA) : [];
+    const ok = e.ok === true && !bajos.length;
+    const problemas = [...(Array.isArray(e.problemas) ? e.problemas.map(String).filter((s) => s.trim()) : []), ...(bajos.length ? [`No llega a ${NOTA_MINIMA} en: ${bajos.map((k) => `${NOMBRES_CRITERIOS[k]} (${puntajes[k]})`).join(', ')}.`] : [])];
     const ronda = x.ronda ?? p.ronda;
     // lo que salio mal, en ingles y corto, para el modelo de imagen (lo escribe la revision cuando algo falla): si
     // despues piden «otra version» de esta imagen (o «Corregir esto»), va con ella para no repetir el error
     const correccion = !ok && typeof e.correccion_en === 'string' ? e.correccion_en.replace(/\s+/g, ' ').trim().slice(0, 600) : '';
     // (2026-11-26a) la nota de venta (1-10) de los lotes de «Variantes» con el selector: la pantalla los ordena por ella
     const nota = Number.isInteger(e.nota) && e.nota >= 1 && e.nota <= 10 ? e.nota : null;
-    p.revision = { tanda: id, ronda, ok, problemas, firma: x.firma, ...(correccion ? { correccion_en: correccion } : {}), ...(nota ? { nota } : {}) };
-    // (2026-11-26a) «Variantes» con el selector (est.autoRehacer): lo que no pasa se rehace solo, hasta 2 veces, con lo
-    // que vio la revision (el costo máximo que se mostró antes de generar ya lo incluye). Solo el cuadrado: su vertical
-    // sale después del cuadrado final.
-    const hechas = Number(p.autoRehechas) || 0;
-    if (!ok && Number(est.autoRehacer) > hechas && p.formato === '1:1' && ronda !== 'u' && !p.local) {
-      p.autoRehechas = hechas + 1;
-      p.fase = 'por-pedir';
-      p.intentosApi = 0;
-      p.orden = { id: `rev${hechas + 1}`, modo: 'generar', version: (p.version || 0) + 1, ...(correccion ? { correccion_en: correccion } : {}) };
-      aplicadas.push(x.pieza);
-      continue;
-    }
+    p.revision = { tanda: id, ronda, ok, problemas, firma: x.firma, ...(correccion ? { correccion_en: correccion } : {}), ...(nota ? { nota } : {}), ...(puntajes ? { puntajes } : {}) };
     // Todo al primer intento: sin reintento automatico. Lo que vio la revision queda como nota de la pieza («con
     // detalles») y el usuario decide (Regenerar, con o sin instruccion). (ronda 2 solo viene de un lote de antes.)
     p.fase = 'final';

@@ -1,0 +1,72 @@
+{
+  "id": "mv-08",
+  "nombre": "Carta de texto de fin de oferta",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-08.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su frasco",
+  "formato_id": "F40",
+  "proporcion": "1:1 (600x600)",
+  "zonas": {
+    "arriba": "Titular de 2 líneas en blanco grueso, arriba a la izquierda. 20 %",
+    "centro": "Izquierda (70 %): carta de 5 párrafos cortos en blanco con frases en negrita. Derecha: el frasco recortado, inclinado, cortado por el borde. 70 %",
+    "abajo": "Firma en cursiva («el equipo…»). 10 %"
+  },
+  "orden_de_lectura": [
+    "titular",
+    "primer párrafo (la oferta que termina)",
+    "frasco",
+    "firma"
+  ],
+  "titular": {
+    "lineas": 2,
+    "palabras": 2,
+    "resaltada": "ninguna en color",
+    "color_resaltado": "blanco sobre verde oscuro",
+    "posicion": "arriba a la izquierda",
+    "gancho": "urgencia"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Solo texto."
+  },
+  "zona_del_cuerpo": "cuerpo entero",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "3x2",
+    "como": "dicha en la carta, en negrita"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "carta-de-texto",
+  "paleta": "verde oscuro y blanco",
+  "diferencias_con_lo_que_vio_el_usuario": [
+    "Coincide. La urgencia («la oferta desaparecerá») solo se usa si es verdad."
+  ],
+  "aguaje": {
+    "titular": "UNA CARTA / PARA TI",
+    "resaltada": "PARA TI (rosado)",
+    "gancho": "emocion",
+    "carta": [
+      "Sabemos lo que es probarte un jean y sentir que atrás no se llena.",
+      "Por eso hicimos AGUAJE COMPLEX 3 EN 1: aguaje, fenogreco y maca negra en 2 cápsulas al día.",
+      "Hoy tienes el **TRATAMIENTO COMPLETO X3 $139.900**, con **pago contra entrega** y **envío gratis**.",
+      "Registro INVIMA RSA-0030271-2024."
+    ],
+    "firma": "Tu equipo Aguaje Complex",
+    "dolor": "Solo texto, sin cuerpo.",
+    "zona": "glúteos",
+    "segmento": "general",
+    "beneficios": [],
+    "oferta": "en la carta",
+    "cta": "ninguno",
+    "franja": "en la carta",
+    "nota": "Sin «la oferta se acaba»: no hay fecha real."
+  }
+}

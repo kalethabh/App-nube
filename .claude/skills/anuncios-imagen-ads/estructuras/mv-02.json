@@ -1,0 +1,66 @@
+{
+  "id": "mv-02",
+  "nombre": "Antes y después real con banda 3x2 y precio por unidad",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-02.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su frasco",
+  "formato_id": "F34",
+  "proporcion": "1:1",
+  "zonas": {
+    "arriba": "Marca con hoja entre líneas doradas, titular serif enorme en verde oscuro (nombre del producto) y una línea de subtítulo en mayúsculas espaciadas. 25 %",
+    "centro": "Izquierda (60 %): foto real del vientre antes y después en dos tarjetas redondeadas con etiquetas «ANTES»/«DESPUÉS» en píldoras verdes y un círculo con flecha entre ellas. Derecha: el frasco grande, de pie. 50 %",
+    "abajo": "Izquierda: banda diagonal de pincel verde con «3 comprar 2 oferta» (número gigante blanco y dorado). Derecha: dos cajas, precio normal tachado por 3 contra precio por unidad. 25 %"
+  },
+  "orden_de_lectura": [
+    "titular serif",
+    "antes y después",
+    "frasco",
+    "banda 3x2",
+    "precio por unidad"
+  ],
+  "titular": {
+    "lineas": 1,
+    "palabras": 2,
+    "resaltada": "ninguna en color: todo el titular es el producto en serif enorme; el subtítulo dice el resultado",
+    "color_resaltado": "verde oscuro sobre crema",
+    "posicion": "arriba al centro",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "Foto real recortada del torso: vientre inflamado contra vientre plano, misma ropa interior negra y mismo encuadre."
+  },
+  "zona_del_cuerpo": "vientre",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno",
+    "nota": "los beneficios solo están en la etiqueta del frasco"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "3x2",
+    "como": "banda de pincel diagonal + caja crema con precio tachado «por 3» y caja verde con «solo X por botella»"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "paleta": "crema, verde oscuro, dorado",
+  "diferencias_con_lo_que_vio_el_usuario": [
+    "Coincide. El antes y el después son el mismo cuerpo con la misma ropa (para Aguaje se piden momentos distintos)."
+  ],
+  "aguaje": {
+    "titular": "AGUAJE COMPLEX 3 EN 1 / GLÚTEOS Y CADERAS CON MÁS VOLUMEN",
+    "resaltada": "MÁS VOLUMEN (dorado)",
+    "gancho": "mecanismo",
+    "dolor": "Foto real de espaldas, cadera a muslo: ANTES con leggings grises en casa, glúteo plano y cadera recta; DESPUÉS otro día, jean azul en la calle, glúteo redondo y cadera marcada. Píldoras ANTES/DESPUÉS y flecha.",
+    "zona": "glúteos y caderas",
+    "segmento": "mujeres 25-45",
+    "beneficios": [],
+    "oferta": "banda de pincel «X3 TRATAMIENTO COMPLETO» + caja «TRATAMIENTO COMPLETO X3 $139.900» (sin precio tachado inventado)",
+    "cta": "ninguno",
+    "franja": "una línea fina abajo: INVIMA RSA-0030271-2024 · Pago contra entrega"
+  }
+}

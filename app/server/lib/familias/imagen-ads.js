@@ -35,9 +35,10 @@ import * as turnoClaude from '../imagen-ads/turno-claude.js';
 import * as plan from '../imagen-ads/planificador.js';
 import * as local from '../imagen-ads/local.js';
 import { R, firma, guardarJSON, conCeros, siguienteEnDisco, fotoDelLote, formatoDe, vDe } from '../imagen-ads/disco.js';
-import { cargarYNormalizar, guardar } from '../imagen-ads/estado.js';
+import { cargarYNormalizar, guardar, leerEstado } from '../imagen-ads/estado.js';
 import { sesionEstrategia, sesionPrompts, sesionRevision, sesionAjuste, permisos } from '../imagen-ads/sesiones.js';
 import { esVariado, conAnalisis } from '../imagen-ads/variedad.js';
+import { copiarEstructuras, armarComparacion, estructurasDelLote } from '../imagen-ads/comparacion.js';
 import { verificarSesion, leerBloqueo, verificarRevision, verificarAjuste, verificarV } from '../imagen-ads/verificar.js';
 import { revisionSimulada, revisionDeLaTanda } from '../imagen-ads/revision-simulada.js';
 import { loteAnterior, usadosDe, armarInforme, piezasPorHacer, faltaDelBorrador } from '../imagen-ads/lotes.js';
@@ -702,6 +703,9 @@ function aplicarSimuladas(carpeta, est, piezas) {
       const t = plan.iniciarTanda(est, { tipo: 'revision', formato: f, piezas: grupo.map((p) => ({ pieza: p, firma: est.piezas[p].firma, ronda: est.piezas[p].ronda })) }, id, null);
       t.simulada = true;
       const json = revisionDeLaTanda(t.piezas);
+      // (2026-11-26b) con estructura ganadora: los 7 puntajes (simulados: la que falla saca 5 en texto limpio)
+      const conEstructura = estructurasDelLote(carpeta);
+      for (const r of json.revisadas) if (conEstructura[r.pieza.split('_')[0]]) r.puntajes = puntajesSimulados(r.ok);
       guardarJSON(R.revision(carpeta, id), json);
       for (const p of plan.aplicarRevision(est, id, json, firmasDe(carpeta, grupo))) local.borrarRecortes(carpeta, p);
     }
@@ -780,6 +784,8 @@ async function anuncios(ctx) {
   const motorEstrategia = pasoEstrategia?.motor || null; // la IA que hizo la estrategia (estado.json la guarda en E001)
   const est = cargarYNormalizar(c, ctx.brief, { uuidEstrategia, motorEstrategia, simulada }); // UNA lectura; despues, memoria
   guardar(c, est);
+  // (2026-11-26b) las imágenes de las estructuras ganadoras que usa el plan, al lote (las mira la revisión)
+  copiarEstructuras(c);
   // Los carriles de la IA y lo local van con su propia senal: la de Detener o la de un error del bucle (asi el paso
   // nunca vuelve con algo vivo escribiendo, ni siquiera si se cae).
   const corte = new AbortController();
@@ -894,6 +900,12 @@ async function anuncios(ctx) {
 async function informe(ctx) {
   const c = ctx.carpeta;
   armarInforme(c, ctx.brief);
+  // (2026-11-26b) la comparación contra cada estructura ganadora: montajes e informe (solo marca; rehacer, con tu sí)
+  try {
+    armarComparacion(c, ctx.brief, leerEstado(c));
+  } catch (e) {
+    console.error(`[imagen-ads] ${ctx.slug}: no pude armar la comparación: ${e?.message || e}`);
+  }
   fs.rmSync(R.subidas(c), { recursive: true, force: true });
   // lo que sobra de la revision (la vista queda: la usa la revision de un vertical si regeneras su cuadrado)
   for (const n of listar(R.dirRevision(c))) if (/_r[1-4]\.png$|\.firma$|\.tmp\./.test(n)) fs.rmSync(path.join(R.dirRevision(c), n), { force: true });
@@ -910,3 +922,8 @@ export const PASOS = [
 
 /** Para las pruebas (app/herramientas/probar-imagen-ads.mjs): el bucle y sus piezas sueltas. */
 export const _pruebas = { anuncios, estrategia, preparar, informe, lanzarMotor, correrTanda, ordenesSinTerminar, fraseDelLote, lotesEnMarcha };
+
+/** (2026-11-26b) Los 7 puntajes de la revisión simulada (modo prueba). */
+function puntajesSimulados(ok) {
+  return { estructura: 9, dolor_visual: 9, titular: 8, texto_limpio: ok ? 9 : 5, frasco_fiel: 9, oferta_confianza: 8, diferencia_real: 9 };
+}

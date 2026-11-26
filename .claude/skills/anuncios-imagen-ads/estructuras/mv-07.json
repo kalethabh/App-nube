@@ -1,0 +1,73 @@
+{
+  "id": "mv-07",
+  "nombre": "Bodegón premium vertical con oferta y 4 pruebas en círculo",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-07.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su frasco",
+  "formato_id": "F39",
+  "proporcion": "9:16 (1143x2048)",
+  "zonas": {
+    "arriba": "Titular de oferta de 3 líneas, serif crema enorme, atravesado por un hilo de miel que cae sobre el frasco. 30 %",
+    "centro": "El frasco grande sobre un pedestal, cubierto por la miel que gotea, dentro de un círculo fino verde con 4 pruebas alrededor (palabra clave en serif verde + 2-3 palabras). 60 %",
+    "abajo": "Pedestal de piedra. 10 %"
+  },
+  "orden_de_lectura": [
+    "titular de oferta",
+    "frasco con la gota",
+    "las 4 pruebas"
+  ],
+  "titular": {
+    "lineas": 3,
+    "palabras": 5,
+    "resaltada": "ninguna en color",
+    "color_resaltado": "crema sobre malva",
+    "posicion": "arriba",
+    "gancho": "oferta"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Producto como objeto de lujo."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "circulo-frasco",
+    "cantidad": 4
+  },
+  "prueba": [
+    "clientes",
+    "garantia",
+    "terceros"
+  ],
+  "oferta": {
+    "tipo": "2+1",
+    "como": "el titular entero es la oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "bodegon-premium",
+  "paleta": "malva y piedra, ámbar de la miel, crema, verde oscuro",
+  "diferencias_con_lo_que_vio_el_usuario": [
+    "Coincide. La etiqueta del frasco trae texto basura inventado por la IA («Gaslófeer husule»): justo lo que hay que evitar.",
+    "Usa «90,000+ clientes» y «probado por terceros»: en Aguaje no se ponen (no hay esos datos)."
+  ],
+  "aguaje": {
+    "titular": "TRATAMIENTO / COMPLETO X3 / $139.900",
+    "resaltada": "$139.900",
+    "gancho": "oferta",
+    "dolor": "Frasco de Aguaje sobre pedestal, con miel de aguaje (fruto naranja oscuro) goteando por la tapa rosada.",
+    "pruebas_en_circulo": [
+      "3 extractos naturales",
+      "Registro INVIMA RSA-0030271-2024",
+      "Pago contra entrega",
+      "Envío gratis"
+    ],
+    "zona": "ninguna",
+    "segmento": "general",
+    "beneficios": [],
+    "oferta": "el titular",
+    "cta": "ninguno",
+    "franja": "las 4 pruebas en círculo"
+  }
+}

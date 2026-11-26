@@ -17,7 +17,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { completarVariacionesFieles } from './variaciones-fieles.js';
 import { leerJSON, existe, listar } from '../archivos.js';
-import { nivelDe, esVariado, REHACER_SOLO, nombreDeDescarga } from './variedad.js';
+import { nivelDe, nombreDeDescarga } from './variedad.js';
 import { nuevoEstado, asegurarPiezas, aplicarRevision, listaDePiezas, cuentas, PEDIDO_TERMINADO } from './planificador.js';
 import { verificarRevision, leerSkill } from './verificar.js';
 import { borrarRecortes, finalAlDia, sha1DelLogo } from './local.js';
@@ -91,8 +91,8 @@ export function cargarYNormalizar(carpeta, brief, { uuidEstrategia = null, motor
     // (un estado de antes, sin la IA de la estrategia: se completa con la del paso, si se sabe)
     if (est.tandas?.E001 && !est.tandas.E001.motor && motor) est.tandas.E001.motor = motor;
   }
-  // (2026-11-26a) «Vecinas» y «Conceptos nuevos»: lo que la revisión no aprueba se rehace solo (hasta 2)
-  est.autoRehacer = esVariado(brief) ? REHACER_SOLO : 0;
+  // (2026-11-26b) nada se rehace solo (decisión del usuario): la revisión marca y propone; rehacer necesita su sí
+  delete est.autoRehacer;
   // PLANTILLAS: lo que dibuja solo la app (las plantillas sin escena y los verticales, que reutilizan la escena del
   // cuadrado) nunca va al motor: queda «final» de entrada y la pantalla lo muestra cuando está dibujado.
   if (brief?.plantillas) {
