@@ -26,6 +26,10 @@ import { PEDIDO_TERMINADO } from './planificador.js';
 import { POR_ID, escenasDe, catalogoParaLaPantalla } from './catalogo-plantillas.js';
 import * as plantillasRef from './plantillas-referencia.js';
 import { repartoDeFormatos } from './desde0.js';
+import { NIVELES } from './variedad.js';
+import { ajustesDe, guardarAjustes } from './ajustes-producto.js';
+import { paisDe, normalizarOferta } from './precios.js';
+import { historialDe } from './ventas.js';
 import {
   FAMILIA, RE_LOTE, RE_PIEZA, RE_V, R, POSICIONES, NOMBRE_POSICION, MAXIMO_VARIACIONES, MAXIMO_REFERENCIAS, carpetaDe, guardarJSON, idsDelLote,
   vDe, formatoDe, piezaId, ordenDePiezas, ordenDeV, fotoDelLote,
@@ -261,6 +265,34 @@ export function crearLote(cuerpo = {}) {
     creado: ahora(),
     ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}),
   };
+  // (2026-11-26a) QUÉ TAN DISTINTAS en «Variantes»: fieles (el camino de replicar), vecinas (por defecto en la pantalla)
+  // o conceptos. Las dos últimas van con la estrategia de la IA y el ganador solo como referencia de estilo (variedad.js).
+  // (un pedido de antes con «replicar» es «fieles»; sin el campo, como antes)
+  const variacion = brief.modo === 'variantes' && !brief.agente ? (NIVELES.includes(cuerpo.variacion) ? cuerpo.variacion : cuerpo.replicar === true ? 'fieles' : null) : null;
+  if (variacion) {
+    brief.variacion = variacion;
+    if (variacion === 'fieles') Object.assign(brief, { replicar: true, rapido: true, fiel: true });
+    else {
+      delete brief.replicar;
+      Object.assign(brief, { rapido: false, fiel: false });
+    }
+  }
+  // (2026-11-26a) lo de venta del producto (oferta, sellos, país, prohibido decir): lo del formulario se guarda con el
+  // producto para no repetirlo; si no vino, lo guardado. La oferta, con el separador de miles del país.
+  {
+    const guardado = ajustesDe(productoId);
+    const v = cuerpo.venta && typeof cuerpo.venta === 'object' ? cuerpo.venta : null;
+    const venta = v ? guardarAjustes(productoId, { ...guardado, ...v, pais: v.pais || guardado.pais || paisDe(datos.pais) }) : { ...guardado };
+    venta.pais ||= paisDe(datos.pais);
+    if (venta.oferta && venta.pais) venta.oferta = normalizarOferta(venta.oferta, venta.pais);
+    if (venta.oferta || venta.sellos.length || venta.prohibido.length || venta.pais) brief.venta = venta;
+  }
+  // (2026-11-26a) lo que ya vendió este producto en Meta (formato + ángulo, de «Aprender de mis ventas»): la estrategia
+  // lo prioriza y prueba siempre combinaciones nuevas
+  if (variacion && variacion !== 'fieles') {
+    const historial = historialDe(datos.nombre);
+    if (historial.length) brief.historial = historial;
+  }
   // la investigación de mercado del producto (si ya la tiene y no se pidió sin ella) va al lote: la estrategia la lee
   if (cuerpo.usarInvestigacion !== false) {
     const md = aMarkdown(productoId);

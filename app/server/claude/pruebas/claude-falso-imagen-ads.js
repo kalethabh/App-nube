@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
+import { armarPlanVariado } from './plan-variado-de-prueba.js';
 
 const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', '..', '..');
 const SKILL = path.join(RAIZ, '.claude', 'skills', 'anuncios-imagen-ads');
@@ -76,7 +77,10 @@ function anuncio(v, entrada, brief, numero) {
     adaptation_rule: 'Adapted to the product of this test.',
     present_in_reference: true,
   }));
-  const capas = (f?.text_layers || [{ block_id: 'text_block_01', reference_function: 'main headline' }]).map((t, i) => ({
+  const variado = brief?.modo === 'variantes' && ['vecinas', 'conceptos'].includes(brief?.variacion);
+  let beneficios = 0;
+  const base = (f?.text_layers || [{ block_id: 'text_block_01', reference_function: 'main headline' }]).filter((t) => !variado || !/benefit|beneficio|bullet|check/i.test(`${t.block_id || ''} ${t.reference_function || ''}`) || ++beneficios <= 4);
+  const capas = base.map((t, i) => ({
     block_id: t.block_id,
     reference_function: String(t.reference_function || 'main headline').replace(/\s*\(OPTIONAL\)/g, ''),
     reference_position: t.reference_position || 'top center',
@@ -84,6 +88,11 @@ function anuncio(v, entrada, brief, numero) {
     // el titular elegido por el usuario (si lo hay) va completo en la primera capa, como pide la verificación
     text: i === 0 && brief?.seleccionTitulos?.titulos?.length && entrada?.titular ? entrada.titular : `Texto de prueba ${numero}.${i + 1}`,
   }));
+  // («Vecinas»/«Conceptos»: la oferta y los sellos del formulario, letra por letra, salvo en los formatos nativos)
+  if (variado && !formato?.nativo) {
+    if (brief?.venta?.oferta) capas.push({ block_id: 'text_oferta', reference_function: 'offer', reference_position: 'bottom strip', text_style: 'Bold', text: brief.venta.oferta });
+    for (const [k, sello] of (brief?.venta?.sellos || []).entries()) capas.push({ block_id: `text_sello_${k + 1}`, reference_function: 'trust seal', reference_position: 'bottom corner', text_style: 'Small caps', text: sello });
+  }
   return {
     prompt_type: 'ad_creative_generation',
     ad_info: { variation_id: v, structure_source: entrada?.fuente === 'referencia' ? 'uploaded reference' : `library format ${entrada?.formato_id || 'F01'}`, reference_style: 'premium product ad', angle_used: entrada?.angulo || 'Beneficio', ad_format: 'Product Hero Ad', platform_goal: 'High-CTR Facebook/Instagram/TikTok image ad' },
@@ -186,6 +195,17 @@ async function estrategia(texto, intento) {
     });
     plan.variaciones = plan.variaciones.map((x, i) => ({ ...x, nivel: niveles[i] || 'A', variables: niveles[i] === 'A' ? ['ejecucion'] : ['faceta', 'contexto'], faceta: 'La que trabaja y no tiene tiempo', contexto: 'En su rutina', formato_creativo: 'Imagen estilo UGC', cambio: `Cambio de prueba ${i + 1}`, hipotesis: `Hipótesis de prueba ${i + 1}` }));
   }
+  // (2026-11-26a) «Vecinas» / «Conceptos nuevos»: un plan que cumple las reglas duras (FALSO_IMAGEN_ADS=repetido: la
+  // primera vez repite el mismo formato en todas, para ver que la app lo frena y pide rehacerlo)
+  if (/## Qué tan distintas/.test(texto)) {
+    const analisis = leer(path.join(RAIZ, C, 'analisis.json'));
+    const { formatos, angulos } = catalogo();
+    const nivel = brief.variacion === 'conceptos' ? 'conceptos' : 'vecinas';
+    plan.variaciones = armarPlanVariado({ n: plan.cantidad, nivel, analisis, formatos, angulos, historial: brief.historial || [] }).variaciones;
+    if (modo === 'repetido' && intento === 1) plan.variaciones = plan.variaciones.map((x) => ({ ...x, formato_id: plan.variaciones[0].formato_id, angulo_id: plan.variaciones[0].angulo_id }));
+    fs.mkdirSync(path.join(RAIZ, C, 'app', 'registro'), { recursive: true });
+    fs.appendFileSync(path.join(RAIZ, C, 'app', 'registro', 'falso-planes.log'), `intento ${intento}: ${plan.variaciones.map((x) => `${x.formato_id}/${x.angulo_id}`).join(' ')}\n`);
+  }
   await escribir(`${C}/plan.json`, plan);
   for (const v of ids) await escribir(`${C}/${v}.json`, anuncio(v, plan.variaciones.find((x) => x.id === v), brief, Number(v.slice(1))));
   return 'LISTO';
@@ -219,6 +239,7 @@ async function revision(texto) {
     revisadas.push({
       pieza: m[1],
       ok: !mal,
+      ...(/agrega también `"nota"`/.test(texto) ? { nota: mal ? 4 : 10 - (Number(m[1].slice(1, 3)) % 4) } : {}),
       problemas: mal ? ['(Claude falso) el titular tiene una letra cambiada'] : [],
       ...(mal ? { correccion_en: '(fake Claude) Write the headline exactly as written in the text list.' } : {}),
     });

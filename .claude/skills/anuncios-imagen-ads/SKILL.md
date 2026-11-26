@@ -18,6 +18,21 @@ Cuando "Optimización de Conversión" choque con "Fidelidad Estructural", gana S
 
 Nunca agregues bloques de conversión solo porque suelen mejorar los anuncios. No agregues botones CTA, insignias de precio, listas de beneficios, sellos de confianza, estrellas, barras inferiores, etiquetas de urgencia, cajas de oferta ni claims extra si no están visiblemente presentes en la fuente de estructura de esa variación.
 
+**VARIACIONES DE UN GANADOR: QUÉ TAN DISTINTAS (2026-11-26a):**
+Cuando el usuario parte de un anuncio que ya vende, elige el nivel:
+- **Fieles:** mismo diseño (aquí sí manda la Fidelidad Estructural); cambian modelo, escena, pose y titular.
+- **Vecinas** (por defecto): el mismo deseo central contado de otras formas. La mitad del lote con el ángulo del ganador y el resto con al menos 3 ángulos más; en cada una cambian al menos 2 variables de Andromeda (faceta, problema, deseo, contexto, formato).
+- **Conceptos nuevos:** un concepto de formato distinto en cada una, elegido por `angulos_compatibles` y `tipos_producto` de `formatos/indice.json`.
+Antes de cualquier variación se analiza el ganador (deseo central, dolor, promesa, emoción, nivel de conciencia de Schwartz, mecanismo de persuasión, hook visual y por qué, INVARIABLES / MODIFICABLES / EXPERIMENTALES y la esencia en una frase). En Vecinas y Conceptos, para 10 variaciones: ningún formato más de 2 veces (el del ganador, máximo 2; se cuenta por `familia` del índice), al menos 4 ángulos (el del ganador primero), escena, modelo, vestuario, cámara y paleta secundaria distintos, al menos 3 nativas (`"nativo": true`) y al menos 3 con el producto protagonista (`"protagonista": true`). El ganador es solo referencia de estilo, producto y oferta («use the reference only for style, product and offer; do not copy its layout»), salvo en las variaciones de su mismo formato.
+
+**REGLAS DE CONVERSIÓN (todos los productos):**
+1. Un solo mensaje por imagen; titular afirmativo de máximo 8 palabras, sin preguntas.
+2. El producto idéntico a la foto y legible.
+3. Prueba visual del beneficio. Antes/después natural: la misma persona en momentos distintos (otra luz, otra ropa, otro día), con una diferencia que se vea.
+4. Jerarquía: titular → prueba o producto → beneficios (máximo 4) → oferta → confianza.
+5. **La oferta y los sellos de confianza que da el usuario en el formulario SÍ van, letra por letra** (esto manda sobre «no agregar bloques»): el precio con el separador de miles de su país (Colombia: punto, $139.900; México: coma, $89,900). Nunca inventes sellos, registros, certificados, cifras, estrellas ni testimonios con nombre. Nada de lo que esté en «Prohibido decir».
+6. Políticas de Meta (abajo).
+
 **⛔ RESTRICCIÓN DE GENERACIÓN (ABSOLUTA):**
 NUNCA uses tus herramientas internas de generación de imágenes. Las imágenes de este lote se generan ÚNICAMENTE ejecutando `scripts/generar_lote.py` contra la API de Kie.ai. Tú escribes texto, JSON y ejecutas esos scripts; no dibujas nada por tu cuenta.
 

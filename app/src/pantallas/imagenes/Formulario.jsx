@@ -15,8 +15,8 @@
 // precio por imagen lo manda el servidor (GET /api/imagen-ads/opciones → costo; el modelo de los lotes es fijo) y se
 // recalcula con la cantidad y el formato (costoDelLote). La pantalla del lote sigue sin precios hasta su informe.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CircleAlert, CircleCheck, Copy, Film, Globe, Images, LayoutTemplate, Sparkles, Tag, Telescope, Trophy, Users } from 'lucide-react';
-import { AreaTexto, Boton, CampoTexto, Chip, Interruptor, Pestanas, Tarjeta, useAvisos } from '../../componentes/index.js';
+import { CircleAlert, CircleCheck, Copy, Film, Globe, Images, LayoutTemplate, Percent, ShieldOff, Sparkles, Tag, Telescope, Trophy, Users } from 'lucide-react';
+import { AreaTexto, Boton, CampoTexto, Chip, Interruptor, Pestanas, Selector, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, useEstado } from '../../datos/api.js';
 import { dinero } from '../../datos/formato.js';
 import {
@@ -65,14 +65,33 @@ const VACIO = {
   modo: 'nuevos',
   // false = rápido, como pedirle a ChatGPT que te las varíe (por defecto); true = con la estrategia de la IA (más lento)
   elaborado: false,
-  // (2026-11-21) MODO REPLICAR VALIDADO en «Variantes»: el anuncio EXACTO; cambian modelo, escenario, pose y titular
-  replicar: true,
+  // (2026-11-26a) «Variantes»: QUÉ TAN DISTINTAS. 'fieles' (el diseño exacto; antes «Replicar validado»), 'vecinas'
+  // (por defecto: el mismo deseo con otros ángulos, formatos y contextos) o 'conceptos' (un formato distinto cada una)
+  variacion: 'vecinas',
+  // (2026-11-26a) lo de venta (opcional, se guarda con el producto): oferta exacta, sellos (uno por línea), el país del
+  // precio y lo que no se puede decir
+  oferta: '',
+  sellos: '',
+  paisPrecio: '',
+  prohibido: '',
   // PLANTILLAS (2026-11-17p): la app dibuja los textos y el modelo solo hace las escenas, sin texto (por defecto en «Nuevos»)
   plantillas: true,
   // los formatos elegidos ([] = «Que la app elija»)
   elegidas: [],
   // las plantillas de referencia elegidas (2026-11-18s)
   plantillasRef: [],
+};
+
+// (2026-11-26a) «Qué tan distintas» (reemplaza el interruptor «Replicar validado (exacto)»)
+const VARIACIONES = [
+  { id: 'fieles', etiqueta: 'Fieles' },
+  { id: 'vecinas', etiqueta: 'Vecinas' },
+  { id: 'conceptos', etiqueta: 'Conceptos nuevos' },
+];
+const TEXTO_VARIACION = {
+  fieles: 'Tu anuncio tal cual: mismo diseño, letras, colores y oferta. Solo cambian la modelo, el escenario, la pose y el titular. Para escalar algo que ya vende.',
+  vecinas: 'El mismo deseo que vende tu ganador, contado de otras formas: la mitad con su mismo ángulo y el resto con otros 3 o más, con formatos, escenas, modelos y cámaras distintos. Para probar sin que Meta las vea iguales.',
+  conceptos: 'Cada imagen es un concepto de formato distinto (captura, antes y después, producto protagonista, meme…), con la esencia de tu ganador. Para buscar el próximo ganador.',
 };
 
 // ---------------------------------------------------------------- el borrador en este navegador (sin imágenes)
@@ -151,7 +170,9 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
   const [elegidos, setElegidos] = useState([]);
   const [itemsElegidos, setItemsElegidos] = useState([]);
   const variantes = f.modo === 'variantes';
-  const replicar = variantes && f.replicar !== false;
+  // («Fieles» es el camino de «Replicar validado»; «Vecinas» y «Conceptos» van con la estrategia de la IA)
+  const variacion = VARIACIONES.some((x) => x.id === f.variacion) ? f.variacion : 'vecinas';
+  const replicar = variantes && variacion === 'fieles';
   // «De un video, imágenes»: los cuadros de un video, armados con las plantillas (gratis)
   const deVideo = f.modo === 'video';
   const [video, setVideo] = useState(null); // { id, seleccion } cuando ya hay cuadros elegidos
@@ -243,6 +264,23 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
     setNota(datos ? `Completé el formulario con tu último lote de «${p.nombre}». Cambia lo que quieras.` : null);
   }
 
+  // (2026-11-26a) lo de venta guardado con el producto (oferta, sellos, país del precio, prohibido decir): se precarga
+  const [paises, setPaises] = useState([]);
+  const ventaCargada = useRef(null);
+  useEffect(() => {
+    if (simulando || !f.productoId || ventaCargada.current === f.productoId) return;
+    ventaCargada.current = f.productoId;
+    apiImagenes
+      .ajustes(f.productoId)
+      .then((r) => {
+        if (!montado.current) return;
+        setPaises(Array.isArray(r?.paises) ? r.paises : []);
+        const a = r?.ajustes;
+        if (a) setF((x) => ({ ...x, oferta: a.oferta || '', sellos: (a.sellos || []).join('\n'), paisPrecio: a.pais || '', prohibido: (a.prohibido || []).join(', ') }));
+      })
+      .catch(() => {});
+  }, [f.productoId, simulando]);
+
   const n = deVideo ? video?.conceptos?.length || 0 : Number(f.cantidad);
   const cantidadValida = Number.isInteger(n) && n >= 1 && n <= maximo;
 
@@ -319,7 +357,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
       ? planPlantillas.escenas
         ? costoDelLote(precio, planPlantillas.escenas)
         : { min: 0, max: 0, gratis: true }
-      : costoDelLote(precio, n * formatos.length);
+      : costoDelLote(precio, n * formatos.length, { rehacer: variantes && variacion !== 'fieles' ? n * 2 : 0 });
   const datosDelLote = () => ({
     nombre: f.nombre.trim(),
     publico: f.publico.trim(),
@@ -340,7 +378,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
       return;
     }
     // (el modo rápido no necesita la IA de texto para arrancar: solo el modo «Más elaborado»)
-    if ((f.elaborado || replicar) && !conPlantillas && motor.falta) {
+    if ((f.elaborado || variantes) && !conPlantillas && motor.falta) {
       aviso(
         !motor.elegido
           ? { tipo: 'aviso', titulo: 'Elige tu IA', texto: 'Para armar la estrategia y revisar tus imágenes, la app usa tu cuenta de Claude o de ChatGPT. Elige una y vuelve a tocar Generar.' }
@@ -400,8 +438,11 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
         // (2026-11-19h) el concepto de cada creativo que funciona, en el mismo orden: la variante lo conserva
         ...(variantes ? { conceptosReferencias: itemsElegidos.map((x) => x.concepto || '') } : {}),
         fiel: variantes,
-        rapido: conPlantillas || replicar ? true : !f.elaborado,
+        rapido: conPlantillas || replicar ? true : variantes ? false : !f.elaborado,
         ...(replicar ? { replicar: true } : {}),
+        ...(variantes ? { variacion } : {}),
+        // lo de venta (se guarda con el producto)
+        venta: { oferta: f.oferta.trim(), sellos: f.sellos.split(/\r?\n/).map((x) => x.trim()).filter(Boolean), pais: f.paisPrecio || null, prohibido: f.prohibido.split(/[,\n]/).map((x) => x.trim()).filter(Boolean) },
         refs: conPlantillas ? [] : refs.map((x) => x.id),
         ...(conPlantillas ? { plantillasReferencia: { elegidas: refElegidas } } : {}),
         // (de un video: los anuncios que propuso tu IA con su ángulo, con las plantillas ganadoras)
@@ -504,20 +545,13 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
             />
           ) : null}
           {variantes ? (
-            <Interruptor
-              activado={replicar}
-              onCambio={(v) => poner({ replicar: v })}
-              etiqueta="Replicar validado (exacto)"
-              descripcion={
-                replicar
-                  ? 'Tu anuncio tal cual: mismas zonas, jerarquía, letras, colores, oferta y ángulo. Solo cambian la modelo (otra mujer en cada imagen), el escenario, la pose y la redacción del titular, sin repetirse. Tu IA lee primero el mapa del anuncio.'
-                  : 'Variantes más libres: mismo concepto y diseño, con títulos nuevos de tus ganchos validados.'
-              }
-              deshabilitado={ocupado}
-              className="img-fiel"
-            />
+            <div className="img-distintas">
+              <span className="img-distintas__titulo">Qué tan distintas</span>
+              <Pestanas variante="segmentado" tamano="chico" etiqueta="Qué tan distintas" items={VARIACIONES} activa={variacion} onCambio={(id) => !ocupado && poner({ variacion: id })} />
+              <p className="img-distintas__texto">{TEXTO_VARIACION[variacion]} Antes de todo, tu IA analiza por qué vende tu ganador.</p>
+            </div>
           ) : null}
-          {conPlantillas || deVideo || replicar ? null : (
+          {conPlantillas || deVideo || variantes ? null : (
           <Interruptor
             activado={Boolean(f.elaborado)}
             onCambio={(v) => poner({ elaborado: v })}
@@ -592,6 +626,48 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
               value={f.pais}
               onChange={(e) => poner({ pais: e.target.value })}
               error={errores.pais}
+              disabled={ocupado}
+            />
+            <CampoTexto
+              etiqueta="Oferta"
+              opcional
+              icono={Percent}
+              placeholder="Tratamiento completo x3 $139.900"
+              maxLength={160}
+              value={f.oferta}
+              onChange={(e) => poner({ oferta: e.target.value })}
+              ayuda="Va en el anuncio tal cual, con el separador de miles de tu país."
+              disabled={ocupado}
+            />
+            <Selector
+              etiqueta="País del precio"
+              opcional
+              icono={Globe}
+              value={f.paisPrecio}
+              onChange={(e) => poner({ paisPrecio: e.target.value })}
+              opciones={[{ valor: '', etiqueta: 'El del campo País' }, ...paises.map((x) => ({ valor: x.codigo, etiqueta: x.nombre }))]}
+              disabled={ocupado}
+            />
+            <AreaTexto
+              etiqueta="Sellos de confianza"
+              opcional
+              filas={2}
+              maxLength={800}
+              placeholder={'REGISTRO SANITARIO INVIMA …\nPago contra entrega'}
+              value={f.sellos}
+              onChange={(e) => poner({ sellos: e.target.value })}
+              ayuda="Uno por línea, exactos. La IA no inventa ningún otro."
+              disabled={ocupado}
+            />
+            <CampoTexto
+              etiqueta="Prohibido decir"
+              opcional
+              icono={ShieldOff}
+              placeholder="cura, milagroso, garantizado"
+              maxLength={600}
+              value={f.prohibido}
+              onChange={(e) => poner({ prohibido: e.target.value })}
+              ayuda="Separado por comas. Ningún anuncio lo dice."
               disabled={ocupado}
             />
             <AreaTexto
@@ -800,11 +876,11 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
             ? {
                 rango: rangoDinero(costoLote),
                 etiqueta: modoPrueba ? 'Lo que costaría' : 'Costo estimado',
-                chica: `Con ${precio.modelo || 'GPT Image 2.5'}, ${dinero(precio.dolaresPorImagen)} cada imagen. Si después regeneras alguna, se cobra aparte.`,
+                chica: `Con ${precio.modelo || 'GPT Image 2.5'}, ${dinero(precio.dolaresPorImagen)} cada imagen.${costoLote.max > costoLote.min ? ' El máximo cuenta hasta 2 intentos más de cada imagen que la revisión no apruebe (se rehacen solas).' : ''} Si después regeneras alguna, se cobra aparte.`,
               }
             : null
         }
-        motor={(f.elaborado || replicar) && !conPlantillas && !deVideo ? motor : { ...motor, falta: false }} // el modo rápido y las plantillas no necesitan la IA de texto
+        motor={(f.elaborado || variantes) && !conPlantillas && !deVideo ? motor : { ...motor, falta: false }} // el modo rápido y las plantillas no necesitan la IA de texto
         ocupado={ocupado}
         fase={fase}
         textoBoton={textoBoton}

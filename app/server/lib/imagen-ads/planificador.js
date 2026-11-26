@@ -313,7 +313,7 @@ export function decidir(est, hechos = {}, opciones = {}) {
     const rango = (p) => {
       const x = est.piezas[p];
       if (String(x.orden.id).startsWith('U')) return 0;
-      if (x.orden.id === 'rev') return 1;
+      if (x.orden.id === 'rev' || /^rev\d$/.test(x.orden.id)) return 1;
       return x.formato === '1:1' ? 2 : 3;
     };
     candidatas.sort((a, b) => rango(a) - rango(b) || ordenDePiezas(a, b));
@@ -518,7 +518,7 @@ export function aplicarResultado(est, pieza, res, { firmaActual = null, ahora = 
       p.resultado = 'sin-imagen';
       p.motivo = res.motivo || 'otro';
       p.mensaje = mensaje;
-    } else if (id === 'rev') {
+    } else if (id === 'rev' || /^rev\d$/.test(id)) {
       // la imagen de antes sigue en img/: queda con los detalles que vio la revision
       p.fase = 'final';
       p.resultado = 'con-detalles';
@@ -631,7 +631,21 @@ export function aplicarRevision(est, id, json, firmas = {}) {
     // lo que salio mal, en ingles y corto, para el modelo de imagen (lo escribe la revision cuando algo falla): si
     // despues piden «otra version» de esta imagen (o «Corregir esto»), va con ella para no repetir el error
     const correccion = !ok && typeof e.correccion_en === 'string' ? e.correccion_en.replace(/\s+/g, ' ').trim().slice(0, 600) : '';
-    p.revision = { tanda: id, ronda, ok, problemas, firma: x.firma, ...(correccion ? { correccion_en: correccion } : {}) };
+    // (2026-11-26a) la nota de venta (1-10) de los lotes de «Variantes» con el selector: la pantalla los ordena por ella
+    const nota = Number.isInteger(e.nota) && e.nota >= 1 && e.nota <= 10 ? e.nota : null;
+    p.revision = { tanda: id, ronda, ok, problemas, firma: x.firma, ...(correccion ? { correccion_en: correccion } : {}), ...(nota ? { nota } : {}) };
+    // (2026-11-26a) «Variantes» con el selector (est.autoRehacer): lo que no pasa se rehace solo, hasta 2 veces, con lo
+    // que vio la revision (el costo máximo que se mostró antes de generar ya lo incluye). Solo el cuadrado: su vertical
+    // sale después del cuadrado final.
+    const hechas = Number(p.autoRehechas) || 0;
+    if (!ok && Number(est.autoRehacer) > hechas && p.formato === '1:1' && ronda !== 'u' && !p.local) {
+      p.autoRehechas = hechas + 1;
+      p.fase = 'por-pedir';
+      p.intentosApi = 0;
+      p.orden = { id: `rev${hechas + 1}`, modo: 'generar', version: (p.version || 0) + 1, ...(correccion ? { correccion_en: correccion } : {}) };
+      aplicadas.push(x.pieza);
+      continue;
+    }
     // Todo al primer intento: sin reintento automatico. Lo que vio la revision queda como nota de la pieza («con
     // detalles») y el usuario decide (Regenerar, con o sin instruccion). (ronda 2 solo viene de un lote de antes.)
     p.fase = 'final';

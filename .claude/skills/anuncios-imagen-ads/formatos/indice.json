@@ -1,5 +1,5 @@
 {
-  "descripcion": "Índice de la biblioteca de formatos. F## = formatos estándar; G## = sacados de anuncios ganadores reales (preferirlos cuando encajen). Al agregar un esqueleto nuevo, agrega su entrada aquí y su id en formatos_recomendados de angulos.json.",
+  "descripcion": "Índice de la biblioteca de formatos. F## = formatos estándar; G## = sacados de anuncios ganadores reales (preferirlos cuando encajen). Al agregar un esqueleto nuevo, agrega su entrada aquí y su id en formatos_recomendados de angulos.json. (2026-11-26) Cada formato trae «nativo» (parece contenido real del feed: selfie, captura, meme, post-it), «protagonista» (el producto es el centro) y «familia» (formatos que son el mismo concepto, p. ej. los antes/después): las reglas de variedad de los lotes cuentan por familia.",
   "formatos": [
     {
       "id": "F01",
@@ -17,7 +17,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F01-producto-heroe.json"
+      "archivo": "formatos/F01-producto-heroe.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "producto-heroe"
     },
     {
       "id": "F02",
@@ -36,7 +39,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F02-titular-gigante.json"
+      "archivo": "formatos/F02-titular-gigante.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F02"
     },
     {
       "id": "F03",
@@ -59,7 +65,10 @@
         "gadget",
         "servicio"
       ],
-      "archivo": "formatos/F03-antes-despues.json"
+      "archivo": "formatos/F03-antes-despues.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "antes-despues"
     },
     {
       "id": "F04",
@@ -77,7 +86,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F04-nosotros-vs-ellos.json"
+      "archivo": "formatos/F04-nosotros-vs-ellos.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F04"
     },
     {
       "id": "F05",
@@ -95,7 +107,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F05-problema-primer-plano.json"
+      "archivo": "formatos/F05-problema-primer-plano.json",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F05"
     },
     {
       "id": "F06",
@@ -113,7 +128,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F06-problema-solucion.json"
+      "archivo": "formatos/F06-problema-solucion.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F06"
     },
     {
       "id": "F07",
@@ -137,7 +155,10 @@
         "nutraceutico",
         "digital"
       ],
-      "archivo": "formatos/F07-anatomia-flechas.json"
+      "archivo": "formatos/F07-anatomia-flechas.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F07"
     },
     {
       "id": "F08",
@@ -155,7 +176,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F08-beneficios-iconos.json"
+      "archivo": "formatos/F08-beneficios-iconos.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F08"
     },
     {
       "id": "F09",
@@ -173,7 +197,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F09-testimonio-tarjeta.json"
+      "archivo": "formatos/F09-testimonio-tarjeta.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "testimonio"
     },
     {
       "id": "F10",
@@ -191,7 +218,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F10-muro-resenas.json"
+      "archivo": "formatos/F10-muro-resenas.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "testimonio"
     },
     {
       "id": "F11",
@@ -210,7 +240,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F11-captura-notas.json"
+      "archivo": "formatos/F11-captura-notas.json",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "captura"
     },
     {
       "id": "F12",
@@ -229,7 +262,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F12-chat-mensajes.json"
+      "archivo": "formatos/F12-chat-mensajes.json",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "captura"
     },
     {
       "id": "F13",
@@ -248,7 +284,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F13-post-red-social.json"
+      "archivo": "formatos/F13-post-red-social.json",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F13"
     },
     {
       "id": "F14",
@@ -266,7 +305,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F14-post-it.json"
+      "archivo": "formatos/F14-post-it.json",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F14"
     },
     {
       "id": "F15",
@@ -284,7 +326,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F15-estadistica-grande.json"
+      "archivo": "formatos/F15-estadistica-grande.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F15"
     },
     {
       "id": "F16",
@@ -303,7 +348,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F16-lifestyle-uso.json"
+      "archivo": "formatos/F16-lifestyle-uso.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F16"
     },
     {
       "id": "F17",
@@ -329,7 +377,10 @@
         "digital",
         "otro"
       ],
-      "archivo": "formatos/F17-ugc-selfie.json"
+      "archivo": "formatos/F17-ugc-selfie.json",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F17"
     },
     {
       "id": "F18",
@@ -353,7 +404,10 @@
         "digital",
         "servicio"
       ],
-      "archivo": "formatos/F18-como-funciona.json"
+      "archivo": "formatos/F18-como-funciona.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F18"
     },
     {
       "id": "F19",
@@ -371,7 +425,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F19-mito-realidad.json"
+      "archivo": "formatos/F19-mito-realidad.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F19"
     },
     {
       "id": "F20",
@@ -395,7 +452,10 @@
         "digital",
         "otro"
       ],
-      "archivo": "formatos/F20-oferta-combo.json"
+      "archivo": "formatos/F20-oferta-combo.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "oferta"
     },
     {
       "id": "F21",
@@ -419,7 +479,10 @@
         "digital",
         "servicio"
       ],
-      "archivo": "formatos/F21-costo-por-uso.json"
+      "archivo": "formatos/F21-costo-por-uso.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F21"
     },
     {
       "id": "F22",
@@ -443,7 +506,10 @@
         "hogar",
         "otro"
       ],
-      "archivo": "formatos/F22-flatlay-componentes.json"
+      "archivo": "formatos/F22-flatlay-componentes.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F22"
     },
     {
       "id": "F23",
@@ -461,7 +527,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F23-pregunta-respuesta.json"
+      "archivo": "formatos/F23-pregunta-respuesta.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F23"
     },
     {
       "id": "F24",
@@ -479,7 +548,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F24-carta-fundador.json"
+      "archivo": "formatos/F24-carta-fundador.json",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F24"
     },
     {
       "id": "F25",
@@ -497,7 +569,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F25-meme.json"
+      "archivo": "formatos/F25-meme.json",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F25"
     },
     {
       "id": "F26",
@@ -519,7 +594,10 @@
         "digital",
         "servicio"
       ],
-      "archivo": "formatos/F26-linea-tiempo.json"
+      "archivo": "formatos/F26-linea-tiempo.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "linea-de-tiempo"
     },
     {
       "id": "F27",
@@ -542,7 +620,10 @@
         "hogar",
         "ropa"
       ],
-      "archivo": "formatos/F27-unboxing.json"
+      "archivo": "formatos/F27-unboxing.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F27"
     },
     {
       "id": "F28",
@@ -565,7 +646,10 @@
         "nutraceutico",
         "otro"
       ],
-      "archivo": "formatos/F28-regalo.json"
+      "archivo": "formatos/F28-regalo.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F28"
     },
     {
       "id": "F29",
@@ -583,7 +667,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F29-portada-revista.json"
+      "archivo": "formatos/F29-portada-revista.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F29"
     },
     {
       "id": "F30",
@@ -603,7 +690,10 @@
         "servicio",
         "gadget"
       ],
-      "archivo": "formatos/F30-mockup-dispositivo.json"
+      "archivo": "formatos/F30-mockup-dispositivo.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F30"
     },
     {
       "id": "F31",
@@ -621,7 +711,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F31-lista-razones.json"
+      "archivo": "formatos/F31-lista-razones.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F31"
     },
     {
       "id": "F32",
@@ -639,7 +732,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/F32-escena-conceptual.json"
+      "archivo": "formatos/F32-escena-conceptual.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F32"
     },
     {
       "id": "G01",
@@ -661,7 +757,10 @@
         "hogar",
         "otro"
       ],
-      "archivo": "formatos/G01-experto-senalando-producto.json"
+      "archivo": "formatos/G01-experto-senalando-producto.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "G01"
     },
     {
       "id": "G02",
@@ -683,7 +782,10 @@
         "juguete",
         "otro"
       ],
-      "archivo": "formatos/G02-collage-tres-fotos-precio.json"
+      "archivo": "formatos/G02-collage-tres-fotos-precio.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "oferta"
     },
     {
       "id": "G03",
@@ -706,7 +808,10 @@
         "juguete",
         "otro"
       ],
-      "archivo": "formatos/G03-chats-cliente-beneficiario.json"
+      "archivo": "formatos/G03-chats-cliente-beneficiario.json",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "captura"
     },
     {
       "id": "G04",
@@ -726,7 +831,10 @@
         "hogar",
         "otro"
       ],
-      "archivo": "formatos/G04-producto-central-modulos-laterales.json"
+      "archivo": "formatos/G04-producto-central-modulos-laterales.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "G04"
     },
     {
       "id": "G05",
@@ -747,7 +855,10 @@
         "juguete",
         "otro"
       ],
-      "archivo": "formatos/G05-titular-banda-producto-ficha-precio.json"
+      "archivo": "formatos/G05-titular-banda-producto-ficha-precio.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "G05"
     },
     {
       "id": "G06",
@@ -766,7 +877,10 @@
         "cosmetico",
         "otro"
       ],
-      "archivo": "formatos/G06-oferta-multiunidad-beneficios-numerados.json"
+      "archivo": "formatos/G06-oferta-multiunidad-beneficios-numerados.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "oferta"
     },
     {
       "id": "G07",
@@ -787,7 +901,10 @@
         "hogar",
         "otro"
       ],
-      "archivo": "formatos/G07-retrato-sosteniendo-producto-cta.json"
+      "archivo": "formatos/G07-retrato-sosteniendo-producto-cta.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "G07"
     },
     {
       "id": "G08",
@@ -807,7 +924,10 @@
         "ropa",
         "otro"
       ],
-      "archivo": "formatos/G08-oferta-combo-modelo-escena.json"
+      "archivo": "formatos/G08-oferta-combo-modelo-escena.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "oferta"
     },
     {
       "id": "G09",
@@ -828,7 +948,10 @@
         "hogar",
         "otro"
       ],
-      "archivo": "formatos/G09-formula-dual-producto-eje.json"
+      "archivo": "formatos/G09-formula-dual-producto-eje.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "G09"
     },
     {
       "id": "G10",
@@ -851,7 +974,10 @@
         "nutraceutico",
         "otro"
       ],
-      "archivo": "formatos/G10-producto-diagonal-modulos-conversion.json"
+      "archivo": "formatos/G10-producto-diagonal-modulos-conversion.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "G10"
     },
     {
       "id": "G11",
@@ -872,7 +998,10 @@
         "gadget",
         "otro"
       ],
-      "archivo": "formatos/G11-diptico-persona-producto.json"
+      "archivo": "formatos/G11-diptico-persona-producto.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "G11"
     },
     {
       "id": "G12",
@@ -893,7 +1022,10 @@
         "hogar",
         "otro"
       ],
-      "archivo": "formatos/G12-infografia-mecanismo-ingredientes.json"
+      "archivo": "formatos/G12-infografia-mecanismo-ingredientes.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "G12"
     },
     {
       "id": "G13",
@@ -913,7 +1045,10 @@
         "nutraceutico",
         "hogar"
       ],
-      "archivo": "formatos/G13-antes-despues-macro-repisa.json"
+      "archivo": "formatos/G13-antes-despues-macro-repisa.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "antes-despues"
     },
     {
       "id": "G14",
@@ -934,7 +1069,10 @@
         "hogar",
         "otro"
       ],
-      "archivo": "formatos/G14-modelo-tarjetas-zoom-detalle.json"
+      "archivo": "formatos/G14-modelo-tarjetas-zoom-detalle.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "G14"
     },
     {
       "id": "G15",
@@ -955,7 +1093,10 @@
         "gadget",
         "otro"
       ],
-      "archivo": "formatos/G15-persona-emocional-producto-pedestal.json"
+      "archivo": "formatos/G15-persona-emocional-producto-pedestal.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "G15"
     },
     {
       "id": "G16",
@@ -977,7 +1118,10 @@
         "hogar",
         "otro"
       ],
-      "archivo": "formatos/G16-columna-venta-producto-heroe.json"
+      "archivo": "formatos/G16-columna-venta-producto-heroe.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "producto-heroe"
     },
     {
       "id": "G17",
@@ -1000,7 +1144,10 @@
         "ropa",
         "otro"
       ],
-      "archivo": "formatos/G17-lifestyle-columna-beneficios-producto.json"
+      "archivo": "formatos/G17-lifestyle-columna-beneficios-producto.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "G17"
     },
     {
       "id": "G19",
@@ -1020,7 +1167,10 @@
         "hogar",
         "gadget"
       ],
-      "archivo": "formatos/G19-tres-columnas-producto-lista-persona.json"
+      "archivo": "formatos/G19-tres-columnas-producto-lista-persona.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "G19"
     },
     {
       "id": "G20",
@@ -1042,7 +1192,10 @@
         "gadget",
         "otro"
       ],
-      "archivo": "formatos/G20-mapa-causas-persona.json"
+      "archivo": "formatos/G20-mapa-causas-persona.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "G20"
     },
     {
       "id": "G21",
@@ -1063,7 +1216,10 @@
         "hogar",
         "gadget"
       ],
-      "archivo": "formatos/G21-panel-beneficios-producto-sello-precio.json"
+      "archivo": "formatos/G21-panel-beneficios-producto-sello-precio.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "G21"
     },
     {
       "id": "G22",
@@ -1080,7 +1236,10 @@
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "formatos/G22-producto-cita-cliente.json"
+      "archivo": "formatos/G22-producto-cita-cliente.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "testimonio"
     },
     {
       "id": "G23",
@@ -1102,7 +1261,10 @@
         "juguete",
         "ropa"
       ],
-      "archivo": "formatos/G23-beneficios-radiales-flechas.json"
+      "archivo": "formatos/G23-beneficios-radiales-flechas.json",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "G23"
     },
     {
       "id": "G24",
@@ -1125,7 +1287,10 @@
         "cosmetico",
         "nutraceutico"
       ],
-      "archivo": "formatos/G24-pantalla-dividida-dos-estados.json"
+      "archivo": "formatos/G24-pantalla-dividida-dos-estados.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "antes-despues"
     },
     {
       "id": "G25",
@@ -1149,7 +1314,10 @@
         "hogar",
         "nutraceutico"
       ],
-      "archivo": "formatos/G25-resena-larga-lifestyle-regalo.json"
+      "archivo": "formatos/G25-resena-larga-lifestyle-regalo.json",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "testimonio"
     }
   ]
 }

@@ -21,6 +21,8 @@ import { textoClaude, prohibidasComunes as prohibidasDeClaude } from '../claude.
 import { leerJSON, existe } from '../archivos.js';
 import { leerSkill, verificarSesion, DIR_SKILL } from './verificar.js';
 import { R, idsDelLote, piezaId, vDe, formatoDe, fotoDelLote, nombreFormato } from './disco.js';
+import { esVariado, nivelDe, cupos, VARIABLES } from './variedad.js';
+import { PAISES } from './precios.js';
 
 export const HERRAMIENTAS = ['Read', 'Glob', 'Grep', 'Write', 'Edit'];
 export const SKILL = 'anuncios-imagen-ads';
@@ -146,8 +148,73 @@ Sigue la guía \`${GUIA_AGENTE}\` de la skill (va pegada): eres su Director Crea
 `;
 }
 
+// ---------------------------------------------------------------- qué tan distintas y las reglas de conversión (2026-11-26a)
+
+/** Lo de venta del formulario (oferta, sellos, país, prohibido decir): exacto, nunca inventado. */
+export function textoVenta(brief) {
+  const v = brief?.venta;
+  if (!v) return '';
+  const p = v.pais && PAISES[v.pais];
+  const l = [];
+  if (v.oferta) l.push(`- Oferta EXACTA (cópiala letra por letra en su propia capa de \`text_layers\`, sin cambiar números ni separadores): ${JSON.stringify(v.oferta)}`);
+  if (p) l.push(`- País: ${p.nombre}. Todo precio va con el separador de miles de ${p.nombre}: «${p.miles}» (por ejemplo ${p.simbolo}${'139' + p.miles + '900'}).`);
+  if (v.sellos?.length) l.push(`- Sellos de confianza EXACTOS (cópialos letra por letra; no agregues otros): ${v.sellos.map((x) => JSON.stringify(x)).join(', ')}`);
+  if (v.prohibido?.length) l.push(`- Prohibido decir (ninguna palabra ni frase de estas en ningún texto): ${v.prohibido.map((x) => JSON.stringify(x)).join(', ')}`);
+  l.push('- Nunca inventes sellos, registros, certificados, cifras, porcentajes, estrellas ni testimonios con nombre: solo los de arriba.');
+  return `\n## Lo de venta del formulario (manda sobre la skill)\n${l.join('\n')}\n`;
+}
+
+const REGLAS_CONVERSION = `## Reglas de conversión (todas las variaciones)
+- UN solo mensaje por imagen. Titular AFIRMATIVO de máximo 8 palabras, sin preguntas (sin «¿?»).
+- El producto IDÉNTICO a la foto (forma, etiqueta, colores) y legible; nunca rediseñado.
+- Prueba visual del beneficio (se ve, no solo se dice). Antes/después: la misma persona en dos momentos distintos (otra luz, otra ropa, otro día), natural, con una diferencia que se note; nunca el mismo cuadro retocado.
+- Jerarquía: titular → prueba o producto → beneficios (máximo 4) → oferta → confianza (sellos).
+- Políticas de Meta: sin promesas médicas ni garantías de resultados, sin señalar defectos del cuerpo de quien mira («¿tienes…?», «tu grasa»), sin antes/después exagerados ni cifras inventadas. Claims suaves («ayuda a», «de forma natural»).`;
+
+/** «Vecinas» o «Conceptos nuevos»: el ganador como estilo, el análisis y las reglas duras del plan. */
+export function textoVariado(lote, brief) {
+  if (!esVariado(brief)) return '';
+  const n = Number(brief.cantidad) || 1;
+  const nivel = nivelDe(brief);
+  const c = cupos(n, nivel);
+  const hist = Array.isArray(brief.historial) ? brief.historial : [];
+  const nivelTexto =
+    nivel === 'vecinas'
+      ? `«Vecinas» (lo eligió el usuario): el mismo deseo central del ganador, contado a otras personas y en otros contextos. Entre ${c.mitad.min} y ${c.mitad.max} variaciones usan el ángulo del ganador (\`angulo_ganador\` del análisis) y el resto se reparte en otros ángulos, hasta tener al menos ${c.angulos} ángulos distintos. En cada una cambian al menos 2 variables de Andromeda.`
+      : `«Conceptos nuevos» (lo eligió el usuario): cada variación es un CONCEPTO de formato distinto (ningún formato, ni de la misma familia, se repite), elegido por sus \`angulos_compatibles\` y \`tipos_producto\` en \`formatos/indice.json\`. El deseo central del ganador se conserva; al menos ${c.angulos} ángulos distintos.`;
+  return `
+## Qué tan distintas: ${nivelTexto}
+El ganador ya está analizado: lee \`temp/${lote}/analisis.json\` (deseo, dolor, promesa, hook visual, INVARIABLES, MODIFICABLES, EXPERIMENTALES, la esencia, \`formato_ganador\` y \`angulo_ganador\`). Conserva SIEMPRE sus invariables y su esencia; juega con lo modificable y prueba lo experimental.
+El anuncio ganador (\`temp/${lote}/${(brief.referencias || [])[0] || 'entrada/referencias/R01.png'}\`) es SOLO una referencia de estilo, producto y oferta: no copies su composición. La app se lo pasa al modelo de imagen con «use the reference only for style, product and offer; do not copy its layout», salvo en las variaciones de su mismo formato.
+
+Esto manda sobre el PASO 4 de la skill. En \`plan.json\` TODAS las variaciones son \`"fuente": "biblioteca"\` con un \`formato_id\` real, y cada una lleva además:
+\`"modelo"\` (quién sale: edad, rasgos, o "sin modelo"), \`"vestuario"\`, \`"paleta_secundaria"\` (los colores de apoyo, distintos en cada una), \`"variables_cambiadas"\` (al menos 2 de: ${VARIABLES.join(', ')}), \`"por_que_vende"\` (una frase para el usuario: por qué debería vender) y \`"mismo_formato_que_ganador"\` (true solo si su formato es de la misma familia que \`formato_ganador\`).
+REGLAS DURAS (la app las revisa y te pide rehacer el plan si alguna falla), para ${n} variaciones:
+1. Ningún formato más de ${c.maxFormato} ${c.maxFormato === 1 ? 'vez' : 'veces'}; el del ganador, máximo ${c.maxGanador}. Los formatos se cuentan por \`familia\` (indice.json): tres antes/después distintos son el mismo formato.
+2. Al menos ${c.angulos} ángulos distintos; V01 usa el ángulo del ganador.
+3. Escena, modelo, vestuario, cámara y paleta secundaria distintos en cada una (sin repetir).
+4. Al menos ${c.nativas} con formato NATIVO (\`"nativo": true\` en indice.json: parecen contenido orgánico) y al menos ${c.protagonistas} con el PRODUCTO PROTAGONISTA (\`"protagonista": true\`).
+5. Cada formato es compatible con su ángulo (\`angulos_compatibles\`) y, si se puede, con el tipo de producto (\`tipos_producto\`).
+${hist.length ? `6. Lo que ya vendió este producto en Meta (de sus ventas reales, la mejor primero): ${hist.slice(0, 6).map((h) => `${h.formato_id} + ${h.angulo_id} (${h.compras} compras${h.cpa !== null && h.cpa !== undefined ? `, costo por compra ${h.cpa}` : ''})`).join('; ')}. Prioriza lo que ganó (al menos una variación con su formato o su ángulo) y prueba siempre al menos ${c.nuevasCombinaciones} combinaciones de formato + ángulo NUEVAS.\n` : ''}En \`estrategia.json\` explica en dos frases el reparto (qué se conserva del ganador y qué se prueba).
+
+${REGLAS_CONVERSION}
+`;
+}
+
+/** Lo que va en cada tarea de anuncios de «Vecinas»/«Conceptos»: el ganador como estilo y las reglas de conversión. */
+function textoVariadoPrompts(lote, brief) {
+  if (!esVariado(brief)) return '';
+  return `
+## Qué tan distintas (${nivelDe(brief) === 'vecinas' ? '«Vecinas»' : '«Conceptos nuevos»'})
+Cada anuncio sigue SU formato de la biblioteca (\`formato_id\` del plan) con su escena, modelo, vestuario, cámara y paleta secundaria del plan. Conserva los invariables y la esencia de \`temp/${lote}/analisis.json\`. El ganador es solo referencia de estilo, producto y oferta: describe en \`visual_prompt\` la composición de SU formato, no la del ganador (salvo las de \`mismo_formato_que_ganador\`).
+
+${REGLAS_CONVERSION}
+`;
+}
+
 /** Qué pidió el usuario arriba del formulario: «Nuevos» o «Variantes». */
 function textoModo(brief) {
+  if (esVariado(brief)) return '\n## Modo «Variantes» (lo eligió el usuario)\nLa referencia es un anuncio que YA LE FUNCIONA al usuario: es el ganador. Las variaciones conservan su esencia y cambian su forma (ver «Qué tan distintas»); ninguna copia su composición.\n';
   return brief?.modo === 'variantes'
     ? '\n## Modo «Variantes» (lo eligió el usuario)\nLas referencias son creativos que YA LE FUNCIONAN al usuario: la base de cada variación es su referencia (ver «Más de lo mismo»).\n'
     : '\n## Modo «Nuevos» (lo eligió el usuario)\nAnuncios nuevos, de cero: salen de la investigación de mercado (si hay), la foto del producto y lo que ya le funciona al usuario (abajo, si hay). Ninguna variación copia un creativo existente.\n';
@@ -224,7 +291,8 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
   const subidas = brief.referencias || [];
   // «más de lo mismo» (brief.fiel): todas las variaciones salen de las referencias, repartidas en orden
   const todas = Boolean(brief.fiel && subidas.length);
-  const refs = todas ? idsDelLote(n).map((_, i) => subidas[i % subidas.length]) : subidas.slice(0, n);
+  const variado = esVariado(brief);
+  const refs = variado ? [] : todas ? idsDelLote(n).map((_, i) => subidas[i % subidas.length]) : subidas.slice(0, n);
   const k = refs.length;
   const investigacion = brief.investigacion && existe(path.join(carpeta, brief.investigacion)) ? brief.investigacion : null;
   const ids = idsDelLote(Math.min(n, 4));
@@ -252,7 +320,9 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
     angulo: angulo ? `${angulo.nombre} (${angulo.id})` : 'que lo elija la IA',
     foto,
     ficha: existe(R.ficha(carpeta)) ? `- Lo que la app ya sabe del producto: \`temp/${lote}/entrada/ficha-producto.json\`. Es contexto; manda lo que dice el formulario.` : '',
-    referencias: k
+    referencias: variado
+      ? `- El anuncio ganador: \`temp/${lote}/${subidas[0]}\` (míralo con Read). Es solo referencia de estilo, producto y oferta (ver «Qué tan distintas»).`
+      : k
       ? `- Imágenes de referencia, en este orden: ${refs.map((r, i) => `${idsDelLote(k)[i]} = \`temp/${lote}/${r}\``).join(', ')}. Mira cada una con Read (PASO 4, punto 1, y Protocolo de Traducción Estructural).${!todas && subidas.length > n ? ` (El usuario subió ${subidas.length}: se usan las primeras ${n}.)` : ''}`
       : '- No hay referencias: todas las variaciones salen de la biblioteca.',
     anterior: existe(R.anterior(carpeta))
@@ -280,14 +350,15 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
       delLote(carpeta, lote, 'entrada/usados.json'),
       investigacion && investigacion.endsWith('.md') ? delLote(carpeta, lote, investigacion) : null,
       esDelAgente(brief) ? deLaSkill(GUIA_AGENTE) : null,
+      variado ? delLote(carpeta, lote, 'analisis.json') : null,
     ]),
-    imagenes: unicas([delLote(carpeta, lote, fotoDelLote(carpeta)), ...refs.map((r) => delLote(carpeta, lote, r)), ...validados.map((x) => delLote(carpeta, lote, x.archivo))]),
+    imagenes: unicas([delLote(carpeta, lote, fotoDelLote(carpeta)), ...refs.map((r) => delLote(carpeta, lote, r)), variado ? delLote(carpeta, lote, subidas[0]) : null, ...validados.map((x) => delLote(carpeta, lote, x.archivo))]),
     aPedido: unicas([...formatosDeLaSkill(), (brief.formatos || []).includes('9:16') && deLaSkill('proporciones.md')]),
   };
   return {
     tipo: 'estrategia',
     ids,
-    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoValidados(lote, validados) + textoTitulosElegidos(brief),
+    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoVenta(brief) + textoValidados(lote, validados) + textoTitulosElegidos(brief),
     escribe: ['producto.json', 'estrategia.json', 'plan.json', ...ids.map((v) => `${v}.json`), 'app/imagen-ads/bloqueo.json', ...(esDelAgente(brief) ? ['analisis-ganador.json'] : [])],
     maxTurnos: 80 + 2 * k + 2 * validados.length,
     timeoutMin: Math.min(120, 25 + 0.4 * n),
@@ -333,6 +404,7 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
       ...variaciones.filter((x) => x.fuente !== 'referencia' && x.formato_id).map((x) => deLaSkill(formatos.get(x.formato_id)?.archivo)),
       esDelAgente(brief) ? deLaSkill(GUIA_AGENTE) : null,
       esDelAgente(brief) ? delLote(carpeta, lote, 'analisis-ganador.json') : null,
+      esVariado(brief) ? delLote(carpeta, lote, 'analisis.json') : null,
     ]),
     imagenes: unicas(
       variaciones
@@ -346,6 +418,8 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
     prompt:
       textoClaude('tarea-imagen-ads-prompts', { lote, ids: listaDeIds(ids), variaciones: JSON.stringify(variaciones, null, 2), logo: textoLogo(brief) }) +
       textoTitulosElegidos(brief) +
+      textoVariadoPrompts(lote, brief) +
+      textoVenta(brief) +
       (esDelAgente(brief)
         ? `\n## Agente de variaciones (guía \`${GUIA_AGENTE}\`, pegada)\nCada prompt respeta el nivel, el cambio y los invariables de su variación (plan.json y \`analisis-ganador.json\`), y la dirección de arte LIMPIA de la guía: fondo simple con espacio negativo, sin brillos, destellos, partículas ni objetos que compitan; jerarquía titular → imagen del deseo → producto → beneficios → oferta; Montserrat ExtraBold en el titular e Inter en lo secundario; máximo tres niveles de texto; producto con su envase, logo y etiqueta reales; una sola pieza por imagen, sin collage ni rótulos de «Variante».\n`
         : ''),
@@ -408,7 +482,8 @@ export function sesionRevision({ carpeta, lote, brief, tanda, t }) {
         : '') +
       (brief?.desde0 || brief?.replicar
         ? `\n## Reglas de estos anuncios (${brief?.desde0 ? 'modo «Desde 0»: 6 zonas' : 'modo «Replicar validado»'})\nAdemás de lo de siempre, una pieza NO pasa si: el nombre de la marca o la etiqueta del frasco no son EXACTOS a la foto del producto (revísalos letra por letra); algún texto queda a menos del 5 % del borde; hay una promesa médica, una garantía o una cifra que no está en su V##.json; un texto tiene faltas o no se lee en el celular a media pantalla.${brief?.desde0 ? ' Y en «Desde 0»: faltan alguna de las 6 zonas (gancho arriba en mayúsculas, el visual principal de 45-55 %, 2 o 3 beneficios con check, el frasco de al menos el 15 % con su sello, la oferta con «Pagas al recibir», un solo CTA) o no respeta la estructura de su formato.' : ' Y en «Replicar validado»: se movió un bloque, cambiaron las letras o los colores de la referencia, o cambió el ángulo.'} En su motivo di cuál regla falla y qué corregir.\n`
-        : ''),
+        : '') +
+      textoRevisionVenta(lote, brief),
     escribe: [`revision/${tanda}.json`],
     maxTurnos: 120,
     timeoutMin: 30,
@@ -416,6 +491,22 @@ export function sesionRevision({ carpeta, lote, brief, tanda, t }) {
     material,
     verificar: async () => verificarSesion({ carpeta, brief, tipo: 'revision', tanda, piezas }),
   };
+}
+
+/** (2026-11-26a) La revisión de «Variantes» con el selector: los criterios de venta y la nota de cada imagen. */
+function textoRevisionVenta(lote, brief) {
+  if (!nivelDe(brief)) return '';
+  const v = brief.venta || {};
+  const p = v.pais && PAISES[v.pais];
+  return `
+## Revisión de venta (lote de «Variantes»)
+Además de lo de siempre, una pieza NO pasa (\`ok\`: false, con el problema y su \`correccion_en\`) si:
+- un texto tiene errores o palabras inventadas;${p ? `\n- un precio no usa el separador de miles de ${p.nombre} («${p.miles}»);` : ''}${v.oferta ? `\n- la oferta no dice exactamente ${JSON.stringify(v.oferta)};` : ''}${v.sellos?.length ? `\n- un sello no coincide letra por letra con: ${v.sellos.map((x) => JSON.stringify(x)).join(', ')} (o aparece un sello que no está en esa lista);` : ''}
+- el producto no es idéntico a la foto o su etiqueta no se lee;
+- es demasiado parecida a otra imagen de esta tanda o al ganador (\`temp/${lote}/${(brief.referencias || [])[0] || 'entrada/referencias/R01.png'}\`), si no es de su mismo formato;
+- es un antes/después sin una diferencia visible entre los dos momentos.
+En cada entrada agrega también \`"nota"\`: del 1 al 10, qué tan probable es que venda en Meta (se entiende en 1 segundo, un solo mensaje, prueba visual, producto claro, oferta y confianza). Una pieza que no pasa tiene nota de 5 o menos.${esVariado(brief) ? ' En este lote la app SÍ rehace sola (hasta 2 veces) lo que no pasa, con tu \`correccion_en\`: escríbela concreta.' : ''}
+`;
 }
 
 // ---------------------------------------------------------------- los ajustes que pidio el usuario

@@ -63,6 +63,8 @@ import { leerJSON } from '../lib/archivos.js';
 import { idValido } from '../lib/productos.js';
 import * as videoImagenes from '../lib/imagen-ads/video-imagenes.js';
 import { rutaDeReferencia } from './referencias.js';
+import { nombreDeDescarga } from '../lib/imagen-ads/variedad.js';
+import { leerSkill } from '../lib/imagen-ads/verificar.js';
 
 // ---------------------------------------------------------------- utilidades
 
@@ -556,6 +558,34 @@ export default function rutasImagenAds(app) {
     res.json({ kit: plantillas.guardarKit(id, req.body?.kit || req.body || {}) });
   }));
 
+  // (2026-11-26a) lo de venta de cada producto (oferta, sellos, país, prohibido): se guarda para no repetirlo
+  app.get('/api/imagen-ads/ajustes/:producto', conErrores(async (req, res) => {
+    const id = String(req.params.producto || '');
+    if (!idValido(id)) throw new ErrorApp(404, 'No encuentro ese producto.');
+    const { ajustesDe } = await import('../lib/imagen-ads/ajustes-producto.js');
+    const { PAISES } = await import('../lib/imagen-ads/precios.js');
+    res.set('Cache-Control', 'no-store').json({ ajustes: ajustesDe(id), paises: Object.entries(PAISES).map(([codigo, p]) => ({ codigo, nombre: p.nombre })) });
+  }));
+  app.put('/api/imagen-ads/ajustes/:producto', soloDesdeLaApp, conErrores(async (req, res) => {
+    const id = String(req.params.producto || '');
+    if (!idValido(id)) throw new ErrorApp(404, 'No encuentro ese producto.');
+    const { guardarAjustes } = await import('../lib/imagen-ads/ajustes-producto.js');
+    res.json({ ajustes: guardarAjustes(id, req.body?.ajustes || req.body || {}) });
+  }));
+
+  // (2026-11-26a) APRENDER DE MIS VENTAS: lee tus anuncios en Meta (SEP) y guarda qué formato + ángulo vendió por producto
+  app.get('/api/imagen-ads/ventas', conErrores(async (req, res) => {
+    const { ARCHIVO_VENTAS } = await import('../lib/imagen-ads/ventas.js');
+    const d = leerJSON(ARCHIVO_VENTAS);
+    res.set('Cache-Control', 'no-store').json({ fecha: d?.fecha || null, productos: d?.productos || {} });
+  }));
+  app.post('/api/imagen-ads/ventas/aprender', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { aprenderDeVentas } = await import('../lib/imagen-ads/ventas.js');
+    const r = await aprenderDeVentas({ rango: ['30d', '90d'].includes(req.body?.rango) ? req.body.rango : '90d' });
+    if (!r.ok) throw new ErrorApp(409, 'Conecta tu cuenta de Meta en el SEP para aprender de tus ventas.');
+    res.json({ productos: r.productos, anuncios: r.anuncios, reconocidos: r.reconocidos });
+  }));
+
   // ------------------------------------------------------------ la muestra de cada plantilla (con tu producto y tu kit)
   // GET /api/imagen-ads/plantillas/muestra/:id?producto=<id>&foto=<n>&p=#hex&s=#hex&ft=&fs=&st=  -> PNG (guardado)
   app.get('/api/imagen-ads/plantillas/muestra/:id', conErrores(async (req, res) => {
@@ -674,6 +704,14 @@ export default function rutasImagenAds(app) {
     const titulo = nombreSeguro(brief.titulo || brief.datos?.nombre, 'Anuncios');
     const shaLogo = conLogo ? local.sha1DelLogo(carpeta) : null;
     const entradas = [];
+    // (2026-11-26a) con el formato y el ángulo en el nombre (como en la pantalla), para aprender de las ventas
+    const delPlan = new Map((leerJSON(R.plan(carpeta))?.variaciones || []).map((x) => [x.id, x]));
+    const nombreDe = (v, f) => {
+      const x = delPlan.get(v);
+      return x?.formato_id && x?.angulo_id && x.fuente !== 'referencia'
+        ? nombreDeDescarga({ producto: brief.datos?.nombre || brief.titulo, v, formatoId: x.formato_id, anguloId: x.angulo_id, formato: f, skill: leerSkill() }).replace(/\.png$/, '')
+        : `${v}-${nombreFormato(f)}`;
+    };
     for (const v of idsDelLote(brief.cantidad)) {
       for (const f of brief.formatos || ['1:1']) {
         const p = piezaId(v, f);
@@ -688,8 +726,8 @@ export default function rutasImagenAds(app) {
         // nunca una mezcla con y sin logo. La pantalla dice cuantas van.
         const final = conLogo && local.finalAlDia(carpeta, p, { posicion: brief.logo.posicion, shaLogo });
         if (conLogo && !final) continue;
-        entradas.push({ nombre: `${titulo}/${v}-${nombreFormato(f)}.png`, origen: final ? R.final(carpeta, p) : R.img(carpeta, p) });
-        if (conPrompts && existe(R.prompt(carpeta, p))) entradas.push({ nombre: `${titulo}/prompts/${v}-${nombreFormato(f)}.txt`, origen: R.prompt(carpeta, p) });
+        entradas.push({ nombre: `${titulo}/${nombreDe(v, f)}.png`, origen: final ? R.final(carpeta, p) : R.img(carpeta, p) });
+        if (conPrompts && existe(R.prompt(carpeta, p))) entradas.push({ nombre: `${titulo}/prompts/${nombreDe(v, f)}.txt`, origen: R.prompt(carpeta, p) });
       }
     }
     if (!entradas.some((e) => e.nombre.endsWith('.png'))) throw new ErrorApp(404, conLogo ? 'Todavía no hay imágenes con tu logo para descargar.' : 'Todavía no hay imágenes para descargar.');

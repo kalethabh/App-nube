@@ -1,3 +1,4 @@
+import { esVariado, REHACER_SOLO } from './variedad.js';
 import { escenasDe } from './catalogo-plantillas.js';
 import { plantillaDe } from './plantillas.js';
 /** Máximo de imágenes que puede cobrar una acción, incluidos sus dos formatos. */
@@ -11,7 +12,8 @@ export function imagenesDeLaAccion(brief, cuerpo = null) {
     const v = String(cuerpo.pieza || '').split('_')[0];
     return cuerpo.carpeta && plantillaDe(cuerpo.carpeta, v)?.escena ? 1 : 0;
   }
-  if (!cuerpo) return Number(brief?.cantidad || 0) * formatos;
+  // (2026-11-26a) «Vecinas» y «Conceptos nuevos»: cada cuadrado puede rehacerse solo hasta 2 veces (lo cuenta el máximo)
+  if (!cuerpo) return Number(brief?.cantidad || 0) * (formatos + (esVariado(brief) ? REHACER_SOLO : 0));
   if (cuerpo.tipo === 'prompt' || /_1x1$/.test(String(cuerpo.pieza || ''))) return formatos;
   // Una corrección en el vertical puede cambiar también el texto del cuadrado.
   return cuerpo.instruccion?.trim() ? formatos : 1;
