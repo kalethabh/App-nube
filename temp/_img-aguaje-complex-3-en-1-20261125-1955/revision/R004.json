@@ -1,0 +1,12 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V04_1x1",
+      "ok": false,
+      "problemas": [
+        "El precio dice «$139,900» con coma: debe decir «$139.900» con punto."
+      ],
+      "correccion_en": "Write the price exactly as \"$139.900\", using a period (not a comma) as the thousands separator."
+    }
+  ]
+}
