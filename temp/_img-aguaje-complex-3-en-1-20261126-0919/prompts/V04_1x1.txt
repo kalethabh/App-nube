@@ -1,0 +1,51 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 infographic ad on a warm cream #FFF7F2 background. TOP ZONE (0–16%): 2-line headline centered, Montserrat Black uppercase, line 1 in bottle black #0E0E10, line 2 in hot fuchsia #E6177F, both large and tight. MIDDLE ZONE (17–88%), four equal rows. LEFT COLUMN (4–33% of the width, about 30% of the canvas in total): four flat vector illustrations with thin plum outlines and flat fills, each in a small soft-cornered vignette, all of the same slim adult Latina woman in her early 20s (adult features, long dark ponytail, light-brown skin, navy t-shirt), each with a bold black Poppins Bold caption under it (2 lines max). Row 1: she stands three-quarters turned in front of a fitting-room mirror in mid-blue jeans one size too big at the back, a baggy fold of extra denim below the seat, drooping back pockets, pulling the loose waistband, frowning. Row 2: she sits on her bed looking at her phone with a sad face, her thin straight legs in light-grey leggings with loose fabric at the thighs. Row 3: she slumps on a sofa after work, still in her bag strap, eyes half closed, a hand on her forehead, tired. Row 4: she stands in her kitchen pouring a glass of water, calm, thoughtful face (self-care moment). From each illustration a thick hot-fuchsia #E6177F arrow points right. MIDDLE COLUMN (36–62% of the width): four real photographic ingredients with soft top light and small shadows, each with its name in black Poppins ExtraBold and a small note in parentheses in grey Poppins Regular. Row 1: two whole aguaje fruits (oval, egg-sized, glossy overlapping maroon-brown scales like snake skin) and one halved showing its thin bright orange pulp. Row 2: a small heap of fenugreek seeds (tiny angular golden-ochre seeds) on a wooden spoon. Row 3: three black maca roots (round dark tubers with thin root tails). Row 4: a single glossy round golden drop of oil on a small smooth green oval leaf, clearly a liquid drop, not a capsule. From each ingredient a thick fuchsia arrow angles toward the bottles. RIGHT COLUMN (64–95% of the width, 30–74% height): two identical real closed product bottles, the front one about 38% of the canvas height, slightly overlapping the one behind it on the right, both facing the camera, labels readable, soft contact shadow, centered in the column and not touching the right edge. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth. The black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed; labels read the right way round, never mirrored. Under the bottles (76–88% height), the 2-line closing line in black Poppins ExtraBold, centered in the right column. BOTTOM BAND (90–100%): full-width dark plum #2B1226 band: left, white Montserrat Black 'PAGAS AL RECIBIR' with a small white hand-and-coin line icon; right, a rounded badge with a solid hot-fuchsia border and a small white shield icon containing the registration text in white Poppins Bold on two lines. All texts crisp, spelled exactly with correct accents, nothing else written.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (top): "JEAN SUELTO Y CERO ENERGÍA" — Montserrat Black uppercase, black #0E0E10
+- main headline line 2 (highlighted) (top, line 2): "TRIPLE ACCIÓN NATURAL" — Montserrat Black uppercase, hot fuchsia #E6177F
+- problem caption (row 1, left): "El jean te queda suelto atrás" — Poppins Bold, black, 2 lines
+- problem caption (row 2, left): "Te sientes flaquita de piernas" — Poppins Bold, black, 2 lines
+- problem caption (row 3, left): "Llegas sin energía a tu rutina" — Poppins Bold, black, 2 lines
+- problem caption (row 4, left): "Quieres cuidarte por dentro" — Poppins Bold, black, 2 lines
+- ingredient name (row 1, middle): "Aguaje 200 mg" — Poppins ExtraBold, black
+- ingredient note (row 1, middle, under the name): "(Fruto del Amazonas)" — Poppins Regular, grey
+- ingredient name (row 2, middle): "Fenogreco 400 mg" — Poppins ExtraBold, black
+- ingredient note (row 2, middle, under the name): "(Semilla tradicional)" — Poppins Regular, grey
+- ingredient name (row 3, middle): "Maca negra 200 mg" — Poppins ExtraBold, black
+- ingredient note (row 3, middle, under the name): "(Raíz de los Andes)" — Poppins Regular, grey
+- ingredient name (row 4, middle): "Vitaminas A y E" — Poppins ExtraBold, black
+- ingredient note (row 4, middle, under the name): "(En cada porción)" — Poppins Regular, grey
+- closing line (under the bottles): "2 cápsulas al día para acompañar tus curvas" — Poppins ExtraBold, black, 2 lines, centered
+- offer and trust block (bottom band) (bottom band, left): "PAGAS AL RECIBIR" — Montserrat Black uppercase, white on dark plum
+- trust badge (bottom band, right, inside a fuchsia-bordered badge): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number
+
+BRAND IDENTITY:
+- color_palette: Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: warm cream #FFF7F2 background.
+- text_typography: Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look).
+
+MANDATORY ELEMENTS:
+- Four flat illustrations of the same adult woman: loose jeans at the fitting-room mirror, thin legs looking at her phone, tired on the sofa, calm with a glass of water
+- Thick hot-fuchsia arrows from each problem to its ingredient and from each ingredient to the bottles
+- Real ingredient photos: aguaje fruits with maroon scales and orange pulp, fenugreek seeds on a wooden spoon, black maca roots, a golden oil drop on a smooth oval leaf
+- Two identical real closed product bottles on the right, labels readable, not touching the edge
+- Dark plum bottom band with 'PAGAS AL RECIBIR' and a bordered registration badge
+
+STRICT EXCLUSIONS:
+- No capsules or pills anywhere, including the ingredient row of vitamins; no open bottle; no other brand
+- No serrated leaves; no body parts shaped like skin-colored anatomy
+- No prices, percentages, ratings, testimonials or 'envío gratis'
+- No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Brand logos of any kind
+- Do not add: Prices, discounts, ratings, testimonials, 'envío gratis'
+- Do not add: Capsules in any ingredient image, an open bottle
+- Do not add: Hormone, disease or medical words
+- Do not add: Serrated leaves
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

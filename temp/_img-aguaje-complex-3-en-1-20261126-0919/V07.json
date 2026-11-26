@@ -1,0 +1,81 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V07",
+    "structure_source": "library format F61 (Escena real de despacho con frasco sobre caja y titular de oferta abajo) — estructuras/np-05.json",
+    "reference_style": "Real photo logistics scene: delivery vehicle with a courier unloading boxes, the bottle on a cardboard box in the foreground, offer headline and white pill at the bottom",
+    "angle_used": "Objeción de confianza — you receive it at home and pay there (pain: not knowing if what is sold online is registered or fake)",
+    "ad_format": "Lifestyle Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: brick orange #B5542F, cardboard kraft #C49A6C and morning sky blue #A9CBE8.",
+    "visual_style": "Real documentary-style photo with a 35 mm lens; the real bottle sharp and identical to the photo; a real phone-photo inset of the woman's problem.",
+    "visual_atmosphere": "Trustworthy and everyday: a real delivery on a real Colombian street on a sunny morning.",
+    "graphic_language": "Heavy white uppercase headline with the key phrase in fuchsia over a dark gradient, a white rounded pill, a bordered registration badge, a photo inset with a thin white frame.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look)."
+  },
+  "creative_objective": "Remove the fear of being scammed online: show a real delivery arriving in a Colombian neighborhood, the closed bottle on its box, and say plainly that she receives it at home and pays there, backed by the registration badge; the inset shows why she wants it (pants loose at the back at the office).",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the 3-line headline with 'AHÍ PAGAS' in fuchsia, 2) the bottle on the box, 3) the delivery scene and the office inset, 4) the support line, 5) the white pill and the registration badge.",
+    "composition_style": "Real street photo as full background; the delivery van and courier on the upper right; the photo inset on the upper left; the cardboard box with the bottle on the right in the lower half; headline, line and pill stacked on the lower left over a dark gradient.",
+    "spacing_and_structure": "Text column 5–58% width in the lower 42%; box and bottle 58–95% width; pill and badge share one row at the bottom with 4% bottom margin.",
+    "lighting_and_depth": "Warm morning sun from the left, soft shadows; background slightly out of focus (35 mm, f/2.8), the bottle and box in sharp focus; a dark plum-to-transparent gradient over the lower 45% so the white text reads.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top 45%: an open delivery vehicle with a person unloading boxes. Middle 25%: the bottle on a cardboard box in the foreground (capsules removed for this product). Bottom 30%: 3-line offer headline in white with the key phrase in color, a short support line and a white rounded pill. Adapted to 1:1. Added by batch rules: a real phone-photo inset of the woman's problem on the upper left (about 25% of the canvas) and a bordered registration badge next to the pill.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "delivery scene background", "position": "upper half, right side mostly", "visual_function": "real logistics builds trust", "adaptation_rule": "white unbranded delivery van in a Colombian brick neighborhood, courier unloading boxes", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "product on a cardboard box", "position": "right, 40–82% height", "visual_function": "the product arriving", "adaptation_rule": "real closed bottle on a taped kraft box, no capsules", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "3-line offer headline", "position": "lower-left, 56–80% height", "visual_function": "main message", "adaptation_rule": "white with 'AHÍ PAGAS' in fuchsia", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "support line", "position": "lower-left, 80–85% height", "visual_function": "clarifies the offer", "adaptation_rule": "no prepayment, no expiry claim", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "white rounded pill", "position": "bottom-left, 87–96% height", "visual_function": "offer and trust", "adaptation_rule": "'PAGAS AL RECIBIR' with arrow, no price", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "photo inset of the problem (batch rule)", "position": "upper-left, 3–54% height, 3–52% width", "visual_function": "visual pain", "adaptation_rule": "real phone photo in an office bathroom, trousers loose at the back", "present_in_reference": false },
+      { "block_id": "block_07", "block_type": "registration badge (batch rule)", "position": "bottom-right, 86–97% height, 60–96% width", "visual_function": "answers 'is it registered?'", "adaptation_rule": "rounded badge with solid fuchsia border and shield icon", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Capsules or pills next to the bottle; an open bottle",
+      "Prices, percentages, 'Black Friday', 'hasta fin de stock' or any expiry or scarcity claim",
+      "Brand names or logos on the van, the boxes or the courier's clothes",
+      "Pallets full of bottles, stacks of products with readable labels",
+      "Ratings, testimonials, 'envío gratis'"
+    ]
+  },
+  "visual_prompt": "Square 1:1 real-photo ad shot with a 35 mm lens at box height. FULL BACKGROUND: a sunny morning street in a Colombian working-class neighborhood: two-story houses of exposed orange brick #B5542F with white window bars, a sidewalk curb, a clear pale-blue #A9CBE8 sky, warm sun from the left, background slightly out of focus. UPPER RIGHT (3–50% height, 50–97% width): a white unbranded delivery van parked at the curb with its rear doors open, and a Colombian courier man in his thirties (short black hair, plain navy polo shirt, dark jeans, black cap, no logos) lifting a sealed kraft box down from the cargo area, other plain boxes stacked inside; natural, mid-motion. UPPER LEFT PHOTO INSET (3–54% height, 3–52% width, about 25% of the canvas): a real vertical smartphone photo with a thin 6 px white frame, rounded corners and a soft shadow, tilted 2 degrees: a Colombian woman around 27 in an office bathroom (grey tiles, mirror, cold fluorescent light), sleek low bun, light-brown skin with visible pores, lilac satin blouse tucked into black tailored trousers; she stands three-quarters from the back, looking in the mirror over her shoulder, tugging the loose waistband with one hand; the trousers hang flat and baggy at the back with empty fabric below the waistband; tired, disappointed face; slight phone grain. RIGHT MIDDLE (40–84% height, 58–95% width): in the sharp foreground a taped kraft cardboard box #C49A6C with clear packing tape and slightly worn corners; standing on its top the real product bottle, upright, front-facing, about 34% of the canvas height, label perfectly readable, warm sun on its left side, a soft contact shadow on the cardboard; nothing else on the box. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh; three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA'; and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Matte finish, no rainbow, no prism light, no lens flare; always closed, no loose capsules; label reads the right way round, never mirrored. LOWER LEFT (56–85% height, 5–58% width) over a dark plum #2B1226 gradient that fades upward: a 3-line headline in Montserrat Black uppercase, flush left, tight: 'LO RECIBES' white, 'EN CASA Y' white, 'AHÍ PAGAS' hot fuchsia #E6177F; under it a 1-line support text in white Poppins SemiBold. BOTTOM ROW (87–97% height): left (5–56% width) a white rounded pill with dark plum #2B1226 Montserrat Black uppercase text and a small fuchsia arrow at the end; right (60–96% width) a rounded badge on dark plum with a solid 3 px hot-fuchsia border and a small white shield icon, holding the registration text in white Poppins Bold on two lines ('REGISTRO INVIMA' above the number). All texts crisp, spelled exactly with correct accents, nothing else written.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "offer headline line 1", "reference_position": "lower-left, line 1", "text_style": "Montserrat Black uppercase, white", "text": "LO RECIBES" },
+    { "block_id": "text_block_02", "reference_function": "offer headline line 2", "reference_position": "lower-left, line 2", "text_style": "Montserrat Black uppercase, white", "text": "EN CASA Y" },
+    { "block_id": "text_block_03", "reference_function": "offer headline line 3 (highlighted)", "reference_position": "lower-left, line 3", "text_style": "Montserrat Black uppercase, hot fuchsia #E6177F", "text": "AHÍ PAGAS" },
+    { "block_id": "text_block_04", "reference_function": "support line", "reference_position": "lower-left, under the headline", "text_style": "Poppins SemiBold, white, 1 line", "text": "Sin pagar nada por adelantado." },
+    { "block_id": "text_block_05", "reference_function": "offer and trust pill", "reference_position": "bottom-left, inside the white pill, with a fuchsia arrow", "text_style": "Montserrat Black uppercase, dark plum #2B1226 on white", "text": "PAGAS AL RECIBIR" },
+    { "block_id": "text_block_06", "reference_function": "trust badge", "reference_position": "bottom-right, inside the fuchsia-bordered badge", "text_style": "Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Real Colombian brick neighborhood street on a sunny morning",
+    "White unbranded delivery van with open rear doors and a courier unloading a plain kraft box",
+    "Real phone-photo inset on the upper left (about 25% of the canvas): woman in an office bathroom, lilac blouse and black trousers loose at the back, tugging the waistband, disappointed",
+    "The real closed product bottle standing on a taped kraft cardboard box in sharp focus, label readable, no capsules",
+    "Dark plum gradient behind the lower-left text",
+    "White rounded pill with 'PAGAS AL RECIBIR' and a fuchsia arrow",
+    "Rounded registration badge with a solid fuchsia border and shield icon"
+  ],
+  "final_generation_exclusions": [
+    "No capsules or pills anywhere; no open bottle; no other brand or product",
+    "No logos or text on the van, boxes or uniform",
+    "No prices, percentages, dates, 'Black Friday', expiry or stock claims, 'envío gratis'",
+    "No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add prices, extra badges, benefits, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. The message is about how payment and delivery work and shows the real registration; no health claims, no guarantees, no personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

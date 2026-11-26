@@ -1,0 +1,77 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V06",
+    "structure_source": "library format F38 (Ilustración plana lado a lado) — estructuras/mv-06.json",
+    "reference_style": "Flat outlined illustration side-by-side comparison: good state on the LEFT, problem on the RIGHT, separated by a vertical line, each with a big wavy-edged label",
+    "angle_used": "Transformación / resultado — not only the seat, also the legs (pain: jeans loose at the back that don't fit)",
+    "ad_format": "Comparison Illustration Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: pale rose #FCE9F1 background, denim blues #2E4A7D (dark wash) and #8FB3DB (light wash).",
+    "visual_style": "Flat vector illustration with uniform dark plum outlines and flat fills, no gradients, like an editorial health-app illustration; only the small bottle in the band is photographic.",
+    "visual_atmosphere": "Clear, friendly and relatable; the mom recognizes herself on the right and wants the left.",
+    "graphic_language": "Two equal panels split by a thin vertical plum line, big hot-fuchsia labels with wavy scalloped edges, a slim plum bottom band with a bordered badge.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look)."
+  },
+  "creative_objective": "Show at a glance, in a friendly flat illustration, the same mom with jeans that fit (left) versus jeans that hang loose on thin legs (right), so the reader sees the change she wants in her legs and seat, and close with the bottle and 'Pagas al recibir' to remove the risk.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the 2-line headline, 2) the two illustrated women, 3) the two wavy labels, 4) the subtitle, 5) the bottom band with bottle, 'PAGAS AL RECIBIR' and badge.",
+    "composition_style": "Headline and subtitle centered across the top; two equal full-height panels side by side below, split by a vertical line; slim band across the bottom.",
+    "spacing_and_structure": "Both women the same size and height, feet aligned on the same baseline; labels at the same height on both sides; band separated from the illustrations by a small gap.",
+    "lighting_and_depth": "Flat, no shadows except a tiny flat ground shadow under the feet; the bottle in the band with soft studio light.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top 24%: 2-line very heavy headline centered, then a 2-line subtitle in black. Middle 62%: two flat outlined illustrations side by side separated by a vertical line: LEFT the woman without the problem (smiling), RIGHT the same woman with the problem (frustrated), each with a big wavy-edged label across the torso. Added by batch rule: bottom 13% slim plum band with the small bottle, 'PAGAS AL RECIBIR' and the registration badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top, 2–15%", "visual_function": "result hook naming the body zone", "adaptation_rule": "line 1 plum, line 2 hot fuchsia", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "subtitle", "position": "top, 16–24%", "visual_function": "the promise in plain words", "adaptation_rule": "2 lines, black Poppins SemiBold, no days, no guarantees", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "two flat illustrations with vertical divider", "position": "middle, 25–86%", "visual_function": "visual comparison of the same mom (good left, problem right)", "adaptation_rule": "three-quarter full body, head to ankles, in jeans", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "two wavy-edged labels", "position": "over each torso, about 50–60% height", "visual_function": "names each state", "adaptation_rule": "hot fuchsia scalloped labels with white text", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "bottom offer/trust band (batch rule)", "position": "bottom 87–100%", "visual_function": "mandatory 'Pagas al recibir' and registration badge, small real bottle", "adaptation_rule": "dark plum band, bottle left, text center, bordered badge right", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Brand logos of any kind",
+      "Prices, percentages, days or weeks of results, ratings, testimonials",
+      "Benefit lists or icons",
+      "Explicit or sexualized body depiction; skin-tight close-ups",
+      "Loose capsules or an open bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 flat vector illustration ad on a pale rose #FCE9F1 background, no gradients, uniform 4 px dark plum #2B1226 outlines and flat fills, editorial style. TOP ZONE (0–24% height): 2-line headline centered, Montserrat Black uppercase, very heavy, line 1 in dark plum #2B1226, line 2 in hot fuchsia #E6177F, each line about 7% of the canvas height; under it a 2-line subtitle centered in black #0E0E10 Poppins SemiBold, sentence case, about 3.5% of the canvas height. MIDDLE ZONE (25–86% height): two equal panels split exactly at the center by a thin vertical dark plum line from 26% to 85% height. Both panels show THE SAME Colombian mom around 36 (same face, light-brown skin, dark brown hair in a low bun with a few loose strands, small gold hoop earrings), drawn three-quarter turned to the right so the seat and the back of the legs are visible, full body from head to ankles, feet on the same baseline, the figure filling about 85% of the panel height. LEFT PANEL (the result, good state): she wears dark-wash indigo #2E4A7D fitted high-rise jeans that follow her legs and fill out smoothly at the back, a tucked-in blush pink #FBE3EE blouse and white sneakers; posture upright and confident, one hand on her hip, looking back over her shoulder with a wide warm smile; her thighs and calves look fuller and toned, the seat rounded and lifted, the denim smooth with no folds. RIGHT PANEL (the problem): same mom on another day, light-wash #8FB3DB straight jeans that hang loose and baggy from the seat down to the knees, a sagging fold of extra denim under the back pockets, empty fabric flapping around thin straight legs, an oversized grey t-shirt and worn flats; shoulders slumped, one hand pulling the loose waistband at the back, eyebrows pinched, mouth turned down, frustrated. The difference must be obvious at phone size: fitted and full on the left, baggy and empty on the right. LABELS: on each figure, across the torso at the same height (50–60% of the canvas), a big hot fuchsia #E6177F label with wavy scalloped edges, white Montserrat ExtraBold text in 2 lines. BOTTOM ZONE (87–100% height): a full-width dark plum #2B1226 band. Left (3–14% width): a small real photographic product bottle standing upright, about 11% of the canvas height, label facing the camera. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed; label reads the right way round, never mirrored. Center (17–55% width): white Montserrat Black uppercase 'PAGAS AL RECIBIR' with a small white hand-and-coin line icon. Right (58–96% width): a rounded badge with a solid 3 px hot-fuchsia border and a small white shield line icon, the registration text in white Poppins Bold uppercase on two lines. All texts crisp, spelled exactly with correct accents, nothing else written anywhere.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline line 1", "reference_position": "top center, line 1", "text_style": "Montserrat Black uppercase, dark plum #2B1226", "text": "NO SOLO TU COLA," },
+    { "block_id": "text_block_02", "reference_function": "main headline line 2 (highlighted)", "reference_position": "top center, line 2", "text_style": "Montserrat Black uppercase, hot fuchsia #E6177F", "text": "TAMBIÉN TUS PIERNAS" },
+    { "block_id": "text_block_03", "reference_function": "subtitle", "reference_position": "top center, under the headline, 2 lines", "text_style": "Poppins SemiBold, black #0E0E10, sentence case, centered", "text": "Aguaje, fenogreco y maca negra para acompañar tus curvas de forma natural." },
+    { "block_id": "text_block_04", "reference_function": "label (good state)", "reference_position": "left figure, across the torso, wavy-edged label", "text_style": "Montserrat ExtraBold, white on hot fuchsia #E6177F scalloped label, 2 lines", "text": "Jean que horma" },
+    { "block_id": "text_block_05", "reference_function": "label (problem state)", "reference_position": "right figure, across the torso, wavy-edged label", "text_style": "Montserrat ExtraBold, white on hot fuchsia #E6177F scalloped label, 2 lines", "text": "Jean que baila" },
+    { "block_id": "text_block_06", "reference_function": "offer and trust block (bottom band)", "reference_position": "bottom band, center", "text_style": "Montserrat Black uppercase, white on dark plum", "text": "PAGAS AL RECIBIR" },
+    { "block_id": "text_block_07", "reference_function": "trust badge", "reference_position": "bottom band, right, inside a fuchsia-bordered badge", "text_style": "Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Two flat outlined illustrations of the same mom, three-quarter full body head to ankles: LEFT fitted dark jeans, fuller legs, smiling; RIGHT baggy light jeans on thin legs, pulling the waistband, frustrated",
+    "Thin vertical dark plum divider line between the two figures",
+    "Two hot-fuchsia labels with wavy scalloped edges across the torsos",
+    "Dark plum bottom band with a small real closed bottle, 'PAGAS AL RECIBIR' and a bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "No capsules or pills anywhere; no open bottle; no other brand",
+    "No prices, percentages, days, weeks, ratings or testimonials",
+    "No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'",
+    "No gradients or 3D shading in the illustrations; no explicit or sexualized body depiction",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add prices, extra badges, benefit lists, ratings, testimonials, discount labels or extra claims beyond the listed band, badge and texts.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. The comparison is about how the jeans fit, told as an aspiration, with no days, no guaranteed results and no medical claims; the product 'accompanies' the process.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}
