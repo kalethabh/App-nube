@@ -538,7 +538,10 @@ export function sesionAjuste({ carpeta, lote, brief, tanda, pedidos }) {
     .map((p) => {
       const v = vDe(p.pieza);
       const vista = existe(R.vista(carpeta, p.pieza)) ? ` · vista ${c}/revision/${p.pieza}_vista.jpg` : ' · (esta imagen todavía no existe)';
-      return `- ${p.id} · ${p.pieza} (${nombreFormato(formatoDe(p.pieza))}): «${sinSaltos(p.instruccion)}»${vista} · anuncio ${c}/${v}.json`;
+      // (2026-11-26h) las imágenes que adjuntó el usuario: el modelo de imagen las recibe como 3.ª, 4.ª… (después de la imagen actual y el producto)
+      const adj = (p.adjuntos || []).filter((a) => existe(path.join(carpeta, ...String(a).split('/'))));
+      const conAdj = adj.length ? ` · ADJUNTÓ ${adj.length === 1 ? 'una imagen' : `${adj.length} imágenes`}: ${adj.map((a, i) => `${c}/${a} (al modelo le llega como la imagen ${i + 3}.ª)`).join(', ')}; mírala${adj.length > 1 ? 's' : ''} con Read y en "instruccion_en" di exactamente cómo usar${adj.length > 1 ? 'las' : 'la'} («use the THIRD attached image as …»)` : '';
+      return `- ${p.id} · ${p.pieza} (${nombreFormato(formatoDe(p.pieza))}): «${sinSaltos(p.instruccion)}»${vista}${conAdj} · anuncio ${c}/${v}.json`;
     })
     .join('\n');
   const vs = [...new Set(pedidos.map((p) => `${vDe(p.pieza)}.json`))];
@@ -546,7 +549,7 @@ export function sesionAjuste({ carpeta, lote, brief, tanda, pedidos }) {
   // pero Claude la puede abrir), adjuntas
   const material = {
     textos: unicas([deLaSkill('SKILL.md'), ...vs.map((v) => delLote(carpeta, lote, v))]),
-    imagenes: unicas([...pedidos.map((p) => delLote(carpeta, lote, `revision/${p.pieza}_vista.jpg`)), delLote(carpeta, lote, fotoDelLote(carpeta))]),
+    imagenes: unicas([...pedidos.map((p) => delLote(carpeta, lote, `revision/${p.pieza}_vista.jpg`)), delLote(carpeta, lote, fotoDelLote(carpeta)), ...pedidos.flatMap((p) => (p.adjuntos || []).map((a) => delLote(carpeta, lote, a)))]),
   };
   return {
     tipo: 'ajuste',

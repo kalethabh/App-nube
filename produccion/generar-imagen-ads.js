@@ -261,6 +261,8 @@ export function validarOrden(datos, id) {
       version: p.version,
       ...(p.motivo ? { motivo: String(p.motivo) } : {}),
       ...(p.modo === 'editar' ? { instruccion_en: p.instruccion_en.trim(), textos: p.textos === true } : {}),
+      // (2026-11-26h) las imágenes que adjuntó el usuario (dentro del lote; solo al editar)
+      ...(p.modo === 'editar' && Array.isArray(p.adjuntos) ? { adjuntos: p.adjuntos.map(String).filter((a) => /^entrada\/adjuntos\/A\d{4}\.(png|jpg)$/.test(a)).slice(0, 3) } : {}),
       // la otra version que pidio el usuario: lo que salio mal segun la revision (ingles, corto)
       ...(p.modo === 'generar' && typeof p.correccion_en === 'string' && p.correccion_en.trim() ? { correccion_en: p.correccion_en.trim().slice(0, TOPE_CORRECCION) } : {}),
     };
@@ -603,7 +605,9 @@ class Motor {
     const logo = this.lote.logo;
     let armar;
     if (item.modo === 'editar') {
-      armar = (a) => construirPromptEdicion(a, { instruccion: item.instruccion_en, formato, textos: item.textos === true, logo });
+      const n = (item.adjuntos || []).length;
+      const conAdjuntos = n ? ` The ${n === 1 ? 'THIRD attached image is a reference' : `attached images 3 to ${n + 2} are references`} the user attached: use ${n === 1 ? 'it' : 'them'} ONLY as this instruction says, and keep everything else of the current ad exactly as it is.` : '';
+      armar = (a) => construirPromptEdicion(a, { instruccion: `${item.instruccion_en}${conAdjuntos}`, formato, textos: item.textos === true, logo });
     } else if (formato === '1:1') {
       const modo = this.modoReferencia(vDePieza(item.pieza));
       const referencia = modo === 'estilo' || modo === 'estructura' ? modo : Boolean(modo);
@@ -875,7 +879,9 @@ class Motor {
     let archivos;
     if (item.modo === 'editar') {
       if (!existe(r.img)) return this.sinImagen(T, item, 'falta-imagen');
-      archivos = [r.img, this.lote.rutaProducto];
+      // (2026-11-26h) después de la imagen actual y el producto, las que adjuntó el usuario (3.ª, 4.ª…)
+      const adjuntos = (item.adjuntos || []).map((a) => path.join(this.carpeta, ...a.split('/'))).filter((a) => existe(a));
+      archivos = [r.img, this.lote.rutaProducto, ...adjuntos];
     } else if (formato === '9:16') {
       const cuadrado = this.rutasDe(`${vDePieza(pieza)}_1x1`).img;
       if (!existe(cuadrado)) return this.sinImagen(T, item, 'falta-cuadrado');

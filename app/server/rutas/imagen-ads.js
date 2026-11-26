@@ -142,6 +142,8 @@ const PERMITIDOS = [
   /^entrada\/logo\.png$/,
   // (2026-11-26b) la comparación contra cada estructura ganadora (montajes lado a lado)
   /^comparacion\/V\d{2,3}\.jpg$/,
+  // (2026-11-26h) las imágenes adjuntas a un cambio
+  /^entrada\/adjuntos\/A\d{4}\.(png|jpg)$/,
 ];
 
 function archivoDelLote(req) {
@@ -569,6 +571,18 @@ export default function rutasImagenAds(app) {
       throw new ErrorApp(404, 'Todavía no se creó esta imagen.');
     }
     res.json({ texto });
+  }));
+
+  // (2026-11-26h) una imagen para adjuntar a un cambio: el cuerpo es la imagen, o ?pieza=<id de Mis piezas>
+  app.put('/api/imagen-ads/:lote/adjuntos', soloDesdeLaApp, leerBinario, conErrores(async (req, res) => {
+    const { lote } = elLote(req);
+    let origen = null;
+    if (req.query?.pieza) {
+      const { rutaPieza } = await import('../lib/imagen-ads/piezas.js');
+      origen = rutaPieza(String(req.query.pieza));
+      if (!origen) throw new ErrorApp(404, 'No encuentro esa pieza.');
+    }
+    res.status(201).json(lotes.guardarAdjunto(lote, { datos: Buffer.isBuffer(req.body) ? req.body : null, tipo: req.headers['content-type'], origen }));
   }));
 
   // ------------------------------------------------------------ regenerar

@@ -27,6 +27,8 @@ import { piezaId, vDe, formatoDe, numeroDeV, idsDelLote, ordenDePiezas, ordenDeV
 import { motorActual } from '../motor-ia.js';
 import { CRITERIOS, NOTA_MINIMA, NOMBRES_CRITERIOS } from './variedad.js';
 
+/** (2026-11-26h) Una imagen adjunta a un pedido, dentro del lote. */
+export const RE_ADJUNTO = /^entrada\/adjuntos\/A\d{4}\.(png|jpg)$/;
 export const TOPES = {
   porOrden: 24, // piezas por orden al motor
   pedidasALaVez: 60, // piezas en el motor a la vez
@@ -130,6 +132,7 @@ function iniciarPaso(est, ped, i) {
     version: (p.version || 0) + 1,
     ...(paso.motivo ? { motivo: paso.motivo } : {}),
     ...(editar ? { instruccion_en: paso.instruccion_en, textos: Boolean(paso.textos) } : {}),
+    ...(editar && Array.isArray(paso.adjuntos) && paso.adjuntos.length ? { adjuntos: paso.adjuntos } : {}),
     ...(correccion ? { correccion_en: correccion } : {}),
   };
   ped.estado = 'generando';
@@ -147,10 +150,11 @@ export function pasosDelPedido(est, ped, { instruccionEn = null, cambiaTextos = 
   // (plantillas: el vertical lo dibuja la app con la misma escena: no se pide otro)
   const hayVertical = Boolean(est.piezas[vertical]) && !est.piezas[vertical].local;
   const modo = instruccionEn ? 'editar' : 'generar';
-  const extra = instruccionEn ? { instruccion_en: instruccionEn, textos: Boolean(cambiaTextos) } : {};
+  const adjuntos = instruccionEn && Array.isArray(ped.adjuntos) && ped.adjuntos.length ? { adjuntos: ped.adjuntos } : {};
+  const extra = instruccionEn ? { instruccion_en: instruccionEn, textos: Boolean(cambiaTextos), ...adjuntos } : {};
   const delVertical = { pieza: vertical, orden: `${ped.id}-v`, modo: 'generar', motivo: 'cuadrado-nuevo' };
   if (formatoDe(ped.pieza) === '1:1') return [{ pieza: cuadrado, orden: ped.id, modo, ...extra }, ...(hayVertical ? [delVertical] : [])];
-  if (instruccionEn && cambiaTextos) return [{ pieza: cuadrado, orden: ped.id, modo: 'editar', instruccion_en: instruccionEn, textos: true }, delVertical];
+  if (instruccionEn && cambiaTextos) return [{ pieza: cuadrado, orden: ped.id, modo: 'editar', instruccion_en: instruccionEn, textos: true, ...adjuntos }, delVertical];
   return [{ pieza: vertical, orden: ped.id, modo, ...extra }];
 }
 
@@ -337,6 +341,7 @@ export function decidir(est, hechos = {}, opciones = {}) {
             version: o.version || 1,
             ...(o.motivo ? { motivo: o.motivo } : {}),
             ...(o.instruccion_en ? { instruccion_en: o.instruccion_en, textos: Boolean(o.textos) } : {}),
+            ...(Array.isArray(o.adjuntos) && o.adjuntos.length ? { adjuntos: o.adjuntos } : {}),
             ...(o.correccion_en ? { correccion_en: o.correccion_en } : {}),
           };
         }),
@@ -736,6 +741,8 @@ export function absorberPedidos(est, lista) {
       id: x.id,
       ...(x.tipo === 'prompt' ? { tipo: 'prompt', v: x.v } : { pieza: x.pieza }),
       instruccion: typeof x.instruccion === 'string' ? x.instruccion.trim() : '',
+      // (2026-11-26h) las imágenes que adjuntó el usuario al pedir el cambio (entrada/adjuntos/A0001.jpg)
+      ...(Array.isArray(x.adjuntos) && x.adjuntos.length ? { adjuntos: x.adjuntos.filter((a) => RE_ADJUNTO.test(String(a))).slice(0, 3) } : {}),
       fecha: x.fecha || null,
       estado: 'pendiente',
     };
