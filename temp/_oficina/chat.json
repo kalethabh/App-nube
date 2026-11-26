@@ -1031,6 +1031,23 @@
       ],
       "aviso": true,
       "fecha": "2026-11-21T23:04:04.819Z"
+    },
+    {
+      "id": "f11e17fbd4",
+      "de": "tu",
+      "texto": "(te pasé estos archivos)",
+      "adjuntos": [
+        "c7dfa1e81de8",
+        "81c9a08f9adb"
+      ],
+      "fecha": "2026-11-26T00:51:39.798Z"
+    },
+    {
+      "id": "fc7d7c591b",
+      "de": "coordinadora",
+      "texto": "¡Uy, esta quedó muy buena! 🔥 El antes y después se nota de una y la oferta se lee clarita. ¿Quieres que te saque variaciones de esta para AGUAJE, siguiendo tu prompt? Dime cuántas y si van solo en cuadrado o también en vertical.",
+      "acciones": [],
+      "fecha": "2026-11-26T00:51:50.979Z"
     }
   ],
   "encargos": [
