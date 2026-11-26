@@ -1,0 +1,54 @@
+{
+  "referencias": [],
+  "angulo_central": {
+    "deseo": "Verse con más curvas, que el jean le horme y sentirse segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+    "problema": "Los jeans le quedan sueltos atrás y, aunque haga sentadillas, siente que la cola sigue igual.",
+    "beneficio": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar su proceso de curvas junto con su comida y su rutina de pierna.",
+    "beneficios_secundarios": [
+      "Más energía y mejor ánimo para cumplirle a la rutina",
+      "Fácil de cumplir: sin batidos ni preparaciones",
+      "Triple acción: aguaje, fenogreco y maca negra, con vitaminas A y E",
+      "Pagas cuando lo recibes",
+      "Registro sanitario visible"
+    ],
+    "promesa": "Tu plan natural de 3 meses para acompañar tus curvas, sin agujas ni quirófano.",
+    "emocion": "De la frustración y el miedo a la seguridad: sentirse femenina y a gusto con su ropa.",
+    "conciencia": "Consciente del problema y de las soluciones (ya probó otras pastillas, cremas o fajas y averiguó la cirugía); desconfiada: necesita confianza y una expectativa honesta.",
+    "mecanismo": "Contraste con el quirófano (lo natural frente a las agujas), el plan de 3 meses con constancia, la triple acción de tres plantas y el cierre de confianza (pago al recibir y registro)."
+  },
+  "invariables": [
+    "El deseo central: verse con curvas y que el jean le horme, de forma natural y sin quirófano",
+    "El frasco real, negro con tapa y base fucsia, idéntico a la foto",
+    "La identidad de la marca: fucsia, ciruela y negro",
+    "Lenguaje honesto: acompañar el proceso, nunca prometer aumento",
+    "El sello del registro INVIMA tal como lo dio el usuario"
+  ],
+  "modificables": [
+    "La faceta de la compradora (la del jean, la del gimnasio, la mamá, la que se prepara para diciembre, la desconfiada)",
+    "El contexto (probador, espejo de la casa, gimnasio, terraza, celular)",
+    "El formato del anuncio y la cámara",
+    "El titular y los beneficios que se destacan",
+    "Los colores secundarios de cada pieza"
+  ],
+  "experimentales": [
+    "Formatos nativos que no parecen anuncio (post-it, nota del celular)",
+    "Responder de frente la duda del registro",
+    "La cifra «3 en 1» como gancho visual",
+    "Una línea de tiempo de 3 meses contada con energía y seguridad, no con el cuerpo"
+  ],
+  "facetas": [
+    "Paola Andrea: la que quiere más curvas sin pasar por el quirófano y siente que el jean no le horma",
+    "Yuliana: la del gimnasio que busca el empujón que le falta a su rutina de pierna",
+    "Sandra Milena: la mamá que quiere volver a sentirse ella",
+    "La que se prepara para diciembre, las vacaciones o un viaje a la costa",
+    "La desconfiada que ya perdió plata en pastillas por internet"
+  ],
+  "objeciones": [
+    "¿Eso sí sirve?",
+    "¿Tiene registro INVIMA?",
+    "¿Y si no me llega?",
+    "¿En cuánto veo resultados?",
+    "¿Me engorda la barriga?"
+  ],
+  "resumen": "Más curvas y un jean que horma, a tu manera: un apoyo natural de 2 cápsulas al día, sin agujas ni quirófano."
+}

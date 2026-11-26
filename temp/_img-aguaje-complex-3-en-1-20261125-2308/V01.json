@@ -1,0 +1,169 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format G17 (Lifestyle con columna de beneficios y producto en primer plano)",
+    "reference_style": "Warm luxury lifestyle ad: a confident model in a glowing bokeh bedroom, a two-tone headline and a column of ringed line-icon benefits on the left, the product large in the lower-right foreground, and a rose-gold rounded delivery band at the bottom",
+    "angle_used": "Beneficio principal: ampliar el deseo de la cola a las piernas, de forma natural",
+    "ad_format": "Lifestyle Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary for this variation: warm champagne #F3D9B1 and rose gold #D9A38F in the light, the bokeh, the icon rings and the delivery band.",
+    "visual_style": "Photorealistic, bold and feminine supplement ad for Colombian women: a real-looking woman in a real scene, the real bottle sharp and identical to the photo, fuchsia and plum brand accents.",
+    "visual_atmosphere": "Warm, confident and aspirational, with a believable everyday feel; soft rose-gold glow.",
+    "graphic_language": "Thin rose-gold rings around white line icons, thin fading divider lines, a satin rose-gold rounded band, clean high-contrast typography readable on a phone, clean uncluttered background.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold look)."
+  },
+  "creative_objective": "Expand the central desire from the butt to the legs in one aspirational image: a confident woman in fitted jeans, three honest benefits and the real bottle large in the foreground, so the viewer understands in one second that this is a natural support for her curves, without surgery.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The two-tone headline. 2) The woman's confident pose in fitted jeans. 3) The bottle in the lower-right foreground. 4) The three benefit rows. 5) The delivery band and the small registration seal.",
+    "composition_style": "Layered asymmetric composition: text column on the left third, the woman in the center-right middle ground, the bottle in the right foreground, the delivery band anchoring the bottom left and running up to the bottle. Headline at the top left above everything; a small registration seal in the top-right corner.",
+    "spacing_and_structure": "Headline line 1 at about 4-12% of the height, line 2 at about 14.5-22%, about 3.5-58% of the width, left-aligned. Benefit column about 3.5-34.5% of the width, rows at about 26-38%, 43-54% and 58-69% of the height, separated by thin lines at about 40.5% and 56.5%; each row has a ringed icon circle (about 11% of the canvas) on the left and its text starting at about 16% of the width. Woman from about 34% to 82% of the width, top of the head at about 15% of the height, cropped by the bottom edge at mid-thigh. Bottle about 78-98% of the width and 35-96% of the height. Delivery band about 3.5-76% of the width and 81-96.5% of the height. Registration seal: small rounded pill in the top-right corner, about 72-96% of the width and 4-10% of the height.",
+    "lighting_and_depth": "Warm golden-hour window light with amber and rose-gold tones, soft bokeh of warm lights in the background, gentle glow on the woman's skin. The bottle has crisp studio highlights on a glossy surface with soft ripples at its base. Icon rings and dividers are thin rose-gold lines. The band has a satin rose-gold gradient and a soft shadow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas filled with a warm lifestyle photo of a clean, cozy bedroom with soft bokeh. A Colombian woman in fitted high-waisted jeans stands in the center-right, three-quarter view from behind, looking back over her shoulder with a confident smile. Top left, a 2-line bold uppercase headline (line 1 white, line 2 rose-gold to fuchsia gradient). Below it, a left column of three benefits separated by thin lines, each with a thin-ringed circle holding a white line icon and 2-3 lines of white text. Lower right, the real bottle large in the foreground. Bottom left, a wide rounded rose-gold band with a ringed house/delivery icon, a thin vertical divider and 2 lines of delivery and payment text. Top-right corner, a small pill-shaped registration seal.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "lifestyle photo",
+        "position": "Full canvas, edge to edge; woman in the center-right",
+        "visual_function": "Shows the desire: feeling confident with curves in fitted jeans",
+        "adaptation_rule": "Clean, warm bedroom with a bed and sheer curtains heavily blurred into rose-gold bokeh. A Colombian woman about 25 years old, warm tan skin, long wavy black hair, wearing a black strappy top and medium-blue high-waisted fitted jeans, standing three-quarter turned away from camera and looking back over her shoulder with a confident, natural smile, one hand resting on her hip. Tasteful and natural: realistic body proportions, fully clothed, no exaggerated curves. Keep the left third darker and calm for the text."
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "benefit icon circles (3)",
+        "position": "Left column, about 3.5-14.5% of the width, one per benefit row",
+        "visual_function": "Visual anchors that make each benefit scannable",
+        "adaptation_rule": "Thin rose-gold ring (about 11% of the canvas) with a simple white line icon: a leaf for natural, a capsule for 2 capsules a day, a crossed-out syringe for no needles. Same style and stroke for all."
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "benefit dividers",
+        "position": "Between the rows, at about 40.5% and 56.5% of the height, about 3.5-30% of the width",
+        "visual_function": "Separate the benefits cleanly",
+        "adaptation_rule": "Thin rose-gold lines fading toward the right."
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "Lower-right foreground, about 78-98% of the width and 35-96% of the height",
+        "visual_function": "Shows exactly what is sold",
+        "adaptation_rule": "The real bottle exactly as in the attached product photo, upright, front view, large and studio-sharp, on a glossy surface with soft light ripples, slightly overlapping the woman's hip area without covering her face."
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "delivery and payment band",
+        "position": "Bottom left, about 3.5-76% of the width and 81-96.5% of the height",
+        "visual_function": "Removes the payment risk",
+        "adaptation_rule": "Wide rounded rectangle in a satin rose-gold gradient with a thin lighter border and a soft shadow; on its left a thin-ringed circle holding a simple house-with-package line icon, then a thin vertical divider and two lines of text."
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "registration seal",
+        "position": "Top-right corner, about 72-96% of the width and 4-10% of the height",
+        "visual_function": "Trust: shows the sanitary registration given by the brand",
+        "adaptation_rule": "Small rounded pill in dark plum #2B1226 at 85% opacity with a thin fuchsia border and a small white check-shield line icon, holding the registration text in white. Text only: no logos."
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount or urgency badge",
+      "Rating stars, reviews or testimonials",
+      "Any trust seal, guarantee or certification badge other than the single registration pill",
+      "Before/after images or a second photo of the woman",
+      "More than three benefits",
+      "Numbers on the benefit rows",
+      "Boxes or cards behind each benefit",
+      "Cold or blue-toned lighting",
+      "Logos or brand marks outside the bottle label",
+      "Bubbles, flowers, leaves or particles cluttering the scene"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium lifestyle supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Full-bleed photo of a clean, warm Colombian bedroom at golden hour, bed and sheer curtains heavily blurred into soft rose-gold and champagne bokeh. In the center-right (about 34-82% of the width, head top at about 15% of the height, cropped at mid-thigh by the bottom edge) a Colombian woman about 25 years old, warm tan skin, long wavy black hair, black strappy top and medium-blue high-waisted fitted jeans, stands three-quarter turned away from the camera and looks back over her shoulder with a confident natural smile, one hand on her hip; realistic proportions, fully clothed, tasteful, believable skin texture. The left third of the photo stays darker and calm. Top left (3.5-58% of the width), a two-line extra-bold uppercase headline: line 1 white at about 4-12% of the height, line 2 in a rose-gold to fuchsia #E6177F gradient at about 14.5-22%. Below, a left column (3.5-34.5% of the width) of three benefit rows at about 26-38%, 43-54% and 58-69% of the height, separated by thin fading rose-gold lines; each row has a thin rose-gold ring with a white line icon (leaf, capsule, crossed-out syringe) and 2-3 lines of white text. In the lower-right foreground (78-98% of the width, 35-96% of the height) the real product, large, upright and studio-sharp: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern and a solid hot-pink band wrapping the bottom fifth; the black label shows a small pink VITALABH emblem, a huge bold white condensed word 'AGUAJE', the line 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom; it stands on a glossy surface with soft light ripples. Bottom left (3.5-76% of the width, 81-96.5% of the height) a wide rounded satin rose-gold band with a soft shadow: a thin-ringed circle with a house-with-package line icon, a thin vertical divider and two lines of deep plum text. Top-right corner (72-96% of the width, 4-10% of the height) a small rounded dark plum pill with a thin fuchsia border, a tiny white check-shield icon and white text. Clean, uncluttered, premium, everything readable on a phone. No other elements.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "headline line 1",
+      "reference_position": "Top left, first line, about 4-12% of the canvas height",
+      "text_style": "Extra bold geometric sans-serif, uppercase, about 8% of the canvas height, 1 line, left-aligned, white",
+      "text": "NO SOLO TU COLA"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "headline line 2",
+      "reference_position": "Top left, second line, about 14.5-22% of the canvas height",
+      "text_style": "Extra bold geometric sans-serif, uppercase, about 7.5% of the canvas height, 1 line, left-aligned, rose-gold to fuchsia gradient",
+      "text": "TAMBIÉN TUS PIERNAS"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit 1",
+      "reference_position": "Left column, first row, right of the leaf icon",
+      "text_style": "Semi-bold rounded sans-serif, sentence case, about 2.8% of the canvas height, max 3 lines, left-aligned, white",
+      "text": "Acompaña tus curvas de forma natural"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 2",
+      "reference_position": "Left column, second row, right of the capsule icon",
+      "text_style": "Same style as benefit 1",
+      "text": "Solo 2 cápsulas al día con tus comidas"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 3",
+      "reference_position": "Left column, third row, right of the crossed-out syringe icon",
+      "text_style": "Same style as benefit 1",
+      "text": "Sin agujas ni quirófano"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "delivery line",
+      "reference_position": "Inside the band, right of the vertical divider, top line",
+      "text_style": "Extra bold sans-serif, uppercase, about 5% of the canvas height, 1 line, left-aligned, deep plum #2B1226",
+      "text": "LO RECIBES EN CASA"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "payment line",
+      "reference_position": "Inside the band, under the delivery line",
+      "text_style": "Medium sans-serif, uppercase, about 3.5% of the canvas height, 1 line, left-aligned, deep plum #2B1226",
+      "text": "PAGAS AL RECIBIR"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "trust seal",
+      "reference_position": "Top-right corner, inside the small dark plum pill",
+      "text_style": "Bold sans-serif, uppercase, about 2.2% of the canvas height, 1 line, centered, white",
+      "text": "REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed warm bedroom lifestyle photo with soft rose-gold bokeh and a confident woman in fitted high-waisted jeans in the center-right",
+    "Two-line headline at the top left: white line over a rose-gold to fuchsia line",
+    "Left column of three benefits with thin-ringed white line-icon circles separated by thin dividers",
+    "The real bottle large in the lower-right foreground, identical to the attached photo",
+    "Wide rounded rose-gold delivery and payment band with a ringed icon at the bottom left",
+    "Small dark plum registration pill in the top-right corner"
+  ],
+  "final_generation_exclusions": [
+    "No explicit or revealing poses, no exaggerated body proportions, no hands pointing at body parts.",
+    "No second person and no before/after comparison.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

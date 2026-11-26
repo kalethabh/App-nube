@@ -1,0 +1,51 @@
+{
+  "resumen": "Vendemos un plan natural de 3 meses para acompañar tus curvas, sin agujas ni quirófano. Cada anuncio ataca un dolor real (el jean suelto atrás, la rutina que no rinde, el miedo a operarse, la desconfianza) o promete el deseo: verte con curvas y sentirte segura. Hablamos con honestidad: el producto acompaña tu proceso, no promete un aumento.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#2B1226", "nombre": "Ciruela oscuro" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" }
+  ],
+  "tipografia": "Títulos en letra muy gruesa y geométrica (estilo Montserrat ExtraBold) y textos de apoyo en letra redondeada y firme (estilo Poppins SemiBold). En los formatos caseros (post-it, nota del celular) se usa la letra propia de ese formato.",
+  "estilo": "Fotos realistas de mujeres colombianas en escenas cotidianas, con el frasco real siempre nítido. Fucsia, ciruela y negro de la marca. Fondos limpios, mucho aire y una sola idea por imagen. Cuerpos con ropa ajustada pero sin mostrar de más, y sin comparar cuerpos de antes y después.",
+  "beneficios": [
+    "Acompaña tus curvas de forma natural",
+    "Más energía para cumplirle a tu rutina",
+    "Fácil de cumplir: solo 2 cápsulas al día",
+    "Sin agujas ni quirófano"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje, fenogreco y maca negra",
+    "Con vitaminas A y E",
+    "60 cápsulas por frasco: rinde un mes",
+    "Tratamiento completo de 3 frascos (3 meses)"
+  ],
+  "deseo_central": "Verte con más curvas, que el jean te horme y sentirte segura con tu cuerpo, sin agujas, sin quirófano y sin arriesgar tu salud.",
+  "beneficio_principal": "Un apoyo natural y fácil (2 cápsulas al día) para acompañar tu proceso de curvas junto con tu comida y tu rutina de pierna.",
+  "puntos_dolor": [
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Ya compré pastillas por internet y no vi nada",
+    "No sé si lo que venden por redes tiene registro",
+    "Me comparo con las de Instagram y me siento plana"
+  ],
+  "aprendido_de_validados": [
+    "Tu anuncio que ya funciona («Curvas más llenas en 21 días») cuenta el avance por etapas y se entiende antes de leer. Lo usamos en V02, pero con los 3 meses del plan y cambios de energía y seguridad, sin comparar cuerpos.",
+    "El ganador «No solo glúteos, también tus piernas» amplía el deseo a otra zona con una foto grande y beneficios a un lado. Lo aplicamos en V01.",
+    "El ganador de producto héroe muestra la fórmula clara con sus ingredientes. Lo aplicamos en V10 con la cifra «3 en 1».",
+    "Todos dicen una sola idea por imagen, con un titular corto en letra gruesa y el producto real bien visible. Lo seguimos en todo el lote.",
+    "Los anuncios de antes y después lado a lado funcionan, pero tu investigación avisa que Meta los rechaza en esta categoría. Por eso no hicimos ninguno."
+  ],
+  "decisiones": [
+    "El ángulo principal lo elegimos nosotros: el deseo de que el jean horme, sin quirófano, porque es lo que más resaltaste en la investigación.",
+    "El sello que diste traía una nota para el diseñador («agregar logo y sello de…»). En la imagen escribimos solo «REGISTRO INVIMA RSA-0030271-2024», con el mismo número.",
+    "No pusimos precio porque no lo diste. Usamos «pagas al recibir», que sale de tu investigación.",
+    "No decimos «sin gimnasio» ni «aumenta glúteos»: Meta y las reglas de Colombia lo frenan. Decimos que acompaña tu proceso de curvas.",
+    "Ningún anuncio muestra antes y después del cuerpo ni promete plazos. Donde hay tiempo, va la nota «Los resultados varían».",
+    "Lote de 10: 5 dicen el deseo de forma directa, 3 le hablan a otras mujeres (la del gimnasio, la mamá, la que se prepara para diciembre) y 2 responden dudas (el registro y qué trae la fórmula)."
+  ]
+}
