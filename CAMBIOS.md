@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-26g · Anuncios de imagen: cada momento, otro día
+
+- **Antes y después y progreso:** en cada momento (antes, 24 horas, semana 1, mes 3…) cambian la pose, la ropa, el peinado, el lugar y la luz. Así se nota que pasó el tiempo y no parece la misma foto. La app lo revisa en cada imagen.
+- **Regenerar una imagen:** la ventana «¿Regenerar esta imagen?» ahora muestra el anuncio al lado, para que veas qué estás cambiando.
+
 ## 2026-11-26f · Anuncios de imagen: títulos como Mayaverra, con propuesta de valor y tiempo
 
 - **Cada imagen lleva ahora un gancho y debajo su propuesta de valor**, como Mayaverra, con tu fórmula: **deseo principal + tiempo de transformación + deseo central**.

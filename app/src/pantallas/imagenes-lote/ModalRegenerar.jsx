@@ -1,6 +1,7 @@
 // "¿Regenerar esta imagen?": costo estimado y confirmación antes de cobrar. Con una instrucción, la IA edita la imagen actual y cambia solo eso; vacío,
 // sale otra versión con el mismo anuncio. La versión anterior queda guardada. Si la revisión marcó algo en esta imagen,
 // se muestra arriba con «Corregir esto» (llena la caja con eso) y «otra versión» también le dice a la IA qué salió mal.
+// (2026-11-26g) «que en esa ventana flotante también aparezca el anuncio»: la imagen va a la izquierda (arriba en el celular).
 import { useEffect, useRef, useState } from 'react';
 import { CircleAlert, RefreshCw, ScanEye } from 'lucide-react';
 import { AreaTexto, Boton, Chip, Modal } from '../../componentes/index.js';
@@ -94,6 +95,7 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
       abierto
       onCerrar={enviando ? undefined : onCerrar}
       icono={RefreshCw}
+      tamano={p.url ? 'grande' : 'normal'}
       titulo="¿Regenerar esta imagen?"
       descripcion={`${nombre}. La versión de ahora queda guardada en Versiones anteriores.`}
       pie={
@@ -107,6 +109,12 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
         </>
       }
     >
+      <div className={p.url ? 'lote-regenerar__cuerpo' : undefined}>
+      {p.url ? (
+        <a className={`lote-regenerar__anuncio${vertical ? ' lote-regenerar__anuncio--vertical' : ''}`} href={p.url} target="_blank" rel="noreferrer" title="Ver la imagen en grande">
+          <img src={p.url} alt={`El anuncio ${nombre}`} />
+        </a>
+      ) : null}
       <div className="pila" style={{ '--hueco': '12px' }}>
         <p className="t-chico" role="status">
           {costo?.gratis ? 'Sin costo: la dibuja la app con otros textos, en un segundo. Para cambiar un texto puntual, usa «Editar textos».' : costo?.conChatGPT ? 'Sin costo: la hace tu suscripción de ChatGPT (usa un poco de tu cupo).' : costo ? `Costo estimado${cantidad > 1 ? ' máximo' : ''}: ${dinero(costo.max)}. Al confirmar autorizas esta generación.` : 'Calculando el costo antes de regenerar…'}
@@ -164,6 +172,7 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
             {error}
           </p>
         ) : null}
+      </div>
       </div>
     </Modal>
   );

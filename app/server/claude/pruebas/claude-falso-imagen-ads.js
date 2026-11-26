@@ -69,7 +69,7 @@ function catalogo() {
 
 /** (2026-11-26e) La zona del producto con su resultado y la ropa, como pide la verificación. */
 const EN = { 'glúteos': 'glutes', piernas: 'legs', caderas: 'hips', cintura: 'waist', abdomen: 'belly', brazos: 'arms', cara: 'face', piel: 'skin', cabello: 'hair', busto: 'bust' };
-const cuerpoDe = (entrada) => (entrada?.zona_del_cuerpo && EN[entrada.zona_del_cuerpo] ? ` The woman shows the RESULT on her ${EN[entrada.zona_del_cuerpo]}: lifted, rounder and toned after, wearing high-waisted jeans.` : '');
+const cuerpoDe = (entrada) => (entrada?.zona_del_cuerpo && EN[entrada.zona_del_cuerpo] ? ` The woman shows the RESULT on her ${EN[entrada.zona_del_cuerpo]}: lifted, rounder and toned after, wearing high-waisted jeans. BEFORE (week 1): she stands facing the mirror with arms down, wearing a grey t-shirt and light jeans, hair in a messy bun, in her bedroom with cold morning light. AFTER (month 3): she poses turned in profile with a hand on her hip, wearing a black crop top and dark leggings, hair loose in waves, in a sunny living room with warm golden afternoon light.` : '');
 
 /** Un V##.json valido para la app, con los bloques de su formato (asi no hay avisos). */
 function anuncio(v, entrada, brief, numero) {

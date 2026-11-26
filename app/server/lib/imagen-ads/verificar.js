@@ -15,7 +15,7 @@ import { construirPrompt, construirPromptVertical } from '../../../../produccion
 import { R, RE_V, idsDelLote, piezaId } from './disco.js';
 import { esVariado, nivelDe, reglasDelPlan, reglasDelAnuncio } from './variedad.js';
 import { leerPropias, marcaPropias } from './propias-disco.js';
-import { erroresCuerpoPlan, erroresCuerpoAnuncio, zonasDe } from './cuerpo.js';
+import { erroresCuerpoPlan, erroresCuerpoAnuncio, erroresMomentos, zonasDe } from './cuerpo.js';
 import { erroresTitularesPlan, erroresPropuestaAnuncio } from './titulares.js';
 
 export const DIR_SKILL = path.join(SKILLS, 'anuncios-imagen-ads');
@@ -222,6 +222,8 @@ export function verificarV(carpeta, v, { brief, plan = null, usados = [] } = {})
     errores.push(...erroresPropuestaAnuncio(datos, { sinPropuesta: nativo || carta, venta: brief?.venta || null }).map((e) => `${v}.json → ${e}`));
     // (2026-11-26e) el cuerpo de ESTE producto, con su resultado y con jean o leggins
     errores.push(...erroresCuerpoAnuncio(datos, ((plan || leerJSON(R.plan(carpeta)))?.variaciones || []).find((x) => x?.id === v), plan || leerJSON(R.plan(carpeta)), brief).map((e) => `${v}.json → ${e}`));
+    // (2026-11-26g) antes/después y progreso: cada momento con otra pose, ropa, peinado, escenario y luz
+    errores.push(...erroresMomentos(datos, ((plan || leerJSON(R.plan(carpeta)))?.variaciones || []).find((x) => x?.id === v)).map((e) => `${v}.json → ${e}`));
     // como Mayaverra: la oferta escrita IGUAL en todas las imágenes del lote que la llevan
     if (!venta?.oferta) {
       const ofertaDe = (d) => (Array.isArray(d?.text_layers) ? d.text_layers : []).filter((t) => /offer|oferta|price|precio/i.test(`${t?.reference_function || ''} ${t?.block_id || ''}`)).map((t) => String(t?.text || '').replace(/\s+/g, ' ').trim()).filter(Boolean);
