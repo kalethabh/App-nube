@@ -1,0 +1,15 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V09_1x1",
+      "ok": false,
+      "problemas": [
+        "Regla del borde: «ANTES» y «DESPUÉS» quedan pegados al borde de arriba, a menos del 5 %.",
+        "Regla del borde: «X3 FRASCOS» queda a menos del 5 % del borde de abajo.",
+        "Regla del borde: «(CON TUS COMIDAS)» y «SIN AGUJAS NI QUIRÓFANO» quedan a menos del 5 % de los bordes de los lados.",
+        "El bikini de la foto de «después» es tipo tanga; el anuncio pide un traje de baño que cubra por completo."
+      ],
+      "correccion_en": "Keep every text at least 5% away from all canvas edges: move 'ANTES' and 'DESPUÉS' down inside their header blocks, raise the bottom offer bar so 'X3 FRASCOS' sits at least 5% above the bottom edge, and add wider side margins so the card texts '(CON TUS COMIDAS)' and 'SIN AGUJAS NI QUIRÓFANO' stay 5% away from the left and right edges. In the right photo, change the coral bikini bottom to a tasteful full-coverage cut (no thong). Keep all texts, the bottle and the layout otherwise unchanged."
+    }
+  ]
+}

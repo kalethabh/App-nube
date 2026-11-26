@@ -1,0 +1,14 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V06_1x1",
+      "ok": false,
+      "problemas": [
+        "Regla del borde: «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+        "Regla del borde: «X3 FRASCOS» queda a menos del 5 % del borde de abajo. Hay que subir un poco la barra de la oferta.",
+        "El bikini de la foto de la derecha es tipo tanga, y el anuncio pedía un traje de baño que cubra bien. Así Facebook o Instagram lo pueden rechazar. Hay que usar un bikini de corte completo."
+      ],
+      "correccion_en": "Keep every text and block exactly as is, but add a safe margin: move 'ANTES' and 'DESPUÉS' down so their tops sit at least 5% of the height below the top edge, and move the bottom offer bar up so 'X3 FRASCOS' and '3 MESES' end at least 5% above the bottom edge. In the right photo, change the coral bikini bottom to a tasteful full-coverage cut (not a thong)."
+    }
+  ]
+}

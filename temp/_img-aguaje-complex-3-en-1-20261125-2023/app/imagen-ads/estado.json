@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 7,
+    "R": 9,
     "A": 1,
     "T": 3
   },
@@ -116,7 +116,7 @@
     "R006": {
       "tipo": "revision",
       "uuid": "6759b336-14bf-4b57-9ff4-315031e50331",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -124,7 +124,36 @@
           "firma": "1966646-1795657272636",
           "ronda": 1
         }
-      ]
+      ],
+      "empezada": true
+    },
+    "R007": {
+      "tipo": "revision",
+      "uuid": "d74a213f-542e-416a-b625-556deddd305f",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V06_1x1",
+          "firma": "1969605-1795657276494",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R008": {
+      "tipo": "revision",
+      "uuid": "23214563-8e8b-4f34-96bb-8ce76f1780c4",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V09_1x1",
+          "firma": "1971364-1795657317020",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -315,15 +344,26 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1969605-1795657276494",
       "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R007",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Regla del borde: «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+          "Regla del borde: «X3 FRASCOS» queda a menos del 5 % del borde de abajo. Hay que subir un poco la barra de la oferta.",
+          "El bikini de la foto de la derecha es tipo tanga, y el anuncio pedía un traje de baño que cubra bien. Así Facebook o Instagram lo pueden rechazar. Hay que usar un bikini de corte completo."
+        ],
+        "firma": "1969605-1795657276494",
+        "correccion_en": "Keep every text and block exactly as is, but add a safe margin: move 'ANTES' and 'DESPUÉS' down so their tops sit at least 5% of the height below the top edge, and move the bottom offer bar up so 'X3 FRASCOS' and '3 MESES' end at least 5% above the bottom edge. In the right photo, change the coral bikini bottom to a tasteful full-coverage cut (not a thong)."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T01:41:17.097Z",
@@ -392,43 +432,62 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1971364-1795657317020",
+      "orden": null,
       "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R008",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Regla del borde: «ANTES» y «DESPUÉS» quedan pegados al borde de arriba, a menos del 5 %.",
+          "Regla del borde: «X3 FRASCOS» queda a menos del 5 % del borde de abajo.",
+          "Regla del borde: «(CON TUS COMIDAS)» y «SIN AGUJAS NI QUIRÓFANO» quedan a menos del 5 % de los bordes de los lados.",
+          "El bikini de la foto de «después» es tipo tanga; el anuncio pide un traje de baño que cubra por completo."
+        ],
+        "firma": "1971364-1795657317020",
+        "correccion_en": "Keep every text at least 5% away from all canvas edges: move 'ANTES' and 'DESPUÉS' down inside their header blocks, raise the bottom offer bar so 'X3 FRASCOS' sits at least 5% above the bottom edge, and add wider side margins so the card texts '(CON TUS COMIDAS)' and 'SIN AGUJAS NI QUIRÓFANO' stay 5% away from the left and right edges. In the right photo, change the coral bikini bottom to a tasteful full-coverage cut (no thong). Keep all texts, the bottle and the layout otherwise unchanged."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T01:41:57.291Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1966646-1795657272636",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R006",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "La foto de la derecha muestra un bikini de corte tanga, y el anuncio pide uno que cubra bien. Así puede rechazarse en Meta.",
+          "Los títulos «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %.",
+          "Los textos «(CON TUS COMIDAS)» y «NI QUIRÓFANO» quedan a menos del 5 % de los bordes izquierdo y derecho.",
+          "La barra de abajo con «X3 FRASCOS» y «3 MESES» queda a menos del 5 % del borde inferior."
+        ],
+        "firma": "1966646-1795657272636",
+        "correccion_en": "Dress the woman in the right photo in a coral bikini with a full-coverage bottom (not thong-cut). Keep every text at least 5% away from all canvas edges: move 'ANTES' and 'DESPUÉS' slightly down inside their header blocks, shrink or narrow the four card texts so '(CON TUS COMIDAS)' and 'NI QUIRÓFANO' stay inside the safe margin, and move the bottom offer bar up so it ends at least 5% above the bottom edge. Keep all texts and the layout otherwise unchanged."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T01:41:12.784Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R006"
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

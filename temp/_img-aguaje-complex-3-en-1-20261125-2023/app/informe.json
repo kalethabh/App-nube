@@ -1,0 +1,104 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-26T01:42:17.075Z",
+  "variaciones": 10,
+  "archivos": 10,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 0,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V01_1x1",
+        "problemas": [
+          "La mujer de la playa lleva un bikini tipo tanga. El anuncio pedía un traje de baño con cobertura completa atrás.",
+          "Las palabras «ANTES» y «DESPUÉS» quedan pegadas al borde de arriba, a menos del 5 %. Hay que bajarlas un poco."
+        ]
+      },
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "La mujer de la playa lleva un bikini tipo tanga. El anuncio pedía un traje de baño con cobertura completa atrás.",
+          "Las palabras «ANTES» y «DESPUÉS» quedan pegadas al borde de arriba, a menos del 5 %. Hay que bajarlas un poco."
+        ]
+      },
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "La mujer de la playa lleva un bikini tipo tanga. El anuncio pedía un traje de baño con cobertura completa atrás.",
+          "Las palabras «ANTES» y «DESPUÉS» quedan pegadas al borde de arriba, a menos del 5 %. Hay que bajarlas un poco."
+        ]
+      },
+      {
+        "pieza": "V04_1x1",
+        "problemas": [
+          "El bikini de la foto de la derecha es tipo tanga: el anuncio pedía uno de cobertura completa. Es un riesgo con las reglas de Facebook e Instagram.",
+          "Las palabras «ANTES» y «DESPUÉS» quedan casi pegadas al borde de arriba (a menos del 5 %). Hay que bajarlas un poco.",
+          "Los textos de la primera y la cuarta tarjeta («(CON TUS COMIDAS)» y «NI QUIRÓFANO») quedan a menos del 5 % de los bordes de los lados. Hay que alejarlos del borde."
+        ]
+      },
+      {
+        "pieza": "V05_1x1",
+        "problemas": [
+          "El bikini de la foto de «después» es de corte tanga. El anuncio pedía un bikini que cubra bien, y este puede hacer que la red social lo rechace.",
+          "«ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+          "Los textos de la primera y la cuarta tarjeta («(CON TUS COMIDAS)» y «SIN AGUJAS NI QUIRÓFANO») quedan a menos del 5 % de los bordes de los lados. Hay que dejarles más margen."
+        ]
+      },
+      {
+        "pieza": "V06_1x1",
+        "problemas": [
+          "Regla del borde: «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+          "Regla del borde: «X3 FRASCOS» queda a menos del 5 % del borde de abajo. Hay que subir un poco la barra de la oferta.",
+          "El bikini de la foto de la derecha es tipo tanga, y el anuncio pedía un traje de baño que cubra bien. Así Facebook o Instagram lo pueden rechazar. Hay que usar un bikini de corte completo."
+        ]
+      },
+      {
+        "pieza": "V07_1x1",
+        "problemas": [
+          "Regla del borde: «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+          "Regla del borde: «(CON TUS COMIDAS)» y «NI QUIRÓFANO» quedan a menos del 5 % de los bordes de los lados, y «X3 FRASCOS» y «3 MESES» a menos del 5 % del borde de abajo. Hay que meterlos más hacia adentro.",
+          "En la foto de «después» el bikini es tipo tanga, y el anuncio pedía uno de cobertura completa. Además puede dar problemas con las reglas de los anuncios."
+        ]
+      },
+      {
+        "pieza": "V08_1x1",
+        "problemas": [
+          "Regla del borde: «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %. Hay que bajarlos un poco.",
+          "Regla del borde: «X3 FRASCOS» queda muy cerca del borde de abajo, y «(CON TUS COMIDAS)» y «NI QUIRÓFANO» quedan muy cerca de los lados, a menos del 5 %. Hay que meterlos más hacia adentro.",
+          "El bikini de la foto de la derecha es de corte muy pequeño, casi tipo tanga. El anuncio pedía un traje de baño que cubra bien.",
+          "Regla de la etiqueta: en la foto real el frasco dice «60 CAPSULAS», sin tilde. En el anuncio dice «60 CÁPSULAS», con tilde."
+        ]
+      },
+      {
+        "pieza": "V09_1x1",
+        "problemas": [
+          "Regla del borde: «ANTES» y «DESPUÉS» quedan pegados al borde de arriba, a menos del 5 %.",
+          "Regla del borde: «X3 FRASCOS» queda a menos del 5 % del borde de abajo.",
+          "Regla del borde: «(CON TUS COMIDAS)» y «SIN AGUJAS NI QUIRÓFANO» quedan a menos del 5 % de los bordes de los lados.",
+          "El bikini de la foto de «después» es tipo tanga; el anuncio pide un traje de baño que cubra por completo."
+        ]
+      },
+      {
+        "pieza": "V10_1x1",
+        "problemas": [
+          "La foto de la derecha muestra un bikini de corte tanga, y el anuncio pide uno que cubra bien. Así puede rechazarse en Meta.",
+          "Los títulos «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %.",
+          "Los textos «(CON TUS COMIDAS)» y «NI QUIRÓFANO» quedan a menos del 5 % de los bordes izquierdo y derecho.",
+          "La barra de abajo con «X3 FRASCOS» y «3 MESES» queda a menos del 5 % del borde inferior."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

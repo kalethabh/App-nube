@@ -1,0 +1,15 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V10_1x1",
+      "ok": false,
+      "problemas": [
+        "La foto de la derecha muestra un bikini de corte tanga, y el anuncio pide uno que cubra bien. Así puede rechazarse en Meta.",
+        "Los títulos «ANTES» y «DESPUÉS» quedan casi pegados al borde de arriba, a menos del 5 %.",
+        "Los textos «(CON TUS COMIDAS)» y «NI QUIRÓFANO» quedan a menos del 5 % de los bordes izquierdo y derecho.",
+        "La barra de abajo con «X3 FRASCOS» y «3 MESES» queda a menos del 5 % del borde inferior."
+      ],
+      "correccion_en": "Dress the woman in the right photo in a coral bikini with a full-coverage bottom (not thong-cut). Keep every text at least 5% away from all canvas edges: move 'ANTES' and 'DESPUÉS' slightly down inside their header blocks, shrink or narrow the four card texts so '(CON TUS COMIDAS)' and 'NI QUIRÓFANO' stay inside the safe margin, and move the bottom offer bar up so it ends at least 5% above the bottom edge. Keep all texts and the layout otherwise unchanged."
+    }
+  ]
+}
