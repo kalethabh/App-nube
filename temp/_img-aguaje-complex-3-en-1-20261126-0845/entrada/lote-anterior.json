@@ -1,0 +1,42 @@
+{
+  "lote": "_img-aguaje-complex-3-en-1-20261126-0740",
+  "identidad_visual": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Each variation adds its own secondary support colors from the batch plan.",
+    "visual_style": "Bold, feminine supplement ads for Colombian women built on proven winning ad structures; each variation keeps the rendering style of its structure (3D animated, real photo or flat illustration) while the real bottle always stays sharp and identical to the photo, with fuchsia and plum brand accents.",
+    "visual_atmosphere": "Warm, confident and aspirational, believable and everyday; soft fuchsia glow on branded elements, never clinical.",
+    "graphic_language": "Solid flat color blocks, rounded cards and pills, thin glowing fuchsia borders, white thin-line icons, curved arrows, clean high-contrast typography readable on a phone. Clean backgrounds with negative space, no clutter.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look). The F34 product-name headline uses a heavy elegant serif only in that line.",
+    "art_direction": "Same brand family across the batch (palette, type, the real bottle), but each variation follows a different winning structure, rendering style, body zone, segment, model, wardrobe and camera. One message per image, readable on a phone. Bodies shown tastefully in jeans, leggings or everyday clothes, never explicit, never medical; before/after always the same woman on different days (other light, other clothes), with a believable difference."
+  },
+  "descripcion_visual_en": "A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type.",
+  "paleta": [
+    {
+      "hex": "#E6177F",
+      "nombre": "Fucsia"
+    },
+    {
+      "hex": "#B0105E",
+      "nombre": "Magenta profundo"
+    },
+    {
+      "hex": "#2B1226",
+      "nombre": "Ciruela oscuro"
+    },
+    {
+      "hex": "#0E0E10",
+      "nombre": "Negro frasco"
+    },
+    {
+      "hex": "#FF8CC0",
+      "nombre": "Rosa chicle"
+    },
+    {
+      "hex": "#FBE3EE",
+      "nombre": "Rosa pálido"
+    },
+    {
+      "hex": "#FFFFFF",
+      "nombre": "Blanco"
+    }
+  ]
+}
