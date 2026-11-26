@@ -1,14 +1,16 @@
 {
   "tipo": "imagen-ads",
-  "fecha": "2026-11-26T22:16:18.233Z",
+  "fecha": "2026-11-26T23:13:11.910Z",
   "variaciones": 10,
-  "archivos": 10,
+  "archivos": 12,
   "modoPrueba": false,
   "revision": {
     "aLaPrimera": 0,
     "rehechasPorTi": [
       "V01_1x1",
+      "V01_4x5",
       "V02_1x1",
+      "V02_4x5",
       "V03_1x1",
       "V04_1x1",
       "V05_1x1",
