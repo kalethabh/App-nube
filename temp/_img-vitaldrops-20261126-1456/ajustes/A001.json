@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0001",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Change only the woman's pose: she now stands in side profile (about 80 degrees), one hand on her waist, head turned to the camera with the same happy surprised face, framed from head to knees so her fuller silhouette in the same blue jeans reads naturally along hips and legs. Same woman, same white crop tee and blue jeans, same park background, same zone and size. Keep every text, the bottle, the hand, the badge, the arrow, the drop icon, the comment box, fonts and colors exactly as they are. Not from behind, no close-up or crop on any body part, no exaggerated arched pose.",
+      "resumen": "La modelo ahora sale de perfil, de la cabeza a las rodillas, para que se note la silueta en caderas y piernas. Lo demás queda igual. No la pusimos de espaldas ni con la toma centrada en los glúteos, porque Meta suele rechazar esas imágenes."
+    }
+  ]
+}

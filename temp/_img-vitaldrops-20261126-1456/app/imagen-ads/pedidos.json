@@ -1,0 +1,16 @@
+{
+  "pedidos": [
+    {
+      "id": "U0001",
+      "pieza": "V05_1x1",
+      "instruccion": "Que se vea de perfil tipo mostrando los resultado del volúmen en glúteos piernas y caderas",
+      "fecha": "2026-11-26T20:06:51.466Z"
+    },
+    {
+      "id": "U0002",
+      "pieza": "V01_1x1",
+      "instruccion": "Que se vea más la progresión, cada cuadro debe ser vestimenta, pose, peinado, escenario, etc diferente, se debe ver visualmente la progresión, el primer cuadro más delgadad de piernas, caderas y gluteos más planos",
+      "fecha": "2026-11-26T20:08:48.203Z"
+    }
+  ]
+}

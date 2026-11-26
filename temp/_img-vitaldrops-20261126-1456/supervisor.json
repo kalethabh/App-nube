@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-11-26T20:06:49.318Z",
+  "firma": "f01d9a6e7215da21",
+  "pedido": {
+    "producto": "VITALDROPS",
+    "modo": "Variantes · fieles",
+    "oferta": "",
+    "sellos": [],
+    "cantidad": 10
+  },
+  "total": 10,
+  "fallas": [],
+  "problemas": [],
+  "sinImagen": 0,
+  "rechazos": 0,
+  "reglas": [],
+  "resumen": "Las 10 imágenes pasaron la revisión: nada que corregir."
+}

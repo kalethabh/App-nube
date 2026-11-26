@@ -1,0 +1,34 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-26T20:08:29.300Z",
+  "variaciones": 10,
+  "archivos": 10,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 0,
+    "rehechasPorTi": [
+      "V01_1x1",
+      "V02_1x1",
+      "V03_1x1",
+      "V04_1x1",
+      "V05_1x1",
+      "V06_1x1",
+      "V07_1x1",
+      "V08_1x1",
+      "V09_1x1",
+      "V10_1x1"
+    ],
+    "arregladas": [],
+    "conDetalles": [],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

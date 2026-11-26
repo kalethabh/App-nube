@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 1,
-    "T": 2
+    "A": 3,
+    "T": 3
   },
   "tandas": {
     "E001": {
@@ -25,6 +25,23 @@
       "motor": null,
       "estado": "hecha",
       "rapido": true
+    },
+    "A001": {
+      "tipo": "ajuste",
+      "uuid": "3eda5886-d9c8-424c-8206-081d1beff558",
+      "estado": "hecha",
+      "pedidos": [
+        "U0001"
+      ],
+      "empezada": true
+    },
+    "A002": {
+      "tipo": "ajuste",
+      "uuid": "8f6c6638-e345-4239-a649-6300223378fb",
+      "estado": "en-curso",
+      "pedidos": [
+        "U0002"
+      ]
     }
   },
   "variaciones": {
@@ -73,7 +90,7 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 1,
       "firma": "1513547-1795723292218",
@@ -147,18 +164,19 @@
       "formato": "1:1",
       "fase": "final",
       "resultado": "listo",
-      "version": 1,
-      "firma": "2421020-1795723392175",
+      "version": 2,
+      "firma": "2320837-1795723689268",
       "orden": null,
       "intentosApi": 1,
-      "ronda": 1,
+      "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:03:13.012Z",
+      "desde": "2026-11-26T20:08:09.344Z",
       "pedido": null,
-      "ultimaOrden": "g"
+      "ultimaOrden": "U0001",
+      "fallo": null
     },
     "V06_1x1": {
       "v": "V06",
@@ -251,5 +269,35 @@
       "ultimaOrden": "g"
     }
   },
-  "pedidos": {}
+  "pedidos": {
+    "U0001": {
+      "id": "U0001",
+      "pieza": "V05_1x1",
+      "instruccion": "Que se vea de perfil tipo mostrando los resultado del volúmen en glúteos piernas y caderas",
+      "fecha": "2026-11-26T20:06:51.466Z",
+      "estado": "listo",
+      "ajuste": "A001",
+      "instruccion_en": "Change only the woman's pose: she now stands in side profile (about 80 degrees), one hand on her waist, head turned to the camera with the same happy surprised face, framed from head to knees so her fuller silhouette in the same blue jeans reads naturally along hips and legs. Same woman, same white crop tee and blue jeans, same park background, same zone and size. Keep every text, the bottle, the hand, the badge, the arrow, the drop icon, the comment box, fonts and colors exactly as they are. Not from behind, no close-up or crop on any body part, no exaggerated arched pose.",
+      "cambiaTextos": false,
+      "resumen": "La modelo ahora sale de perfil, de la cabeza a las rodillas, para que se note la silueta en caderas y piernas. Lo demás queda igual. No la pusimos de espaldas ni con la toma centrada en los glúteos, porque Meta suele rechazar esas imágenes.",
+      "pasos": [
+        {
+          "pieza": "V05_1x1",
+          "orden": "U0001",
+          "modo": "editar",
+          "instruccion_en": "Change only the woman's pose: she now stands in side profile (about 80 degrees), one hand on her waist, head turned to the camera with the same happy surprised face, framed from head to knees so her fuller silhouette in the same blue jeans reads naturally along hips and legs. Same woman, same white crop tee and blue jeans, same park background, same zone and size. Keep every text, the bottle, the hand, the badge, the arrow, the drop icon, the comment box, fonts and colors exactly as they are. Not from behind, no close-up or crop on any body part, no exaggerated arched pose.",
+          "textos": false
+        }
+      ],
+      "paso": 0
+    },
+    "U0002": {
+      "id": "U0002",
+      "pieza": "V01_1x1",
+      "instruccion": "Que se vea más la progresión, cada cuadro debe ser vestimenta, pose, peinado, escenario, etc diferente, se debe ver visualmente la progresión, el primer cuadro más delgadad de piernas, caderas y gluteos más planos",
+      "fecha": "2026-11-26T20:08:48.203Z",
+      "estado": "ajustando",
+      "ajuste": "A002"
+    }
+  }
 }
