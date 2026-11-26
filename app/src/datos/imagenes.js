@@ -57,6 +57,10 @@ export const apiImagenes = {
   },
   /** { pieza, instruccion? } o { v, tipo: 'prompt' } -> 202 { pedido: { id, estado } }. 409 si ya tiene un cambio en camino. */
   regenerar: (lote, cuerpo) => pedirNuevo(`${BASE}/${enc(lote)}/regenerar`, { metodo: 'POST', cuerpo }),
+  /** (2026-11-26i) Crear otro tamaño de un anuncio: { v, formato: '1:1'|'9:16'|'4:5', costoMaximoConfirmado }. */
+  tamano: (lote, cuerpo) => pedirNuevo(`${BASE}/${enc(lote)}/tamano`, { metodo: 'POST', cuerpo }),
+  /** (2026-11-26i) Más imágenes en el lote: { cantidad, modo: 'nuevos'|'variantes', base?, costoMaximoConfirmado }. */
+  mas: (lote, cuerpo) => pedirNuevo(`${BASE}/${enc(lote)}/mas`, { metodo: 'POST', cuerpo }),
   continuar: (lote) => pedirNuevo(`${BASE}/${enc(lote)}/continuar`, { metodo: 'POST' }),
   detener: (lote) => pedirNuevo(`${BASE}/${enc(lote)}/detener`, { metodo: 'POST' }),
   /** Solo un borrador (nada pagado). */
@@ -197,10 +201,11 @@ export const PIEZA_EN_MARCHA = new Set(['generando', 'revisando', 'regenerando',
 
 /** "V03_1x1" -> { v: "V03", formato: "1:1", nombre: "V03 · cuadrado" } */
 export function partesDePieza(pieza) {
-  const m = /^(V\d{2,3})_(1x1|9x16)$/.exec(String(pieza || ''));
+  const m = /^(V\d{2,3})_(1x1|9x16|4x5)$/.exec(String(pieza || ''));
   if (!m) return { v: String(pieza || ''), formato: null, nombre: String(pieza || '') };
-  const formato = m[2] === '1x1' ? '1:1' : '9:16';
-  return { v: m[1], formato, nombre: `${m[1]} · ${formato === '1:1' ? 'cuadrado' : 'vertical'}` };
+  // (2026-11-26i) el retrato 4:5, un tamaño extra que se crea de un anuncio
+  const formato = { '1x1': '1:1', '9x16': '9:16', '4x5': '4:5' }[m[2]];
+  return { v: m[1], formato, nombre: `${m[1]} · ${{ '1:1': 'cuadrado', '9:16': 'vertical', '4:5': 'retrato 4:5' }[formato]}` };
 }
 
 /** "V100" va después de "V99": las variaciones se ordenan por número, nunca como texto. */

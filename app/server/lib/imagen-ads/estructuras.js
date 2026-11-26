@@ -89,7 +89,7 @@ export function cuposDeGanchos(n, ganchos = mezclaMayaverra().ganchos) {
  * (mayaverra-mezcla.json) y sin el mismo estilo dos veces seguidas. Si tienes alguna tuya, un lote de 3 o más lleva al
  * menos una. `semilla` (el nombre del lote) hace el sorteo repetible.
  */
-export function estructurasAlAzar(n, { semilla = '' } = {}) {
+export function estructurasAlAzar(n, { semilla = '', excluir = [] } = {}) {
   let x = [...String(semilla || Date.now())].reduce((t, c) => (t * 31 + c.charCodeAt(0)) >>> 0, 2166136261) || 1;
   const azar = () => ((x = (x * 1664525 + 1013904223) >>> 0) / 4294967296);
   const barajar = (l) => {
@@ -104,6 +104,9 @@ export function estructurasAlAzar(n, { semilla = '' } = {}) {
       .filter((f) => f.estructura && f.referencia && ['mayaverra', 'propia'].includes(f.marca))
       .map((f) => ({ id: f.id, estilo: f.estilo, propia: f.marca === 'propia', gancho: fichaDe(f)?.titular?.gancho || null }))
   );
+  // (2026-11-26i) «Más imágenes»: sin las que el lote ya usó (si alcanzan)
+  const fuera = new Set(excluir || []);
+  if (fuera.size && todas.filter((f) => !fuera.has(f.id)).length >= n) for (const f of todas.filter((y) => fuera.has(y.id))) todas.splice(todas.indexOf(f), 1);
   const k = Math.min(n, todas.length);
   const elegidas = [];
   // ningún estilo en más de la mitad del lote (si no, no hay orden sin dos seguidas)

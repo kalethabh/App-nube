@@ -12,7 +12,7 @@ import { SKILLS } from '../rutas.js';
 import { leerJSON, existe } from '../archivos.js';
 import { validarEsquema, cargarEsquema } from '../claude.js';
 import { construirPrompt, construirPromptVertical } from '../../../../produccion/imagen-ads.js';
-import { R, RE_V, idsDelLote, piezaId } from './disco.js';
+import { R, RE_V, idsDelLote, piezaId, formatosDe } from './disco.js';
 import { esVariado, nivelDe, reglasDelPlan, reglasDelAnuncio } from './variedad.js';
 import { leerPropias, marcaPropias } from './propias-disco.js';
 import { erroresCuerpoPlan, erroresCuerpoAnuncio, erroresMomentos, zonasDe } from './cuerpo.js';
@@ -105,8 +105,18 @@ export function verificarEstrategia(carpeta) {
 
 /** plan.json: cantidad, ids en orden, las primeras K de referencia y las demas de la biblioteca. */
 export function verificarPlan(carpeta, brief) {
-  const { datos, errores } = leerConEsquema(R.plan(carpeta), 'imagen-ads-plan');
+  const leido = leerConEsquema(R.plan(carpeta), 'imagen-ads-plan');
+  const errores = leido.errores;
+  let datos = leido.datos;
   if (!datos) return { datos, errores };
+  // (2026-11-26i) «Más imágenes»: el plan de la estrategia es el de las primeras; las que se sumaron después las
+  // verificó su propio pedido (mas.js)
+  const mas = Array.isArray(brief?.mas) && brief.mas.length ? brief.mas : null;
+  if (mas) {
+    const inicial = Math.max(1, Number(mas[0].desde) - 1);
+    brief = { ...brief, cantidad: inicial };
+    datos = { ...datos, cantidad: inicial, variaciones: (Array.isArray(datos.variaciones) ? datos.variaciones : []).slice(0, inicial) };
+  }
   const n = Number(brief?.cantidad) || 0;
   const subidas = (brief?.referencias || []).length;
   // «más de lo mismo» (brief.fiel): TODAS salen de las referencias, repartidas en orden (V01 = R01, V02 = R02, … y vuelve a R01)
@@ -354,5 +364,5 @@ export function verificarSesion({ carpeta, brief, tipo, ids = [], tanda = null, 
 
 /** Las piezas que tiene un lote segun su brief (para validar una pieza que llega de afuera). */
 export function piezasDelBrief(brief) {
-  return idsDelLote(brief?.cantidad).flatMap((v) => (brief?.formatos || ['1:1']).map((f) => piezaId(v, f)));
+  return idsDelLote(brief?.cantidad).flatMap((v) => formatosDe(brief, v).map((f) => piezaId(v, f)));
 }

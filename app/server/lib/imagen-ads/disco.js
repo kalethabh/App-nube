@@ -17,9 +17,12 @@ import { listar, escribirJSONSeguro, escribirSeguro } from '../archivos.js';
 
 export const FAMILIA = 'imagen-ads';
 export const RE_LOTE = /^_img-[a-z0-9-]{1,40}-\d{8}-\d{4}(-\d+)?$/;
-export const RE_PIEZA = /^V\d{2,3}_(1x1|9x16)$/;
+export const RE_PIEZA = /^V\d{2,3}_(1x1|9x16|4x5)$/;
 export const RE_V = /^V\d{2,3}$/;
-export const FORMATOS = ['1:1', '9:16'];
+// (2026-11-26i) 4:5 (retrato): un tamaño extra que se crea de un anuncio ya hecho, desde su cuadrado, como el 9:16
+export const FORMATOS = ['1:1', '9:16', '4:5'];
+const SUFIJO = { '1:1': '1x1', '9:16': '9x16', '4:5': '4x5' };
+const DE_SUFIJO = { '1x1': '1:1', '9x16': '9:16', '4x5': '4:5' };
 export const POSICIONES = ['arriba-izquierda', 'arriba-centro', 'arriba-derecha', 'abajo-izquierda', 'abajo-centro', 'abajo-derecha'];
 export const NOMBRE_POSICION = {
   'arriba-izquierda': 'Arriba a la izquierda',
@@ -32,16 +35,23 @@ export const NOMBRE_POSICION = {
 export const MAXIMO_VARIACIONES = 100;
 export const MAXIMO_REFERENCIAS = 10;
 
-export const piezaId = (v, formato) => `${v}_${formato === '1:1' ? '1x1' : '9x16'}`;
+export const piezaId = (v, formato) => `${v}_${SUFIJO[formato] || '9x16'}`;
 export const numeroDeV = (v) => Number(String(v).slice(1));
 export const vDe = (pieza) => String(pieza).split('_')[0];
-export const formatoDe = (pieza) => (/_1x1$/.test(String(pieza)) ? '1:1' : '9:16');
+export const formatoDe = (pieza) => DE_SUFIJO[String(pieza).split('_')[1]] || '9:16';
+/** El sufijo de un formato ('9:16' -> '9x16'), para nombres de archivo. */
+export const sufijoDe = (formato) => SUFIJO[formato] || '9x16';
 export const idDeV = (n) => `V${String(n).padStart(2, '0')}`;
 export const idsDelLote = (n) => Array.from({ length: Math.max(0, Number(n) || 0) }, (_, i) => idDeV(i + 1));
 /** Por numero de variacion (V100 despues de V99) y, en la misma, primero el cuadrado. */
-export const ordenDePiezas = (a, b) => numeroDeV(vDe(a)) - numeroDeV(vDe(b)) || (formatoDe(a) === formatoDe(b) ? 0 : formatoDe(a) === '1:1' ? -1 : 1);
+export const ordenDePiezas = (a, b) => numeroDeV(vDe(a)) - numeroDeV(vDe(b)) || FORMATOS.indexOf(formatoDe(a)) - FORMATOS.indexOf(formatoDe(b));
 export const ordenDeV = (a, b) => numeroDeV(a) - numeroDeV(b);
-export const nombreFormato = (formato) => (formato === '1:1' ? 'cuadrado' : 'vertical');
+export const nombreFormato = (formato) => (formato === '1:1' ? 'cuadrado' : formato === '4:5' ? 'retrato 4:5' : 'vertical');
+/**
+ * (2026-11-26i) Los tamaños de UNA variación: los del lote (brief.formatos) más los que se pidieron solo para ella
+ * («Crear otro tamaño»: brief.extras = { V03: ['9:16', '4:5'] }), en orden.
+ */
+export const formatosDe = (brief, v) => FORMATOS.filter((f) => (brief?.formatos || ['1:1']).includes(f) || (brief?.extras?.[v] || []).includes(f));
 
 export const carpetaDe = (lote) => path.join(TEMP, lote);
 export const relDe = (lote) => `temp/${lote}`;

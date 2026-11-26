@@ -45,7 +45,7 @@ import { TEMP, RAIZ } from '../lib/rutas.js';
 import { iniciarProduccion, continuar, detener, leerConductor, esperarFamilias, reabrir, estadoDeLaFila, tomarElMando } from '../lib/conductor.js';
 import { modoPrueba } from '../lib/procesos.js';
 import { miniatura, anchoPermitido } from '../lib/miniaturas.js';
-import { R, RE_LOTE, RE_PIEZA, carpetaDe, guardarJSON, firma, vDe, formatoDe, nombreFormato, nombreSeguro, ordenDePiezas, idsDelLote, piezaId, MAXIMO_REFERENCIAS, POSICIONES, fotoDelLote } from '../lib/imagen-ads/disco.js';
+import { R, RE_LOTE, RE_PIEZA, carpetaDe, guardarJSON, firma, vDe, formatoDe, nombreFormato, nombreSeguro, ordenDePiezas, idsDelLote, piezaId, MAXIMO_REFERENCIAS, POSICIONES, fotoDelLote, formatosDe } from '../lib/imagen-ads/disco.js';
 import * as lotes from '../lib/imagen-ads/lotes.js';
 import { vistaDelLote, leerEstado } from '../lib/imagen-ads/estado.js';
 import * as local from '../lib/imagen-ads/local.js';
@@ -134,9 +134,9 @@ function recomponerLogo(lote, carpeta) {
 
 // La lista cerrada de lo que se puede abrir de un lote (nunca un JSON ni un prompt).
 const PERMITIDOS = [
-  /^img\/V\d{2,3}_(1x1|9x16)\.png$/,
-  /^final\/V\d{2,3}_(1x1|9x16)\.png$/,
-  /^versiones\/V\d{2,3}_(1x1|9x16)\.v\d+\.png$/,
+  /^img\/V\d{2,3}_(1x1|9x16|4x5)\.png$/,
+  /^final\/V\d{2,3}_(1x1|9x16|4x5)\.png$/,
+  /^versiones\/V\d{2,3}_(1x1|9x16|4x5)\.v\d+\.png$/,
   /^entrada\/producto\.(png|jpe?g|webp)$/,
   /^entrada\/referencias\/R\d{2}\.(png|jpe?g|webp)$/,
   /^entrada\/logo\.png$/,
@@ -550,7 +550,7 @@ export default function rutasImagenAds(app) {
   app.get('/api/imagen-ads/:lote/prompt/:pieza', conErrores((req, res) => {
     const { carpeta, brief } = elLote(req);
     const pieza = String(req.params.pieza || '');
-    if (!RE_PIEZA.test(pieza) || !idsDelLote(brief.cantidad).includes(vDe(pieza)) || !(brief.formatos || []).includes(formatoDe(pieza))) throw new ErrorApp(404, 'No encuentro esa imagen en el lote.');
+    if (!RE_PIEZA.test(pieza) || !idsDelLote(brief.cantidad).includes(vDe(pieza)) || !formatosDe(brief, vDe(pieza)).includes(formatoDe(pieza))) throw new ErrorApp(404, 'No encuentro esa imagen en el lote.');
     res.set('Cache-Control', 'no-store');
     if (req.query.como === 'json') {
       let texto = null;
@@ -621,6 +621,47 @@ export default function rutasImagenAds(app) {
       console.error(`[imagen-ads] ${lote}: no pude reabrir el lote para ${pedido.id}: ${e?.message || e}`);
     }
     res.status(202).json({ pedido: { id: pedido.id, estado: 'pendiente' } });
+  }));
+
+  // (2026-11-26i) «CREAR OTRO TAMAÑO» de un anuncio (1:1, 9:16 o 4:5): sale de su cuadrado; lo de antes no se toca
+  app.post('/api/imagen-ads/:lote/tamano', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { lote, brief } = elLote(req);
+    const c = leerConductor(lote);
+    if (!c) throw new ErrorApp(409, 'Este lote todavía no empezó.');
+    if (Boolean(c.modoPrueba) !== modoPrueba()) throw new ErrorApp(409, c.modoPrueba ? 'Este lote se empezó en modo prueba. Abre la app en modo prueba para cambiarlo.' : 'Este lote se empezó de verdad. Abre la app sin el modo prueba para cambiarlo.');
+    if (brief.plantillas) throw new ErrorApp(409, 'Los lotes de plantillas ya traen sus tamaños.');
+    if (!tomarElMando()) throw new ErrorApp(409, 'La app ya está abierta en otra ventana, y es esa la que produce. Usa esa ventana.');
+    await comprobarCostoConfirmado(brief, { ...req.body, accion: 'tamano' });
+    const r = lotes.agregarTamano(lote, { v: String(req.body?.v || ''), formato: String(req.body?.formato || '') });
+    if (c.estado === 'pausado' && c.motivo === 'detenido' && !enMarcha(lote)) return res.status(202).json({ ...r, estado: 'en-espera' });
+    try {
+      reabrir(lote, 'anuncios');
+    } catch (e) {
+      console.error(`[imagen-ads] ${lote}: no pude reabrir el lote para el tamaño ${r.pieza}: ${e?.message || e}`);
+    }
+    res.status(202).json({ ...r, estado: 'pendiente' });
+  }));
+
+  // (2026-11-26i) MÁS IMÁGENES EN EL LOTE: { cantidad 1-10, modo 'nuevos' | 'variantes', base?: 'V03', costoMaximoConfirmado }
+  // -> 202 { desde, hasta, ids, estado }. Sube la cantidad del lote y lo reabre en «anuncios»: las de antes no se tocan.
+  app.post('/api/imagen-ads/:lote/mas', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    const c = leerConductor(lote);
+    if (!c) throw new ErrorApp(409, 'Este lote todavía no empezó.');
+    if (Boolean(c.modoPrueba) !== modoPrueba()) throw new ErrorApp(409, c.modoPrueba ? 'Este lote se empezó en modo prueba. Abre la app en modo prueba para cambiarlo.' : 'Este lote se empezó de verdad. Abre la app sin el modo prueba para cambiarlo.');
+    if (enMarcha(lote)) throw new ErrorApp(409, 'Este lote se está creando: espera a que termine (o tócale «Detener») para pedir más imágenes.');
+    if (!tomarElMando()) throw new ErrorApp(409, 'La app ya está abierta en otra ventana, y es esa la que produce. Usa esa ventana.');
+    const { pedirMas, motivoSinMas } = await import('../lib/imagen-ads/mas.js');
+    const sin = motivoSinMas(brief);
+    if (sin) throw new ErrorApp(409, sin);
+    await comprobarCostoConfirmado(brief, { ...req.body, accion: 'mas' });
+    const r = pedirMas(carpeta, brief, leerEstado(carpeta), { cantidad: Number(req.body?.cantidad), modo: String(req.body?.modo || ''), base: req.body?.base ? String(req.body.base) : null });
+    try {
+      reabrir(lote, 'anuncios', { tambienPausado: true });
+    } catch (e) {
+      console.error(`[imagen-ads] ${lote}: no pude reabrir el lote para las imágenes nuevas: ${e?.message || e}`);
+    }
+    res.status(202).json({ desde: r.desde, hasta: r.hasta, ids: r.ids, estado: 'pendiente' });
   }));
 
   // (2026-11-26c) EL EDITOR: guardar lo que armaste (PNG del navegador) o un cambio con IA (zona / integrar una pieza)
@@ -813,7 +854,7 @@ export default function rutasImagenAds(app) {
         : `${v}-${nombreFormato(f)}`;
     };
     for (const v of idsDelLote(brief.cantidad)) {
-      for (const f of brief.formatos || ['1:1']) {
+      for (const f of formatosDe(brief, v)) {
         const p = piezaId(v, f);
         // (plantillas: la imagen dibujada, y solo si ya tiene su escena: nunca una vista previa)
         if (brief.plantillas) {

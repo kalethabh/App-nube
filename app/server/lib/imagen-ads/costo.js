@@ -12,6 +12,9 @@ export function imagenesDeLaAccion(brief, cuerpo = null) {
     return cuerpo.carpeta && plantillaDe(cuerpo.carpeta, v)?.escena ? 1 : 0;
   }
   if (!cuerpo) return Number(brief?.cantidad || 0) * formatos;
+  // (2026-11-26i) «Crear otro tamaño»: una imagen; «Más imágenes»: cantidad × los tamaños del lote
+  if (cuerpo.accion === 'tamano') return 1;
+  if (cuerpo.accion === 'mas') return Math.max(0, Math.min(10, Number(cuerpo.cantidad) || 0)) * formatos;
   if (cuerpo.tipo === 'prompt' || /_1x1$/.test(String(cuerpo.pieza || ''))) return formatos;
   // Una corrección en el vertical puede cambiar también el texto del cuadrado.
   return cuerpo.instruccion?.trim() ? formatos : 1;

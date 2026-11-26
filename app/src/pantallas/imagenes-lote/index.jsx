@@ -22,6 +22,7 @@ import { Avance } from './Avance.jsx';
 import { Galeria } from './Galeria.jsx';
 import { InformeLote } from './InformeLote.jsx';
 import { ModalRegenerar } from './ModalRegenerar.jsx';
+import { ModalMas } from './ModalMas.jsx';
 import { ModalTextos } from './ModalTextos.jsx';
 import { PanelEstrategia } from './PanelEstrategia.jsx';
 import { Visor } from './Visor.jsx';
@@ -64,6 +65,8 @@ export default function PantallaLote({ params, consulta }) {
   const [filtro, setFiltro] = useState('juntos');
   const [visor, setVisor] = useState(null); // { v, formato }
   const [aRegenerar, setARegenerar] = useState(null); // la pieza
+  // (2026-11-26i) la ventana «Más imágenes»: null cerrada, { base } abierta (base null = sin elegir)
+  const [mas, setMas] = useState(null);
   const [aEditar, setAEditar] = useState(null); // la variación de una plantilla (Editar textos)
   const [verEstrategia, setVerEstrategia] = useState(false);
   const [ocupado, setOcupado] = useState(null); // 'continuar' | 'detener' | 'generar' | 'borrar'
@@ -75,8 +78,10 @@ export default function PantallaLote({ params, consulta }) {
   const acciones = useMemo(
     () =>
       simulando
-        ? sim.acciones
+        ? { ...sim.acciones, tamano: async () => { throw new Error('En la vista de ejemplo no se crean imágenes.'); }, mas: async () => { throw new Error('En la vista de ejemplo no se crean imágenes.'); } }
         : {
+            tamano: (cuerpo) => apiImagenes.tamano(lote, cuerpo),
+            mas: (cuerpo) => apiImagenes.mas(lote, cuerpo),
             regenerar: (cuerpo) => apiImagenes.regenerar(lote, cuerpo),
             textos: (v, textos) => apiImagenes.textos(lote, v, textos),
             pulir: (v, costo) => apiImagenes.pulir(lote, v, costo),
@@ -128,6 +133,24 @@ export default function PantallaLote({ params, consulta }) {
   };
   const escribirDeNuevo = (v) => confirmarCosto(`Escribir y generar ${v}`, (vista?.brief?.formatos || ['1:1']).length, (costoMaximoConfirmado) =>
     hacer('escribir', () => acciones.regenerar({ v, tipo: 'prompt', costoMaximoConfirmado }), { ok: { titulo: `Escribo de nuevo ${v}`, texto: 'Cuando esté, se crean sus imágenes solas.' }, error: 'No pude pedirlo' }));
+
+  // (2026-11-26i) «Crear otro tamaño» de un anuncio: 1 imagen, sale de su cuadrado (lo de antes no se toca)
+  const NOMBRE_TAMANO = { '1:1': 'cuadrado 1:1', '9:16': 'vertical 9:16', '4:5': 'retrato 4:5' };
+  const pedirTamano = (v, formato) => {
+    setARegenerar(null);
+    confirmarCosto(`Crear el ${NOMBRE_TAMANO[formato]} de ${v}`, 1, (costoMaximoConfirmado) =>
+      hacer('tamano', () => acciones.tamano({ v, formato, costoMaximoConfirmado }), { ok: { titulo: `Creo el ${NOMBRE_TAMANO[formato]} de ${v}`, texto: 'Sale de su cuadrado, con los mismos textos. Lo de antes queda igual.' }, error: 'No pude pedirlo' }));
+  };
+
+  // (2026-11-26i) «Más imágenes en este lote»: nuevos o variantes de una imagen (1-10), con su costo antes
+  const pedirMas = ({ modo, cantidad, base, imagenes }) => {
+    setMas(null);
+    confirmarCosto(modo === 'variantes' ? `${cantidad} ${cantidad === 1 ? 'variante' : 'variantes'} de ${base}` : `${cantidad} ${cantidad === 1 ? 'anuncio nuevo' : 'anuncios nuevos'} en este lote`, imagenes, (costoMaximoConfirmado) =>
+      hacer('mas', () => acciones.mas({ modo, cantidad, base, costoMaximoConfirmado }), {
+        ok: { titulo: modo === 'variantes' ? `Creo ${cantidad} ${cantidad === 1 ? 'variante' : 'variantes'} de ${base}` : `Creo ${cantidad} ${cantidad === 1 ? 'anuncio nuevo' : 'anuncios nuevos'}`, texto: 'Aparecen abajo, al final del lote. Las que ya tienes no cambian.' },
+        error: 'No pude pedirlas',
+      }));
+  };
 
   const confirmacionCosto = (
     <Modal abierto={Boolean(aConfirmar)} titulo={aConfirmar?.titulo || 'Confirmar generación'} onCerrar={() => setAConfirmar(null)} pie={<>
@@ -371,6 +394,8 @@ export default function PantallaLote({ params, consulta }) {
   // ---------------------------------------------------------------- el lote
 
   const variaciones = [...(vista.variaciones || [])].sort(porNumero);
+  // (2026-11-26i) «Más imágenes»: en los lotes que arma la IA, ya empezados (no en plantillas, rápidos ni Desde 0)
+  const puedeMas = !simulando && !brief.plantillas && !brief.rapido && !brief.desde0 && Boolean(c) && c.estado !== 'borrador';
   const abrir = (pieza) => {
     const { v, formato } = partesDePieza(pieza);
     setVisor({ v, formato });
@@ -414,6 +439,8 @@ export default function PantallaLote({ params, consulta }) {
         urlDescarga={simulando ? null : (op) => apiImagenes.urlDescarga(lote, op)}
         onDescargarSimulado={descargarSimulado}
         onEditarTextos={(x) => setAEditar(x)}
+        onMas={puedeMas ? () => setMas({ base: null }) : null}
+        onMasComoEsta={puedeMas ? (v) => setMas({ base: v }) : null}
         onPulir={(x) =>
           confirmarCosto(`Pulir ${x.v} con IA`, 1, (costoMaximoConfirmado) =>
             hacer('pulir', () => acciones.pulir(x.v, costoMaximoConfirmado), { ok: { titulo: `Puliendo ${x.v}`, texto: 'El modelo rehace el cuadro limpio y nítido (sin texto); la app le vuelve a poner tus textos.' }, error: 'No pude pedirlo' })
@@ -439,7 +466,8 @@ export default function PantallaLote({ params, consulta }) {
       />
       {confirmacionCosto}
       <ModalTextos variacion={aEditar} onGuardar={guardarTextos} onCerrar={() => setAEditar(null)} />
-      <ModalRegenerar pieza={aRegenerar} conVertical={conVertical} precio={precio} lote={simulando ? null : lote} productoId={vista?.producto?.id || null} onCerrar={() => setARegenerar(null)} onConfirmar={pedirRegenerar} />
+      <ModalMas abierto={Boolean(mas)} baseInicial={mas?.base || null} variaciones={variaciones} formatos={(brief.formatos || ['1:1']).length} precio={precio} ocupado={ocupado === 'mas'} onCerrar={() => setMas(null)} onConfirmar={pedirMas} />
+      <ModalRegenerar onMasComoEsta={puedeMas ? (v) => { setARegenerar(null); setMas({ base: v }); } : null} pieza={aRegenerar} conVertical={conVertical} precio={precio} formatosHechos={aRegenerar ? Object.keys(vista?.variaciones?.find((x) => x.v === partesDePieza(aRegenerar.pieza).v)?.piezas || {}) : []} onTamano={brief.plantillas ? null : pedirTamano} lote={simulando ? null : lote} productoId={vista?.producto?.id || null} onCerrar={() => setARegenerar(null)} onConfirmar={pedirRegenerar} />
       <PanelEstrategia estrategia={vista.estrategia} abierto={verEstrategia && Boolean(vista.estrategia)} onCerrar={() => setVerEstrategia(false)} />
     </div>
     </LoteFunciona.Provider>

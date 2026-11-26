@@ -244,7 +244,7 @@ export function validarOrden(datos, id) {
   return datos.piezas.map((p, i) => {
     const donde = `La orden ${id}, pieza ${i + 1}`;
     if (!p || typeof p !== 'object') throw new ErrorInvalido(`${donde}: no es un objeto.`);
-    if (!RE_PIEZA.test(String(p.pieza))) throw new ErrorInvalido(`${donde}: "${p.pieza}" no es una pieza (V01_1x1, V01_9x16).`);
+    if (!RE_PIEZA.test(String(p.pieza))) throw new ErrorInvalido(`${donde}: "${p.pieza}" no es una pieza (V01_1x1, V01_9x16, V01_4x5).`);
     if (vistas.has(p.pieza)) throw new ErrorInvalido(`${donde}: ${p.pieza} esta dos veces en la misma orden.`);
     vistas.add(p.pieza);
     if (typeof p.orden !== 'string' || !RE_ID_ORDEN.test(p.orden)) throw new ErrorInvalido(`${donde} (${p.pieza}): "orden" ${JSON.stringify(p.orden)} no sirve.`);
@@ -481,7 +481,7 @@ class Motor {
   /** ¿Puede arrancar? Una pieza a la vez, y un 9:16 espera a que termine lo de su 1:1. */
   puedeArrancar({ T, item }) {
     if (this.enMarcha.has(item.pieza)) return false;
-    if (formatoDePieza(item.pieza) !== '9:16') return true;
+    if (formatoDePieza(item.pieza) === '1:1') return true;
     const cuadrado = `${vDePieza(item.pieza)}_1x1`;
     if (this.enMarcha.has(cuadrado)) return false;
     // Un 1:1 de la misma variacion todavia en la cola (de esta orden o de otra): el vertical sale del cuadrado vigente.
@@ -568,7 +568,18 @@ class Motor {
     return existe(abs) ? abs : null;
   }
 
+  /** (2026-11-26i) «Más como esta»: la imagen base de una variante (entrada/variantes/V03.png), o null. */
+  varianteDe(v) {
+    const plan = leerJSON(path.join(this.carpeta, 'plan.json'));
+    const base = (plan?.variaciones || []).find((y) => y?.id === v)?.variante_de;
+    if (!/^V\d{2,3}$/.test(String(base || ''))) return null;
+    const abs = path.join(this.carpeta, 'entrada', 'variantes', `${base}.png`);
+    return existe(abs) ? abs : null;
+  }
+
   referenciaDe(v) {
+    const variante = this.varianteDe(v);
+    if (variante) return variante;
     const estructura = this.estructuraDe(v);
     if (estructura) return estructura;
     // (2026-11-26a) «Vecinas»/«Conceptos»: el ganador va como referencia de estilo en todas (ver modoReferencia)
@@ -592,6 +603,7 @@ class Motor {
    * su mismo formato), 'estilo' (solo estilo, producto y oferta: el resto de «Vecinas»/«Conceptos») o null.
    */
   modoReferencia(v) {
+    if (this.varianteDe(v)) return 'variante';
     if (this.estructuraDe(v)) return 'estructura';
     if (!this.referenciaDe(v)) return null;
     if (!this.lote.ganador) return 'composicion';
@@ -610,10 +622,10 @@ class Motor {
       armar = (a) => construirPromptEdicion(a, { instruccion: `${item.instruccion_en}${conAdjuntos}`, formato, textos: item.textos === true, logo });
     } else if (formato === '1:1') {
       const modo = this.modoReferencia(vDePieza(item.pieza));
-      const referencia = modo === 'estilo' || modo === 'estructura' ? modo : Boolean(modo);
+      const referencia = modo === 'estilo' || modo === 'estructura' || modo === 'variante' ? modo : Boolean(modo);
       armar = (a) => construirPrompt(a, { logo, correccion: item.correccion_en, referencia });
     } else {
-      armar = (a) => construirPromptVertical(a, { conProducto: true, logo, correccion: item.correccion_en });
+      armar = (a) => construirPromptVertical(a, { conProducto: true, logo, correccion: item.correccion_en, formato });
     }
     return ajustarLargo(armar(ad), ad, armar);
   }
@@ -812,7 +824,7 @@ class Motor {
       return;
     }
     for (const n of nombres) {
-      const m = n.match(/^(V\d{2,3}_(?:1x1|9x16))\.json$/);
+      const m = n.match(/^(V\d{2,3}_(?:1x1|9x16|4x5))\.json$/);
       if (!m) continue;
       const a = leerJSON(path.join(this.dir.nuevas, n));
       if (!a || typeof a.orden !== 'string') continue;
@@ -882,7 +894,7 @@ class Motor {
       // (2026-11-26h) después de la imagen actual y el producto, las que adjuntó el usuario (3.ª, 4.ª…)
       const adjuntos = (item.adjuntos || []).map((a) => path.join(this.carpeta, ...a.split('/'))).filter((a) => existe(a));
       archivos = [r.img, this.lote.rutaProducto, ...adjuntos];
-    } else if (formato === '9:16') {
+    } else if (formato !== '1:1') {
       const cuadrado = this.rutasDe(`${vDePieza(pieza)}_1x1`).img;
       if (!existe(cuadrado)) return this.sinImagen(T, item, 'falta-cuadrado');
       archivos = [cuadrado, this.lote.rutaProducto];
