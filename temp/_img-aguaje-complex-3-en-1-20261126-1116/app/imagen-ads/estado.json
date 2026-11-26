@@ -1,7 +1,7 @@
 {
   "version": 1,
   "siguiente": {
-    "E": 2,
+    "E": 3,
     "R": 1,
     "A": 1,
     "T": 2
@@ -18,6 +18,14 @@
       "uuid": "fad524aa-c337-41a6-aa21-c7bdc85ce6c4",
       "motor": "claude",
       "estado": "hecha"
+    },
+    "E002": {
+      "tipo": "prompts",
+      "uuid": "d592d87f-1ddd-4b32-be7d-315ea3374db9",
+      "estado": "en-curso",
+      "ids": [
+        "V05"
+      ]
     }
   },
   "variaciones": {
@@ -38,8 +46,8 @@
       "tanda": "E001"
     },
     "V05": {
-      "prompt": "falta",
-      "tanda": null
+      "prompt": "en-tanda",
+      "tanda": "E002"
     }
   },
   "piezas": {

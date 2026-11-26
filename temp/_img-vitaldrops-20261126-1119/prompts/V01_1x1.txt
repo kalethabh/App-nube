@@ -1,0 +1,40 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 photographic image ad. BACKGROUND: solid lemon-yellow (#F5E13A) studio backdrop with a soft darker vignette at the corners, split exactly in half by a thin 6 px white vertical line from top to about 70 % of the height. TOP AND CENTER (0 % to 68 % of the canvas), LEFT HALF = BEFORE: ultra-realistic photo, front view, camera at hip height, 50 mm lens, framed from just under the bust to the ankles, of an adult Colombian woman about 25 years old with warm light-brown skin with real pores and fine texture, wearing a fitted white cotton crop t-shirt with small wrinkles and light-wash blue jeans one size too big: the jeans hang loose on her thighs with vertical folds, the hips are straight and almost as narrow as her waist, her thighs are thin and straight with a visible gap, and her right hand pulls the front waistband about a fist away from her belly so the empty space inside the jeans is clearly visible. Over her thighs and hips floats a dull, semi-transparent grey haze, like a cold veil with tiny grey dust particles, that makes that side look tired and switched off; her skin under it is slightly desaturated. LEFT AND RIGHT ARE THE SAME WOMAN. RIGHT HALF = AFTER, another day: same woman, same front view and framing, now in a fitted plain black cotton t-shirt and matte black high-waisted leggings; her hips are clearly wider than her waist, her thighs are fuller, rounder and toned, filling the leggings with a smooth curved outline, standing relaxed and confident, hands resting at her sides. Thin warm golden lines of light (#F5E13A to #C9962B) run down the front of each thigh and along the curve of the hips with a few soft glowing dots, like gentle energy, subtle and elegant, not medical, no veins, no anatomy. A thick curved lemon-yellow arrow with a soft shadow crosses the white divider at mid-height pointing from the left half to the right half. Soft studio key light from the upper left, gentle natural shadows, fabric texture visible on denim and leggings. BOTTOM 35 %: a soft deep-cocoa (#2B1A10) gradient rises from the bottom edge to about 35 % of the height so the text reads. LOWER-LEFT 55 % of the width, stacked and left-aligned: line 1 of the headline in Poppins ExtraBold uppercase, white #FFFFFF, very large; line 2 in Poppins ExtraBold uppercase, lemon yellow #F5E13A, even taller, with a slight top-to-bottom yellow-to-gold gradient; under it a two-line subtitle in Poppins SemiBold uppercase white with the segment words in lemon yellow; a thin curved yellow swoosh line; then a wide rounded pill button in solid lemon yellow with the button text in Poppins ExtraBold deep cocoa; directly below the button a small rounded badge with a 2 px white border and a cocoa fill with a tiny hand-and-box icon and the trust text in white Poppins SemiBold. LOWER-RIGHT CORNER, standing in front of the after legs, the product bottle at about 34 % of the canvas height, upright, label facing the camera and fully legible, with a soft contact shadow. PRODUCT: use the attached product photo as the only source of truth: ONE amber-brown glass dropper bottle about 2.6 times taller than wide, Boston-round body with rounded shoulders, ribbed matte black collar about 55 % of the body width, tall matte black rubber dropper bulb, wrap-around label lemon-yellow fading to white with 'amua', the big white outlined word 'VITALDROPS', 'All-In-One Multi-Herbal Supplement', five small outlined ingredient circles (A, MA, L, F, BR) and 'Dietary Supplement 2 fl. oz. (60mL)'. Not a slim bottle, not a squat jar, label never mirrored, matte, no rainbow, no prism light, no lens flare, no yellow '60ml' circle. Natural realistic people, not plastic skin, no studio make-up.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (lower-left, first line): "TUS CURVAS EMPIEZAN" — Poppins ExtraBold uppercase, white #FFFFFF, very large, left-aligned
+- main headline line 2 (highlighted) (lower-left, second line, taller): "POR EL APETITO" — Poppins ExtraBold uppercase, lemon yellow #F5E13A with yellow-to-gold gradient, the largest text
+- subtitle with segment (lower-left, under the headline, two lines): "Tu ritual de gotas si comes de todo y no subes" — Poppins SemiBold uppercase, white, with 'COMES DE TODO Y NO SUBES' in lemon yellow
+- CTA (lower-left, wide yellow pill under the swoosh): "QUIERO PROBARLO" — Poppins ExtraBold uppercase, deep cocoa #2B1A10 on lemon yellow pill
+- trust item (directly under the pill button, small bordered badge): "Pagas al recibir" — Poppins SemiBold, white on cocoa with a 2 px white border and a small icon
+
+BRAND IDENTITY:
+- color_palette: Lemon yellow #F5E13A, amber brown #9A4F12, deep cocoa #2B1A10, warm cream #FFF6DC, white #FFFFFF, gold #C9962B. No red (no offer in this ad).
+- text_typography: Poppins ExtraBold uppercase headlines; Poppins Regular/SemiBold for the rest
+
+MANDATORY ELEMENTS:
+- Split screen with thin white vertical divider
+- Before: same woman, front view, thin legs in baggy light-wash jeans with the hand pulling the waistband a fist away and a dull grey veil over the thighs
+- After: same woman another day in black leggings with fuller toned thighs, wider hips and thin golden glowing lines
+- Curved lemon-yellow arrow from before to after
+- Real amber VITALDROPS dropper bottle in the lower-right, label legible
+- Lemon-yellow pill button and bordered 'Pagas al recibir' badge
+
+STRICT EXCLUSIONS:
+- No underwear, bikini or bare lower body; jeans and leggings only
+- No veins, organs, mud, slime or medical imagery
+- No price, discount, percentage, rating stars or unit count
+- No logos besides the label printed on the bottle
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add prices, badges, benefits, icons, trust seals, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any logo or brand mark outside the bottle label
+- Do not add: Any price, discount, percentage, star rating or number of units
+- Do not add: Registration seals, certificates or medical icons
+- Do not add: Underwear, bikinis or bare legs without clothing
+- Do not add: Any extra text not listed in text_layers
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

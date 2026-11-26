@@ -1,0 +1,47 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 image ad in a polished 3D animated-feature-film render style (soft subsurface skin, stylized but believable proportions), background very light sky blue (#DDEFFC) with a soft white glow. TOP 15 %: two thin cocoa lines at left and right and, centered, a glossy deep-cocoa (#2B1A10) ribbon banner with rounded ends and a soft glow, with the product name in Poppins ExtraBold italic uppercase, 'VITAL' in white and 'DROPS' in lemon yellow #F5E13A. MIDDLE 50 %: a thin white vertical line splits the scene. LEFT = BEFORE: an adult Colombian woman in her late 20s with adult features, warm tan skin, dark-brown hair in a messy bun, small gold hoop earrings, wearing a plain white t-shirt and light-blue jeans one size too big; she stands three-quarters turned away from the camera, looking back over her shoulder with a worried, frustrated face, camera at hip height; the jeans hang flat at the back with a baggy fold of extra denim under the seat and drooping back pockets, one straight vertical line from waist to thigh, thin straight thighs, and her hand pulls the back waistband about a fist away from her lower back so the empty gap is visible; a dull grey haze sits over the flat seat area. RIGHT = AFTER, another day: the same woman, same face and hair, now in a fitted lemon-yellow t-shirt and dark-blue jeans, three-quarters turned, smiling warmly over her shoulder: an hourglass curvy figure, small waist, hips clearly wider, round full lifted glutes filling the jeans and fuller thighs, obvious at first glance; she holds the product bottle up beside her face with her fingers on the sides, label to camera; her other hand is empty and relaxed. A thick curved lemon-yellow arrow points from the left figure to the right figure across the divider. BOTTOM 35 %: LEFT 48 %, a deep-cocoa diagonal panel rising from left to right holds a 3-line headline in Poppins ExtraBold italic uppercase, the first two lines white and the last line lemon yellow; under it a rounded cream (#FFF6DC) card with 4 thin cocoa line icons (a plate with fork, a lightning bolt, a calm leaf, a dropper) each with 2-3 short uppercase words in Poppins Bold cocoa, separated by thin vertical lines; under the card a deep-cocoa rounded pill containing a bordered badge (2 px white border) with a small hand-and-box icon and white text. CENTER BOTTOM, overlapping the panel and the after figure, the product bottle large, about 45 % of the canvas height, upright, label facing front and fully legible, with a soft shadow; same render quality, the label crisp. RIGHT: a many-pointed lemon-yellow starburst with a thin cocoa outline and big cocoa Poppins ExtraBold text; below it, in the corner, a wide glossy lemon-yellow pill button with cocoa Poppins ExtraBold text and a cocoa circle with a white arrow. PRODUCT: use the attached product photo as the only source of truth: ONE amber-brown glass dropper bottle about 2.6 times taller than wide, Boston-round body with rounded shoulders, ribbed matte black collar about 55 % of the body width, tall matte black rubber dropper bulb, wrap-around label lemon-yellow fading to white with 'amua', the big white outlined word 'VITALDROPS', 'All-In-One Multi-Herbal Supplement', five outlined ingredient circles and 'Dietary Supplement 2 fl. oz. (60mL)'. Not slim, not squat, never mirrored, matte, no rainbow, no lens flare, no yellow '60ml' circle.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- top ribbon (top center ribbon): "VITALDROPS" — Poppins ExtraBold italic uppercase, 'VITAL' white and 'DROPS' lemon yellow on deep cocoa
+- main headline lines 1-2 (bottom-left diagonal panel, first two lines): "TU RITUAL NATURAL PARA TUS CURVAS," — Poppins ExtraBold italic uppercase, white
+- main headline line 3 (highlighted) (bottom-left diagonal panel, third line): "SIN AGUJAS" — Poppins ExtraBold italic uppercase, lemon yellow
+- benefit 1 (cream card, icon 1): "MÁS GANAS DE COMER" — Poppins Bold uppercase, cocoa
+- benefit 2 (cream card, icon 2): "MÁS PILA" — Poppins Bold uppercase, cocoa
+- benefit 3 (cream card, icon 3): "DÍAS MÁS TRANQUILOS" — Poppins Bold uppercase, cocoa
+- benefit 4 (cream card, icon 4): "5 PLANTAS EN GOTAS" — Poppins Bold uppercase, cocoa
+- trust item (cocoa pill under the card, bordered badge): "Pagas al recibir" — Poppins SemiBold, white with 2 px white border
+- starburst (bottom-right starburst): "1 TOMA AL DÍA" — Poppins ExtraBold uppercase, deep cocoa, '1' very large
+- CTA (bottom-right pill button): "QUIERO PROBARLO" — Poppins ExtraBold uppercase, deep cocoa on lemon yellow
+
+BRAND IDENTITY:
+- color_palette: Lemon yellow #F5E13A, amber brown #9A4F12, deep cocoa #2B1A10, warm cream #FFF6DC, white #FFFFFF, gold #C9962B, plus a very light sky-blue background #DDEFFC. No red (no offer in this ad).
+- text_typography: Poppins ExtraBold italic uppercase headlines; Poppins Regular/SemiBold for the rest
+
+MANDATORY ELEMENTS:
+- Deep-cocoa ribbon at the top
+- 3D before: same woman, jeans hanging flat at the back, hand pulling the waistband, frustrated face
+- 3D after: same woman, round lifted glutes and wider hips filling the jeans, smiling, bottle beside her face
+- Curved yellow arrow and white divider
+- Diagonal cocoa headline panel, cream benefit card with 4 icons, cocoa trust pill with bordered 'Pagas al recibir' badge
+- Large real VITALDROPS bottle at bottom center
+- Lemon-yellow starburst and yellow pill button
+
+STRICT EXCLUSIONS:
+- No discount, percentage, price or unit count
+- No organs, veins, syringes or surgery imagery
+- No underwear or bare lower body; jeans only
+- No logos besides the label printed on the bottle; no campaign names
+- The character is clearly an adult woman in her late 20s
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add ratings, testimonials, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any brand logo or campaign name like Black Friday
+- Do not add: Any discount, percentage, price or unit count
+- Do not add: Organs, lungs, veins or medical imagery
+- Do not add: Syringes, scalpels or surgery imagery
+- Do not add: Any extra text not listed in text_layers
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

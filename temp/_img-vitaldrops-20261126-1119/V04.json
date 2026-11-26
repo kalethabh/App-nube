@@ -1,0 +1,78 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F38 (Ilustración plana lado a lado) — winning structure mv-06",
+    "reference_style": "Flat outlined illustration, side-by-side comparison with wavy labels and a bold two-line headline",
+    "angle_used": "Comparación con la alternativa: deja las gomitas, prueba tu ritual en gotas (segment: already tried gummies and saw nothing)",
+    "ad_format": "Single Image Ad (illustrated comparison)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Lemon yellow #F5E13A, amber brown #9A4F12, deep cocoa #2B1A10, warm cream #FFF6DC, white #FFFFFF, gold #C9962B. No red (no offer in this ad).",
+    "visual_style": "Clean, bold direct-response health ad built around the real amber dropper bottle with its yellow label",
+    "visual_atmosphere": "Warm, sunny, honest and hopeful",
+    "graphic_language": "Flat illustration with bold dark outlines, a vertical divider line, wavy-edged yellow labels, a thin bottom strip with a bordered 'Pagas al recibir' badge",
+    "text_typography": "Poppins ExtraBold headline in title case; Poppins Regular/SemiBold for the rest"
+  },
+  "creative_objective": "Talk to the woman who already wasted money on gummies: an order-plus-promise headline and two flat illustrations of the same woman in jeans, the good result on the left (jeans filled) and the pain on the right (jeans hanging loose), so the difference reads in one second.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) headline, 2) the two illustrated figures, 3) the yellow wavy labels, 4) the small bottle and the 'Pagas al recibir' badge in the bottom strip",
+    "composition_style": "Text block across the top 25 %, two equal illustration panels below split by a vertical line, thin strip along the bottom edge",
+    "spacing_and_structure": "Wide margins, both figures the same size and the same framing so the comparison is fair",
+    "lighting_and_depth": "Flat colors with minimal cel shading; only the bottle in the strip is photographic",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "The reference image is on a white background: top 25 % a two-line headline in very bold dark-green title case and a two-line black subtitle; below, 75 % of the canvas, two flat outlined illustrations of the same woman, chest-up, separated by a thin dark-green vertical line: on the LEFT the good state (smiling) and on the RIGHT the problem (sad, swollen), each with a big yellow wavy-edged label on her shirt with dark text. No bottle, no offer, no button. Our version keeps the same order and the good state on the left, changes the zone to hips and glutes in jeans (figures in three-quarter side view, waist to knees with the face visible over the shoulder), uses a warm white background, and adds the thin bottom strip this app requires with the small real bottle and the 'Pagas al recibir' badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top, 2 lines", "visual_function": "order + promise", "adaptation_rule": "our headline in deep cocoa", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "subtitle", "position": "under the headline, 2 lines", "visual_function": "explains the promise", "adaptation_rule": "our honest subtitle in black", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "person (good state)", "position": "left half", "visual_function": "the result", "adaptation_rule": "jeans filled, wider hips, round glutes, smiling", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "person (problem)", "position": "right half", "visual_function": "the pain", "adaptation_rule": "jeans hanging loose, hand pulling the waistband showing the gap, frustrated", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "divider", "position": "center vertical line", "visual_function": "separates the two states", "adaptation_rule": "thin deep-cocoa line", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "wavy labels", "position": "one over each figure's hip area", "visual_function": "names each state", "adaptation_rule": "lemon-yellow wavy-edged labels with cocoa text", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "bottom strip with small bottle and trust badge (mandatory in this app)", "position": "bottom 9 %, full width", "visual_function": "product and risk removal", "adaptation_rule": "cream strip, small real bottle on the left, bordered 'Pagas al recibir' badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Gummies, candy, pills or capsules drawn anywhere",
+      "Competitor brands or logos",
+      "Any price, discount or unit count",
+      "Any extra text not listed in text_layers"
+    ]
+  },
+  "visual_prompt": "Square 1:1 flat-illustration image ad on a warm white background (#FFFDF6). TOP 25 %: centered two-line headline in Poppins ExtraBold, title case, deep cocoa #2B1A10, very large and heavy, the words 'Ritual En Gotas' in lemon yellow #F5E13A with a thick cocoa outline; directly under it a two-line centered subtitle in Poppins Regular, near-black #1A1A1A. MIDDLE 66 %: two equal panels separated by a thin deep-cocoa vertical line, both in the same flat illustration style with bold dark outlines and simple cel shading, showing the SAME adult Colombian woman in her mid-20s (long dark-brown straight hair, warm tan skin, small gold studs, plain lemon-yellow t-shirt tucked in), each figure in three-quarter side view turned slightly away from the viewer with her face looking back over her shoulder at the viewer, framed from the shoulders to the knees, camera at hip height, plain cream background. LEFT PANEL = RESULT: she smiles confidently; dark-blue jeans fit snug; small waist, hips clearly wider than the waist, round lifted glutes and fuller thighs filling the jeans with a smooth curved outline, no loose fabric. RIGHT PANEL = PAIN: same woman, sad frustrated face; light-blue jeans one size too big hang loose at the back with a baggy fold of extra denim under the seat and drooping back pockets, straight narrow hips, thin straight thighs, and her hand pulls the back waistband about a fist away from her lower back so the empty gap inside the jeans is clearly visible. On each panel, over the hip area, a large lemon-yellow label with wavy rounded edges and a thin cocoa outline, with two words in Poppins ExtraBold cocoa. BOTTOM 9 %: a full-width cream (#FFF6DC) strip with a thin gold (#C9962B) top line; on its left the real product bottle, small, standing upright at about 14 % of the canvas height so it pokes above the strip, label facing front and legible; to its right a rounded badge with a 2 px deep-cocoa border, white fill, a small hand-and-box icon and cocoa Poppins ExtraBold text; then a short line of cocoa Poppins SemiBold text. PRODUCT: use the attached product photo as the only source of truth: ONE amber-brown glass dropper bottle about 2.6 times taller than wide, Boston-round body with rounded shoulders, ribbed matte black collar about 55 % of the body width, tall matte black rubber dropper bulb, wrap-around label lemon-yellow fading to white with 'amua', the big white outlined word 'VITALDROPS', five outlined ingredient circles and 'Dietary Supplement 2 fl. oz. (60mL)'. The bottle is photographic, everything else is flat illustration. Not slim, not squat, never mirrored, matte, no rainbow, no lens flare, no yellow '60ml' circle.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top, 2 lines, centered", "text_style": "Poppins ExtraBold title case, deep cocoa, 'Ritual En Gotas' in lemon yellow with cocoa outline", "text": "Deja Las Gomitas. Prueba Tu Ritual En Gotas." },
+    { "block_id": "text_block_02", "reference_function": "subtitle", "reference_position": "under the headline, 2 lines", "text_style": "Poppins Regular, near-black, centered", "text": "Acompaña tu apetito y tu pila mientras trabajas tus curvas." },
+    { "block_id": "text_block_03", "reference_function": "label left", "reference_position": "left figure, over the hip area", "text_style": "Poppins ExtraBold, cocoa on lemon-yellow wavy label", "text": "Jean lleno" },
+    { "block_id": "text_block_04", "reference_function": "label right", "reference_position": "right figure, over the hip area", "text_style": "Poppins ExtraBold, cocoa on lemon-yellow wavy label", "text": "Jean bailando" },
+    { "block_id": "text_block_05", "reference_function": "trust item", "reference_position": "bottom strip, bordered badge right of the bottle", "text_style": "Poppins ExtraBold, cocoa on white with 2 px cocoa border", "text": "Pagas al recibir" },
+    { "block_id": "text_block_06", "reference_function": "strip text", "reference_position": "bottom strip, right of the badge", "text_style": "Poppins SemiBold, deep cocoa", "text": "1 toma al día · Sin agujas" }
+  ],
+  "mandatory_visual_elements": [
+    "Two flat outlined illustrations of the same woman in jeans, result on the LEFT and pain on the RIGHT",
+    "Right figure pulls the waistband a fist away showing the empty gap",
+    "Thin deep-cocoa vertical divider",
+    "Two lemon-yellow wavy-edged labels",
+    "Bottom cream strip with the small real VITALDROPS bottle and the bordered 'Pagas al recibir' badge"
+  ],
+  "final_generation_exclusions": [
+    "No gummies, candy, pills or capsules",
+    "No price, discount or unit count",
+    "No underwear or bare lower body; jeans only",
+    "No logos besides the label printed on the bottle",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add ratings, testimonials, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

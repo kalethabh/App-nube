@@ -1,0 +1,43 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 flat-illustration image ad on a warm cream background (#FFF6DC) with a very subtle paper texture. TOP 20 %: a two-line headline left-aligned in Poppins ExtraBold uppercase, deep cocoa #2B1A10, very large, the second line ending with the words in lemon yellow #F5E13A outlined in cocoa; directly under it a long rounded deep-cocoa pill (about 62 % of the width) with white Poppins Bold uppercase text. TOP-RIGHT CORNER: a square seal about 20 % of the width, deep-cocoa fill with a double white border and three lines of white Poppins ExtraBold uppercase text. CENTER 66 %, LEFT 48 %: a vertical timeline, a thin cocoa line with 4 round cocoa dots evenly spaced; next to each dot a label in Poppins ExtraBold uppercase cocoa ('DÍA 1', 'SEMANA 2', 'MES 1', 'MES 3') and below it two lines in Poppins Regular dark cocoa; to the left of each dot a small flat watercolor-style botanical illustration: ashwagandha sprig with smooth oval leaves and small orange berries, a beige maca root, a fenugreek sprig with smooth oval leaves in groups of three, and a deep-purple beet root with smooth leaves; no serrated leaves. CENTER, RIGHT 50 %: an upright rounded cream card with a thin gold (#C9962B) border, occupying the upper part of the right column (about 34 % of the canvas height), split by a thin vertical cocoa line into two flat illustrations with clean dark outlines of the SAME adult Colombian woman in her mid-20s (dark wavy ponytail, warm tan skin, light-grey gym top), seen in three-quarter side view, framed from the waist to mid-thigh at hip height, inside a small gym corner with a pink dumbbell on the floor: LEFT HALF before, she wears light-blue jeans one size too big, her hips are straight and narrow, the denim hangs loose at the back with a baggy fold under the seat, her hand pulls the back waistband about a fist away from her lower back showing the empty gap, frustrated face looking down; RIGHT HALF after, another day, dark-blue jeans that fit snug, hips clearly wider than her small waist, rounder lifted glutes and fuller thighs filling the jeans, smiling over her shoulder. A small curved yellow arrow points from left to right. In front of the lower edge of that card, standing upright and overlapping it, the real product bottle at about 42 % of the canvas height, label facing front and fully legible, with a soft realistic contact shadow; the bottle is photographic, everything else is flat illustration. PRODUCT: use the attached product photo as the only source of truth: ONE amber-brown glass dropper bottle about 2.6 times taller than wide, Boston-round body with rounded shoulders, ribbed matte black collar about 55 % of the body width, tall matte black rubber dropper bulb, wrap-around label lemon-yellow fading to white with 'amua', the big white outlined word 'VITALDROPS', 'All-In-One Multi-Herbal Supplement', five outlined ingredient circles and 'Dietary Supplement 2 fl. oz. (60mL)'. Not slim, not squat, never mirrored, matte, no rainbow, no lens flare, no yellow '60ml' circle. BOTTOM 12 %: a full-width lemon-yellow (#F5E13A) bar; on its left a rounded badge with a 2 px deep-cocoa border, white fill, a small hand-and-box icon and cocoa Poppins ExtraBold text; to its right, the rest of the bar text in Poppins ExtraBold uppercase deep cocoa.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top, 2 lines): "TU RITUAL PARA ENTRENAR CON MÁS PILA" — Poppins ExtraBold uppercase, deep cocoa, 'MÁS PILA' in lemon yellow with cocoa outline
+- program pill (under the headline, cocoa pill): "3 MESES DE GOTAS, COMIDA Y RUTINA DE PIERNA" — Poppins Bold uppercase, white on cocoa
+- segment seal (top-right square seal): "PARA LA QUE ENTRENA PIERNA" — Poppins ExtraBold uppercase, white on cocoa, 3 lines
+- timeline point 1 (left column, point 1): "DÍA 1 — Empiezas tu toma con el desayuno" — Label Poppins ExtraBold uppercase cocoa; description Poppins Regular, 2 lines
+- timeline point 2 (left column, point 2): "SEMANA 2 — Muchas notan más pila para entrenar" — Same as point 1
+- timeline point 3 (left column, point 3): "MES 1 — Muchas notan más ganas de comer" — Same as point 1
+- timeline point 4 (left column, point 4): "MES 3 — Tus gotas, tu plato y tu rutina" — Same as point 1
+- trust item (bottom bar, left, bordered badge): "Pagas al recibir" — Poppins ExtraBold, deep cocoa on white with 2 px cocoa border
+- bottom bar (bottom bar, right of the badge): "1 TOMA AL DÍA · SIN AGUJAS" — Poppins ExtraBold uppercase, deep cocoa on lemon yellow
+
+BRAND IDENTITY:
+- color_palette: Lemon yellow #F5E13A, amber brown #9A4F12, deep cocoa #2B1A10, warm cream #FFF6DC, white #FFFFFF, gold #C9962B. No red (no offer in this ad).
+- text_typography: Poppins ExtraBold uppercase headlines; Poppins Regular/SemiBold for the rest
+
+MANDATORY ELEMENTS:
+- Cocoa square seal in the top-right corner
+- Vertical timeline with 4 dots and smooth-leaf botanical illustrations
+- Illustrated before/after card of hips in jeans (loose with the hand showing the gap vs snug with wider hips)
+- Real amber VITALDROPS dropper bottle, label legible, overlapping the card
+- Full-width lemon-yellow bottom bar with a bordered 'Pagas al recibir' badge
+
+STRICT EXCLUSIONS:
+- No price, discount, '2+1', free units or percentage
+- No underwear or bare lower body; jeans only
+- No serrated or cannabis-like leaves
+- No logos besides the label printed on the bottle
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add prices, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any price, discount, '2+1', free units or percentage
+- Do not add: Any logo outside the bottle label
+- Do not add: Registration seals or certificates
+- Do not add: Serrated or cannabis-like leaves
+- Do not add: Any extra text not listed in text_layers
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

@@ -1,0 +1,89 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format F33 (Antes y después 3D con descuento en estrella) — winning structure mv-01",
+    "reference_style": "3D animated character before/after ad with diagonal headline panel, benefit icons, starburst and pill button",
+    "angle_used": "Beneficio sin sacrificio: tu ritual natural, sin agujas (segment: wants curves but fears needles)",
+    "ad_format": "Single Image Ad (3D before/after)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Lemon yellow #F5E13A, amber brown #9A4F12, deep cocoa #2B1A10, warm cream #FFF6DC, white #FFFFFF, gold #C9962B, plus a very light sky-blue background #DDEFFC. No red (no offer in this ad).",
+    "visual_style": "Clean, bold direct-response health ad built around the real amber dropper bottle with its yellow label",
+    "visual_atmosphere": "Warm, sunny, honest and hopeful",
+    "graphic_language": "Ribbon banner, curved arrow, diagonal panel, line icons on a cream card, starburst seal, pill button, bordered 'Pagas al recibir' badge",
+    "text_typography": "Poppins ExtraBold italic uppercase headlines; Poppins Regular/SemiBold for the rest"
+  },
+  "creative_objective": "Make the woman who fears needles and surgery feel the result in one glance: the same 3D character goes from jeans hanging flat at the back to round lifted glutes, holding the real bottle, with a headline that promises a natural daily ritual without needles.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the 3D before/after, 2) the headline on the dark panel, 3) the big bottle, 4) the starburst and the yellow button, 5) the benefit icons and the 'Pagas al recibir' strip",
+    "composition_style": "Top ribbon, central split before/after with a vertical line and curved arrow, bottom band with diagonal dark panel on the left, bottle in the middle overlapping everything, starburst and button on the right",
+    "spacing_and_structure": "15 % top, 50 % middle, 35 % bottom; the bottle bridges the middle and bottom zones",
+    "lighting_and_depth": "Soft 3D animated-film lighting, warm key light from the upper left, gentle rim light, soft shadows",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "The reference image has a light sky-blue background. Top 15 %: a brand name between two thin lines and a glossy campaign ribbon. Middle 50 %: a 3D animated woman shown twice, split by a thin light vertical line: left with the problem on her body and a scared face, right the same woman smiling and holding the dropper bottle near her shoulder; a curved yellow arrow goes from left to right. Bottom 35 %: on the left a dark diagonal panel with a 3-line italic uppercase headline (last words in yellow), under it a cream card with 4 line icons and short uppercase labels separated by thin lines, and a dark pill with guarantee and shipping; in the center a big dropper bottle standing over everything; on the right a many-pointed starburst with a big discount and a yellow pill button with a round arrow. Our version: no brand logo and no fake campaign; the ribbon carries the product name; the starburst says '1 TOMA AL DÍA' instead of a discount; the dark pill holds the bordered 'Pagas al recibir' badge; the body zone is glutes in jeans, and nothing medical.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "top ribbon", "position": "top center, 15 %", "visual_function": "campaign banner", "adaptation_rule": "glossy deep-cocoa ribbon with the product name, no fake campaign, no logo", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "person (before, 3D)", "position": "middle-left", "visual_function": "the pain", "adaptation_rule": "flat seat in baggy jeans, hand pulling the waistband, frustrated face", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "person (after, 3D) holding the bottle", "position": "middle-right", "visual_function": "the result", "adaptation_rule": "round lifted glutes filling the jeans, smiling, bottle beside her face", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "arrow and divider", "position": "center", "visual_function": "before to after", "adaptation_rule": "same, lemon yellow", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "headline on diagonal panel", "position": "bottom-left", "visual_function": "promise", "adaptation_rule": "our 3-line headline, last words in yellow", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "4 benefit icons card", "position": "bottom-left under the headline", "visual_function": "benefits", "adaptation_rule": "our 4 honest benefits", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "trust pill", "position": "bottom-left edge", "visual_function": "removes risk", "adaptation_rule": "cocoa pill with bordered 'Pagas al recibir' badge", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "product", "position": "bottom center, large", "visual_function": "product hero", "adaptation_rule": "real VITALDROPS bottle about 45 % of canvas height", "present_in_reference": true },
+      { "block_id": "block_09", "block_type": "starburst seal", "position": "bottom-right", "visual_function": "attention grabber", "adaptation_rule": "lemon-yellow starburst with '1 TOMA AL DÍA' instead of a discount", "present_in_reference": true },
+      { "block_id": "block_10", "block_type": "CTA button", "position": "bottom-right corner", "visual_function": "action", "adaptation_rule": "lemon-yellow pill with cocoa text and a cocoa round arrow", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Any brand logo or campaign name like Black Friday",
+      "Any discount, percentage, price or unit count",
+      "Organs, lungs, veins or medical imagery",
+      "Syringes, scalpels or surgery imagery",
+      "Any extra text not listed in text_layers"
+    ]
+  },
+  "visual_prompt": "Square 1:1 image ad in a polished 3D animated-feature-film render style (soft subsurface skin, stylized but believable proportions), background very light sky blue (#DDEFFC) with a soft white glow. TOP 15 %: two thin cocoa lines at left and right and, centered, a glossy deep-cocoa (#2B1A10) ribbon banner with rounded ends and a soft glow, with the product name in Poppins ExtraBold italic uppercase, 'VITAL' in white and 'DROPS' in lemon yellow #F5E13A. MIDDLE 50 %: a thin white vertical line splits the scene. LEFT = BEFORE: an adult Colombian woman in her late 20s with adult features, warm tan skin, dark-brown hair in a messy bun, small gold hoop earrings, wearing a plain white t-shirt and light-blue jeans one size too big; she stands three-quarters turned away from the camera, looking back over her shoulder with a worried, frustrated face, camera at hip height; the jeans hang flat at the back with a baggy fold of extra denim under the seat and drooping back pockets, one straight vertical line from waist to thigh, thin straight thighs, and her hand pulls the back waistband about a fist away from her lower back so the empty gap is visible; a dull grey haze sits over the flat seat area. RIGHT = AFTER, another day: the same woman, same face and hair, now in a fitted lemon-yellow t-shirt and dark-blue jeans, three-quarters turned, smiling warmly over her shoulder: an hourglass curvy figure, small waist, hips clearly wider, round full lifted glutes filling the jeans and fuller thighs, obvious at first glance; she holds the product bottle up beside her face with her fingers on the sides, label to camera; her other hand is empty and relaxed. A thick curved lemon-yellow arrow points from the left figure to the right figure across the divider. BOTTOM 35 %: LEFT 48 %, a deep-cocoa diagonal panel rising from left to right holds a 3-line headline in Poppins ExtraBold italic uppercase, the first two lines white and the last line lemon yellow; under it a rounded cream (#FFF6DC) card with 4 thin cocoa line icons (a plate with fork, a lightning bolt, a calm leaf, a dropper) each with 2-3 short uppercase words in Poppins Bold cocoa, separated by thin vertical lines; under the card a deep-cocoa rounded pill containing a bordered badge (2 px white border) with a small hand-and-box icon and white text. CENTER BOTTOM, overlapping the panel and the after figure, the product bottle large, about 45 % of the canvas height, upright, label facing front and fully legible, with a soft shadow; same render quality, the label crisp. RIGHT: a many-pointed lemon-yellow starburst with a thin cocoa outline and big cocoa Poppins ExtraBold text; below it, in the corner, a wide glossy lemon-yellow pill button with cocoa Poppins ExtraBold text and a cocoa circle with a white arrow. PRODUCT: use the attached product photo as the only source of truth: ONE amber-brown glass dropper bottle about 2.6 times taller than wide, Boston-round body with rounded shoulders, ribbed matte black collar about 55 % of the body width, tall matte black rubber dropper bulb, wrap-around label lemon-yellow fading to white with 'amua', the big white outlined word 'VITALDROPS', 'All-In-One Multi-Herbal Supplement', five outlined ingredient circles and 'Dietary Supplement 2 fl. oz. (60mL)'. Not slim, not squat, never mirrored, matte, no rainbow, no lens flare, no yellow '60ml' circle.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "top ribbon", "reference_position": "top center ribbon", "text_style": "Poppins ExtraBold italic uppercase, 'VITAL' white and 'DROPS' lemon yellow on deep cocoa", "text": "VITALDROPS" },
+    { "block_id": "text_block_02", "reference_function": "main headline lines 1-2", "reference_position": "bottom-left diagonal panel, first two lines", "text_style": "Poppins ExtraBold italic uppercase, white", "text": "TU RITUAL NATURAL PARA TUS CURVAS," },
+    { "block_id": "text_block_03", "reference_function": "main headline line 3 (highlighted)", "reference_position": "bottom-left diagonal panel, third line", "text_style": "Poppins ExtraBold italic uppercase, lemon yellow", "text": "SIN AGUJAS" },
+    { "block_id": "text_block_04", "reference_function": "benefit 1", "reference_position": "cream card, icon 1", "text_style": "Poppins Bold uppercase, cocoa", "text": "MÁS GANAS DE COMER" },
+    { "block_id": "text_block_05", "reference_function": "benefit 2", "reference_position": "cream card, icon 2", "text_style": "Poppins Bold uppercase, cocoa", "text": "MÁS PILA" },
+    { "block_id": "text_block_06", "reference_function": "benefit 3", "reference_position": "cream card, icon 3", "text_style": "Poppins Bold uppercase, cocoa", "text": "DÍAS MÁS TRANQUILOS" },
+    { "block_id": "text_block_07", "reference_function": "benefit 4", "reference_position": "cream card, icon 4", "text_style": "Poppins Bold uppercase, cocoa", "text": "5 PLANTAS EN GOTAS" },
+    { "block_id": "text_block_08", "reference_function": "trust item", "reference_position": "cocoa pill under the card, bordered badge", "text_style": "Poppins SemiBold, white with 2 px white border", "text": "Pagas al recibir" },
+    { "block_id": "text_block_09", "reference_function": "starburst", "reference_position": "bottom-right starburst", "text_style": "Poppins ExtraBold uppercase, deep cocoa, '1' very large", "text": "1 TOMA AL DÍA" },
+    { "block_id": "text_block_10", "reference_function": "CTA", "reference_position": "bottom-right pill button", "text_style": "Poppins ExtraBold uppercase, deep cocoa on lemon yellow", "text": "QUIERO PROBARLO" }
+  ],
+  "mandatory_visual_elements": [
+    "Deep-cocoa ribbon at the top",
+    "3D before: same woman, jeans hanging flat at the back, hand pulling the waistband, frustrated face",
+    "3D after: same woman, round lifted glutes and wider hips filling the jeans, smiling, bottle beside her face",
+    "Curved yellow arrow and white divider",
+    "Diagonal cocoa headline panel, cream benefit card with 4 icons, cocoa trust pill with bordered 'Pagas al recibir' badge",
+    "Large real VITALDROPS bottle at bottom center",
+    "Lemon-yellow starburst and yellow pill button"
+  ],
+  "final_generation_exclusions": [
+    "No discount, percentage, price or unit count",
+    "No organs, veins, syringes or surgery imagery",
+    "No underwear or bare lower body; jeans only",
+    "No logos besides the label printed on the bottle; no campaign names",
+    "The character is clearly an adult woman in her late 20s",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add ratings, testimonials, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

@@ -1,0 +1,82 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format F36 (Línea de tiempo con sello de segmento) — winning structure mv-04",
+    "reference_style": "Flat-illustration timeline ad with segment seal, big product bottle and bottom bar",
+    "angle_used": "Rutina / momento de uso (segment: the gym girl who trains legs and sees no change)",
+    "ad_format": "Product Hero Ad with timeline",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Lemon yellow #F5E13A, amber brown #9A4F12, deep cocoa #2B1A10, warm cream #FFF6DC, white #FFFFFF, gold #C9962B. No red (no offer in this ad).",
+    "visual_style": "Clean, bold direct-response health ad built around the real amber dropper bottle with its yellow label",
+    "visual_atmosphere": "Warm, sunny, honest and hopeful",
+    "graphic_language": "Rounded pills, a square bordered seal, dotted vertical timeline, flat watercolor-like botanical illustrations, one bottom bar with a bordered 'Pagas al recibir' badge",
+    "text_typography": "Poppins ExtraBold uppercase headlines; Poppins Regular/SemiBold for the rest"
+  },
+  "creative_objective": "Speak to the woman who already trains legs and glutes but sees no change: show her daily drop ritual as an honest 3-month routine (what many women notice, never result deadlines), prove the desire with an illustrated before/after inset of hips in jeans, and anchor the real bottle.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) headline, 2) segment seal, 3) before/after inset and the bottle, 4) timeline points, 5) bottom bar with 'Pagas al recibir'",
+    "composition_style": "Headline across the top, pill under it, square seal top-right; left column timeline, right column inset card plus bottle; full-width bar at the bottom",
+    "spacing_and_structure": "Generous cream margins, timeline evenly spaced, the bottle overlapping the lower edge of the inset card",
+    "lighting_and_depth": "Flat illustration with soft paper texture; only the bottle is photographic with a soft contact shadow",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "The reference image is on a warm cream background: a two-line headline in very bold dark-green uppercase across the top; under it a long dark rounded pill with the program and segment in white; on the right a square dark seal with a double border and the segment in white. Left 50 %: a vertical timeline with a dark line and 6 round dots, each with 'DÍA N' in bold and two lines of text, and a botanical illustration to the left of each point. Right: one big amber dropper bottle standing. Bottom 12 %: a full-width yellow bar with the offer in black uppercase. No person. Our version keeps the same order, uses 4 timeline points, recolors to cocoa and lemon, and because every image in this app must show the problem and the result with a person, adds an illustrated before/after inset card behind the upper part of the bottle on the right. The yellow bar carries the trust items instead of an offer.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top, full width, 2 lines", "visual_function": "routine promise", "adaptation_rule": "our headline in cocoa uppercase", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "program pill", "position": "under the headline, left 65 %", "visual_function": "program and segment", "adaptation_rule": "cocoa pill with white text", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "segment seal", "position": "top-right corner, square with double border", "visual_function": "segment callout", "adaptation_rule": "cocoa square seal with white text", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "timeline", "position": "left 48 %, center 60 % of height", "visual_function": "routine over time", "adaptation_rule": "4 points with botanical illustrations of the real ingredients", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product", "position": "right column, lower part", "visual_function": "product hero", "adaptation_rule": "real VITALDROPS bottle about 42 % of canvas height", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "bottom bar", "position": "bottom 12 %, full width, yellow", "visual_function": "offer / trust", "adaptation_rule": "trust items instead of an offer, with a bordered 'Pagas al recibir' badge", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "illustrated before/after inset (mandatory in this app)", "position": "right column, upper part, behind the bottle top", "visual_function": "shows the pain and the result", "adaptation_rule": "rounded card split in two: jeans loose at the hips vs jeans filled with wider hips", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Any price, discount, '2+1', free units or percentage",
+      "Any logo outside the bottle label",
+      "Registration seals or certificates",
+      "Serrated or cannabis-like leaves",
+      "Any extra text not listed in text_layers"
+    ]
+  },
+  "visual_prompt": "Square 1:1 flat-illustration image ad on a warm cream background (#FFF6DC) with a very subtle paper texture. TOP 20 %: a two-line headline left-aligned in Poppins ExtraBold uppercase, deep cocoa #2B1A10, very large, the second line ending with the words in lemon yellow #F5E13A outlined in cocoa; directly under it a long rounded deep-cocoa pill (about 62 % of the width) with white Poppins Bold uppercase text. TOP-RIGHT CORNER: a square seal about 20 % of the width, deep-cocoa fill with a double white border and three lines of white Poppins ExtraBold uppercase text. CENTER 66 %, LEFT 48 %: a vertical timeline, a thin cocoa line with 4 round cocoa dots evenly spaced; next to each dot a label in Poppins ExtraBold uppercase cocoa ('DÍA 1', 'SEMANA 2', 'MES 1', 'MES 3') and below it two lines in Poppins Regular dark cocoa; to the left of each dot a small flat watercolor-style botanical illustration: ashwagandha sprig with smooth oval leaves and small orange berries, a beige maca root, a fenugreek sprig with smooth oval leaves in groups of three, and a deep-purple beet root with smooth leaves; no serrated leaves. CENTER, RIGHT 50 %: an upright rounded cream card with a thin gold (#C9962B) border, occupying the upper part of the right column (about 34 % of the canvas height), split by a thin vertical cocoa line into two flat illustrations with clean dark outlines of the SAME adult Colombian woman in her mid-20s (dark wavy ponytail, warm tan skin, light-grey gym top), seen in three-quarter side view, framed from the waist to mid-thigh at hip height, inside a small gym corner with a pink dumbbell on the floor: LEFT HALF before, she wears light-blue jeans one size too big, her hips are straight and narrow, the denim hangs loose at the back with a baggy fold under the seat, her hand pulls the back waistband about a fist away from her lower back showing the empty gap, frustrated face looking down; RIGHT HALF after, another day, dark-blue jeans that fit snug, hips clearly wider than her small waist, rounder lifted glutes and fuller thighs filling the jeans, smiling over her shoulder. A small curved yellow arrow points from left to right. In front of the lower edge of that card, standing upright and overlapping it, the real product bottle at about 42 % of the canvas height, label facing front and fully legible, with a soft realistic contact shadow; the bottle is photographic, everything else is flat illustration. PRODUCT: use the attached product photo as the only source of truth: ONE amber-brown glass dropper bottle about 2.6 times taller than wide, Boston-round body with rounded shoulders, ribbed matte black collar about 55 % of the body width, tall matte black rubber dropper bulb, wrap-around label lemon-yellow fading to white with 'amua', the big white outlined word 'VITALDROPS', 'All-In-One Multi-Herbal Supplement', five outlined ingredient circles and 'Dietary Supplement 2 fl. oz. (60mL)'. Not slim, not squat, never mirrored, matte, no rainbow, no lens flare, no yellow '60ml' circle. BOTTOM 12 %: a full-width lemon-yellow (#F5E13A) bar; on its left a rounded badge with a 2 px deep-cocoa border, white fill, a small hand-and-box icon and cocoa Poppins ExtraBold text; to its right, the rest of the bar text in Poppins ExtraBold uppercase deep cocoa.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top, 2 lines", "text_style": "Poppins ExtraBold uppercase, deep cocoa, 'MÁS PILA' in lemon yellow with cocoa outline", "text": "TU RITUAL PARA ENTRENAR CON MÁS PILA" },
+    { "block_id": "text_block_02", "reference_function": "program pill", "reference_position": "under the headline, cocoa pill", "text_style": "Poppins Bold uppercase, white on cocoa", "text": "3 MESES DE GOTAS, COMIDA Y RUTINA DE PIERNA" },
+    { "block_id": "text_block_03", "reference_function": "segment seal", "reference_position": "top-right square seal", "text_style": "Poppins ExtraBold uppercase, white on cocoa, 3 lines", "text": "PARA LA QUE ENTRENA PIERNA" },
+    { "block_id": "text_block_04", "reference_function": "timeline point 1", "reference_position": "left column, point 1", "text_style": "Label Poppins ExtraBold uppercase cocoa; description Poppins Regular, 2 lines", "text": "DÍA 1 — Empiezas tu toma con el desayuno" },
+    { "block_id": "text_block_05", "reference_function": "timeline point 2", "reference_position": "left column, point 2", "text_style": "Same as point 1", "text": "SEMANA 2 — Muchas notan más pila para entrenar" },
+    { "block_id": "text_block_06", "reference_function": "timeline point 3", "reference_position": "left column, point 3", "text_style": "Same as point 1", "text": "MES 1 — Muchas notan más ganas de comer" },
+    { "block_id": "text_block_07", "reference_function": "timeline point 4", "reference_position": "left column, point 4", "text_style": "Same as point 1", "text": "MES 3 — Tus gotas, tu plato y tu rutina" },
+    { "block_id": "text_block_08", "reference_function": "trust item", "reference_position": "bottom bar, left, bordered badge", "text_style": "Poppins ExtraBold, deep cocoa on white with 2 px cocoa border", "text": "Pagas al recibir" },
+    { "block_id": "text_block_09", "reference_function": "bottom bar", "reference_position": "bottom bar, right of the badge", "text_style": "Poppins ExtraBold uppercase, deep cocoa on lemon yellow", "text": "1 TOMA AL DÍA · SIN AGUJAS" }
+  ],
+  "mandatory_visual_elements": [
+    "Cocoa square seal in the top-right corner",
+    "Vertical timeline with 4 dots and smooth-leaf botanical illustrations",
+    "Illustrated before/after card of hips in jeans (loose with the hand showing the gap vs snug with wider hips)",
+    "Real amber VITALDROPS dropper bottle, label legible, overlapping the card",
+    "Full-width lemon-yellow bottom bar with a bordered 'Pagas al recibir' badge"
+  ],
+  "final_generation_exclusions": [
+    "No price, discount, '2+1', free units or percentage",
+    "No underwear or bare lower body; jeans only",
+    "No serrated or cannabis-like leaves",
+    "No logos besides the label printed on the bottle",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add prices, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}
