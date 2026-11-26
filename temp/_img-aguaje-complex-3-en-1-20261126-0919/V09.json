@@ -1,0 +1,83 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V09",
+    "structure_source": "library format F65 (plan) translated onto the winning structure estructuras/mv-35.json (Reencuadre del problema con 3 siluetas y bloque de oferta)",
+    "reference_style": "Clean reframe ad: big 3-line headline in fuchsia and black that says what the problem is NOT and what it IS, three line-art profile silhouettes of the same woman over time, an offer block with three bottles",
+    "angle_used": "Dolor / problema — squats alone are not the whole plan (pain: months of squats and the seat looks the same)",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: rosy cream #FFF4F1 background and a soft yellow #FFE08A highlight behind the word 'NO'.",
+    "visual_style": "Clean flat line illustration on a light background, like the reference, with the three real bottles photographic and sharp.",
+    "visual_atmosphere": "An 'aha' moment: clear, direct, a little defiant, never blaming.",
+    "graphic_language": "Huge uppercase headline with one highlighted word, three continuous-line profile silhouettes with labels, a big offer text block, a fuchsia pill and a bordered badge.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look)."
+  },
+  "creative_objective": "Reframe the frustration of the woman who trains at home: it is not that her squats don't work, they just are not the whole plan. The first silhouette shows her pain (flat seat, jeans sagging at the back, beside her yoga mat); the next two show the 3-month plan; the offer block closes with the complete treatment and cash on delivery.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the 3-line headline with 'NO' highlighted, 2) the three silhouettes, 3) 'TRATAMIENTO COMPLETO X3' and the three bottles, 4) the 'PAGAS AL RECIBIR' pill and the badge, 5) the small disclaimer.",
+    "composition_style": "Everything centered on a light background: headline across the top, the three silhouettes in a row in the middle with their labels below, the offer text on the left and three bottles on the right at the bottom.",
+    "spacing_and_structure": "Three silhouettes equal in size and evenly spaced; labels aligned on one line; offer block with clear gaps; 5% margins.",
+    "lighting_and_depth": "Flat illustration with no shadows; the bottles with soft studio light from the upper left and a contact shadow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top 28%: 3-line headline centered, lines 1–2 in color with one word on a highlight block, line 3 in black. Middle 34%: three continuous-line profile silhouettes of the same woman side by side, each with a label below (month 1, 2, 3). Bottom 38%: left, an offer kicker, the big offer and a sub-line, then the 'PAGAS AL RECIBIR' pill and the registration badge; right, three identical bottles, front one centered; tiny disclaimer at the very bottom.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "reframe headline", "position": "top, 3–28%", "visual_function": "says what the problem is not and what it is", "adaptation_rule": "lines 1–2 hot fuchsia, 'NO' in black on a yellow highlight, line 3 black", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "three line silhouettes with labels", "position": "middle, 30–64%", "visual_function": "the pain (silhouette 1) and the plan over time", "adaptation_rule": "same woman in profile in jeans; silhouette 1 with sagging jeans, a rolled yoga mat and a frustrated face", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "offer block", "position": "bottom left, 66–90%", "visual_function": "the offer, without a price (no price given)", "adaptation_rule": "kicker + 'TRATAMIENTO COMPLETO X3' big + sub-line; no strikethrough price, no 'this week only'", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "three products", "position": "bottom right, 64–96%", "visual_function": "the solution", "adaptation_rule": "three identical real closed bottles, front one centered and overlapping", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "'Pagas al recibir' pill and registration badge (batch rule)", "position": "bottom left, 90–97%", "visual_function": "mandatory offer and trust block", "adaptation_rule": "hot fuchsia pill with white text plus a bordered badge", "present_in_reference": false },
+      { "block_id": "block_06", "block_type": "small disclaimer (plan)", "position": "very bottom center, 97–99%", "visual_function": "honesty", "adaptation_rule": "tiny grey text", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Brand logos of any kind",
+      "Prices, strikethrough prices, 'esta semana solamente' or any false urgency",
+      "Percentages, ratings, testimonials, 'envío gratis'",
+      "Anatomical organs or medical drawings inside the silhouettes",
+      "Loose capsules or an open bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 clean ad on a flat rosy cream #FFF4F1 background, no texture. TOP ZONE (3–28% height): 3-line headline centered, Montserrat Black uppercase, very heavy and tight, each line about 7% of the canvas height: line 1 in hot fuchsia #E6177F; line 2 in hot fuchsia except the word 'NO', which is black #0E0E10 on a soft yellow #FFE08A rectangular highlight block; line 3 in black #0E0E10. MIDDLE ZONE (30–64% height): three continuous single-line profile silhouettes of THE SAME young adult woman (about 27, ponytail, sports top and jeans), facing right, drawn with a 5 px rounded stroke and a very light tint fill, evenly spaced at 20%, 50% and 80% width, each about 30% of the canvas height, from head to mid-calf. Silhouette 1 in deep magenta #B0105E: her seat line is flat and straight, the jeans sag at the back with a drooping fold of extra fabric under the back pocket, shoulders slumped, head tilted down, eyebrows pinched and mouth turned down, one hand on her lower back; a rolled yoga mat drawn in the same line stands upright beside her feet. Silhouette 2 in hot fuchsia #E6177F: same woman, posture straighter, seat line slightly rounder, jeans fitting a little better, neutral calm face. Silhouette 3 in dark plum #2B1226 with a bubblegum pink #FF8CC0 tint fill: same woman, upright and confident, seat line softly rounded and lifted, jeans fitting smoothly at the back, small smile. The difference between 1 and 3 must be clear but believable. Under each silhouette (61–64% height), a label in black Poppins SemiBold, about 3.5% of the canvas height. BOTTOM ZONE (66–99% height). LEFT (5–58% width): an offer kicker in black Montserrat ExtraBold condensed uppercase (about 4% high); under it the big offer in 2 lines, Montserrat Black condensed uppercase, 'TRATAMIENTO COMPLETO' in black and 'X3' huge in hot fuchsia #E6177F; under it a sub-line in Poppins SemiBold dark plum; then (90–97% height) a rounded hot fuchsia #E6177F pill with white Montserrat Black uppercase text and a small white hand-and-coin icon, and right beside it a rounded badge with a dark plum #2B1226 fill, a solid 3 px hot-fuchsia border and a small white shield icon, the registration text in white Poppins Bold uppercase on two lines. RIGHT (60–96% width, 64–96% height): three identical real product bottles, front view, the center one in front and about 30% of the canvas height, the two behind slightly smaller and partially hidden, all labels facing the camera, the front label fully readable, soft studio light from the upper left, a soft contact shadow, two small green aguaje palm leaf tips at their base, not touching the right edge. PRODUCT: use the attached product image as the only source of truth for the bottles; do not redesign, replace or reinterpret them. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Matte finish, no rainbow, no prism light, no lens flare. Always closed with caps on; no loose capsules; labels read the right way round, never mirrored. At the very bottom center (97–99% height), a tiny disclaimer in grey #7A6A72 Poppins Regular. All texts crisp, spelled exactly with correct accents, nothing else written anywhere.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline line 1", "reference_position": "top center, line 1", "text_style": "Montserrat Black uppercase, hot fuchsia #E6177F", "text": "LAS SENTADILLAS SOLAS" },
+    { "block_id": "text_block_02", "reference_function": "main headline line 2 ('NO' highlighted)", "reference_position": "top center, line 2", "text_style": "Montserrat Black uppercase, hot fuchsia #E6177F; the word 'NO' in black on a soft yellow #FFE08A highlight block", "text": "NO SON TODO EL PLAN." },
+    { "block_id": "text_block_03", "reference_function": "main headline line 3", "reference_position": "top center, line 3", "text_style": "Montserrat Black uppercase, black #0E0E10", "text": "SUMA APOYO NATURAL." },
+    { "block_id": "text_block_04", "reference_function": "silhouette label", "reference_position": "under silhouette 1", "text_style": "Poppins SemiBold, black", "text": "Mes 1" },
+    { "block_id": "text_block_05", "reference_function": "silhouette label", "reference_position": "under silhouette 2", "text_style": "Poppins SemiBold, black", "text": "Mes 2" },
+    { "block_id": "text_block_06", "reference_function": "silhouette label", "reference_position": "under silhouette 3", "text_style": "Poppins SemiBold, black", "text": "Mes 3" },
+    { "block_id": "text_block_07", "reference_function": "offer kicker", "reference_position": "bottom left, top of offer block", "text_style": "Montserrat ExtraBold condensed uppercase, black", "text": "OFERTA ESPECIAL" },
+    { "block_id": "text_block_08", "reference_function": "offer (big)", "reference_position": "bottom left, main offer, 2 lines", "text_style": "Montserrat Black condensed uppercase, black; 'X3' huge in hot fuchsia #E6177F", "text": "TRATAMIENTO COMPLETO X3" },
+    { "block_id": "text_block_09", "reference_function": "offer sub-line", "reference_position": "bottom left, under the offer", "text_style": "Poppins SemiBold, dark plum #2B1226", "text": "Un frasco para cada mes de tu plan" },
+    { "block_id": "text_block_10", "reference_function": "offer and trust block (pill)", "reference_position": "bottom left, fuchsia pill", "text_style": "Montserrat Black uppercase, white on hot fuchsia #E6177F pill", "text": "PAGAS AL RECIBIR" },
+    { "block_id": "text_block_11", "reference_function": "trust badge", "reference_position": "bottom left, right of the pill, inside a fuchsia-bordered badge", "text_style": "Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number", "text": "REGISTRO INVIMA RSA-0030271-2024" },
+    { "block_id": "text_block_12", "reference_function": "disclaimer", "reference_position": "very bottom center", "text_style": "Poppins Regular, tiny, grey #7A6A72", "text": "Los resultados pueden variar." }
+  ],
+  "mandatory_visual_elements": [
+    "Three continuous-line profile silhouettes of the same woman in jeans (the row covers at least 25% of the canvas): 1 frustrated with jeans sagging at the back and a rolled yoga mat, 2 calmer, 3 confident with a softly rounded seat",
+    "Yellow highlight block behind the word 'NO'",
+    "Three identical real closed bottles at the bottom right, front label readable",
+    "Hot-fuchsia 'PAGAS AL RECIBIR' pill and bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "No capsules or pills anywhere; no open bottle; no other brand",
+    "No prices, strikethrough prices, percentages, 'esta semana solamente', ratings or testimonials",
+    "No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'",
+    "No organs, veins or medical drawings inside the silhouettes; no nudity",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add prices, extra badges, benefit lists, ratings, testimonials, discount labels or extra claims beyond the listed pill, badge and texts.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. The reframe does not blame or diagnose; it adds support to exercise; the monthly silhouettes follow the 3-month plan and carry 'Los resultados pueden variar'; no price, no false urgency, no medical claims.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

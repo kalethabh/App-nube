@@ -1,0 +1,81 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V10",
+    "structure_source": "library format F40 (Carta de texto) — estructuras/mv-08.json",
+    "reference_style": "Text letter ad: bold 2-line headline, short letter paragraphs with bold phrases, a tilted bottle cut by the right edge, a signature in italics",
+    "angle_used": "Promesa emocional — a letter for her (pain: fear of surgery or injections)",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: warm mustard #D9A441 in the photo inset only.",
+    "visual_style": "Clean text-letter ad on a flat dark plum background; the real bottle cut out, sharp and identical to the photo; a real phone-photo inset of the woman's problem.",
+    "visual_atmosphere": "Intimate, warm and honest, like a message from a friend; calm, never pushy.",
+    "graphic_language": "Flat dark plum background, white body text with bubblegum-pink bold phrases, italic signature, a photo inset with a thin white frame, a hot-fuchsia bottom band with a bordered badge.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look); body text Poppins Regular with bold phrases; signature in Poppins Italic."
+  },
+  "creative_objective": "Speak to the woman who fears surgery like a close friend: a short honest letter that names the feeling (jeans that don't fill out at the back and not wanting an operating room), explains the natural 3-month plan with 2 capsules a day, and ends with pay on delivery; the inset shows the mirror moment and the tilted bottle anchors the brand.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the 2-line headline, 2) the first paragraph, 3) the mirror inset and the tilted bottle, 4) the remaining paragraphs with bold phrases, 5) the signature, 6) the bottom band.",
+    "composition_style": "Left text column (headline, 4 short paragraphs, signature); right column with the photo inset on top and the tilted bottle below, cut by the right edge and overlapping the inset's lower corner; full-width fuchsia band at the bottom.",
+    "spacing_and_structure": "Text column 5–54% width, paragraphs separated by one blank line; generous line height; right column 54–100%; band 90–100%.",
+    "lighting_and_depth": "Flat background with no texture; the cut-out bottle with a soft studio light from the left and a soft drop shadow; the inset photo with its own warm indoor light.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top 20%: 2-line bold white headline at top-left. Middle 70%: left, a letter of short paragraphs in white with bold phrases; right, the cut-out bottle tilted about 12 degrees and cut by the right edge. Bottom 10%: italic signature. Adapted: 4 paragraphs in a 50% column. Added by batch rules: a real phone-photo inset of the mirror scene at the top right (about 25% of the canvas) and a hot-fuchsia bottom band with 'Pagas al recibir' and the bordered registration badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top-left, 4–20% height, 5–52% width", "visual_function": "emotional hook", "adaptation_rule": "'UNA CARTA' white, 'PARA TI' bubblegum pink", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "letter paragraphs with bold phrases", "position": "left, 23–80% height, 5–54% width", "visual_function": "story and offer", "adaptation_rule": "4 short paragraphs, bold phrases in bubblegum pink", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "tilted cut-out product", "position": "right, 46–92% height, cut by the right edge", "visual_function": "brand anchor", "adaptation_rule": "real closed bottle tilted about 12 degrees clockwise", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "signature", "position": "left, 82–88% height", "visual_function": "human closing", "adaptation_rule": "italic, white", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "photo inset of the problem (batch rule)", "position": "top-right, 2–58% height, 54–98% width", "visual_function": "visual pain", "adaptation_rule": "real phone photo in a fitting room mirror", "present_in_reference": false },
+      { "block_id": "block_06", "block_type": "bottom offer/trust band (batch rule)", "position": "bottom 90–100%", "visual_function": "mandatory 'Pagas al recibir' and registration badge", "adaptation_rule": "hot fuchsia band, plum badge with white border", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "'La oferta se acaba', countdowns or any urgency claim",
+      "Prices, percentages, 'gratis', ratings, testimonials",
+      "Icons, benefit lists or buttons inside the letter area",
+      "Loose capsules or an open bottle",
+      "Brand logos"
+    ]
+  },
+  "visual_prompt": "Square 1:1 text-letter ad on a flat solid dark plum #2B1226 background, no texture. TOP-LEFT (4–20% height, 5–52% width): 2-line headline in Montserrat Black uppercase, flush left, tight: line 1 'UNA CARTA' in white, line 2 'PARA TI' in bubblegum pink #FF8CC0. LEFT LETTER (23–80% height, 5–54% width): 4 short paragraphs in white Poppins Regular, medium size, generous line height, flush left, one blank line between paragraphs; the bold phrases inside them in bubblegum pink #FF8CC0 Poppins Bold. TOP-RIGHT PHOTO INSET (2–58% height, 54–98% width, about 25% of the canvas): a real vertical smartphone photo with a thin 6 px white frame, rounded corners and a soft shadow, tilted -2 degrees: a Colombian woman around 35 in a store fitting room (beige curtain, warm spotlights, a hook with clothes), shoulder-length straight black hair, light-brown skin with visible pores and a few fine lines, mustard #D9A441 knit sweater, dark-blue jeans; she stands three-quarters from the back facing the mirror, looking down over her shoulder at the back of the jeans, which hang loose and flat below the pockets with an empty fold of fabric; her lips pressed, a resigned sigh; slight phone grain. RIGHT (46–92% height, from 60% width to beyond the right edge): the real product bottle cut out with no background, front-facing, tilted about 12 degrees clockwise, about 44% of the canvas height, overlapping the lower-left corner of the inset, its right side cut by the canvas edge but the label words 'AGUAJE' and 'COMPLEX 3 EN 1' fully visible and readable; soft studio light from the left and a soft drop shadow on the plum background. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh; three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA'; and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Matte finish, no rainbow, no prism light, no lens flare; always closed, no loose capsules; label reads the right way round, never mirrored. SIGNATURE (82–88% height, 5–54% width): white Poppins Italic, flush left. BOTTOM BAND (90–100%): full-width hot-fuchsia #E6177F band: left, white Montserrat Black uppercase 'PAGAS AL RECIBIR' with a small white hand-and-box line icon; right, a rounded dark plum #2B1226 badge with a solid 3 px white border and a small white shield icon, holding the registration text in white Poppins Bold on two lines ('REGISTRO INVIMA' above the number). All texts crisp, spelled exactly with correct accents, nothing else written.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline line 1", "reference_position": "top-left, line 1", "text_style": "Montserrat Black uppercase, white", "text": "UNA CARTA" },
+    { "block_id": "text_block_02", "reference_function": "main headline line 2 (highlighted)", "reference_position": "top-left, line 2", "text_style": "Montserrat Black uppercase, bubblegum pink #FF8CC0", "text": "PARA TI" },
+    { "block_id": "text_block_03", "reference_function": "letter paragraph 1", "reference_position": "left column, paragraph 1", "text_style": "Poppins Regular, white; 'no querer pasar por un quirófano' in Poppins Bold bubblegum pink", "text": "Sabemos lo que es probarte un jean y sentir que atrás no se llena… y no querer pasar por un quirófano." },
+    { "block_id": "text_block_04", "reference_function": "letter paragraph 2", "reference_position": "left column, paragraph 2", "text_style": "Poppins Regular, white; 'plan natural de 3 meses' and '2 cápsulas al día' in Poppins Bold bubblegum pink", "text": "Por eso creamos un plan natural de 3 meses: aguaje, fenogreco y maca negra en 2 cápsulas al día." },
+    { "block_id": "text_block_05", "reference_function": "letter paragraph 3", "reference_position": "left column, paragraph 3", "text_style": "Poppins Regular, white; 'Sin agujas y sin quirófano' in Poppins Bold bubblegum pink", "text": "Sin agujas y sin quirófano, a tu ritmo." },
+    { "block_id": "text_block_06", "reference_function": "letter paragraph 4 (offer)", "reference_position": "left column, paragraph 4", "text_style": "Poppins Regular, white; 'pagas al recibir' in Poppins Bold bubblegum pink", "text": "Lo pides hoy, te llega a casa y pagas al recibir." },
+    { "block_id": "text_block_07", "reference_function": "signature", "reference_position": "left, under the letter", "text_style": "Poppins Italic, white", "text": "Con cariño, tu equipo Aguaje Complex" },
+    { "block_id": "text_block_08", "reference_function": "offer and trust block (bottom band)", "reference_position": "bottom band, left", "text_style": "Montserrat Black uppercase, white on hot fuchsia", "text": "PAGAS AL RECIBIR" },
+    { "block_id": "text_block_09", "reference_function": "trust badge", "reference_position": "bottom band, right, inside the white-bordered plum badge", "text_style": "Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Flat solid dark plum background",
+    "Real phone-photo inset at the top right (about 25% of the canvas): woman in a mustard sweater and dark jeans loose at the back, looking over her shoulder in a fitting-room mirror, resigned",
+    "The real closed product bottle cut out, tilted about 12 degrees, cut by the right edge, label words readable",
+    "Hot-fuchsia bottom band with 'PAGAS AL RECIBIR' and a registration badge with a solid border and shield icon"
+  ],
+  "final_generation_exclusions": [
+    "No urgency claims, countdowns or 'la oferta se acaba'",
+    "No capsules or pills anywhere; no open bottle; no other brand",
+    "No prices, percentages, ratings, testimonials or 'envío gratis'",
+    "No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'",
+    "No icons or buttons inside the letter area",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add prices, extra badges, benefits, ratings, testimonials, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. The letter speaks about a feeling and a choice, offers a natural routine as support, with no results promised, no medical claims and no guarantees.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}
