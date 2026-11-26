@@ -1,0 +1,44 @@
+{
+  "id": "mv-15",
+  "nombre": "Foto real de espejo antes y después, sin texto",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-15.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/6eff3ad042bd107d481ae1bc02e1a28a3557f1755f0157b60ceca66d08531056.png",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F45",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Sin texto: la cabeza y el celular de la selfie en el espejo. 15 %",
+    "centro": "Dos fotos de espejo lado a lado (antes y después) de la misma mujer en ropa interior deportiva, misma luz casera. 75 %",
+    "abajo": "Las piernas y el piso de la habitación. 10 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 0,
+    "resaltada": "ninguna",
+    "color_resaltado": "ninguno",
+    "posicion": "sin titular (el texto va en el anuncio)",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "Selfie de espejo real, sin retoque, con el cambio de cuerpo visible."
+  },
+  "zona_del_cuerpo": "vientre",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta en la imagen"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo: parece una foto de clienta. Momentos distintos (otra ropa, otro día). Para Aguaje: de perfil, glúteo y cadera, ropa deportiva que cubra."
+}

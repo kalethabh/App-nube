@@ -48,6 +48,7 @@ const Aprendizajes = lazy(() => import('./pantallas/aprendizajes/index.jsx'));
 const Imagenes = lazy(() => import('./pantallas/imagenes/index.jsx'));
 const CrearImagenes = lazy(() => import('./pantallas/imagenes/Crear.jsx'));
 const LoteImagenes = lazy(() => import('./pantallas/imagenes-lote/index.jsx'));
+const EditorImagen = lazy(() => import('./pantallas/imagenes-editor/index.jsx'));
 const Inspiracion = lazy(() => import('./pantallas/inspiracion/index.jsx'));
 const Investigaciones = lazy(() => import('./pantallas/investigacion/index.jsx'));
 const InformeInvestigacion = lazy(() => import('./pantallas/investigacion/Informe.jsx'));
@@ -130,6 +131,14 @@ export const RUTAS = [
     menu: 'imagenes',
     titulo: 'Crear anuncios de imagen',
     migas: () => [{ texto: 'Anuncios de imagen', href: enlace.imagenes() }, { texto: 'Crear anuncios de imagen' }],
+  },
+  // (2026-11-26c) el editor de una imagen del lote (capas, tus piezas y cambios con IA por zona)
+  {
+    patron: '/imagenes/:lote/editar/:pieza',
+    Pantalla: EditorImagen,
+    menu: 'imagenes',
+    titulo: 'Editar imagen',
+    migas: (p) => [{ texto: 'Anuncios de imagen', href: enlace.imagenes() }, { texto: 'Tu lote', href: `#/imagenes/${encodeURIComponent(p?.lote || '')}` }, { texto: 'Editar' }],
   },
   {
     patron: '/imagenes/:lote',

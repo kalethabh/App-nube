@@ -9,8 +9,16 @@
 // Muestra el costo antes y arranca solo con tu sí. Lo usan «Crear anuncios de imagen» (#/imagenes/nuevo) y «Encargar»
 // de la oficina. Servidor: POST /api/imagen-ads (agente: 'variaciones'), referencias, generar.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Briefcase, FileSearch, ImagePlus, LayoutGrid, Sparkles, Upload, X } from 'lucide-react';
+import { Briefcase, ChevronDown, FileSearch, ImagePlus, LayoutGrid, Upload, X } from 'lucide-react';
 import { AreaTexto, Boton, CampoTexto, Selector, useAvisos } from '../../componentes/index.js';
+
+// (2026-11-26c) «que se vea más limpia, como las demás secciones»: pestañas arriba, el producto en una lista, una línea de
+// explicación por elección y lo opcional de venta plegado.
+const MODOS = [
+  { id: 'referencia', icono: ImagePlus, etiqueta: 'Con referencia', texto: 'Subes un anuncio que te funciona y hace variaciones que conservan lo que lo hace vender. Antes te muestra por qué vende.' },
+  { id: 'investigacion', icono: FileSearch, etiqueta: 'Desde la investigación', texto: 'Sin referencia: el ángulo, los textos y las objeciones salen de la investigación de mercado de tu producto.' },
+  { id: 'estructuras', icono: LayoutGrid, etiqueta: 'Estructuras ganadoras', texto: 'Cada imagen con el diseño de un anuncio ganador distinto, con tu producto y tus textos. Al final, cada una lado a lado con su referencia.' },
+];
 import { invalidar, pedirNuevo, useDatos } from '../../datos/api.js';
 import { apiImagenes, CLAVE_LOTES } from '../../datos/imagenes.js';
 import { enlace } from '../../datos/rutas.js';
@@ -49,44 +57,59 @@ function Ganadores({ elegidos, setElegidos, productoId }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const tiene = (x) => elegidos.some((y) => y.id === x.id);
+  const alternar = (x) => setElegidos((l) => (tiene(x) ? l.filter((y) => y.id !== x.id) : [...l, { id: x.id, url: x.url, titulo: x.titulo, concepto: x.concepto || '', productoId: x.productoId }].slice(0, 5)));
   return (
-    <div
-      className="enc-ganadores"
-      onDragOver={(e) => e.preventDefault()}
-      onDrop={(e) => {
-        e.preventDefault();
-        agregar(e.dataTransfer?.files || []);
-      }}
-    >
-      {elegidos.length ? (
-        <ul className="enc-elegidos">
-          {elegidos.map((x) => (
-            <li key={x.id}>
-              <img src={x.url} alt="" />
-              <button type="button" onClick={() => setElegidos((l) => l.filter((y) => y.id !== x.id))} aria-label="Quitar">
-                <X size={12} />
-              </button>
-            </li>
-          ))}
-        </ul>
-      ) : null}
-      <div className="enc-subir">
-        <button type="button" className="of-boton" onClick={() => subir.current?.click()}>
-          <Upload size={14} aria-hidden="true" /> Subir tu anuncio de referencia
-        </button>
-        <span className="t-chico t-3">arrástralo aquí, pégalo (Cmd/Ctrl + V) o elige uno de «Lo que me funciona»:</span>
+    <div className="enc-ganadores">
+      <div
+        className={`enc-soltar${elegidos.length ? ' enc-soltar--con' : ''}`}
+        onDragOver={(e) => e.preventDefault()}
+        onDrop={(e) => {
+          e.preventDefault();
+          agregar(e.dataTransfer?.files || []);
+        }}
+      >
+        {elegidos.length ? (
+          <ul className="enc-elegidos">
+            {elegidos.map((x) => (
+              <li key={x.id}>
+                <img src={x.url} alt="" />
+                <button type="button" onClick={() => setElegidos((l) => l.filter((y) => y.id !== x.id))} aria-label="Quitar">
+                  <X size={12} />
+                </button>
+              </li>
+            ))}
+            {elegidos.length < 5 ? (
+              <li>
+                <button type="button" className="enc-mas-uno" onClick={() => subir.current?.click()} aria-label="Agregar otro anuncio de referencia">
+                  <Upload size={16} aria-hidden="true" />
+                </button>
+              </li>
+            ) : null}
+          </ul>
+        ) : (
+          <button type="button" className="enc-soltar__boton" onClick={() => subir.current?.click()}>
+            <Upload size={20} aria-hidden="true" />
+            <strong>Sube tu anuncio de referencia</strong>
+            <small>o arrástralo aquí, o pégalo con Cmd/Ctrl + V</small>
+          </button>
+        )}
         <input ref={subir} type="file" accept="image/*" multiple hidden onChange={(e) => agregar(e.target.files || [])} />
       </div>
       {items.length ? (
-        <ul className="enc-funciona">
-          {items.map((x) => (
-            <li key={x.id}>
-              <button type="button" className={tiene(x) ? 'activo' : ''} aria-pressed={tiene(x)} onClick={() => setElegidos((l) => (tiene(x) ? l.filter((y) => y.id !== x.id) : [...l, { id: x.id, url: x.url, titulo: x.titulo, concepto: x.concepto || '', productoId: x.productoId }].slice(0, 5)))} title={x.titulo || x.concepto || ''}>
-                <img src={x.url} alt="" loading="lazy" />
-              </button>
-            </li>
-          ))}
-        </ul>
+        <details className="enc-plegable">
+          <summary>
+            <ChevronDown size={14} aria-hidden="true" /> O elige uno de «Lo que me funciona» ({items.length})
+          </summary>
+          <ul className="enc-funciona">
+            {items.map((x) => (
+              <li key={x.id}>
+                <button type="button" className={tiene(x) ? 'activo' : ''} aria-pressed={tiene(x)} onClick={() => alternar(x)} title={x.titulo || x.concepto || ''}>
+                  <img src={x.url} alt="" loading="lazy" />
+                </button>
+              </li>
+            ))}
+          </ul>
+        </details>
       ) : null}
     </div>
   );
@@ -101,6 +124,8 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
   const { datos: est } = useDatos('imagen-ads:estructuras', () => pedirNuevo('/api/imagen-ads/estructuras'));
   const estructuras = est?.estructuras || [];
   const [elegidasEst, setElegidasEst] = useState(ESTRUCTURAS_INICIALES);
+  // (2026-11-26c) por defecto la app sortea entre todas las estructuras ganadoras (también las que no se muestran)
+  const [alAzar, setAlAzar] = useState(true);
   const conEstructuras = modo === 'estructuras';
   const [productoId, setProductoId] = useState(productoPedido || '');
   const [elegidos, setElegidos] = useState(() => (referenciaPedida ? [{ id: referenciaPedida, url: referenciaPedida, titulo: 'Referencia' }] : []));
@@ -151,10 +176,10 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
   const conInvestigacion = Boolean(p?.investigacion);
   const formatos = vertical ? ['1:1', '9:16'] : ['1:1'];
   const precio = opciones?.costo || null;
-  const cuantas = conEstructuras ? elegidasEst.length : cantidad;
+  const cuantas = conEstructuras && !alAzar ? elegidasEst.length : cantidad;
   const imagenes = cuantas * formatos.length;
   const costo = precio?.conChatGPT ? 0 : precio?.dolaresPorImagen ? Math.round(precio.dolaresPorImagen * imagenes * 100) / 100 : null;
-  const falta = !p ? 'Elige tu producto.' : conEstructuras && !elegidasEst.length ? 'Elige al menos una estructura.' : modo === 'referencia' && !elegidos.length ? 'Sube o elige tu anuncio de referencia.' : modo === 'investigacion' && !conInvestigacion ? 'Este producto todavía no tiene investigación de mercado.' : !pais.trim() ? 'Escribe el país.' : null;
+  const falta = !p ? 'Elige tu producto.' : conEstructuras && !alAzar && !elegidasEst.length ? 'Elige al menos una estructura.' : modo === 'referencia' && !elegidos.length ? 'Sube o elige tu anuncio de referencia.' : modo === 'investigacion' && !conInvestigacion ? 'Este producto todavía no tiene investigación de mercado.' : !pais.trim() ? 'Escribe el país.' : null;
   const listo = !falta && costo !== null && !fase;
 
   const investigar = async () => {
@@ -195,7 +220,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         logo: null,
         modo: modo === 'referencia' ? 'variantes' : 'nuevos',
         // (2026-11-26b) una imagen por estructura ganadora elegida (la app rota estilo, zona y segmento)
-        ...(conEstructuras ? { estructuras: elegidasEst } : {}),
+        ...(conEstructuras ? { estructuras: alAzar ? 'azar' : elegidasEst } : {}),
         ...(modo === 'referencia' ? { variacion, ...(replicar ? { replicar: true, rapido: true } : { rapido: false }) } : conEstructuras ? { rapido: false } : desde0 ? { desde0: true, rapido: false } : { agente: 'variaciones', rapido: false }),
         // lo de venta (se guarda con el producto)
         venta: { oferta: oferta.trim(), sellos: sellos.split(/\r?\n/).map((x) => x.trim()).filter(Boolean), pais: paisPrecio || null, prohibido: prohibido.split(/[,\n]/).map((x) => x.trim()).filter(Boolean) },
@@ -227,159 +252,151 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
     }
   };
 
+  const segmento = (opciones, valor, poner, etiqueta) => (
+    <div className="enc-segmento" role="radiogroup" aria-label={etiqueta}>
+      {opciones.map(([v, t]) => (
+        <button key={String(v)} type="button" role="radio" aria-checked={valor === v} className={valor === v ? 'activo' : ''} onClick={() => poner(v)}>
+          {t}
+        </button>
+      ))}
+    </div>
+  );
+  const fotoDe = (x) => x?.fotos?.find((f) => f.n === x.fotoSugerida)?.url || x?.fotos?.[0]?.url || null;
+
   return (
-    <div className="enc">
+    <div className="enc enc--limpio">
       <div className="enc-modos" role="radiogroup" aria-label="Cómo los hace el agente">
-        <button type="button" role="radio" aria-checked={modo === 'referencia'} className={modo === 'referencia' ? 'activo' : ''} onClick={() => setModo('referencia')}>
-          <ImagePlus size={18} aria-hidden="true" />
-          <span>
-            <strong>Con referencia</strong>
-            <small>Subes un anuncio que te funciona y hace variaciones conservando lo que lo hace vender.</small>
-          </span>
-        </button>
-        <button type="button" role="radio" aria-checked={modo === 'investigacion'} className={modo === 'investigacion' ? 'activo' : ''} onClick={() => setModo('investigacion')}>
-          <FileSearch size={18} aria-hidden="true" />
-          <span>
-            <strong>Desde la investigación</strong>
-            <small>Sin referencia: el ángulo, las facetas y los textos salen de la investigación de mercado de tu producto.</small>
-          </span>
-        </button>
-        <button type="button" role="radio" aria-checked={conEstructuras} className={conEstructuras ? 'activo' : ''} onClick={() => setModo('estructuras')}>
-          <LayoutGrid size={18} aria-hidden="true" />
-          <span>
-            <strong>Estructuras ganadoras</strong>
-            <small>Cada imagen con el diseño de un anuncio ganador distinto (antes y después 3D, lo invisible hecho visible, línea de tiempo…), con tu producto y tus textos.</small>
-          </span>
-        </button>
+        {MODOS.map((m) => {
+          const Icono = m.icono;
+          const activo = modo === m.id;
+          return (
+            <button key={m.id} type="button" role="radio" aria-checked={activo} className={activo ? 'activo' : ''} onClick={() => setModo(m.id)}>
+              <Icono size={16} aria-hidden="true" />
+              <span>{m.etiqueta}</span>
+            </button>
+          );
+        })}
       </div>
-      <p className="enc-intro">
-        <Sparkles size={15} aria-hidden="true" />
-        <span>
-          {conEstructuras
-            ? <>Tu IA toma la <b>estructura</b> de cada anuncio ganador (zonas, titular, forma de mostrar el dolor, oferta) y la llena con tu producto: nunca su texto ni su marca. Al terminar ves cada imagen lado a lado con su referencia y 7 puntajes; la que no llega a 8 queda para rehacer, solo si tú lo pides.</>
-            : modo === 'referencia'
-            ? <>Primero tu IA <b>analiza por qué vende tu ganador</b> (el deseo, el dolor, el hook, lo que no se toca y lo que se puede probar) y te lo muestra. Después crea las variaciones con el nivel que elijas, las revisa una por una con nota del 1 al 10 y te marca las que conviene rehacer (se rehacen solo con tu sí).</>
-            : <>El <b>agente</b> lo hace todo: analiza tu investigación (el ángulo, lo que no se toca y lo que se puede probar), arma la matriz de facetas y crea anuncios cercanos, conceptos vecinos y expandidos, con diseño limpio, una imagen por anuncio y control de calidad. Cada uno sale con qué cambió y qué hipótesis prueba.</>}
-        </span>
-      </p>
-      <section className="enc-paso">
-        <h4>1. El producto</h4>
+      <p className="enc-explica">{MODOS.find((m) => m.id === modo)?.texto}</p>
+
+      <div className="enc-grupo">
+        <span className="enc-etiqueta">Tu producto</span>
         {productos.length ? (
-          <ul className="enc-productos">
-            {productos.map((x) => (
-              <li key={x.id}>
-                <button type="button" className={x.id === productoId ? 'activo' : ''} aria-pressed={x.id === productoId} onClick={() => setProductoId(x.id)}>
-                  <img src={x.fotos[0].url} alt="" />
-                  <span>
-                    {x.nombre}
-                    {modo === 'investigacion' ? <small className={x.investigacion ? 'enc-ok' : 'enc-falta'}>{x.investigacion ? ' · con investigación' : ' · sin investigación'}</small> : null}
-                  </span>
-                </button>
-              </li>
-            ))}
-          </ul>
+          <div className="enc-producto">
+            {fotoDe(p) ? <img src={fotoDe(p)} alt="" /> : null}
+            <select value={productoId} onChange={(e) => setProductoId(e.target.value)} aria-label="Tu producto">
+              {productos.map((x) => (
+                <option key={x.id} value={x.id}>
+                  {x.nombre}
+                  {modo === 'investigacion' ? (x.investigacion ? ' · con investigación' : ' · sin investigación') : ''}
+                </option>
+              ))}
+            </select>
+          </div>
         ) : (
-          <p className="t-chico t-3">
+          <p className="enc-ayuda">
             Primero crea tu producto en <a href={enlace.nuevo({})}>Nuevo anuncio</a> (paso 1).
           </p>
         )}
-      </section>
+      </div>
+
       {conEstructuras ? (
-        <section className="enc-paso">
-          <h4>2. Las estructuras ({elegidasEst.length} = {elegidasEst.length} {elegidasEst.length === 1 ? 'anuncio' : 'anuncios'})</h4>
-          <ul className="enc-estructuras">
-            {estructuras.map((x) => {
-              const activa = elegidasEst.includes(x.id);
-              return (
-                <li key={x.id}>
-                  <button type="button" className={activa ? 'activo' : ''} aria-pressed={activa} onClick={() => setElegidasEst((l) => (activa ? l.filter((y) => y !== x.id) : [...l, x.id]))} title={x.nombre}>
-                    <img src={`/api/imagen-ads/estructuras/${x.id}/imagen`} alt="" loading="lazy" />
-                    <span>
-                      <b>{x.id}</b> {x.nombre}
-                      <small>{[ESTILO[x.estilo] || x.estilo, x.segmento].filter(Boolean).join(' · ')}</small>
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-          <p className="t-chico t-3">Son de otra marca y solo se usan como estructura: no se publican ni se copia su texto. La primera vez la app baja sus imágenes a tu biblioteca.</p>
-        </section>
+        <div className="enc-grupo">
+          <span className="enc-etiqueta">Las estructuras</span>
+          {segmento([[true, 'Al azar (recomendado)'], [false, 'Elegir yo']], alAzar, setAlAzar, 'Qué estructuras')}
+          {alAzar ? (
+            <p className="enc-ayuda">Cada anuncio sale de un diseño ganador distinto, sorteado entre decenas que están vendiendo. Nunca se repite el estilo dos veces seguidas.</p>
+          ) : (
+            <ul className="enc-estructuras">
+              {estructuras.filter((x) => !x.oculta).map((x) => {
+                const activa = elegidasEst.includes(x.id);
+                return (
+                  <li key={x.id}>
+                    <button type="button" className={activa ? 'activo' : ''} aria-pressed={activa} onClick={() => setElegidasEst((l) => (activa ? l.filter((y) => y !== x.id) : [...l, x.id]))} title={x.nombre}>
+                      <img src={`/api/imagen-ads/estructuras/${x.id}/imagen`} alt="" loading="lazy" />
+                      <span>
+                        <b>{x.id}</b> {x.nombre}
+                        <small>{[ESTILO[x.estilo] || x.estilo, x.segmento].filter(Boolean).join(' · ')}</small>
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+          <p className="enc-ayuda">Son de otras marcas y solo se usan como estructura: no se publican ni se copia su texto.</p>
+        </div>
       ) : modo === 'referencia' ? (
-        <section className="enc-paso">
-          <h4>2. Tu anuncio de referencia</h4>
-          <Ganadores elegidos={elegidos} setElegidos={setElegidos} productoId={productoId} />
-          <h4 className="enc-sub">Qué tan distintas</h4>
-          <div className="enc-chips enc-replicar" role="radiogroup" aria-label="Qué tan distintas">
-            {VARIACIONES.map((x) => (
-              <button key={x.id} type="button" role="radio" aria-checked={variacion === x.id} className={variacion === x.id ? 'activo' : ''} onClick={() => setVariacion(x.id)}>
-                {x.etiqueta}
-              </button>
-            ))}
+        <>
+          <div className="enc-grupo">
+            <span className="enc-etiqueta">Tu anuncio de referencia</span>
+            <Ganadores elegidos={elegidos} setElegidos={setElegidos} productoId={productoId} />
           </div>
-          <p className="t-chico t-3">{VARIACIONES.find((x) => x.id === variacion)?.texto}</p>
-        </section>
+          <div className="enc-grupo">
+            <span className="enc-etiqueta">Qué tan distintas</span>
+            {segmento(VARIACIONES.map((x) => [x.id, x.etiqueta]), variacion, setVariacion, 'Qué tan distintas')}
+            <p className="enc-ayuda">{VARIACIONES.find((x) => x.id === variacion)?.texto}</p>
+          </div>
+        </>
       ) : (
-        <section className="enc-paso">
-          <h4>2. La investigación de mercado</h4>
-          <div className="enc-chips enc-replicar" role="radiogroup" aria-label="Cómo crearlos">
-            <button type="button" role="radio" aria-checked={desde0} className={desde0 ? 'activo' : ''} onClick={() => setDesde0(true)}>
-              Desde 0 (6 zonas)
-            </button>
-            <button type="button" role="radio" aria-checked={!desde0} className={!desde0 ? 'activo' : ''} onClick={() => setDesde0(false)}>
-              Variaciones del agente
-            </button>
-          </div>
-          <p className="t-chico t-3">
+        <div className="enc-grupo">
+          <span className="enc-etiqueta">Cómo crearlos</span>
+          {segmento([[true, 'Desde 0 (6 zonas)'], [false, 'Variaciones del agente']], desde0, setDesde0, 'Cómo crearlos')}
+          <p className="enc-ayuda">
             {desde0
-              ? 'Cada anuncio con sus 6 zonas: gancho arriba, el visual principal, 2 o 3 beneficios con check, tu frasco con su sello, la oferta con «Pagas al recibir» y un solo botón. En formatos distintos (hero, antes y después, nosotros vs. ellos, testimonio, bodegón de ingredientes, recomendado, temporada y una pregunta y respuesta), sin repetir modelo ni escenario. Pon el precio del tratamiento en «Oferta».'
+              ? 'Cada anuncio con sus 6 zonas (gancho, visual, beneficios, tu frasco, la oferta y un botón), en formatos distintos y sin repetir modelo ni escenario. Pon el precio en «Oferta».'
               : 'El agente arma la matriz de facetas desde tu investigación y prueba conceptos cercanos, vecinos y expandidos.'}
           </p>
           {!p ? null : conInvestigacion ? (
             <p className="enc-nota enc-nota--ok">
-              <FileSearch size={14} aria-hidden="true" /> {p.nombre} tiene su investigación{p.investigacion?.pais ? ` (${p.investigacion.pais})` : ''}: el agente saca de ahí el deseo, las facetas, las objeciones y las palabras del cliente. <a href={enlace.investigacion(p.id)}>Verla</a>
+              <FileSearch size={14} aria-hidden="true" /> {p.nombre} tiene su investigación{p.investigacion?.pais ? ` (${p.investigacion.pais})` : ''}. <a href={enlace.investigacion(p.id)}>Verla</a>
             </p>
           ) : (
             <div className="enc-nota enc-nota--falta">
-              <span>{p.nombre} todavía no tiene investigación de mercado. Hazla primero (tarda unos minutos y usa tu cuenta de Claude) o sube una referencia.</span>
+              <span>{p.nombre} todavía no tiene investigación de mercado. Hazla primero (tarda unos minutos).</span>
               <Boton variante="secundario" tamano="chico" icono={FileSearch} onClick={investigar} cargando={investigando}>
                 Hacer la investigación
               </Boton>
             </div>
           )}
-        </section>
-      )}
-      <section className="enc-paso">
-        <h4>3. Cuántos y en qué formato</h4>
-        <div className="enc-chips">
-          {conEstructuras ? null : CANTIDADES.map((n) => (
-            <button key={n} type="button" className={n === cantidad ? 'activo' : ''} aria-pressed={n === cantidad} onClick={() => setCantidad(n)}>
-              {n}
-            </button>
-          ))}
-          {conEstructuras ? null : <span className="enc-sep" />}
-          <button type="button" className={!vertical ? 'activo' : ''} aria-pressed={!vertical} onClick={() => setVertical(false)}>
-            Cuadrado 1:1
-          </button>
-          <button type="button" className={vertical ? 'activo' : ''} aria-pressed={vertical} onClick={() => setVertical(true)}>
-            1:1 + vertical 9:16
-          </button>
         </div>
-      </section>
-      <section className="enc-paso enc-paso--datos">
+      )}
+
+      <div className="enc-dos">
+        {conEstructuras && !alAzar ? null : (
+          <div className="enc-grupo">
+            <span className="enc-etiqueta">Cuántos anuncios</span>
+            {segmento(CANTIDADES.map((n) => [n, String(n)]), cantidad, setCantidad, 'Cuántos anuncios')}
+          </div>
+        )}
+        <div className="enc-grupo">
+          <span className="enc-etiqueta">Formato</span>
+          {segmento([[false, 'Cuadrado 1:1'], [true, '1:1 + vertical 9:16']], vertical, setVertical, 'Formato')}
+        </div>
+      </div>
+
+      <div className="enc-paso--datos">
         <CampoTexto etiqueta="País" maxLength={60} value={pais} onChange={(e) => setPais(e.target.value)} />
         <CampoTexto etiqueta="Público" opcional maxLength={300} value={publico} onChange={(e) => setPublico(e.target.value)} placeholder="Ej.: mujeres de 25 a 45" />
-        <CampoTexto etiqueta="Oferta (va tal cual en el anuncio)" opcional maxLength={160} value={oferta} onChange={(e) => setOferta(e.target.value)} placeholder="Tratamiento completo x3 $139.900" />
-        <Selector
-          etiqueta="País del precio"
-          opcional
-          value={paisPrecio}
-          onChange={(e) => setPaisPrecio(e.target.value)}
-          opciones={[{ valor: '', etiqueta: 'El del campo País' }, ...paises.map((x) => ({ valor: x.codigo, etiqueta: x.nombre }))]}
-        />
-        <AreaTexto etiqueta="Sellos de confianza" opcional filas={2} maxLength={800} value={sellos} onChange={(e) => setSellos(e.target.value)} placeholder={'REGISTRO SANITARIO INVIMA …\nPago contra entrega'} ayuda="Uno por línea, exactos. No se inventa ningún otro." />
-        <CampoTexto etiqueta="Prohibido decir" opcional maxLength={600} value={prohibido} onChange={(e) => setProhibido(e.target.value)} placeholder="cura, milagroso, garantizado" ayuda="Separado por comas." />
-      </section>
+        <CampoTexto etiqueta="Oferta (va tal cual)" opcional maxLength={160} value={oferta} onChange={(e) => setOferta(e.target.value)} placeholder="Tratamiento completo x3 $139.900" />
+      </div>
+      <details className="enc-plegable enc-plegable--venta">
+        <summary>
+          <ChevronDown size={14} aria-hidden="true" /> Sellos, precio por país y palabras prohibidas
+          {[sellos, paisPrecio, prohibido].some((x) => String(x || '').trim()) ? <span className="enc-cuenta">{[sellos, paisPrecio, prohibido].filter((x) => String(x || '').trim()).length}</span> : null}
+        </summary>
+        <div className="enc-paso--datos">
+          <Selector
+            etiqueta="País del precio"
+            opcional
+            value={paisPrecio}
+            onChange={(e) => setPaisPrecio(e.target.value)}
+            opciones={[{ valor: '', etiqueta: 'El del campo País' }, ...paises.map((x) => ({ valor: x.codigo, etiqueta: x.nombre }))]}
+          />
+          <AreaTexto etiqueta="Sellos de confianza" opcional filas={2} maxLength={800} value={sellos} onChange={(e) => setSellos(e.target.value)} placeholder={'REGISTRO SANITARIO INVIMA …\nPago contra entrega'} ayuda="Uno por línea, exactos. No se inventa ningún otro." />
+          <CampoTexto etiqueta="Prohibido decir" opcional maxLength={600} value={prohibido} onChange={(e) => setProhibido(e.target.value)} placeholder="cura, milagroso, garantizado" ayuda="Separado por comas." />
+        </div>
+      </details>
       <div className="enc-pie">
         <span className="enc-costo">{falta ? <span className="enc-falta">{falta}</span> : costo === null ? 'Calculando el costo…' : costo === 0 ? `${imagenes} imágenes con tu ChatGPT: sin costo por imagen`  : `${imagenes} imágenes · ${dinero(costo)} (${dinero(precio.dolaresPorImagen)} cada una)`}</span>
         <Boton variante="primario" icono={Briefcase} onClick={crear} cargando={Boolean(fase)} disabled={!listo}>

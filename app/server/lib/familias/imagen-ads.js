@@ -40,6 +40,7 @@ import { sesionEstrategia, sesionPrompts, sesionRevision, sesionAjuste, permisos
 import { esVariado, conAnalisis } from '../imagen-ads/variedad.js';
 import { copiarEstructuras, armarComparacion, estructurasDelLote } from '../imagen-ads/comparacion.js';
 import { asegurarReferencias, listaEstructuras } from '../imagen-ads/estructuras.js';
+import { supervisarLote } from '../imagen-ads/supervisor.js';
 import { verificarSesion, leerBloqueo, verificarRevision, verificarAjuste, verificarV } from '../imagen-ads/verificar.js';
 import { revisionSimulada, revisionDeLaTanda } from '../imagen-ads/revision-simulada.js';
 import { loteAnterior, usadosDe, armarInforme, piezasPorHacer, faltaDelBorrador } from '../imagen-ads/lotes.js';
@@ -909,6 +910,13 @@ async function informe(ctx) {
     armarComparacion(c, ctx.brief, leerEstado(c));
   } catch (e) {
     console.error(`[imagen-ads] ${ctx.slug}: no pude armar la comparación: ${e?.message || e}`);
+  }
+  // (2026-11-26c) EL SUPERVISOR: lo pedido contra lo que salió; si algo falló, reglas para que no se repita
+  try {
+    ctx.avance?.('El supervisor revisa lo que salió');
+    await supervisarLote(c, ctx.brief, leerEstado(c), { lote: ctx.slug });
+  } catch (e) {
+    console.error(`[imagen-ads] ${ctx.slug}: el supervisor no pudo revisar: ${e?.message || e}`);
   }
   fs.rmSync(R.subidas(c), { recursive: true, force: true });
   // lo que sobra de la revision (la vista queda: la usa la revision de un vertical si regeneras su cuadrado)

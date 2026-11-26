@@ -1,0 +1,45 @@
+{
+  "id": "rv-06",
+  "nombre": "Diagrama problema → ingrediente → producto con flechas",
+  "referencia": "mis_archivos/biblioteca/referencias/revocelo/rv-06.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/1685d2de14f70c1e6c6a68ed45f479cf13e1075120da3cd14966ef146a8af66a.png",
+  "marca_referencia": "Revocelo (cortisol): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F68",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 2 líneas: la pregunta del problema y la causa en color. 18 %",
+    "centro": "4 filas: a la izquierda cada problema ilustrado, una flecha, el ingrediente que lo atiende con su nombre, y flechas que convergen al producto a la derecha. 72 %",
+    "abajo": "La frase de cierre bajo los frascos. 10 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 9,
+    "resaltada": "la causa",
+    "color_resaltado": "azul",
+    "posicion": "arriba al centro",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "ilustracion-plana",
+    "como": "Cada problema ilustrado en su fila."
+  },
+  "zona_del_cuerpo": "cuerpo entero",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 4
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "ilustracion-plana",
+  "cuidado": "Para Aguaje: glúteo plano → aguaje, piernas delgadas → fenogreco, poca energía → maca negra. Titular afirmativo."
+}

@@ -120,7 +120,7 @@ export const ver = (id) => vista(cargar(id));
 export function listar() {
   const embudos = [];
   if (fs.existsSync(TEMP)) for (const n of fs.readdirSync(TEMP).filter((n) => n.startsWith('_embudo-'))) {
-    try { const e = cargar(n.slice(8)); embudos.push({ id: e.id, nombre: e.nombre, productoId: e.productoId, estado:enCurso(e).length?'generando':e.trabajo?.estado || 'borrador', actualizado: e.actualizado, generadas: Object.keys(e.imagenes).length }); } catch { /* otra app o archivo incompleto */ }
+    try { const e = cargar(n.slice(8)); embudos.push({ id: e.id, nombre: e.nombre, productoId: e.productoId, estado:enCurso(e).length?'generando':e.trabajo?.estado || 'borrador', actualizado: e.actualizado, generadas: Object.keys(e.imagenes).length, miniatura: Object.values(e.imagenes).find((i) => i?.url)?.url || null }); } catch { /* otra app o archivo incompleto */ }
   }
   return { embudos: embudos.sort((a, b) => String(b.actualizado).localeCompare(String(a.actualizado))), productos: productosInvestigados() };
 }

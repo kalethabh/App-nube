@@ -1,0 +1,45 @@
+{
+  "id": "mv-13",
+  "nombre": "Fondo oscuro con sirena de urgencia, lista de 3 ofertas y botón",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-13.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/e509fb56b627bb1de25d3807da48f22773ca5325b1dddc2a3f9f98a72de81025.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F43",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 4 líneas en blanco con la palabra clave en rojo y un párrafo corto de contexto. 45 %",
+    "centro": "A la izquierda 3 líneas de oferta con íconos (mano, carrito, regalo); a la derecha el frasco grande con flores y una sirena roja encendida detrás. 35 %",
+    "abajo": "Botón rojo ancho «ordenar ahora». 20 %"
+  },
+  "titular": {
+    "lineas": 4,
+    "palabras": 6,
+    "resaltada": "la palabra de despedida",
+    "color_resaltado": "rojo",
+    "posicion": "arriba a la izquierda",
+    "gancho": "urgencia"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La urgencia la carga la sirena roja."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 3
+  },
+  "prueba": [
+    "garantia"
+  ],
+  "oferta": {
+    "tipo": "2+1",
+    "como": "lista con íconos: 2+1, % off, garantía"
+  },
+  "cta": {
+    "tipo": "boton"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "bodegon-premium",
+  "cuidado": "Solo con una razón verdadera de urgencia; si no, «Precio de lanzamiento» sin cuenta regresiva falsa."
+}

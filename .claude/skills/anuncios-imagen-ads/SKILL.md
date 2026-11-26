@@ -42,6 +42,17 @@ En un lote:
 
 Después de cada lote, cada imagen se compara contra su referencia (montaje lado a lado en `comparacion/`) con 7 puntajes de 0 a 10: estructura, dolor visual, titular, texto limpio, frasco fiel, oferta y confianza, y diferencia real. Pasa con 8 o más en todos. La que falla solo se marca: se rehace con el sí del usuario (`npm run rehacer temp/_img-… --pieza V02_1x1`).
 
+**MÁS ESTRUCTURAS, OCULTAS Y AL AZAR (2026-11-26c, formatos F41-F70):**
+- 30 fichas más (`estructuras/mv-09…22`, `vg-*`, `np-*`, `rv-*`, `na-01`, `xt-01`), de Mayaverra y de anuncios de imagen del top de TrendTrack. Llevan `oculta: true` y un campo `cuidado` con lo que NO se copia (sellos, cifras o testimonios que el producto del usuario no tenga).
+- No se muestran en la galería para elegir. El modo «Al azar (recomendado)» sortea entre las 38, sin repetir y sin el mismo estilo seguido; Vecinas y Conceptos reciben `brief.sugeridas` con algunas sorteadas para variar.
+- Sus imágenes viven en `mis_archivos/biblioteca/referencias/<marca>/` y se bajan solas si faltan.
+
+**DETALLE VISUAL (2026-11-26c):** cada `visual_prompt` describe por zona (con su %) la composición, la luz y la cámara, las texturas (piel real), la tipografía de cada texto (familia, peso, color hex, contorno o fondo), el frasco (posición, tamaño, ángulo) y, si hay antes y después, ropa, pose y lugar de cada momento. En lotes de Variantes o de estructuras, un `visual_prompt` de menos de 700 caracteres es error.
+
+**SUPERVISOR QUE APRENDE (2026-11-26c):** al final de cada lote la app junta lo pedido y lo que salió (puntajes bajo 8, problemas, imágenes sin generar o rechazadas) en `temp/<lote>/supervisor.json` y una sesión corta escribe 1 a 3 reglas concretas en `mis_archivos/biblioteca/aprendizajes/imagen-ads.md` (las repetidas suben su contador). Esas reglas entran en la estrategia, los prompts y los ajustes del lote siguiente: respétalas.
+
+**EDITOR Y MIS PIEZAS (2026-11-26c):** cada imagen se puede abrir en el editor (`#/imagenes/<lote>/editar/<pieza>`): capas de texto, formas y piezas del usuario (sellos, logos, precios; por producto en `temp/_productos/<id>/piezas/` o generales en `mis_archivos/biblioteca/piezas/`), «Cambiar una zona con IA» (solo cambia el rectángulo marcado; el resto queda idéntico píxel por píxel) e «Integrar con IA» (la pieza se pega exacta, la IA ajusta luz y sombra alrededor y la pieza se vuelve a pegar exacta). Cada guardado es una versión nueva en `versiones/`.
+
 **REGLAS DE CONVERSIÓN (todos los productos):**
 1. Un solo mensaje por imagen; titular afirmativo de máximo 8 palabras, sin preguntas.
 2. El producto idéntico a la foto y legible.

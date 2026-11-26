@@ -8,6 +8,7 @@
 import { AgenteLote } from './AgenteLote.jsx';
 import { AnalisisGanador } from './AnalisisGanador.jsx';
 import { ComparacionLote } from './ComparacionLote.jsx';
+import { SupervisorLote } from './SupervisorLote.jsx';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ImageOff, ImagePlus, Play, RotateCcw, SearchX, Sparkles, Trash2, Unplug } from 'lucide-react';
 import { Boton, CabeceraPagina, Esqueleto, EsqueletoMiniaturas, EstadoVacio, Modal, VistaPrevia, useAvisos, useBarraSuperior } from '../../componentes/index.js';
@@ -397,6 +398,7 @@ export default function PantallaLote({ params, consulta }) {
       <Avance vista={vista} simulando={simulando} onContinuar={continuar} onDetener={detener} ocupado={ocupado} enlaceOtro={enlaceOtro} />
       <AnalisisGanador vista={vista} />
       <ComparacionLote vista={vista} onRehacer={(p) => setARegenerar(p)} />
+      <SupervisorLote vista={vista} />
       <AgenteLote vista={vista} />
       <Galeria
         vista={vista}

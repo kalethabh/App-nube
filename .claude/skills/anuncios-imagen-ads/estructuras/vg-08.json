@@ -1,0 +1,45 @@
+{
+  "id": "vg-08",
+  "nombre": "Ilustración antes y después del cuerpo con producto en pedestal y listas abajo",
+  "referencia": "mis_archivos/biblioteca/referencias/vgummies/vg-08.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/d23e46473ddc3acc113af2aa95ed0d958887c3c70f6aeaae229de50bea37fff3.jpg",
+  "marca_referencia": "V-Gummies (vinagre de manzana): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F57",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 2 líneas («Es oficial:» y la promesa en cursiva). 22 %",
+    "centro": "Cuerpo ilustrado antes (izquierda) y después (derecha), de perfil y de la cintura a las piernas; el producto en un pedestal al centro y un sello circular verde con la oferta. 55 %",
+    "abajo": "Dos listas: ✗ lo de antes y ✓ lo de después, con un rótulo al centro. 23 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 7,
+    "resaltada": "la promesa (cursiva)",
+    "color_resaltado": "verde oscuro",
+    "posicion": "arriba al centro",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "ilustracion-plana",
+    "como": "El mismo cuerpo antes y después, ilustrado, de perfil."
+  },
+  "zona_del_cuerpo": "cuerpo entero",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 6
+  },
+  "prueba": [
+    "clientes"
+  ],
+  "oferta": {
+    "tipo": "2+1",
+    "como": "sello circular con la oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "ilustracion-plana",
+  "cuidado": "Para Aguaje: perfil de cadera y glúteo, ✗ «el jean no se llena» / ✓ «el jean se llena atrás»."
+}

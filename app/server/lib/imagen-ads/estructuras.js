@@ -45,8 +45,31 @@ export function listaEstructuras() {
         zona: x.zona_del_cuerpo || null,
         oferta: x.oferta?.tipo || null,
         hay: Boolean(rutaReferencia(f.id) && existe(rutaReferencia(f.id))),
+        oculta: f.oculta === true,
       };
     });
+}
+
+/**
+ * (2026-11-26c) AL AZAR: «que se generen aleatoriamente para que se vean las variaciones». n estructuras distintas (todas,
+ * también las ocultas), sin el mismo estilo dos veces seguidas. `semilla` (el nombre del lote) hace el sorteo repetible.
+ */
+export function estructurasAlAzar(n, { semilla = '' } = {}) {
+  let x = [...String(semilla || Date.now())].reduce((t, c) => (t * 31 + c.charCodeAt(0)) >>> 0, 2166136261) || 1;
+  const azar = () => ((x = (x * 1664525 + 1013904223) >>> 0) / 4294967296);
+  const todas = [...leerSkill().formatos.values()].filter((f) => f.estructura && f.referencia);
+  for (let i = todas.length - 1; i > 0; i--) {
+    const j = Math.floor(azar() * (i + 1));
+    [todas[i], todas[j]] = [todas[j], todas[i]];
+  }
+  const elegidas = [];
+  const quedan = [...todas];
+  while (elegidas.length < Math.min(n, todas.length) && quedan.length) {
+    const antes = elegidas[elegidas.length - 1]?.estilo;
+    const k = quedan.findIndex((f) => f.estilo !== antes);
+    elegidas.push(quedan.splice(k >= 0 ? k : 0, 1)[0]);
+  }
+  return elegidas.map((f) => f.id);
 }
 
 /** Baja la imagen de una estructura si falta (de su url_origen, solo de TrendTrack). -> true si quedó. */

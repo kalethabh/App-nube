@@ -30,6 +30,7 @@ import { NIVELES } from './variedad.js';
 import { ajustesDe, guardarAjustes } from './ajustes-producto.js';
 import { paisDe, normalizarOferta } from './precios.js';
 import { historialDe } from './ventas.js';
+import { estructurasAlAzar } from './estructuras.js';
 import {
   FAMILIA, RE_LOTE, RE_PIEZA, RE_V, R, POSICIONES, NOMBRE_POSICION, MAXIMO_VARIACIONES, MAXIMO_REFERENCIAS, carpetaDe, guardarJSON, idsDelLote,
   vDe, formatoDe, piezaId, ordenDePiezas, ordenDeV, fotoDelLote,
@@ -279,6 +280,8 @@ export function crearLote(cuerpo = {}) {
   }
   // (2026-11-26b) ESTRUCTURAS GANADORAS fijas: las que pidió el usuario (formatos con estructura), una por variación.
   // Van con la estrategia de la IA (no el camino rápido) y sin copiar el diseño de una referencia propia.
+  // (2026-11-26c) «al azar»: la app sortea las estructuras (también las ocultas) para que cada lote varíe
+  if (cuerpo.estructuras === 'azar') cuerpo.estructuras = estructurasAlAzar(cantidad, { semilla: lote });
   if (Array.isArray(cuerpo.estructuras) && cuerpo.estructuras.length) {
     const { formatos } = leerSkill();
     const ids = [...new Set(cuerpo.estructuras.map(String))].filter((id) => formatos.get(id)?.estructura);
@@ -301,6 +304,8 @@ export function crearLote(cuerpo = {}) {
   }
   // (2026-11-26a) lo que ya vendió este producto en Meta (formato + ángulo, de «Aprender de mis ventas»): la estrategia
   // lo prioriza y prueba siempre combinaciones nuevas
+  // (2026-11-26c) Vecinas y Conceptos: unas estructuras ganadoras sorteadas para este lote (la IA las prefiere)
+  if (variacion && variacion !== 'fieles') brief.sugeridas = estructurasAlAzar(Math.max(2, Math.ceil(cantidad * 0.6)), { semilla: lote });
   if (variacion && variacion !== 'fieles') {
     const historial = historialDe(datos.nombre);
     if (historial.length) brief.historial = historial;

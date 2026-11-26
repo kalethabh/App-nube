@@ -1028,10 +1028,10 @@ try {
       sE.esfuerzo === 'alto',
     sE.material
   );
-  check('Estrategia: los 57 formatos/*.json y las 8 estructuras ganadoras a pedido y, con 9:16, proporciones.md', sE.material.aPedido.length === 66 && sE.material.aPedido.filter((r) => r.startsWith(`${S}/estructuras/`)).length === 8 && sE.material.aPedido.filter((r) => r.startsWith(`${S}/formatos/`)).length === 57 && sE.material.aPedido.includes(`${S}/proporciones.md`), sE.material.aPedido.length);
+  check('Estrategia: los 57 formatos/*.json y las 38 estructuras ganadoras a pedido y, con 9:16, proporciones.md', sE.material.aPedido.length === 96 && sE.material.aPedido.filter((r) => r.startsWith(`${S}/estructuras/`)).length === 38 && sE.material.aPedido.filter((r) => r.startsWith(`${S}/formatos/`)).length === 57 && sE.material.aPedido.includes(`${S}/proporciones.md`), sE.material.aPedido.length);
   check(
     'Estrategia: las reglas de la tarea dejan pasar todo (nada negado ni faltante); los formatos quedan a pedido, no pegados',
-    sinNegados(mE) && [`${S}/SKILL.md`, `${S}/angulos.json`, `${S}/formatos/indice.json`, `${L}/entrada/usados.json`].every((r) => relesDe(mE.textos).includes(r)) && relesDe(mE.imagenes).length === 3 && mE.aPedido.length === 65 && !relesDe(mE.textos).some((r) => /formatos\/F\d/.test(r)),
+    sinNegados(mE) && [`${S}/SKILL.md`, `${S}/angulos.json`, `${S}/formatos/indice.json`, `${L}/entrada/usados.json`].every((r) => relesDe(mE.textos).includes(r)) && relesDe(mE.imagenes).length === 3 && mE.aPedido.length === 95 && !relesDe(mE.textos).some((r) => /formatos\/F\d/.test(r)),
     { denegados: mE.denegados, faltan: mE.faltan, textos: relesDe(mE.textos), imagenes: relesDe(mE.imagenes), aPedido: mE.aPedido.length }
   );
 
@@ -1102,7 +1102,7 @@ try {
     const o = llamadas[0] || {};
     check(
       'La estrategia anota en su paso la IA que la hizo y le pasa su material (la skill pegada, los formatos a pedido) con esfuerzo alto',
-      rE?.ok === true && pasoE.motor === 'codex' && o.material?.textos?.[0] === '.claude/skills/anuncios-imagen-ads/SKILL.md' && o.material.imagenes?.[0] === `temp/${le}/entrada/producto.png` && o.material.aPedido?.length === 65 && o.esfuerzo === 'alto' && !turno.estadoDelTurno().ocupado,
+      rE?.ok === true && pasoE.motor === 'codex' && o.material?.textos?.[0] === '.claude/skills/anuncios-imagen-ads/SKILL.md' && o.material.imagenes?.[0] === `temp/${le}/entrada/producto.png` && o.material.aPedido?.length === 95 && o.esfuerzo === 'alto' && !turno.estadoDelTurno().ocupado,
       { rE, motor: pasoE.motor, material: o.material && { textos: o.material.textos, imagenes: o.material.imagenes, aPedido: o.material.aPedido?.length }, esfuerzo: o.esfuerzo }
     );
   }

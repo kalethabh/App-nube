@@ -1,0 +1,44 @@
+{
+  "id": "mv-17",
+  "nombre": "Oferta multiunidad con 5 frascos y rayos de luz",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-17.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/9914797a9f98ece3b86f2f95ad92b62b5a11deff09f9c31701b925c6c32e4fcb.png",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F47",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Marca entre líneas, cinta de campaña y titular de oferta de 3 líneas con la palabra «gratis» en rojo sobre cinta dorada. 40 %",
+    "centro": "Cinco frascos en fila con rayos de luz dorados detrás. 35 %",
+    "abajo": "A la izquierda el precio por unidad gigante en amarillo sobre rojo; a la derecha «envío gratis» con camión; abajo línea con garantía. 25 %"
+  },
+  "titular": {
+    "lineas": 3,
+    "palabras": 6,
+    "resaltada": "la palabra de la oferta",
+    "color_resaltado": "rojo sobre dorado",
+    "posicion": "arriba al centro",
+    "gancho": "oferta"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Producto multiplicado."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "garantia"
+  ],
+  "oferta": {
+    "tipo": "tachado-por-unidad",
+    "como": "precio por unidad gigante + envío gratis"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "garantía de días",
+  "estilo": "bodegon-premium",
+  "cuidado": "Para Aguaje: 3 frascos y «TRATAMIENTO COMPLETO X3 $139.900»."
+}

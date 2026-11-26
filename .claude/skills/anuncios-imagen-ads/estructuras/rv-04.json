@@ -1,0 +1,44 @@
+{
+  "id": "rv-04",
+  "nombre": "Escena 3D cotidiana con titular de hábito y frascos en esquina",
+  "referencia": "mis_archivos/biblioteca/referencias/revocelo/rv-04.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/d3faa0453ef2a0094f174ec48b96d45ace763b0efa468a23a092aa409ebe5848.png",
+  "marca_referencia": "Revocelo (cortisol): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F66",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 3 líneas con la palabra clave gigante. 25 %",
+    "centro": "Escena 3D cálida de cocina con el personaje en su hábito. 60 %",
+    "abajo": "Dos frascos abajo a la derecha y letra chica. 15 %"
+  },
+  "titular": {
+    "lineas": 3,
+    "palabras": 10,
+    "resaltada": "la palabra clave",
+    "color_resaltado": "negro grueso",
+    "posicion": "arriba al centro",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "El momento cotidiano del problema."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "45+",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "«los resultados pueden variar»",
+  "estilo": "3d-pixar",
+  "cuidado": "Titular afirmativo. Para Aguaje: personaje probándose un jean frente al espejo del cuarto."
+}

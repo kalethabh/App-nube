@@ -1,0 +1,45 @@
+{
+  "id": "mv-11",
+  "nombre": "Línea de tiempo de 3 meses ilustrada con oferta de tratamiento",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-11.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/5fa0b4b348b00bda9dd8b40e71d0fe526b602c373abf5de8b700041c58d39ea9.png",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F42",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Frase coloquial pequeña y titular grande en verde oscuro, 2 líneas. 22 %",
+    "centro": "Tres ilustraciones planas de la misma zona del cuerpo, una por mes (enero, febrero, marzo), del problema al resultado. 30 %",
+    "abajo": "Tres frascos con salpicadura de agua a la izquierda y a la derecha el bloque de oferta en mayúsculas («1 mes gratis»). 48 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 5,
+    "resaltada": "el resultado",
+    "color_resaltado": "verde oscuro",
+    "posicion": "arriba al centro",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "ilustracion-plana",
+    "como": "La misma zona del cuerpo en 3 momentos (mes a mes), con el cambio progresivo."
+  },
+  "zona_del_cuerpo": "brazos",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "linea-de-tiempo",
+    "cantidad": 3
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "barra",
+    "como": "texto grande de oferta con subtítulo de vigencia"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "ilustracion-plana",
+  "cuidado": "Para Aguaje: mes 1, 2 y 3 del tratamiento x3, con la cadera o el glúteo; sin prometer plazos exactos de resultado."
+}
