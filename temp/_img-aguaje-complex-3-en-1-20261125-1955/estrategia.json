@@ -1,0 +1,30 @@
+{
+  "resumen": "Modo rápido: 10 variaciones de lo que ya te funciona, con un titular distinto en cada una.",
+  "paleta": [
+    {
+      "hex": "#000000",
+      "nombre": "la del empaque del producto"
+    },
+    {
+      "hex": "#FFFFFF",
+      "nombre": "la de cada referencia"
+    }
+  ],
+  "tipografia": "la de cada referencia",
+  "estilo": "el de cada referencia",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas y caderas",
+    "Triple acción con 3 extractos naturales",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio de fuerza",
+    "Resultados visibles y naturales"
+  ],
+  "caracteristicas": [
+    "Producto real de la foto",
+    "Empaque original",
+    "Uso diario",
+    "Envío a domicilio"
+  ],
+  "rapido": true
+}

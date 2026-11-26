@@ -1,0 +1,36 @@
+{
+  "ad_info": {
+    "variation_id": "V09"
+  },
+  "global_identity": {
+    "color_palette": "the colors of the product's packaging",
+    "text_typography": "the typography of the reference ad"
+  },
+  "visual_prompt": "Product: AGUAJE COMPLEX 3 EN 1, for Mujeres colombianas que quieren glúteos más firmes y redondos de forma natural (market: Colombia).\nBenefits to use in the secondary texts (Spanish, short): Aumento de glúteos; Aumento de piernas y caderas; Triple acción con 3 extractos naturales; Sin efecto rebote (no engorda); Sin necesidad de hacer ejercicio de fuerza; Resultados visibles y naturales.\nAngle: the SAME one as the reference ad (same body area, problem or desire, same hook). Only if the reference has no clear angle, use: Beneficio principal.\nWINNING CREATIVE CONCEPT of this reference (why it sells, in the owner's words; KEEP this concept, change only the execution details and the headline): Variaciones de su anuncio ganador de AGUAJE COMPLEX: antes y después de espaldas, frasco grande al centro, sello REGISTRO SANITARIO INVIMA RSA-0030271-2024, 4 beneficios (SIN EFECTO REBOTE (no engorda), PAGO CONTRA ENTREGA, RESULTADOS EN 3-4 SEMANAS, REGISTRO INVIMA) y barra de oferta TRATAMIENTO CO\nAdapt the color palette to the product's packaging, keeping the same contrast and hierarchy as the reference.\nAll visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.\nWHAT CHANGES IN THIS VARIATION (and only this, the rest stays like the reference): Latina de piel trigueña, cabello castaño con iluminaciones en cola alta. ANTES en el corredor de la casa con licra azul desteñida; DESPUÉS en malecón frente al mar con falda corta ajustada y top blanco.\nThe headline PLAYS with the winning headline of the reference keeping its essence (same promise, same desire, same timeframe if it has one), never generic. If there is a before/after, the change must be obvious at first glance: two clearly different moments, the AFTER body visibly improved in the area of the angle. THE CLIENT ASKED: Seguir el prompt que pasó: que NO parezca copia pero con la misma lógica. Mismo frasco exacto (negro, banda rosada, coneXión Lab, AGUAJE COMPLEX 10X, 200mg aguaje + 400mg fenogreco + 2070mg magnesio, vitamina A, vitamina E, 60 cápsulas) con la etiqueta nítida. Encabezado morado oscuro a la izquierda y fucsia a la derecha. Antes y después claramente distintos (otro lugar, otra ropa) y el cambio del glúteo bien visible pero natural, sin exagerar. Sello dorado y blanco con el texto exacto REGISTRO SANITARIO INVIMA RSA-0030271-2024. 4 cajas de beneficios: SIN EFECTO REBOTE (no engorda), PAGO CONTRA ENTREGA, RESULTADOS EN 3-4 SEMANAS, REGISTRO INVIMA. Barra de oferta abajo: TRATAMIENTO COMPLETO X3 UNIDADES $139.900. Todo en español bien escrito, sin texto extra.",
+  "text_layers": [
+    {
+      "reference_function": "main headline",
+      "reference_position": "same place as the main headline of the reference",
+      "text": "ANTES — Glúteos planos y sin gracia / DESPUÉS — Firmes, redondos y bien naturales",
+      "text_style": "same style as the main headline of the reference"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo"
+  ],
+  "final_generation_exclusions": [
+    "any logo, brand name or text from the reference ad",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "the reference ad's brand, prices or claims"
+    ],
+    "detected_visual_blocks": []
+  },
+  "language_rule": "All visible text in Spanish.",
+  "app_rapido": "copiar",
+  "app_chat": {
+    "cambio": "Latina de piel trigueña, cabello castaño con iluminaciones en cola alta. ANTES en el corredor de la casa con licra azul desteñida; DESPUÉS en malecón frente al mar con falda corta ajustada y top blanco."
+  }
+}

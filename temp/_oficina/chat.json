@@ -1057,6 +1057,22 @@
         "138bd17d74f1"
       ],
       "fecha": "2026-11-26T00:55:18.892Z"
+    },
+    {
+      "id": "393dc1544e",
+      "de": "coordinadora",
+      "texto": "¡Va! 🙌 Como me volviste a pasar el prompt, te armo 10 en cuadrado siguiendo tu imagen al pie de la letra: mismo antes y después, el frasco, el sello INVIMA, los 4 beneficios y la barra de $139.900. En cada una cambian la chica, los dos lugares y el titular. Te sale el costo aquí y no arranca nada sin tu sí. Si querías más o también en vertical, me dices.",
+      "acciones": [
+        {
+          "tipo": "imagenes",
+          "titulo": "Generando 10 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio) (sin costo por imagen)",
+          "href": "#/imagenes/_img-aguaje-complex-3-en-1-20261125-1955",
+          "lote": "_img-aguaje-complex-3-en-1-20261125-1955",
+          "ok": true,
+          "enChat": true
+        }
+      ],
+      "fecha": "2026-11-26T00:55:56.428Z"
     }
   ],
   "encargos": [
@@ -1241,6 +1257,17 @@
       "titulo": "10 imágenes de VITALDROPS",
       "costo": 0,
       "aprobado": "2026-11-21T22:38:08.234Z"
+    },
+    {
+      "estado": "produciendo",
+      "creado": "2026-11-26T00:55:56.425Z",
+      "id": "_img-aguaje-complex-3-en-1-20261125-1955",
+      "tipo": "imagenes",
+      "lote": "_img-aguaje-complex-3-en-1-20261125-1955",
+      "productoId": "producto-edb1",
+      "titulo": "10 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio)",
+      "costo": 0,
+      "aprobado": "2026-11-26T00:55:56.427Z"
     }
   ]
 }
