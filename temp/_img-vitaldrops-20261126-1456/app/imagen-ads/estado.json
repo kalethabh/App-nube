@@ -495,24 +495,20 @@
     "V07_4x5": {
       "v": "V07",
       "formato": "4:5",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T024"
-      },
-      "intentosApi": 2,
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1977112-1795736711903",
+      "orden": null,
+      "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T23:45:12.310Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V06_4x5": {
       "v": "V06",
