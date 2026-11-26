@@ -1,0 +1,94 @@
+{
+  "fecha": "2026-11-26T16:37:02.759Z",
+  "firma": "b7a7fb66f5e449c7",
+  "pedido": {
+    "producto": "AGUAJE COMPLEX 3 EN 1",
+    "modo": "Estructuras F52, F80, F64, F69, F40",
+    "oferta": "",
+    "sellos": [
+      "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024"
+    ],
+    "cantidad": 5
+  },
+  "total": 5,
+  "fallas": [
+    {
+      "criterio": "titular",
+      "nombre": "Titular",
+      "cuantas": 2,
+      "piezas": [
+        "V03_1x1",
+        "V04_1x1"
+      ],
+      "ejemplos": [
+        "Oferta y confianza: no aparece la oferta del tratamiento (3 frascos, 3 meses); solo están el pago al recibir y el registro.",
+        "Titular: no hay titular; solo las dos palabras «sin apoyo» y «triple acción», sin una palabra resaltada en color.",
+        "Titular: «TU PLAN COMPLETO» no tiene ninguna palabra resaltada en otro color."
+      ]
+    },
+    {
+      "criterio": "dolor_visual",
+      "nombre": "Dolor visual",
+      "cuantas": 1,
+      "piezas": [
+        "V02_1x1"
+      ],
+      "ejemplos": [
+        "Dolor visual: la foto del gimnasio solo muestra a la mujer triste, sin el resultado. Además sus glúteos ya se ven redondos en el leggins, así que no se entiende el problema."
+      ]
+    },
+    {
+      "criterio": "oferta_confianza",
+      "nombre": "Oferta y confianza",
+      "cuantas": 1,
+      "piezas": [
+        "V03_1x1"
+      ],
+      "ejemplos": [
+        "Oferta y confianza: no aparece la oferta del tratamiento (3 frascos, 3 meses); solo están el pago al recibir y el registro.",
+        "Titular: no hay titular; solo las dos palabras «sin apoyo» y «triple acción», sin una palabra resaltada en color."
+      ]
+    }
+  ],
+  "problemas": [
+    {
+      "pieza": "V02_1x1",
+      "problema": "Dolor visual: la foto del gimnasio solo muestra a la mujer triste, sin el resultado. Además sus glúteos ya se ven redondos en el leggins, así que no se entiende el problema."
+    },
+    {
+      "pieza": "V03_1x1",
+      "problema": "Oferta y confianza: no aparece la oferta del tratamiento (3 frascos, 3 meses); solo están el pago al recibir y el registro."
+    },
+    {
+      "pieza": "V03_1x1",
+      "problema": "Titular: no hay titular; solo las dos palabras «sin apoyo» y «triple acción», sin una palabra resaltada en color."
+    },
+    {
+      "pieza": "V04_1x1",
+      "problema": "Titular: «TU PLAN COMPLETO» no tiene ninguna palabra resaltada en otro color."
+    }
+  ],
+  "sinImagen": 0,
+  "rechazos": 0,
+  "reglas": [
+    {
+      "regla": "Cada imagen lleva un titular de 3 a 8 palabras, aunque la imagen de referencia no tenga. Una palabra del titular va en otro color: en text_layers el text_style dice cuál es la palabra y su color en hexadecimal, y el visual_prompt repite lo mismo. Dos palabras sueltas (por ejemplo las del mecanismo en un antes y después) no cuentan como titular. En forbidden_additions y final_generation_exclusions ",
+      "nueva": true,
+      "veces": 1,
+      "por_que": "Evita imágenes sin titular o con un titular de un solo color, sin una palabra que llame la atención."
+    },
+    {
+      "regla": "Si el producto se vende como tratamiento (varias unidades por varios meses), el bloque de oferta de abajo lleva además, como text_layer propio, esa oferta con números exactos (por ejemplo «Tratamiento completo: 3 frascos para 3 meses»), al lado de «Pagas al recibir». No basta con nombrarla solo en una viñeta o en otra parte de la imagen.",
+      "nueva": true,
+      "veces": 1,
+      "por_que": "Evita que la oferta del tratamiento no aparezca y en el bloque de abajo solo queden el pago al recibir y el registro."
+    },
+    {
+      "regla": "Cuando la escena del dolor va sola (sin la mitad del después), el cuerpo de la persona no puede contradecir el problema. El visual_prompt elige ropa que deje ver el defecto (suelta o caída, nunca leggins ajustados que formen curvas) y lo dice al revés también, por ejemplo «glúteos planos, sin curva, sin volumen». Al lado de esa escena va un recuadro pequeño con el resultado: la misma persona y la ",
+      "nueva": true,
+      "veces": 1,
+      "por_que": "Evita escenas de dolor donde el cuerpo ya se ve con el resultado y no se entiende el problema ni lo que se gana."
+    }
+  ],
+  "resumen": "2 de 5 fallan «Titular» (V03, V04) · 1 de 5 fallan «Dolor visual» (V02) · 1 de 5 fallan «Oferta y confianza» (V03)"
+}

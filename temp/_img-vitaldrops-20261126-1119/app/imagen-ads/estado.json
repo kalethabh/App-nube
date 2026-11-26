@@ -31,7 +31,7 @@
     "R001": {
       "tipo": "revision",
       "uuid": "10d6f6bd-e986-4469-bb66-e9f3201ec7eb",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -54,7 +54,8 @@
           "firma": "1724471-1795710720964",
           "ronda": 1
         }
-      ]
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -83,92 +84,143 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "1947979-1795710616804",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1947979-1795710616804",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 9,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T16:30:17.170Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2117640-1795710624739",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2117640-1795710624739",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 9,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T16:30:25.518Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "1936028-1795710623648",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1936028-1795710623648",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 9,
+          "titular": 9,
+          "texto_limpio": 8,
+          "frasco_fiel": 8,
+          "oferta_confianza": 9,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T16:30:25.518Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "1724471-1795710720964",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1724471-1795710720964",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 9,
+          "titular": 8,
+          "texto_limpio": 9,
+          "frasco_fiel": 8,
+          "oferta_confianza": 8,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T16:32:01.810Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "reescribiendo",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
@@ -176,7 +228,12 @@
       "motivo": null,
       "mensaje": null,
       "desde": null,
-      "pedido": null
+      "pedido": null,
+      "rescate": {
+        "vez": 1,
+        "dijo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

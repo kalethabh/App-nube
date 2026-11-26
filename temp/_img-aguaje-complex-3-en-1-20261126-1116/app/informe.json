@@ -1,0 +1,46 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-26T16:37:02.160Z",
+  "variaciones": 5,
+  "archivos": 5,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 2,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "Dolor visual: la foto del gimnasio solo muestra a la mujer triste, sin el resultado. Además sus glúteos ya se ven redondos en el leggins, así que no se entiende el problema.",
+          "No llega a 8 en: Dolor visual (6)."
+        ]
+      },
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "Oferta y confianza: no aparece la oferta del tratamiento (3 frascos, 3 meses); solo están el pago al recibir y el registro.",
+          "Titular: no hay titular; solo las dos palabras «sin apoyo» y «triple acción», sin una palabra resaltada en color.",
+          "No llega a 8 en: Titular (7), Oferta y confianza (7)."
+        ]
+      },
+      {
+        "pieza": "V04_1x1",
+        "problemas": [
+          "Titular: «TU PLAN COMPLETO» no tiene ninguna palabra resaltada en otro color.",
+          "No llega a 8 en: Titular (7)."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

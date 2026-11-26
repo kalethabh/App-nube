@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 2,
+    "R": 3,
     "A": 1,
     "T": 3
   },
@@ -52,6 +52,20 @@
         {
           "pieza": "V04_1x1",
           "firma": "1797531-1795710393378",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "dcf7f507-f580-4edc-a871-680eab53c130",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "1931229-1795710969135",
           "ronda": 1
         }
       ],
@@ -229,15 +243,30 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "1931229-1795710969135",
       "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1931229-1795710969135",
+        "puntajes": {
+          "estructura": 8,
+          "dolor_visual": 9,
+          "titular": 8,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T16:36:09.926Z",

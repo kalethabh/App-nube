@@ -1,0 +1,16 @@
+{
+  "reglas": [
+    {
+      "regla": "Cada imagen lleva un titular de 3 a 8 palabras, aunque la imagen de referencia no tenga. Una palabra del titular va en otro color: en text_layers el text_style dice cuál es la palabra y su color en hexadecimal, y el visual_prompt repite lo mismo. Dos palabras sueltas (por ejemplo las del mecanismo en un antes y después) no cuentan como titular. En forbidden_additions y final_generation_exclusions nunca se prohíbe un titular.",
+      "por_que": "Evita imágenes sin titular o con un titular de un solo color, sin una palabra que llame la atención."
+    },
+    {
+      "regla": "Si el producto se vende como tratamiento (varias unidades por varios meses), el bloque de oferta de abajo lleva además, como text_layer propio, esa oferta con números exactos (por ejemplo «Tratamiento completo: 3 frascos para 3 meses»), al lado de «Pagas al recibir». No basta con nombrarla solo en una viñeta o en otra parte de la imagen.",
+      "por_que": "Evita que la oferta del tratamiento no aparezca y en el bloque de abajo solo queden el pago al recibir y el registro."
+    },
+    {
+      "regla": "Cuando la escena del dolor va sola (sin la mitad del después), el cuerpo de la persona no puede contradecir el problema. El visual_prompt elige ropa que deje ver el defecto (suelta o caída, nunca leggins ajustados que formen curvas) y lo dice al revés también, por ejemplo «glúteos planos, sin curva, sin volumen». Al lado de esa escena va un recuadro pequeño con el resultado: la misma persona y la misma ropa.",
+      "por_que": "Evita escenas de dolor donde el cuerpo ya se ve con el resultado y no se entiende el problema ni lo que se gana."
+    }
+  ]
+}
