@@ -1,5 +1,5 @@
 {
-  "pid": 44398,
+  "pid": 44833,
   "paso": "anuncios",
   "script": "generar-imagen-ads.js",
   "args": [
@@ -7,9 +7,10 @@
     "--motor",
     "chatgpt",
     "--concurrencia",
-    "3"
+    "3",
+    "--heredar-log"
   ],
-  "comando": "node produccion/generar-imagen-ads.js temp/_img-aguaje-complex-3-en-1-20261126-0919 --motor chatgpt --concurrencia 3",
-  "inicio": "2026-11-26T14:29:52.361Z",
-  "app": 41073
+  "comando": "node produccion/generar-imagen-ads.js temp/_img-aguaje-complex-3-en-1-20261126-0919 --motor chatgpt --concurrencia 3 --heredar-log",
+  "inicio": "2026-11-26T14:31:54.891Z",
+  "app": 44641
 }

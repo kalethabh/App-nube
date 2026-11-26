@@ -35,9 +35,10 @@
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
       "estado": "corriendo",
-      "intentos": 1,
+      "intentos": 2,
       "inicio": "2026-11-26T14:29:52.355Z",
-      "detalle": "Creando 4 imágenes · Claude está escribiendo 6 anuncios: buscando en los archivos · 0 de 10 listas"
+      "retomado": true,
+      "detalle": "Creando 4 imágenes · Claude está escribiendo 6 anuncios: mirando las imágenes del anuncio · 0 de 10 listas"
     },
     {
       "id": "informe",
@@ -50,5 +51,5 @@
   "modoPrueba": false,
   "creado": "2026-11-26T14:19:26.788Z",
   "aprobado": "2026-11-26T14:19:26.788Z",
-  "actualizado": "2026-11-26T14:31:04.413Z"
+  "actualizado": "2026-11-26T14:31:58.893Z"
 }
