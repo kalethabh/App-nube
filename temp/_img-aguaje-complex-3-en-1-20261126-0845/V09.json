@@ -1,0 +1,85 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V09",
+    "structure_source": "library format F62 (Person with the problem on top, large bottle, 3 icons and explanation box) — structure np-06",
+    "reference_style": "Dark premium supplement ad: headline with a colored keyword, photo of the person in context, icon benefits, mechanism box, big bottle and a 3-seal strip",
+    "angle_used": "Benefit without sacrifice: more curves without needles or the operating room",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Dark plum #2B1226 (main background), deep magenta #B0105E (box border glow), hot fuchsia #E6177F (divider glow, icon strokes), bubblegum pink #FF8CC0 (highlighted words), pale blush pink #FBE3EE, bottle black #0E0E10, white #FFFFFF (main texts). Secondary for this variation: deep plum-purple #1A0B17 for the edges, warm fitting-room beige #CDB79E and warm amber light #F2B66D.",
+    "visual_style": "Real photographic person blended into a dark plum design canvas; the real bottle large, sharp and identical to the photo.",
+    "visual_atmosphere": "Intimate and premium; a private fitting-room moment turned into a calm, confident answer.",
+    "graphic_language": "Thin glowing fuchsia divider line, three white thin-line icons inside thin white circles, one rounded box with a thin glowing magenta border, a bottom strip with three icon+text items separated by thin vertical lines.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase, white with the keyword in bubblegum pink; body texts in Poppins Regular / SemiBold."
+  },
+  "creative_objective": "Reach the woman who compares herself online and feels flat: show the private fitting-room moment, then answer with a natural, easy option without needles or surgery, explained simply, with the big bottle as the anchor.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Headline with 'QUIRÓFANO' in pink. 2) The woman at the mirror. 3) The big bottle. 4) Paragraph, three icons, explanation box. 5) Bottom strip.",
+    "composition_style": "Left 58% is text and graphics; right 42% holds the person photo on top (fading into the plum background) and the big bottle in the middle-lower right.",
+    "spacing_and_structure": "Headline 6-36%, divider at 38%, paragraph 41-50%, icons 53-70%, box 72-84%, strip 88-99%. Bottle from 32% to 92% on the right, overlapping the lower part of the person photo.",
+    "lighting_and_depth": "Warm amber light from the right inside the fitting room; the photo blends softly into the dark plum background on its left and bottom edges; the bottle lit by a soft key from the upper left with a faint fuchsia rim light.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Dark background. Top left: 3-line headline, last word in a lighter color, then a thin glowing divider. Top right: photo of the person in her context, fading into the background. Middle left: a short 2-3 line paragraph with the last line highlighted, three icons in thin circles with captions in a row, and a rounded box with an icon and a 3-line explanation. Right: a big bottle. Bottom: a strip of three icon+text trust items separated by thin lines.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top left", "visual_function": "Main promise", "adaptation_rule": "'MÁS CURVAS / SIN AGUJAS NI / QUIRÓFANO' with 'QUIRÓFANO' in bubblegum pink", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "person photo", "position": "top right", "visual_function": "The problem in context", "adaptation_rule": "Woman in a fitting room looking sideways at her loose jeans in the mirror", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "divider", "position": "under the headline", "visual_function": "Separation", "adaptation_rule": "Thin glowing fuchsia line", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "paragraph", "position": "middle left", "visual_function": "Bridge from problem to solution", "adaptation_rule": "2 lines, second highlighted", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "3 icon benefits", "position": "middle left, in a row", "visual_function": "Benefits", "adaptation_rule": "'Acompaña tu rutina', 'Más energía', '2 cápsulas al día'", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "explanation box", "position": "lower left", "visual_function": "Mechanism", "adaptation_rule": "The plan's exact sentence about the triple action", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "big product", "position": "right", "visual_function": "Product hero", "adaptation_rule": "Real closed bottle, large", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "trust strip", "position": "bottom", "visual_function": "Trust", "adaptation_rule": "The user's exact seal, 'Origen vegetal', 'Pagas al recibir'", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Loose capsules next to the bottle (present in the reference, removed by brand rule)",
+      "Price, CTA button, stars, testimonials or customer counts",
+      "Any extra seal or certificate apart from the user's exact seal text",
+      "Brand logos other than the real bottle label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium ad on a dark background. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore any hand or surface in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, product, person or colors.\n\nBACKGROUND: deep dark plum #2B1226 with a subtle radial glow in the center-left and darker plum-purple #1A0B17 toward the edges, very fine grain.\n\nTOP RIGHT PHOTO (0-55% of height, right 45% of width): a real photo inside a clothing store fitting room: warm beige #CDB79E curtain on the left of the frame, a tall mirror, warm amber #F2B66D light coming from the right. A Colombian woman of about 27, warm tan skin with visible pores and natural texture, long dark straight hair, wearing a white fitted crop t-shirt and a pair of mid-wash blue jeans that look loose and baggy at the back, with empty folds below the glute. She stands sideways (profile), framed from the head to mid-thigh, her face turned to the mirror, looking over her shoulder at her own back with a doubtful, disappointed expression, one hand pulling the loose waistband at the back. 50 mm lens at chest height. The photo fades softly into the plum background on its left and bottom edges.\n\nTOP LEFT (6-36%, left 58%): headline in three lines, very heavy geometric sans-serif (Montserrat Black look), uppercase, left-aligned: line 1 'MÁS CURVAS' white #FFFFFF; line 2 'SIN AGUJAS NI' white; line 3 'QUIRÓFANO' bubblegum pink #FF8CC0, the largest. At 38%: a thin glowing hot fuchsia #E6177F horizontal line with a small bright spark in its middle, about 50% of the width.\n\nMIDDLE LEFT (41-50%): paragraph in Poppins Regular, white, two lines: 'Comer bien y entrenar pierna es la base.' and, in Poppins SemiBold bubblegum pink #FF8CC0, 'Este apoyo natural acompaña tu proceso.'\n\nICONS (53-70%, left 58%): three columns, each a thin white circle (about 11% of the width) with a white thin-line icon inside, and a centered caption below in Poppins Regular white: 1) dumbbell icon, 'Acompaña tu rutina'; 2) lightning bolt icon, 'Más energía'; 3) small calendar icon, '2 cápsulas al día'.\n\nEXPLANATION BOX (72-84%, left 55%): a rounded rectangle filled slightly lighter plum #3A1A33 with a thin glowing deep magenta #B0105E border; at its left a white leaf icon; to the right, in Poppins Regular white, three lines: 'Aguaje, fenogreco y maca negra con vitaminas A y E, para acompañar tu proceso de curvas.' with 'para acompañar tu proceso de curvas.' in bubblegum pink.\n\nRIGHT BOTTLE (32-92% of height, right 40%): ONE closed bottle, large, about 56% of the canvas height, standing upright with a slight three-quarter turn but the label facing the camera, fully legible and never mirrored, photographic and sharp, overlapping the bottom of the fitting-room photo: matte black cylinder about 1.6 times taller than wide, straight sides, no neck, wide glossy hot-pink #E6177F cap almost as wide as the body with a small white 'VITALABH' pattern, hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', the pink banner, italic pink 'TRIPLE ACCIÓN' and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'. A faint fuchsia rim light on its right edge separates it from the dark background; matte, no rainbow, no prism light, no lens flare.\n\nBOTTOM STRIP (88-99%, left 62%): three items in a row separated by thin white vertical lines, each a small white thin-line icon and Poppins Regular white text: 1) shield icon, 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024' (in two lines, small); 2) leaf icon, 'Origen vegetal'; 3) hand-with-package icon, 'Pagas al recibir'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline line 1", "reference_position": "top left", "text_style": "Montserrat Black look, uppercase, white", "text": "MÁS CURVAS" },
+    { "block_id": "text_block_02", "reference_function": "main headline line 2", "reference_position": "top left, line 2", "text_style": "Montserrat Black look, uppercase, white", "text": "SIN AGUJAS NI" },
+    { "block_id": "text_block_03", "reference_function": "main headline line 3 (highlighted)", "reference_position": "top left, line 3", "text_style": "Montserrat Black look, uppercase, bubblegum pink #FF8CC0, largest", "text": "QUIRÓFANO" },
+    { "block_id": "text_block_04", "reference_function": "paragraph line 1", "reference_position": "middle left", "text_style": "Poppins Regular, white", "text": "Comer bien y entrenar pierna es la base." },
+    { "block_id": "text_block_05", "reference_function": "paragraph line 2 (highlighted)", "reference_position": "middle left, under line 1", "text_style": "Poppins SemiBold, bubblegum pink #FF8CC0", "text": "Este apoyo natural acompaña tu proceso." },
+    { "block_id": "text_block_06", "reference_function": "benefit 1", "reference_position": "icon row, 1st, under dumbbell icon", "text_style": "Poppins Regular, white, centered", "text": "Acompaña tu rutina" },
+    { "block_id": "text_block_07", "reference_function": "benefit 2", "reference_position": "icon row, 2nd, under lightning icon", "text_style": "Poppins Regular, white, centered", "text": "Más energía" },
+    { "block_id": "text_block_08", "reference_function": "benefit 3", "reference_position": "icon row, 3rd, under calendar icon", "text_style": "Poppins Regular, white, centered", "text": "2 cápsulas al día" },
+    { "block_id": "text_block_09", "reference_function": "explanation box", "reference_position": "lower left rounded box", "text_style": "Poppins Regular white, last phrase in bubblegum pink", "text": "Aguaje, fenogreco y maca negra con vitaminas A y E, para acompañar tu proceso de curvas." },
+    { "block_id": "text_block_10", "reference_function": "trust item 1 (user seal, exact)", "reference_position": "bottom strip, 1st, with shield icon", "text_style": "Poppins Regular, small, white", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" },
+    { "block_id": "text_block_11", "reference_function": "trust item 2", "reference_position": "bottom strip, 2nd, with leaf icon", "text_style": "Poppins Regular, white", "text": "Origen vegetal" },
+    { "block_id": "text_block_12", "reference_function": "trust item 3", "reference_position": "bottom strip, 3rd, with package icon", "text_style": "Poppins Regular, white", "text": "Pagas al recibir" }
+  ],
+  "mandatory_visual_elements": [
+    "Real woman in a fitting room looking sideways at her loose jeans in the mirror, top right, fading into the background",
+    "Thin glowing fuchsia divider under the headline",
+    "Three white thin-line icons in thin circles",
+    "Rounded explanation box with a glowing magenta border and a leaf icon",
+    "The real closed bottle, large, on the right, label legible",
+    "Bottom strip with three icon+text items separated by thin lines"
+  ],
+  "final_generation_exclusions": [
+    "No loose capsules, no pills, no open bottle.",
+    "No needles, syringes or surgical imagery.",
+    "No price, CTA button, stars or customer counts.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. 'Acompaña' instead of a promise; food and training named as the base; no direct callout of the reader's body.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

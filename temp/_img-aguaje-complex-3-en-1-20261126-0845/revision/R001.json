@@ -1,0 +1,39 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V01_1x1",
+      "ok": true,
+      "problemas": [],
+      "puntajes": { "estructura": 9, "dolor_visual": 9, "titular": 9, "texto_limpio": 9, "frasco_fiel": 9, "oferta_confianza": 8, "diferencia_real": 9 }
+    },
+    {
+      "pieza": "V02_1x1",
+      "ok": false,
+      "problemas": [
+        "Dolor visual: no se ve el problema. Solo hay frasco y textos, así que hay que leer para entender de qué se trata.",
+        "Oferta y confianza: no hay bloque de oferta ni la línea «Pagas al recibir». Solo está el sello de registro en el pedestal."
+      ],
+      "puntajes": { "estructura": 9, "dolor_visual": 5, "titular": 8, "texto_limpio": 9, "frasco_fiel": 9, "oferta_confianza": 7, "diferencia_real": 9 },
+      "correccion_en": "Keep the same layout and all texts. Add a small rounded photo inset at the upper left of the bottle zone showing a woman in profile doing a squat in loose, flat-fitting jeans with a frustrated look, so the problem reads at a glance without covering any fact. On the front of the pedestal, above the seal line, add one bold dark plum line 'Pagas al recibir' with a small white hand-and-cash icon."
+    },
+    {
+      "pieza": "V03_1x1",
+      "ok": false,
+      "problemas": [
+        "Dolor visual: la foto solo muestra el resultado feliz. El problema no se entiende sin leer.",
+        "Oferta y confianza: solo están el botón y el sello. Falta la línea «Pagas al recibir»."
+      ],
+      "puntajes": { "estructura": 9, "dolor_visual": 5, "titular": 9, "texto_limpio": 9, "frasco_fiel": 9, "oferta_confianza": 7, "diferencia_real": 9 },
+      "correccion_en": "Keep the same scene, woman, bottle and texts. Under the fuchsia pill add a small rounded white card with two side-by-side mini photos of the same jeans from the side: left labeled 'ANTES' (loose, flat fit at the back), right labeled 'DESPUÉS' (fitted, curvier), so the change reads in one second. Under it add the white line 'Pagas al recibir' with a soft dark shadow. Do not cover the bottle label."
+    },
+    {
+      "pieza": "V04_1x1",
+      "ok": false,
+      "problemas": [
+        "Dolor visual: el personaje abraza el jean con esperanza, pero el problema (querer curvas y temer la cirugía) no se ve sin leer."
+      ],
+      "puntajes": { "estructura": 9, "dolor_visual": 6, "titular": 9, "texto_limpio": 9, "frasco_fiel": 9, "oferta_confianza": 8, "diferencia_real": 9 },
+      "correccion_en": "Keep the same layout, bottle, botanicals and texts. Make the problem visible: the 3D woman holds up the folded jeans showing they are loose and empty at the back, with a slightly worried look first turning into hope toward the bottle; add a small faded thought bubble near her head with a crossed-out surgical scalpel icon (no text). Keep the bottle label fully visible."
+    }
+  ]
+}

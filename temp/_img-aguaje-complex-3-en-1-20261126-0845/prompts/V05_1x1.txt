@@ -1,0 +1,51 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 image that looks like a real Instagram story screenshot taken on a phone and cropped to square. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore any hand or surface in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, bottle or hand.
+
+BACKGROUND (full canvas): a real bedroom in the early morning. Upper half: a window with sheer cream #F6EFE6 curtains, heavily blurred (f/1.8 phone portrait look), soft daylight glowing through, slightly cool white balance. Lower half: an unmade bed with rumpled white cotton sheets #F4F2EE, visible soft folds and wrinkles, fine cotton weave texture, out of focus behind the hand. Subtle phone-camera grain, no filters.
+
+TOP (8-26% of height): a native Instagram question sticker, centered, about 70% of the canvas width, rounded corners. Its header strip is dark charcoal #262626 with the text 'Hazme una pregunta' in white, Instagram system sans-serif Medium (SF Pro look), centered. Its body is white #FFFFFF with the question '¿Eso sí sirve o es puro cuento?' in black #111111, same sans-serif Medium, larger, centered on one line.
+
+CENTER (28-46%): a plain white #FFFFFF rectangular box, about 90% of the width, no rounded corners, tight padding, with four centered lines in a classic serif (Georgia look) regular, black #111111, the key phrases in bold: line 1 'Te soy sincera: yo también dudaba.' (bold: 'yo también dudaba'); line 2 'No es magia, es un apoyo natural.' (bold: 'es un apoyo natural'); line 3 'Lo tomo 2 cápsulas al día con mis comidas' (bold: '2 cápsulas al día'); line 4 'y le cumplo a mi rutina de pierna.' (bold: 'mi rutina de pierna').
+
+BOTTOM (46-94%): a real woman's hand, light-medium Latina skin with visible pores, fine knuckle creases and natural tone variation, short natural unpainted nails, entering from the lower left and holding ONE closed bottle upright, centered, the bottle about 44% of the canvas height, label facing the camera, straight on, fully legible and never mirrored, fingers wrapped around the lower half without covering the word 'AGUAJE'. The bottle: a matte black cylinder about 1.6 times taller than wide with straight sides and no neck, a wide glossy hot-pink #E6177F screw cap almost as wide as the body with a small white 'VITALABH' pattern, a hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', the thin pink banner, the italic pink 'TRIPLE ACCIÓN' and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'. Matte surface with only a soft window highlight on the cap; no rainbow, no prism light, no lens flare. Camera: phone held at about 40 cm, slightly above, natural perspective.
+
+VERY BOTTOM (95-99%): one small centered line in white sans-serif (Poppins SemiBold look) with a soft dark shadow for legibility over the sheets: 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024'.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- sticker header (top center, dark header strip of the sticker): "Hazme una pregunta" — Instagram system sans-serif Medium, white on dark charcoal #262626
+- main headline (customer question) (top center, white body of the sticker): "¿Eso sí sirve o es puro cuento?" — Instagram system sans-serif Medium, larger, black #111111 on white
+- answer line 1 (center, white answer box, line 1): "Te soy sincera: yo también dudaba." — Georgia-look serif, black, 'yo también dudaba' in bold
+- answer line 2 (center, white answer box, line 2): "No es magia, es un apoyo natural." — Georgia-look serif, black, 'es un apoyo natural' in bold
+- answer line 3 (center, white answer box, line 3): "Lo tomo 2 cápsulas al día con mis comidas" — Georgia-look serif, black, '2 cápsulas al día' in bold
+- answer line 4 (center, white answer box, line 4): "y le cumplo a mi rutina de pierna." — Georgia-look serif, black, 'mi rutina de pierna' in bold
+- trust item (user seal, exact) (very bottom, centered): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Poppins SemiBold look, small, white with soft dark shadow
+
+BRAND IDENTITY:
+- color_palette: Native story look: the question sticker in Instagram style (dark charcoal #262626 header, white #FFFFFF body), answer box white #FFFFFF with black #111111 text. Brand colors appear only through the real bottle (bottle black #0E0E10, hot fuchsia #E6177F cap and band). Secondary for this variation: morning cream #F6EFE6 curtains and soft white bedding #F4F2EE.
+- text_typography: Sticker texts in the Instagram system sans-serif look (SF Pro / Helvetica Neue Medium); the answer in a classic serif (Georgia / Times look) regular with key phrases in bold, black.
+
+MANDATORY ELEMENTS:
+- Native Instagram question sticker with dark header
+- Plain white answer box with 4 serif lines and bold phrases
+- Real hand with short natural nails holding the closed real bottle, label legible
+- Blurred bedroom window with sheer curtains and rumpled white sheets, morning light
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle.
+- No emojis, hearts, stickers or icons apart from the question sticker.
+- No customer counts, figures of results, days or weeks.
+- No long manicured or painted nails.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Customer counts, figures, percentages, weeks or days of results
+- Do not add: Price, CTA button, offer box, stars or ratings
+- Do not add: Benefit icons or lists
+- Do not add: Emojis, hearts or extra stickers
+- Do not add: Any brand logo apart from the real bottle label
+- Do not add: Loose capsules or an open bottle
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

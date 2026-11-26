@@ -1,0 +1,54 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 flat vector illustration ad. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore any hand or surface in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, product, bodies or colors.
+
+BACKGROUND: pale blush pink #FBE3EE with a soft vertical center stripe in light fuchsia #F7B6D2 (about 30% of the width) running from top to bottom, subtle soft gradients, a few faint illustrated leaf silhouettes in the lower corners and small white sparkles near the right figure.
+
+TOP (0-22% of height): centered headline in two lines. Line 1: 'ES OFICIAL:' in a very heavy geometric sans-serif (Montserrat Black look), uppercase, dark plum #2B1226, large. Line 2: 'mi jean por fin me horma' in a flowing bold script/italic (brush script look), deep magenta #B0105E, slightly larger than line 1, with a thin white outline for contrast.
+
+CENTER (22-74%): three columns. LEFT column: a flat illustrated side profile of a slim young Colombian woman of about 22 (adult proportions), facing right, shown only from the waist to just below the knees, standing on a low rounded pedestal in soft magenta. BEFORE (a different day): a loose grey crop tee hem visible at the waist, light-wash denim jeans #5B7FA6 that hang loose and baggy at the back, the fabric making empty vertical folds below the glute, flat hip line, slightly slouched posture. RIGHT column: the SAME woman, same height and scale, facing left, on an identical pedestal. AFTER (another day): a fitted hot fuchsia top hem, dark-wash jeans #2E3F66 that fit snugly at the back with a visibly rounder, fuller hip and glute curve and smooth fabric without empty folds, upright confident posture, small sparkles beside her. The difference is clear but believable, never exaggerated, never sexual. Flat skin #D9A07A with soft shading. CENTER column: ONE closed real bottle standing upright on a taller round pedestal in pale pink with a darker fuchsia rim, the bottle about 34% of the canvas height, label facing the camera, straight on, fully legible and never mirrored, photographic and sharp: matte black cylinder about 1.6 times taller than wide, straight sides, no neck, wide glossy hot-pink #E6177F cap almost as wide as the body with a small white 'VITALABH' pattern, hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', the pink banner, italic pink 'TRIPLE ACCIÓN' and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'; matte, no rainbow, no prism light, no lens flare. Overlapping the lower right corner of the bottle's pedestal, a circular stamp seal about 20% of the width: white disc with a thick hot fuchsia #E6177F ring; inside, in dark plum Poppins ExtraBold, 'PLAN DE 3 MESES' on top and '3 FRASCOS' below, separated by a small dot; no other text, no stars.
+
+BOTTOM (75-95%): LEFT column list, Poppins SemiBold, dark plum #2B1226, each item with a thin dark plum ✗ marker: 'El jean me quedaba suelto atrás', 'Hacía sentadillas sin ver cambios', 'Evitaba las fotos de cuerpo entero'. CENTER column, on the stripe: 'Mi plan natural' in Poppins ExtraBold, dark plum, two lines centered. RIGHT column list, Poppins SemiBold, dark plum, each item with a hot fuchsia ✓ marker: 'El jean me horma', 'Le cumplo a mi rutina', 'Me tomo fotos con ganas'.
+
+VERY BOTTOM (96-99%): one small centered line in Poppins SemiBold, dark plum #2B1226: 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024'.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (top center): "ES OFICIAL:" — Montserrat Black look, uppercase, dark plum #2B1226
+- main headline line 2 (highlighted promise) (top center, under line 1): "mi jean por fin me horma" — Bold brush script / italic, deep magenta #B0105E, thin white outline
+- offer seal (circular seal at the lower right of the center bottle): "PLAN DE 3 MESES · 3 FRASCOS" — Poppins ExtraBold, dark plum on white disc with fuchsia ring
+- before list item 1 (bottom left, with ✗): "El jean me quedaba suelto atrás" — Poppins SemiBold, dark plum
+- before list item 2 (bottom left, with ✗): "Hacía sentadillas sin ver cambios" — Poppins SemiBold, dark plum
+- before list item 3 (bottom left, with ✗): "Evitaba las fotos de cuerpo entero" — Poppins SemiBold, dark plum
+- center label (bottom center column): "Mi plan natural" — Poppins ExtraBold, dark plum
+- after list item 1 (bottom right, with ✓): "El jean me horma" — Poppins SemiBold, dark plum, fuchsia check
+- after list item 2 (bottom right, with ✓): "Le cumplo a mi rutina" — Poppins SemiBold, dark plum, fuchsia check
+- after list item 3 (bottom right, with ✓): "Me tomo fotos con ganas" — Poppins SemiBold, dark plum, fuchsia check
+- trust item (user seal, exact) (very bottom, centered): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Poppins SemiBold, small, dark plum
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (circular seal ring, check marks), deep magenta #B0105E (script line), dark plum #2B1226 (headline, list text, center label), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (background), white #FFFFFF. Secondary for this variation: soft fuchsia center stripe #F7B6D2, denim blues #5B7FA6 (light wash) and #2E3F66 (dark wash), warm tan skin #D9A07A.
+- text_typography: 'ES OFICIAL:' in a very heavy geometric sans-serif (Montserrat Black look); the second line in a flowing bold script/italic (Pacifico / brush script look); lists and center label in Poppins SemiBold / Bold.
+
+MANDATORY ELEMENTS:
+- The same slim woman illustrated in profile from the waist to the knees, before (left, loose light jeans) and after (right, fitted dark jeans)
+- The real closed bottle on a center pedestal, label legible
+- Circular stamp seal with fuchsia ring
+- Two lists with ✗ and ✓ markers and the center label
+- Soft fuchsia vertical center stripe on a blush background
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle.
+- No stars, ratings, customer counts or prices in the seal or anywhere.
+- No underwear, no bare midriff close-ups, nothing sexualized.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Customer counts, reviews, star ratings or numbers in the circular seal
+- Do not add: Price, discount or 'free' claims
+- Do not add: CTA button
+- Do not add: Faces or upper bodies in underwear: the bodies are from the waist to the knees, wearing jeans and a top
+- Do not add: Loose capsules or an open bottle
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

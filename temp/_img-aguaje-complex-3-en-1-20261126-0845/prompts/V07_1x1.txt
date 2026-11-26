@@ -1,0 +1,49 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 real-photo ad. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore any hand or surface in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, product, person or colors.
+
+BACKGROUND: a small neighborhood gym in Colombia, blurred (f/2): a high window letting in cool daylight on the upper left, light grey-blue walls #DDE3EA, a rack of black rubber dumbbells #2A2A2A and a squat rack softly out of focus, concrete grey floor #A7ADB4. The upper area is light and airy so the headline reads clearly.
+
+TOP (0-28% of height): centered headline in three lines, very heavy geometric sans-serif (Montserrat Black look), uppercase. Line 1 'SENTADILLAS' giant, about 90% of the width, dark plum #2B1226. Lines 2 and 3 smaller, in hot fuchsia #E6177F: 'Y EL JEAN' and 'SIGUE SUELTO'.
+
+CENTER-LEFT (28-100%, left 50% of width): a real Colombian woman of about 29, warm olive-brown skin with visible pores and a light sheen of sweat on the forehead and collarbones, dark hair in a messy high ponytail with loose strands, wearing a dusty-rose sports bra-top under an open grey zip hoodie and black leggings. She sits on a padded gym bench, shown from the waist up, facing the camera at a slight three-quarter angle, her right hand on her forehead, eyes closed, brows pulled together, mouth tense: tired frustration after training. Plano medio, 35 mm lens at eye level. The fuchsia wave cuts her at the waist.
+
+CENTER-RIGHT (30-62%, from 50% to 80% of width): three stacked rows, evenly spaced. Each row: a solid hot fuchsia #E6177F circle about 9% of the width with a white thin-line icon, and to its right a two-line label in Poppins Bold, dark plum #2B1226. Row 1: jeans icon, 'Jean suelto atrás'. Row 2: leg icon, 'Piernas delgadas'. Row 3: low battery icon, 'Sin energía para entrenar'.
+
+BOTTOM (62-100%): a large smooth hot fuchsia #E6177F wave rising from the lower left toward the right, with a darker magenta #B0105E edge line. Lower right (55-95% of height): ONE closed bottle on a round pale blush #FBE3EE pedestal, the bottle about 34% of the canvas height, label facing the camera, straight on, fully legible and never mirrored, photographic and sharp: matte black cylinder about 1.6 times taller than wide, straight sides, no neck, wide glossy hot-pink cap almost as wide as the body with a small white 'VITALABH' pattern, hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', the pink banner, italic pink 'TRIPLE ACCIÓN' and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'; matte, no rainbow, no prism light, no lens flare. Lower left (84-94%): a rounded dark plum #2B1226 pill about 45% of the width with a white circle holding a fuchsia dumbbell icon at its left, and the text 'Acompaña tu rutina de pierna' in white Poppins Bold, with 'rutina de pierna' heavier. Very bottom right (96-99%), small white Poppins SemiBold on the wave: 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024'.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (problem word) (top center, giant): "SENTADILLAS" — Montserrat Black look, uppercase, dark plum #2B1226
+- main headline line 2 (top center, under line 1): "Y EL JEAN" — Montserrat Black look, uppercase, hot fuchsia #E6177F
+- main headline line 3 (top center, under line 2): "SIGUE SUELTO" — Montserrat Black look, uppercase, hot fuchsia #E6177F
+- symptom 1 (center-right, row 1, next to jeans icon): "Jean suelto atrás" — Poppins Bold, dark plum
+- symptom 2 (center-right, row 2, next to leg icon): "Piernas delgadas" — Poppins Bold, dark plum
+- symptom 3 (center-right, row 3, next to battery icon): "Sin energía para entrenar" — Poppins Bold, dark plum
+- promise pill (lower left, inside the dark plum pill): "Acompaña tu rutina de pierna" — Poppins Bold, white
+- trust item (user seal, exact) (very bottom right, on the wave): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Poppins SemiBold, small, white
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (bottom wave, icon circles, pill), deep magenta #B0105E, dark plum #2B1226 (giant first headline line and icon labels), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (pedestal), white #FFFFFF. Secondary for this variation: cool gym grey-blue #DDE3EA light, concrete grey #A7ADB4 and black rubber #2A2A2A.
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; icon labels and pill in Poppins SemiBold / Bold.
+
+MANDATORY ELEMENTS:
+- Real frustrated woman in gym clothes on a bench, hand on forehead, waist up on the left
+- Three fuchsia circles with white line icons stacked center-right
+- Hot fuchsia wave across the lower part
+- The real closed bottle on a round pedestal at the lower right, label legible
+- Dark plum pill with a dumbbell icon at the lower left
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle, no leaves next to the bottle.
+- No question marks in the headline.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Price, offer, stars, testimonials or customer counts
+- Do not add: A CTA button different from the promise pill
+- Do not add: Loose capsules, open bottle or leaves next to the bottle
+- Do not add: Exaggerated body close-ups
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

@@ -1,0 +1,76 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V10",
+    "structure_source": "library format F38 (Flat illustration side by side) — structure mv-06",
+    "reference_style": "Native flat illustration comparison: bold headline, subtitle, two outlined cartoon figures split by a vertical line with wavy yellow labels",
+    "angle_used": "Comparison with the alternative: same jeans, with a plan vs without a plan",
+    "ad_format": "Single Image Ad (native illustration)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion native-looking image ad"
+  },
+  "global_identity": {
+    "color_palette": "Dark plum #2B1226 (headline, outlines, label text), hot fuchsia #E6177F (vertical divider line), deep magenta #B0105E, bubblegum pink #FF8CC0 (left t-shirt), pale blush pink #FBE3EE, white #FFFFFF. Secondary for this variation: warm white #FFFAF4 background (the structure dictates a light background), sunny yellow #FFE53B labels, denim blue #3F5F8F, muted grey #9EA3A8 (right t-shirt), warm tan skin #E0A984 and dark brown hair #3B2418.",
+    "visual_style": "Simple flat cartoon illustration with thick dark outlines and minimal shading, like a native explainer post; no product shown.",
+    "visual_atmosphere": "Clear, friendly and instantly understandable; a gentle contrast, never mocking.",
+    "graphic_language": "Thick dark plum outlines, flat fills, one thin vertical fuchsia line splitting the canvas, two big yellow labels with soft wavy blob edges.",
+    "text_typography": "Headline in a very heavy rounded geometric sans-serif (Montserrat Black look), uppercase; subtitle in Poppins Medium; labels in a heavy condensed rounded sans (Poppins ExtraBold look)."
+  },
+  "creative_objective": "Make the difference obvious in one glance: the same woman with the same jeans, one with her plan (2 capsules, food and leg routine) and one without, so the reader sees the plan as the deciding factor.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Headline. 2) The two figures side by side. 3) The yellow labels. 4) The subtitle and the small seal line.",
+    "composition_style": "Headline and subtitle across the top 25%; two equal panels below split by a vertical line in the exact center; each figure centered in its panel at the same scale and height.",
+    "spacing_and_structure": "Headline 2-15%, subtitle 16-25%, figures 27-96%, seal line 96-99%; labels sit on the t-shirts at the same height on both sides.",
+    "lighting_and_depth": "Flat, even, no realistic lighting; only a soft flat shade on the jeans to show shape.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Light background. Top: 2-line very bold headline and a 2-line subtitle under it. Below: two flat cartoon figures with thick outlines, split by one thin vertical colored line in the center: the good state on the LEFT, the problem on the RIGHT. Each figure has a big yellow label with wavy edges over its t-shirt. No product, no offer, no button.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top center", "visual_function": "Comparison hook", "adaptation_rule": "'MISMO JEAN, / OTRA HISTORIA'", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "subtitle", "position": "under the headline", "visual_function": "What the plan is", "adaptation_rule": "The plan's exact subtitle", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "illustrated figure (good state)", "position": "left panel", "visual_function": "Desired result", "adaptation_rule": "Woman in profile, jeans fitting at the back, smiling", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "illustrated figure (problem)", "position": "right panel", "visual_function": "The problem", "adaptation_rule": "Same woman, same jeans loose at the back, serious", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "vertical divider", "position": "exact center", "visual_function": "Split", "adaptation_rule": "Thin hot fuchsia line", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "two wavy yellow labels", "position": "on each t-shirt", "visual_function": "Name each state", "adaptation_rule": "'Con mi plan' / 'Sin un plan'", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "trust line (user seal, form rule)", "position": "very bottom, centered", "visual_function": "The user's exact seal text", "adaptation_rule": "Small dark plum line", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "The product bottle (the structure has no product)",
+      "Price, offer, CTA button, bottom bar, stars or testimonials",
+      "Icons or benefit lists",
+      "Any sexualized pose or underwear"
+    ]
+  },
+  "visual_prompt": "Square 1:1 flat cartoon illustration ad, native explainer style. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, characters, faces or colors. No product bottle appears in this image.\n\nBACKGROUND: plain warm white #FFFAF4, flat, no texture.\n\nTOP (2-15% of height): centered headline in two lines, very heavy rounded geometric sans-serif (Montserrat Black look), uppercase, dark plum #2B1226: 'MISMO JEAN,' / 'OTRA HISTORIA', with 'OTRA HISTORIA' in hot fuchsia #E6177F.\n\nSUBTITLE (16-25%): centered, two lines, Poppins Medium, near-black #1A1A1A: '2 cápsulas al día, buena comida y rutina de pierna: tu plan de 3 meses.'\n\nCENTER AND BOTTOM (27-96%): a thin hot fuchsia #E6177F vertical line exactly in the middle from 27% down to 96%. Two panels, each with the SAME cartoon woman (a Colombian adult of about 30, warm tan skin #E0A984, dark brown wavy hair #3B2418 in a low ponytail, simple friendly face) drawn with thick dark plum outlines and flat fills, shown in side profile from the head down to just below the knees, same scale and same height, both wearing the SAME mid-blue jeans #3F5F8F.\nLEFT PANEL (with her plan, another day): she faces right in profile with her face turned slightly toward the viewer, a warm open smile; bubblegum pink #FF8CC0 fitted t-shirt; upright confident posture; the jeans fit snugly at the back with a rounder, fuller glute and hip curve and smooth fabric, a small soft shine line on the denim.\nRIGHT PANEL (without a plan, another day): she faces left in profile, face turned slightly toward the viewer, serious, slightly downturned mouth; faded muted grey #9EA3A8 loose t-shirt; slightly slumped shoulders; the same jeans hang loose and baggy at the back with empty vertical folds below a flatter glute line. The difference is clear but believable, never mocking, never sexual.\nOn each t-shirt, at chest height and the same height on both sides, a big sunny yellow #FFE53B label with soft wavy blob edges, text in a heavy rounded sans (Poppins ExtraBold look), dark plum #2B1226, two lines: left 'Con mi plan', right 'Sin un plan'.\n\nVERY BOTTOM (96-99%): one small centered line in Poppins SemiBold, dark plum #2B1226, on a thin warm white band over the figures: 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top center, two lines", "text_style": "Montserrat Black look, uppercase, dark plum #2B1226 with 'OTRA HISTORIA' in hot fuchsia #E6177F", "text": "MISMO JEAN, OTRA HISTORIA" },
+    { "block_id": "text_block_02", "reference_function": "subtitle", "reference_position": "under the headline, centered, two lines", "text_style": "Poppins Medium, near-black", "text": "2 cápsulas al día, buena comida y rutina de pierna: tu plan de 3 meses." },
+    { "block_id": "text_block_03", "reference_function": "label (good state)", "reference_position": "left figure's t-shirt, yellow wavy label", "text_style": "Poppins ExtraBold look, dark plum on yellow #FFE53B", "text": "Con mi plan" },
+    { "block_id": "text_block_04", "reference_function": "label (problem)", "reference_position": "right figure's t-shirt, yellow wavy label", "text_style": "Poppins ExtraBold look, dark plum on yellow #FFE53B", "text": "Sin un plan" },
+    { "block_id": "text_block_05", "reference_function": "trust item (user seal, exact)", "reference_position": "very bottom, centered", "text_style": "Poppins SemiBold, small, dark plum", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "The same cartoon woman twice in side profile, head to knees, same scale, same jeans",
+    "Left: fitted jeans, pink t-shirt, smiling; right: loose jeans, grey t-shirt, serious",
+    "Thin hot fuchsia vertical divider in the exact center",
+    "Two big yellow labels with wavy edges on the t-shirts",
+    "Plain warm white background"
+  ],
+  "final_generation_exclusions": [
+    "No product bottle, no capsules.",
+    "No price, offer, CTA button, icons or lists.",
+    "No underwear, nothing sexualized, no mocking expressions.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. The comparison is about having a plan (capsules, food and routine), not a guaranteed result; no callout of the reader's body.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}
