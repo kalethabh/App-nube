@@ -23,6 +23,8 @@ import { leerSkill, verificarSesion, DIR_SKILL } from './verificar.js';
 import { R, idsDelLote, piezaId, vDe, formatoDe, fotoDelLote, nombreFormato } from './disco.js';
 import { esVariado, nivelDe, cupos, VARIABLES, ESTILOS, CRITERIOS, NOTA_MINIMA } from './variedad.js';
 import { estructurasDelLote, copiarEstructuras, copiarReferenciasDe, NOMBRES_CRITERIOS } from './comparacion.js';
+import { textoReglasImagen } from './supervisor.js';
+import { textoParaClaude } from '../aprendizajes.js';
 import { PAISES } from './precios.js';
 
 export const HERRAMIENTAS = ['Read', 'Glob', 'Grep', 'Write', 'Edit'];
@@ -361,7 +363,7 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
   return {
     tipo: 'estrategia',
     ids,
-    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoEstructuras(brief, lote, refsEstructuras) + textoVenta(brief) + textoValidados(lote, validados) + textoTitulosElegidos(brief),
+    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoEstructuras(brief, lote, refsEstructuras) + textoVenta(brief) + `\n${DETALLE_VISUAL}\n` + textoReglasImagen() + textoAprendizajesGenerales() + textoValidados(lote, validados) + textoTitulosElegidos(brief),
     escribe: ['producto.json', 'estrategia.json', 'plan.json', ...ids.map((v) => `${v}.json`), 'app/imagen-ads/bloqueo.json', ...(esDelAgente(brief) ? ['analisis-ganador.json'] : [])],
     maxTurnos: 80 + 2 * k + 2 * validados.length,
     timeoutMin: Math.min(120, 25 + 0.4 * n),
@@ -427,6 +429,8 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
       textoClaude('tarea-imagen-ads-prompts', { lote, ids: listaDeIds(ids), variaciones: JSON.stringify(variaciones, null, 2), logo: textoLogo(brief) }) +
       textoTitulosElegidos(brief) +
       textoVariadoPrompts(lote, brief) +
+      `\n${DETALLE_VISUAL}\n` +
+      textoReglasImagen() +
       textoEstructurasPrompts(lote, ids, conEstructura, formatos) +
       textoVenta(brief) +
       (esDelAgente(brief)
@@ -542,6 +546,7 @@ export function sesionAjuste({ carpeta, lote, brief, tanda, pedidos }) {
     tipo: 'ajuste',
     prompt:
       textoClaude('tarea-imagen-ads-ajuste', { lote, pedidos: lineas, tanda }) +
+      textoReglasImagen() +
       (esDelAgente(brief) ? `\nEste lote es del agente de variaciones: al corregir, conserva el nivel, los invariables y la hipótesis de la variación (plan.json, \`analisis-ganador.json\`) y la dirección de arte limpia de \`${GUIA_AGENTE}\`.\n` : ''),
     escribe: [...vs, `ajustes/${tanda}.json`],
     maxTurnos: 40,
@@ -573,10 +578,11 @@ export function textoEstructuras(brief, lote = '', refs = {}) {
   const lista = [...formatos.values()].filter((f) => f.estructura);
   if (!lista.length) return '';
   const fijas = Array.isArray(brief?.estructuras) ? brief.estructuras.filter((id) => formatos.get(id)?.estructura) : [];
+  const sugeridas = Array.isArray(brief?.sugeridas) ? brief.sugeridas.filter((id) => formatos.get(id)?.estructura) : [];
   return `
 ## Estructuras ganadoras (formatos ${lista[0].id}-${lista[lista.length - 1].id})
 Son estructuras de anuncios ganadores de OTRA marca, cada una con su ficha en \`.claude/skills/anuncios-imagen-ads/${'estructuras/'}\` (zonas con su %, titular, dolor visual, zona del cuerpo, segmento, beneficios, prueba, oferta, CTA, franja de confianza y estilo; el bloque \`aguaje\` es un ejemplo de traducción a otro producto). Si eliges una, lee su ficha y RESPETA SU ESTRUCTURA con lo de este producto: su dolor traducido, su segmento y su zona del cuerpo; texto, modelo, escena y frasco nuestros. Nunca su texto, su frase exacta, su marca ni sus cifras: lo de la referencia que no podamos sostener (clientes, «probado por terceros», «se agotó», descuentos que no da el formulario) se cambia por algo verdadero o se deja sin ese bloque.
-${lista.map((f) => `- ${f.id} · ${f.nombre} (${f.estilo})`).join('\n')}
+${lista.map((f) => `- ${f.id} · ${f.nombre} (${f.estilo})`).join('\n')}${sugeridas.length && !fijas.length ? `\nEN ESTE LOTE la app sorteó estas estructuras para que varíe: úsalas en al menos ${Math.min(sugeridas.length, Math.ceil((Number(brief.cantidad) || 1) / 2))} variaciones (las que mejor calcen con cada ángulo): ${sugeridas.join(', ')}.` : ''}
 En plan.json cada variación lleva además \`"estilo"\` (${ESTILOS.join(', ')}; el de su formato si lo tiene), \`"zona_del_cuerpo"\` y \`"segmento"\`. En un lote, CADA imagen sale de una estructura distinta, y se rotan el estilo, la zona del cuerpo y el segmento: nunca el mismo dos veces seguidas.${fijas.length ? `\nEN ESTE LOTE (lo pidió el usuario): usa EXACTAMENTE estas estructuras, una por variación, en el orden que mejor rote el estilo: ${fijas.map((id) => `${id} (${formatos.get(id).estructura}${refs[id] ? `; imagen \`temp/${lote}/${refs[id]}\`, mírala con Read` : ''})`).join(', ')}.` : ''}
 `;
 }
@@ -610,4 +616,17 @@ ${CRITERIOS.map((k) => `- \`${k}\` (${NOMBRES_CRITERIOS[k]}): ${{
   }[k]}`).join('\n')}
 Pasa solo con ${NOTA_MINIMA} o más en los 7. Si alguno queda bajo ${NOTA_MINIMA}, \`ok\` es false, di en \`problemas\` qué criterio falló y por qué, y en \`correccion_en\` escribe el prompt corregido (corto, en inglés). La app NO la rehace sola: se la muestra al usuario.
 `;
+}
+
+const DETALLE_VISUAL = `## Detalle del visual_prompt (2026-11-26c: «más detalle en las generaciones»)
+Cada \`visual_prompt\` describe, zona por zona (arriba / centro / abajo con su % del lienzo): la composición y qué ocupa cada zona; la luz (dirección, dureza, color) y la cámara (plano, lente, altura); los materiales y la textura realista (piel con poros, tela, vidrio, reflejos); cada texto con su tipografía (familia, peso, mayúsculas, color hex, contorno o fondo) y dónde va; el frasco (posición, % del alto, ángulo, la etiqueta de frente y legible); y en un antes/después, la ropa, la pose y el lugar de cada momento y la diferencia que se nota. Nada genérico («premium», «bonito»): cosas que se ven.`;
+
+/** Las preferencias del usuario y las reglas generales (las de todos los anuncios), si hay. */
+function textoAprendizajesGenerales() {
+  try {
+    const t = textoParaClaude(null);
+    return t ? `\n${t}\n` : '';
+  } catch {
+    return '';
+  }
 }

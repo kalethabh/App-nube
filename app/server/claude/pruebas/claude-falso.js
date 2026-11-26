@@ -330,6 +330,14 @@ async function alMensaje(texto) {
     }));
     return resultado({ result: 'LISTO' });
   }
+  // (2026-11-26c) el SUPERVISOR de un lote de imágenes: hasta 3 reglas para que no se repita lo que falló
+  const supervisor = /TAREA: supervisor de anuncios de imagen/.test(textoTarea) ? /Escribe (temp\/\S+\/supervisor-reglas\.json) con este JSON/.exec(textoTarea) : null;
+  if (supervisor) {
+    fs.writeFileSync(path.join(RAIZ, supervisor[1]), JSON.stringify({ reglas: [
+      { regla: 'Cada texto de la imagen va escrito exacto en text_layers y el visual_prompt pide letras limpias, sin texto inventado en sellos ni en la etiqueta.', por_que: 'La revisión vio letras cambiadas en el titular.' },
+    ] }));
+    return resultado({ result: 'LISTO' });
+  }
   // (2026-11-26a) el ANÁLISIS DEL GANADOR («Qué tan distintas»): lo que vende y lo que no se toca
   const analisisGanador = /TAREA: análisis del anuncio ganador/.test(textoTarea) ? /Escribe (temp\/\S+\/analisis\.json) con este JSON/.exec(textoTarea) : null;
   if (analisisGanador) {

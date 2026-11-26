@@ -93,7 +93,7 @@ export function errorDeFicha(f) {
   else for (const [k, v] of Object.entries(f.zonas)) if (conTexto(v) && !/\d+ ?%/.test(v)) e.push(`zonas.${k}: falta el % aproximado del lienzo`);
   const t = f.titular || {};
   if (!(Number.isInteger(t.lineas) && t.lineas >= 1 && t.lineas <= 6)) e.push('titular.lineas: un número');
-  if (!(Number.isInteger(t.palabras) && t.palabras >= 1)) e.push('titular.palabras: un número');
+  if (!(Number.isInteger(t.palabras) && t.palabras >= 0)) e.push('titular.palabras: un número (0 si no lleva titular)');
   if (!conTexto(t.resaltada)) e.push('titular.resaltada: qué palabra va resaltada (o «ninguna»)');
   if (!GANCHOS.includes(t.gancho)) e.push(`titular.gancho: uno de ${GANCHOS.join(', ')}`);
   if (!DOLORES.includes(f.dolor_visual?.tipo)) e.push(`dolor_visual.tipo: uno de ${DOLORES.join(', ')}`);

@@ -1,0 +1,44 @@
+{
+  "id": "vg-05",
+  "nombre": "Producto en mano, foto casera sobre la mesa",
+  "referencia": "mis_archivos/biblioteca/referencias/vgummies/vg-05.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/e39a6fac5023c10f71cbdc67c901ba423015039d2fae660a157f55dbeeaaec9a.jpg",
+  "marca_referencia": "V-Gummies (vinagre de manzana): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F55",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Mesa de madera y unidades sueltas del producto. 20 %",
+    "centro": "Mano con el contenido del producto y el empaque abierto debajo, foto de celular con luz natural. 70 %",
+    "abajo": "Más unidades sobre la mesa. 10 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 0,
+    "resaltada": "ninguna",
+    "color_resaltado": "ninguno",
+    "posicion": "sin titular",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Producto real en uso."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo. Para Aguaje: mano con las cápsulas y el frasco abierto sobre la mesa."
+}

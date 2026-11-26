@@ -74,10 +74,10 @@ check('El análisis del ganador exige sus campos y ids reales', errorDeAnalisis(
 console.log('\n  Estructuras ganadoras (Mayaverra)');
 const { errorDeFicha, ESTILOS } = await import('../server/lib/imagen-ads/variedad.js');
 const DIR_EST = path.join(RAIZ, '.claude', 'skills', 'anuncios-imagen-ads', 'estructuras');
-const fichas = fs.readdirSync(DIR_EST).filter((n) => /^mv-\d{2}\.json$/.test(n));
-check('Las 8 fichas de estructura son válidas (zonas con %, titular, dolor, segmento, oferta, estilo…)', fichas.length === 8 && fichas.every((n) => errorDeFicha(JSON.parse(fs.readFileSync(path.join(DIR_EST, n), 'utf8'))).length === 0), fichas.map((n) => [n, errorDeFicha(JSON.parse(fs.readFileSync(path.join(DIR_EST, n), 'utf8')))]));
+const fichas = fs.readdirSync(DIR_EST).filter((n) => /^[a-z]{2}-\d{2}\.json$/.test(n));
+check('Las 38 fichas de estructura son válidas (zonas con %, titular, dolor, segmento, oferta, estilo…)', fichas.length === 38 && fichas.every((n) => errorDeFicha(JSON.parse(fs.readFileSync(path.join(DIR_EST, n), 'utf8'))).length === 0), fichas.map((n) => [n, errorDeFicha(JSON.parse(fs.readFileSync(path.join(DIR_EST, n), 'utf8')))]));
 const est33 = [...skill.formatos.values()].filter((f) => f.estructura);
-check('F33-F40 están en el índice, cada una con su ficha, su referencia y su estilo', est33.map((f) => f.id).join() === 'F33,F34,F35,F36,F37,F38,F39,F40' && est33.every((f) => f.referencia?.startsWith('mis_archivos/biblioteca/referencias/mayaverra/') && ESTILOS.includes(f.estilo) && fs.existsSync(path.join(DIR_EST, path.basename(f.estructura)))));
+check('F33-F70 están en el índice, cada una con su ficha, su referencia y su estilo; F41-F70 ocultas (solo al azar)', est33.map((f) => f.id).join() === Array.from({ length: 38 }, (_, i) => `F${33 + i}`).join() && est33.every((f) => f.referencia?.startsWith('mis_archivos/biblioteca/referencias/') && (Number(f.id.slice(1)) <= 40 ? !f.oculta : f.oculta === true) && ESTILOS.includes(f.estilo) && fs.existsSync(path.join(DIR_EST, path.basename(f.estructura)))));
 const dosIguales = { variaciones: bueno.variaciones.map((x, i) => (i === 3 ? { ...x, formato_id: bueno.variaciones[2].formato_id, estilo: bueno.variaciones[2].estilo, mismo_formato_que_ganador: bueno.variaciones[2].mismo_formato_que_ganador } : x)) };
 check('Un lote con dos imágenes de la misma estructura FALLA', reglasDelPlan(dosIguales, { nivel: 'vecinas', analisis, skill }).errores.some((e) => /estructura distinta/.test(e)));
 const estiloSeguido = { variaciones: bueno.variaciones.map((x, i) => (i === 5 ? { ...x, estilo: bueno.variaciones[4].estilo } : x)) };
@@ -255,6 +255,15 @@ async function principal() {
   check('Se crea un lote con 4 estructuras fijas (con la estrategia de la IA)', r.st === 201 && r.datos.brief.estructuras?.length === 4 && r.datos.brief.rapido === false, r.datos);
   const r5 = await pedir('/api/imagen-ads', { json: { productoId: id, fotoProducto: 1, datos: { nombre: 'Curvas Plus', pais: 'Colombia', idioma: 'es' }, cantidad: 3, formatos: ['1:1'], logo: null, modo: 'nuevos', estructuras: ['F33', 'F35', 'F36', 'F38'] } });
   check('Con 4 estructuras y otra cantidad, no se crea', r5.st === 400, r5);
+  // (2026-11-26c) «Al azar»: la app sortea entre las 38 (también las ocultas), sin repetir ni el mismo estilo seguido
+  const rAz = await pedir('/api/imagen-ads', { json: { productoId: id, fotoProducto: 1, datos: { nombre: 'Curvas Plus', pais: 'Colombia', idioma: 'es' }, cantidad: 8, formatos: ['1:1'], logo: null, modo: 'nuevos', estructuras: 'azar', usarInvestigacion: false } });
+  if (rAz.datos?.lote) creados.lotes.push(rAz.datos.lote);
+  const azar = rAz.datos?.brief?.estructuras || [];
+  const { listaEstructuras: lE } = await import('../server/lib/imagen-ads/estructuras.js');
+  const estiloDe = new Map(lE().map((x) => [x.id, x.estilo]));
+  const rAz2 = await pedir('/api/imagen-ads', { json: { productoId: id, fotoProducto: 1, datos: { nombre: 'Curvas Plus', pais: 'Colombia', idioma: 'es' }, cantidad: 8, formatos: ['1:1'], logo: null, modo: 'nuevos', estructuras: 'azar', usarInvestigacion: false } });
+  if (rAz2.datos?.lote) creados.lotes.push(rAz2.datos.lote);
+  check('«Al azar»: 8 estructuras distintas, sin el mismo estilo seguido, y otro lote sortea otras', rAz.st === 201 && azar.length === 8 && new Set(azar).size === 8 && azar.every((f, i) => /^F\d{2}$/.test(f) && (i === 0 || estiloDe.get(f) !== estiloDe.get(azar[i - 1]))) && (rAz2.datos?.brief?.estructuras || []).join() !== azar.join(), { azar, otro: rAz2.datos?.brief?.estructuras });
   await pedir(`/api/imagen-ads/${lote4}/generar`, { json: { costoMaximoConfirmado: Math.round(porImagen * 4 * 100) / 100 } });
   const vista4 = await esperar(8, async () => (await pedir(`/api/imagen-ads/${lote4}`)).datos, (d) => ['listo', 'error'].includes(d?.conductor?.estado));
   const c4 = path.join(RAIZ, 'temp', lote4 || 'x');
@@ -274,7 +283,7 @@ async function principal() {
       check('La pantalla del lote recibe la comparación: montaje, 7 puntajes, PASA / PARA REHACER con su corrección', vc?.piezas?.length === 4 && vc.criterios.length === 7 && m1?.pasa === true && img1?.status === 200 && vc.piezas.find((x) => x.v === 'V02')?.pasa === false && vc.piezas.find((x) => x.v === 'V02')?.correccion && vc.piezas.find((x) => x.v === 'V02')?.puedeRehacer, vc);
       const le = (await pedir('/api/imagen-ads/estructuras')).datos?.estructuras || [];
       const imgE = await fetch(`${BASE}/api/imagen-ads/estructuras/F35/imagen`);
-      check('La lista de estructuras (8) y la imagen de cada una para elegir', le.length === 8 && le.every((x) => x.hay) && imgE.status === 200 && /image\/jpeg/.test(imgE.headers.get('content-type') || ''), le.map((x) => `${x.id}:${x.hay}`));
+      check('La lista de estructuras (38: 8 a la vista y 30 solo al azar) y la imagen de cada una', le.length === 38 && le.filter((x) => x.oculta).length === 30 && le.every((x) => x.hay) && imgE.status === 200 && /image\/jpeg/.test(imgE.headers.get('content-type') || ''), le.map((x) => `${x.id}:${x.hay}`));
       const v02 = vista4.variaciones.find((x) => x.v === 'V02')?.piezas['1:1'];
       check('V02 queda marcada (te necesita) con el criterio que falló, sin rehacerse sola', v02?.estado === 'te-necesita' && v02.problemas.some((t) => /Texto limpio \(5\)/.test(t)), v02);
       const ctx = cp.spawnSync(process.execPath, [path.join(RAIZ, 'produccion', 'rehacer-toma.js'), `temp/${lote4}`, '--pieza', 'V02_1x1', '--contexto'], { cwd: RAIZ, env: { ...env, PUERTO: String(PUERTO) }, encoding: 'utf8' });

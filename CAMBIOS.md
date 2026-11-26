@@ -2,6 +2,20 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-26c · Anuncios de imagen: supervisor, editor y carpetas más claras
+
+- **Supervisor que aprende:** al terminar cada lote, la app compara lo que pediste con lo que salió. Te muestra qué falló en «Lo que aprendió el supervisor» y anota 1 a 3 reglas para que no vuelva a pasar. El próximo lote ya las usa.
+- **Más detalle en cada imagen:** la IA describe cada zona del anuncio: luz, cámara, piel, letras con su color, frasco y el antes y después.
+- **Editor de imágenes** (botón «Editar» en cada imagen del lote):
+  - textos, formas (precios, cintas) y tus propias piezas, que mueves, agrandas y giras como en Canva;
+  - **Mis piezas:** sube tus sellos, logos o precios, para un producto o para todos, y pégalos exactos;
+  - **Cambiar una zona con IA:** marcas un rectángulo y escribes el cambio; el resto de la imagen queda idéntico;
+  - **Integrar con IA:** la pieza se pega exacta y la IA ajusta la luz y la sombra para que se vea parte de la foto;
+  - cada cambio se guarda como versión nueva y puedes volver atrás.
+- **30 estructuras ganadoras más** (Mayaverra y anuncios del top de TrendTrack), que no se muestran: con «Al azar (recomendado)» cada lote sortea entre las 38 para que siempre varíen.
+- **Carpetas por producto con bloques:** dentro de la carpeta de un producto, cada landing, lote o anuncio es un bloque con su imagen, no otra carpeta. Con el lápiz le pones el nombre que quieras («Ángulo 1», «Ángulo 2»…).
+- **Crear anuncios de imagen más limpio:** pestañas arriba, el producto en una lista con su foto, una línea de ayuda por elección y lo opcional de venta plegado.
+
 ## 2026-11-26b · Anuncios de imagen: estructuras ganadoras
 
 - **Nuevo modo «Estructuras ganadoras»** al crear anuncios de imagen:

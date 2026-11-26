@@ -3,10 +3,11 @@
 // esté revisando. Las insignias dicen lo que no es "lista": con aviso, sin revisar, sin imagen… Desde 2026-11-09 la
 // revisión no rehace nada sola: lo que notó queda debajo («La revisión notó: …») con «Corregir esto» y Regenerar.
 import { memo, useContext, useState } from 'react';
-import { Clock, Copy, Download, ImageOff, LoaderCircle, PenLine, RefreshCw, ScanEye, WandSparkles } from 'lucide-react';
+import { Clock, Copy, Download, ImageOff, LoaderCircle, PencilRuler, PenLine, RefreshCw, ScanEye, WandSparkles } from 'lucide-react';
 import { Boton, BotonFunciona, Insignia, Tooltip, GuardarEnCarpeta } from '../../componentes/index.js';
 import { LoteFunciona } from '../../datos/funcionan.js';
 import { ESTADOS_PIEZA, PIEZA_EN_MARCHA, PIEZA_FINAL, partesDePieza } from '../../datos/imagenes.js';
+import { ir, rutas } from '../../datos/rutas.js';
 
 /** La insignia de una pieza (nada si está lista: en una galería de 100, "Lista" en cada una es ruido). */
 export function InsigniaPieza({ p, variante = 'vidrio', tamano = 'chico' }) {
@@ -96,6 +97,10 @@ export const TarjetaPieza = memo(function TarjetaPieza({ p, formato, onAbrir, on
         </Tooltip>
         <Tooltip texto={p.hayPrompt ? 'Copiar prompt' : 'Todavía no se escribió'}>
           <Boton variante="fantasma" tamano="chico" soloIcono icono={Copy} etiqueta={`Copiar el prompt de ${quien}`} onClick={() => onCopiar(p.local && p.hayPrompt ? { ...p, pieza: p.pieza.replace('_9x16', '_1x1') } : p)} disabled={!p.hayPrompt} />
+        </Tooltip>
+        {/* (2026-11-26c) el editor: capas, tus piezas (sellos, logos, precios) y cambios con IA por zona */}
+        <Tooltip texto={p.url && p.puedeRegenerar ? 'Editar (textos, tus piezas, IA por zona)' : 'Se edita cuando termine'}>
+          <Boton variante="fantasma" tamano="chico" soloIcono icono={PencilRuler} etiqueta={`Editar ${quien}`} onClick={() => lote && ir(rutas.editarImagen(lote, p.pieza))} disabled={!p.url || !p.puedeRegenerar || !lote} />
         </Tooltip>
         <Tooltip texto={p.puedeRegenerar ? 'Regenerar' : porQueNo(p, { cuadrado })}>
           <Boton variante="fantasma" tamano="chico" soloIcono icono={RefreshCw} etiqueta={`Regenerar ${quien}`} onClick={() => onRegenerar(p)} disabled={!p.puedeRegenerar} />

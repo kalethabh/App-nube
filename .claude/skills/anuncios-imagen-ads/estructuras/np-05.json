@@ -1,0 +1,44 @@
+{
+  "id": "np-05",
+  "nombre": "Escena real de despacho con frasco sobre caja y titular de oferta abajo",
+  "referencia": "mis_archivos/biblioteca/referencias/novapiel/np-05.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/79cef48a143683a6de8e8a15cadcf07274584df7c22eeddc038a07e823bbeaa5.png",
+  "marca_referencia": "NovaPiel (suplementos): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F61",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Camión de reparto abierto y una persona subiendo cajas. 45 %",
+    "centro": "Frasco sobre una caja de cartón con cápsulas al lado. 25 %",
+    "abajo": "Titular de oferta de 3 líneas en blanco y rojo, línea de vigencia y píldora blanca con el pack y precio. 30 %"
+  },
+  "titular": {
+    "lineas": 3,
+    "palabras": 6,
+    "resaltada": "el porcentaje",
+    "color_resaltado": "rojo",
+    "posicion": "abajo a la izquierda",
+    "gancho": "oferta"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La logística real da confianza."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "barra",
+    "como": "titular de oferta + píldora con precio"
+  },
+  "cta": {
+    "tipo": "pildora"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Para Colombia: «Enviamos hoy · pagas al recibir»."
+}

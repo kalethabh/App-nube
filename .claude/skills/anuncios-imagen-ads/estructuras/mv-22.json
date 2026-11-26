@@ -1,0 +1,44 @@
+{
+  "id": "mv-22",
+  "nombre": "Antes y después de una zona con etiquetas, dos frascos y precio en círculo",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-22.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/88e93a33d78ec05b963d199ae8f9cacfcdd2d598e5c72854e404ecfc7f07c1ef.png",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F52",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 2 líneas en verde oscuro (la zona y la promesa). 18 %",
+    "centro": "Izquierda: dos fotos apiladas de la misma zona (ANTES y DESPUÉS) con etiquetas y líneas que señalan; derecha: dos frascos sobre una roca con plantas y círculo rojo con el precio y el precio anterior tachado. 70 %",
+    "abajo": "Franja verde con envío gratis y pago contra entrega con íconos. 12 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 6,
+    "resaltada": "la segunda línea",
+    "color_resaltado": "verde claro",
+    "posicion": "arriba al centro",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "La misma zona del cuerpo antes y después con etiquetas que señalan el cambio."
+  },
+  "zona_del_cuerpo": "brazos",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "tachado-por-unidad",
+    "como": "círculo rojo con precio y el anterior tachado"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "envío gratis · pago contra entrega",
+  "estilo": "foto-real",
+  "cuidado": "Ideal para Colombia (pago contra entrega). Para Aguaje: glúteo o cadera de perfil con etiquetas «glúteo plano» / «glúteo con volumen»."
+}
