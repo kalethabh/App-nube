@@ -1,0 +1,79 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format F86 (Fila de 4 fotos de la misma zona con titular de 2 colores y frasco), structure mv-56",
+    "reference_style": "Real-photo progress ad: wordmark and two-tone headline on top, a row of four tall photos of the same woman with time labels, the bottle standing on the right",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Collage Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Lemon yellow #F5E13A (label color, highlighted words, the 'Pagas al recibir' badge), amber brown #9A4F12 (glass and warm accents, second headline line), deep cocoa #2B1A10 (headlines on light, dark backgrounds and panels), warm cream #FFF6DC (light backgrounds), white #FFFFFF (text on dark), gold #C9962B (thin lines, serif wordmark and details), offer red #D62828 used ONLY for the offer pill 'Tratamiento completo: 3 frascos para 3 meses'.",
+    "visual_style": "Clean, bold direct-response health ad built around the real amber dropper bottle with its yellow label; the same bottle, the same palette, the same red offer pill and the same bordered yellow 'Pagas al recibir' badge in every image.",
+    "visual_atmosphere": "Warm, sunny, honest and hopeful: morning window light, cream and lemon tones, a real young Colombian woman who goes from frustrated with loose jeans to confident in jeans that fit.",
+    "graphic_language": "Rounded photo cards with thin gold borders, rounded label pills, one red offer pill, one bordered yellow badge; no logos, no medical imagery.",
+    "text_typography": "Poppins ExtraBold condensed uppercase for the headline (deep cocoa #2B1A10, second line amber #9A4F12); Playfair Display Bold for the small wordmark in gold #C9962B; Poppins SemiBold for the value proposition and labels."
+  },
+  "creative_objective": "Stop the scroll with the visible progress of one real woman across the 3-month treatment (Antes, Semana 2, Semana 4, Mes 3): from jeans hanging loose at the back to jeans that fit snugly on hips and thighs, with the time promise highlighted and the same bottle on the right, closing with the fixed offer and 'Pagas al recibir'.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Two-line headline with the time line in amber; 2) the row of four photos of the same woman; 3) the bottle on the right; 4) the bottom block with the red offer pill and the yellow 'Pagas al recibir' badge.",
+    "composition_style": "Same order as the reference image mv-56: small serif wordmark centered at the top with a thin gold line under it, a big two-line headline centered below, then four equal tall rounded photo panels side by side across the left three-quarters with a dark label bar at the bottom of each, and the bottle standing upright on the right at the same height as the photos.",
+    "spacing_and_structure": "Top 26 % (wordmark, headline, value proposition), middle 60 % (four photos plus bottle), bottom 14 % (offer and trust block). Even 12 px gutters between photos, generous cream margins of about 3 % on every side.",
+    "lighting_and_depth": "All four photos share the same soft daylight from a window on the left, warm 4500 K, gentle shadows; the bottle is lit by the same soft key light from the left with a short soft contact shadow on the cream background."
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Cream background. Top center: brand wordmark in serif with a thin line below it, then a two-line uppercase headline (first line dark, the time line in a second color). Middle: four tall photos of the same body zone in a row, each with a dark label bar at its bottom (before and three time marks); the dropper bottle standing to the right of the photos, about as tall as the photos. In this app, a thin bottom block is added with the offer and the bordered 'Pagas al recibir' badge (mandatory trust block).",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "wordmark", "position": "top center, 3-8 % of height", "visual_function": "brand recognition", "adaptation_rule": "'VITALDROPS' in gold serif, small, with a thin gold line under it; it is not the headline and uses a different color from it", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "headline", "position": "top center, 9-20 % of height", "visual_function": "promise plus time", "adaptation_rule": "promise line in deep cocoa, time line in amber", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "value proposition", "position": "under the headline, 20-25 % of height", "visual_function": "desire + time + core desire", "adaptation_rule": "one centered line in Poppins SemiBold cocoa", "present_in_reference": false },
+      { "block_id": "block_04", "block_type": "four progress photos with labels", "position": "middle, left 76 % of width, 27-85 % of height", "visual_function": "visual proof of the change over time", "adaptation_rule": "the same woman in her bedroom in four moments, hips and legs in jeans, never from behind in the after moments", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product", "position": "middle right, 30-85 % of height", "visual_function": "the real product", "adaptation_rule": "the user's amber dropper bottle standing upright, label facing the camera", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "offer and trust block", "position": "bottom 14 %", "visual_function": "offer and risk removal", "adaptation_rule": "red offer pill on the left and bordered yellow 'Pagas al recibir' badge on the right", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "No prices, no discount percentages, no star ratings, no customer counts, no testimonials with names",
+      "No logos of any brand, no medical or doctor imagery, no certification seals",
+      "No extra benefit icons or lists",
+      "No back views in the Semana 2, Semana 4 and Mes 3 photos"
+    ]
+  },
+  "visual_prompt": "Square 1:1 direct-response ad on a flat warm cream #FFF6DC background with a very subtle paper grain. TOP ZONE (0-26 % of height): centered at about 5 % height, the small wordmark 'VITALDROPS' in Playfair Display Bold, gold #C9962B, letter-spaced, about 4 % of the canvas height, with a thin 2 px gold line 30 % of the canvas wide under it. Below it, the headline in two centered lines of Poppins ExtraBold condensed uppercase, each about 8 % of the canvas height: line 1 'LLENA TU JEAN' in deep cocoa #2B1A10, line 2 'EN SOLO 90 DÍAS' in amber #9A4F12 (the highlighted line; the words '90 DÍAS' are the accent). Under the headline, one centered line in Poppins SemiBold, deep cocoa #2B1A10, about 2.6 % of the canvas height: 'Piernas y caderas con curvas en 90 días, para llenar tu jean sin quirófano ni agujas.' MIDDLE ZONE (27-85 % of height): on the left 76 % of the width, four equal tall photo panels in a row with 12 px gutters, rounded 14 px corners and a 2 px gold #C9962B border; each panel has at its bottom a deep cocoa #2B1A10 label bar with white Poppins Bold uppercase text: 'ANTES', 'SEMANA 2', 'SEMANA 4', 'MES 3'. All four panels are realistic smartphone photos of THE SAME real young Colombian woman, about 26, light-brown skin with visible pores and a few freckles, dark-brown hair in a loose low ponytail with flyaway strands, no studio makeup, in the same bedroom with a white wall, a light curtain and a window on the left giving soft warm daylight, camera at hip height, framed from the head to the knees. Panel 1 'ANTES': she stands sideways to the camera, face turned to the lens with a frustrated, tired half-frown, plain white cotton T-shirt with real wrinkles and light-blue jeans one size too big; with one hand she pulls the back of the jeans waistband a full fist away from her lower back so the empty gap between denim and body is clearly visible, a baggy fold of extra denim below the seat, drooping back pockets, one straight flat vertical line from waist to thigh, thin straight thighs with loose fabric around them: flat, no curve, no volume. Panel 2 'SEMANA 2': three-quarter view facing the camera, heather-grey T-shirt, the same loose light jeans with slightly less spare fabric, hands relaxed, a small calm smile. Panel 3 'SEMANA 4': three-quarter view facing the camera, lemon-yellow knit top, mid-blue jeans that now sit closer on the hips and thighs, a hint of waist-to-hip curve, confident smile. Panel 4 'MES 3': three-quarter view facing the camera, black fitted short-sleeve top, dark-blue jeans that fit snugly on hips and thighs with no loose fabric, a clearly curvier hourglass silhouette with hips about one and a half times wider than her small waist and thicker thighs filling the jean legs, the change from panel 1 obvious at a glance, big natural smile; never from behind, framing never centered on her hips. On the right 20 % of the width, standing upright on the cream background at the same height as the photos (about 50 % of the canvas height), the product: ONE amber-brown glass Boston-round dropper bottle exactly as in the attached product photo, about 2.6 times taller than wide, ribbed matte black collar, tall matte black dropper bulb, wrap-around lemon-yellow-to-white label facing the camera and legible with 'amua', 'VITALDROPS', 'All-In-One Multi-Herbal Supplement', five small outlined ingredient circles and '2 fl. oz. (60mL)'; matte, no rainbow, no lens flare, soft contact shadow. BOTTOM ZONE (86-100 % of height): a thin 2 px gold line, then on the left a red #D62828 rounded pill with white Poppins ExtraBold text 'Tratamiento completo: 3 frascos para 3 meses', and on the right a lemon-yellow #F5E13A rounded badge with a 3 px deep cocoa #2B1A10 border, a small line icon of a hand receiving a box, and the text 'Pagas al recibir' in deep cocoa Poppins ExtraBold. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret it.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "brand wordmark", "reference_position": "top center, about 5 % height", "text_style": "Playfair Display Bold, gold #C9962B, letter-spaced, about 4 % of the canvas height, thin gold line below; different color from the headline", "text": "VITALDROPS" },
+    { "block_id": "text_block_02", "reference_function": "main headline", "reference_position": "top center, two lines", "text_style": "Poppins ExtraBold condensed uppercase, centered, two lines about 8 % of the canvas height each: 'LLENA TU JEAN' in deep cocoa #2B1A10 and 'EN SOLO 90 DÍAS' in amber #9A4F12; the highlighted words are '90 DÍAS' in amber #9A4F12", "text": "LLENA TU JEAN EN SOLO 90 DÍAS" },
+    { "block_id": "text_block_03", "reference_function": "value proposition", "reference_position": "under the headline, centered", "text_style": "Poppins SemiBold, deep cocoa #2B1A10, about 2.6 % of the canvas height, one or two centered lines", "text": "Piernas y caderas con curvas en 90 días, para llenar tu jean sin quirófano ni agujas." },
+    { "block_id": "text_block_04", "reference_function": "photo label", "reference_position": "bottom bar of photo 1", "text_style": "Poppins Bold uppercase white on a deep cocoa #2B1A10 bar", "text": "ANTES" },
+    { "block_id": "text_block_05", "reference_function": "photo label", "reference_position": "bottom bar of photo 2", "text_style": "Poppins Bold uppercase white on a deep cocoa #2B1A10 bar", "text": "SEMANA 2" },
+    { "block_id": "text_block_06", "reference_function": "photo label", "reference_position": "bottom bar of photo 3", "text_style": "Poppins Bold uppercase white on a deep cocoa #2B1A10 bar", "text": "SEMANA 4" },
+    { "block_id": "text_block_07", "reference_function": "photo label", "reference_position": "bottom bar of photo 4", "text_style": "Poppins Bold uppercase white on a deep cocoa #2B1A10 bar", "text": "MES 3" },
+    { "block_id": "text_block_08", "reference_function": "offer", "reference_position": "bottom left", "text_style": "Poppins ExtraBold white on a red #D62828 rounded pill", "text": "Tratamiento completo: 3 frascos para 3 meses" },
+    { "block_id": "text_block_09", "reference_function": "trust badge", "reference_position": "bottom right", "text_style": "Poppins ExtraBold deep cocoa #2B1A10 on a lemon-yellow #F5E13A rounded badge with a 3 px deep cocoa border and a small hand-and-box line icon", "text": "Pagas al recibir" }
+  ],
+  "mandatory_visual_elements": [
+    "Four tall rounded photo panels in one row with the same woman in the same bedroom",
+    "Panel 1: side view at hip height, her hand pulling the loose jeans waistband a fist away from her lower back, visible gap",
+    "Panels 2-4: three-quarter front view, jeans progressively fitting better, never from behind",
+    "The amber dropper bottle standing on the right, label legible and facing the camera",
+    "Red offer pill and bordered yellow 'Pagas al recibir' badge at the bottom"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No underwear, no bikini, no shorts: jeans only",
+    "No prices, no percentages, no star ratings, no customer counts",
+    "No loose capsules, pills or drops; no second product; no yellow '60ml' circle",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra CTA buttons, prices, extra badges, benefit lists, icons, trust seals, ratings, testimonials or extra claims beyond the listed offer pill and 'Pagas al recibir' badge.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

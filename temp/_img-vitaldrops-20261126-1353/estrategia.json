@@ -1,0 +1,50 @@
+{
+  "resumen": "VitalDrops se vende como tu ritual diario de gotas para la mujer que come y no sube: acompaña tu apetito y tu energía mientras trabajas tus curvas. El enemigo de todo el lote es uno solo: el apetito apagado («No es genética. Es tu apetito»). Todas las imágenes cierran igual: «Tratamiento completo: 3 frascos para 3 meses» y «Pagas al recibir».",
+  "paleta": [
+    { "hex": "#F5E13A", "nombre": "Amarillo limón" },
+    { "hex": "#9A4F12", "nombre": "Ámbar del frasco" },
+    { "hex": "#2B1A10", "nombre": "Cacao oscuro" },
+    { "hex": "#FFF6DC", "nombre": "Crema cálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#C9962B", "nombre": "Dorado" },
+    { "hex": "#D62828", "nombre": "Rojo de oferta" }
+  ],
+  "tipografia": "Poppins ExtraBold en mayúsculas para los titulares, con una palabra en amarillo o ámbar. Playfair Display para las frases de clienta. Poppins normal para el resto.",
+  "estilo": "Anuncios directos y cálidos con el mismo frasco ámbar de etiqueta amarilla. En cada imagen se ve a una mujer joven con el jean suelto y, al lado, el resultado con el jean ajustado. Abajo, siempre la misma oferta en rojo y el sello amarillo de pago al recibir.",
+  "beneficios": [
+    "Acompaña tu apetito desde las primeras semanas",
+    "Más energía para tu día y para entrenar",
+    "Días más tranquilos, con ashwagandha",
+    "Apoyo diario para trabajar tus curvas de forma natural, sin agujas"
+  ],
+  "caracteristicas": [
+    "5 ingredientes en gotas: ashwagandha, maca, L-arginina, fenogreco y remolacha",
+    "Una sola toma al día, sin tragar pastillas",
+    "Un frasco dura un mes; el tratamiento completo son 3 frascos",
+    "Pagas al recibir, sin suscripción"
+  ],
+  "deseo_central": "Verme con curvas y llenar el jean sin operarme ni inyectarme nada, y dejar de sentirme la flaca del grupo.",
+  "beneficio_principal": "Un ritual diario de gotas que acompaña tu apetito y tu energía mientras trabajas tus curvas.",
+  "puntos_dolor": [
+    "Como y como y no me engorda nada",
+    "Los jeans me quedan bailando en la cola",
+    "Se me olvida comer y me lleno con nada",
+    "Me da miedo el quirófano y más los biopolímeros",
+    "Ya compré gomitas y pastillas y no vi nada",
+    "Me dicen que parezco una tabla"
+  ],
+  "lo_que_aprendi_de_tus_anuncios": [
+    "Tu anuncio que ya funciona («Curvas más llenas en 21 días») gana con el tiempo en el titular y la misma mujer en varios momentos. Lo usé en V01: la misma mujer en 4 momentos y el plazo en otro color.",
+    "Los ganadores de la categoría cierran con «tratamiento completo x3» y pago al recibir en un bloque grande abajo. Lo usé en todas: la misma oferta, escrita igual, y el sello amarillo.",
+    "Los ganadores muestran el antes y el después en la misma imagen. Lo puse como recuadro en las que no tenían persona (V02, V03 y V04)."
+  ],
+  "decisiones": [
+    "El ángulo lo elegí yo: el apetito apagado como único enemigo, porque es lo que tu investigación dice que el producto sí puede acompañar.",
+    "No diste precio, así que ninguna imagen lleva precio. La oferta es «Tratamiento completo: 3 frascos para 3 meses» (un frasco dura un mes con una toma al día).",
+    "«Pagas al recibir» va en todas, como sello con borde. Sale de tu investigación; confírmalo con tu forma de venta.",
+    "El tiempo del tratamiento es de 3 meses: Semana 2, Semana 4 y Mes 3 son las marcas que uso.",
+    "No hay garantía en tu formulario: en V05 la garantía de la referencia se cambia por el pago al recibir y sin suscripción.",
+    "No puse botón de compra: ninguna de las estructuras elegidas lo trae y el bloque de abajo ya cierra la venta.",
+    "El orden rota el estilo: foto real, carta, bodegón, carta, bodegón."
+  ]
+}
