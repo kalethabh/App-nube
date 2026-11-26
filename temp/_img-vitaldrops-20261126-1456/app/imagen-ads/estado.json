@@ -3,7 +3,7 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 15,
+    "A": 16,
     "T": 16
   },
   "tandas": {
@@ -152,6 +152,14 @@
         "U0015"
       ],
       "empezada": true
+    },
+    "A015": {
+      "tipo": "ajuste",
+      "uuid": "364c42bd-412e-434d-9677-8307cecd31e7",
+      "estado": "en-curso",
+      "pedidos": [
+        "U0016"
+      ]
     }
   },
   "variaciones": {
@@ -237,7 +245,7 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 4,
       "firma": "2062866-1795726368019",
@@ -702,6 +710,56 @@
         }
       ],
       "paso": 0
+    },
+    "U0016": {
+      "id": "U0016",
+      "pieza": "V03_1x1",
+      "instruccion": "un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:56:56.873Z",
+      "estado": "ajustando",
+      "ajuste": "A015"
+    },
+    "U0017": {
+      "id": "U0017",
+      "pieza": "V02_1x1",
+      "instruccion": "un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:57:02.826Z",
+      "estado": "pendiente"
+    },
+    "U0018": {
+      "id": "U0018",
+      "pieza": "V01_1x1",
+      "instruccion": "un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:57:10.061Z",
+      "estado": "pendiente"
+    },
+    "U0019": {
+      "id": "U0019",
+      "pieza": "V05_1x1",
+      "instruccion": "cambia ese difuminado a un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:57:34.851Z",
+      "estado": "pendiente"
+    },
+    "U0020": {
+      "id": "U0020",
+      "pieza": "V04_1x1",
+      "instruccion": "cambia ese difuminada a un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:58:00.506Z",
+      "estado": "pendiente"
+    },
+    "U0021": {
+      "id": "U0021",
+      "pieza": "V06_1x1",
+      "instruccion": "un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:58:11.413Z",
+      "estado": "pendiente"
+    },
+    "U0022": {
+      "id": "U0022",
+      "pieza": "V07_1x1",
+      "instruccion": "un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:58:15.075Z",
+      "estado": "pendiente"
     }
   }
 }

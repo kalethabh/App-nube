@@ -32,20 +32,20 @@
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
       "estado": "corriendo",
-      "intentos": 8,
-      "inicio": "2026-11-26T20:54:08.863Z",
-      "detalle": "10 de 10 listas"
+      "intentos": 9,
+      "inicio": "2026-11-26T20:56:56.875Z",
+      "detalle": "Claude está preparando tus cambios: buscando en los archivos · 9 de 10 listas"
     },
     {
       "id": "informe",
       "nombre": "Armando tu informe",
       "estado": "pendiente",
-      "intentos": 7
+      "intentos": 8
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-26T19:56:25.842Z",
   "aprobado": "2026-11-26T19:56:25.842Z",
-  "actualizado": "2026-11-26T20:56:21.535Z"
+  "actualizado": "2026-11-26T20:57:02.886Z"
 }
