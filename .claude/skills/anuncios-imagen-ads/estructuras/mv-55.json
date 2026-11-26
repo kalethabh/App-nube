@@ -1,0 +1,44 @@
+{
+  "id": "mv-55",
+  "nombre": "La garantía como protagonista: sello circular grande detrás del frasco con cinta y titular de devolución",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-55.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/5d8da29a2e87c2d67afb8defdcb23883b9184ea365cd27d615356d57bcccdaf2.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F85",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Píldora verde con la garantía en días y el sello circular grabado de fondo. 25 %",
+    "centro": "El frasco al centro con una cinta verde alrededor, sobre tela blanca. 45 %",
+    "abajo": "Titular de 2 líneas en serif blanca («o te devolvemos tu dinero»), subtítulo en cursiva y una línea pequeña de encuesta. 30 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 5,
+    "resaltada": "ninguna",
+    "color_resaltado": "blanco",
+    "posicion": "abajo al centro",
+    "gancho": "oferta"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La tranquilidad de la garantía."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "garantia"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "la garantía es la oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "garantía de días",
+  "estilo": "bodegon-premium",
+  "cuidado": "SOLO si el usuario ofrece garantía de verdad; si no, el mismo diseño con «Pagas al recibir»."
+}

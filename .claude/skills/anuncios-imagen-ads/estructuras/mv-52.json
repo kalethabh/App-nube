@@ -1,0 +1,44 @@
+{
+  "id": "mv-52",
+  "nombre": "Selfie de espejo del problema con el celular, sin texto",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-52.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/cdd4a3ff8d43ea581cb46763b5e6905048f6de79e166dea0e69940d1b8f68eb3.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F82",
+  "oculta": true,
+  "zonas": {
+    "arriba": "El celular y la cara cortada en el espejo. 20 %",
+    "centro": "Una mujer levantándose la blusa para mostrar el problema, en un cuarto real con luz de ventana. 70 %",
+    "abajo": "La ropa y el piso. 10 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 0,
+    "resaltada": "ninguna",
+    "color_resaltado": "ninguno",
+    "posicion": "sin titular",
+    "gancho": "emocion"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "Solo el antes, sincero, como foto del celular."
+  },
+  "zona_del_cuerpo": "vientre",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo, sin producto ni texto. Para Aguaje: selfie de perfil en jean mostrando el glúteo plano."
+}

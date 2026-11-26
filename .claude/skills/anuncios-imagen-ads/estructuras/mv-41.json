@@ -1,0 +1,44 @@
+{
+  "id": "mv-41",
+  "nombre": "Oferta de temporada: titular de última oportunidad, % gigante, reloj de arena y botón",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-41.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/914cb8a908748dcec012096dc8fff6cfa6e4ac7a6e10ac780fabb83c4574ebea.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F71",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Logo y titular de 2 líneas en amarillo y naranja con decoración de la temporada (telarañas, murciélagos). 30 %",
+    "centro": "Frasco a la izquierda y el porcentaje gigante a la derecha con un reloj de arena y «hasta <fecha>». 50 %",
+    "abajo": "Botón naranja «comprar ahora» y elementos de la temporada en las esquinas. 20 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 2,
+    "resaltada": "la segunda línea",
+    "color_resaltado": "naranja",
+    "posicion": "arriba al centro",
+    "gancho": "urgencia"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La fecha especial hace la urgencia."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "porcentaje-estrella",
+    "como": "% gigante con reloj de arena y fecha"
+  },
+  "cta": {
+    "tipo": "boton"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "ilustracion-plana",
+  "cuidado": "La temporada la elige el lote (Halloween, Black Friday, Madres, Navidad, Amor y Amistad); el % solo si es real."
+}

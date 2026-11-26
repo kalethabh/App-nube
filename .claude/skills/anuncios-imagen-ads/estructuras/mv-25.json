@@ -1,0 +1,45 @@
+{
+  "id": "mv-25",
+  "nombre": "Cuadrícula de 4 momentos en ilustración de línea (antes, 24 horas, 1 semana, 4 semanas)",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-25.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/778ee97a307c7efcfcb5f693b27aa4bab0f8d3fd767bbc839b656c080cfb681a.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F55",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Dos paneles de ilustración de línea con su etiqueta oscura arriba a la derecha («Antes», «24 horas con…»). 50 %",
+    "centro": "La silueta de perfil cambia de un panel al siguiente. 10 %",
+    "abajo": "Dos paneles más («1 semana», «4 semanas») y el frasco pequeño en el último. 40 %"
+  },
+  "titular": {
+    "lineas": 4,
+    "palabras": 8,
+    "resaltada": "ninguna (las etiquetas son el texto)",
+    "color_resaltado": "blanco sobre negro",
+    "posicion": "arriba de cada panel",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "ilustracion-plana",
+    "como": "La misma silueta de perfil en 4 momentos, trazo fino sobre fondo claro."
+  },
+  "zona_del_cuerpo": "vientre",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "linea-de-tiempo",
+    "cantidad": 4
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "ilustracion-plana",
+  "cuidado": "Para Aguaje: silueta de perfil de cadera y glúteo en 4 momentos; sin prometer plazos exactos."
+}

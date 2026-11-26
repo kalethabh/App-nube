@@ -75,9 +75,21 @@ console.log('\n  Estructuras ganadoras (Mayaverra)');
 const { errorDeFicha, ESTILOS } = await import('../server/lib/imagen-ads/variedad.js');
 const DIR_EST = path.join(RAIZ, '.claude', 'skills', 'anuncios-imagen-ads', 'estructuras');
 const fichas = fs.readdirSync(DIR_EST).filter((n) => /^[a-z]{2}-\d{2}\.json$/.test(n));
-check('Las 38 fichas de estructura son válidas (zonas con %, titular, dolor, segmento, oferta, estilo…)', fichas.length === 38 && fichas.every((n) => errorDeFicha(JSON.parse(fs.readFileSync(path.join(DIR_EST, n), 'utf8'))).length === 0), fichas.map((n) => [n, errorDeFicha(JSON.parse(fs.readFileSync(path.join(DIR_EST, n), 'utf8')))]));
+check('Las 55 fichas de estructura son todas de Mayaverra y válidas (zonas con %, titular, dolor, segmento, oferta, estilo…)', fichas.length === 55 && fichas.every((n) => n.startsWith('mv-')) && fichas.every((n) => errorDeFicha(JSON.parse(fs.readFileSync(path.join(DIR_EST, n), 'utf8'))).length === 0), fichas.map((n) => [n, errorDeFicha(JSON.parse(fs.readFileSync(path.join(DIR_EST, n), 'utf8')))]));
 const est33 = [...skill.formatos.values()].filter((f) => f.estructura);
-check('F33-F70 están en el índice, cada una con su ficha, su referencia y su estilo; F41-F70 ocultas (solo al azar)', est33.map((f) => f.id).join() === Array.from({ length: 38 }, (_, i) => `F${33 + i}`).join() && est33.every((f) => f.referencia?.startsWith('mis_archivos/biblioteca/referencias/') && (Number(f.id.slice(1)) <= 40 ? !f.oculta : f.oculta === true) && ESTILOS.includes(f.estilo) && fs.existsSync(path.join(DIR_EST, path.basename(f.estructura)))));
+check('F33-F87 están en el índice, todas de Mayaverra (marca y carpeta), cada una con su ficha y su estilo; de la F41 en adelante ocultas (solo al azar)', est33.map((f) => f.id).join() === Array.from({ length: 55 }, (_, i) => `F${33 + i}`).join() && est33.every((f) => f.marca === 'mayaverra' && f.referencia?.startsWith('mis_archivos/biblioteca/referencias/mayaverra/') && (Number(f.id.slice(1)) <= 40 ? !f.oculta : f.oculta === true) && ESTILOS.includes(f.estilo) && fs.existsSync(path.join(DIR_EST, path.basename(f.estructura)))));
+// (2026-11-26d) la mezcla de Mayaverra y el sorteo
+const { cuposDeGanchos, estructurasAlAzar, mezclaMayaverra } = await import('../server/lib/imagen-ads/estructuras.js');
+const cupos8 = cuposDeGanchos(8);
+check('La mezcla de Mayaverra reparte un lote de 8 en sus ganchos (más resultado y mecanismo)', Object.values(cupos8).reduce((t, x) => t + x, 0) === 8 && cupos8.resultado >= 2 && cupos8.mecanismo >= 1 && Object.keys(mezclaMayaverra().ganchos).length === 6, cupos8);
+{
+  const sorteo = estructurasAlAzar(8, { semilla: 'prueba-mezcla' });
+  const gDe = new Map(est33.map((f) => [f.id, JSON.parse(fs.readFileSync(path.join(DIR_EST, path.basename(f.estructura)), 'utf8')).titular.gancho]));
+  const cuenta = sorteo.reduce((m, id) => ({ ...m, [gDe.get(id)]: (m[gDe.get(id)] || 0) + 1 }), {});
+  check('«Al azar» sortea solo de Mayaverra, con su misma mezcla de ganchos', sorteo.length === 8 && sorteo.every((id) => gDe.has(id)) && Object.entries(cupos8).every(([g, c]) => (cuenta[g] || 0) === c), { sorteo, cuenta, cupos8 });
+}
+const manualMv = fs.readFileSync(path.join(DIR_EST, 'mayaverra-manual.md'), 'utf8');
+check('El manual de Mayaverra existe: lo fijo, los titulares, cómo vende y lo que no se copia', /NUNCA cambia/.test(manualMv) && /titulares/i.test(manualMv) && /Cómo venden/.test(manualMv) && /NO se copia/.test(manualMv));
 const dosIguales = { variaciones: bueno.variaciones.map((x, i) => (i === 3 ? { ...x, formato_id: bueno.variaciones[2].formato_id, estilo: bueno.variaciones[2].estilo, mismo_formato_que_ganador: bueno.variaciones[2].mismo_formato_que_ganador } : x)) };
 check('Un lote con dos imágenes de la misma estructura FALLA', reglasDelPlan(dosIguales, { nivel: 'vecinas', analisis, skill }).errores.some((e) => /estructura distinta/.test(e)));
 const estiloSeguido = { variaciones: bueno.variaciones.map((x, i) => (i === 5 ? { ...x, estilo: bueno.variaciones[4].estilo } : x)) };
@@ -255,7 +267,7 @@ async function principal() {
   check('Se crea un lote con 4 estructuras fijas (con la estrategia de la IA)', r.st === 201 && r.datos.brief.estructuras?.length === 4 && r.datos.brief.rapido === false, r.datos);
   const r5 = await pedir('/api/imagen-ads', { json: { productoId: id, fotoProducto: 1, datos: { nombre: 'Curvas Plus', pais: 'Colombia', idioma: 'es' }, cantidad: 3, formatos: ['1:1'], logo: null, modo: 'nuevos', estructuras: ['F33', 'F35', 'F36', 'F38'] } });
   check('Con 4 estructuras y otra cantidad, no se crea', r5.st === 400, r5);
-  // (2026-11-26c) «Al azar»: la app sortea entre las 38 (también las ocultas), sin repetir ni el mismo estilo seguido
+  // (2026-11-26c) «Al azar»: la app sortea entre las de Mayaverra (también las ocultas), sin repetir ni el mismo estilo seguido
   const rAz = await pedir('/api/imagen-ads', { json: { productoId: id, fotoProducto: 1, datos: { nombre: 'Curvas Plus', pais: 'Colombia', idioma: 'es' }, cantidad: 8, formatos: ['1:1'], logo: null, modo: 'nuevos', estructuras: 'azar', usarInvestigacion: false } });
   if (rAz.datos?.lote) creados.lotes.push(rAz.datos.lote);
   const azar = rAz.datos?.brief?.estructuras || [];
@@ -272,6 +284,27 @@ async function principal() {
     const estilos4 = plan4.variaciones.map((x) => x.estilo);
     check('El plan usa las 4 estructuras, una por imagen, sin el mismo estilo seguido', plan4.variaciones.map((x) => x.formato_id).sort().join() === 'F33,F35,F36,F38' && estilos4.every((e, i) => i === 0 || e !== estilos4[i - 1]), plan4.variaciones.map((x) => [x.formato_id, x.estilo]));
     const enviados4 = plan4.variaciones.map((x) => fs.readFileSync(R.prompt(c4, `${x.id}_1x1`), 'utf8'));
+    {
+      const { sesionEstrategia } = await import('../server/lib/imagen-ads/sesiones.js');
+      const b4 = JSON.parse(fs.readFileSync(path.join(c4, 'app', 'brief.json'), 'utf8'));
+      const sE4 = sesionEstrategia({ carpeta: c4, lote: lote4, brief: b4 });
+      check('(2026-11-26d) La estrategia de un lote con estructuras lleva cómo trabaja Mayaverra (lo fijo, su mezcla, sus titulares, cómo vende, lo que nunca)', /Cómo trabaja Mayaverra/.test(sE4.prompt) && /LO FIJO/.test(sE4.prompt) && /SUS TITULARES/.test(sE4.prompt) && /CÓMO VENDEN/.test(sE4.prompt) && sE4.material.aPedido.some((r) => r.endsWith('mayaverra-manual.md')));
+      check('…y el lote tiene el mapa de imágenes de sus estructuras para el generador', fs.existsSync(path.join(c4, 'entrada', 'estructuras', 'mapa.json')));
+      // como Mayaverra: la oferta escrita IGUAL en todo el lote
+      const { verificarV } = await import('../server/lib/imagen-ads/verificar.js');
+      const conOferta = ['V01', 'V02', 'V03', 'V04'].filter((v) => (JSON.parse(fs.readFileSync(path.join(c4, `${v}.json`), 'utf8')).text_layers || []).some((t) => /offer|oferta/i.test(`${t.reference_function} ${t.block_id || ''}`)));
+      if (conOferta.length >= 2) {
+        const ultima = conOferta[conOferta.length - 1];
+        const archivo = path.join(c4, `${ultima}.json`);
+        const antes = fs.readFileSync(archivo, 'utf8');
+        const d = JSON.parse(antes);
+        d.text_layers = d.text_layers.map((t) => (/offer|oferta/i.test(`${t.reference_function} ${t.block_id || ''}`) ? { ...t, text: 'OTRA OFERTA DISTINTA 50 %' } : t));
+        fs.writeFileSync(archivo, JSON.stringify(d, null, 2));
+        const r = verificarV(c4, ultima, { brief: b4 });
+        fs.writeFileSync(archivo, antes);
+        check('Una imagen con la oferta escrita distinto al resto del lote FALLA (el kit fijo de Mayaverra)', r.errores.some((e) => /oferta tiene que ir escrita IGUAL|falta la oferta del formulario letra por letra/.test(e)), r.errores);
+      } else check('(el lote de prueba trae la oferta en al menos 2 imágenes)', false, conOferta);
+    }
     check('A cada imagen le llegó su estructura como guía (solo estructura) y el frasco como segunda imagen', enviados4.every((t) => /STRUCTURE REFERENCE from another brand/.test(t)));
     if (hayRefs) {
       check('Se arman los 4 montajes lado a lado en comparacion/', ['V01', 'V02', 'V03', 'V04'].every((v) => fs.existsSync(path.join(c4, 'comparacion', `${v}.jpg`))), fs.existsSync(path.join(c4, 'comparacion')) ? fs.readdirSync(path.join(c4, 'comparacion')) : null);
@@ -283,7 +316,7 @@ async function principal() {
       check('La pantalla del lote recibe la comparación: montaje, 7 puntajes, PASA / PARA REHACER con su corrección', vc?.piezas?.length === 4 && vc.criterios.length === 7 && m1?.pasa === true && img1?.status === 200 && vc.piezas.find((x) => x.v === 'V02')?.pasa === false && vc.piezas.find((x) => x.v === 'V02')?.correccion && vc.piezas.find((x) => x.v === 'V02')?.puedeRehacer, vc);
       const le = (await pedir('/api/imagen-ads/estructuras')).datos?.estructuras || [];
       const imgE = await fetch(`${BASE}/api/imagen-ads/estructuras/F35/imagen`);
-      check('La lista de estructuras (38: 8 a la vista y 30 solo al azar) y la imagen de cada una', le.length === 38 && le.filter((x) => x.oculta).length === 30 && le.every((x) => x.hay) && imgE.status === 200 && /image\/jpeg/.test(imgE.headers.get('content-type') || ''), le.map((x) => `${x.id}:${x.hay}`));
+      check('La lista de estructuras (55 de Mayaverra: 8 a la vista y 47 solo al azar) y la imagen de cada una', le.length === 55 && le.filter((x) => x.oculta).length === 47 && le.every((x) => x.marca === 'mayaverra') && le.every((x) => x.hay) && imgE.status === 200 && /image\/jpeg/.test(imgE.headers.get('content-type') || ''), le.map((x) => `${x.id}:${x.hay}`));
       const v02 = vista4.variaciones.find((x) => x.v === 'V02')?.piezas['1:1'];
       check('V02 queda marcada (te necesita) con el criterio que falló, sin rehacerse sola', v02?.estado === 'te-necesita' && v02.problemas.some((t) => /Texto limpio \(5\)/.test(t)), v02);
       const ctx = cp.spawnSync(process.execPath, [path.join(RAIZ, 'produccion', 'rehacer-toma.js'), `temp/${lote4}`, '--pieza', 'V02_1x1', '--contexto'], { cwd: RAIZ, env: { ...env, PUERTO: String(PUERTO) }, encoding: 'utf8' });

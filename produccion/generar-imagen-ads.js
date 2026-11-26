@@ -553,6 +553,10 @@ class Motor {
     const plan = leerJSON(path.join(this.carpeta, 'plan.json'));
     const x = (plan?.variaciones || []).find((y) => y?.id === v);
     if (!x?.formato_id) return null;
+    // (2026-11-26d) la app copia al lote la imagen de cada estructura (también las tuyas, P##) y anota cuál es cuál
+    const mapa = leerJSON(path.join(this.carpeta, 'entrada', 'estructuras', 'mapa.json'));
+    const enLote = typeof mapa?.[x.formato_id] === 'string' && /^entrada\/estructuras\/[\w.-]+\.(jpe?g|png|webp)$/i.test(mapa[x.formato_id]) ? path.join(this.carpeta, ...mapa[x.formato_id].split('/')) : null;
+    if (enLote && existe(enLote)) return enLote;
     this.indice ||= leerJSON(path.join(RAIZ, '.claude', 'skills', 'anuncios-imagen-ads', 'formatos', 'indice.json')) || { formatos: [] };
     const f = (this.indice.formatos || []).find((y) => y?.id === x.formato_id);
     if (!f?.referencia) return null;

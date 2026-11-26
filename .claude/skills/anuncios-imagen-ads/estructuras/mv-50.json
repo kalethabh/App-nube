@@ -1,0 +1,45 @@
+{
+  "id": "mv-50",
+  "nombre": "Testimonio honesto («no digo que sea mágico… pero») con revelación y porcentajes de clientas",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-50.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/f6700a883788f927f05b6898576ca20248ac718cb6ff6fcabe757d860a3e84cf.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F80",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Frase en cursiva entre comillas («no digo que sea mágico… ¡pero wow!»). 15 %",
+    "centro": "Revelación de 2 líneas en verde oscuro (la segunda gigante) y 4 viñetas con porcentajes de clientas. 45 %",
+    "abajo": "El frasco inclinado abajo a la derecha sobre fondo verde claro degradado. 40 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 4,
+    "resaltada": "la segunda línea",
+    "color_resaltado": "verde oscuro",
+    "posicion": "arriba a la izquierda",
+    "gancho": "emocion"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La sorpresa de la clienta."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 4
+  },
+  "prueba": [
+    "clientes"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "bodegon-premium",
+  "cuidado": "Formato vertical. Porcentajes y reseñas SOLO si el usuario los da; si no, viñetas de uso y de lo que siente."
+}

@@ -1,0 +1,44 @@
+{
+  "id": "mv-38",
+  "nombre": "Gota cayendo del gotero sobre el frasco con sello de oferta extra y botón con la web",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-38.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/4e3418bcfe15e6b3c75e484281dbd98f8fa07a649f71d874d77f1734d575e1c7.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F68",
+  "oculta": true,
+  "zonas": {
+    "arriba": "El gotero arriba soltando una gota dorada. 20 %",
+    "centro": "El frasco grande al centro sobre fondo blanco y un sello rojo circular «3+1 oferta extra». 45 %",
+    "abajo": "Titular de oferta de 2 palabras en negro y rosa, y un botón oscuro con la web. 35 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 2,
+    "resaltada": "la segunda palabra",
+    "color_resaltado": "rosa",
+    "posicion": "abajo al centro",
+    "gancho": "oferta"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "El producto como protagonista."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "3x2",
+    "como": "sello rojo circular «3+1» + titular «oferta extra»"
+  },
+  "cta": {
+    "tipo": "boton"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "bodegon-premium",
+  "cuidado": "Formato vertical. Para cápsulas: una cápsula cayendo sobre el frasco."
+}

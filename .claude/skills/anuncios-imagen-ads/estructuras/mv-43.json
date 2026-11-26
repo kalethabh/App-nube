@@ -1,0 +1,44 @@
+{
+  "id": "mv-43",
+  "nombre": "Oferta flash de esta noche: % gigante a la izquierda, frasco con raíces y botón con hora límite",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-43.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/150611dd4c4e8dbaae063e42aaabf629acba7f49c8de1c9c6f3e83db8154ae39.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F73",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 2 líneas en mayúsculas oscuras («excepcionalmente esta noche»). 20 %",
+    "centro": "A la izquierda: «oferta flash», el % gigante y «expira a medianoche»; a la derecha el frasco sobre piedra con raíces y hierbas. 60 %",
+    "abajo": "Botón verde ancho con la hora límite. 20 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 3,
+    "resaltada": "ninguna",
+    "color_resaltado": "negro",
+    "posicion": "arriba al centro",
+    "gancho": "urgencia"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Los ingredientes reales y el reloj."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "porcentaje-estrella",
+    "como": "% gigante con hora límite"
+  },
+  "cta": {
+    "tipo": "boton"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "bodegon-premium",
+  "cuidado": "Solo con una oferta real con hora límite; si no, «Precio de lanzamiento» sin hora."
+}

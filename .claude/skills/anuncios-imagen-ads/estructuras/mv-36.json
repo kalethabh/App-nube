@@ -1,0 +1,45 @@
+{
+  "id": "mv-36",
+  "nombre": "Captura de la app Notas del celular con la lista de síntomas y el frasco",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-36.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/60cf1bcf720e23ed85773f57b08f0bef2c499c33263644dddc8405a613ece37e.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F66",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Barra de la app Notas («‹ Notas») y título en negrita de la lista. 20 %",
+    "centro": "Lista de 10 a 12 síntomas, cada uno con su emoji, en letra del sistema sobre fondo rosado claro. 60 %",
+    "abajo": "El frasco abajo a la derecha, como pegado sobre la nota. 20 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 4,
+    "resaltada": "ninguna",
+    "color_resaltado": "negro",
+    "posicion": "arriba a la izquierda",
+    "gancho": "segmento"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Los síntomas escritos como nota personal."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 10
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo: parece una captura real. Solo síntomas cotidianos (ropa que no queda, etc.), nunca enfermedades."
+}

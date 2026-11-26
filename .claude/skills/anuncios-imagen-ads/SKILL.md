@@ -42,10 +42,12 @@ En un lote:
 
 Después de cada lote, cada imagen se compara contra su referencia (montaje lado a lado en `comparacion/`) con 7 puntajes de 0 a 10: estructura, dolor visual, titular, texto limpio, frasco fiel, oferta y confianza, y diferencia real. Pasa con 8 o más en todos. La que falla solo se marca: se rehace con el sí del usuario (`npm run rehacer temp/_img-… --pieza V02_1x1`).
 
-**MÁS ESTRUCTURAS, OCULTAS Y AL AZAR (2026-11-26c, formatos F41-F70):**
-- 30 fichas más (`estructuras/mv-09…22`, `vg-*`, `np-*`, `rv-*`, `na-01`, `xt-01`), de Mayaverra y de anuncios de imagen del top de TrendTrack. Llevan `oculta: true` y un campo `cuidado` con lo que NO se copia (sellos, cifras o testimonios que el producto del usuario no tenga).
-- No se muestran en la galería para elegir. El modo «Al azar (recomendado)» sortea entre las 38, sin repetir y sin el mismo estilo seguido; Vecinas y Conceptos reciben `brief.sugeridas` con algunas sorteadas para variar.
-- Sus imágenes viven en `mis_archivos/biblioteca/referencias/<marca>/` y se bajan solas si faltan.
+**SOLO MAYAVERRA + LAS TUYAS (2026-11-26d, formatos F33-F87 y P##):**
+- Las estructuras son 55 anuncios de Mayaverra (`estructuras/mv-01…mv-57`): 20 de sus páginas «Mayaverra US» y «Mmayaverra» y 35 de su tienda principal (mayaverra.com, que pauta como «Miniconsola»). Se quitaron las de otras marcas. Las 8 primeras (F33-F40) se ven en «Elegir yo»; las demás llevan `oculta: true` y solo entran al sorteo. Todas llevan `marca: 'mayaverra'` y un campo `cuidado` con lo que no se copia.
+- **El manual** `estructuras/mayaverra-manual.md` resume cómo varía y cómo vende Mayaverra: lo fijo de su kit, su mezcla de ganchos y estilos, sus fórmulas de titular, cómo achica el precio y quita el riesgo, y lo que nunca se copia. Su resumen va en la estrategia y en los prompts de todo lote con estructuras.
+- **La mezcla** `estructuras/mayaverra-mezcla.json` hace que «Al azar» sortee con su misma proporción de ganchos (resultado 27 %, mecanismo 20 %, emoción 15 %, oferta 15 %, urgencia 13 %, segmento 10 %), sin el mismo estilo seguido.
+- **Las tuyas (P01, P02…):** el usuario sube un anuncio que le funciona y una sesión «TAREA: ficha de estructura» escribe su ficha con el mismo esquema. Viven en `mis_archivos/biblioteca/estructuras/` (índice, ficha e `img/`), nunca en la skill. `leerSkill()` las suma a los formatos. Al usarlas, su imagen y su ficha se copian al lote (`entrada/estructuras/`, con `mapa.json` para el generador): **lee su ficha desde `temp/<lote>/entrada/estructuras/P01.json`**. Entran al sorteo: si hay alguna, un lote de 3 o más lleva al menos una.
+- **El kit fijo se verifica:** en lotes con estructuras, la oferta va escrita IGUAL en todas las imágenes que la llevan, y el titular es afirmativo y de máximo 8 palabras.
 
 **DETALLE VISUAL (2026-11-26c):** cada `visual_prompt` describe por zona (con su %) la composición, la luz y la cámara, las texturas (piel real), la tipografía de cada texto (familia, peso, color hex, contorno o fondo), el frasco (posición, tamaño, ángulo) y, si hay antes y después, ropa, pose y lugar de cada momento. En lotes de Variantes o de estructuras, un `visual_prompt` de menos de 700 caracteres es error.
 

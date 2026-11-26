@@ -1,0 +1,44 @@
+{
+  "id": "mv-29",
+  "nombre": "Bodegón cenital: lo que no funcionó (pesa, ensalada, cinta) junto a los frascos",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-29.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/c2fd82eed9fe91a5166d540081556bacae1c3e8285168d407522ac347618b54c.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F59",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Mesa de madera vista desde arriba. 10 %",
+    "centro": "A la izquierda una mancuerna, un pote y un plato de ensalada; al centro una cinta métrica; a la derecha tres frascos del producto. 80 %",
+    "abajo": "Mesa de madera. 10 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 0,
+    "resaltada": "ninguna",
+    "color_resaltado": "ninguno",
+    "posicion": "sin titular",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Los objetos de las dietas y el gimnasio cuentan el dolor sin cuerpo."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo. Para Aguaje: mancuerna, banda elástica, jean y cinta métrica a la izquierda; los frascos de Aguaje a la derecha."
+}

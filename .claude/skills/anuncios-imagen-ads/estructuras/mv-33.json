@@ -1,0 +1,44 @@
+{
+  "id": "mv-33",
+  "nombre": "Caja de cartón con frascos, «solo quedan 48 horas» y sello de unidades restantes",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-33.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/39788f756e6f5c74cb1dc86d7b9d938a1036761145c72ebea1cc5cd6dd3ad910.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F63",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Recuadro rojo con «ATENCIÓN:» gigante y una línea de plazo debajo. 25 %",
+    "centro": "Caja de cartón abierta en una estantería con 4 frascos en fila adentro. 55 %",
+    "abajo": "Banda roja con «oferta para nuevos clientes» y un sello rojo con el número de frascos restantes. 20 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 5,
+    "resaltada": "la palabra de alerta",
+    "color_resaltado": "blanco sobre rojo",
+    "posicion": "arriba al centro",
+    "gancho": "urgencia"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La escasez real del producto en la caja."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "barra",
+    "como": "banda roja «oferta para nuevos clientes» + sello de unidades"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nunca inventar «quedan X frascos» ni plazos falsos: para Aguaje, «Nuevo lote listo · envío hoy»."
+}

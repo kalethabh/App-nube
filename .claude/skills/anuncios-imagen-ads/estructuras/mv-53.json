@@ -1,0 +1,44 @@
+{
+  "id": "mv-53",
+  "nombre": "Testimonio en titular de 3 líneas con una palabra en rojo, foto de 3 frascos con hierbas y texto de post",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-53.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/85858c3d95f71514595e6843ab847ec2ed6191d81d6c0a4b0540e1c1e4566f13.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F83",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 3 líneas en letra manuscrita verde con una palabra en rojo: la frase de la clienta. 28 %",
+    "centro": "Foto de 3 frascos sobre una mesa con hierbas y flores, y un botón pequeño «quiero probarlo». 55 %",
+    "abajo": "Nombre del producto en negrita y 2 líneas de texto como de publicación. 17 %"
+  },
+  "titular": {
+    "lineas": 3,
+    "palabras": 8,
+    "resaltada": "la palabra del dolor",
+    "color_resaltado": "rojo",
+    "posicion": "arriba al centro",
+    "gancho": "segmento"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La frase de la clienta cuenta el dolor."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "45+ / menopausia",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "boton"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo (parece un post). Frase genérica, sin nombre de clienta inventada."
+}

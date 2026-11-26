@@ -1,0 +1,6 @@
+{
+  "descripcion": "(2026-11-26d) La mezcla de los 55 anuncios de imagen de Mayaverra (mv-01 a mv-57). El sorteo «Al azar» arma cada lote con esta misma proporción de ganchos; el estilo se rota (nunca el mismo dos veces seguidas). Ver mayaverra-manual.md.",
+  "ganchos": { "resultado": 0.27, "mecanismo": 0.2, "emocion": 0.15, "oferta": 0.15, "urgencia": 0.13, "segmento": 0.1 },
+  "estilos": { "foto-real": 0.49, "bodegon-premium": 0.2, "ilustracion-plana": 0.18, "3d-pixar": 0.09, "carta-de-texto": 0.04 },
+  "nativos": 0.35
+}

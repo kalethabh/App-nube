@@ -338,6 +338,21 @@ async function alMensaje(texto) {
     ] }));
     return resultado({ result: 'LISTO' });
   }
+  // (2026-11-26d) TUS ESTRUCTURAS: la ficha del anuncio que subió el usuario (el mismo esquema que las de Mayaverra)
+  const fichaEst = /TAREA: ficha de estructura/.test(textoTarea) ? /Escribe (temp\/\S+\/ficha\.json) con la ficha/.exec(textoTarea) : null;
+  if (fichaEst) {
+    const id = /"id": "(tu-\d{2})"/.exec(textoTarea)?.[1] || 'tu-01';
+    const ref = /"referencia": "([^"]+)"/.exec(textoTarea)?.[1] || '';
+    fs.writeFileSync(path.join(RAIZ, fichaEst[1]), JSON.stringify({
+      id, nombre: 'Antes y después lado a lado con titular arriba y oferta abajo', referencia: ref,
+      zonas: { arriba: 'Titular de 2 líneas en mayúsculas con la palabra clave en color. 25 %', centro: 'Dos fotos lado a lado de la misma zona del cuerpo: antes y después. 55 %', abajo: 'Frasco a la derecha y franja con la oferta y el envío. 20 %' },
+      titular: { lineas: 2, palabras: 6, resaltada: 'el resultado', color_resaltado: 'verde', posicion: 'arriba al centro', gancho: 'resultado' },
+      dolor_visual: { tipo: 'cuerpo-real-antes-despues', como: 'La misma zona en dos momentos.' }, zona_del_cuerpo: 'gluteos', segmento: 'general',
+      beneficios: { tipo: 'ninguno' }, prueba: ['ninguna'], oferta: { tipo: 'barra', como: 'franja con la oferta' }, cta: { tipo: 'ninguno' }, franja_confianza: 'envío gratis', estilo: 'foto-real',
+      cuidado: 'Sin cifras ni sellos que el producto no tenga.', angulos_compatibles: ['transformacion', 'prueba-social'], nativo: false, protagonista: true,
+    }, null, 2));
+    return resultado({ result: 'LISTO' });
+  }
   // (2026-11-26a) el ANÁLISIS DEL GANADOR («Qué tan distintas»): lo que vende y lo que no se toca
   const analisisGanador = /TAREA: análisis del anuncio ganador/.test(textoTarea) ? /Escribe (temp\/\S+\/analisis\.json) con este JSON/.exec(textoTarea) : null;
   if (analisisGanador) {

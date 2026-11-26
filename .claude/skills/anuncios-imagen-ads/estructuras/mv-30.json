@@ -1,0 +1,44 @@
+{
+  "id": "mv-30",
+  "nombre": "La fundadora en la bodega con palés de cajas y el frasco en la mano",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-30.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/66aa7abfe313d8aad611462cd6f585c0de3b9bdbe21396c6205ca3fe46431db2.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F60",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Techo y estanterías de la bodega con el logo grande en la pared. 25 %",
+    "centro": "Mujer real sonriente con camisa de la marca, el frasco en la mano, apoyada en palés de cajas del producto. 65 %",
+    "abajo": "El piso de la bodega. 10 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 0,
+    "resaltada": "ninguna",
+    "color_resaltado": "ninguno",
+    "posicion": "sin titular",
+    "gancho": "emocion"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La persona detrás de la marca y el volumen real de producto."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "hecho-a-mano"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo. Solo con una persona real de la marca del usuario o una persona genérica sin decir que es médica ni fundadora; nunca inventar títulos."
+}
