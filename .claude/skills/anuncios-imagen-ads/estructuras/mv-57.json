@@ -1,0 +1,44 @@
+{
+  "id": "mv-57",
+  "nombre": "Dibujo de palitos (stick figure) feliz junto al frasco con titular de testimonio arriba y abajo",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-57.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/ea12d7d2d5fadc8f884d3276855b3bb26cb6da511002585beef5ab3e8bb3ba73.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F87",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular en mayúsculas negras de 2 líneas: lo que hizo y por cuánto tiempo. 25 %",
+    "centro": "Dibujo de palitos sonriente tocándose el cuerpo junto al frasco real, con un sello verde circular «100 % natural». 50 %",
+    "abajo": "Remate en mayúsculas de 2 líneas: lo que cambió. 25 %"
+  },
+  "titular": {
+    "lineas": 4,
+    "palabras": 10,
+    "resaltada": "ninguna",
+    "color_resaltado": "negro",
+    "posicion": "arriba y abajo",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "ilustracion-plana",
+    "como": "Un dibujo simple y con humor."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "ilustracion-plana",
+  "cuidado": "Fondo blanco, trazo negro grueso; el frasco es foto real. Sin prometer plazos exactos."
+}

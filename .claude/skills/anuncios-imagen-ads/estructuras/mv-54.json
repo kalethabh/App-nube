@@ -1,0 +1,45 @@
+{
+  "id": "mv-54",
+  "nombre": "Historia de una mujer en 3 paneles (día 14, 30 y 60) con el mecanismo dibujado y oferta de último día",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-54.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/74ef63e044f0479c80f76c205053207ce40e53a0bb4ab8e4852325da0ca732b7.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F84",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 2 líneas: frase de sorpresa y el segmento. 15 %",
+    "centro": "Tres paneles de la misma mujer en 3 días con el mecanismo dibujado encima de su cuerpo (líneas doradas que se van). 45 %",
+    "abajo": "3 frascos a la izquierda y a la derecha «oferta especial», «2+1 gratis» gigante y «último día». 40 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 9,
+    "resaltada": "ninguna",
+    "color_resaltado": "verde oscuro",
+    "posicion": "arriba al centro",
+    "gancho": "segmento"
+  },
+  "dolor_visual": {
+    "tipo": "invisible-visible",
+    "como": "El mecanismo dibujado sobre el cuerpo en 3 momentos."
+  },
+  "zona_del_cuerpo": "vientre",
+  "segmento": "menopausia",
+  "beneficios": {
+    "tipo": "linea-de-tiempo",
+    "cantidad": 3
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "2+1",
+    "como": "«2+1 gratis» gigante con «último día»"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Formato vertical. Sin prometer plazos; «último día» solo si es verdad."
+}

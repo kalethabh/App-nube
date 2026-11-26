@@ -1,0 +1,45 @@
+{
+  "id": "mv-42",
+  "nombre": "Autodiagnóstico de mañana y noche en dos fotos con una prueba casera y el frasco",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-42.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/10480d21a06dc0c952fb42ffed31d887a5fef586342bf75d89ad74783023dcde.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F72",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Pregunta-titular en una cinta oscura y una línea de la prueba casera. 18 %",
+    "centro": "Dos fotos lado a lado de la misma mujer: de mañana (bien, sonriente) y de noche (cansada, tocándose la pierna), con su etiqueta y una nota corta. 52 %",
+    "abajo": "Frasco al centro con la marca, 2 íconos de características y un botón «quiero probarlo». 30 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 12,
+    "resaltada": "ninguna",
+    "color_resaltado": "negro",
+    "posicion": "arriba al centro",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "El mismo día: mañana vs noche."
+  },
+  "zona_del_cuerpo": "piernas",
+  "segmento": "45+",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 2
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "boton"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Formato vertical. El titular en afirmativo («Bien de mañana, pesada de noche»). Para Aguaje: el jean que de mañana entra y de noche no marca."
+}

@@ -1,0 +1,44 @@
+{
+  "id": "mv-39",
+  "nombre": "Ilustración de la mujer aliviada al centro con frascos alrededor, etiquetas de regalo y sello del pack",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-39.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/3b2b81fe8aad48194ff18079e22130ccfcf5aedee619cb080ce9ca275dcc2a29.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F69",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular entre comillas en serif verde «La mejor oferta». 15 %",
+    "centro": "Mujer ilustrada al centro con gotas de agua alrededor, 3 frascos a la izquierda y 2 a la derecha con etiquetas colgantes de «gratis». 60 %",
+    "abajo": "Sello circular verde con el pack («3+2 gratis», días de rutina) y botón verde «quiero mi pack». 25 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 3,
+    "resaltada": "ninguna",
+    "color_resaltado": "verde oscuro",
+    "posicion": "arriba al centro",
+    "gancho": "oferta"
+  },
+  "dolor_visual": {
+    "tipo": "ilustracion-plana",
+    "como": "La mujer ilustrada ya aliviada."
+  },
+  "zona_del_cuerpo": "vientre",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "3x2",
+    "como": "sello circular con el pack y los días de rutina"
+  },
+  "cta": {
+    "tipo": "boton"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "ilustracion-plana",
+  "cuidado": "Para Aguaje: mujer ilustrada con jean y glúteo con forma; el pack, el del usuario."
+}

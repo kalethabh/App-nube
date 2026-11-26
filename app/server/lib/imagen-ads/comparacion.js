@@ -14,7 +14,9 @@ import { execFileSync } from 'node:child_process';
 import { RAIZ } from '../rutas.js';
 import { leerJSON, existe } from '../archivos.js';
 import { R, piezaId } from './disco.js';
-import { leerSkill, DIR_SKILL } from './verificar.js';
+import { leerSkill } from './verificar.js';
+import { rutaPermitida } from './propias-disco.js';
+import { fichaDe, rutaFicha } from './estructuras.js';
 import { CRITERIOS, NOTA_MINIMA, NOMBRES_CRITERIOS } from './variedad.js';
 
 export { NOMBRES_CRITERIOS };
@@ -28,10 +30,9 @@ export function estructurasDelLote(carpeta) {
     const f = formatos.get(x?.formato_id);
     if (!f?.referencia) continue;
     const referencia = path.resolve(RAIZ, f.referencia);
-    const dentro = path.relative(path.join(RAIZ, 'mis_archivos'), referencia);
-    if (dentro.startsWith('..') || path.isAbsolute(dentro)) continue;
-    const ficha = f.estructura ? leerJSON(path.join(DIR_SKILL, f.estructura)) : null;
-    out[x.id] = { formato_id: f.id, nombre: f.nombre, ficha, referencia, copia: `entrada/estructuras/${path.basename(referencia)}` };
+    if (!rutaPermitida(referencia)) continue;
+    const ficha = fichaDe(f);
+    out[x.id] = { formato_id: f.id, nombre: f.nombre, ficha, referencia, copia: `entrada/estructuras/${path.basename(referencia)}`, propia: f.marca === 'propia' };
   }
   return out;
 }
@@ -44,26 +45,59 @@ export function copiarReferenciasDe(carpeta, ids = []) {
     const f = formatos.get(id);
     if (!f?.referencia) continue;
     const abs = path.resolve(RAIZ, f.referencia);
-    const dentro = path.relative(path.join(RAIZ, 'mis_archivos'), abs);
-    if (dentro.startsWith('..') || path.isAbsolute(dentro) || !existe(abs)) continue;
+    if (!rutaPermitida(abs) || !existe(abs)) continue;
     const rel = `entrada/estructuras/${path.basename(abs)}`;
     if (!existe(path.join(carpeta, rel))) {
       fs.mkdirSync(path.join(carpeta, 'entrada', 'estructuras'), { recursive: true });
       fs.copyFileSync(abs, path.join(carpeta, rel));
     }
+    copiarFichaPropia(carpeta, f);
+    anotarMapa(carpeta, { [id]: rel });
     out[id] = rel;
   }
   return out;
 }
 
+/**
+ * (2026-11-26d) Tus estructuras: su ficha vive en tu biblioteca, que la IA no puede leer; se copia al lote
+ * (entrada/estructuras/P01.json). -> la ruta relativa al lote, o null si no es tuya.
+ */
+export function copiarFichaPropia(carpeta, f) {
+  if (f?.marca !== 'propia') return null;
+  const abs = rutaFicha(f);
+  if (!abs || !existe(abs)) return null;
+  const rel = `entrada/estructuras/${f.id}.json`;
+  fs.mkdirSync(path.join(carpeta, 'entrada', 'estructuras'), { recursive: true });
+  fs.copyFileSync(abs, path.join(carpeta, rel));
+  return rel;
+}
+
+/**
+ * (2026-11-26d) entrada/estructuras/mapa.json { F33: 'entrada/estructuras/mv-01.jpg', P01: '…/P01.jpg' }: el generador
+ * (produccion/generar-imagen-ads.js) busca ahí la imagen de cada estructura, también las tuyas.
+ */
+function anotarMapa(carpeta, nuevos) {
+  const archivo = path.join(carpeta, 'entrada', 'estructuras', 'mapa.json');
+  const antes = leerJSON(archivo) || {};
+  const todo = { ...antes, ...nuevos };
+  if (JSON.stringify(todo) === JSON.stringify(antes)) return;
+  fs.mkdirSync(path.dirname(archivo), { recursive: true });
+  fs.writeFileSync(archivo, JSON.stringify(todo, null, 2) + '\n');
+}
+
 /** Copia al lote las imágenes de referencia que usa (la revisión solo lee la carpeta del lote). */
 export function copiarEstructuras(carpeta) {
   const e = estructurasDelLote(carpeta);
+  const { formatos } = leerSkill();
   for (const x of Object.values(e)) {
     const destino = path.join(carpeta, x.copia);
-    if (existe(destino) || !existe(x.referencia)) continue;
-    fs.mkdirSync(path.dirname(destino), { recursive: true });
-    fs.copyFileSync(x.referencia, destino);
+    if (!existe(x.referencia)) continue;
+    if (!existe(destino)) {
+      fs.mkdirSync(path.dirname(destino), { recursive: true });
+      fs.copyFileSync(x.referencia, destino);
+    }
+    x.copiaFicha = copiarFichaPropia(carpeta, formatos.get(x.formato_id));
+    anotarMapa(carpeta, { [x.formato_id]: x.copia });
   }
   return e;
 }

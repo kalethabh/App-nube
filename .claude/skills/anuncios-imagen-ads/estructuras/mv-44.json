@@ -1,0 +1,45 @@
+{
+  "id": "mv-44",
+  "nombre": "Editorial en serif con resultado medido y semana, 4 viñetas de mecanismo y frasco en mano",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-44.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/9bcf826ea426100cad968245b97852f51d7914ec90b9afda5587d8e489442d5d.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F74",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Marca en serif pequeña y titular de 2 líneas en serif: el resultado y la semana en cursiva. 30 %",
+    "centro": "A la izquierda 4 viñetas cuadradas con el mecanismo; a la derecha una mano sosteniendo el frasco. 50 %",
+    "abajo": "Píldora verde con la oferta del primer pedido. 20 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 6,
+    "resaltada": "la semana",
+    "color_resaltado": "negro en cursiva",
+    "posicion": "arriba a la izquierda",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "El producto en mano, limpio y editorial."
+  },
+  "zona_del_cuerpo": "cadera",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 4
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "porcentaje-estrella",
+    "como": "píldora «oferta 1er pedido -X % hoy»"
+  },
+  "cta": {
+    "tipo": "pildora"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Sin cifras de centímetros inventadas: «Cadera con forma. Semana 4.» y viñetas con lo que hace cada ingrediente."
+}

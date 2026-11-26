@@ -1,0 +1,44 @@
+{
+  "id": "mv-34",
+  "nombre": "Antes y después de una zona dividido al medio con dos palabras del mecanismo y el frasco al centro",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-34.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/3e9f1dc5346decc835858706b6090de5159fa39a054fcbeccd72bec685f129d6.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F64",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Las dos mitades de la misma zona del cuerpo, sin titular. 25 %",
+    "centro": "Mitad izquierda el problema y mitad derecha el resultado, unidas en el centro; el frasco pequeño sobre la línea de unión. 50 %",
+    "abajo": "Debajo de cada mitad dos palabras grandes en blanco que nombran el mecanismo (estado bloqueado / estado liberado). 25 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 4,
+    "resaltada": "ninguna",
+    "color_resaltado": "blanco",
+    "posicion": "abajo de cada mitad",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "La misma zona partida: bloqueada vs liberada."
+  },
+  "zona_del_cuerpo": "vientre",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Para Aguaje: glúteo de perfil, «sin forma» / «con forma», en el mismo jean."
+}

@@ -13,20 +13,28 @@ import { execFileSync } from 'node:child_process';
 import { RAIZ } from '../rutas.js';
 import { leerJSON, existe } from '../archivos.js';
 import { leerSkill, DIR_SKILL } from './verificar.js';
+import { absDePropia, rutaPermitida } from './propias-disco.js';
 
-const BIBLIOTECA = path.join(RAIZ, 'mis_archivos');
 const HOSTS = new Set(['medias.trendtrack.io']);
 
-/** La ruta de la imagen de una estructura (dentro de mis_archivos/), o null. */
+/** La ruta de la imagen de una estructura (dentro de mis_archivos/ o de tus estructuras), o null. */
 export function rutaReferencia(formatoId) {
   const f = leerSkill().formatos.get(formatoId);
   if (!f?.referencia) return null;
   const abs = path.resolve(RAIZ, f.referencia);
-  const rel = path.relative(BIBLIOTECA, abs);
-  return rel.startsWith('..') || path.isAbsolute(rel) ? null : abs;
+  return rutaPermitida(abs) ? abs : null;
 }
 
-const fichaDe = (f) => (f?.estructura ? leerJSON(path.join(DIR_SKILL, f.estructura)) : null);
+/** (2026-11-26d) La ruta absoluta de la ficha: las de Mayaverra en la skill; las tuyas (P##) en tu biblioteca. */
+export function rutaFicha(f) {
+  if (!f?.estructura) return null;
+  if (f.marca === 'propia') return absDePropia(f.estructura);
+  return path.join(DIR_SKILL, f.estructura);
+}
+export const fichaDe = (f) => {
+  const r = rutaFicha(f);
+  return r ? leerJSON(r) : null;
+};
 
 /** Las estructuras de la skill, para la pantalla. */
 export function listaEstructuras() {
@@ -46,30 +54,85 @@ export function listaEstructuras() {
         oferta: x.oferta?.tipo || null,
         hay: Boolean(rutaReferencia(f.id) && existe(rutaReferencia(f.id))),
         oculta: f.oculta === true,
+        // (2026-11-26d) de quién es: 'mayaverra' o 'propia' (las tuyas)
+        marca: f.marca || null,
+        propia: f.marca === 'propia',
+        creado: f.creado || null,
       };
     });
 }
 
+/** (2026-11-26d) La mezcla de Mayaverra (estructuras/mayaverra-mezcla.json): la proporción de cada gancho. */
+export function mezclaMayaverra() {
+  const m = leerJSON(path.join(DIR_SKILL, 'estructuras', 'mayaverra-mezcla.json'));
+  return m?.ganchos && typeof m.ganchos === 'object' ? m : { ganchos: {} };
+}
+
+/** Cuántas de cada gancho en un lote de n, con la proporción de Mayaverra (restos mayores). */
+export function cuposDeGanchos(n, ganchos = mezclaMayaverra().ganchos) {
+  const l = Object.entries(ganchos).filter(([, p]) => Number(p) > 0);
+  const total = l.reduce((t, [, p]) => t + Number(p), 0) || 1;
+  const base = l.map(([g, p]) => ({ g, exacto: (n * Number(p)) / total }));
+  const cupos = Object.fromEntries(base.map((x) => [x.g, Math.floor(x.exacto)]));
+  let falta = n - Object.values(cupos).reduce((t, x) => t + x, 0);
+  for (const x of [...base].sort((a, b) => b.exacto - Math.floor(b.exacto) - (a.exacto - Math.floor(a.exacto)))) {
+    if (falta <= 0) break;
+    cupos[x.g]++;
+    falta--;
+  }
+  return cupos;
+}
+
 /**
- * (2026-11-26c) AL AZAR: «que se generen aleatoriamente para que se vean las variaciones». n estructuras distintas (todas,
- * también las ocultas), sin el mismo estilo dos veces seguidas. `semilla` (el nombre del lote) hace el sorteo repetible.
+ * AL AZAR (2026-11-26c; 2026-11-26d «mejor que sean del Mayaverra y yo también pueda agregar»): n estructuras
+ * distintas, SOLO de Mayaverra y las tuyas (también las ocultas), con la mezcla de ganchos de Mayaverra
+ * (mayaverra-mezcla.json) y sin el mismo estilo dos veces seguidas. Si tienes alguna tuya, un lote de 3 o más lleva al
+ * menos una. `semilla` (el nombre del lote) hace el sorteo repetible.
  */
 export function estructurasAlAzar(n, { semilla = '' } = {}) {
   let x = [...String(semilla || Date.now())].reduce((t, c) => (t * 31 + c.charCodeAt(0)) >>> 0, 2166136261) || 1;
   const azar = () => ((x = (x * 1664525 + 1013904223) >>> 0) / 4294967296);
-  const todas = [...leerSkill().formatos.values()].filter((f) => f.estructura && f.referencia);
-  for (let i = todas.length - 1; i > 0; i--) {
-    const j = Math.floor(azar() * (i + 1));
-    [todas[i], todas[j]] = [todas[j], todas[i]];
-  }
+  const barajar = (l) => {
+    for (let i = l.length - 1; i > 0; i--) {
+      const j = Math.floor(azar() * (i + 1));
+      [l[i], l[j]] = [l[j], l[i]];
+    }
+    return l;
+  };
+  const todas = barajar(
+    [...leerSkill().formatos.values()]
+      .filter((f) => f.estructura && f.referencia && ['mayaverra', 'propia'].includes(f.marca))
+      .map((f) => ({ id: f.id, estilo: f.estilo, propia: f.marca === 'propia', gancho: fichaDe(f)?.titular?.gancho || null }))
+  );
+  const k = Math.min(n, todas.length);
   const elegidas = [];
-  const quedan = [...todas];
-  while (elegidas.length < Math.min(n, todas.length) && quedan.length) {
-    const antes = elegidas[elegidas.length - 1]?.estilo;
-    const k = quedan.findIndex((f) => f.estilo !== antes);
-    elegidas.push(quedan.splice(k >= 0 ? k : 0, 1)[0]);
+  const tomar = (f) => {
+    elegidas.push(f);
+    todas.splice(todas.indexOf(f), 1);
+  };
+  // al menos una tuya
+  const tuya = todas.find((f) => f.propia);
+  if (tuya && k >= 3) tomar(tuya);
+  // la mezcla de ganchos de Mayaverra
+  const cupos = cuposDeGanchos(k);
+  for (const f of elegidas) if (cupos[f.gancho] > 0) cupos[f.gancho]--;
+  for (const [g, c] of Object.entries(cupos)) for (let i = 0; i < c && elegidas.length < k; i++) {
+    const f = todas.find((y) => y.gancho === g);
+    if (f) tomar(f);
   }
-  return elegidas.map((f) => f.id);
+  while (elegidas.length < k && todas.length) tomar(todas[0]);
+  // el orden: nunca el mismo estilo seguido (primero el estilo que más queda, para no trabarse al final)
+  const orden = [];
+  const quedan = [...elegidas];
+  while (quedan.length) {
+    const antes = orden[orden.length - 1]?.estilo;
+    const cuenta = (e) => quedan.filter((y) => y.estilo === e).length;
+    const opciones = quedan.filter((y) => y.estilo !== antes);
+    const f = (opciones.length ? opciones : quedan).sort((a, b) => cuenta(b.estilo) - cuenta(a.estilo))[0];
+    orden.push(f);
+    quedan.splice(quedan.indexOf(f), 1);
+  }
+  return orden.map((f) => f.id);
 }
 
 /** Baja la imagen de una estructura si falta (de su url_origen, solo de TrendTrack). -> true si quedó. */

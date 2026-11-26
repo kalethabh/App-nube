@@ -1,0 +1,45 @@
+{
+  "id": "mv-37",
+  "nombre": "Número grande de clientas, frasco al centro con 3 reseñas en tarjetas y precio del tratamiento",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-37.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/a4d50d1f9c3dcef773d6e59bb9e5d5126d9a5b6bb78272d28cb0ce6a9b5c4ae9.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F67",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular en serif de 2 líneas con el número de clientas y el resultado. 22 %",
+    "centro": "Frasco al centro; a la izquierda 3 tarjetas de reseña inclinadas con estrellas y nombre con ciudad; a la derecha un círculo con el número y la calificación. 60 %",
+    "abajo": "Precio del tratamiento con el anterior tachado y una línea con garantía y envío con ✓. 18 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 4,
+    "resaltada": "el número",
+    "color_resaltado": "negro",
+    "posicion": "arriba al centro",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La prueba social alrededor del frasco."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "clientes",
+    "garantia"
+  ],
+  "oferta": {
+    "tipo": "tachado-por-unidad",
+    "como": "precio del tratamiento con el anterior tachado"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "garantía de días y envío gratis con ✓",
+  "estilo": "bodegon-premium",
+  "cuidado": "Número de clientas, estrellas y reseñas SOLO si el usuario las da; si no, las tarjetas dicen el uso («2 cápsulas al día») y el titular la promesa sin cifra."
+}

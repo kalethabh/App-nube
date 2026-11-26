@@ -553,3 +553,20 @@ a.o3-zona:hover { background: #000; }
 .enc--limpio .enc-paso--datos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 @media (max-width: 760px) { .enc--limpio .enc-paso--datos { grid-template-columns: 1fr; } .enc--limpio .enc-modos { display: flex; } .enc--limpio .enc-modos button { flex: 1 1 auto; justify-content: center; } }
 @media (max-width: 760px) { .enc-pie > .boton { width: 100%; max-width: 100%; height: auto; min-height: 42px; } .enc-pie .boton__texto { white-space: normal; } }
+
+/* (2026-11-26d) Tus estructuras ganadoras */
+.enc-tuyas { display: flex; flex-direction: column; gap: 10px; padding: 12px; border-radius: 14px; border: 1px solid var(--borde-1); background: color-mix(in srgb, var(--superficie-2) 55%, transparent); }
+.enc-tuyas__arriba { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.enc-tuyas__lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); gap: 8px; }
+.enc-tuyas__lista li { position: relative; display: flex; align-items: center; gap: 8px; padding: 6px 34px 6px 6px; border-radius: 10px; border: 1px solid var(--borde-2); background: var(--superficie-1); min-width: 0; }
+.enc-tuyas__lista img { width: 44px; height: 44px; flex: none; object-fit: cover; border-radius: 7px; }
+.enc-tuyas__lista span { font-size: 12px; line-height: 1.3; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.enc-tuyas__lista button { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 26px; height: 26px; display: grid; place-items: center; border-radius: 7px; border: 0; background: none; color: var(--texto-3); cursor: pointer; }
+.enc-tuyas__lista button:hover { color: var(--peligro, #ef4444); background: var(--superficie-2); }
+.enc-tuyas__nueva { display: flex; flex-direction: column; gap: 10px; }
+.enc-tuyas__vista { position: relative; padding: 4px; }
+.enc-tuyas__vista img { display: block; max-height: 180px; max-width: 100%; border-radius: 10px; }
+.enc-tuyas__vista button { position: absolute; top: -4px; right: -4px; width: 22px; height: 22px; border-radius: 50%; border: 0; background: #0b0b0b; color: #fff; display: grid; place-items: center; cursor: pointer; }
+.enc-tuyas__funciona { display: flex; flex-direction: column; gap: 6px; }
+.enc-tuyas__funciona .enc-funciona button { border: 2px solid transparent; }
+.enc-tuyas__acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }

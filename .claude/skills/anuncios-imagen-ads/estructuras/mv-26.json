@@ -1,0 +1,44 @@
+{
+  "id": "mv-26",
+  "nombre": "Titular de orden en dos colores y el frasco en mano con sello de oferta",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-26.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/8bd1580130b86bfcf4329a349639843b6c5a4415dcdaed12603e4f0c0359c3a1.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F56",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Marca pequeña en serif y titular de 2 líneas: la primera en negro (lo que dejas de hacer) y la segunda en verde (la promesa). 30 %",
+    "centro": "Mano sosteniendo el frasco de frente, fondo blanco, y un sello rojo circular con la oferta a la izquierda. 60 %",
+    "abajo": "La mano y el fondo blanco. 10 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 7,
+    "resaltada": "la segunda línea",
+    "color_resaltado": "verde",
+    "posicion": "arriba al centro",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "El producto real en la mano."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "2+1",
+    "como": "sello rojo circular con «2+1 gratis»"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Para Aguaje: «Deja de rellenar el jean. Levanta de verdad.»; la oferta, la del usuario."
+}

@@ -1,0 +1,44 @@
+{
+  "id": "mv-27",
+  "nombre": "Frase de clienta gigante, dos frascos y círculo de descuento, fondo verde",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-27.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/c14dcb504487d2b8e6426b4da345159bf01da0ff09ed41ced93c2985ddad9eaa.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F57",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Frase en primera persona entre signos, en serif blanca grande, 4 líneas a la izquierda. 45 %",
+    "centro": "Dos frascos a la derecha sobre fondo verde oscuro y la oferta de unidades en mayúsculas a la izquierda. 35 %",
+    "abajo": "Círculo verde claro con el porcentaje y «hasta agotar existencias». 20 %"
+  },
+  "titular": {
+    "lineas": 4,
+    "palabras": 6,
+    "resaltada": "ninguna",
+    "color_resaltado": "blanco",
+    "posicion": "arriba a la izquierda",
+    "gancho": "emocion"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La frase de la clienta carga la emoción."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "clientes"
+  ],
+  "oferta": {
+    "tipo": "porcentaje-estrella",
+    "como": "círculo con % de descuento + línea «compra 2 y recibe 1»"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "bodegon-premium",
+  "cuidado": "La frase es genérica del dolor, sin nombre de clienta inventada. Porcentaje solo si es real."
+}

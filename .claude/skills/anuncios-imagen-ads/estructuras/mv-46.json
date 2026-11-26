@@ -1,0 +1,44 @@
+{
+  "id": "mv-46",
+  "nombre": "Personaje 3D del frasco corriendo hacia la meta de «fin de la oferta»",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-46.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/b30523c479bc6289712ca0cbc31b1caa140a253854a1d2277457e5a2d7d1392f.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F76",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 2 líneas en blanco con contorno: la oferta y que termina esta noche. 25 %",
+    "centro": "El frasco con cara, brazos y piernas corriendo sudado en una pista de atletismo hacia una pancarta roja «fin de la oferta»; un frasco pequeño con «+1 gratis» detrás. 65 %",
+    "abajo": "La pista. 10 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 7,
+    "resaltada": "ninguna",
+    "color_resaltado": "blanco",
+    "posicion": "arriba al centro",
+    "gancho": "urgencia"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "El humor del personaje lleva la urgencia."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "2+1",
+    "como": "frasco pequeño «+1 gratis» + titular"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "3d-pixar",
+  "cuidado": "El frasco-personaje debe seguir siendo el frasco real (misma etiqueta). Oferta solo si es real."
+}

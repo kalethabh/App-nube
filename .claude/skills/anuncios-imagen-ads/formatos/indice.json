@@ -1342,7 +1342,8 @@
       "estilo": "3d-pixar",
       "nativo": false,
       "protagonista": false,
-      "familia": "F33"
+      "familia": "F33",
+      "marca": "mayaverra"
     },
     {
       "id": "F34",
@@ -1366,7 +1367,8 @@
       "estilo": "foto-real",
       "nativo": false,
       "protagonista": true,
-      "familia": "F34"
+      "familia": "F34",
+      "marca": "mayaverra"
     },
     {
       "id": "F35",
@@ -1391,7 +1393,8 @@
       "estilo": "foto-real",
       "nativo": false,
       "protagonista": false,
-      "familia": "F35"
+      "familia": "F35",
+      "marca": "mayaverra"
     },
     {
       "id": "F36",
@@ -1416,7 +1419,8 @@
       "estilo": "ilustracion-plana",
       "nativo": false,
       "protagonista": true,
-      "familia": "F36"
+      "familia": "F36",
+      "marca": "mayaverra"
     },
     {
       "id": "F37",
@@ -1439,7 +1443,8 @@
       "estilo": "3d-pixar",
       "nativo": false,
       "protagonista": false,
-      "familia": "F37"
+      "familia": "F37",
+      "marca": "mayaverra"
     },
     {
       "id": "F38",
@@ -1463,7 +1468,8 @@
       "estilo": "ilustracion-plana",
       "nativo": true,
       "protagonista": false,
-      "familia": "F38"
+      "familia": "F38",
+      "marca": "mayaverra"
     },
     {
       "id": "F39",
@@ -1486,7 +1492,8 @@
       "estilo": "bodegon-premium",
       "nativo": false,
       "protagonista": true,
-      "familia": "F39"
+      "familia": "F39",
+      "marca": "mayaverra"
     },
     {
       "id": "F40",
@@ -1509,7 +1516,8 @@
       "estilo": "carta-de-texto",
       "nativo": true,
       "protagonista": false,
-      "familia": "F40"
+      "familia": "F40",
+      "marca": "mayaverra"
     },
     {
       "id": "F41",
@@ -1532,7 +1540,8 @@
       "nativo": true,
       "protagonista": true,
       "familia": "F41",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F42",
@@ -1555,7 +1564,8 @@
       "nativo": false,
       "protagonista": true,
       "familia": "F42",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F43",
@@ -1577,7 +1587,8 @@
       "nativo": false,
       "protagonista": true,
       "familia": "F43",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F44",
@@ -1600,7 +1611,8 @@
       "nativo": false,
       "protagonista": true,
       "familia": "F44",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F45",
@@ -1622,7 +1634,8 @@
       "nativo": true,
       "protagonista": false,
       "familia": "F45",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F46",
@@ -1645,7 +1658,8 @@
       "nativo": true,
       "protagonista": false,
       "familia": "F46",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F47",
@@ -1667,7 +1681,8 @@
       "nativo": false,
       "protagonista": true,
       "familia": "F47",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F48",
@@ -1690,7 +1705,8 @@
       "nativo": false,
       "protagonista": false,
       "familia": "F48",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F49",
@@ -1713,7 +1729,8 @@
       "nativo": true,
       "protagonista": true,
       "familia": "F49",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F50",
@@ -1736,7 +1753,8 @@
       "nativo": false,
       "protagonista": true,
       "familia": "F50",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F51",
@@ -1759,7 +1777,8 @@
       "nativo": true,
       "protagonista": false,
       "familia": "F51",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F52",
@@ -1782,413 +1801,828 @@
       "nativo": false,
       "protagonista": true,
       "familia": "F52",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F53",
-      "nombre": "Mayor oferta: precio tachado contra precio, producto en bolsa y lista de 4",
+      "nombre": "Tres fotos reales de la misma zona en progreso, sin texto",
       "origen": "estructura-ganadora",
-      "descripcion": "Cinta verde con el titular de oferta. 12 % Izquierda: precio anterior tachado en rojo y precio nuevo gigante con «/ unidad», debajo 4 checks verdes; derecha: varias unidades del producto saliendo de una bolsa de tela y un sello circular de origen. 70 % Botón verde ancho «pide tu pack aquí» y garantía debajo. 18 %",
+      "descripcion": "Sin texto: la parte de arriba de las tres fotos. 10 % Tres fotos verticales lado a lado de la misma zona del cuerpo (muslo de perfil) en tres momentos, con la piel real, ropa y luz distintas en cada una. 80 % Los pies o el piso de cada foto. 10 %",
       "angulos_compatibles": [
-        "oferta",
-        "objecion-precio"
-      ],
-      "tipos_producto": [
-        "todos"
-      ],
-      "archivo": "estructuras/vg-01.json",
-      "estructura": "estructuras/vg-01.json",
-      "referencia": "mis_archivos/biblioteca/referencias/vgummies/vg-01.jpg",
-      "slug": "F53-oferta-lista-checks",
-      "estilo": "bodegon-premium",
-      "nativo": false,
-      "protagonista": true,
-      "familia": "F53",
-      "oculta": true
-    },
-    {
-      "id": "F54",
-      "nombre": "Fondo negro con brillos y precio gigante",
-      "origen": "estructura-ganadora",
-      "descripcion": "Marca espaciada arriba, titular de precio de 2 líneas con el precio en verde brillante y una línea de vigencia. 45 % Tres productos en abanico con luz de estudio y brillos. 50 % Fondo negro. 5 %",
-      "angulos_compatibles": [
-        "oferta",
-        "objecion-precio"
-      ],
-      "tipos_producto": [
-        "todos"
-      ],
-      "archivo": "estructuras/vg-02.json",
-      "estructura": "estructuras/vg-02.json",
-      "referencia": "mis_archivos/biblioteca/referencias/vgummies/vg-02.jpg",
-      "slug": "F54-precio-gigante-negro",
-      "estilo": "bodegon-premium",
-      "nativo": false,
-      "protagonista": true,
-      "familia": "F54",
-      "oculta": true
-    },
-    {
-      "id": "F55",
-      "nombre": "Producto en mano, foto casera sobre la mesa",
-      "origen": "estructura-ganadora",
-      "descripcion": "Mesa de madera y unidades sueltas del producto. 20 % Mano con el contenido del producto y el empaque abierto debajo, foto de celular con luz natural. 70 % Más unidades sobre la mesa. 10 %",
-      "angulos_compatibles": [
-        "rapido-y-facil",
-        "rutina-uso"
-      ],
-      "tipos_producto": [
-        "todos"
-      ],
-      "archivo": "estructuras/vg-05.json",
-      "estructura": "estructuras/vg-05.json",
-      "referencia": "mis_archivos/biblioteca/referencias/vgummies/vg-05.jpg",
-      "slug": "F55-producto-en-mano-casero",
-      "estilo": "foto-real",
-      "nativo": true,
-      "protagonista": true,
-      "familia": "F55",
-      "oculta": true
-    },
-    {
-      "id": "F56",
-      "nombre": "Pizarra con frase en tiza, producto y 3 datos con viñetas",
-      "origen": "estructura-ganadora",
-      "descripcion": "Frase de impacto escrita en tiza blanca, 2 líneas. 22 % Producto a la izquierda con una unidad suelta y a la derecha 3 viñetas en tiza. 68 % Letra chica de aviso. 10 %",
-      "angulos_compatibles": [
-        "curiosidad",
-        "agitacion",
+        "transformacion",
         "prueba-social"
       ],
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "estructuras/vg-06.json",
-      "estructura": "estructuras/vg-06.json",
-      "referencia": "mis_archivos/biblioteca/referencias/vgummies/vg-06.jpg",
-      "slug": "F56-pizarra-tiza",
-      "estilo": "carta-de-texto",
+      "archivo": "estructuras/mv-23.json",
+      "estructura": "estructuras/mv-23.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-23.jpg",
+      "slug": "F53-triptico-progreso",
+      "estilo": "foto-real",
       "nativo": true,
-      "protagonista": true,
-      "familia": "F56",
-      "oculta": true
+      "protagonista": false,
+      "familia": "F53",
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
-      "id": "F57",
-      "nombre": "Ilustración antes y después del cuerpo con producto en pedestal y listas abajo",
+      "id": "F54",
+      "nombre": "Lista de preguntas de síntomas con la marca como respuesta, fondo oscuro",
       "origen": "estructura-ganadora",
-      "descripcion": "Titular de 2 líneas («Es oficial:» y la promesa en cursiva). 22 % Cuerpo ilustrado antes (izquierda) y después (derecha), de perfil y de la cintura a las piernas; el producto en un pedestal al centro y un sello circular verde con la oferta. 55 % Dos listas: ✗ lo de antes y ✓ lo de después, con un rótulo al centro. 23 %",
+      "descripcion": "Fondo oscuro liso. 15 % Columna de 8 a 9 preguntas cortas de síntomas alineadas a la derecha, cada una seguida del nombre de la marca en negrita blanca. 70 % Logo pequeño centrado. 15 %",
+      "angulos_compatibles": [
+        "dolor",
+        "curiosidad",
+        "identidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-24.json",
+      "estructura": "estructuras/mv-24.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-24.jpg",
+      "slug": "F54-preguntas-marca",
+      "estilo": "carta-de-texto",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F54",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F55",
+      "nombre": "Cuadrícula de 4 momentos en ilustración de línea (antes, 24 horas, 1 semana, 4 semanas)",
+      "origen": "estructura-ganadora",
+      "descripcion": "Dos paneles de ilustración de línea con su etiqueta oscura arriba a la derecha («Antes», «24 horas con…»). 50 % La silueta de perfil cambia de un panel al siguiente. 10 % Dos paneles más («1 semana», «4 semanas») y el frasco pequeño en el último. 40 %",
       "angulos_compatibles": [
         "transformacion",
-        "identidad",
+        "rutina-uso"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-25.json",
+      "estructura": "estructuras/mv-25.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-25.jpg",
+      "slug": "F55-cuatro-momentos-linea",
+      "estilo": "ilustracion-plana",
+      "nativo": false,
+      "protagonista": false,
+      "familia": "F55",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F56",
+      "nombre": "Titular de orden en dos colores y el frasco en mano con sello de oferta",
+      "origen": "estructura-ganadora",
+      "descripcion": "Marca pequeña en serif y titular de 2 líneas: la primera en negro (lo que dejas de hacer) y la segunda en verde (la promesa). 30 % Mano sosteniendo el frasco de frente, fondo blanco, y un sello rojo circular con la oferta a la izquierda. 60 % La mano y el fondo blanco. 10 %",
+      "angulos_compatibles": [
+        "beneficio-principal",
         "oferta"
       ],
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "estructuras/vg-08.json",
-      "estructura": "estructuras/vg-08.json",
-      "referencia": "mis_archivos/biblioteca/referencias/vgummies/vg-08.jpg",
-      "slug": "F57-ilustracion-lado-pedestal",
-      "estilo": "ilustracion-plana",
-      "nativo": false,
-      "protagonista": true,
-      "familia": "F57",
-      "oculta": true
-    },
-    {
-      "id": "F58",
-      "nombre": "Comparación con la alternativa famosa: titular provocador, frasco y dato en círculo",
-      "origen": "estructura-ganadora",
-      "descripcion": "Titular gigante (la alternativa famosa) y la respuesta en negrita debajo, más 2 líneas de explicación. 35 % Frasco grande al centro sobre una mesa, sello rosado «más vendido» a la derecha y a la izquierda un dato en óvalo con flecha. 55 % Mesa de madera. 10 %",
-      "angulos_compatibles": [
-        "comparacion",
-        "curiosidad",
-        "mecanismo-unico"
-      ],
-      "tipos_producto": [
-        "todos"
-      ],
-      "archivo": "estructuras/np-01.json",
-      "estructura": "estructuras/np-01.json",
-      "referencia": "mis_archivos/biblioteca/referencias/novapiel/np-01.jpg",
-      "slug": "F58-contra-alternativa",
+      "archivo": "estructuras/mv-26.json",
+      "estructura": "estructuras/mv-26.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-26.jpg",
+      "slug": "F56-orden-frasco-en-mano",
       "estilo": "foto-real",
       "nativo": false,
       "protagonista": true,
-      "familia": "F58",
-      "oculta": true
+      "familia": "F56",
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
-      "id": "F59",
-      "nombre": "Fondo azul premium, titular enorme, 4 beneficios con íconos y frasco en pedestal",
+      "id": "F57",
+      "nombre": "Frase de clienta gigante, dos frascos y círculo de descuento, fondo verde",
       "origen": "estructura-ganadora",
-      "descripcion": "Titular gigante en blanco de 2 líneas y píldora blanca con el ingrediente estrella. 30 % 4 beneficios con ícono circular a la izquierda y frasco sobre pedestal de piedra con brillo azul a la derecha; una frase manuscrita al pie de la lista. 55 % Franja oscura con 3 sellos de confianza con ícono. 15 %",
+      "descripcion": "Frase en primera persona entre signos, en serif blanca grande, 4 líneas a la izquierda. 45 % Dos frascos a la derecha sobre fondo verde oscuro y la oferta de unidades en mayúsculas a la izquierda. 35 % Círculo verde claro con el porcentaje y «hasta agotar existencias». 20 %",
       "angulos_compatibles": [
-        "beneficio-principal",
-        "caracteristica-estrella"
-      ],
-      "tipos_producto": [
-        "todos"
-      ],
-      "archivo": "estructuras/np-02.json",
-      "estructura": "estructuras/np-02.json",
-      "referencia": "mis_archivos/biblioteca/referencias/novapiel/np-02.jpg",
-      "slug": "F59-azul-premium-beneficios",
-      "estilo": "bodegon-premium",
-      "nativo": false,
-      "protagonista": true,
-      "familia": "F59",
-      "oculta": true
-    },
-    {
-      "id": "F60",
-      "nombre": "Tabla comparativa «otros vs nosotros» con íconos y frasco",
-      "origen": "estructura-ganadora",
-      "descripcion": "Titular de 3 líneas con la palabra clave en color y 2 líneas de explicación. 35 % 3 íconos con texto debajo y una tabla de 2 columnas (✗ otros / ✓ el nuestro, 4 filas) a la izquierda; frasco grande sobre pedestal a la derecha. 52 % Franja con 2 sellos de confianza. 13 %",
-      "angulos_compatibles": [
-        "comparacion",
-        "objecion-confianza"
-      ],
-      "tipos_producto": [
-        "todos"
-      ],
-      "archivo": "estructuras/np-03.json",
-      "estructura": "estructuras/np-03.json",
-      "referencia": "mis_archivos/biblioteca/referencias/novapiel/np-03.jpg",
-      "slug": "F60-tabla-comparativa",
-      "estilo": "bodegon-premium",
-      "nativo": false,
-      "protagonista": true,
-      "familia": "F60",
-      "oculta": true
-    },
-    {
-      "id": "F61",
-      "nombre": "Escena real de despacho con frasco sobre caja y titular de oferta abajo",
-      "origen": "estructura-ganadora",
-      "descripcion": "Camión de reparto abierto y una persona subiendo cajas. 45 % Frasco sobre una caja de cartón con cápsulas al lado. 25 % Titular de oferta de 3 líneas en blanco y rojo, línea de vigencia y píldora blanca con el pack y precio. 30 %",
-      "angulos_compatibles": [
+        "testimonio",
         "oferta",
+        "identidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-27.json",
+      "estructura": "estructuras/mv-27.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-27.jpg",
+      "slug": "F57-frase-clienta-verde",
+      "estilo": "bodegon-premium",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F57",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F58",
+      "nombre": "Foto casera: el gotero dosificando sobre el frasco con la caja al lado",
+      "origen": "estructura-ganadora",
+      "descripcion": "Gotero en la mano soltando una gota sobre la boca del frasco. 35 % La caja del producto abierta detrás y el frasco abierto delante, en una encimera de cocina con luz de ventana. 55 % Encimera y fondo desenfocados. 10 %",
+      "angulos_compatibles": [
+        "rutina-uso",
         "rapido-y-facil",
         "objecion-confianza"
       ],
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "estructuras/np-05.json",
-      "estructura": "estructuras/np-05.json",
-      "referencia": "mis_archivos/biblioteca/referencias/novapiel/np-05.jpg",
-      "slug": "F61-despacho-real",
+      "archivo": "estructuras/mv-28.json",
+      "estructura": "estructuras/mv-28.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-28.jpg",
+      "slug": "F58-gotero-casero",
       "estilo": "foto-real",
-      "nativo": false,
+      "nativo": true,
       "protagonista": true,
-      "familia": "F61",
-      "oculta": true
+      "familia": "F58",
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
-      "id": "F62",
-      "nombre": "Persona con el problema arriba, frasco grande, 3 íconos y cuadro explicativo",
+      "id": "F59",
+      "nombre": "Bodegón cenital: lo que no funcionó (pesa, ensalada, cinta) junto a los frascos",
       "origen": "estructura-ganadora",
-      "descripcion": "Titular de 3 líneas con la última palabra en color y foto de la persona con el problema a la derecha. 40 % Párrafo corto, 3 beneficios con ícono y un cuadro con la explicación del mecanismo; frasco grande a la derecha. 47 % Franja con 3 sellos. 13 %",
+      "descripcion": "Mesa de madera vista desde arriba. 10 % A la izquierda una mancuerna, un pote y un plato de ensalada; al centro una cinta métrica; a la derecha tres frascos del producto. 80 % Mesa de madera. 10 %",
       "angulos_compatibles": [
-        "dolor",
-        "mecanismo-unico",
-        "beneficio-principal"
+        "comparacion",
+        "enemigo-comun",
+        "beneficio-sin-sacrificio"
       ],
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "estructuras/np-06.json",
-      "estructura": "estructuras/np-06.json",
-      "referencia": "mis_archivos/biblioteca/referencias/novapiel/np-06.jpg",
-      "slug": "F62-escena-problema-explicacion",
+      "archivo": "estructuras/mv-29.json",
+      "estructura": "estructuras/mv-29.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-29.jpg",
+      "slug": "F59-no-funciono-cenital",
       "estilo": "foto-real",
-      "nativo": false,
+      "nativo": true,
       "protagonista": true,
-      "familia": "F62",
-      "oculta": true
+      "familia": "F59",
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
-      "id": "F63",
-      "nombre": "Persona con el problema a la izquierda, lista de síntomas y frasco en pedestal",
+      "id": "F60",
+      "nombre": "La fundadora en la bodega con palés de cajas y el frasco en la mano",
       "origen": "estructura-ganadora",
-      "descripcion": "Titular de 3 líneas: la palabra del problema gigante. 28 % Persona con el gesto del problema a la izquierda, 3 síntomas con ícono en círculo al centro, frasco sobre pedestal a la derecha. 57 % Píldora con ícono y la promesa. 15 %",
+      "descripcion": "Techo y estanterías de la bodega con el logo grande en la pared. 25 % Mujer real sonriente con camisa de la marca, el frasco en la mano, apoyada en palés de cajas del producto. 65 % El piso de la bodega. 10 %",
       "angulos_compatibles": [
-        "dolor",
-        "agitacion"
+        "objecion-confianza",
+        "autoridad",
+        "prueba-social"
       ],
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "estructuras/np-07.json",
-      "estructura": "estructuras/np-07.json",
-      "referencia": "mis_archivos/biblioteca/referencias/novapiel/np-07.jpg",
-      "slug": "F63-sintomas-persona",
+      "archivo": "estructuras/mv-30.json",
+      "estructura": "estructuras/mv-30.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-30.jpg",
+      "slug": "F60-fundadora-bodega",
       "estilo": "foto-real",
-      "nativo": false,
-      "protagonista": true,
-      "familia": "F63",
-      "oculta": true
-    },
-    {
-      "id": "F64",
-      "nombre": "Estilo de vida aspiracional con frase de 2 partes y frasco",
-      "origen": "estructura-ganadora",
-      "descripcion": "Frase corta de impacto con una línea debajo. 25 % Segunda parte de la frase con una palabra en color, píldora con el CTA y el frasco abajo a la izquierda; a la derecha una mujer 50+ feliz en la montaña. 65 % Paisaje. 10 %",
-      "angulos_compatibles": [
-        "identidad",
-        "romper-expectativas",
-        "promesa-emocional"
-      ],
-      "tipos_producto": [
-        "todos"
-      ],
-      "archivo": "estructuras/np-08.json",
-      "estructura": "estructuras/np-08.json",
-      "referencia": "mis_archivos/biblioteca/referencias/novapiel/np-08.jpg",
-      "slug": "F64-aspiracional-frase",
-      "estilo": "foto-real",
-      "nativo": false,
+      "nativo": true,
       "protagonista": false,
-      "familia": "F64",
-      "oculta": true
+      "familia": "F60",
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
-      "id": "F65",
-      "nombre": "Personaje 3D al centro rodeado de síntomas con íconos",
+      "id": "F61",
+      "nombre": "Foto cenital de pies y piernas con el problema sobre piso de madera, sin texto",
       "origen": "estructura-ganadora",
-      "descripcion": "Titular de 3 líneas («N cosas frustrantes de…», el problema gigante y el segmento). 20 % Personaje 3D al centro pensativo y 6-7 síntomas con ícono de línea alrededor, unidos con flechas finas. 65 % Dos frascos abajo a la derecha y la letra chica de aviso. 15 %",
+      "descripcion": "Piso de madera. 15 % Las piernas y los pies de una mujer vistos desde arriba, con el problema visible y luz natural. 75 % Piso de madera. 10 %",
       "angulos_compatibles": [
         "dolor",
-        "agitacion",
         "identidad"
       ],
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "estructuras/rv-02.json",
-      "estructura": "estructuras/rv-02.json",
-      "referencia": "mis_archivos/biblioteca/referencias/revocelo/rv-02.jpg",
-      "slug": "F65-personaje-sintomas",
-      "estilo": "3d-pixar",
-      "nativo": false,
+      "archivo": "estructuras/mv-31.json",
+      "estructura": "estructuras/mv-31.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-31.jpg",
+      "slug": "F61-pies-cenital",
+      "estilo": "foto-real",
+      "nativo": true,
       "protagonista": false,
-      "familia": "F65",
-      "oculta": true
+      "familia": "F61",
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
-      "id": "F66",
-      "nombre": "Escena 3D cotidiana con titular de hábito y frascos en esquina",
+      "id": "F62",
+      "nombre": "Báscula antes y después vista desde arriba, sin texto",
       "origen": "estructura-ganadora",
-      "descripcion": "Titular de 3 líneas con la palabra clave gigante. 25 % Escena 3D cálida de cocina con el personaje en su hábito. 60 % Dos frascos abajo a la derecha y letra chica. 15 %",
-      "angulos_compatibles": [
-        "dolor",
-        "rutina-uso",
-        "enemigo-comun"
-      ],
-      "tipos_producto": [
-        "todos"
-      ],
-      "archivo": "estructuras/rv-04.json",
-      "estructura": "estructuras/rv-04.json",
-      "referencia": "mis_archivos/biblioteca/referencias/revocelo/rv-04.jpg",
-      "slug": "F66-escena-3d-cotidiana",
-      "estilo": "3d-pixar",
-      "nativo": false,
-      "protagonista": false,
-      "familia": "F66",
-      "oculta": true
-    },
-    {
-      "id": "F67",
-      "nombre": "Secuencia ilustrada de 3 etapas con flechas y frascos en pedestal",
-      "origen": "estructura-ganadora",
-      "descripcion": "Subtítulo con palabras resaltadas en recuadros de color y titular gigante de 2 líneas con la palabra clave en color. 30 % Tres paneles de color con la misma persona ilustrada en 3 etapas (antes, mejorando, después) unidos por flechas. 45 % Dos frascos sobre un pedestal de piedra con plantas y letra chica. 25 %",
+      "descripcion": "El número de la pantalla de la báscula en cada mitad. 25 % Dos fotos lado a lado de los pies sobre la báscula (con medias y descalzos), cada una con su número. 65 % El piso. 10 %",
       "angulos_compatibles": [
         "transformacion",
-        "mecanismo-unico"
+        "prueba-social"
       ],
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "estructuras/rv-05.json",
-      "estructura": "estructuras/rv-05.json",
-      "referencia": "mis_archivos/biblioteca/referencias/revocelo/rv-05.jpg",
-      "slug": "F67-tres-etapas",
+      "archivo": "estructuras/mv-32.json",
+      "estructura": "estructuras/mv-32.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-32.jpg",
+      "slug": "F62-bascula-antes-despues",
+      "estilo": "foto-real",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F62",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F63",
+      "nombre": "Caja de cartón con frascos, «solo quedan 48 horas» y sello de unidades restantes",
+      "origen": "estructura-ganadora",
+      "descripcion": "Recuadro rojo con «ATENCIÓN:» gigante y una línea de plazo debajo. 25 % Caja de cartón abierta en una estantería con 4 frascos en fila adentro. 55 % Banda roja con «oferta para nuevos clientes» y un sello rojo con el número de frascos restantes. 20 %",
+      "angulos_compatibles": [
+        "oferta",
+        "objecion-precio"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-33.json",
+      "estructura": "estructuras/mv-33.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-33.jpg",
+      "slug": "F63-caja-escasez",
+      "estilo": "foto-real",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F63",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F64",
+      "nombre": "Antes y después de una zona dividido al medio con dos palabras del mecanismo y el frasco al centro",
+      "origen": "estructura-ganadora",
+      "descripcion": "Las dos mitades de la misma zona del cuerpo, sin titular. 25 % Mitad izquierda el problema y mitad derecha el resultado, unidas en el centro; el frasco pequeño sobre la línea de unión. 50 % Debajo de cada mitad dos palabras grandes en blanco que nombran el mecanismo (estado bloqueado / estado liberado). 25 %",
+      "angulos_compatibles": [
+        "mecanismo-unico",
+        "transformacion"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-34.json",
+      "estructura": "estructuras/mv-34.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-34.jpg",
+      "slug": "F64-mitad-dos-palabras",
+      "estilo": "foto-real",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F64",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F65",
+      "nombre": "Reencuadre del problema por segmento con 3 siluetas ilustradas y precio tachado",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular de 3 líneas en rojo y negro que dice qué NO es el problema y qué SÍ es. 30 % Tres siluetas de línea de perfil (semana 1, 2 y 4) con su etiqueta. 35 % Bloque de oferta: precio por unidad gigante con el anterior tachado y «esta semana solamente», con 3 frascos a la derecha. 35 %",
+      "angulos_compatibles": [
+        "romper-expectativas",
+        "oferta",
+        "identidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-35.json",
+      "estructura": "estructuras/mv-35.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-35.jpg",
+      "slug": "F65-reencuadre-siluetas",
       "estilo": "ilustracion-plana",
       "nativo": false,
       "protagonista": true,
+      "familia": "F65",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F66",
+      "nombre": "Captura de la app Notas del celular con la lista de síntomas y el frasco",
+      "origen": "estructura-ganadora",
+      "descripcion": "Barra de la app Notas («‹ Notas») y título en negrita de la lista. 20 % Lista de 10 a 12 síntomas, cada uno con su emoji, en letra del sistema sobre fondo rosado claro. 60 % El frasco abajo a la derecha, como pegado sobre la nota. 20 %",
+      "angulos_compatibles": [
+        "dolor",
+        "identidad",
+        "curiosidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-36.json",
+      "estructura": "estructuras/mv-36.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-36.jpg",
+      "slug": "F66-notas-celular",
+      "estilo": "foto-real",
+      "nativo": true,
+      "protagonista": true,
+      "familia": "F66",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F67",
+      "nombre": "Número grande de clientas, frasco al centro con 3 reseñas en tarjetas y precio del tratamiento",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular en serif de 2 líneas con el número de clientas y el resultado. 22 % Frasco al centro; a la izquierda 3 tarjetas de reseña inclinadas con estrellas y nombre con ciudad; a la derecha un círculo con el número y la calificación. 60 % Precio del tratamiento con el anterior tachado y una línea con garantía y envío con ✓. 18 %",
+      "angulos_compatibles": [
+        "prueba-social",
+        "testimonio",
+        "oferta"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-37.json",
+      "estructura": "estructuras/mv-37.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-37.jpg",
+      "slug": "F67-numero-resenas",
+      "estilo": "bodegon-premium",
+      "nativo": false,
+      "protagonista": true,
       "familia": "F67",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F68",
-      "nombre": "Diagrama problema → ingrediente → producto con flechas",
+      "nombre": "Gota cayendo del gotero sobre el frasco con sello de oferta extra y botón con la web",
       "origen": "estructura-ganadora",
-      "descripcion": "Titular de 2 líneas: la pregunta del problema y la causa en color. 18 % 4 filas: a la izquierda cada problema ilustrado, una flecha, el ingrediente que lo atiende con su nombre, y flechas que convergen al producto a la derecha. 72 % La frase de cierre bajo los frascos. 10 %",
+      "descripcion": "El gotero arriba soltando una gota dorada. 20 % El frasco grande al centro sobre fondo blanco y un sello rojo circular «3+1 oferta extra». 45 % Titular de oferta de 2 palabras en negro y rosa, y un botón oscuro con la web. 35 %",
       "angulos_compatibles": [
-        "mecanismo-unico",
+        "oferta",
         "caracteristica-estrella"
       ],
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "estructuras/rv-06.json",
-      "estructura": "estructuras/rv-06.json",
-      "referencia": "mis_archivos/biblioteca/referencias/revocelo/rv-06.jpg",
-      "slug": "F68-diagrama-ingredientes",
-      "estilo": "ilustracion-plana",
+      "archivo": "estructuras/mv-38.json",
+      "estructura": "estructuras/mv-38.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-38.jpg",
+      "slug": "F68-gota-oferta-extra",
+      "estilo": "bodegon-premium",
       "nativo": false,
       "protagonista": true,
       "familia": "F68",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F69",
-      "nombre": "Foto real arriba y cita testimonial en serif con píldora de contacto",
+      "nombre": "Ilustración de la mujer aliviada al centro con frascos alrededor, etiquetas de regalo y sello del pack",
       "origen": "estructura-ganadora",
-      "descripcion": "Foto real natural de una mujer de perfil con flores, luz suave. 60 % Bloque crema con una cita en serif de 3 líneas. 25 % Píldora oscura con el contacto (WhatsApp) y letra chica. 15 %",
+      "descripcion": "Titular entre comillas en serif verde «La mejor oferta». 15 % Mujer ilustrada al centro con gotas de agua alrededor, 3 frascos a la izquierda y 2 a la derecha con etiquetas colgantes de «gratis». 60 % Sello circular verde con el pack («3+2 gratis», días de rutina) y botón verde «quiero mi pack». 25 %",
       "angulos_compatibles": [
-        "testimonio",
-        "objecion-confianza",
-        "identidad"
+        "oferta",
+        "promesa-emocional"
       ],
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "estructuras/na-01.json",
-      "estructura": "estructuras/na-01.json",
-      "referencia": "mis_archivos/biblioteca/referencias/naiara/na-01.jpg",
-      "slug": "F69-foto-cita-serif",
-      "estilo": "foto-real",
-      "nativo": true,
-      "protagonista": false,
+      "archivo": "estructuras/mv-39.json",
+      "estructura": "estructuras/mv-39.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-39.jpg",
+      "slug": "F69-ilustracion-pack",
+      "estilo": "ilustracion-plana",
+      "nativo": false,
+      "protagonista": true,
       "familia": "F69",
-      "oculta": true
+      "oculta": true,
+      "marca": "mayaverra"
     },
     {
       "id": "F70",
-      "nombre": "Ingrediente que se derrama sobre el producto con dos titulares a los lados",
+      "nombre": "Mano con el frasco en una bodega llena: «hicimos demasiado» y liquidación",
       "origen": "estructura-ganadora",
-      "descripcion": "El ingrediente principal arriba (cortado) derramando su jugo en un chorro que cae al centro. 35 % Dos titulares a los lados del chorro (uno en color, otro en negro) con su dato debajo; datos técnicos en una columna a la izquierda. 30 % El empaque recibiendo el chorro y una mano con el producto preparado. 35 %",
+      "descripcion": "Titular de 2 líneas en blanco con emoji y una línea de pedido de ayuda. 25 % Mano en primer plano con el frasco frente a una bodega con cajas apiladas. 55 % Titular de la venta en mayúsculas y píldora verde con «haz clic abajo» y el %. 20 %",
       "angulos_compatibles": [
-        "caracteristica-estrella",
+        "oferta",
+        "curiosidad",
+        "objecion-precio"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-40.json",
+      "estructura": "estructuras/mv-40.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-40.jpg",
+      "slug": "F70-bodega-liquidacion",
+      "estilo": "foto-real",
+      "nativo": true,
+      "protagonista": true,
+      "familia": "F70",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F71",
+      "nombre": "Oferta de temporada: titular de última oportunidad, % gigante, reloj de arena y botón",
+      "origen": "estructura-ganadora",
+      "descripcion": "Logo y titular de 2 líneas en amarillo y naranja con decoración de la temporada (telarañas, murciélagos). 30 % Frasco a la izquierda y el porcentaje gigante a la derecha con un reloj de arena y «hasta <fecha>». 50 % Botón naranja «comprar ahora» y elementos de la temporada en las esquinas. 20 %",
+      "angulos_compatibles": [
+        "oferta"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-41.json",
+      "estructura": "estructuras/mv-41.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-41.jpg",
+      "slug": "F71-temporada-porcentaje",
+      "estilo": "ilustracion-plana",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F71",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F72",
+      "nombre": "Autodiagnóstico de mañana y noche en dos fotos con una prueba casera y el frasco",
+      "origen": "estructura-ganadora",
+      "descripcion": "Pregunta-titular en una cinta oscura y una línea de la prueba casera. 18 % Dos fotos lado a lado de la misma mujer: de mañana (bien, sonriente) y de noche (cansada, tocándose la pierna), con su etiqueta y una nota corta. 52 % Frasco al centro con la marca, 2 íconos de características y un botón «quiero probarlo». 30 %",
+      "angulos_compatibles": [
+        "dolor",
+        "mecanismo-unico",
+        "curiosidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-42.json",
+      "estructura": "estructuras/mv-42.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-42.jpg",
+      "slug": "F72-manana-noche",
+      "estilo": "foto-real",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F72",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F73",
+      "nombre": "Oferta flash de esta noche: % gigante a la izquierda, frasco con raíces y botón con hora límite",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular de 2 líneas en mayúsculas oscuras («excepcionalmente esta noche»). 20 % A la izquierda: «oferta flash», el % gigante y «expira a medianoche»; a la derecha el frasco sobre piedra con raíces y hierbas. 60 % Botón verde ancho con la hora límite. 20 %",
+      "angulos_compatibles": [
+        "oferta",
+        "objecion-precio"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-43.json",
+      "estructura": "estructuras/mv-43.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-43.jpg",
+      "slug": "F73-oferta-flash-noche",
+      "estilo": "bodegon-premium",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F73",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F74",
+      "nombre": "Editorial en serif con resultado medido y semana, 4 viñetas de mecanismo y frasco en mano",
+      "origen": "estructura-ganadora",
+      "descripcion": "Marca en serif pequeña y titular de 2 líneas en serif: el resultado y la semana en cursiva. 30 % A la izquierda 4 viñetas cuadradas con el mecanismo; a la derecha una mano sosteniendo el frasco. 50 % Píldora verde con la oferta del primer pedido. 20 %",
+      "angulos_compatibles": [
         "beneficio-principal",
         "mecanismo-unico"
       ],
       "tipos_producto": [
         "todos"
       ],
-      "archivo": "estructuras/xt-01.json",
-      "estructura": "estructuras/xt-01.json",
-      "referencia": "mis_archivos/biblioteca/referencias/xtratus/xt-01.jpg",
-      "slug": "F70-ingrediente-derramado",
+      "archivo": "estructuras/mv-44.json",
+      "estructura": "estructuras/mv-44.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-44.jpg",
+      "slug": "F74-editorial-semana",
+      "estilo": "foto-real",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F74",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F75",
+      "nombre": "Render 3D de la silueta de espaldas sobre cuadrícula de medición, sin texto",
+      "origen": "estructura-ganadora",
+      "descripcion": "Fondo negro con líneas finas de cuadrícula y marcas de medición en las esquinas. 15 % Silueta 3D gris de la cadera y el glúteo de espaldas con líneas de medida que siguen la curva. 75 % Fondo negro. 10 %",
+      "angulos_compatibles": [
+        "curiosidad",
+        "transformacion"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-45.json",
+      "estructura": "estructuras/mv-45.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-45.jpg",
+      "slug": "F75-silueta-3d-cuadricula",
+      "estilo": "3d-pixar",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F75",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F76",
+      "nombre": "Personaje 3D del frasco corriendo hacia la meta de «fin de la oferta»",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular de 2 líneas en blanco con contorno: la oferta y que termina esta noche. 25 % El frasco con cara, brazos y piernas corriendo sudado en una pista de atletismo hacia una pancarta roja «fin de la oferta»; un frasco pequeño con «+1 gratis» detrás. 65 % La pista. 10 %",
+      "angulos_compatibles": [
+        "oferta",
+        "curiosidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-46.json",
+      "estructura": "estructuras/mv-46.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-46.jpg",
+      "slug": "F76-frasco-corriendo",
+      "estilo": "3d-pixar",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F76",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F77",
+      "nombre": "Comparación de precio: un frasco tachado contra el pack con precio por unidad y franja de beneficios",
+      "origen": "estructura-ganadora",
+      "descripcion": "Sello verde «2+1 gratis» arriba a la derecha. 15 % Izquierda: un frasco con una X roja, su precio tachado y «sin la oferta»; derecha: 3 frascos, el precio por frasco gigante, el total y «con la oferta esta noche». 70 % Franja verde con ahorro, envío gratis y garantía. 15 %",
+      "angulos_compatibles": [
+        "objecion-precio",
+        "oferta",
+        "comparacion"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-47.json",
+      "estructura": "estructuras/mv-47.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-47.jpg",
+      "slug": "F77-precio-tachado-pack",
       "estilo": "bodegon-premium",
       "nativo": false,
       "protagonista": true,
-      "familia": "F70",
-      "oculta": true
+      "familia": "F77",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F78",
+      "nombre": "Dos columnas PROBLEMA | SOLUCIÓN con 3 íconos de síntomas y el frasco",
+      "origen": "estructura-ganadora",
+      "descripcion": "Dos encabezados en mayúsculas: «PROBLEMA» sobre fondo claro y «SOLUCIÓN» sobre fondo verde oscuro. 12 % Columna izquierda: 3 íconos de línea en cuadros con el nombre del síntoma; columna derecha: estrellas, una línea de prueba social y el frasco. 73 % Nombre del producto, beneficio corto y sello de garantía en la columna verde. 15 %",
+      "angulos_compatibles": [
+        "dolor",
+        "comparacion",
+        "beneficio-principal"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-48.json",
+      "estructura": "estructuras/mv-48.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-48.jpg",
+      "slug": "F78-problema-solucion",
+      "estilo": "ilustracion-plana",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F78",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F79",
+      "nombre": "Cuadrícula de 4 fotos de la misma persona (antes, 24 horas, 1 semana, 4 semanas) con el frasco a la derecha",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular en una línea en verde: frase de alivio en primera persona. 12 % Cuadrícula 2x2 de fotos de la misma persona en 4 momentos con su etiqueta, a la izquierda; el frasco grande con sello de fórmula a la derecha. 78 % La base de la cuadrícula. 10 %",
+      "angulos_compatibles": [
+        "transformacion",
+        "testimonio"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-49.json",
+      "estructura": "estructuras/mv-49.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-49.jpg",
+      "slug": "F79-cuadricula-cuatro-fotos",
+      "estilo": "foto-real",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F79",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F80",
+      "nombre": "Testimonio honesto («no digo que sea mágico… pero») con revelación y porcentajes de clientas",
+      "origen": "estructura-ganadora",
+      "descripcion": "Frase en cursiva entre comillas («no digo que sea mágico… ¡pero wow!»). 15 % Revelación de 2 líneas en verde oscuro (la segunda gigante) y 4 viñetas con porcentajes de clientas. 45 % El frasco inclinado abajo a la derecha sobre fondo verde claro degradado. 40 %",
+      "angulos_compatibles": [
+        "testimonio",
+        "romper-expectativas",
+        "prueba-social"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-50.json",
+      "estructura": "estructuras/mv-50.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-50.jpg",
+      "slug": "F80-honesto-porcentajes",
+      "estilo": "bodegon-premium",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F80",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F81",
+      "nombre": "Pregunta del problema en rosa, 3 fotos por semanas y oferta especial con botón",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular de 2 líneas: la pregunta del problema en rosa y la promesa en exclamación. 25 % Tres fotos de la misma zona (semana 1, 2 y 4) con su etiqueta. 30 % A la izquierda «oferta especial solo esta semana» en dorado y botón rosa; a la derecha 3 frascos; línea de «resultados reales, oferta por tiempo limitado». 45 %",
+      "angulos_compatibles": [
+        "dolor",
+        "transformacion",
+        "oferta"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-51.json",
+      "estructura": "estructuras/mv-51.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-51.jpg",
+      "slug": "F81-rosa-semanas-oferta",
+      "estilo": "foto-real",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F81",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F82",
+      "nombre": "Selfie de espejo del problema con el celular, sin texto",
+      "origen": "estructura-ganadora",
+      "descripcion": "El celular y la cara cortada en el espejo. 20 % Una mujer levantándose la blusa para mostrar el problema, en un cuarto real con luz de ventana. 70 % La ropa y el piso. 10 %",
+      "angulos_compatibles": [
+        "dolor",
+        "identidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-52.json",
+      "estructura": "estructuras/mv-52.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-52.jpg",
+      "slug": "F82-selfie-problema",
+      "estilo": "foto-real",
+      "nativo": true,
+      "protagonista": false,
+      "familia": "F82",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F83",
+      "nombre": "Testimonio en titular de 3 líneas con una palabra en rojo, foto de 3 frascos con hierbas y texto de post",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular de 3 líneas en letra manuscrita verde con una palabra en rojo: la frase de la clienta. 28 % Foto de 3 frascos sobre una mesa con hierbas y flores, y un botón pequeño «quiero probarlo». 55 % Nombre del producto en negrita y 2 líneas de texto como de publicación. 17 %",
+      "angulos_compatibles": [
+        "testimonio",
+        "identidad",
+        "promesa-emocional"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-53.json",
+      "estructura": "estructuras/mv-53.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-53.jpg",
+      "slug": "F83-testimonio-post",
+      "estilo": "foto-real",
+      "nativo": true,
+      "protagonista": true,
+      "familia": "F83",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F84",
+      "nombre": "Historia de una mujer en 3 paneles (día 14, 30 y 60) con el mecanismo dibujado y oferta de último día",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular de 2 líneas: frase de sorpresa y el segmento. 15 % Tres paneles de la misma mujer en 3 días con el mecanismo dibujado encima de su cuerpo (líneas doradas que se van). 45 % 3 frascos a la izquierda y a la derecha «oferta especial», «2+1 gratis» gigante y «último día». 40 %",
+      "angulos_compatibles": [
+        "transformacion",
+        "mecanismo-unico",
+        "oferta"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-54.json",
+      "estructura": "estructuras/mv-54.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-54.jpg",
+      "slug": "F84-historia-tres-paneles",
+      "estilo": "foto-real",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F84",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F85",
+      "nombre": "La garantía como protagonista: sello circular grande detrás del frasco con cinta y titular de devolución",
+      "origen": "estructura-ganadora",
+      "descripcion": "Píldora verde con la garantía en días y el sello circular grabado de fondo. 25 % El frasco al centro con una cinta verde alrededor, sobre tela blanca. 45 % Titular de 2 líneas en serif blanca («o te devolvemos tu dinero»), subtítulo en cursiva y una línea pequeña de encuesta. 30 %",
+      "angulos_compatibles": [
+        "objecion-confianza",
+        "regalo"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-55.json",
+      "estructura": "estructuras/mv-55.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-55.jpg",
+      "slug": "F85-garantia-protagonista",
+      "estilo": "bodegon-premium",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F85",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F86",
+      "nombre": "Fila de 4 fotos de la misma zona (antes, 24 horas, 1 semana, 3 semanas) con titular de 2 colores y frasco",
+      "origen": "estructura-ganadora",
+      "descripcion": "Marca en serif y titular de 2 líneas: la promesa en verde oscuro y el plazo en verde claro. 25 % Cuatro fotos verticales en fila de la misma zona del cuerpo con su etiqueta abajo, y el frasco a la derecha. 65 % Las etiquetas de cada foto. 10 %",
+      "angulos_compatibles": [
+        "transformacion",
+        "beneficio-principal"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-56.json",
+      "estructura": "estructuras/mv-56.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-56.jpg",
+      "slug": "F86-fila-cuatro-fotos",
+      "estilo": "foto-real",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F86",
+      "oculta": true,
+      "marca": "mayaverra"
+    },
+    {
+      "id": "F87",
+      "nombre": "Dibujo de palitos (stick figure) feliz junto al frasco con titular de testimonio arriba y abajo",
+      "origen": "estructura-ganadora",
+      "descripcion": "Titular en mayúsculas negras de 2 líneas: lo que hizo y por cuánto tiempo. 25 % Dibujo de palitos sonriente tocándose el cuerpo junto al frasco real, con un sello verde circular «100 % natural». 50 % Remate en mayúsculas de 2 líneas: lo que cambió. 25 %",
+      "angulos_compatibles": [
+        "testimonio",
+        "rapido-y-facil"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "estructuras/mv-57.json",
+      "estructura": "estructuras/mv-57.json",
+      "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-57.jpg",
+      "slug": "F87-dibujo-palitos",
+      "estilo": "ilustracion-plana",
+      "nativo": false,
+      "protagonista": true,
+      "familia": "F87",
+      "oculta": true,
+      "marca": "mayaverra"
     }
   ]
 }

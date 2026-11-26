@@ -14,6 +14,7 @@ import { validarEsquema, cargarEsquema } from '../claude.js';
 import { construirPrompt, construirPromptVertical } from '../../../../produccion/imagen-ads.js';
 import { R, RE_V, idsDelLote, piezaId } from './disco.js';
 import { esVariado, nivelDe, reglasDelPlan, reglasDelAnuncio } from './variedad.js';
+import { leerPropias, marcaPropias } from './propias-disco.js';
 
 export const DIR_SKILL = path.join(SKILLS, 'anuncios-imagen-ads');
 export const TOPE_PROMPT_VERIFICADO = 19000;
@@ -23,14 +24,24 @@ export const MINIMO_VISUAL = 700;
 // ---------------------------------------------------------------- la skill (angulos y formatos)
 
 let cacheSkill = null;
-/** { angulos: Map(id -> angulo), formatos: Map(id -> entrada del indice) } de la skill (se lee una vez). */
+let cacheBase = null;
+let marcaDeLasTuyas = null;
+/**
+ * { angulos: Map(id -> angulo), formatos: Map(id -> entrada del indice) } de la skill (se lee una vez) MÁS tus
+ * estructuras (2026-11-26d, P##, de tu biblioteca: propias-disco.js), que se vuelven a leer cuando cambia su índice.
+ */
 export function leerSkill() {
-  if (cacheSkill) return cacheSkill;
-  const a = leerJSON(path.join(DIR_SKILL, 'angulos.json'));
-  const i = leerJSON(path.join(DIR_SKILL, 'formatos', 'indice.json'));
+  const marca = marcaPropias();
+  if (cacheSkill && marca === marcaDeLasTuyas) return cacheSkill;
+  if (!cacheBase) {
+    const a = leerJSON(path.join(DIR_SKILL, 'angulos.json'));
+    const i = leerJSON(path.join(DIR_SKILL, 'formatos', 'indice.json'));
+    cacheBase = { angulos: new Map((a?.angulos || []).map((x) => [x.id, x])), formatos: (i?.formatos || []).map((x) => [x.id, x]) };
+  }
+  marcaDeLasTuyas = marca;
   cacheSkill = {
-    angulos: new Map((a?.angulos || []).map((x) => [x.id, x])),
-    formatos: new Map((i?.formatos || []).map((x) => [x.id, x])),
+    angulos: cacheBase.angulos,
+    formatos: new Map([...cacheBase.formatos, ...leerPropias().map((x) => [x.id, { ...x, marca: 'propia', origen: 'propia' }])]),
   };
   return cacheSkill;
 }
@@ -39,7 +50,7 @@ const cacheFormato = new Map();
 function archivoDeFormato(id) {
   if (cacheFormato.has(id)) return cacheFormato.get(id);
   const e = leerSkill().formatos.get(id);
-  const f = e?.archivo ? leerJSON(path.join(DIR_SKILL, e.archivo)) : null;
+  const f = e?.archivo && e.marca !== 'propia' ? leerJSON(path.join(DIR_SKILL, e.archivo)) : null;
   cacheFormato.set(id, f);
   return f;
 }
@@ -188,11 +199,25 @@ export function verificarV(carpeta, v, { brief, plan = null, usados = [] } = {})
   });
   // (2026-11-26a) «Vecinas» y «Conceptos»: la oferta y los sellos del formulario letra por letra (los formatos nativos
   // pueden ir sin ellos), titular afirmativo y corto, máximo 4 beneficios y nada de «Prohibido decir»
-  if (esVariado(brief)) {
+  // (2026-11-26d) también en los lotes con estructuras ganadoras (el kit fijo de Mayaverra)
+  const conEstructuras = Array.isArray(brief?.estructuras) && brief.estructuras.length > 0;
+  if (esVariado(brief) || conEstructuras) {
     const fPlan = ((plan || leerJSON(R.plan(carpeta)))?.variaciones || []).find((x) => x?.id === v)?.formato_id;
     const nativo = leerSkill().formatos.get(fPlan)?.nativo === true;
     const venta = brief?.venta ? { ...brief.venta, ...(nativo ? { oferta: '', sellos: [] } : {}) } : null;
     errores.push(...reglasDelAnuncio(datos, { venta, estricto: true }).map((e) => `${v}.json → ${e}`));
+    // como Mayaverra: la oferta escrita IGUAL en todas las imágenes del lote que la llevan
+    if (!venta?.oferta) {
+      const ofertaDe = (d) => (Array.isArray(d?.text_layers) ? d.text_layers : []).filter((t) => /offer|oferta|price|precio/i.test(`${t?.reference_function || ''} ${t?.block_id || ''}`)).map((t) => String(t?.text || '').replace(/\s+/g, ' ').trim()).filter(Boolean);
+      const mia = ofertaDe(datos);
+      if (mia.length) {
+        const otra = idsDelLote(brief?.cantidad)
+          .filter((x) => x !== v && x < v)
+          .map((x) => ofertaDe(leerJSON(R.v(carpeta, x))))
+          .find((l) => l.length);
+        if (otra && !mia.some((t) => otra.includes(t))) errores.push(`${v}.json → la oferta tiene que ir escrita IGUAL en todo el lote (como Mayaverra): usa «${otra[0]}» letra por letra`);
+      }
+    }
   }
   // (2026-11-26c) más detalle: en Variantes y Estructuras, el visual_prompt describe cada zona (no tres líneas)
   if ((esVariado(brief) || (Array.isArray(brief?.estructuras) && brief.estructuras.length)) && typeof datos.visual_prompt === 'string') {

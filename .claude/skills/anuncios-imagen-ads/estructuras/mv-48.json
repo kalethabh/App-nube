@@ -1,0 +1,46 @@
+{
+  "id": "mv-48",
+  "nombre": "Dos columnas PROBLEMA | SOLUCIÓN con 3 íconos de síntomas y el frasco",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-48.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/8ea82d3e05fc890b9e87d117bd58816eec612dbe412d3ecbb95c4f1466ca8574.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F78",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Dos encabezados en mayúsculas: «PROBLEMA» sobre fondo claro y «SOLUCIÓN» sobre fondo verde oscuro. 12 %",
+    "centro": "Columna izquierda: 3 íconos de línea en cuadros con el nombre del síntoma; columna derecha: estrellas, una línea de prueba social y el frasco. 73 %",
+    "abajo": "Nombre del producto, beneficio corto y sello de garantía en la columna verde. 15 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 2,
+    "resaltada": "ninguna",
+    "color_resaltado": "negro / blanco",
+    "posicion": "arriba de cada columna",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "ilustracion-plana",
+    "como": "Los síntomas como íconos de línea."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 3
+  },
+  "prueba": [
+    "garantia",
+    "clientes"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "garantía de días",
+  "estilo": "ilustracion-plana",
+  "cuidado": "Formato vertical. Número de clientas solo si es real."
+}

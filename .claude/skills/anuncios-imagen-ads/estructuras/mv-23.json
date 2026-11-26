@@ -1,0 +1,44 @@
+{
+  "id": "mv-23",
+  "nombre": "Tres fotos reales de la misma zona en progreso, sin texto",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-23.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/71a1e924bdc5c9f7e12d2a9b6500b874548bf274f3e6c3061b0a0e94421b5e8d.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F53",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Sin texto: la parte de arriba de las tres fotos. 10 %",
+    "centro": "Tres fotos verticales lado a lado de la misma zona del cuerpo (muslo de perfil) en tres momentos, con la piel real, ropa y luz distintas en cada una. 80 %",
+    "abajo": "Los pies o el piso de cada foto. 10 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 0,
+    "resaltada": "ninguna",
+    "color_resaltado": "ninguno",
+    "posicion": "sin titular (el texto va en el anuncio)",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "La misma zona en tres momentos, foto casera sin retoque."
+  },
+  "zona_del_cuerpo": "muslos",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo: parecen fotos de una clienta. Sin texto ni logo. Para Aguaje: glúteo y cadera de perfil en tres momentos, con jean o ropa deportiva."
+}

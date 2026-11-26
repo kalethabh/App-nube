@@ -1,0 +1,44 @@
+{
+  "id": "mv-45",
+  "nombre": "Render 3D de la silueta de espaldas sobre cuadrícula de medición, sin texto",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-45.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/86cd088a3e684c6ae5e37e44cb42da9e93d263d63ed9a9a173fb3695089d1314.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F75",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Fondo negro con líneas finas de cuadrícula y marcas de medición en las esquinas. 15 %",
+    "centro": "Silueta 3D gris de la cadera y el glúteo de espaldas con líneas de medida que siguen la curva. 75 %",
+    "abajo": "Fondo negro. 10 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 0,
+    "resaltada": "ninguna",
+    "color_resaltado": "ninguno",
+    "posicion": "sin titular",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "invisible-visible",
+    "como": "La forma del cuerpo como modelo 3D medido."
+  },
+  "zona_del_cuerpo": "gluteos",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "3d-pixar",
+  "cuidado": "Nativo y curioso (para detener el scroll); el texto va en el anuncio. Elegante, nada sexual."
+}

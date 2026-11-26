@@ -1,0 +1,44 @@
+{
+  "id": "mv-28",
+  "nombre": "Foto casera: el gotero dosificando sobre el frasco con la caja al lado",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-28.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/8f24ad83bef4ee295e267764af70d4eaefddce396ead8f0960e4c8c5b95f6175.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F58",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Gotero en la mano soltando una gota sobre la boca del frasco. 35 %",
+    "centro": "La caja del producto abierta detrás y el frasco abierto delante, en una encimera de cocina con luz de ventana. 55 %",
+    "abajo": "Encimera y fondo desenfocados. 10 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 0,
+    "resaltada": "ninguna",
+    "color_resaltado": "ninguno",
+    "posicion": "sin titular",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "El uso real del producto."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "hecho-a-mano"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo. Para cápsulas (Aguaje): mano sacando 2 cápsulas del frasco junto a la caja y un vaso de agua."
+}

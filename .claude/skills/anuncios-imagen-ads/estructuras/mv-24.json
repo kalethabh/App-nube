@@ -1,0 +1,44 @@
+{
+  "id": "mv-24",
+  "nombre": "Lista de preguntas de síntomas con la marca como respuesta, fondo oscuro",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-24.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/d42ee34bccec9e82013e66d109f38058f6915e2080d4bd352121bcb0e657b6b5.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F54",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Fondo oscuro liso. 15 %",
+    "centro": "Columna de 8 a 9 preguntas cortas de síntomas alineadas a la derecha, cada una seguida del nombre de la marca en negrita blanca. 70 %",
+    "abajo": "Logo pequeño centrado. 15 %"
+  },
+  "titular": {
+    "lineas": 6,
+    "palabras": 18,
+    "resaltada": "el nombre de la marca",
+    "color_resaltado": "blanco en negrita",
+    "posicion": "centro a la derecha (el bloque de 6 a 9 preguntas es el titular)",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Los síntomas en palabras, como un chiste repetido."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "carta-de-texto",
+  "cuidado": "Aquí las preguntas son el recurso de estilo (cada una se responde con la marca). Solo síntomas que el producto apoya de verdad; nada de enfermedades."
+}

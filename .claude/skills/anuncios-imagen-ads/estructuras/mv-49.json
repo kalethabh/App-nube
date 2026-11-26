@@ -1,0 +1,45 @@
+{
+  "id": "mv-49",
+  "nombre": "Cuadrícula de 4 fotos de la misma persona (antes, 24 horas, 1 semana, 4 semanas) con el frasco a la derecha",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-49.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/943d3ec75880877a09614aca928bde9c98782dce64dcce657b9e6b16b2a40e1d.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F79",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular en una línea en verde: frase de alivio en primera persona. 12 %",
+    "centro": "Cuadrícula 2x2 de fotos de la misma persona en 4 momentos con su etiqueta, a la izquierda; el frasco grande con sello de fórmula a la derecha. 78 %",
+    "abajo": "La base de la cuadrícula. 10 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 6,
+    "resaltada": "ninguna",
+    "color_resaltado": "verde",
+    "posicion": "arriba al centro",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "La misma persona en 4 momentos."
+  },
+  "zona_del_cuerpo": "vientre",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "linea-de-tiempo",
+    "cantidad": 4
+  },
+  "prueba": [
+    "clientes"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Para Aguaje: mujer de perfil en jean, glúteo en 4 momentos; sin prometer plazos."
+}

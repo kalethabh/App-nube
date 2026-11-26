@@ -1,0 +1,44 @@
+{
+  "id": "mv-32",
+  "nombre": "Báscula antes y después vista desde arriba, sin texto",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-32.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/9f033a1b7f88123df7e2578c997e67083fb49279f51bc3a4784a1fbd02e832d7.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F62",
+  "oculta": true,
+  "zonas": {
+    "arriba": "El número de la pantalla de la báscula en cada mitad. 25 %",
+    "centro": "Dos fotos lado a lado de los pies sobre la báscula (con medias y descalzos), cada una con su número. 65 %",
+    "abajo": "El piso. 10 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 2,
+    "resaltada": "los números de la báscula",
+    "color_resaltado": "negro digital",
+    "posicion": "arriba de cada mitad",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "El cambio contado con una medida real."
+  },
+  "zona_del_cuerpo": "pies",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "clientes"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Las cifras solo si el usuario las da. Para Aguaje no aplica el peso: usar una cinta métrica alrededor de la cadera (medida antes y después) sin prometer centímetros."
+}

@@ -21,6 +21,7 @@ const MODOS = [
 ];
 import { invalidar, pedirNuevo, useDatos } from '../../datos/api.js';
 import { apiImagenes, CLAVE_LOTES } from '../../datos/imagenes.js';
+import { MisEstructuras } from './MisEstructuras.jsx';
 import { enlace } from '../../datos/rutas.js';
 
 const CANTIDADES = [3, 5, 8, 10];
@@ -121,8 +122,11 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
   const { datos: opciones } = useDatos('imagen-ads:opciones', apiImagenes.opciones);
   const productos = (datos?.productos || []).filter((p) => p.fotos?.length);
   const [modo, setModo] = useState(modoInicial === 'investigacion' ? 'investigacion' : modoInicial === 'estructuras' ? 'estructuras' : 'referencia');
-  const { datos: est } = useDatos('imagen-ads:estructuras', () => pedirNuevo('/api/imagen-ads/estructuras'));
+  const { datos: est, recargar: recargarEst } = useDatos('imagen-ads:estructuras', () => pedirNuevo('/api/imagen-ads/estructuras'));
   const estructuras = est?.estructuras || [];
+  // (2026-11-26d) las tuyas (P##) primero; de Mayaverra, solo las 8 a la vista (las demás entran al sorteo)
+  const propias = estructuras.filter((x) => x.propia);
+  const galeria = [...propias, ...estructuras.filter((x) => !x.oculta && !x.propia)];
   const [elegidasEst, setElegidasEst] = useState(ESTRUCTURAS_INICIALES);
   // (2026-11-26c) por defecto la app sortea entre todas las estructuras ganadoras (también las que no se muestran)
   const [alAzar, setAlAzar] = useState(true);
@@ -305,10 +309,10 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
           <span className="enc-etiqueta">Las estructuras</span>
           {segmento([[true, 'Al azar (recomendado)'], [false, 'Elegir yo']], alAzar, setAlAzar, 'Qué estructuras')}
           {alAzar ? (
-            <p className="enc-ayuda">Cada anuncio sale de un diseño ganador distinto, sorteado entre decenas que están vendiendo. Nunca se repite el estilo dos veces seguidas.</p>
+            <p className="enc-ayuda">Cada anuncio sale de un diseño ganador distinto, sorteado entre los {estructuras.filter((x) => x.marca === 'mayaverra').length || 'decenas de'} anuncios de Mayaverra{propias.length ? ' y los tuyos' : ''}, con su misma mezcla (resultado, mecanismo, emoción, oferta, urgencia, segmento). Nunca se repite el estilo dos veces seguidas.</p>
           ) : (
             <ul className="enc-estructuras">
-              {estructuras.filter((x) => !x.oculta).map((x) => {
+              {galeria.map((x) => {
                 const activa = elegidasEst.includes(x.id);
                 return (
                   <li key={x.id}>
@@ -324,7 +328,8 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
               })}
             </ul>
           )}
-          <p className="enc-ayuda">Son de otras marcas y solo se usan como estructura: no se publican ni se copia su texto.</p>
+          <MisEstructuras propias={propias} onCambio={() => recargarEst?.()} />
+          <p className="enc-ayuda">Se copia cómo trabaja Mayaverra (estructura, titulares, cómo vende), nunca su marca, su texto ni sus cifras.</p>
         </div>
       ) : modo === 'referencia' ? (
         <>
