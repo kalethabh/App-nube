@@ -4,7 +4,7 @@
     "E": 3,
     "R": 3,
     "A": 1,
-    "T": 6
+    "T": 7
   },
   "tandas": {
     "E001": {
@@ -193,11 +193,30 @@
       "version": 0,
       "firma": null,
       "orden": {
-        "id": "g",
+        "id": "g-r1",
         "modo": "generar",
         "version": 1,
-        "trabajo": "T001"
+        "trabajo": "T006"
       },
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "g",
+      "rescates": 1
+    },
+    "V05_1x1": {
+      "v": "V05",
+      "formato": "1:1",
+      "fase": "reescribiendo",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
@@ -205,29 +224,12 @@
       "motivo": null,
       "mensaje": null,
       "desde": null,
-      "pedido": null
-    },
-    "V05_1x1": {
-      "v": "V05",
-      "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T004"
+      "pedido": null,
+      "rescate": {
+        "vez": 1,
+        "dijo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
       },
-      "intentosApi": 2,
-      "ronda": 1,
-      "reintentoAuto": "no",
-      "revision": null,
-      "motivo": null,
-      "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "ultimaOrden": "g"
     },
     "V06_1x1": {
       "v": "V06",
@@ -242,7 +244,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -264,7 +266,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 0,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -286,7 +288,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
