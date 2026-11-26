@@ -3,7 +3,7 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 7,
+    "A": 8,
     "T": 8
   },
   "tandas": {
@@ -80,6 +80,14 @@
         "U0007"
       ],
       "empezada": true
+    },
+    "A007": {
+      "tipo": "ajuste",
+      "uuid": "41ff9e1d-068a-4e8b-8c83-78f36e17797a",
+      "estado": "en-curso",
+      "pedidos": [
+        "U0008"
+      ]
     }
   },
   "variaciones": {
@@ -240,7 +248,7 @@
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 1,
       "firma": "1692282-1795723493223",
@@ -458,6 +466,14 @@
         }
       ],
       "paso": 0
+    },
+    "U0008": {
+      "id": "U0008",
+      "pieza": "V07_1x1",
+      "instruccion": "QUE TENGA GLUTEOS, PIERNAS Y GLUTEOS MÁS TONIFICADOS NATURALMENTE.\n\nEl texto inferior que diga: No es subir por subir. Es que se vaya a donde tiene que ir.",
+      "fecha": "2026-11-26T20:44:18.097Z",
+      "estado": "ajustando",
+      "ajuste": "A007"
     }
   }
 }
