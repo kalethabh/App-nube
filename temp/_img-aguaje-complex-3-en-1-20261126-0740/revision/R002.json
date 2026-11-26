@@ -1,0 +1,36 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V01_1x1",
+      "ok": true,
+      "problemas": [],
+      "puntajes": {
+        "estructura": 9,
+        "dolor_visual": 8,
+        "titular": 9,
+        "texto_limpio": 9,
+        "frasco_fiel": 9,
+        "oferta_confianza": 9,
+        "diferencia_real": 9
+      }
+    },
+    {
+      "pieza": "V02_1x1",
+      "ok": false,
+      "problemas": [
+        "Falta el velo gris opaco sobre las piernas del lado de antes: solo se ven unos leggings grises normales.",
+        "Dolor visual (6): el antes ya se ve con glúteos redondos y en forma, así que el cambio no se entiende en un segundo."
+      ],
+      "correccion_en": "On the left (before) side, show visibly flatter, less defined glutes and thinner, untoned thighs in the heather-gray leggings, and add a dull, desaturated gray translucent veil over the glutes and thighs so the zone looks flat and lifeless. Keep the right (after) side, all texts, the CTA pill and the bottle exactly as they are.",
+      "puntajes": {
+        "estructura": 9,
+        "dolor_visual": 6,
+        "titular": 9,
+        "texto_limpio": 9,
+        "frasco_fiel": 9,
+        "oferta_confianza": 8,
+        "diferencia_real": 9
+      }
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 2,
+    "R": 5,
     "A": 1,
     "T": 3
   },
@@ -31,7 +31,7 @@
     "R001": {
       "tipo": "revision",
       "uuid": "eee2d88d-8dc9-4234-8d4a-9546cde86ba9",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -39,7 +39,55 @@
           "firma": "1848662-1795697250891",
           "ronda": 1
         }
-      ]
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "36f3bba8-1fcf-493d-852b-be5c3dc8cd80",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "2037353-1795697259346",
+          "ronda": 1
+        },
+        {
+          "pieza": "V02_1x1",
+          "firma": "1952335-1795697251417",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "bc7573ca-3712-4268-9972-98e0754fc90e",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "1629659-1795697340793",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "32353e4f-1138-41bf-b28a-7b89ec2345cf",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V04_1x1",
+          "firma": "2070703-1795697364983",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -68,15 +116,30 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2037353-1795697259346",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2037353-1795697259346",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 9,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T12:47:39.726Z",
@@ -86,15 +149,35 @@
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1952335-1795697251417",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Falta el velo gris opaco sobre las piernas del lado de antes: solo se ven unos leggings grises normales.",
+          "Dolor visual (6): el antes ya se ve con glúteos redondos y en forma, así que el cambio no se entiende en un segundo.",
+          "No llega a 8 en: Dolor visual (6)."
+        ],
+        "firma": "1952335-1795697251417",
+        "correccion_en": "On the left (before) side, show visibly flatter, less defined glutes and thinner, untoned thighs in the heather-gray leggings, and add a dull, desaturated gray translucent veil over the glutes and thighs so the zone looks flat and lifeless. Keep the right (after) side, all texts, the CTA pill and the bottle exactly as they are.",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 6,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T12:47:31.486Z",
@@ -104,65 +187,107 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1848662-1795697250891",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Los textos, el frasco y los bloques están bien: no hay errores de escritura ni nada sobrante.",
+          "Dolor visual (6): sin leer no se entiende el problema; solo se ven ingredientes y el frasco.",
+          "Titular (7): ninguna palabra va resaltada; todo el titular tiene el mismo color.",
+          "No llega a 8 en: Dolor visual (6), Titular (7)."
+        ],
+        "firma": "1848662-1795697250891",
+        "correccion_en": "Keep everything identical, with the same texts. Render the words \"TU FIGURA\" in the headline in hot fuchsia #E6177F, with the rest of the headline in dark plum. Add one small flat fuchsia measuring tape illustration curling loosely next to the bottle base, on the right, so the goal of recovering the figure reads at a glance. No people, no bodies and no extra text.",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 6,
+          "titular": 7,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T12:47:31.067Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2070703-1795697364983",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2070703-1795697364983",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T12:49:26.158Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1629659-1795697340793",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1629659-1795697340793",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 9,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 8,
+          "oferta_confianza": 8,
+          "diferencia_real": 10
+        }
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T12:49:01.973Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

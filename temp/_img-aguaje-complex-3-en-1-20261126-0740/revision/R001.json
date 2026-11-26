@@ -1,0 +1,23 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V03_1x1",
+      "ok": false,
+      "problemas": [
+        "Los textos, el frasco y los bloques están bien: no hay errores de escritura ni nada sobrante.",
+        "Dolor visual (6): sin leer no se entiende el problema; solo se ven ingredientes y el frasco.",
+        "Titular (7): ninguna palabra va resaltada; todo el titular tiene el mismo color."
+      ],
+      "puntajes": {
+        "estructura": 9,
+        "dolor_visual": 6,
+        "titular": 7,
+        "texto_limpio": 9,
+        "frasco_fiel": 9,
+        "oferta_confianza": 8,
+        "diferencia_real": 9
+      },
+      "correccion_en": "Keep everything identical, with the same texts. Render the words \"TU FIGURA\" in the headline in hot fuchsia #E6177F, with the rest of the headline in dark plum. Add one small flat fuchsia measuring tape illustration curling loosely next to the bottle base, on the right, so the goal of recovering the figure reads at a glance. No people, no bodies and no extra text."
+    }
+  ]
+}

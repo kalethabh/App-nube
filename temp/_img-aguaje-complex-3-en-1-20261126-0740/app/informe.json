@@ -1,0 +1,41 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-26T12:49:45.036Z",
+  "variaciones": 5,
+  "archivos": 5,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 3,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "Falta el velo gris opaco sobre las piernas del lado de antes: solo se ven unos leggings grises normales.",
+          "Dolor visual (6): el antes ya se ve con glúteos redondos y en forma, así que el cambio no se entiende en un segundo.",
+          "No llega a 8 en: Dolor visual (6)."
+        ]
+      },
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "Los textos, el frasco y los bloques están bien: no hay errores de escritura ni nada sobrante.",
+          "Dolor visual (6): sin leer no se entiende el problema; solo se ven ingredientes y el frasco.",
+          "Titular (7): ninguna palabra va resaltada; todo el titular tiene el mismo color.",
+          "No llega a 8 en: Dolor visual (6), Titular (7)."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}
