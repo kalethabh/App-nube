@@ -1,0 +1,43 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 text-letter ad on a solid flat dark plum #2B1226 background with no texture and no gradient. TOP ZONE (3–18% height, 5–55% width): 2-line headline left-aligned, Montserrat Black uppercase, very heavy, each line about 7% of the canvas height: line 1 white #FFFFFF, line 2 bubblegum pink #FF8CC0. MIDDLE ZONE (20–88% height). LEFT (5–56% width): a letter of 4 short paragraphs, left-aligned, white Poppins Regular about 2.8% of the canvas height per line, comfortable line spacing, one blank line between paragraphs; the marked phrases in Poppins Bold bubblegum pink #FF8CC0 (in paragraph 1 'no querer pasar por un quirófano', in paragraph 2 '2 cápsulas al día', in paragraph 3 'plan natural de 3 meses', in paragraph 4 'tratamiento completo x3' and 'pagas al recibir'). Under the letter (82–88% height), the signature in an elegant white italic script. RIGHT (56–98% width, 3–62% height): a real smartphone photo inset with a thin 6 px white frame, rotated 3 degrees, soft drop shadow, about 25% of the canvas: a Colombian woman around 33, warm brown skin with visible pores and natural texture, dark shoulder-length curly hair, burgundy knit sweater and black skinny jeans, standing back three-quarters to a wardrobe mirror in her bedroom at night, warm bedside lamp light, phone held up for a selfie, the other hand on her back pocket, the seat of the jeans flat and the denim wrinkling empty under the pocket, she looks over her shoulder at her reflection with a worried, thoughtful face, lips pressed. RIGHT EDGE (60–100% width, 48–90% height): the real product bottle as a clean cut-out, front view, tilted about 12 degrees clockwise, about 42% of the canvas height, its right side cropped by the right edge of the canvas (about 20% of the bottle out of frame), its upper left overlapping the lower left corner of the photo inset, label facing the camera and the visible part readable, soft studio light from the left, a faint hot-fuchsia rim on its right edge, a soft shadow on the background. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Matte finish, no rainbow, no prism light, no lens flare. Always closed with its cap on; no loose capsules; the label reads the right way round, never mirrored. BOTTOM ZONE (90–100% height): a full-width hot fuchsia #E6177F band: left, white Montserrat Black uppercase 'PAGAS AL RECIBIR' with a small white hand-and-coin line icon; right, a rounded badge with a dark plum #2B1226 fill, a solid 3 px white border and a small white shield line icon, the registration text in white Poppins Bold uppercase on two lines. All texts crisp, spelled exactly with correct accents and Spanish punctuation, nothing else written anywhere.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (top left, line 1): "UNA CARTA" — Montserrat Black uppercase, white #FFFFFF
+- main headline line 2 (highlighted) (top left, line 2): "PARA TI" — Montserrat Black uppercase, bubblegum pink #FF8CC0
+- letter paragraph 1 (left column, paragraph 1): "Sabemos lo que es probarte un jean y sentir que atrás no se llena… y no querer pasar por un quirófano." — Poppins Regular, white; 'no querer pasar por un quirófano' in Poppins Bold bubblegum pink #FF8CC0
+- letter paragraph 2 (left column, paragraph 2): "Por eso existe AGUAJE COMPLEX 3 EN 1: aguaje, fenogreco y maca negra en 2 cápsulas al día." — Poppins Regular, white; '2 cápsulas al día' in Poppins Bold bubblegum pink #FF8CC0
+- letter paragraph 3 (left column, paragraph 3): "Sin agujas ni días de recuperación: un plan natural de 3 meses, a tu ritmo." — Poppins Regular, white; 'plan natural de 3 meses' in Poppins Bold bubblegum pink #FF8CC0
+- letter paragraph 4 (offer) (left column, paragraph 4): "Hoy tienes el tratamiento completo x3 y pagas al recibir en tu casa." — Poppins Regular, white; 'tratamiento completo x3' and 'pagas al recibir' in Poppins Bold bubblegum pink #FF8CC0
+- signature (bottom left, under the letter): "Con cariño, el equipo Aguaje Complex" — elegant italic script, white
+- offer and trust block (bottom band) (bottom band, left): "PAGAS AL RECIBIR" — Montserrat Black uppercase, white on hot fuchsia
+- trust badge (bottom band, right, inside a white-bordered plum badge): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number
+
+BRAND IDENTITY:
+- color_palette: Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: solid dark plum #2B1226 as the full background.
+- text_typography: Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; letter body in Poppins Regular with Poppins Bold phrases; signature in an elegant italic script.
+
+MANDATORY ELEMENTS:
+- Real phone-photo inset top right (at least 25% of the canvas): woman at a bedroom wardrobe mirror in a burgundy sweater and black jeans flat at the back, hand on the back pocket, worried look over her shoulder
+- The real closed bottle as a cut-out, tilted about 12 degrees, cropped by the right edge, label readable
+- Solid dark plum background with the letter on the left and the italic signature
+- Hot-fuchsia bottom band with 'PAGAS AL RECIBIR' and a bordered registration badge
+
+STRICT EXCLUSIONS:
+- No capsules or pills anywhere; no open bottle; no other brand
+- No needles, syringes, scalpels or medical imagery
+- No prices, percentages, ratings, testimonials with names or 'envío gratis'; no 'la oferta se acaba'
+- No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add prices, extra badges, benefit lists, ratings, testimonials, discount labels or extra claims beyond the listed band, badge and texts.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Brand logos of any kind
+- Do not add: Prices, percentages, ratings, testimonials with names, 'envío gratis'
+- Do not add: 'La oferta se acaba' or any false urgency
+- Do not add: Icons, benefit lists or CTA buttons inside the letter
+- Do not add: Needles, syringes, surgical or medical imagery
+- Do not add: Loose capsules or an open bottle
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

@@ -1,0 +1,35 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V05_1x1",
+      "ok": true,
+      "problemas": [],
+      "puntajes": {
+        "estructura": 9,
+        "dolor_visual": 8,
+        "titular": 9,
+        "texto_limpio": 9,
+        "frasco_fiel": 9,
+        "oferta_confianza": 8,
+        "diferencia_real": 9
+      }
+    },
+    {
+      "pieza": "V07_1x1",
+      "ok": false,
+      "problemas": [
+        "Dolor visual (7): el pantalón se ve como un pantalón ancho normal. En un segundo no se entiende que le queda grande, porque la pierna delgada no se ve y la mano casi no levanta tela."
+      ],
+      "puntajes": {
+        "estructura": 9,
+        "dolor_visual": 7,
+        "titular": 9,
+        "texto_limpio": 9,
+        "frasco_fiel": 9,
+        "oferta_confianza": 9,
+        "diferencia_real": 9
+      },
+      "correccion_en": "Keep everything else identical. Make the problem obvious at a glance: her hand pulls a big empty fold of the beige trousers far up and away from the thigh, showing a wide gap of air between fabric and leg; one trouser hem is pushed up so a visibly thin ankle and shin show inside the wide opening; the trousers must clearly look two sizes too big. Keep the texts exactly as they are."
+    }
+  ]
+}

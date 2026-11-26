@@ -1,0 +1,45 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 clean ad on a flat rosy cream #FFF4F1 background, no texture. TOP ZONE (3–28% height): 3-line headline centered, Montserrat Black uppercase, very heavy and tight, each line about 7% of the canvas height: line 1 in hot fuchsia #E6177F; line 2 in hot fuchsia except the word 'NO', which is black #0E0E10 on a soft yellow #FFE08A rectangular highlight block; line 3 in black #0E0E10. MIDDLE ZONE (30–64% height): three continuous single-line profile silhouettes of THE SAME young adult woman (about 27, ponytail, sports top and jeans), facing right, drawn with a 5 px rounded stroke and a very light tint fill, evenly spaced at 20%, 50% and 80% width, each about 30% of the canvas height, from head to mid-calf. Silhouette 1 in deep magenta #B0105E: her seat line is flat and straight, the jeans sag at the back with a drooping fold of extra fabric under the back pocket, shoulders slumped, head tilted down, eyebrows pinched and mouth turned down, one hand on her lower back; a rolled yoga mat drawn in the same line stands upright beside her feet. Silhouette 2 in hot fuchsia #E6177F: same woman, posture straighter, seat line slightly rounder, jeans fitting a little better, neutral calm face. Silhouette 3 in dark plum #2B1226 with a bubblegum pink #FF8CC0 tint fill: same woman, upright and confident, seat line softly rounded and lifted, jeans fitting smoothly at the back, small smile. The difference between 1 and 3 must be clear but believable. Under each silhouette (61–64% height), a label in black Poppins SemiBold, about 3.5% of the canvas height. BOTTOM ZONE (66–99% height). LEFT (5–58% width): an offer kicker in black Montserrat ExtraBold condensed uppercase (about 4% high); under it the big offer in 2 lines, Montserrat Black condensed uppercase, 'TRATAMIENTO COMPLETO' in black and 'X3' huge in hot fuchsia #E6177F; under it a sub-line in Poppins SemiBold dark plum; then (90–97% height) a rounded hot fuchsia #E6177F pill with white Montserrat Black uppercase text and a small white hand-and-coin icon, and right beside it a rounded badge with a dark plum #2B1226 fill, a solid 3 px hot-fuchsia border and a small white shield icon, the registration text in white Poppins Bold uppercase on two lines. RIGHT (60–96% width, 64–96% height): three identical real product bottles, front view, the center one in front and about 30% of the canvas height, the two behind slightly smaller and partially hidden, all labels facing the camera, the front label fully readable, soft studio light from the upper left, a soft contact shadow, two small green aguaje palm leaf tips at their base, not touching the right edge. PRODUCT: use the attached product image as the only source of truth for the bottles; do not redesign, replace or reinterpret them. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Matte finish, no rainbow, no prism light, no lens flare. Always closed with caps on; no loose capsules; labels read the right way round, never mirrored. At the very bottom center (97–99% height), a tiny disclaimer in grey #7A6A72 Poppins Regular. All texts crisp, spelled exactly with correct accents, nothing else written anywhere.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (top center, line 1): "LAS SENTADILLAS SOLAS" — Montserrat Black uppercase, hot fuchsia #E6177F
+- main headline line 2 ('NO' highlighted) (top center, line 2): "NO SON TODO EL PLAN." — Montserrat Black uppercase, hot fuchsia #E6177F; the word 'NO' in black on a soft yellow #FFE08A highlight block
+- main headline line 3 (top center, line 3): "SUMA APOYO NATURAL." — Montserrat Black uppercase, black #0E0E10
+- silhouette label (under silhouette 1): "Mes 1" — Poppins SemiBold, black
+- silhouette label (under silhouette 2): "Mes 2" — Poppins SemiBold, black
+- silhouette label (under silhouette 3): "Mes 3" — Poppins SemiBold, black
+- offer kicker (bottom left, top of offer block): "OFERTA ESPECIAL" — Montserrat ExtraBold condensed uppercase, black
+- offer (big) (bottom left, main offer, 2 lines): "TRATAMIENTO COMPLETO X3" — Montserrat Black condensed uppercase, black; 'X3' huge in hot fuchsia #E6177F
+- offer sub-line (bottom left, under the offer): "Un frasco para cada mes de tu plan" — Poppins SemiBold, dark plum #2B1226
+- offer and trust block (pill) (bottom left, fuchsia pill): "PAGAS AL RECIBIR" — Montserrat Black uppercase, white on hot fuchsia #E6177F pill
+- trust badge (bottom left, right of the pill, inside a fuchsia-bordered badge): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number
+- disclaimer (very bottom center): "Los resultados pueden variar." — Poppins Regular, tiny, grey #7A6A72
+
+BRAND IDENTITY:
+- color_palette: Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: rosy cream #FFF4F1 background and a soft yellow #FFE08A highlight behind the word 'NO'.
+- text_typography: Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look).
+
+MANDATORY ELEMENTS:
+- Three continuous-line profile silhouettes of the same woman in jeans (the row covers at least 25% of the canvas): 1 frustrated with jeans sagging at the back and a rolled yoga mat, 2 calmer, 3 confident with a softly rounded seat
+- Yellow highlight block behind the word 'NO'
+- Three identical real closed bottles at the bottom right, front label readable
+- Hot-fuchsia 'PAGAS AL RECIBIR' pill and bordered registration badge
+
+STRICT EXCLUSIONS:
+- No capsules or pills anywhere; no open bottle; no other brand
+- No prices, strikethrough prices, percentages, 'esta semana solamente', ratings or testimonials
+- No logos other than the real bottle label
+- No organs, veins or medical drawings inside the silhouettes; no nudity
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add prices, extra badges, benefit lists, ratings, testimonials, discount labels or extra claims beyond the listed pill, badge and texts.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Brand logos of any kind
+- Do not add: Prices, strikethrough prices, 'esta semana solamente' or any false urgency
+- Do not add: Percentages, ratings, testimonials, 'envío gratis'
+- Do not add: Anatomical organs or medical drawings inside the silhouettes
+- Do not add: Loose capsules or an open bottle
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
