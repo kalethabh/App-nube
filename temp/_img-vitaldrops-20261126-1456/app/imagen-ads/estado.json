@@ -390,6 +390,13 @@
       "fecha": "2026-11-26T20:35:46.808Z",
       "estado": "ajustando",
       "ajuste": "A005"
+    },
+    "U0006": {
+      "id": "U0006",
+      "pieza": "V05_1x1",
+      "instruccion": "EL LOGO DEL PRODUCTO HAZLO UN POCO BORROSO PARA NO MOSTRAR LA MARCA",
+      "fecha": "2026-11-26T20:36:58.244Z",
+      "estado": "pendiente"
     }
   }
 }
