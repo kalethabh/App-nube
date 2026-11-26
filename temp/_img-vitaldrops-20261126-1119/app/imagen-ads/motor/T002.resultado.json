@@ -4,13 +4,13 @@
     "V05_1x1": {
       "orden": "g",
       "estado": "generando",
-      "intentosApi": 2,
+      "intentosApi": 3,
       "version": 1,
       "intentoAbierto": true,
       "taskId": null,
       "ultimoMotivo": "contenido-chatgpt"
     }
   },
-  "actualizado": "2026-11-26T16:34:10.299Z",
+  "actualizado": "2026-11-26T16:36:13.031Z",
   "terminado": false
 }

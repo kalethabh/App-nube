@@ -229,24 +229,20 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "por-revisar",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "version": 1,
+      "firma": "1931229-1795710969135",
+      "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T16:36:09.926Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

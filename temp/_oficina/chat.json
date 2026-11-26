@@ -1095,6 +1095,19 @@
       "de": "tu",
       "texto": "GENERA UNA IMAGEN PARA EL VITALDROP: Vertical 4:5 smartphone photo, amateur and candid, slightly grainy, taken inside a small supplement fulfillment warehouse in Latin America. Fluorescent ceiling lights, white walls. In the foreground, on a stainless steel packing table, a worker's hands in blue nitrile gloves are placing 3 amber glass dropper bottles (2 fl oz, black dropper cap, yellow and white label reading \"VITALDROPS\", All-In-One Multi-Herbal Supplement) into a plain kraft cardboard shipping box with crinkle paper filling. Next to it is a printed shipping label and a roll of packing tape. In the background are metal shelves full of brown boxes and dozens of rows of the same amber VitalDrops bottles lined up on the table. Two or three workers in gray t-shirts are packing out of focus. Natural, imperfect framing, handheld phone look, no studio lighting, realistic, not glossy. No text overlays, no captions, no watermarks.",
       "fecha": "2026-11-26T16:34:22.955Z"
+    },
+    {
+      "id": "d07c4fe1c9",
+      "de": "coordinadora",
+      "texto": "¡Va! 📦 Te armo esa foto de la bodega con tu prompt tal cual: guantes azules, los 3 frascos de VITALDROPS entrando a la caja y look de celular, sin textos. El 4:5 no lo tengo aquí, así que te la saco vertical, que es lo más cercano. Te sale el costo aquí y no arranca sin tu sí.",
+      "acciones": [
+        {
+          "tipo": "imagenes",
+          "titulo": "Las imágenes: Elige «Solo cuadrado 1:1» o «Cuadrado + vertical 9:16».",
+          "ok": false
+        }
+      ],
+      "fecha": "2026-11-26T16:35:43.980Z"
     }
   ],
   "encargos": [
