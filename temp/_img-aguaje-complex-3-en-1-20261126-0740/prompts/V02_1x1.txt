@@ -1,0 +1,39 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 photorealistic split-screen supplement ad on a deep plum #2B1226 background with a soft fuchsia #E6177F glow. The image fills the whole canvas and is split in two by a thin white vertical line in the exact center; no text at all in the top 65%. LEFT HALF (before): a real Latina woman's legs photographed from behind, from the waist down to the ankles, slim and flat glutes, wearing heather-gray leggings, standing barefoot; a dull, desaturated gray translucent veil lies over her glutes and thighs, making the zone look flat, tired and lifeless. RIGHT HALF (after): the same woman on another day, from the same height and framing, wearing black biker shorts, a slightly different relaxed stance, glutes visibly rounder and lifted and thighs more toned; thin glowing rose-pink light lines with small bright dots trace the curve of the glutes and run down the thigh muscles like energy, elegant and subtle. A curved bubblegum-pink #FF8CC0 arrow points from left to right at mid height. Tasteful, sporty, non-explicit; nothing grotesque, no mud, no veins, no medical details. BOTTOM 35%, the bottom edge is darkened to plum for readability. Bottom-left (about 55% width), aligned left: the 2-line headline in very heavy condensed uppercase sans-serif, line 1 white, line 2 bubblegum pink and taller; under it a 2-line uppercase white subtitle where the segment words are in bubblegum pink; a short bubblegum-pink brush stroke; a wide bubblegum-pink pill button with dark plum text; and under the pill one thin line of small white text with the registration. Bottom-right, standing over the after legs, the real product bottle, upright and razor sharp, about one third of the canvas height: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; black label with the small pink VITALABH emblem, the huge bold white word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', the small line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it. Crisp contact shadow and a fuchsia rim light on the bottle. Do not add a logo, price, offer box, icons, stars or any extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (bottom left, line 1): "ACTIVA TU" — Very heavy white condensed uppercase sans-serif, left aligned
+- main headline line 2 (highlighted) (bottom left, line 2): "RUTINA DE PIERNA" — Very heavy bubblegum-pink #FF8CC0 condensed uppercase sans-serif, taller than line 1, left aligned
+- subtitle with segment (bottom left, under the headline, 2 lines): "TRIPLE ACCIÓN PARA CUANDO ENTRENAS Y NO VES CAMBIOS" — Bold uppercase rounded sans-serif, white, with the words 'ENTRENAS Y NO VES CAMBIOS' in bubblegum pink
+- CTA (wide pill under the pink stroke): "PRUÉBALO HOY" — Heavy dark plum uppercase sans-serif, centered
+- trust item (thin line under the CTA pill): "REGISTRO INVIMA RSA-0030271-2024" — Small white uppercase sans-serif, one line
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (full background), bottle black #0E0E10, bubblegum pink #FF8CC0 (highlighted headline line, arrow and CTA), pale blush pink #FBE3EE, white #FFFFFF for main texts. Secondary for this variation: muted cool gray #8A8790 for the dull veil of the before side, warm rose-gold #FFB3D1 glow for the light lines.
+- text_typography: Headline in very heavy condensed geometric sans-serif (Montserrat Black look), uppercase, second line taller; subtitle in rounded bold sans-serif (Poppins Bold look), uppercase.
+
+MANDATORY ELEMENTS:
+- Deep plum full-canvas background split by a thin white vertical line
+- Before: real legs from behind in heather-gray leggings with a dull gray translucent veil
+- After: same woman, another day, black biker shorts, toned legs with thin glowing rose-pink light lines
+- Curved bubblegum-pink arrow between the halves
+- Short bubblegum-pink brush stroke under the subtitle
+- Wide bubblegum-pink CTA pill
+- Real product bottle at bottom right, identical to the attached photo
+
+STRICT EXCLUSIONS:
+- No text in the top 65% of the canvas.
+- No mud, drips, veins, organs, cellulite close-ups or any grotesque or medical detail; no nudity.
+- No logo, price, offer box, benefit list, icons, stars, testimonials, free shipping or guarantee.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any text in the top 65% of the canvas
+- Do not add: Brand logo, price, offer box, benefit list or icons
+- Do not add: Mud, drips, veins, organs or any grotesque or medical detail
+- Do not add: Rating stars, testimonials, free shipping or guarantee
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

@@ -1,0 +1,50 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 supplement ad in high-end 3D animated style (Pixar-like characters), on a soft gradient background from pale blush pink #FBE3EE to a light lilac #F3D9F0. TOP 15%: a glossy hot-fuchsia #E6177F ribbon banner centered, with a soft glow and a small tag shape hanging at its right end, carrying the white text 'PLAN NATURAL DE 3 MESES'; nothing above it, just background. MIDDLE 50%: a before/after split with a thin light vertical line in the exact center. LEFT (before): a friendly 3D Latina woman in her early thirties, wavy dark brown hair in a loose bun, seen three-quarters from behind and looking back over her shoulder with a worried, insecure face; she wears a plain white t-shirt and light blue jeans that hang loose, flat and baggy at the back. RIGHT (after): the same woman on another day, wearing a fuchsia crop top and the same jeans, now fitting snugly with a rounder, fuller and lifted shape at the back, standing confident and smiling warmly over her shoulder, holding in one hand a small copy of the exact product bottle. A curved bubblegum-pink #FF8CC0 arrow goes from the before to the after. Tasteful, non-explicit, no medical details. BOTTOM 35%: on the left, a diagonal dark plum #2B1226 panel holding the 3-line headline in heavy white italic uppercase, with the last line in bubblegum pink; under it a pale blush rounded card with 4 plum thin-line icons (a syringe with a cross-out line, two capsules, a leaf, a sparkle drop) each with a short uppercase label, separated by thin vertical dividers; under the card, a dark plum pill strip with a shield icon and the registration text, a thin divider, and a hand-with-cash icon with the payment text. In the bottom center, overlapping the panel edge and in front of everything, the large real product bottle, upright and razor sharp: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; black label with the small pink VITALABH emblem, the huge bold white word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', the small line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; keep its proportions, colors and label layout. On the right, a hot-fuchsia multi-point starburst with a thin white border showing a giant white 'X3' and the treatment text below it; under the starburst a wide bubblegum-pink pill button with dark plum text and a round dark plum circle with a white chevron. Soft studio lighting, gentle shadows, crisp edges, everything readable on a phone. Do not add any brand logo, price, percentage, free-shipping text, guarantee, stars or extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- campaign ribbon (top center, inside the fuchsia ribbon): "PLAN NATURAL DE 3 MESES" — White heavy italic uppercase sans-serif, centered
+- main headline line 1 (bottom left, plum diagonal panel, line 1): "MÁS CURVAS" — Very heavy white italic uppercase sans-serif, left aligned, largest text
+- main headline line 2 (bottom left, plum diagonal panel, line 2): "SIN PASAR POR" — Very heavy white italic uppercase sans-serif, left aligned
+- main headline line 3 (highlighted) (bottom left, plum diagonal panel, line 3): "EL QUIRÓFANO" — Very heavy bubblegum-pink #FF8CC0 italic uppercase sans-serif, left aligned
+- benefit (icon card, slot 1 under the syringe icon): "SIN AGUJAS" — Small bold plum uppercase, centered, 2 lines max
+- benefit (icon card, slot 2 under the capsules icon): "2 CÁPSULAS AL DÍA" — Small bold plum uppercase, centered, 2 lines max
+- benefit (icon card, slot 3 under the leaf icon): "ORIGEN VEGETAL" — Small bold plum uppercase, centered, 2 lines max
+- benefit (icon card, slot 4 under the sparkle drop icon): "VITAMINAS A Y E" — Small bold plum uppercase, centered, 2 lines max
+- trust item (trust strip, left, next to the shield icon): "REGISTRO INVIMA RSA-0030271-2024" — Small bold white uppercase
+- trust item (trust strip, right, next to the hand-with-cash icon): "PAGAS AL RECIBIR" — Small bold white uppercase, 2 lines
+- offer (big number) (inside the starburst, top): "X3" — Giant heavy white sans-serif
+- offer (label) (inside the starburst, under X3): "TRATAMIENTO COMPLETO" — Bold white uppercase, 2 lines, centered
+- CTA (pill button under the starburst): "PÍDELO HOY" — Heavy dark plum uppercase sans-serif
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep panels), bottle black #0E0E10, bubblegum pink #FF8CC0 (highlighted words), pale blush pink #FBE3EE (soft background and light cards), white #FFFFFF for main texts. Secondary for this variation: soft lilac sky tint #F3D9F0 in the background gradient.
+- text_typography: Headline in very heavy italic geometric sans-serif (Montserrat Black Italic look), uppercase; icon labels, strip and button in rounded bold sans-serif (Poppins Bold look), uppercase.
+
+MANDATORY ELEMENTS:
+- Glossy fuchsia ribbon banner with a small tag at the right end
+- Same 3D woman in before (worried, loose jeans at the back, white t-shirt) and after (smiling, fitted jeans, fuchsia crop top, holding the bottle)
+- Thin vertical divider line and curved bubblegum-pink arrow between before and after
+- Diagonal dark plum headline panel
+- Pale blush card with 4 thin-line icons and dividers
+- Dark plum trust strip with shield and hand-with-cash icons
+- Large real product bottle in the bottom center, identical to the attached photo
+- Fuchsia multi-point starburst
+- Bubblegum-pink pill button with round plum arrow circle
+
+STRICT EXCLUSIONS:
+- No brand logo or brand name above the ribbon; no percentage discount, prices or crossed-out prices; no free shipping, guarantee, stars or testimonials.
+- No organs, x-ray, glowing body parts or any medical detail; no nudity; no pointing at body flaws with marks or labels.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Brand logo or brand name text above the ribbon
+- Do not add: Percentage discount, prices or crossed-out prices
+- Do not add: Black Friday or any seasonal campaign text
+- Do not add: Free shipping or guarantee claims
+- Do not add: Rating stars, testimonials or customer counts
+- Do not add: Glowing organs, x-ray or any medical detail on the body
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

@@ -1,0 +1,49 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 clean flat-design supplement ad on a warm cream #FFF6EE background. TOP 22%: a 2-line headline in very heavy dark plum #2B1226 uppercase geometric sans-serif across the width; under it, on the left, a dark plum rounded pill with white uppercase text; on the right, a square hot-fuchsia #E6177F seal with rounded corners and a thin double white border, with white uppercase text in 3 or 4 lines. MIDDLE 66%: the left half holds a vertical timeline, a thin dark plum line joining 5 hot-fuchsia dots spaced evenly; next to each dot a heavy dark plum uppercase step label and a short 2-line text in dark gray-plum sentence case. To the left of each dot, a small flat watercolor-like illustration, in this order from top to bottom: a cluster of reddish-brown scaly aguaje palm fruits, golden fenugreek seeds with small trefoil leaves, a dark black maca root, a fresh green leaf sprig, and two glossy fuchsia capsules. The right half holds the large real product bottle, upright, razor sharp, with a soft natural shadow: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; black label with the small pink VITALABH emblem, the huge bold white word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', the small line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it. BOTTOM 12%: a hot-fuchsia bar from edge to edge with the offer in bold white uppercase and, under it inside the same bar, a smaller white registration line. No people, no bodies. Do not add a logo, price, discount, button, stars or any extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (top, line 1): "TU RUTINA PARA" — Very heavy dark plum uppercase sans-serif, left aligned
+- main headline line 2 (top, line 2): "RECUPERAR TU FIGURA" — Very heavy dark plum uppercase sans-serif, left aligned
+- program pill (top left, inside the dark plum pill): "PLAN DE 3 MESES PARA MAMÁS" — Bold white uppercase rounded sans-serif
+- segment seal (top right, inside the fuchsia seal): "PARA MAMÁS QUE YA NO LACTAN" — Heavy white uppercase, centered, 3-4 lines
+- timeline step label (timeline step 1 label): "DÍA 1" — Heavy dark plum uppercase
+- timeline step text (timeline step 1 text): "Empiezas con 2 cápsulas al día" — Rounded sans-serif, dark gray-plum, 2 lines
+- timeline step label (timeline step 2 label): "SEMANA 2" — Heavy dark plum uppercase
+- timeline step text (timeline step 2 text): "Muchas sienten más energía y ánimo" — Rounded sans-serif, dark gray-plum, 2 lines
+- timeline step label (timeline step 3 label): "SEMANA 4" — Heavy dark plum uppercase
+- timeline step text (timeline step 3 text): "Muchas notan sus primeros cambios" — Rounded sans-serif, dark gray-plum, 2 lines
+- timeline step label (timeline step 4 label): "MES 2" — Heavy dark plum uppercase
+- timeline step text (timeline step 4 text): "Tu constancia empieza a sumar" — Rounded sans-serif, dark gray-plum, 2 lines
+- timeline step label (timeline step 5 label): "MES 3" — Heavy dark plum uppercase
+- timeline step text (timeline step 5 text): "Completas tu plan de 3 frascos" — Rounded sans-serif, dark gray-plum, 2 lines
+- offer bar (bottom full-width fuchsia bar, main line): "TRATAMIENTO COMPLETO X3 · PAGAS AL RECIBIR" — Heavy white uppercase sans-serif, centered
+- trust item (bottom bar, small line under the offer): "REGISTRO INVIMA RSA-0030271-2024" — Small white uppercase, centered
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (seal, timeline dots, offer bar), deep magenta #B0105E, dark plum #2B1226 (headline, pill and step labels), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF. Secondary for this variation: warm cream #FFF6EE background and soft leaf green #7FA66A only inside the ingredient illustrations.
+- text_typography: Headline in very heavy geometric sans-serif (Montserrat Black look), uppercase; step labels in heavy uppercase; step texts in rounded sans-serif (Poppins Medium/SemiBold look), sentence case.
+
+MANDATORY ELEMENTS:
+- Warm cream background
+- Dark plum rounded pill under the headline
+- Square fuchsia seal with double border at top right
+- Vertical timeline with 5 fuchsia dots joined by a thin plum line
+- Small flat ingredient illustrations (aguaje fruits, fenugreek seeds, maca root, leaf sprig, fuchsia capsules) left of the dots
+- Large real product bottle on the right, identical to the attached photo
+- Full-width hot-fuchsia offer bar at the bottom
+
+STRICT EXCLUSIONS:
+- No people or bodies.
+- No prices, discounts, 2+1, free shipping, CTA button, stars, testimonials or guarantee.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Human figures or bodies
+- Do not add: Brand logo outside the bottle
+- Do not add: Prices, discounts, 2+1 or free shipping
+- Do not add: CTA button, stars, testimonials or guarantee
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

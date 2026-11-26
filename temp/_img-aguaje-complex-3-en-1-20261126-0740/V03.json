@@ -1,0 +1,233 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format F36 (Línea de tiempo con sello de segmento, winning structure mv-04)",
+    "reference_style": "Flat illustration timeline supplement ad with segment seal, product hero and full-width offer bar",
+    "angle_used": "Rutina / momento de uso: the 3-month plan step by step, for moms",
+    "ad_format": "Product Hero Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (seal, timeline dots, offer bar), deep magenta #B0105E, dark plum #2B1226 (headline, pill and step labels), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF. Secondary for this variation: warm cream #FFF6EE background and soft leaf green #7FA66A only inside the ingredient illustrations.",
+    "visual_style": "Clean flat illustration layout with soft watercolor-like ingredient drawings, and the real bottle photoreal and sharp.",
+    "visual_atmosphere": "Calm, organized and reassuring; warm cream light, motherly and hopeful.",
+    "graphic_language": "Bold headline block, rounded pill, square seal with a double border, vertical timeline with round dots joined by a thin line, small ingredient illustrations, full-width offer bar.",
+    "text_typography": "Headline in very heavy geometric sans-serif (Montserrat Black look), uppercase; step labels in heavy uppercase; step texts in rounded sans-serif (Poppins Medium/SemiBold look), sentence case."
+  },
+  "creative_objective": "Show moms who want to recover their figure that the plan is simple and doable: a 3-month timeline with what many women report at each stage, the bottle as hero and the treatment offer at the bottom, keeping the exact F36 structure.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the headline, 2) the segment seal, 3) the timeline, 4) the bottle, 5) the offer bar.",
+    "composition_style": "Top 22%: headline across the width, pill under it on the left, square seal on the right. Middle 66%: left half vertical timeline with 5 steps and an ingredient drawing left of each dot; right half the large bottle. Bottom 12%: full-width offer bar.",
+    "spacing_and_structure": "Generous even spacing between timeline steps; strong left alignment; bottle centered in the right half.",
+    "lighting_and_depth": "Flat, even light on the layout; soft natural shadow under the bottle only.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Warm cream background. Top: 2-line dark plum uppercase headline; under it on the left a dark plum rounded pill with white text; on the right a square fuchsia seal with a thin double border and white text. Middle-left: a vertical timeline (thin dark plum line with 5 fuchsia dots), each step with a heavy dark plum label and a 2-line text, and a small flat ingredient illustration to the left of each dot. Middle-right: the large real bottle standing. Bottom: a full-width fuchsia bar with the offer in white uppercase and a small registration line inside it.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "headline",
+        "position": "top, full width",
+        "visual_function": "Main message",
+        "adaptation_rule": "2-line dark plum heavy uppercase headline",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "program pill",
+        "position": "top left, under the headline",
+        "visual_function": "Program promise and segment",
+        "adaptation_rule": "Dark plum rounded pill with white uppercase text",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "segment seal",
+        "position": "top right",
+        "visual_function": "Calls the segment",
+        "adaptation_rule": "Square fuchsia seal with thin double white border and white uppercase text in 3-4 lines",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "timeline",
+        "position": "middle left",
+        "visual_function": "Shows the plan step by step",
+        "adaptation_rule": "Vertical thin dark plum line with 5 fuchsia dots; each dot with a heavy label and a short 2-line text",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "decorative illustrations",
+        "position": "left of each timeline dot",
+        "visual_function": "Natural ingredients",
+        "adaptation_rule": "Small flat watercolor-like drawings: a cluster of reddish-brown scaly aguaje fruits, golden fenugreek seeds with small leaves, a dark maca root, a green leaf sprig, and a small pair of fuchsia capsules",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "product",
+        "position": "middle right",
+        "visual_function": "Product hero",
+        "adaptation_rule": "The real bottle from the attached photo, large and upright, sharp",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "offer bar",
+        "position": "bottom, edge to edge",
+        "visual_function": "Offer and trust",
+        "adaptation_rule": "Hot fuchsia full-width bar with white uppercase offer text and a smaller registration line",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Human figures or bodies",
+      "Brand logo outside the bottle",
+      "Prices, discounts, 2+1 or free shipping",
+      "CTA button, stars, testimonials or guarantee"
+    ]
+  },
+  "visual_prompt": "Square 1:1 clean flat-design supplement ad on a warm cream #FFF6EE background. TOP 22%: a 2-line headline in very heavy dark plum #2B1226 uppercase geometric sans-serif across the width; under it, on the left, a dark plum rounded pill with white uppercase text; on the right, a square hot-fuchsia #E6177F seal with rounded corners and a thin double white border, with white uppercase text in 3 or 4 lines. MIDDLE 66%: the left half holds a vertical timeline, a thin dark plum line joining 5 hot-fuchsia dots spaced evenly; next to each dot a heavy dark plum uppercase step label and a short 2-line text in dark gray-plum sentence case. To the left of each dot, a small flat watercolor-like illustration, in this order from top to bottom: a cluster of reddish-brown scaly aguaje palm fruits, golden fenugreek seeds with small trefoil leaves, a dark black maca root, a fresh green leaf sprig, and two glossy fuchsia capsules. The right half holds the large real product bottle, upright, razor sharp, with a soft natural shadow: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; black label with the small pink VITALABH emblem, the huge bold white word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', the small line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it. BOTTOM 12%: a hot-fuchsia bar from edge to edge with the offer in bold white uppercase and, under it inside the same bar, a smaller white registration line. No people, no bodies. Do not add a logo, price, discount, button, stars or any extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline line 1",
+      "reference_position": "top, line 1",
+      "text_style": "Very heavy dark plum uppercase sans-serif, left aligned",
+      "text": "TU RUTINA PARA"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "main headline line 2",
+      "reference_position": "top, line 2",
+      "text_style": "Very heavy dark plum uppercase sans-serif, left aligned",
+      "text": "RECUPERAR TU FIGURA"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "program pill",
+      "reference_position": "top left, inside the dark plum pill",
+      "text_style": "Bold white uppercase rounded sans-serif",
+      "text": "PLAN DE 3 MESES PARA MAMÁS"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "segment seal",
+      "reference_position": "top right, inside the fuchsia seal",
+      "text_style": "Heavy white uppercase, centered, 3-4 lines",
+      "text": "PARA MAMÁS QUE YA NO LACTAN"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "timeline step label",
+      "reference_position": "timeline step 1 label",
+      "text_style": "Heavy dark plum uppercase",
+      "text": "DÍA 1"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "timeline step text",
+      "reference_position": "timeline step 1 text",
+      "text_style": "Rounded sans-serif, dark gray-plum, 2 lines",
+      "text": "Empiezas con 2 cápsulas al día"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "timeline step label",
+      "reference_position": "timeline step 2 label",
+      "text_style": "Heavy dark plum uppercase",
+      "text": "SEMANA 2"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "timeline step text",
+      "reference_position": "timeline step 2 text",
+      "text_style": "Rounded sans-serif, dark gray-plum, 2 lines",
+      "text": "Muchas sienten más energía y ánimo"
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "timeline step label",
+      "reference_position": "timeline step 3 label",
+      "text_style": "Heavy dark plum uppercase",
+      "text": "SEMANA 4"
+    },
+    {
+      "block_id": "text_block_10",
+      "reference_function": "timeline step text",
+      "reference_position": "timeline step 3 text",
+      "text_style": "Rounded sans-serif, dark gray-plum, 2 lines",
+      "text": "Muchas notan sus primeros cambios"
+    },
+    {
+      "block_id": "text_block_11",
+      "reference_function": "timeline step label",
+      "reference_position": "timeline step 4 label",
+      "text_style": "Heavy dark plum uppercase",
+      "text": "MES 2"
+    },
+    {
+      "block_id": "text_block_12",
+      "reference_function": "timeline step text",
+      "reference_position": "timeline step 4 text",
+      "text_style": "Rounded sans-serif, dark gray-plum, 2 lines",
+      "text": "Tu constancia empieza a sumar"
+    },
+    {
+      "block_id": "text_block_13",
+      "reference_function": "timeline step label",
+      "reference_position": "timeline step 5 label",
+      "text_style": "Heavy dark plum uppercase",
+      "text": "MES 3"
+    },
+    {
+      "block_id": "text_block_14",
+      "reference_function": "timeline step text",
+      "reference_position": "timeline step 5 text",
+      "text_style": "Rounded sans-serif, dark gray-plum, 2 lines",
+      "text": "Completas tu plan de 3 frascos"
+    },
+    {
+      "block_id": "text_block_15",
+      "reference_function": "offer bar",
+      "reference_position": "bottom full-width fuchsia bar, main line",
+      "text_style": "Heavy white uppercase sans-serif, centered",
+      "text": "TRATAMIENTO COMPLETO X3 · PAGAS AL RECIBIR"
+    },
+    {
+      "block_id": "text_block_16",
+      "reference_function": "trust item",
+      "reference_position": "bottom bar, small line under the offer",
+      "text_style": "Small white uppercase, centered",
+      "text": "REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Warm cream background",
+    "Dark plum rounded pill under the headline",
+    "Square fuchsia seal with double border at top right",
+    "Vertical timeline with 5 fuchsia dots joined by a thin plum line",
+    "Small flat ingredient illustrations (aguaje fruits, fenugreek seeds, maca root, leaf sprig, fuchsia capsules) left of the dots",
+    "Large real product bottle on the right, identical to the attached photo",
+    "Full-width hot-fuchsia offer bar at the bottom"
+  ],
+  "final_generation_exclusions": [
+    "No people or bodies.",
+    "No prices, discounts, 2+1, free shipping, CTA button, stars, testimonials or guarantee.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

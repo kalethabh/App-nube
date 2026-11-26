@@ -1,0 +1,173 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format F35 (Lo invisible hecho visible, winning structure mv-03)",
+    "reference_style": "Photoreal split-screen 'invisible made visible' supplement ad with mechanism headline and CTA pill",
+    "angle_used": "Mecanismo único: triple action as the support her leg routine was missing",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (full background), bottle black #0E0E10, bubblegum pink #FF8CC0 (highlighted headline line, arrow and CTA), pale blush pink #FBE3EE, white #FFFFFF for main texts. Secondary for this variation: muted cool gray #8A8790 for the dull veil of the before side, warm rose-gold #FFB3D1 glow for the light lines.",
+    "visual_style": "Photorealistic split-screen body ad, real skin and real fabrics, with a graphic light-line overlay on the after side; the real bottle sharp and identical to the photo.",
+    "visual_atmosphere": "Intense, energetic and confident; deep plum background with a soft fuchsia glow.",
+    "graphic_language": "Thin white vertical divider, curved pink arrow, glowing thin light lines following the leg muscles, a short pink underline stroke and a wide pill button.",
+    "text_typography": "Headline in very heavy condensed geometric sans-serif (Montserrat Black look), uppercase, second line taller; subtitle in rounded bold sans-serif (Poppins Bold look), uppercase."
+  },
+  "creative_objective": "Speak to women who train legs and see no change: make the 'invisible' missing support visible (dull gray veil vs glowing pink light lines on toned legs), with a mechanism headline and a clear CTA, keeping the exact F35 structure.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the dull legs vs the glowing legs, 2) the 2-line headline, 3) the subtitle with the segment, 4) the CTA pill, 5) the bottle.",
+    "composition_style": "Image fills the whole canvas, split in two by a thin white vertical line; bottom-left 55% holds the text stack over the before side; bottom-right holds the bottle over the after legs.",
+    "spacing_and_structure": "Top 65% pure image with no text; bottom 35% text stack aligned left with clear spacing between headline, subtitle, stroke, CTA and registration line.",
+    "lighting_and_depth": "Studio light from the front-top; before side flat and desaturated, after side warmer with a soft glow from the light lines; bottle with a crisp contact shadow and a fuchsia rim light; bottom of the canvas darkened for text readability.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Full-canvas photo on a deep plum background, split by a thin white vertical line in the center. Left: a woman's legs from behind, waist to ankles, in gray leggings, covered by a dull gray translucent veil. Right: the same woman's legs on another day in black biker shorts, toned, with thin glowing rose-pink light lines following the curve of the glutes and the leg muscles. A curved bubblegum-pink arrow sits at the middle height between them. Bottom-left (55% width): 2-line headline (second line bubblegum pink and taller), 2-line uppercase subtitle with the segment highlighted in pink, a short pink stroke, a wide bubblegum-pink CTA pill, and one thin small registration line under it. Bottom-right: the real bottle standing over the after legs.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "full canvas",
+        "visual_function": "Strong color field that makes the split pop",
+        "adaptation_rule": "Deep plum #2B1226 with a soft fuchsia glow instead of the reference green",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "person (before, invisible problem)",
+        "position": "left half",
+        "visual_function": "Shows the effort that does not show",
+        "adaptation_rule": "Real woman's legs from behind, waist to ankles, slim and flat, in heather-gray leggings, with a dull gray translucent veil over the glutes and thighs; barefoot on the plum floor",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "person (after, made visible)",
+        "position": "right half",
+        "visual_function": "Shows the activated result",
+        "adaptation_rule": "The same woman on another day, black biker shorts, slightly different stance, glutes rounder and legs more toned, with thin glowing rose-pink light lines and small glowing dots tracing the curve of the glutes and down the thigh muscles",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "decorative element",
+        "position": "center",
+        "visual_function": "Split and direction",
+        "adaptation_rule": "Thin white vertical divider and a curved bubblegum-pink arrow from left to right at mid height",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "headline and subtitle",
+        "position": "bottom left",
+        "visual_function": "Mechanism message and segment",
+        "adaptation_rule": "2-line headline (line 2 pink, taller) + 2-line subtitle with the segment words in pink",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "decorative stroke",
+        "position": "bottom left, under the subtitle",
+        "visual_function": "Separates text from CTA",
+        "adaptation_rule": "Short bubblegum-pink brush stroke",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "CTA pill",
+        "position": "bottom left, under the stroke",
+        "visual_function": "Call to action",
+        "adaptation_rule": "Wide bubblegum-pink pill with dark plum text",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "trust line (required by the user)",
+        "position": "bottom left, under the CTA pill",
+        "visual_function": "Mandatory sanitary registration from the user",
+        "adaptation_rule": "One thin line of small white text, no box",
+        "present_in_reference": false
+      },
+      {
+        "block_id": "block_09",
+        "block_type": "product",
+        "position": "bottom right, over the after legs",
+        "visual_function": "Product",
+        "adaptation_rule": "The real bottle from the attached photo, upright, sharp, about one third of the canvas height",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Any text in the top 65% of the canvas",
+      "Brand logo, price, offer box, benefit list or icons",
+      "Mud, drips, veins, organs or any grotesque or medical detail",
+      "Rating stars, testimonials, free shipping or guarantee"
+    ]
+  },
+  "visual_prompt": "Square 1:1 photorealistic split-screen supplement ad on a deep plum #2B1226 background with a soft fuchsia #E6177F glow. The image fills the whole canvas and is split in two by a thin white vertical line in the exact center; no text at all in the top 65%. LEFT HALF (before): a real Latina woman's legs photographed from behind, from the waist down to the ankles, slim and flat glutes, wearing heather-gray leggings, standing barefoot; a dull, desaturated gray translucent veil lies over her glutes and thighs, making the zone look flat, tired and lifeless. RIGHT HALF (after): the same woman on another day, from the same height and framing, wearing black biker shorts, a slightly different relaxed stance, glutes visibly rounder and lifted and thighs more toned; thin glowing rose-pink light lines with small bright dots trace the curve of the glutes and run down the thigh muscles like energy, elegant and subtle. A curved bubblegum-pink #FF8CC0 arrow points from left to right at mid height. Tasteful, sporty, non-explicit; nothing grotesque, no mud, no veins, no medical details. BOTTOM 35%, the bottom edge is darkened to plum for readability. Bottom-left (about 55% width), aligned left: the 2-line headline in very heavy condensed uppercase sans-serif, line 1 white, line 2 bubblegum pink and taller; under it a 2-line uppercase white subtitle where the segment words are in bubblegum pink; a short bubblegum-pink brush stroke; a wide bubblegum-pink pill button with dark plum text; and under the pill one thin line of small white text with the registration. Bottom-right, standing over the after legs, the real product bottle, upright and razor sharp, about one third of the canvas height: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; black label with the small pink VITALABH emblem, the huge bold white word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', the small line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it. Crisp contact shadow and a fuchsia rim light on the bottle. Do not add a logo, price, offer box, icons, stars or any extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline line 1",
+      "reference_position": "bottom left, line 1",
+      "text_style": "Very heavy white condensed uppercase sans-serif, left aligned",
+      "text": "ACTIVA TU"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "main headline line 2 (highlighted)",
+      "reference_position": "bottom left, line 2",
+      "text_style": "Very heavy bubblegum-pink #FF8CC0 condensed uppercase sans-serif, taller than line 1, left aligned",
+      "text": "RUTINA DE PIERNA"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "subtitle with segment",
+      "reference_position": "bottom left, under the headline, 2 lines",
+      "text_style": "Bold uppercase rounded sans-serif, white, with the words 'ENTRENAS Y NO VES CAMBIOS' in bubblegum pink",
+      "text": "TRIPLE ACCIÓN PARA CUANDO ENTRENAS Y NO VES CAMBIOS"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "CTA",
+      "reference_position": "wide pill under the pink stroke",
+      "text_style": "Heavy dark plum uppercase sans-serif, centered",
+      "text": "PRUÉBALO HOY"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "trust item",
+      "reference_position": "thin line under the CTA pill",
+      "text_style": "Small white uppercase sans-serif, one line",
+      "text": "REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Deep plum full-canvas background split by a thin white vertical line",
+    "Before: real legs from behind in heather-gray leggings with a dull gray translucent veil",
+    "After: same woman, another day, black biker shorts, toned legs with thin glowing rose-pink light lines",
+    "Curved bubblegum-pink arrow between the halves",
+    "Short bubblegum-pink brush stroke under the subtitle",
+    "Wide bubblegum-pink CTA pill",
+    "Real product bottle at bottom right, identical to the attached photo"
+  ],
+  "final_generation_exclusions": [
+    "No text in the top 65% of the canvas.",
+    "No mud, drips, veins, organs, cellulite close-ups or any grotesque or medical detail; no nudity.",
+    "No logo, price, offer box, benefit list, icons, stars, testimonials, free shipping or guarantee.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

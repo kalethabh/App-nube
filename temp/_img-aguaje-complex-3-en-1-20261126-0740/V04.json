@@ -1,0 +1,177 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F34 (Antes y después real con banda de oferta, winning structure mv-02)",
+    "reference_style": "Premium real-photo before/after supplement ad with serif product-name headline, product hero and brush-stroke offer band",
+    "angle_used": "Transformación / resultado: hips with more shape, naturally, for slim women",
+    "ad_format": "Product Hero Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (thin divider lines, highlighted word), deep magenta #B0105E, dark plum #2B1226 (serif headline, pills, brush band, right box), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (left box), white #FFFFFF. Secondary for this variation: soft warm cream #FBF3EC background with a subtle silk texture.",
+    "visual_style": "Premium editorial supplement ad with two real photos in rounded cards and the real bottle photoreal and sharp.",
+    "visual_atmosphere": "Elegant, trustworthy and aspirational; soft daylight.",
+    "graphic_language": "Thin fuchsia lines framing the headline, rounded photo cards with pill labels, circular arrow badge, diagonal dry-brush band, two rounded info boxes side by side.",
+    "text_typography": "Product-name headline in a heavy elegant high-contrast serif (only this line); subtitle in spaced uppercase geometric sans-serif (Montserrat Bold look); labels and boxes in heavy uppercase sans-serif."
+  },
+  "creative_objective": "Show slim women who feel nothing goes to their hips that a believable change is possible with the 3-month plan: the product name big, the same woman on Day 1 and Month 3, and the 3-bottle treatment with pay on delivery, keeping the exact F34 structure without inventing prices.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the serif product-name headline, 2) the two photo cards, 3) the bottle, 4) the brush band, 5) the two info boxes, 6) the registration line.",
+    "composition_style": "Top 25%: centered serif headline between thin fuchsia lines and a spaced subtitle. Middle 50%: left 60% two rounded photo cards side by side with pill labels on top and a round arrow badge between them; right 40% the bottle standing large. Bottom 25%: left a diagonal dry-brush band; right two rounded boxes side by side separated by a thin line; a thin registration line at the very bottom.",
+    "spacing_and_structure": "Symmetric, airy, premium spacing; photo cards equal size; bottle slightly overlapping the bottom zone.",
+    "lighting_and_depth": "Soft daylight on the photos; studio light on the bottle with a soft shadow on the cream surface.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Warm cream background. Top center: the product name as a huge dark plum serif headline, framed above and below by thin fuchsia lines, and under it one line of spaced uppercase subtitle. Middle-left: two rounded photo cards side by side, each with a dark plum pill label on top, and a round dark plum badge with a white arrow between them. Middle-right: the large real bottle standing. Bottom-left: a diagonal dark plum dry-brush band with a giant white 'X3' and the treatment text. Bottom-right: a pale blush box and a dark plum box side by side separated by a thin vertical line. Very bottom: one thin line with the registration.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "headline (product name) with subtitle",
+        "position": "top center",
+        "visual_function": "Names the product and the result",
+        "adaptation_rule": "Serif product name between thin fuchsia lines (no brand logo above; that space stays as background) and a spaced uppercase subtitle with the result",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "before/after photo cards",
+        "position": "middle left",
+        "visual_function": "Visual proof of change",
+        "adaptation_rule": "Two rounded cards: DAY 1 = slim woman from behind, waist to mid-thigh, heather-gray leggings and a loose white tee at home, straight hips; MONTH 3 = same woman on another day, medium-blue high-waisted jeans and a fitted black top on a sunny street, hips more defined and glutes rounder. Pill labels on top, round arrow badge between them",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "product",
+        "position": "middle right",
+        "visual_function": "Product hero",
+        "adaptation_rule": "The real bottle from the attached photo, large and upright, sharp",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "offer brush band",
+        "position": "bottom left",
+        "visual_function": "Offer",
+        "adaptation_rule": "Diagonal dark plum dry-brush band with a giant white 'X3' and 'TRATAMIENTO COMPLETO' in white with a fuchsia accent",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "two info boxes",
+        "position": "bottom right",
+        "visual_function": "Offer details (the reference shows prices; there is no price here, so they hold the plan length and payment method)",
+        "adaptation_rule": "Pale blush rounded box with plum text + dark plum rounded box with white text, separated by a thin vertical line; no prices, no crossed-out numbers",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "trust line (required by the user)",
+        "position": "very bottom, centered",
+        "visual_function": "Mandatory sanitary registration from the user",
+        "adaptation_rule": "One thin line of small dark plum text",
+        "present_in_reference": false
+      }
+    ],
+    "forbidden_additions": [
+      "Brand logo above the headline",
+      "Prices, crossed-out prices, per-unit prices or percentages",
+      "'ANTES' / 'DESPUÉS' labels (use the day labels instead)",
+      "Underwear, nudity or bare torso",
+      "CTA button, stars, testimonials, free shipping or guarantee"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium editorial supplement ad on a warm cream #FBF3EC background with a very subtle silk texture. TOP 25%: centered, the product name as a huge heavy dark plum #2B1226 high-contrast serif headline, framed above and below by thin hot-fuchsia #E6177F lines; under it one line of spaced uppercase dark plum sans-serif subtitle with the last words in fuchsia. Nothing above the headline, no logo. MIDDLE 50%: on the left 60%, two equal rounded photo cards side by side, each with a dark plum pill label with white text sitting on its top edge, and a round dark plum badge with a white arrow between the two cards. LEFT CARD: a real slim Latina woman in her mid-twenties photographed from behind, from the waist to mid-thigh, wearing heather-gray leggings and a loose white tee, indoors at home with soft window light; her hips look straight and her glutes flat. RIGHT CARD: the same woman on another day, wearing medium-blue high-waisted jeans and a fitted black top, on a sunny city sidewalk, same framing from behind; her hips look more defined and her glutes rounder and fuller, a believable natural difference. Tasteful and non-explicit. On the right 40%, the large real product bottle standing upright with a soft shadow on the cream surface, razor sharp: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; black label with the small pink VITALABH emblem, the huge bold white word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', the small line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it. BOTTOM 25%: on the left, a diagonal dark plum dry-brush paint band with a giant white 'X3' and the treatment words in white beside it; on the right, two rounded boxes side by side separated by a thin vertical line: a pale blush #FBE3EE box with dark plum text and a dark plum box with white text. At the very bottom, centered, one thin line of small dark plum text with the registration. No prices anywhere. Do not add a logo, price, percentage, button, stars or any extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline (product name)",
+      "reference_position": "top center, between thin fuchsia lines",
+      "text_style": "Huge heavy dark plum high-contrast serif, uppercase, one line",
+      "text": "AGUAJE COMPLEX 3 EN 1"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle (result)",
+      "reference_position": "top center, under the headline",
+      "text_style": "Spaced uppercase bold sans-serif, dark plum, with 'AL NATURAL' in hot fuchsia",
+      "text": "CADERAS CON MÁS FORMA, AL NATURAL"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "photo label",
+      "reference_position": "dark plum pill on top of the left photo card",
+      "text_style": "Bold white uppercase",
+      "text": "DÍA 1"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "photo label",
+      "reference_position": "dark plum pill on top of the right photo card",
+      "text_style": "Bold white uppercase",
+      "text": "MES 3"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "offer (big number)",
+      "reference_position": "brush band, left",
+      "text_style": "Giant heavy white sans-serif",
+      "text": "X3"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "offer (label)",
+      "reference_position": "brush band, right of X3, 2 lines",
+      "text_style": "Heavy white uppercase, the word 'COMPLETO' in bubblegum pink",
+      "text": "TRATAMIENTO COMPLETO"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "offer detail box",
+      "reference_position": "bottom right, pale blush box",
+      "text_style": "Heavy dark plum uppercase, 2 lines, centered",
+      "text": "3 FRASCOS · 3 MESES DE PLAN"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "offer detail box",
+      "reference_position": "bottom right, dark plum box",
+      "text_style": "Heavy white uppercase, 2 lines, centered",
+      "text": "PAGAS AL RECIBIR"
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "trust item",
+      "reference_position": "very bottom, centered thin line",
+      "text_style": "Small dark plum uppercase",
+      "text": "REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Warm cream background with subtle silk texture",
+    "Thin fuchsia lines framing the serif headline",
+    "Two equal rounded real-photo cards of the same woman from behind (Day 1 gray leggings at home, Month 3 blue jeans on the street) with pill labels",
+    "Round dark plum arrow badge between the cards",
+    "Large real product bottle on the right, identical to the attached photo",
+    "Diagonal dark plum dry-brush band at bottom left",
+    "Pale blush box and dark plum box side by side at bottom right"
+  ],
+  "final_generation_exclusions": [
+    "No prices, crossed-out prices, per-unit prices or percentages; no 'ANTES'/'DESPUÉS' words.",
+    "No brand logo above the headline; no underwear, nudity or bare torso.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}
