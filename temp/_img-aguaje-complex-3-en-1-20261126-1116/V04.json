@@ -61,7 +61,7 @@
     { "block_id": "text_block_06", "reference_function": "routine days", "reference_position": "under the seal", "text_style": "Plum Poppins SemiBold uppercase", "text": "90 DÍAS DE RUTINA" },
     { "block_id": "text_block_07", "reference_function": "CTA button", "reference_position": "bottom center pill", "text_style": "White Montserrat ExtraBold uppercase on a fuchsia pill", "text": "QUIERO PROBARLO" },
     { "block_id": "text_block_08", "reference_function": "trust item", "reference_position": "under the button, left", "text_style": "Plum Poppins Bold", "text": "Pagas al recibir" },
-    { "block_id": "text_block_09", "reference_function": "trust badge", "reference_position": "under the button, right, round gold-bordered badge", "text_style": "Plum bold small caps", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+    { "block_id": "text_block_09", "reference_function": "trust badge", "reference_position": "under the button, right, round gold-bordered badge", "text_style": "Plum bold small caps", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
   ],
   "mandatory_visual_elements": [
     "Flat illustrated adult woman at the center, front-facing, confident, in fitted high-waist jeans on curvy hips",

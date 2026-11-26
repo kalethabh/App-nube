@@ -1,0 +1,42 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 premium supplement ad on a smooth vertical gradient from pale blush pink #FBE3EE at the top to warm white #FFF7FA at the bottom, no texture, no clutter. TOP 15%: a centered two-line italic quote in black #0E0E10, Poppins Italic look, medium size: 'No es magia…' on line 1 and '¡es un plan de 3 meses!' on line 2 with 'plan de 3 meses' in bold italic. 15-45%: a centered two-line reveal in dark plum #2B1226: line 1 'NO TE FALTABAN SENTADILLAS…' in Montserrat ExtraBold, uppercase, medium-large; line 2 'TE FALTABA APOYO' gigantic in a very heavy condensed sans-serif (Montserrat Black condensed look), the biggest text of the ad, with the word 'APOYO' in hot fuchsia #E6177F. 45-88% LEFT HALF: four bullet points with round fuchsia #E6177F dots, dark text #0E0E10 in Poppins, key words bold, evenly spaced: 'Aguaje, fenogreco y maca negra', 'Solo 2 cápsulas al día', 'Con vitaminas A y E', 'Tratamiento completo de 3 meses'. 45-88% RIGHT HALF: a rounded-corner photo card with a thin white border, about 40% of the canvas width and 40% of its height: an ultra-realistic phone photo inside a neighborhood gym with cool overhead lights, rubber floor, a squat rack and dumbbells blurred behind; an adult Colombian woman, about 25, tan skin with real pores and a light sheen of sweat, dark hair in a messy high ponytail with loose strands, black sports top and plain grey leggings, standing in profile in front of the gym mirror after leg day, her thin straight legs and flat seat in the leggings visible in profile, one hand on her hip, the other touching the back of her thigh, looking over her shoulder at the mirror with a disappointed frown; natural gesture, no studio makeup, never AI-looking, she faces sideways to the camera, not with her back to it. Overlapping the lower-left corner of the card and reaching toward the bottom: ONE large closed bottle of the product tilted about 20 degrees to the right, about 42% of the canvas height, label facing the camera and fully legible, soft diffused studio light from the upper left, soft shadow on the gradient, fully inside the canvas. Use the attached product photo as the only source of truth for the bottle; do not redesign, replace or reinterpret it. The bottle: A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows a small pink VITALABH emblem, a huge bold white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, the bold italic hot-pink 'TRIPLE ACCIÓN', three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed, no loose capsules, no pills; label never mirrored. BOTTOM 12%: on the left a large rounded pill in solid hot fuchsia #E6177F with a white thin-line hand-and-package icon and the text 'Pagas al recibir' in white Poppins Bold; on the right a round trust badge with a solid gold #D4A437 border, white center and 'REGISTRO INVIMA RSA-0030271-2024' in plum #2B1226 bold small caps on two lines.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- italic quote (top center, two lines): "No es magia… ¡es un plan de 3 meses!" — Black Poppins Italic look, 'plan de 3 meses' in bold italic
+- reveal line 1 (upper middle, centered): "NO TE FALTABAN SENTADILLAS…" — Dark plum #2B1226 Montserrat ExtraBold uppercase
+- reveal line 2 (main headline) (below line 1, centered, gigantic): "TE FALTABA APOYO" — Very heavy condensed uppercase, plum with 'APOYO' in fuchsia #E6177F
+- bullet (middle left, 1st): "Aguaje, fenogreco y maca negra" — Dark Poppins, bold key words
+- bullet (middle left, 2nd): "Solo 2 cápsulas al día" — Dark Poppins, 'Solo 2 cápsulas' bold
+- bullet (middle left, 3rd): "Con vitaminas A y E" — Dark Poppins, 'vitaminas A y E' bold
+- bullet (middle left, 4th): "Tratamiento completo de 3 meses" — Dark Poppins, '3 meses' bold
+- trust item (bottom left, inside a fuchsia pill): "Pagas al recibir" — White Poppins Bold
+- trust badge (bottom right, inside a round gold-bordered badge): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Plum bold small caps on two lines
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F, deep magenta #B0105E, dark plum #2B1226 (reveal text), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (background gradient), white #FFFFFF, gold #D4A437 only for the badge border.
+- text_typography: Quote in an elegant italic sans-serif (Poppins Italic look); reveal in a very heavy condensed sans-serif (Montserrat Black look), uppercase; bullets in Poppins with bold key words.
+
+MANDATORY ELEMENTS:
+- Blush pink to white vertical gradient background
+- Four round fuchsia bullet dots
+- Rounded photo card of the woman in profile in the gym mirror, in leggings, frustrated, at least 25% of the canvas
+- One large closed bottle tilted about 20 degrees, overlapping the card corner, label legible
+- Fuchsia pill with hand-and-package icon and a round gold-bordered registration badge at the bottom
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle
+- No percentages, no stars, no reviews, no customer counts, no prices, no free shipping
+- No words 'AGREGAR', 'LOGO' or 'SELLO DE' anywhere
+- No woman with her back fully to the camera, no underwear
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add extra badges, benefit icons, ratings, testimonials or discount labels beyond the bottom pill and the registration badge described here.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Percentages, numbers of customers, reviews or stars
+- Do not add: Prices, discounts or free shipping
+- Do not add: Extra icons or benefit cards
+- Do not add: Any brand logo other than what is printed on the real bottle label
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

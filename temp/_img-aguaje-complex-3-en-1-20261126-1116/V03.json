@@ -53,7 +53,7 @@
     { "block_id": "text_block_02", "reference_function": "mechanism word (result)", "reference_position": "under the right half", "text_style": "White bold condensed sans-serif, lowercase, soft dark shadow, very large", "text": "triple acción" },
     { "block_id": "text_block_03", "reference_function": "trust item", "reference_position": "bottom band, left", "text_style": "White Poppins Bold", "text": "Pagas al recibir" },
     { "block_id": "text_block_04", "reference_function": "disclaimer", "reference_position": "bottom band, center", "text_style": "Tiny pale pink Poppins Regular", "text": "Imagen ilustrativa. Los resultados varían." },
-    { "block_id": "text_block_05", "reference_function": "trust badge", "reference_position": "bottom band, right, inside a round gold-bordered badge", "text_style": "Plum bold small caps", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+    { "block_id": "text_block_05", "reference_function": "trust badge", "reference_position": "bottom band, right, inside a round gold-bordered badge", "text_style": "Plum bold small caps", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
   ],
   "mandatory_visual_elements": [
     "Two identical side-profile halves of the same woman in the same light-blue jeans and white tee",

@@ -26,7 +26,8 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-26T16:19:40.859Z",
-      "detalle": "Esperando su turno con la IA"
+      "detalle": "Buscando en los archivos",
+      "uuid": "05f819cf-da8a-454a-a3b8-669508498edd"
     },
     {
       "id": "anuncios",
@@ -45,5 +46,5 @@
   "modoPrueba": false,
   "creado": "2026-11-26T16:19:40.720Z",
   "aprobado": "2026-11-26T16:19:40.720Z",
-  "actualizado": "2026-11-26T16:19:40.885Z"
+  "actualizado": "2026-11-26T16:23:10.645Z"
 }

@@ -1,0 +1,47 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 supplement ad on a pale blush pink #FBE3EE background with very soft out-of-focus smooth oval leaves (no serrated leaves) at the right edge. TOP 18%: a centered two-line headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase: line 1 'QUE EL JEAN TE HORME' in dark plum #2B1226, line 2 'DE FORMA NATURAL' slightly smaller in hot fuchsia #E6177F, no outline, crisp and readable on a phone. MIDDLE 70%, LEFT 45%: two stacked rounded-corner photo cards of the SAME adult Colombian woman, about 27, light-brown skin with real pores and natural texture, long dark wavy hair with loose strands, photographed in profile from the waist to mid-thigh in front of her bedroom mirror, camera at hip height, 50 mm lens, soft natural window light from the left, ultra-realistic phone photo, never AI-looking. UPPER CARD (before): small solid plum tag 'ANTES' in white Poppins Bold at its top-left corner; she wears a plain grey cotton t-shirt tucked in and light-blue jeans one size too big at the back: a baggy fold of extra denim below the seat, drooping back pockets, one straight flat vertical line from waist to thigh, thin straight thighs not filling the legs; her right hand pulls the waistband away from her lower back by a full fist, so the empty gap between denim and skin is clearly visible; her face turned slightly to the mirror with a frustrated frown. UPPER CARD callouts: two thin plum lines ending in small dots point right to labels 'Jean suelto atrás' and 'Bolsillos caídos' in plum Poppins Bold. LOWER CARD (after, a different day): tag 'DESPUÉS' in a solid fuchsia #E6177F pill with white text; same woman, same framing and same jeans but a white ribbed tank top and warmer afternoon light; now a curvy hourglass figure: small waist, hips about one and a half times wider than her waist, rounder lifted seat projecting clearly behind her lower back, fuller thighs filling the jean legs, the denim smooth and fitted with no fold; relaxed confident smile; the change is obvious at first glance, believable, never cartoonish. LOWER CARD callouts: labels 'Jean que horma' and 'Curvas con forma'. Under the cards, a tiny line 'Imagen ilustrativa. Los resultados varían.' in plum Poppins Regular. MIDDLE 70%, RIGHT 55%: three identical closed bottles of the product standing on a smooth pale beige stone, the center one in front and slightly larger, about 45% of the canvas height, label facing the camera and perfectly legible, the other two slightly behind and to each side, all fully inside the frame, never touching the edge; two small reddish scaly aguaje fruits and a few smooth oval green leaves at the base; soft daylight from upper left, gentle contact shadow. Use the attached product photo as the only source of truth for the bottle; do not redesign, replace or reinterpret it. The bottle: A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows a small pink VITALABH emblem, a huge bold white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, the bold italic hot-pink 'TRIPLE ACCIÓN', three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed, no loose capsules, no pills; label never mirrored. TOP-RIGHT of the middle zone, overlapping the leaves above the bottles: a round seal about 26% of the canvas width, solid hot fuchsia #E6177F with a thin gold #D4A437 ring, white Montserrat Black text centered on three lines: 'TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES'. BOTTOM 12%: a full-width rounded rectangle band in dark plum #2B1226; left side a white thin-line icon of a hand receiving a package, then 'Pagas al recibir' in large white Poppins Bold; right side a round trust badge with a solid gold #D4A437 border and a white center, reading 'REGISTRO INVIMA RSA-0030271-2024' in plum bold small caps on two lines.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (top center): "QUE EL JEAN TE HORME" — Montserrat Black look, uppercase, dark plum #2B1226, largest text
+- main headline line 2 (top center, below line 1): "DE FORMA NATURAL" — Montserrat Black look, uppercase, hot fuchsia #E6177F, slightly smaller
+- before tag (top-left corner of the upper photo): "ANTES" — White Poppins Bold uppercase on a solid plum tag
+- callout label (right of the upper photo, first line): "Jean suelto atrás" — Plum Poppins Bold, two short lines
+- callout label (right of the upper photo, second line): "Bolsillos caídos" — Plum Poppins Bold, two short lines
+- after tag (top-left corner of the lower photo): "DESPUÉS" — White Poppins Bold uppercase on a solid fuchsia tag
+- callout label (right of the lower photo, first line): "Jean que horma" — Plum Poppins Bold
+- callout label (right of the lower photo, second line): "Curvas con forma" — Plum Poppins Bold
+- disclaimer (under the photo cards): "Imagen ilustrativa. Los resultados varían." — Tiny plum Poppins Regular
+- offer seal (round seal, top right of the middle zone): "TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES" — White Montserrat Black, centered on three lines, inside a fuchsia circle with a gold ring
+- trust item (bottom band, left): "Pagas al recibir" — Large white Poppins Bold
+- trust badge (bottom band, right, inside a round gold-bordered badge): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Plum bold small caps on two lines
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (headline and bottom band), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (background), white #FFFFFF, gold #D4A437 only for seal borders.
+- text_typography: Headlines in a very heavy geometric sans-serif (Montserrat Black look), uppercase; labels and band texts in rounded bold sans-serif (Poppins Bold look).
+
+MANDATORY ELEMENTS:
+- Two stacked photo cards of the same woman in profile: before with loose jeans and the hand pulling the waistband a fist away from her body, after with the same jeans fitted on a curvy hourglass figure
+- Thin plum callout lines ending in dots pointing to the labels
+- Three identical closed bottles on a pale stone with smooth oval leaves and two aguaje fruits, labels facing the camera
+- Round fuchsia offer seal with gold ring
+- Full-width plum bottom band with a hand-and-package icon and a round gold-bordered registration badge
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle
+- No prices, no crossed-out prices, no percentages, no stars, no reviews, no free shipping
+- No words 'AGREGAR', 'LOGO' or 'SELLO DE' anywhere
+- No underwear, no bare buttocks, no back-only pose without the profile face
+- No serrated or cannabis-like leaves
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add extra badges, benefit lists, icons, ratings, testimonials or discount labels beyond the offer seal, the bottom band and the registration badge described here.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Prices, crossed-out prices or discount percentages
+- Do not add: Free shipping text or truck icon
+- Do not add: Stars, ratings, reviews, customer counts or percentages
+- Do not add: Any extra benefit list or icon row
+- Do not add: Any brand logo other than what is printed on the real bottle label
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

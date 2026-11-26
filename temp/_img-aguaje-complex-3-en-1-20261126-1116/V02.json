@@ -56,7 +56,7 @@
     { "block_id": "text_block_06", "reference_function": "bullet", "reference_position": "middle left, 3rd", "text_style": "Dark Poppins, 'vitaminas A y E' bold", "text": "Con vitaminas A y E" },
     { "block_id": "text_block_07", "reference_function": "bullet", "reference_position": "middle left, 4th", "text_style": "Dark Poppins, '3 meses' bold", "text": "Tratamiento completo de 3 meses" },
     { "block_id": "text_block_08", "reference_function": "trust item", "reference_position": "bottom left, inside a fuchsia pill", "text_style": "White Poppins Bold", "text": "Pagas al recibir" },
-    { "block_id": "text_block_09", "reference_function": "trust badge", "reference_position": "bottom right, inside a round gold-bordered badge", "text_style": "Plum bold small caps on two lines", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+    { "block_id": "text_block_09", "reference_function": "trust badge", "reference_position": "bottom right, inside a round gold-bordered badge", "text_style": "Plum bold small caps on two lines", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
   ],
   "mandatory_visual_elements": [
     "Blush pink to white vertical gradient background",

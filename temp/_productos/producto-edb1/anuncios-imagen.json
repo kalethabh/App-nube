@@ -1,9 +1,17 @@
 {
   "oferta": "",
   "sellos": [
-    "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024"
+    "REGISTRO INVIMA RSA-0030271-2024"
   ],
   "pais": "CO",
   "prohibido": [],
-  "fecha": "2026-11-26T16:16:19.713Z"
+  "cuerpo": {
+    "zonas": [
+      "glúteos",
+      "piernas",
+      "caderas"
+    ],
+    "resultado": "La misma mujer con el jean que horma: cintura pequeña, caderas más anchas y redondeadas, cola más llena y levantada que se proyecta detrás de la espalda baja, muslos más gruesos que llenan la pernera; se nota a primera vista, sin caricatura"
+  },
+  "fecha": "2026-11-26T16:22:48.169Z"
 }

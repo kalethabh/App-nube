@@ -1,0 +1,45 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 offer ad in clean flat vector illustration style on a smooth pale cream-pink background #FBEFF3. TOP 15%: centered one-line headline '«TU PLAN COMPLETO»' with French quotation marks, in an elegant high-contrast serif (Playfair Display Bold look), uppercase, dark plum #2B1226. MIDDLE 60%, CENTER: a flat illustrated adult Colombian woman in her mid 30s, clearly adult features, warm tan skin, long wavy dark-brown hair, rosy cheeks, soft brown outlines, front-facing with a happy confident smile, both hands on her waist, from head to knees; she wears a fitted fuchsia #E6177F short-sleeve blouse tucked into high-waist medium-blue jeans that fit snugly: small waist, wide rounded hips, full thighs filling the jean legs, a curvy hourglass figure, tasteful and never sexualized, facing the camera, never with her back to it. Around her, small four-point sparkles in bubblegum pink #FF8CC0 instead of drops. UPPER LEFT of the middle zone: a small rounded card with a thin plum border (about 20% of the canvas width) showing the same illustrated woman before, in side profile, wearing a grey t-shirt and baggy loose jeans, her hand pulling the waistband a fist away from her back, the empty gap visible, a worried frown; a curved hand-drawn plum arrow goes from the card toward the central woman. LOWER LEFT: two closed bottles of the product standing side by side, slightly overlapping; LOWER RIGHT: one closed bottle; each about 28% of the canvas height, labels facing the camera and legible, rendered photo-real with soft studio light and a soft contact shadow, all well inside the canvas, never cut by the edges. Each bottle has a small pale blush #FBE3EE paper tag hanging from its cap on a thin string, with plum Montserrat ExtraBold text: 'MES 1', 'MES 2' and 'MES 3' from left to right. Use the attached product photo as the only source of truth for the bottles; do not redesign, replace or reinterpret them. The bottle: A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows a small pink VITALABH emblem, a huge bold white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, the bold italic hot-pink 'TRIPLE ACCIÓN', three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed, no loose capsules, no pills; labels never mirrored. BOTTOM 25%: centered and overlapping the woman's knees, a scalloped round seal in dark plum #2B1226 with a thin gold #D4A437 ring and a small gold wax stamp at its bottom edge, white Montserrat ExtraBold text on three lines: 'TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES'. Under it, '90 DÍAS DE RUTINA' in plum Poppins SemiBold, uppercase. Below, a wide rounded pill button in solid hot fuchsia #E6177F with 'QUIERO PROBARLO' in white Montserrat ExtraBold uppercase. Under the button, one small line: 'Pagas al recibir' in plum Poppins Bold with a tiny hand-and-package icon, and next to it a small round trust badge with a solid gold border, white center and 'REGISTRO INVIMA RSA-0030271-2024' in plum bold small caps.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top center): "«TU PLAN COMPLETO»" — Dark plum serif, Playfair Display Bold look, uppercase, with « » quotes
+- tag (hanging from the first bottle (left)): "MES 1" — Plum Montserrat ExtraBold on a pale blush paper tag
+- tag (hanging from the second bottle (left)): "MES 2" — Plum Montserrat ExtraBold on a pale blush paper tag
+- tag (hanging from the third bottle (right)): "MES 3" — Plum Montserrat ExtraBold on a pale blush paper tag
+- offer seal (bottom center, round seal): "TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES" — White Montserrat ExtraBold on three lines inside a plum scalloped seal with gold ring
+- routine days (under the seal): "90 DÍAS DE RUTINA" — Plum Poppins SemiBold uppercase
+- CTA button (bottom center pill): "QUIERO PROBARLO" — White Montserrat ExtraBold uppercase on a fuchsia pill
+- trust item (under the button, left): "Pagas al recibir" — Plum Poppins Bold
+- trust badge (under the button, right, round gold-bordered badge): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Plum bold small caps
+
+BRAND IDENTITY:
+- color_palette: Pale cream-pink background #FBEFF3, dark plum #2B1226 (headline, seal), hot fuchsia #E6177F (button, blouse), bubblegum pink #FF8CC0 (sparkles), pale blush #FBE3EE (tags), white #FFFFFF, gold #D4A437 for seal borders, bottle black #0E0E10.
+- text_typography: Headline in an elegant high-contrast serif (Playfair Display Bold look), uppercase with « » quotes; seal, button and tags in Montserrat ExtraBold / Poppins Bold.
+
+MANDATORY ELEMENTS:
+- Flat illustrated adult woman at the center, front-facing, confident, in fitted high-waist jeans on curvy hips
+- Small rounded 'before' card of the same woman pulling her loose jeans, with a curved arrow toward her
+- Pink sparkles around the woman
+- Three identical closed photo-real bottles (two left, one right) with hanging paper tags
+- Scalloped plum seal with gold ring and wax stamp
+- Fuchsia pill button
+- Round gold-bordered registration badge
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle
+- No 'gratis' tags, no free units, no percentages, no prices, no free shipping
+- No words 'AGREGAR', 'LOGO' or 'SELLO DE' anywhere
+- No childlike or teenage look for the woman; no underwear; no back pose for the central woman
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add extra badges, benefit icons, ratings, testimonials or discount labels beyond the seal, the button, the trust line and the registration badge described here.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: 'Gratis' or 'free' tags, free units, discounts or percentages
+- Do not add: Prices or crossed-out prices
+- Do not add: Free shipping
+- Do not add: Stars, reviews or customer counts
+- Do not add: Any brand logo other than what is printed on the real bottle label
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

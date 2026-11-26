@@ -1,0 +1,41 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 ultra-realistic photographic ad split into two equal vertical halves joined by a thin straight white line exactly at the center, like a before/after comparison. Both halves show the SAME slim adult Colombian woman, about 23, light-tan skin with real pores and fine natural texture on her forearm, photographed in strict side profile facing left, from just above the waist to mid-thigh, against a plain warm beige painted wall, camera at hip height, 85 mm lens, soft natural window light from the left, identical framing, scale and white balance in both halves, ultra-realistic phone-quality photo, never AI-looking, no face visible, no blurred patches. She wears the SAME plain white cotton t-shirt tucked in and the SAME closed light-blue jeans with a brown leather belt loop area visible in both halves. TOP 25%: the waist and the tucked t-shirt in both halves. MIDDLE 50% LEFT HALF (the problem): the jeans are one size too big at the back: a baggy fold of extra denim below the seat, drooping back pocket, one straight flat vertical line from waist to thigh, a thin straight thigh not filling the leg; her hand pulls the waistband away from her lower back by a full fist, so the empty gap between denim and skin is clearly visible. MIDDLE 50% RIGHT HALF (the result): same jeans now filled and smooth: small waist, wide rounded hip curve, a fuller lifted seat that projects clearly behind the line of her lower back, a thicker thigh filling the jean leg, no fold, the pocket sitting on the curve; her hand rests relaxed on her hip; the difference is obvious at first glance, believable, never cartoonish. ON THE SEAM, lower center, overlapping both halves: ONE closed bottle of the product standing upright, about 30% of the canvas height, label facing the camera and legible, with a soft white glow behind it. Use the attached product photo as the only source of truth for the bottle; do not redesign, replace or reinterpret it. The bottle: A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows a small pink VITALABH emblem, a huge bold white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, the bold italic hot-pink 'TRIPLE ACCIÓN', three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed, no loose capsules, no pills; label never mirrored. LOWER 17%: under the left half, the big white words 'sin apoyo' in a bold condensed sans-serif, lowercase, with a soft dark drop shadow, centered on the thigh; under the right half, 'triple acción' in the same style and size. BOTTOM 8%: a thin full-width band in dark plum #2B1226: left 'Pagas al recibir' in white Poppins Bold with a small white hand-and-package line icon; center a tiny line 'Imagen ilustrativa. Los resultados varían.' in pale pink #FBE3EE Poppins Regular; right a small round trust badge with a solid gold #D4A437 border, white center and 'REGISTRO INVIMA RSA-0030271-2024' in plum bold small caps.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- mechanism word (problem) (under the left half): "sin apoyo" — White bold condensed sans-serif, lowercase, soft dark shadow, very large
+- mechanism word (result) (under the right half): "triple acción" — White bold condensed sans-serif, lowercase, soft dark shadow, very large
+- trust item (bottom band, left): "Pagas al recibir" — White Poppins Bold
+- disclaimer (bottom band, center): "Imagen ilustrativa. Los resultados varían." — Tiny pale pink Poppins Regular
+- trust badge (bottom band, right, inside a round gold-bordered badge): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Plum bold small caps
+
+BRAND IDENTITY:
+- color_palette: Warm beige wall tones from the photo, white #FFFFFF for the big words, dark plum #2B1226 for the bottom band, hot fuchsia #E6177F accent, gold #D4A437 only for the badge border, bottle black #0E0E10.
+- text_typography: Big words in a bold condensed sans-serif (Roboto Condensed Bold / Montserrat SemiBold look), lowercase like the reference, white with soft shadow; band text in Poppins Bold.
+
+MANDATORY ELEMENTS:
+- Two identical side-profile halves of the same woman in the same light-blue jeans and white tee
+- Left half: loose jeans with the hand pulling the waistband a fist away, the empty gap visible
+- Right half: the same jeans filled on a curved hip, obvious difference
+- Thin white vertical seam at the exact center
+- One closed bottle on the seam with a soft white glow, label legible
+- Thin plum bottom band with a round gold-bordered registration badge
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle
+- No headline above the photos, no arrows or labels on the body
+- No prices, no percentages, no stars, no free shipping
+- No words 'AGREGAR', 'LOGO' or 'SELLO DE' anywhere
+- No underwear, no bare skin below the waistband, no crop centered on the crotch
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add extra badges, benefit icons, ratings, testimonials or discount labels beyond the bottom band and the registration badge described here.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any headline above the photos
+- Do not add: Prices, discounts, free shipping
+- Do not add: Labels, arrows or callout lines on the body
+- Do not add: Stars, reviews or percentages
+- Do not add: Any brand logo other than what is printed on the real bottle label
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
