@@ -151,7 +151,7 @@ const ROTAN = [
  * Las reglas de «Vecinas» y «Conceptos» sobre plan.json (los errores, en frases que la IA entiende y corrige).
  * `historial`: [{ formato_id, angulo_id, compras, cpa }] de ventas reales de este producto (ventas.js), o [].
  */
-export function reglasDelPlan(plan, { nivel = 'vecinas', analisis = null, skill, historial = [], tipoProducto = null } = {}) {
+export function reglasDelPlan(plan, { nivel = 'vecinas', analisis = null, skill, historial = [], tipoProducto = null, rotarZona = true } = {}) {
   const errores = [];
   const avisos = [];
   const vs = Array.isArray(plan?.variaciones) ? plan.variaciones : [];
@@ -229,7 +229,8 @@ export function reglasDelPlan(plan, { nivel = 'vecinas', analisis = null, skill,
   }
 
   // estilo, zona y segmento rotan: nunca iguales dos seguidas; y al menos 3 estilos (con 3 o más imágenes)
-  for (const [k, nombre] of ROTAN) {
+  // (2026-11-26e) con una sola zona del producto (p. ej. solo abdomen), la zona no puede rotar
+  for (const [k, nombre] of ROTAN.filter(([k]) => rotarZona || k !== 'zona_del_cuerpo')) {
     for (let i = 1; i < n; i++) {
       const a = normal(vs[i - 1]?.[k]);
       const b = normal(vs[i]?.[k]);

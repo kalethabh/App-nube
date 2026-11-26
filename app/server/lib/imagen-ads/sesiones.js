@@ -24,6 +24,7 @@ import { R, idsDelLote, piezaId, vDe, formatoDe, fotoDelLote, nombreFormato } fr
 import { esVariado, nivelDe, cupos, VARIABLES, ESTILOS, CRITERIOS, NOTA_MINIMA } from './variedad.js';
 import { estructurasDelLote, copiarEstructuras, copiarReferenciasDe, NOMBRES_CRITERIOS } from './comparacion.js';
 import { textoReglasImagen } from './supervisor.js';
+import { textoCuerpo } from './cuerpo.js';
 import { textoParaClaude } from '../aprendizajes.js';
 import { PAISES } from './precios.js';
 
@@ -363,7 +364,7 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
   return {
     tipo: 'estrategia',
     ids,
-    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoEstructuras(brief, lote, refsEstructuras) + (usaEstructuras(brief) ? textoManualMayaverra() : '') + textoVenta(brief) + `\n${DETALLE_VISUAL}\n` + textoReglasImagen() + textoAprendizajesGenerales() + textoValidados(lote, validados) + textoTitulosElegidos(brief),
+    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoEstructuras(brief, lote, refsEstructuras) + (usaEstructuras(brief) ? textoManualMayaverra() : '') + (usaEstructuras(brief) || esVariado(brief) ? textoCuerpo(brief) : '') + textoVenta(brief) + `\n${DETALLE_VISUAL}\n` + textoReglasImagen() + textoAprendizajesGenerales() + textoValidados(lote, validados) + textoTitulosElegidos(brief),
     escribe: ['producto.json', 'estrategia.json', 'plan.json', ...ids.map((v) => `${v}.json`), 'app/imagen-ads/bloqueo.json', ...(esDelAgente(brief) ? ['analisis-ganador.json'] : [])],
     maxTurnos: 80 + 2 * k + 2 * validados.length,
     timeoutMin: Math.min(120, 25 + 0.4 * n),
@@ -433,7 +434,7 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
       `\n${DETALLE_VISUAL}\n` +
       textoReglasImagen() +
       textoEstructurasPrompts(lote, ids, conEstructura, formatos) +
-      (ids.some((v) => conEstructura[v]) ? textoManualMayaverra() : '') +
+      (ids.some((v) => conEstructura[v]) ? textoManualMayaverra() + textoCuerpo(brief) : '') +
       textoVenta(brief) +
       (esDelAgente(brief)
         ? `\n## Agente de variaciones (guía \`${GUIA_AGENTE}\`, pegada)\nCada prompt respeta el nivel, el cambio y los invariables de su variación (plan.json y \`analisis-ganador.json\`), y la dirección de arte LIMPIA de la guía: fondo simple con espacio negativo, sin brillos, destellos, partículas ni objetos que compitan; jerarquía titular → imagen del deseo → producto → beneficios → oferta; Montserrat ExtraBold en el titular e Inter en lo secundario; máximo tres niveles de texto; producto con su envase, logo y etiqueta reales; una sola pieza por imagen, sin collage ni rótulos de «Variante».\n`
@@ -583,7 +584,7 @@ export function textoEstructuras(brief, lote = '', refs = {}) {
   const sugeridas = Array.isArray(brief?.sugeridas) ? brief.sugeridas.filter((id) => formatos.get(id)?.estructura) : [];
   return `
 ## Estructuras ganadoras (formatos ${lista[0].id}-${lista[lista.length - 1].id})
-Son estructuras de anuncios ganadores de Mayaverra (y las que subió el usuario, P##), cada una con su ficha en \`.claude/skills/anuncios-imagen-ads/${'estructuras/'}\` (las P## en \`temp/${lote}/entrada/estructuras/\`) (zonas con su %, titular, dolor visual, zona del cuerpo, segmento, beneficios, prueba, oferta, CTA, franja de confianza y estilo; el bloque \`aguaje\` es un ejemplo de traducción a otro producto). Si eliges una, lee su ficha y RESPETA SU ESTRUCTURA con lo de este producto: su dolor traducido, su segmento y su zona del cuerpo; texto, modelo, escena y frasco nuestros. Nunca su texto, su frase exacta, su marca ni sus cifras: lo de la referencia que no podamos sostener (clientes, «probado por terceros», «se agotó», descuentos que no da el formulario) se cambia por algo verdadero o se deja sin ese bloque.
+Son estructuras de anuncios ganadores de Mayaverra (y las que subió el usuario, P##), cada una con su ficha en \`.claude/skills/anuncios-imagen-ads/${'estructuras/'}\` (las P## en \`temp/${lote}/entrada/estructuras/\`) (zonas con su %, titular, dolor visual, zona del cuerpo, segmento, beneficios, prueba, oferta, CTA, franja de confianza y estilo; el campo \`traduccion\` dice cómo pasarla a cualquier producto). Si eliges una, lee su ficha y RESPETA SU ESTRUCTURA con lo de este producto (su campo \`traduccion\` dice cómo se adapta su recurso a la zona que mejora el producto, mostrando el resultado): su dolor traducido, su segmento y su zona del cuerpo; texto, modelo, escena y frasco nuestros. Nunca su texto, su frase exacta, su marca ni sus cifras: lo de la referencia que no podamos sostener (clientes, «probado por terceros», «se agotó», descuentos que no da el formulario) se cambia por algo verdadero o se deja sin ese bloque.
 ${lista.map((f) => `- ${f.id} · ${f.nombre} (${f.estilo})`).join('\n')}${sugeridas.length && !fijas.length ? `\nEN ESTE LOTE la app sorteó estas estructuras para que varíe: úsalas en al menos ${Math.min(sugeridas.length, Math.ceil((Number(brief.cantidad) || 1) / 2))} variaciones (las que mejor calcen con cada ángulo): ${sugeridas.join(', ')}.` : ''}
 En plan.json cada variación lleva además \`"estilo"\` (${ESTILOS.join(', ')}; el de su formato si lo tiene), \`"zona_del_cuerpo"\` y \`"segmento"\`. En un lote, CADA imagen sale de una estructura distinta, y se rotan el estilo, la zona del cuerpo y el segmento: nunca el mismo dos veces seguidas.${fijas.length ? `\nEN ESTE LOTE (lo pidió el usuario): usa EXACTAMENTE estas estructuras, una por variación, en el orden que mejor rote el estilo: ${fijas.map((id) => `${id} (${rutaFichaParaLaIA(lote, formatos.get(id))}${refs[id] ? `; imagen \`temp/${lote}/${refs[id]}\`, mírala con Read` : ''})`).join(', ')}.` : ''}
 `;
@@ -607,7 +608,7 @@ export function textoManualMayaverra() {
   return `
 ## Cómo trabaja Mayaverra (copia su FORMA, nunca su marca, texto ni cifras; manual entero: \`${DE_LA_SKILL}/${MANUAL_MAYAVERRA}\`)
 - LO FIJO en todo el lote (su «kit»): el MISMO frasco real con la etiqueta legible, la misma paleta del producto (un color de base + rojo solo para ofertas + dorado para precios), la MISMA oferta escrita igual letra por letra en todas las imágenes que la lleven, el mismo botón (píldora con «Comprar ahora» o «Quiero probarlo») y UN SOLO enemigo o mecanismo simple repetido de mil formas (como su «no es grasa, es agua»).
-- LO QUE VARÍA: la idea de cada imagen. Su mezcla: 27 % resultado, 20 % mecanismo, 15 % emoción (frase de clienta), 15 % oferta, 13 % urgencia, 10 % segmento; la mitad foto real; un tercio NATIVAS (fotos de celular sin texto: la zona en 3 momentos, la selfie del problema, el producto en la cocina, la bodega). Nunca dos seguidas iguales en gancho ni estilo.
+- LO QUE VARÍA: la idea de cada imagen. Su mezcla: 27 % resultado, 20 % mecanismo, 15 % emoción (frase de clienta), 15 % oferta, 13 % urgencia, 10 % segmento; la mitad foto real; un tercio NATIVAS (fotos de celular: la zona en 3 momentos, la selfie, el producto en la cocina, la bodega); EN ESTA APP las nativas llevan un titular corto arriba (máx. 8 palabras, en una píldora o con contorno) y una franja delgada abajo con los sellos del formulario, sin la oferta: la foto sigue viéndose casera. Nunca dos seguidas iguales en gancho ni estilo.
 - SUS TITULARES (2 a 8 palabras, una línea o palabra en otro color): reencuadre «No es [lo que crees]. Es [la causa].»; orden + promesa «Deja de [X]. [Resultado] de verdad.»; alivio en primera persona «Por fin mi [parte] volvió»; número + resultado (solo con cifras del usuario); segmento + diagnóstico simple «[Segmento]: tu [mecanismo] está [problema].»; frase de clienta; urgencia «La oferta [X] termina esta noche»; oferta «Compra [N] y llévate [M] gratis». En esta app el titular es afirmativo (sus preguntas se reescriben como afirmación).
 - CÓMO VENDEN: el precio se achica (por frasco o por día, el suelto tachado contra el pack, «tratamiento completo»); quitan el riesgo (garantía, envío gratis, pago contra entrega); la prueba en 4 momentos (antes, 24 horas, 1 semana, 4 semanas); urgencia con historia o con fecha de temporada; síntomas de todos los días, nunca enfermedades.
 - NUNCA: sus cifras («889+», «-6 kg», «4,8/5»), logos de revistas, personal de salud, «disculpas oficiales», urgencias o escasez falsas, ni plazos como garantía. Lo que no se pueda sostener se cambia por algo verdadero (uso, ingredientes, envío, pago al recibir).
@@ -621,7 +622,7 @@ function textoEstructurasPrompts(lote, ids, conEstructura, formatos) {
   return `
 ## Estructuras ganadoras de esta tanda
 ${mias.map((v) => `- ${v}: ficha \`${rutaFichaParaLaIA(lote, formatos.get(conEstructura[v].formato_id))}\` e imagen \`temp/${lote}/${conEstructura[v].copia}\` (mírala con Read).`).join('\n')}
-Para cada una: el \`visual_prompt\` describe LAS MISMAS ZONAS de la ficha, en el mismo orden y con proporciones parecidas, en su mismo estilo, con el dolor traducido a este producto (antes y después en momentos distintos: otra ropa, otra pose, a veces otro lugar; la diferencia se nota clara). La app le pasa al modelo de imagen la referencia SOLO como estructura: en \`text_layers\` van todos los textos visibles (titular afirmativo de 2-3 líneas con la palabra resaltada y su color, beneficios, oferta, CTA, franja), letra por letra; nada de texto en sellos ni en la etiqueta que no esté ahí. El frasco, idéntico a la foto del producto y con la etiqueta legible.
+Para cada una: sigue el campo \`traduccion\` de su ficha (el recurso de la referencia con LA ZONA DE ESTE PRODUCTO y su resultado); el \`visual_prompt\` describe LAS MISMAS ZONAS de la ficha, en el mismo orden y con proporciones parecidas, en su mismo estilo, con el dolor traducido a este producto (antes y después en momentos distintos: otra ropa, otra pose, a veces otro lugar; la diferencia se nota clara). La app le pasa al modelo de imagen la referencia SOLO como estructura: en \`text_layers\` van todos los textos visibles (titular afirmativo de 2-3 líneas con la palabra resaltada y su color, beneficios, oferta, CTA, franja), letra por letra; nada de texto en sellos ni en la etiqueta que no esté ahí. El frasco, idéntico a la foto del producto y con la etiqueta legible.
 `;
 }
 
@@ -634,7 +635,7 @@ function textoRevisionEstructuras(lote, piezas, conEstructura) {
 Estas piezas salen de una estructura de referencia: ${mias.map((p) => `${p} ↔ \`temp/${lote}/${conEstructura[vDe(p)].copia}\``).join(' · ')}. Mira cada referencia con Read y, para cada una de esas piezas, agrega \`"puntajes"\` de 0 a 10:
 ${CRITERIOS.map((k) => `- \`${k}\` (${NOMBRES_CRITERIOS[k]}): ${{
     estructura: 'las mismas zonas, en el mismo orden y con proporciones parecidas a la referencia',
-    dolor_visual: 'el problema se entiende en 1 segundo sin leer',
+    dolor_visual: 'se entiende en 1 segundo sin leer y muestra LA ZONA DE ESTE PRODUCTO (no la de la referencia) con el resultado o el antes/después, con ropa (jean o leggins); si solo muestra el problema o otra zona, menos de 8',
     titular: 'cabe en 2 o 3 líneas, se lee en el celular, tiene la palabra resaltada y es afirmativo',
     texto_limpio: 'sin letras deformes, palabras inventadas ni texto basura en sellos o etiqueta; registros y precios exactos (el precio con punto de miles)',
     frasco_fiel: 'igual al de la foto del producto, con la etiqueta legible',

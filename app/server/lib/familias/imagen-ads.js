@@ -23,6 +23,7 @@
 // de Diego 2026-11-09: la revision solo deja su nota en la pieza y el usuario decide si la regenera); dos fallos
 // seguidos del motor = error con "Continuar"; nada se paga dos veces al cerrar y abrir la app (el motor retoma por
 // huella lo que sigue en kie, y las ordenes en disco se reconocen al volver).
+import { ajustesDe, guardarAjustes, limpiarCuerpo } from '../imagen-ads/ajustes-producto.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -201,6 +202,21 @@ async function saldo(ctx) {
 
 // ---------------------------------------------------------------- 3. la estrategia (la IA)
 
+/**
+ * (2026-11-26e) Si el producto todavía no tenía «su cuerpo» (las zonas que mejora) y la IA lo dedujo en plan.json, se
+ * guarda con lo de venta del producto: el próximo lote ya lo trae (y el usuario lo ve y lo puede cambiar en el formulario).
+ */
+function recordarCuerpo(carpeta, brief) {
+  try {
+    if (!brief?.productoId || brief?.venta?.cuerpo?.zonas?.length) return;
+    const cuerpo = limpiarCuerpo(leerJSON(R.plan(carpeta))?.cuerpo);
+    if (!cuerpo) return;
+    guardarAjustes(brief.productoId, { ...ajustesDe(brief.productoId), cuerpo: { ...cuerpo, resultado: cuerpo.resultado || String(leerJSON(R.plan(carpeta))?.cuerpo?.despues || '').slice(0, 240) } });
+  } catch (e) {
+    console.error(`[imagen-ads] no pude guardar el cuerpo del producto: ${e?.message || e}`);
+  }
+}
+
 async function estrategia(ctx) {
   const c = ctx.carpeta;
   const b = ctx.brief;
@@ -329,6 +345,7 @@ async function estrategia(ctx) {
       ctx.guardar();
       if (r?.ok) {
         if (r.verificacion?.avisos?.length) anotarRegistro(c, 'E001', { avisos: r.verificacion.avisos });
+        recordarCuerpo(c, b);
         return { ok: true };
       }
       // no cuentan como intento: Detener, el limite del plan, sin sesion, sin la IA, un plan sin Codex, un bloqueo
