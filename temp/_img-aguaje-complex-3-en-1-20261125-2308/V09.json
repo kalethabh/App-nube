@@ -1,0 +1,140 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V09",
+    "structure_source": "library format F23 (Pregunta y respuesta)",
+    "reference_style": "Bold editorial two-tone Q&A ad: a dark plum question zone with an oversized left-aligned question and a giant tone-on-tone question mark, a pale blush answer zone with a short direct answer, and the real bottle straddling the color split",
+    "angle_used": "Objeción de confianza: ¿tiene registro INVIMA y pago al recibir?",
+    "ad_format": "Question & Answer Two-Tone Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette: hot fuchsia #E6177F (accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary colors for this variation: plum (top zone #2B1226, question mark #3A1A33) and pale blush pink (bottom zone #FBE3EE).",
+    "visual_style": "Bold, clean editorial design with the real bottle sharp and identical to the photo.",
+    "visual_atmosphere": "Direct, honest and trustworthy.",
+    "graphic_language": "Two flat solid color zones split by one straight line, one outlined pill, one giant tone-on-tone question mark, clean high-contrast typography. No glow, no particles.",
+    "text_typography": "Question in Montserrat ExtraBold; kicker and answer in Inter (SemiBold / Regular, verdict in Bold). Maximum three text levels."
+  },
+  "creative_objective": "Answer head-on the doubt that most stops the purchase for the woman who already lost money on pills online: yes, it has the sanitary registration, and she pays when she receives it.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The oversized question in the dark plum top zone. 2) The real bottle straddling the split on the right. 3) The answer in the pale blush zone, its verdict 'Sí:' in bold fuchsia. 4) The small kicker pill.",
+    "composition_style": "Two-tone horizontal split with a strong left text edge at 6% of the width in both zones. The bottle stands on the right in a 3/4 view and crosses the split line, its upper part over the plum zone and its body over the blush zone. A giant faint question mark sits behind the right side of the top zone.",
+    "spacing_and_structure": "Plum top zone 0-52% of the height; pale blush bottom zone 52-100%. Kicker pill 6-11% of the height, from 6% of the width. Question 13-40% of the height and 6-62% of the width (3 lines). Giant question mark 62-96% of the width and 2-50% of the height, behind everything. Answer 58-90% of the height and 6-56% of the width. Bottle 60-92% of the width and 40-93% of the height, crossing the split at 52%. Margins about 6%.",
+    "lighting_and_depth": "Both zones flat solid color. The question mark is flat tone-on-tone with no shadow. The bottle has a soft studio key light from the upper left, a subtle white rim light separating its cap from the plum zone, a soft contact shadow on the blush zone.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, credible, honest and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas split horizontally: dark plum top zone and pale blush pink bottom zone. Top zone: small outlined fuchsia kicker pill at the top left, a very large bold white question left-aligned, and a giant faint plum question mark behind its right side. Bottom zone: a short direct answer left-aligned in the left column, its first word in bold fuchsia. The real bottle stands large on the right in 3/4 view, crossing the split line. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "two-tone background",
+        "position": "Top zone 0-52%; bottom zone 52-100%; full width",
+        "visual_function": "Separates question and answer into two clear moments",
+        "adaptation_rule": "Top in dark plum #2B1226, bottom in pale blush pink #FBE3EE. One clean straight split line, no gradient.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "giant question mark",
+        "position": "62-96% of the width and 2-50% of the height, behind all other elements",
+        "visual_function": "Signals 'question' at a glance",
+        "adaptation_rule": "One oversized question mark in plum #3A1A33, very low contrast, flat, clipped at the split line.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "kicker pill",
+        "position": "Top left, 6-11% of the height, from 6% of the width",
+        "visual_function": "Frames the question as a real, frequent customer question",
+        "adaptation_rule": "Small rounded pill with a thin hot fuchsia outline and fuchsia text, transparent fill.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "question",
+        "position": "Top zone, left-aligned, 13-40% of the height, 6-62% of the width",
+        "visual_function": "Voices the exact doubt of the viewer",
+        "adaptation_rule": "Three lines, white, with 'INVIMA' in bubblegum pink #FF8CC0.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "answer",
+        "position": "Bottom zone, left column, 58-90% of the height, 6-56% of the width",
+        "visual_function": "Resolves the doubt with the real registration number and the payment on delivery",
+        "adaptation_rule": "Dark plum text, the verdict 'Sí:' in bold hot fuchsia.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "product",
+        "position": "Right, 60-92% of the width and 40-93% of the height, crossing the split at 52%",
+        "visual_function": "Bridges question and answer; shows what is being sold",
+        "adaptation_rule": "The real bottle exactly as in the attached product photo, 3/4 view, about 50% of the canvas height, label readable, standing on the blush zone with a soft contact shadow, its cap and upper label rising over the plum zone.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Separate seal badges, shields or certification logos (the registration number lives inside the answer)",
+      "Chat bubbles, app or social media interface elements",
+      "More than one question or answer",
+      "Arrows or connectors between question and answer",
+      "Subheadline or any text besides the kicker, question and answer",
+      "Photo backgrounds or photo panels",
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars, reviews or testimonials",
+      "Benefit list or icons",
+      "People or faces",
+      "Bottom bar or banner",
+      "Logos or brand marks outside the bottle label",
+      "Glow, sparkles or particles"
+    ]
+  },
+  "visual_prompt": "Square 1:1 bold editorial two-tone question-and-answer supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. The canvas is split by one clean straight horizontal line at 52% of the height: top zone flat dark plum #2B1226, bottom zone flat pale blush pink #FBE3EE, no gradient. Behind the right side of the top zone (62-96% of the width, 2-50% of the height) one giant flat question mark in plum #3A1A33, very low contrast, clipped at the split line. Top left (6-11% of the height, from 6% of the width) a small rounded pill with a thin hot fuchsia #E6177F outline and fuchsia uppercase text. Below it (13-40% of the height, 6-62% of the width) a very large three-line extra-bold white question in Montserrat ExtraBold, left-aligned, tight line spacing, with the word 'INVIMA' in bubblegum pink #FF8CC0. Bottom zone, left column (58-90% of the height, 6-56% of the width): a short answer in dark plum Inter Regular, left-aligned, its first word 'Sí:' in bold hot fuchsia. On the right (60-92% of the width, 40-93% of the height) the real product in a 3/4 view, about 50% of the canvas height, crossing the split line, cap and upper label over the plum zone, body over the blush zone, soft key light from the upper left, a subtle white rim light on the cap, soft contact shadow: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. Clean, flat, everything readable on a phone. No people, no other elements.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "kicker",
+      "reference_position": "Inside the small pill at the top left of the plum zone",
+      "text_style": "Inter SemiBold, uppercase, wide letter spacing, about 2.5% of the canvas height, 1 line, hot fuchsia",
+      "text": "Nos preguntan"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "question",
+      "reference_position": "Plum top zone, left-aligned, 13-40% of the height",
+      "text_style": "Montserrat ExtraBold, each line about 8% of the canvas height, 3 lines, left-aligned, tight line spacing, white; 'INVIMA' in bubblegum pink",
+      "text": "¿Y eso sí tiene registro INVIMA?"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "answer",
+      "reference_position": "Pale blush bottom zone, left column, left-aligned",
+      "text_style": "Inter Regular, about 4.5% of the canvas height per line, max 4 lines, left-aligned, dark plum #2B1226; the verdict 'Sí:' in Inter Bold hot fuchsia #E6177F",
+      "text": "Sí: RSA-0030271-2024. Y pagas cuando lo recibes."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Two-tone horizontal split: dark plum top zone and pale blush bottom zone",
+    "Giant tone-on-tone question mark behind the right side of the top zone",
+    "Small outlined fuchsia kicker pill at the top left",
+    "The real bottle, large, on the right, in 3/4 view, crossing the split line"
+  ],
+  "final_generation_exclusions": [
+    "No separate seal badge, shield, certification logo or government emblem.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

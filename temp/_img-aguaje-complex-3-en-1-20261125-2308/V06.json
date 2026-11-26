@@ -1,0 +1,134 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V06",
+    "structure_source": "library format F14 (Post-it)",
+    "reference_style": "Authentic smartphone photo of a gym bench with the real bottle, a water bottle, a towel and resistance bands, and a single handwritten pink sticky note as the only message",
+    "angle_used": "Rutina / momento de uso: lo que le faltaba a su rutina de pierna",
+    "ad_format": "Sticky Note Lifestyle Photo Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette: hot fuchsia #E6177F, deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary colors for this variation: cement grey #8E8E8A (gym wall and floor) and neon pink #FF4FA3 (sticky note, resistance band). The brand appears only in real objects; never flat brand-colored backgrounds.",
+    "visual_style": "Native, unpolished smartphone photo that does not look like an ad; the real bottle sharp and identical to the photo.",
+    "visual_atmosphere": "Real, energetic but calm moment between sets at the gym, natural daylight.",
+    "graphic_language": "No graphic overlays. Only the handwritten sticky note and one tiny discreet registration tag. Tidy scene with few objects.",
+    "text_typography": "The note in native handwritten felt-tip marker lettering (print style, clearly legible); the tiny seal in Inter SemiBold."
+  },
+  "creative_objective": "Speak to the woman who already trains legs: the bottle is the support her routine was missing, not a miracle. It must feel like a real photo she took on the gym bench.",
+  "art_direction": {
+    "design_quality": "Authentic, natural, scroll-stopping, believable",
+    "visual_hierarchy": "1) The pink sticky note with the handwritten message. 2) The real bottle standing sharp on the bench right next to it. 3) The gym setting (water bottle, towel, bands). 4) The tiny registration tag.",
+    "composition_style": "Real smartphone photo at bench height, about 15 degrees down, 35-50mm look, casual framing. The sticky note is stuck on the cement wall (or a cement column) right behind the bench, upper-left area; the bottle stands on the bench in the right-center, slightly in front of the wall. A folded towel, a water bottle and a rolled resistance band rest on the bench to the left and behind, smaller and softer.",
+    "spacing_and_structure": "Sticky note about 38-40% of the canvas width, around x 8-47% and y 8-47%, rotated about 4 degrees. Bottle about 50-55% of the canvas height, around x 54-86% and y 34-88%, base at about y 88%. The line where the wall meets the bench top at about y 60%. Towel, water bottle and band in x 6-48%, y 60-90%, soft focus. Tiny registration tag bottom left, x 5-42%, y 93-97%. 5% margins.",
+    "lighting_and_depth": "Soft natural daylight from a big window on the left, slightly cool gym light, gentle real shadows: the note casts a faint shadow and its bottom edge curls slightly; the bottle has a soft contact shadow on the bench. Shallow depth of field: note and bottle sharp, gym equipment in the background softly blurred. Slightly imperfect phone-photo feel, no studio backdrop.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible and real"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square real photo of a gym bench in front of a cement wall. A single square neon-pink sticky note is stuck on the wall in the upper-left area, slightly tilted, with a short handwritten marker message, a tiny sign-off and one small arrow doodle pointing to the bottle. The real bottle stands on the bench in the right-center, sharp, label facing the camera. A folded towel, a water bottle and a resistance band rest on the bench, softer. Blurred gym equipment in the background. A tiny discreet registration tag at the bottom left. No other graphic text or overlays.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "photographic setting",
+        "position": "Full canvas",
+        "visual_function": "Real gym context that makes the note feel like a genuine personal moment",
+        "adaptation_rule": "Padded black gym bench in front of a smooth cement grey wall, a folded light grey towel, a matte grey water bottle and a rolled neon pink resistance band on the bench; blurred dumbbell rack and machines far behind. Tidy, nothing that competes with the bottle.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "sticky note",
+        "position": "Upper-left area, x 8-47% and y 8-47%, rotated about 4 degrees, stuck on the wall",
+        "visual_function": "The ad's only message",
+        "adaptation_rule": "Square paper sticky note in neon pink #FF4FA3 (soft, not fluorescent glare), matte paper texture, slightly curled bottom edge, faint shadow, written with a thick black felt-tip marker.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "hand-drawn doodle",
+        "position": "Inside the note, bottom left, under the message",
+        "visual_function": "Points the eye toward the bottle",
+        "adaptation_rule": "One short hand-drawn arrow in the same black marker pointing down-right toward the bottle. Only one.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "Right-center, x 54-86% and y 34-88%, standing on the bench",
+        "visual_function": "Shows exactly what the note is about",
+        "adaptation_rule": "The real bottle exactly as in the attached product photo, front or slight 3/4 view, label facing the camera, sharp, realistic scale next to the water bottle, soft contact shadow.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "registration seal",
+        "position": "Bottom left, x 5-42% and y 93-97%",
+        "visual_function": "Trust: the sanitary registration given by the brand",
+        "adaptation_rule": "Very small, discreet rounded tag in pale blush pink #FBE3EE at about 90% opacity with dark plum text. Text only, no logos.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Graphic headline or typed text overlays (other than the tiny registration tag)",
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars, reviews or testimonial cards",
+      "Benefit list or icons",
+      "Additional sticky notes, paper notes or printed labels",
+      "People, hands or bodies",
+      "Studio seamless backdrop or flat brand-colored background",
+      "Bottom bar, banner or graphic frame",
+      "Logos or brand marks outside the bottle label",
+      "Gym brand names, posters or logos on the wall",
+      "Cluttered props that compete with the product"
+    ]
+  },
+  "visual_prompt": "Square 1:1 authentic smartphone photo taken at gym-bench height, about 15 degrees down, casual framing, natural daylight from a big window on the left. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. A padded black gym bench in front of a smooth cement grey wall; the wall meets the bench top at about 60% of the height. In the upper-left area (x 8-47%, y 8-47%) a single square neon pink sticky note is stuck on the cement wall, rotated about 4 degrees, matte paper with a slightly curled bottom edge and a faint shadow, with a short message handwritten in thick black felt-tip marker in clear print letters (4 short lines), a tiny sign-off in the bottom-right corner of the note and one short hand-drawn arrow pointing down-right toward the bottle. On the bench in the right-center (x 54-86%, y 34-88%) the real product standing upright, sharp, label facing the camera, soft contact shadow: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. To the left of the bottle on the bench, smaller and in softer focus: a folded light grey towel, a matte grey water bottle and a rolled neon pink resistance band. Far background: a softly blurred dumbbell rack, no posters, no brand names. Bottom left (x 5-42%, y 93-97%) a very small, discreet rounded pale blush pink tag with dark plum text. Shallow depth of field, slightly imperfect real phone-photo feel. No people, no hands, no other text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "handwritten note message",
+      "reference_position": "On the sticky note, upper and middle area",
+      "text_style": "Handwritten thick felt-tip marker lettering, print style, clearly legible, near-black ink, letters about 4.5-5% of the canvas height, 4 short lines (about 'Lo que le / faltaba a mi / rutina de / pierna'), loosely left-aligned, filling about 70% of the note",
+      "text": "Lo que le faltaba a mi rutina de pierna"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "sign-off",
+      "reference_position": "Bottom-right corner of the sticky note",
+      "text_style": "Same marker handwriting, smaller (about 3% of the canvas height), 1 line, right-aligned",
+      "text": "— Yuli"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "trust seal",
+      "reference_position": "Bottom left of the photo, inside the tiny pale blush tag",
+      "text_style": "Inter SemiBold, uppercase, about 1.8% of the canvas height, 1 line, dark plum #2B1226",
+      "text": "REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "One square neon pink sticky note with a handwritten marker message, slightly tilted and curled, stuck on the cement wall",
+    "One small hand-drawn arrow on the note pointing to the bottle",
+    "The real bottle, sharp, standing on the gym bench right next to the note",
+    "Folded towel, water bottle and resistance band on the bench, in softer focus",
+    "Real gym setting with natural daylight and a softly blurred background",
+    "Tiny discreet registration tag at the bottom left"
+  ],
+  "final_generation_exclusions": [
+    "No people, hands, legs or bodies.",
+    "No gym brand names, posters or logos.",
+    "The sticky note must not cover the bottle's label.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

@@ -1,0 +1,134 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V07",
+    "structure_source": "library format G15 (Persona en éxtasis + producto en pedestal + palabra gigante)",
+    "reference_style": "Warm golden-hour lifestyle campaign: a 36-year-old Colombian mom in a calm, confident moment on her home terrace, one giant word as the headline with a tagline, and the real bottle on a pink marble pedestal in the foreground",
+    "angle_used": "Promesa emocional: volver a sentirse segura, al natural",
+    "ad_format": "Emotional Lifestyle with Pedestal Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette: hot fuchsia #E6177F, deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary colors for this variation: warm gold #D9A441 (sunset light) and wine red #7A1F35 (her dress), with a blush pink marble pedestal.",
+    "visual_style": "Photorealistic, warm and elegant lifestyle campaign; the real bottle studio-sharp and identical to the photo.",
+    "visual_atmosphere": "Calm, warm and confident: a woman who feels like herself again, golden sunset light.",
+    "graphic_language": "Full-bleed photo with clean blurred areas for the text, no boxes behind the text, one small rounded pill for the seal. No particles, petals, droplets, sparkles or flares.",
+    "text_typography": "Giant word in Montserrat ExtraBold, uppercase, white; tagline and seal in Inter (Medium / SemiBold). Maximum three text levels."
+  },
+  "creative_objective": "Sell the deep desire (feeling secure again) instead of the body zone, to moms of 30 to 42 who do not relate to the gym aesthetic. The emotion on her face and the bottle on the pedestal must read in two seconds.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The giant word 'SEGURA' at the top. 2) Her calm, confident expression. 3) The real bottle on the pink marble pedestal on the right. 4) The tagline. 5) The small registration pill.",
+    "composition_style": "Layered depth: giant word at the back top, woman in the middle ground in the left two-thirds, bottle in the foreground on the right on its pedestal. Word and tagline centered horizontally; her head sits just under the tagline, left of center; the bottle's top starts just below the tagline level on the right and overlaps her arm slightly.",
+    "spacing_and_structure": "Giant word about 22-78% of the width and 4-18% of the height. Tagline same width, 20.5-24% of the height. Woman from the left edge to about 64% of the width, from about 26% of the height to the bottom edge, framed from the head to the waist, face at about 36% of the width and 42% of the height. Bottle about 64-87% of the width and 30-90% of the height, on a blush pink marble pedestal whose top is at about 90% of the height, from about 60% of the width to the right edge, cut by the bottom edge. Registration pill bottom left, about 5-42% of the width and 93-97% of the height.",
+    "lighting_and_depth": "Warm golden sunset back light from the upper left, glowing rim on her hair and shoulders, soft fill on her face. Terrace with plants and potted flowers strongly blurred and warm. The bottle is lit like a studio shot, crisp highlights and a soft shadow on the pedestal, slightly sharper than the scene. Clean air: no particles, no lens flares.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas filled with a warm golden sunset photo of a home terrace with blurred plants. One huge bold white word centered at the top, with a short white italic tagline right below. In the left two-thirds, a 36-year-old Colombian woman in a 3/4 profile, eyes closed, serene confident smile, chin slightly up, one hand resting softly on her collarbone, wearing a fitted wine red dress, framed from the head to the waist. On the right, the real bottle, upright, in the foreground on a blush pink marble pedestal. A small registration pill at the bottom left. No particles.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "lifestyle photo background",
+        "position": "Full canvas, edge to edge",
+        "visual_function": "Warm, aspirational and homely mood",
+        "adaptation_rule": "Blurred home terrace with green plants, a few potted bougainvillea flowers in soft magenta and a warm sunset sky, in golden light. The top area behind the text stays soft and clean.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "person",
+        "position": "Left two-thirds, from the left edge to about 64% of the width, from about 26% of the height to the bottom edge",
+        "visual_function": "Shows the emotion the product promises: feeling secure and like herself again",
+        "adaptation_rule": "Colombian woman, 36 years old, warm tan skin, shoulder-length chestnut brown hair, natural makeup, in a 3/4 profile facing right, eyes closed, serene confident smile, chin slightly up, one hand resting softly on her collarbone. Fitted wine red #7A1F35 knee-length dress with a tasteful neckline, elegant and never revealing. She does NOT hold or use the product.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "product",
+        "position": "Right foreground, about 64-87% of the width and 30-90% of the height",
+        "visual_function": "Main product anchor; signals quality",
+        "adaptation_rule": "The real bottle exactly as in the attached product photo, upright, front view, studio-sharp, label fully readable, slightly overlapping her arm.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "pedestal",
+        "position": "Under the bottle, top at about 90% of the height, from about 60% of the width to the right edge, cut by the bottom edge",
+        "visual_function": "Premium stage that separates the product from the scene",
+        "adaptation_rule": "Polished blush pink marble pedestal top with soft veining and a soft reflection of the bottle. Nothing on it but the bottle.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "registration seal",
+        "position": "Bottom left, about 5-42% of the width and 93-97% of the height",
+        "visual_function": "Trust: the sanitary registration given by the brand",
+        "adaptation_rule": "Small rounded pill in pale blush pink #FBE3EE at about 90% opacity with dark plum text. Text only, no logos.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Floating particles, droplets, bubbles, petals, sparkles or lens flares",
+      "CTA button",
+      "Price, discount, offer or urgency badge",
+      "Free shipping or payment labels",
+      "Rating stars, reviews or testimonials",
+      "Any trust seal other than the single registration pill",
+      "Benefit list or icons",
+      "Bands, boxes or cards behind the text",
+      "Person holding or taking the product",
+      "More than one product unit",
+      "Bottom bar or banner",
+      "Logos or brand marks outside the bottle label",
+      "Body-focused poses, rear views or revealing clothing"
+    ]
+  },
+  "visual_prompt": "Square 1:1 warm golden-hour lifestyle supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Full-bleed photo of a home terrace at sunset with green plants and a few soft magenta bougainvillea flowers strongly blurred, warm gold light from the upper left; the top area stays soft and clean for the text. Top center (22-78% of the width, 4-18% of the height) one giant ultra-bold uppercase white word in Montserrat ExtraBold; directly below it (20.5-24% of the height, same width) a short white italic tagline in Inter Medium. Left two-thirds (from the left edge to about 64% of the width, from about 26% of the height to the bottom): a 36-year-old Colombian woman with warm tan skin and shoulder-length chestnut brown hair, natural makeup, in a 3/4 profile facing right, eyes closed, serene confident smile, chin slightly up, one hand resting softly on her collarbone, wearing a fitted elegant wine red knee-length dress with a tasteful neckline, framed from the head to the waist, golden rim light on her hair and shoulders. She does not hold the product. Right foreground (64-87% of the width, 30-90% of the height) the real product standing upright, front view, studio-sharp, label fully readable, slightly overlapping her arm: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. It stands on a polished blush pink marble pedestal whose top is at about 90% of the height, from about 60% of the width to the right edge, cut by the bottom edge, with a soft reflection. Bottom left (5-42% of the width, 93-97% of the height) a small rounded pale blush pink pill with dark plum text. Clean air: no particles, petals, droplets, sparkles or flares. No other text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "giant word",
+      "reference_position": "Top center, about 4-18% of the canvas height",
+      "text_style": "Montserrat ExtraBold, uppercase, about 14-15% of the canvas height, a single word, centered, pure white, tight letter spacing, spanning about half the canvas width",
+      "text": "SEGURA"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "tagline",
+      "reference_position": "Directly below the giant word, centered, about 20.5-24% of the canvas height",
+      "text_style": "Inter Medium italic, about 3.5% of the canvas height, 1 line, centered, white, about the same width as the giant word",
+      "text": "Vuelve a sentirte tú, al natural"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "trust seal",
+      "reference_position": "Bottom left, inside the small pale blush pill",
+      "text_style": "Inter SemiBold, uppercase, about 1.9% of the canvas height, 1 line, dark plum #2B1226",
+      "text": "REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed warm golden sunset photo of a home terrace with blurred plants",
+    "One giant white word centered at the top with an italic tagline below",
+    "36-year-old woman in a fitted wine red dress, 3/4 profile, eyes closed, calm confident gesture, in the left two-thirds",
+    "The real bottle, tall, in the right foreground on a blush pink marble pedestal",
+    "Small pale blush registration pill at the bottom left"
+  ],
+  "final_generation_exclusions": [
+    "No floating particles, petals, droplets, bubbles, sparkles or lens flares.",
+    "The woman must not hold, touch or take the product.",
+    "No revealing clothing, no rear views, no body-focused poses.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
