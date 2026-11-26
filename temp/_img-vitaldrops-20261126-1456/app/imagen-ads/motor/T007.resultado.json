@@ -3,21 +3,31 @@
   "piezas": {
     "V05_1x1": {
       "orden": "U0006",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 1,
       "version": 3,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": "01a21996-2d30-7b32-b383-db255d2ba166",
+      "firma": "2247980-1795725655943",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     },
     "V06_1x1": {
       "orden": "U0007",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 1,
       "version": 2,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": "01a21996-2d30-72f3-91e7-ad2e470c662f",
+      "firma": "1868062-1795725731696",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     }
   },
-  "actualizado": "2026-11-26T20:40:02.066Z",
-  "terminado": false
+  "actualizado": "2026-11-26T20:42:11.700Z",
+  "terminado": true
 }
