@@ -1,0 +1,54 @@
+MODE: REPLICATE A VALIDATED AD. The FIRST attached image is a VALIDATED, WINNING AD. Reproduce it EXACTLY, as a pixel-faithful layout clone: every block stays in the same position, the same size and the same alignment (headline, model or before/after, product bottle, benefit bullets or checks, offer block and call to action); the same reading hierarchy (what is read first, second and third does not change); the same fonts (style, weight, casing, size and effects), the same colors and the same background of every text block (ribbon, badge, box). The sales angle is IDENTICAL: same central desire, same main benefit, same pain. ONLY these things change, and they MUST change: (1) the MODEL is a different woman (the age, body type and skin tone given below), believable and ordinary, never a fashion model; (2) the SETTING/background of the photo (the one given below); (3) her POSE and the FRAMING (given below); (4) the WORDING of the main headline (given below: same promise, other words, about the same length, so it fits the same zone). FORBIDDEN: moving, adding or removing blocks; changing fonts; changing the palette; changing the angle; inventing new claims, numbers or testimonials; changing the offer or the call to action. Replace the product bottle of the reference with the product of the SECOND attached image, in the same place, size and angle. Every other text keeps exactly the text given below, in its same zone and style, perfectly spelled. GLOBAL RULES: the brand name and the label of the bottle EXACT, letter by letter, as in the product photo; no text closer than 5% to any edge; legible on a phone at half screen. IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+
+WHAT TO MAKE:
+PRODUCT: VITALDROPS. It replaces the product of the reference, in the same zone, size and angle.
+MAP OF THE REFERENCE (fixed, nothing moves):
+- Headline: Arriba a la derecha, en dos bloques apilados (cerca del 45% del ancho), alineado a la izquierda; debajo un subtítulo más pequeño de 3 líneas
+- Model / before-after: Antes y después de la misma modelo de espaldas mirando sobre el hombro: el antes en la franja izquierda oscura (cerca del 35% del ancho) y el después al centro, más grande (cerca del 45% del ancho); entre las dos ocupan cerca del 75% de la imagen, de arriba hasta abajo. Etiquetas «ANTES» y «DESPUÉS» en píldoras arriba de cada una, y una flecha blanca curva del antes al después
+- Product bottle: Abajo a la derecha, frasco gotero ámbar con tapa negra y etiqueta amarilla, cerca del 45% del alto, de frente y un poco inclinado, con flores rosadas detrás
+- Benefit bullets / checks: Notas escritas a mano en blanco con flechas o corazones: tres en el lado del antes (izquierda, en columna) con lo negativo, y tres en el lado del después (centro derecha, en columna junto al frasco) con lo positivo. Abajo, una fila de tres íconos lineales blancos con texto corto debajo, separados por líneas finas
+- Offer block and CTA: no hay
+- Other blocks: Sello redondo negro con borde dorado y estrellas, abajo al centro derecha, junto a las piernas de la modelo; destellos y corazones blancos dibujados sobre el fondo rosado; garabato de nube oscura junto a la cabeza del antes
+READING HIERARCHY (unchanged): 1) El titular de contraste «Antes: invisible. Ahora: imposible de ignorar.»  2) El cambio de la modelo del antes al después  3) El frasco con las notas positivas y el sello de garantía
+TYPOGRAPHY: Titular en letra sans muy gruesa y condensada, todo en mayúsculas; subtítulo en sans normal, en minúsculas; notas en letra manuscrita informal; etiquetas ANTES/DESPUÉS en sans gruesa mayúscula; sello en sans gruesa mayúscula con «90 DÍAS» grande; textos de los íconos en sans pequeña
+PALETTE: Titular: «ANTES:» e «INVISIBLE.» en blanco (#FFFFFF), «AHORA:» e «IMPOSIBLE DE IGNORAR.» en amarillo (#FFD21F); subtítulo y notas en blanco; fondo del antes morado muy oscuro (#2A1E2E), fondo del después rosado fucsia (#F25FB4 a #FF8FD0); etiqueta del frasco amarilla (#F7D21E) con letras negras; sello negro (#111111) con borde y letras doradas (#D4A93C) y blancas
+TEXT BLOCK BACKGROUNDS: Titular y subtítulo sin recuadro, directo sobre el rosado; etiquetas ANTES y DESPUÉS en píldoras redondeadas (gris oscuro con letra gris clara en el antes, rosada clara con letra blanca en el después); sello en círculo negro con borde dorado; íconos inferiores sin fondo
+SALES ANGLE (identical): desire: Que la vean, sentirse atractiva y con curvas; main benefit: Un cambio visible en su figura que atrae miradas y le da confianza; pain: Sentirse invisible, sin curvas y sin confianza, la que nadie nota.
+WHAT CHANGES IN THIS IMAGE (and only this):
+- MODEL: a 55 years old woman, curvy, golden latina skin, braids, ordinary and believable (not a fashion model), natural makeup. If the reference has a before/after, it is this same new woman in both halves.
+- SETTING / BACKGROUND OF THE PHOTO: a bathroom with a large mirror, warm light.
+- POSE AND FRAMING: walking towards the camera, full body framing, inside the same zone and the same % of the image as the reference.
+- HEADLINE WORDING: the one given in TEXTS (same promise, other words).
+
+TEXTS (render each one EXACTLY as written, no spelling changes, in its zone and with the same style as in the reference):
+- main headline (Arriba a la derecha, en dos bloques apilados (cerca del 45% del ancho), alineado a la izquierda; debajo un subtítulo más pequeño de 3 líneas): "ANTES: PASABA DESAPERCIBIDA. AHORA: NADIE LA OLVIDA." — the same style, size and background as the headline of the reference
+- etiqueta antes (the same zone as in the reference): "ANTES" — the same style and background as in the reference
+- etiqueta después (the same zone as in the reference): "DESPUÉS" — the same style and background as in the reference
+- subtítulo (the same zone as in the reference): "El cambio que hizo que todos empezaran a mirarla diferente." — the same style and background as in the reference
+- nota antes 1 (the same zone as in the reference): "Sin curvas" — the same style and background as in the reference
+- nota antes 2 (the same zone as in the reference): "Sin confianza" — the same style and background as in the reference
+- nota antes 3 (the same zone as in the reference): "La que nadie nota" — the same style and background as in the reference
+- nota después 1 (the same zone as in the reference): "Curvas naturales" — the same style and background as in the reference
+- nota después 2 (the same zone as in the reference): "Más confianza" — the same style and background as in the reference
+- nota después 3 (the same zone as in the reference): "Todos la notan" — the same style and background as in the reference
+- etiqueta del frasco (the same zone as in the reference): "VITALDROPS" — the same style and background as in the reference
+- sello (the same zone as in the reference): "90 DÍAS DE GARANTÍA" — the same style and background as in the reference
+- ícono 1 (the same zone as in the reference): "Ingredientes de origen vegetal" — the same style and background as in the reference
+
+BRAND IDENTITY:
+- color_palette: exactly the same as the reference: Titular: «ANTES:» e «INVISIBLE.» en blanco (#FFFFFF), «AHORA:» e «IMPOSIBLE DE IGNORAR.» en amarillo (#FFD21F); subtítulo y notas en blanco; fondo del antes morado muy oscuro (#2A1E2E), fondo del después rosado fucsia (#F25FB4 a #FF8FD0); etiqueta del frasco amarilla (#F7D21E) con letras negras; sello negro (#111111) con borde y letras doradas (#D4A93C) y blancas
+
+MANDATORY ELEMENTS:
+- the real product from the attached product photo, where the reference has its bottle
+- a different woman: a 55 years old woman, curvy, golden latina skin, braids, ordinary and believable (not a fashion model), natural makeup
+
+STRICT EXCLUSIONS:
+- moving, adding or removing any block
+- a different font or palette
+- any new claim, number or testimonial
+- the reference's brand or logo
+- misspelled words
+- Do not add: new blocks
+- Do not add: new claims
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
