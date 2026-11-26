@@ -1,0 +1,79 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F40 (Carta de texto), structure mv-08",
+    "reference_style": "Text-letter ad on a flat dark background: bold two-line headline, short letter paragraphs with bold phrases, the bottle on the right, an italic signature",
+    "angle_used": "Identidad / aspiración",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Lemon yellow #F5E13A (label color, highlighted word, the 'Pagas al recibir' badge), amber brown #9A4F12 (glass), deep cocoa #2B1A10 (flat background), warm cream #FFF6DC (signature), white #FFFFFF (letter text), gold #C9962B (thin card border and line), offer red #D62828 used ONLY for the offer pill 'Tratamiento completo: 3 frascos para 3 meses'.",
+    "visual_style": "Clean, bold direct-response health ad built around the real amber dropper bottle with its yellow label; the same bottle, the same palette, the same red offer pill and the same bordered yellow 'Pagas al recibir' badge in every image.",
+    "visual_atmosphere": "Close and honest, like a short letter from the brand to a friend: flat deep cocoa background, white text, warm daylight inside the photo card.",
+    "graphic_language": "Flat dark background, left-aligned letter, one rounded photo card with a thin gold border and a small inset, the tilted bottle, one red offer pill and one bordered yellow badge; no logos.",
+    "text_typography": "Poppins ExtraBold uppercase for the headline (white #FFFFFF, the word 'APETITO' in lemon yellow #F5E13A); Poppins Regular white for the letter with the listed phrases in Poppins Bold; Playfair Display Italic cream for the signature."
+  },
+  "creative_objective": "Take the guilt away from the woman who is afraid of surgery and eats without gaining: the enemy is a switched-off appetite, not genetics. A short letter explains the daily drop ritual, a photo shows her loose-jeans moment and her result, and the fixed offer with 'Pagas al recibir' closes it.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Headline on the top left; 2) the first letter paragraph; 3) the photo card and the bottle on the right; 4) the rest of the letter and the signature; 5) the bottom offer and trust block.",
+    "composition_style": "Same as reference mv-08: headline in two bold white lines at the top left, a letter of short paragraphs filling the left 62 % with some phrases in bold, the bottle on the right tilted slightly, an italic signature at the end of the letter. Added on the right (mandatory in this app): a tall photo card with the before scene and a small result inset above the bottle; added at the bottom: the offer and trust block.",
+    "spacing_and_structure": "Headline 4-19 % of height on the left 62 %; letter 21-77 %; signature 78-84 %; right column 36 % of width with the photo card 4-66 % and the bottle 54-86 %; bottom block 87-100 %. Margins about 5 %.",
+    "lighting_and_depth": "Flat matte cocoa background; inside the card, soft window daylight from the left; the bottle lit by a warm soft key light from the upper left with a faint rim light and a soft shadow."
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Reference: flat dark green square. Top left, a two-word headline in bold white uppercase on two lines. Below, left 70 %: five short paragraphs in white regular sans-serif with some phrases in bold. Right: the amber dropper bottle tilted slightly, its right side cut by the canvas edge. Bottom left: italic signature 'the team'. Adaptation: background deep cocoa; headline becomes the mechanism line; four paragraphs; bottle tilted but fully inside the canvas; a tall photo card with the before scene and the result inset is added above the bottle; an offer and trust block is added at the bottom.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "background", "position": "full canvas", "visual_function": "letter paper", "adaptation_rule": "flat deep cocoa #2B1A10 instead of green", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "headline", "position": "top left, two lines", "visual_function": "mechanism hook", "adaptation_rule": "white uppercase with 'APETITO' in lemon yellow", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "letter paragraphs", "position": "left 62 %, 21-77 % of height", "visual_function": "story and explanation", "adaptation_rule": "four short paragraphs in white with listed phrases in bold", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "signature", "position": "left, after the letter", "visual_function": "closes the letter warmly", "adaptation_rule": "italic cream signature", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product", "position": "right, 54-86 % of height", "visual_function": "the real product", "adaptation_rule": "the amber dropper bottle tilted about 10 degrees, fully inside the canvas, label legible", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "person photo card with result inset", "position": "right 36 %, 4-66 % of height", "visual_function": "shows the pain moment and the result", "adaptation_rule": "side view at hip height pulling loose jeans away from the body; small inset with the same woman three-quarter front in fitted jeans", "present_in_reference": false },
+      { "block_id": "block_07", "block_type": "offer and trust block", "position": "bottom 13 %", "visual_function": "offer and risk removal", "adaptation_rule": "red offer pill and bordered yellow 'Pagas al recibir' badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "No 'last chance', no 'the offer will disappear', no fake urgency",
+      "No prices, no percentages, no star ratings, no customer counts, no named testimonials",
+      "No logos of any brand",
+      "No green colors from the reference"
+    ]
+  },
+  "visual_prompt": "Square 1:1 text-letter ad on a flat matte deep cocoa #2B1A10 background with a very subtle paper grain. LEFT 62 % OF THE WIDTH: TOP (4-19 % of height): the headline in Poppins ExtraBold uppercase, white #FFFFFF, left-aligned, two lines about 7 % of the canvas height each: line 1 'NO ES GENÉTICA.' and line 2 'ES TU APETITO.', with only the word 'APETITO' in lemon yellow #F5E13A. LETTER (21-77 % of height): four short left-aligned paragraphs in Poppins Regular white, about 3 % of the canvas height, with clear space between paragraphs; inside them, only the listed bold phrases are in Poppins Bold white. Paragraph 1: 'Comes de todo y el jean te sigue quedando bailando atrás. No es falta de ganas.' Paragraph 2: 'Muchas veces se te pasa el día sin hambre y te llenas con dos bocados.' (bold: 'se te pasa el día sin hambre'). Paragraph 3: 'VitalDrops junta ashwagandha, maca, fenogreco, remolacha y L-arginina en una sola toma al día, para acompañar tu apetito y tu energía mientras trabajas tus curvas.' (bold: 'VitalDrops' and 'una sola toma al día'). Paragraph 4: 'Sin quirófano, sin agujas y sin pagar nada antes.' (bold: 'sin pagar nada antes'). SIGNATURE (78-84 % of height): 'El equipo VitalDrops' in Playfair Display Italic, warm cream #FFF6DC. RIGHT 36 % OF THE WIDTH: one tall rounded photo card (4-66 % of height, corner radius 16 px, 2 px gold #C9962B border), a realistic smartphone photo of a real young Colombian woman, about 26, light-brown skin with visible pores and a few freckles, dark-brown wavy hair loose over her shoulders with flyaway strands, no studio makeup, plain beige cotton T-shirt with real wrinkles and light-blue jeans one size too big, standing sideways to the camera next to a fitting-room mirror at home with soft warm window light from the left, camera at hip height from the side, framed from the head to the knees, face turned to the lens with a worried, tired half-frown; with one hand she pulls the back of the jeans waistband a full fist away from her lower back so the empty gap between denim and body is clearly visible, a baggy fold of extra denim below the seat, drooping back pockets, one straight flat vertical line from waist to thigh, thin straight thighs with loose fabric: flat, no curve, no volume. In the upper left corner of the card, a small inset (about 34 % of the card width, white 3 px border, rounded 10 px): the same woman (same face, hair, skin) on another day, three-quarter facing the camera, smiling, terracotta blouse and dark-blue jeans that fit snugly on hips and thighs with no loose fabric, a curvier hourglass silhouette with hips clearly wider than her waist, framed from the head to mid-thigh, never from behind. Below and slightly overlapping the bottom of the card (54-86 % of height), centered in the right column and fully inside the canvas: ONE amber-brown glass Boston-round dropper bottle exactly as in the attached product photo, tilted about 10 degrees to the right, about 32 % of the canvas height, about 2.6 times taller than wide, ribbed matte black collar, tall matte black dropper bulb, lemon-yellow-to-white label facing the camera and legible with 'amua', 'VITALDROPS', 'All-In-One Multi-Herbal Supplement', five small outlined ingredient circles and '2 fl. oz. (60mL)'; warm soft key light from the upper left, faint rim light, matte, no rainbow, no lens flare. BOTTOM ZONE (87-100 % of height): a thin 2 px gold line, then centered side by side a red #D62828 rounded pill with white Poppins ExtraBold text 'Tratamiento completo: 3 frascos para 3 meses' and a lemon-yellow #F5E13A rounded badge with a 3 px white border, a small hand-and-box line icon and 'Pagas al recibir' in deep cocoa Poppins ExtraBold. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret it.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top left, two lines", "text_style": "Poppins ExtraBold uppercase, white #FFFFFF, left-aligned, about 7 % of the canvas height per line; line break after 'GENÉTICA.'; the highlighted word is 'APETITO' in lemon yellow #F5E13A", "text": "NO ES GENÉTICA. ES TU APETITO." },
+    { "block_id": "text_block_02", "reference_function": "letter paragraph 1", "reference_position": "left, under the headline", "text_style": "Poppins Regular white, about 3 % of the canvas height, left-aligned", "text": "Comes de todo y el jean te sigue quedando bailando atrás. No es falta de ganas." },
+    { "block_id": "text_block_03", "reference_function": "letter paragraph 2", "reference_position": "left, second paragraph", "text_style": "Poppins Regular white; the phrase 'se te pasa el día sin hambre' in Poppins Bold white", "text": "Muchas veces se te pasa el día sin hambre y te llenas con dos bocados." },
+    { "block_id": "text_block_04", "reference_function": "letter paragraph 3", "reference_position": "left, third paragraph", "text_style": "Poppins Regular white; 'VitalDrops' and 'una sola toma al día' in Poppins Bold white", "text": "VitalDrops junta ashwagandha, maca, fenogreco, remolacha y L-arginina en una sola toma al día, para acompañar tu apetito y tu energía mientras trabajas tus curvas." },
+    { "block_id": "text_block_05", "reference_function": "letter paragraph 4", "reference_position": "left, fourth paragraph", "text_style": "Poppins Regular white; 'sin pagar nada antes' in Poppins Bold white", "text": "Sin quirófano, sin agujas y sin pagar nada antes." },
+    { "block_id": "text_block_06", "reference_function": "signature", "reference_position": "left, after the letter", "text_style": "Playfair Display Italic, warm cream #FFF6DC, about 3 % of the canvas height", "text": "El equipo VitalDrops" },
+    { "block_id": "text_block_07", "reference_function": "offer", "reference_position": "bottom, left of center", "text_style": "Poppins ExtraBold white on a red #D62828 rounded pill", "text": "Tratamiento completo: 3 frascos para 3 meses" },
+    { "block_id": "text_block_08", "reference_function": "trust badge", "reference_position": "bottom, right of center", "text_style": "Poppins ExtraBold deep cocoa #2B1A10 on a lemon-yellow #F5E13A rounded badge with a 3 px white border and a small hand-and-box line icon", "text": "Pagas al recibir" }
+  ],
+  "mandatory_visual_elements": [
+    "Flat deep cocoa background",
+    "Tall photo card on the right: side view at hip height, her hand pulling the loose jeans waistband a fist away from her lower back, visible gap, worried face",
+    "Small inset with the same woman three-quarter front in fitted jeans, never from behind",
+    "The amber dropper bottle tilted about 10 degrees, fully inside the canvas, label legible",
+    "Red offer pill and bordered yellow 'Pagas al recibir' badge at the bottom"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No underwear, no bikini, no shorts, no leggings: jeans only",
+    "No prices, no percentages, no star ratings, no urgency lines",
+    "No loose capsules, pills or drops; no second bottle; no yellow '60ml' circle",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra CTA buttons, prices, extra badges, benefit lists, icons, trust seals, ratings, testimonials or extra claims beyond the listed offer pill and 'Pagas al recibir' badge.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

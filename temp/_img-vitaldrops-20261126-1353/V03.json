@@ -1,0 +1,75 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format F57 (Frase de clienta gigante, dos frascos y círculo de descuento), structure mv-27",
+    "reference_style": "Premium still-life ad: a giant first-person quote in white serif on a dark colored background, bottles lit on the right, offer text on the left and a round badge at the bottom left",
+    "angle_used": "Testimonio",
+    "ad_format": "Product Hero Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Lemon yellow #F5E13A (label color, highlighted word, the 'Pagas al recibir' badge), amber brown #9A4F12 (glow behind the bottles), deep cocoa #2B1A10 (background), warm cream #FFF6DC (value proposition text), white #FFFFFF (quote), gold #C9962B (thin card border), offer red #D62828 used ONLY for the offer pill 'Tratamiento completo: 3 frascos para 3 meses'.",
+    "visual_style": "Clean, bold direct-response health ad built around the real amber dropper bottle with its yellow label; the same bottle, the same palette, the same red offer pill and the same bordered yellow 'Pagas al recibir' badge in every image.",
+    "visual_atmosphere": "Warm, intimate and proud: a dark cocoa studio with a soft amber glow, like a confession that ended well.",
+    "graphic_language": "Big serif quote with curly quotation marks, one rounded photo card with a thin gold border and a small inset, three bottles as a still life, one red offer pill and one round bordered yellow badge; no logos.",
+    "text_typography": "Playfair Display Bold for the quote (white #FFFFFF, the word 'flaca' in lemon yellow #F5E13A); Poppins SemiBold cream for the value proposition; Poppins ExtraBold for the offer and the badge."
+  },
+  "creative_objective": "Carry the emotion with one first-person sentence of a woman who stopped being 'the skinny one of the group', show her before moment with loose jeans and her result in a small inset, show the three-bottle treatment and close with the fixed offer and 'Pagas al recibir'.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The giant quote on the top left; 2) the photo card on the top right; 3) the three bottles on the lower right; 4) the value proposition and the red offer pill on the left; 5) the round yellow badge on the bottom left.",
+    "composition_style": "Same as reference mv-27 (adapted to square): big white serif quote in four lines on the upper left, the bottles standing on the right over a dark colored background with soft light, offer text in the middle left, a round badge at the bottom left. Added on the upper right (mandatory in this app): a photo card with the before scene and a small result inset.",
+    "spacing_and_structure": "Left column 56 % of width: quote 4-42 % of height, value proposition 44-56 %, offer pill 60-68 %, round badge 72-96 %. Right column 44 %: photo card 4-58 % of height, bottles 52-95 %.",
+    "lighting_and_depth": "Dark cocoa background with a soft radial amber #9A4F12 glow behind the bottles; bottles lit by a warm softbox from the upper left with gentle rim light on the glass and short soft shadows on a dark matte surface; daylight inside the photo card."
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Reference: dark green gradient background. Upper left, a first-person exclamation in large white serif over four lines (45 %). Right, two amber dropper bottles standing side by side, slightly overlapping, lit softly. Middle left, the unit offer in white uppercase sans-serif over three lines. Bottom left, a solid green circle with the discount percentage in serif and a line under it. Adaptation: background in deep cocoa; quote in Spanish without a name; three bottles (the 3-month treatment) instead of two; the offer becomes the red pill with the fixed treatment text; the discount circle becomes the round bordered yellow 'Pagas al recibir' badge (no discount exists); a photo card with the before scene and the result inset is added on the upper right.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "background", "position": "full canvas", "visual_function": "premium dark stage", "adaptation_rule": "deep cocoa with amber glow instead of green", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "headline quote", "position": "upper left, 4-42 % of height", "visual_function": "emotion in first person", "adaptation_rule": "Spanish quote, no name, one word in lemon yellow", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "value proposition", "position": "left, 44-56 % of height", "visual_function": "desire + time + core desire", "adaptation_rule": "Poppins SemiBold cream, two lines", "present_in_reference": false },
+      { "block_id": "block_04", "block_type": "offer", "position": "middle left, 60-68 % of height", "visual_function": "the treatment offer", "adaptation_rule": "red pill with the fixed offer text", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "round badge", "position": "bottom left", "visual_function": "risk removal", "adaptation_rule": "lemon-yellow circle with a cocoa border and 'Pagas al recibir' instead of a discount", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "products", "position": "lower right, 52-95 % of height", "visual_function": "the real product as the 3-bottle treatment", "adaptation_rule": "three identical amber dropper bottles, staggered, centered in the right column, never touching the edge", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "person photo card with result inset", "position": "upper right, 4-58 % of height", "visual_function": "shows the pain moment and the result", "adaptation_rule": "woman leaving the gym, side view at hip height pulling loose jeans away from the body; small inset with the same woman three-quarter front in fitted jeans", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "No discount percentage, no 'hasta agotar existencias', no prices",
+      "No customer name, no star ratings, no customer counts",
+      "No logos of any brand",
+      "No green colors from the reference"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium still-life ad on a deep cocoa #2B1A10 background with a soft radial amber #9A4F12 glow in the lower right behind the bottles and a very subtle film grain. LEFT COLUMN (0-56 % of width): UPPER LEFT (4-42 % of height): a giant first-person quote in Playfair Display Bold, white #FFFFFF, four lines, left-aligned, each line about 8 % of the canvas height, with curly Spanish quotation marks: '«Dejé de ser la flaca del grupo»', with only the word 'flaca' in lemon yellow #F5E13A. Under it (44-56 % of height), two lines of Poppins SemiBold in warm cream #FFF6DC, about 3 % of the canvas height: 'Caderas y piernas con curvas en 3 meses de ritual, para ponerte el jean sin pena.' Then (60-68 % of height) a red #D62828 rounded pill with white Poppins ExtraBold text 'Tratamiento completo: 3 frascos para 3 meses'. BOTTOM LEFT (72-96 % of height): a solid lemon-yellow #F5E13A circle about 22 % of the canvas wide with a 4 px deep cocoa #2B1A10 ring border inside a thin white outer ring, a small hand-and-box line icon on top and 'Pagas al recibir' in deep cocoa Poppins ExtraBold, two lines, centered. RIGHT COLUMN (58-96 % of width): UPPER RIGHT (4-58 % of height): one rounded photo card (corner radius 16 px, 2 px gold #C9962B border), a realistic smartphone photo of a real young Colombian woman, about 26, light-brown skin with visible pores and a few freckles, dark-brown hair in a loose high ponytail with flyaway strands, no makeup, a light sweat sheen, grey sports top and light-blue jeans one size too big, standing sideways to the camera at the gym locker-room door with a gym bag on her shoulder, camera at hip height from the side, framed from the head to the knees, face turned to the lens with a frustrated, tired look; with one hand she pulls the back of the jeans waistband a full fist away from her lower back so the empty gap between denim and body is clearly visible, a baggy fold of extra denim below the seat, drooping back pockets, one straight flat vertical line from waist to thigh, thin straight thighs with loose fabric: flat, no curve, no volume. In the lower left corner of this card, a small inset (about 34 % of the card width, white 3 px border, rounded 10 px): the same woman (same face, hair, skin) on another day outdoors, three-quarter facing the camera, smiling, cream blouse and dark-blue jeans that fit snugly on hips and thighs with no loose fabric, a curvier hourglass silhouette with hips clearly wider than her waist and thicker thighs filling the jean legs, framed from the head to mid-thigh, never from behind. LOWER RIGHT (52-95 % of height), centered in the right column and slightly overlapping the bottom of the card, never touching the canvas edge: THREE identical amber-brown glass Boston-round dropper bottles standing on a dark matte surface, staggered (one in front, two slightly behind left and right), the front one about 40 % of the canvas height; each exactly as in the attached product photo: about 2.6 times taller than wide, ribbed matte black collar, tall matte black dropper bulb, lemon-yellow-to-white label facing the camera with 'amua', 'VITALDROPS', 'All-In-One Multi-Herbal Supplement', five small outlined ingredient circles and '2 fl. oz. (60mL)', the front label fully legible; warm softbox key light from the upper left, gentle rim light, matte, no rainbow, no lens flare, short soft shadows. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret it.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline (customer quote)", "reference_position": "upper left, four lines", "text_style": "Playfair Display Bold, white #FFFFFF, left-aligned, about 8 % of the canvas height per line, curly Spanish quotation marks; the highlighted word is 'flaca' in lemon yellow #F5E13A", "text": "«Dejé de ser la flaca del grupo»" },
+    { "block_id": "text_block_02", "reference_function": "value proposition", "reference_position": "left, under the quote", "text_style": "Poppins SemiBold, warm cream #FFF6DC, about 3 % of the canvas height, two lines, left-aligned", "text": "Caderas y piernas con curvas en 3 meses de ritual, para ponerte el jean sin pena." },
+    { "block_id": "text_block_03", "reference_function": "offer", "reference_position": "middle left", "text_style": "Poppins ExtraBold white on a red #D62828 rounded pill", "text": "Tratamiento completo: 3 frascos para 3 meses" },
+    { "block_id": "text_block_04", "reference_function": "trust badge", "reference_position": "bottom left, inside the round badge", "text_style": "Poppins ExtraBold deep cocoa #2B1A10, two centered lines, inside a lemon-yellow #F5E13A circle with a 4 px deep cocoa ring border and a small hand-and-box icon", "text": "Pagas al recibir" }
+  ],
+  "mandatory_visual_elements": [
+    "Deep cocoa background with an amber glow behind the bottles",
+    "Photo card on the upper right: side view at hip height, her hand pulling the loose jeans waistband a fist away from her lower back, visible gap, frustrated face, gym bag",
+    "Small inset with the same woman three-quarter front in fitted jeans, never from behind",
+    "Three identical amber dropper bottles, staggered, centered in the right column, front label legible",
+    "Red offer pill and round bordered yellow 'Pagas al recibir' badge"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No underwear, no bikini, no shorts, no leggings in the before photo: loose jeans only",
+    "No discount percentage, no prices, no star ratings, no customer names",
+    "No loose capsules, pills or drops; no fourth bottle; no yellow '60ml' circle",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra CTA buttons, prices, extra badges, benefit lists, icons, trust seals, ratings, testimonials or extra claims beyond the listed offer pill and 'Pagas al recibir' badge.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

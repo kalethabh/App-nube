@@ -1,0 +1,45 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 text-card ad on a flat matte deep cocoa #2B1A10 background with a very faint warm vignette, like a dark chocolate card. TOP ZONE (3-14 % of height): centered headline in Poppins ExtraBold uppercase, white #FFFFFF, about 7 % of the canvas height, one line or two balanced lines: 'TU RITUAL PARA LLENAR EL JEAN', with only the word 'JEAN' in lemon yellow #F5E13A. MIDDLE ZONE (17-85 % of height): LEFT 38 % of the width: one tall rounded photo card (corner radius 16 px, 2 px gold #C9962B border) filling 17-85 % of the height, a realistic smartphone photo of a real young Colombian woman, about 26, light-brown skin with visible pores and a few freckles, dark-brown hair in a loose low ponytail with flyaway strands, no studio makeup, plain white cotton T-shirt with real wrinkles and light-blue jeans one size too big, standing sideways to the camera in a simple bedroom with soft warm window light from the left, camera at hip height from the side, framed from the head to the knees, her face turned to the lens with a frustrated, tired half-frown; with one hand she pulls the back of the jeans waistband a full fist away from her lower back so the empty gap between denim and body is clearly visible, a baggy fold of extra denim below the seat, drooping back pockets, one straight flat vertical line from waist to thigh, thin straight thighs with loose fabric: flat, no curve, no volume. In the upper right corner of this card, a small inset card (about 32 % of the card width, white 3 px border, rounded 10 px): the same woman (same face, hair, skin) on another day, standing three-quarter facing the camera, smiling, in a lemon-yellow knit top and dark-blue jeans that fit snugly on hips and thighs with no loose fabric, a curvier hourglass silhouette with hips clearly wider than her waist, framed from the head to mid-thigh, never from behind. At the bottom right corner of the photo card, overlapping its edge, the product standing upright at about 20 % of the canvas height: ONE amber-brown glass Boston-round dropper bottle exactly as in the attached product photo, about 2.6 times taller than wide, ribbed matte black collar, tall matte black dropper bulb, lemon-yellow-to-white label facing the camera and legible ('amua', 'VITALDROPS'), matte, no rainbow, soft shadow. RIGHT 58 % of the width: a column of seven lines aligned to the right, evenly spaced from 19 % to 82 % of the height, each line about 4 % of the canvas height: a short situation in white Poppins Regular, then a wide gap, then the word 'VitalDrops' in Poppins Bold lemon yellow #F5E13A, all the 'VitalDrops' words stacked in one aligned column at the right edge. The seven situations, top to bottom: 'Jean que queda bailando atrás', 'Comer de todo y no subir', 'Llenarse con dos bocados', 'Pasar el día sin hambre', 'Sin pila para entrenar', 'Gomitas que no hicieron nada', 'Miedo al quirófano'. BOTTOM ZONE (86-100 % of height): a thin 2 px gold line, then centered side by side: a red #D62828 rounded pill with white Poppins ExtraBold text 'Tratamiento completo: 3 frascos para 3 meses', and a lemon-yellow #F5E13A rounded badge with a 3 px white border, a small hand-and-box line icon and 'Pagas al recibir' in deep cocoa Poppins ExtraBold. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret it.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top center): "TU RITUAL PARA LLENAR EL JEAN" — Poppins ExtraBold uppercase, white #FFFFFF, about 7 % of the canvas height; the highlighted word is 'JEAN' in lemon yellow #F5E13A
+- list line (right column, line 1): "Jean que queda bailando atrás" — Poppins Regular white, right-aligned, followed by the brand answer
+- list line (right column, line 2): "Comer de todo y no subir" — Poppins Regular white, right-aligned, followed by the brand answer
+- list line (right column, line 3): "Llenarse con dos bocados" — Poppins Regular white, right-aligned, followed by the brand answer
+- list line (right column, line 4): "Pasar el día sin hambre" — Poppins Regular white, right-aligned, followed by the brand answer
+- list line (right column, line 5): "Sin pila para entrenar" — Poppins Regular white, right-aligned, followed by the brand answer
+- list line (right column, line 6): "Gomitas que no hicieron nada" — Poppins Regular white, right-aligned, followed by the brand answer
+- list line (right column, line 7): "Miedo al quirófano" — Poppins Regular white, right-aligned, followed by the brand answer
+- repeated brand answer (written once at the end of each of the 7 list lines, 7 times in total) (right edge of the list, one per line): "VitalDrops" — Poppins Bold lemon yellow #F5E13A, same size as the list lines, stacked in one aligned column
+- offer (bottom, left of center): "Tratamiento completo: 3 frascos para 3 meses" — Poppins ExtraBold white on a red #D62828 rounded pill
+- trust badge (bottom, right of center): "Pagas al recibir" — Poppins ExtraBold deep cocoa #2B1A10 on a lemon-yellow #F5E13A rounded badge with a 3 px white border and a small hand-and-box line icon
+
+BRAND IDENTITY:
+- color_palette: Lemon yellow #F5E13A (label color, highlighted words, the 'Pagas al recibir' badge), amber brown #9A4F12 (glass and warm accents), deep cocoa #2B1A10 (dark background), warm cream #FFF6DC, white #FFFFFF (text on dark), gold #C9962B (thin lines and card borders), offer red #D62828 used ONLY for the offer pill 'Tratamiento completo: 3 frascos para 3 meses'.
+- text_typography: Poppins ExtraBold uppercase for the headline (white #FFFFFF with the word 'JEAN' in lemon yellow #F5E13A); Montserrat or Poppins Regular white for the situations; Poppins Bold lemon yellow for each 'VitalDrops' answer.
+
+MANDATORY ELEMENTS:
+- Flat deep cocoa background
+- Tall photo card on the left: side view at hip height, her hand pulling the loose jeans waistband a fist away from her lower back, visible gap, frustrated face
+- Small inset with the same woman three-quarter front in fitted jeans, never from behind
+- Small amber dropper bottle with legible label at the bottom right of the photo card
+- Right-aligned list of seven lines, each ending in yellow 'VitalDrops'
+- Red offer pill and bordered yellow 'Pagas al recibir' badge at the bottom
+
+STRICT EXCLUSIONS:
+- sin poses de espaldas ni enfoque en zonas del cuerpo
+- No underwear, no bikini, no shorts: jeans only
+- No logos, no prices, no percentages, no star ratings
+- No loose capsules, pills or drops; no second product; no yellow '60ml' circle
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add extra CTA buttons, prices, extra badges, benefit lists, icons, trust seals, ratings, testimonials or extra claims beyond the listed offer pill and 'Pagas al recibir' badge.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: No logo of any brand at the bottom or anywhere
+- Do not add: No prices, no percentages, no star ratings, no customer counts, no named testimonials
+- Do not add: No icons next to the list lines
+- Do not add: No question marks in the list
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
