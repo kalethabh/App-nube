@@ -1,0 +1,14 @@
+{
+  "id": "T020",
+  "creado": "2026-11-26T21:06:34.813Z",
+  "piezas": [
+    {
+      "pieza": "V03_1x1",
+      "orden": "U0026",
+      "modo": "editar",
+      "version": 6,
+      "instruccion_en": "Remove any blur or softness from every 'amua' word (the logo at the top and the one on the bottle label): render them fully sharp, crisp and readable, same font, size, color and position. Change nothing else: keep the women, poses, background, bottle, labels, arrow, all other texts and the bottom block exactly as they are.",
+      "textos": false
+    }
+  ]
+}

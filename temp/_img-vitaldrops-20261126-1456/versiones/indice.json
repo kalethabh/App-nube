@@ -84,6 +84,14 @@
         "reemplazadaPor": "U0016",
         "motivo": null,
         "fecha": "2026-11-26T21:01:08.398Z"
+      },
+      {
+        "n": 5,
+        "archivo": "versiones/V03_1x1.v5.png",
+        "prompt": "versiones/V03_1x1.v5.txt",
+        "reemplazadaPor": "U0026",
+        "motivo": null,
+        "fecha": "2026-11-26T21:07:30.194Z"
       }
     ],
     "V08_1x1": [

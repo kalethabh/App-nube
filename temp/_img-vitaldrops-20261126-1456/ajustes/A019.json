@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0026",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Remove any blur or softness from every 'amua' word (the logo at the top and the one on the bottle label): render them fully sharp, crisp and readable, same font, size, color and position. Change nothing else: keep the women, poses, background, bottle, labels, arrow, all other texts and the bottom block exactly as they are.",
+      "resumen": "La marca «amua» queda nítida, sin difuminado, arriba y en la etiqueta del frasco. Lo demás no cambia."
+    }
+  ]
+}

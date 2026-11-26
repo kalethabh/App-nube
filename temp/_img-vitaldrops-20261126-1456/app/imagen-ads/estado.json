@@ -4,7 +4,7 @@
     "E": 2,
     "R": 1,
     "A": 20,
-    "T": 20
+    "T": 21
   },
   "tandas": {
     "E001": {
@@ -198,10 +198,11 @@
     "A019": {
       "tipo": "ajuste",
       "uuid": "b4cf545f-98fd-4874-a6a6-08362497af08",
-      "estado": "en-curso",
+      "estado": "hecha",
       "pedidos": [
         "U0026"
-      ]
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -288,10 +289,10 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "ajustando",
+      "fase": "final",
       "resultado": "listo",
-      "version": 5,
-      "firma": "2036164-1795726868395",
+      "version": 6,
+      "firma": "2026269-1795727250190",
       "orden": null,
       "intentosApi": 1,
       "ronda": "u",
@@ -299,9 +300,9 @@
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T21:01:09.148Z",
+      "desde": "2026-11-26T21:07:30.872Z",
       "pedido": null,
-      "ultimaOrden": "U0016",
+      "ultimaOrden": "U0026",
       "fallo": null
     },
     "V04_1x1": {
@@ -970,8 +971,21 @@
       "pieza": "V03_1x1",
       "instruccion": "quita el difuminado de amua",
       "fecha": "2026-11-26T21:06:15.224Z",
-      "estado": "ajustando",
-      "ajuste": "A019"
+      "estado": "listo",
+      "ajuste": "A019",
+      "instruccion_en": "Remove any blur or softness from every 'amua' word (the logo at the top and the one on the bottle label): render them fully sharp, crisp and readable, same font, size, color and position. Change nothing else: keep the women, poses, background, bottle, labels, arrow, all other texts and the bottom block exactly as they are.",
+      "cambiaTextos": false,
+      "resumen": "La marca «amua» queda nítida, sin difuminado, arriba y en la etiqueta del frasco. Lo demás no cambia.",
+      "pasos": [
+        {
+          "pieza": "V03_1x1",
+          "orden": "U0026",
+          "modo": "editar",
+          "instruccion_en": "Remove any blur or softness from every 'amua' word (the logo at the top and the one on the bottle label): render them fully sharp, crisp and readable, same font, size, color and position. Change nothing else: keep the women, poses, background, bottle, labels, arrow, all other texts and the bottom block exactly as they are.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     }
   }
 }
