@@ -1,0 +1,45 @@
+{
+  "id": "mv-35",
+  "nombre": "Reencuadre del problema por segmento con 3 siluetas ilustradas y precio tachado",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-35.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/246d256aba4a61bbf8493317351a6d00f923d816c2cbad1c609d990886db81cb.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F65",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 3 líneas en rojo y negro que dice qué NO es el problema y qué SÍ es. 30 %",
+    "centro": "Tres siluetas de línea de perfil (semana 1, 2 y 4) con su etiqueta. 35 %",
+    "abajo": "Bloque de oferta: precio por unidad gigante con el anterior tachado y «esta semana solamente», con 3 frascos a la derecha. 35 %"
+  },
+  "titular": {
+    "lineas": 3,
+    "palabras": 8,
+    "resaltada": "la palabra que niega",
+    "color_resaltado": "rojo",
+    "posicion": "arriba al centro",
+    "gancho": "segmento"
+  },
+  "dolor_visual": {
+    "tipo": "ilustracion-plana",
+    "como": "Tres siluetas de la misma mujer en semanas."
+  },
+  "zona_del_cuerpo": "vientre",
+  "segmento": "posparto",
+  "beneficios": {
+    "tipo": "linea-de-tiempo",
+    "cantidad": 3
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "tachado-por-unidad",
+    "como": "precio por unidad grande con el anterior tachado"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "ilustracion-plana",
+  "cuidado": "El titular afirma («Esa cadera plana no es genética. Es falta de…»), sin diagnósticos. Precios solo los del usuario."
+}

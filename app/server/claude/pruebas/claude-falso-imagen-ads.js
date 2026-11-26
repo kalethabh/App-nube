@@ -12,6 +12,7 @@ import path from 'node:path';
 import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
 import { armarPlanVariado } from './plan-variado-de-prueba.js';
+import { leerPropias } from '../../lib/imagen-ads/propias-disco.js';
 
 const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', '..', '..');
 const SKILL = path.join(RAIZ, '.claude', 'skills', 'anuncios-imagen-ads');
@@ -62,7 +63,8 @@ const idsDe = (texto) => [...new Set((String(texto).match(/V\d{2,3}/g) || []))];
 // ---------------------------------------------------------------- lo que se escribe
 
 function catalogo() {
-  return { angulos: leer(path.join(SKILL, 'angulos.json'))?.angulos || [], formatos: leer(path.join(SKILL, 'formatos', 'indice.json'))?.formatos || [] };
+  // (2026-11-26d) más las estructuras del usuario (P##), como leerSkill de la app
+  return { angulos: leer(path.join(SKILL, 'angulos.json'))?.angulos || [], formatos: [...(leer(path.join(SKILL, 'formatos', 'indice.json'))?.formatos || []), ...leerPropias().map((x) => ({ ...x, marca: 'propia' }))] };
 }
 
 /** Un V##.json valido para la app, con los bloques de su formato (asi no hay avisos). */
@@ -89,8 +91,11 @@ function anuncio(v, entrada, brief, numero) {
     text: i === 0 && brief?.seleccionTitulos?.titulos?.length && entrada?.titular ? entrada.titular : `Texto de prueba ${numero}.${i + 1}`,
   }));
   // («Vecinas»/«Conceptos»: la oferta y los sellos del formulario, letra por letra, salvo en los formatos nativos)
-  if (variado && !formato?.nativo) {
-    if (brief?.venta?.oferta) capas.push({ block_id: 'text_oferta', reference_function: 'offer', reference_position: 'bottom strip', text_style: 'Bold', text: brief.venta.oferta });
+  // (2026-11-26d) con estructuras ganadoras, como Mayaverra: la misma oferta, igual en todas las del lote
+  const conEstructuras = Array.isArray(brief?.estructuras) && brief.estructuras.length > 0;
+  if ((variado || conEstructuras) && !formato?.nativo) {
+    const oferta = brief?.venta?.oferta || (conEstructuras ? 'TRATAMIENTO COMPLETO X3 $139.900' : '');
+    if (oferta) capas.push({ block_id: 'text_oferta', reference_function: 'offer', reference_position: 'bottom strip', text_style: 'Bold', text: oferta });
     for (const [k, sello] of (brief?.venta?.sellos || []).entries()) capas.push({ block_id: `text_sello_${k + 1}`, reference_function: 'trust seal', reference_position: 'bottom corner', text_style: 'Small caps', text: sello });
   }
   return {

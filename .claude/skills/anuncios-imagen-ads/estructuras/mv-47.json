@@ -1,0 +1,44 @@
+{
+  "id": "mv-47",
+  "nombre": "Comparación de precio: un frasco tachado contra el pack con precio por unidad y franja de beneficios",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-47.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/e9d5a30039e286651af995f76f82f1c2c5b76ab09bfffa04be75c4a1a5be2615.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F77",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Sello verde «2+1 gratis» arriba a la derecha. 15 %",
+    "centro": "Izquierda: un frasco con una X roja, su precio tachado y «sin la oferta»; derecha: 3 frascos, el precio por frasco gigante, el total y «con la oferta esta noche». 70 %",
+    "abajo": "Franja verde con ahorro, envío gratis y garantía. 15 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 4,
+    "resaltada": "el precio por frasco",
+    "color_resaltado": "verde oscuro",
+    "posicion": "centro a la derecha",
+    "gancho": "oferta"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "El precio como dolor."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "garantia"
+  ],
+  "oferta": {
+    "tipo": "tachado-por-unidad",
+    "como": "precio por frasco vs precio suelto tachado"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ahorro · envío gratis · garantía",
+  "estilo": "bodegon-premium",
+  "cuidado": "Precios solo los del usuario (moneda de su país)."
+}

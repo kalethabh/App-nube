@@ -1,0 +1,45 @@
+{
+  "id": "mv-51",
+  "nombre": "Pregunta del problema en rosa, 3 fotos por semanas y oferta especial con botón",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-51.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/317e38f138fa29df8c642a5856ca47f414fa5dbf6c66436a2f88f15d64a2cee4.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F81",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 2 líneas: la pregunta del problema en rosa y la promesa en exclamación. 25 %",
+    "centro": "Tres fotos de la misma zona (semana 1, 2 y 4) con su etiqueta. 30 %",
+    "abajo": "A la izquierda «oferta especial solo esta semana» en dorado y botón rosa; a la derecha 3 frascos; línea de «resultados reales, oferta por tiempo limitado». 45 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 6,
+    "resaltada": "la pregunta",
+    "color_resaltado": "rosa",
+    "posicion": "arriba al centro",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "La misma zona en 3 semanas."
+  },
+  "zona_del_cuerpo": "muslos",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "linea-de-tiempo",
+    "cantidad": 3
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "barra",
+    "como": "oferta especial con botón"
+  },
+  "cta": {
+    "tipo": "boton"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Formato vertical. Titular afirmativo para la regla («Muslos con hoyuelos: se van»)."
+}

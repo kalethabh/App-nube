@@ -2,6 +2,21 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-26d · Anuncios de imagen: solo Mayaverra, su manual y tus estructuras
+
+- **Solo Mayaverra:** las estructuras ganadoras ahora son solo suyas, 55 anuncios. Se agregaron 35 de su tienda principal, la que más vende (sus anuncios llegan a más de 350 mil personas), y se quitaron las de otras marcas.
+- **El manual de Mayaverra:** la app aprendió cómo varía y cómo vende. Lo usa en cada lote con estructuras.
+  - Lo que nunca cambia: el frasco, los colores, la misma oferta escrita igual, el botón y un solo «enemigo».
+  - Su mezcla de ideas: resultado, mecanismo, emoción, oferta, urgencia y segmento, y un tercio de fotos «de celular» sin texto.
+  - Sus fórmulas de titular.
+  - Cómo achica el precio y quita el riesgo.
+  - Lo que nunca se copia: sus cifras, avales inventados y urgencias falsas.
+- **«Al azar» sortea como Mayaverra:** cada lote sale con su misma mezcla de ideas, sin repetir el estilo seguido.
+- **Agrega tus propios anuncios ganadores:** en «Estructuras ganadoras» → «Agregar un anuncio ganador», súbelo, pégalo o elígelo de «Lo que me funciona».
+  - Tu IA lo analiza (sin costo) y queda como P01, P02…
+  - Entra al sorteo: cada lote lleva al menos uno tuyo.
+  - Lo puedes quitar cuando quieras.
+
 ## 2026-11-26c · Anuncios de imagen: supervisor, editor y carpetas más claras
 
 - **Supervisor que aprende:** al terminar cada lote, la app compara lo que pediste con lo que salió. Te muestra qué falló en «Lo que aprendió el supervisor» y anota 1 a 3 reglas para que no vuelva a pasar. El próximo lote ya las usa.

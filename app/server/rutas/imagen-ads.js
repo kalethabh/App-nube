@@ -239,9 +239,27 @@ export default function rutasImagenAds(app) {
   app.get('/api/imagen-ads/estructuras/:id/imagen', conErrores(async (req, res) => {
     const { asegurarReferencia, rutaReferencia } = await import('../lib/imagen-ads/estructuras.js');
     const id = String(req.params.id || '');
-    if (!/^F\d{2}$/.test(id) || !rutaReferencia(id)) throw new ErrorApp(404, 'No existe esa estructura.');
+    if (!/^[FP]\d{2,3}$/.test(id) || !rutaReferencia(id)) throw new ErrorApp(404, 'No existe esa estructura.');
     if (!(await asegurarReferencia(id))) throw new ErrorApp(404, 'No pude traer la imagen de esa estructura (revisa tu internet).');
     res.set({ 'Cache-Control': 'private, max-age=86400', 'X-Content-Type-Options': 'nosniff' }).type('image/jpeg').sendFile(rutaReferencia(id));
+  }));
+
+  // (2026-11-26d) TUS ESTRUCTURAS: subes un anuncio (o eliges uno de «Lo que me funciona»), tu IA escribe su ficha y
+  // queda como P01, P02… en tu biblioteca. El cuerpo es la imagen (o nada, con ?funciona=<id>).
+  app.post('/api/imagen-ads/estructuras', soloDesdeLaApp, leerBinario, conErrores(async (req, res) => {
+    const { crearEstructura } = await import('../lib/imagen-ads/propias.js');
+    const q = req.query || {};
+    res.status(202).json(await crearEstructura({ datos: Buffer.isBuffer(req.body) ? req.body : null, tipo: req.headers['content-type'], funcionaId: String(q.funciona || ''), nombre: String(q.nombre || '').slice(0, 120), notas: String(q.notas || '').slice(0, 600) }));
+  }));
+  app.get('/api/imagen-ads/estructuras/trabajos/:id', conErrores(async (req, res) => {
+    const { estadoTrabajoEstructura } = await import('../lib/imagen-ads/propias.js');
+    const t = estadoTrabajoEstructura(req.params.id);
+    if (!t) throw new ErrorApp(404, 'No encuentro ese análisis (¿se reinició la app?).');
+    res.set('Cache-Control', 'no-store').json(t);
+  }));
+  app.delete('/api/imagen-ads/estructuras/:id', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { borrarEstructura } = await import('../lib/imagen-ads/propias.js');
+    res.json(borrarEstructura(String(req.params.id || '')));
   }));
 
   // (2026-11-26a) APRENDER DE MIS VENTAS: lee tus anuncios en Meta (SEP) y guarda qué formato + ángulo vendió por producto

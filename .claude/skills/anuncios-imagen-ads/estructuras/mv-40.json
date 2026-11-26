@@ -1,0 +1,44 @@
+{
+  "id": "mv-40",
+  "nombre": "Mano con el frasco en una bodega llena: «hicimos demasiado» y liquidación",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-40.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/34744e0d4e1adfb696f0eda2a25fa802ccef05ca0b1688f9f7099611e1820de9.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F70",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 2 líneas en blanco con emoji y una línea de pedido de ayuda. 25 %",
+    "centro": "Mano en primer plano con el frasco frente a una bodega con cajas apiladas. 55 %",
+    "abajo": "Titular de la venta en mayúsculas y píldora verde con «haz clic abajo» y el %. 20 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 4,
+    "resaltada": "ninguna",
+    "color_resaltado": "blanco",
+    "posicion": "arriba al centro",
+    "gancho": "oferta"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La abundancia de producto cuenta la historia."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "porcentaje-estrella",
+    "como": "píldora verde con el % de descuento"
+  },
+  "cta": {
+    "tipo": "pildora"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Solo si la historia es verdad. Si no: «Llegó el lote nuevo · envío hoy»."
+}

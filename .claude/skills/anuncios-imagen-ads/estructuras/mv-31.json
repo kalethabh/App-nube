@@ -1,0 +1,44 @@
+{
+  "id": "mv-31",
+  "nombre": "Foto cenital de pies y piernas con el problema sobre piso de madera, sin texto",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-31.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/612caf723206286089567d1afaa61ddbb385a7351c955a7b6b6daca008b34cca.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F61",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Piso de madera. 15 %",
+    "centro": "Las piernas y los pies de una mujer vistos desde arriba, con el problema visible y luz natural. 75 %",
+    "abajo": "Piso de madera. 10 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 0,
+    "resaltada": "ninguna",
+    "color_resaltado": "ninguno",
+    "posicion": "sin titular",
+    "gancho": "emocion"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "Solo el antes: el problema tal cual, como foto del celular."
+  },
+  "zona_del_cuerpo": "piernas",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo, sin texto ni producto. Para Aguaje: glúteo plano en jean visto desde atrás en el espejo."
+}

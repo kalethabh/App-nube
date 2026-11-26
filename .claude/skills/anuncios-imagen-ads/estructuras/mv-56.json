@@ -1,0 +1,45 @@
+{
+  "id": "mv-56",
+  "nombre": "Fila de 4 fotos de la misma zona (antes, 24 horas, 1 semana, 3 semanas) con titular de 2 colores y frasco",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-56.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/52b41369b67b0f40083c0bd772c5e0d3e270e5aceceac31c46f4aa14955f7653.png",
+  "marca_referencia": "Mayaverra (drenaje linfático, tienda mayaverra.com): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F86",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Marca en serif y titular de 2 líneas: la promesa en verde oscuro y el plazo en verde claro. 25 %",
+    "centro": "Cuatro fotos verticales en fila de la misma zona del cuerpo con su etiqueta abajo, y el frasco a la derecha. 65 %",
+    "abajo": "Las etiquetas de cada foto. 10 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 7,
+    "resaltada": "el plazo",
+    "color_resaltado": "verde",
+    "posicion": "arriba al centro",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "cuerpo-real-antes-despues",
+    "como": "La misma zona en 4 momentos."
+  },
+  "zona_del_cuerpo": "brazos",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "linea-de-tiempo",
+    "cantidad": 4
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Para Aguaje: glúteo de perfil en jean en 4 momentos; sin prometer el plazo exacto."
+}
