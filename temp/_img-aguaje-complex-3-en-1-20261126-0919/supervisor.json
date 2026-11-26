@@ -1,0 +1,102 @@
+{
+  "fecha": "2026-11-26T14:43:09.408Z",
+  "firma": "d14c69745c962843",
+  "pedido": {
+    "producto": "AGUAJE COMPLEX 3 EN 1",
+    "modo": "Estructuras F42, F33, F70, F68, F43, F38, F61, F59, F65, F40",
+    "oferta": "",
+    "sellos": [
+      "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024"
+    ],
+    "cantidad": 10
+  },
+  "total": 10,
+  "fallas": [
+    {
+      "criterio": "estructura",
+      "nombre": "Estructura",
+      "cuantas": 2,
+      "piezas": [
+        "V03_1x1",
+        "V04_1x1"
+      ],
+      "ejemplos": [
+        "Estructura: no sigue la referencia que le tocaba. La referencia es una mano que sostiene el frasco en una bodega llena de cajas, con titular arriba y una franja abajo; esta imagen es una fruta que cae sobre el frasco con titulares a los lados.",
+        "Los textos están bien escritos y el frasco es fiel; solo falla el parecido con la referencia.",
+        "Estructura: no sigue la referencia que le tocaba. La referencia es un solo frasco en fondo blanco limpio, un círculo de oferta al lado, una palabra gigante abajo y un botón; esta imagen es una infografía de cuatro filas con flechas.",
+        "Los textos están bien escritos y el frasco es fiel; solo falla el parecido con la referencia."
+      ]
+    },
+    {
+      "criterio": "dolor_visual",
+      "nombre": "Dolor visual",
+      "cuantas": 1,
+      "piezas": [
+        "V07_1x1"
+      ],
+      "ejemplos": [
+        "Dolor visual (7): el pantalón se ve como un pantalón ancho normal. En un segundo no se entiende que le queda grande, porque la pierna delgada no se ve y la mano casi no levanta tela."
+      ]
+    },
+    {
+      "criterio": "texto_limpio",
+      "nombre": "Texto limpio",
+      "cuantas": 1,
+      "piezas": [
+        "V09_1x1"
+      ],
+      "ejemplos": [
+        "Texto limpio: el sello dice «AGREGAR LOGO Y SELLO DE», que es una nota para ti, no texto del anuncio. Debe decir solo «REGISTRO INVIMA RSA-0030271-2024»."
+      ]
+    }
+  ],
+  "problemas": [
+    {
+      "pieza": "V03_1x1",
+      "problema": "Estructura: no sigue la referencia que le tocaba. La referencia es una mano que sostiene el frasco en una bodega llena de cajas, con titular arriba y una franja abajo; esta imagen es una fruta que cae sobre el frasco con titulares a los lados."
+    },
+    {
+      "pieza": "V03_1x1",
+      "problema": "Los textos están bien escritos y el frasco es fiel; solo falla el parecido con la referencia."
+    },
+    {
+      "pieza": "V04_1x1",
+      "problema": "Estructura: no sigue la referencia que le tocaba. La referencia es un solo frasco en fondo blanco limpio, un círculo de oferta al lado, una palabra gigante abajo y un botón; esta imagen es una infografía de cuatro filas con flechas."
+    },
+    {
+      "pieza": "V04_1x1",
+      "problema": "Los textos están bien escritos y el frasco es fiel; solo falla el parecido con la referencia."
+    },
+    {
+      "pieza": "V07_1x1",
+      "problema": "Dolor visual (7): el pantalón se ve como un pantalón ancho normal. En un segundo no se entiende que le queda grande, porque la pierna delgada no se ve y la mano casi no levanta tela."
+    },
+    {
+      "pieza": "V09_1x1",
+      "problema": "Texto limpio: el sello dice «AGREGAR LOGO Y SELLO DE», que es una nota para ti, no texto del anuncio. Debe decir solo «REGISTRO INVIMA RSA-0030271-2024»."
+    }
+  ],
+  "sinImagen": 0,
+  "rechazos": 0,
+  "reglas": [
+    {
+      "regla": "La composición se copia de la imagen de referencia que le tocó a esa variación, no del nombre o la descripción del formato de la biblioteca: reference_structure_analysis describe lo que se ve en esa imagen (escena, lugar, cuántos productos, dónde va el titular, la franja o el botón) y el visual_prompt repite esa misma escena y ese mismo orden. Si el plan del formato y la imagen de referencia no co",
+      "nueva": true,
+      "veces": 1,
+      "por_que": "Evita imágenes que siguen el plan escrito (fruta que cae, infografía con flechas) en lugar de la referencia asignada (mano con el frasco en una bodega, frasco solo en fondo blanco con círculo y botón)."
+    },
+    {
+      "regla": "Cuando el dolor es ropa que queda grande, el visual_prompt muestra el hueco, no solo la tela: la mano separa la pretina o la pernera al menos un puño del cuerpo, y se ve la piel o la pierna delgada dentro de ese hueco. La toma va de lado o de frente a la altura de la cadera, no desde arriba, para que el espacio vacío se note en un segundo.",
+      "nueva": true,
+      "veces": 1,
+      "por_que": "Evita que la prenda se vea como un pantalón ancho de moda y no se entienda que le queda grande."
+    },
+    {
+      "regla": "Cuando el sello pedido viene escrito como una orden (por ejemplo «agregar logo y sello de registro …»), en la imagen solo va el sello en sí (por ejemplo «REGISTRO SANITARIO» y el número exacto) dentro de la insignia; las palabras de la orden («agregar», «logo y sello de») nunca aparecen en text_layers.",
+      "nueva": false,
+      "veces": 2,
+      "por_que": "Evita que la nota de instrucción salga impresa en el sello del anuncio."
+    }
+  ],
+  "resumen": "2 de 10 fallan «Estructura» (V03, V04) · 1 de 10 fallan «Dolor visual» (V07) · 1 de 10 fallan «Texto limpio» (V09)"
+}

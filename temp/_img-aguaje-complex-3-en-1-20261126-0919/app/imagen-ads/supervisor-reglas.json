@@ -1,0 +1,16 @@
+{
+  "reglas": [
+    {
+      "regla": "La composición se copia de la imagen de referencia que le tocó a esa variación, no del nombre o la descripción del formato de la biblioteca: reference_structure_analysis describe lo que se ve en esa imagen (escena, lugar, cuántos productos, dónde va el titular, la franja o el botón) y el visual_prompt repite esa misma escena y ese mismo orden. Si el plan del formato y la imagen de referencia no coinciden, manda la imagen de referencia.",
+      "por_que": "Evita imágenes que siguen el plan escrito (fruta que cae, infografía con flechas) en lugar de la referencia asignada (mano con el frasco en una bodega, frasco solo en fondo blanco con círculo y botón)."
+    },
+    {
+      "regla": "Cuando el dolor es ropa que queda grande, el visual_prompt muestra el hueco, no solo la tela: la mano separa la pretina o la pernera al menos un puño del cuerpo, y se ve la piel o la pierna delgada dentro de ese hueco. La toma va de lado o de frente a la altura de la cadera, no desde arriba, para que el espacio vacío se note en un segundo.",
+      "por_que": "Evita que la prenda se vea como un pantalón ancho de moda y no se entienda que le queda grande."
+    },
+    {
+      "regla": "Cuando el sello pedido viene escrito como una orden (por ejemplo «agregar logo y sello de registro …»), en la imagen solo va el sello en sí (por ejemplo «REGISTRO SANITARIO» y el número exacto) dentro de la insignia; las palabras de la orden («agregar», «logo y sello de») nunca aparecen en text_layers.",
+      "por_que": "Evita que la nota de instrucción salga impresa en el sello del anuncio."
+    }
+  ]
+}

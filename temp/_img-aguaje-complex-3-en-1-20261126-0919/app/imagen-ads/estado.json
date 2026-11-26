@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 4,
+    "R": 6,
     "A": 1,
     "T": 3
   },
@@ -90,6 +90,39 @@
         {
           "pieza": "V07_1x1",
           "firma": "2596199-1795704024249",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "a2016e30-a59f-495e-8bbe-f77211739925",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V08_1x1",
+          "firma": "2625531-1795704148684",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R005": {
+      "tipo": "revision",
+      "uuid": "6f17dade-6191-42c7-932d-9ab345c7d4a4",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V09_1x1",
+          "firma": "1742743-1795704150515",
+          "ronda": 1
+        },
+        {
+          "pieza": "V10_1x1",
+          "firma": "1894215-1795704150877",
           "ronda": 1
         }
       ],
@@ -387,68 +420,105 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2625531-1795704148684",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2625531-1795704148684",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 9,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T14:42:29.256Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1742743-1795704150515",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Texto limpio: el sello dice «AGREGAR LOGO Y SELLO DE», que es una nota para ti, no texto del anuncio. Debe decir solo «REGISTRO INVIMA RSA-0030271-2024».",
+          "No llega a 8 en: Texto limpio (5)."
+        ],
+        "firma": "1742743-1795704150515",
+        "correccion_en": "In the dark plum badge next to the 'PAGAS AL RECIBIR' pill, write only two lines: 'REGISTRO INVIMA' and 'RSA-0030271-2024'. Remove the words 'AGREGAR LOGO Y SELLO DE' completely; never write them anywhere.",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 5,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T14:42:31.538Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1894215-1795704150877",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1894215-1795704150877",
+        "puntajes": {
+          "estructura": 8,
+          "dolor_visual": 9,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 9,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-26T14:42:31.538Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

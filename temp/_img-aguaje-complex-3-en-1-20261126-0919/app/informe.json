@@ -1,0 +1,54 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-26T14:43:08.458Z",
+  "variaciones": 10,
+  "archivos": 10,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 6,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "Estructura: no sigue la referencia que le tocaba. La referencia es una mano que sostiene el frasco en una bodega llena de cajas, con titular arriba y una franja abajo; esta imagen es una fruta que cae sobre el frasco con titulares a los lados.",
+          "Los textos están bien escritos y el frasco es fiel; solo falla el parecido con la referencia.",
+          "No llega a 8 en: Estructura (3)."
+        ]
+      },
+      {
+        "pieza": "V04_1x1",
+        "problemas": [
+          "Estructura: no sigue la referencia que le tocaba. La referencia es un solo frasco en fondo blanco limpio, un círculo de oferta al lado, una palabra gigante abajo y un botón; esta imagen es una infografía de cuatro filas con flechas.",
+          "Los textos están bien escritos y el frasco es fiel; solo falla el parecido con la referencia.",
+          "No llega a 8 en: Estructura (3)."
+        ]
+      },
+      {
+        "pieza": "V07_1x1",
+        "problemas": [
+          "Dolor visual (7): el pantalón se ve como un pantalón ancho normal. En un segundo no se entiende que le queda grande, porque la pierna delgada no se ve y la mano casi no levanta tela.",
+          "No llega a 8 en: Dolor visual (7)."
+        ]
+      },
+      {
+        "pieza": "V09_1x1",
+        "problemas": [
+          "Texto limpio: el sello dice «AGREGAR LOGO Y SELLO DE», que es una nota para ti, no texto del anuncio. Debe decir solo «REGISTRO INVIMA RSA-0030271-2024».",
+          "No llega a 8 en: Texto limpio (5)."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}
