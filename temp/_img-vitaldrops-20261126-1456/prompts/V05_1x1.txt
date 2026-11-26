@@ -1,0 +1,45 @@
+MODE: REPLICATE A VALIDATED AD. The FIRST attached image is a VALIDATED, WINNING AD. Reproduce it EXACTLY, as a pixel-faithful layout clone: every block stays in the same position, the same size and the same alignment (headline, model or before/after, product bottle, benefit bullets or checks, offer block and call to action); the same reading hierarchy (what is read first, second and third does not change); the same fonts (style, weight, casing, size and effects), the same colors and the same background of every text block (ribbon, badge, box). The sales angle is IDENTICAL: same central desire, same main benefit, same pain. ONLY these things change, and they MUST change: (1) the MODEL is a different woman (the age, body type and skin tone given below), believable and ordinary, never a fashion model; (2) the SETTING/background of the photo (the one given below); (3) her POSE and the FRAMING (given below); (4) the WORDING of the main headline (given below: same promise, other words, about the same length, so it fits the same zone). FORBIDDEN: moving, adding or removing blocks; changing fonts; changing the palette; changing the angle; inventing new claims, numbers or testimonials; changing the offer or the call to action. Replace the product bottle of the reference with the product of the SECOND attached image, in the same place, size and angle. Every other text keeps exactly the text given below, in its same zone and style, perfectly spelled. GLOBAL RULES: the brand name and the label of the bottle EXACT, letter by letter, as in the product photo; no text closer than 5% to any edge; legible on a phone at half screen. IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+
+WHAT TO MAKE:
+PRODUCT: VITALDROPS. It replaces the product of the reference, in the same zone, size and angle.
+MAP OF THE REFERENCE (fixed, nothing moves):
+- Headline: Arriba, en un globo blanco redondeado con borde amarillo que ocupa cerca del 92% del ancho y el 15% del alto; dos líneas centradas; la cifra «2 meses» va resaltada en una cápsula amarilla; termina con emojis 😭🍑
+- Model / before-after: Lado derecho, de la cabeza hasta los muslos, ocupa cerca del 50% del ancho y el 85% del alto; selfie en el espejo de un probador, de espaldas en tres cuartos, mirando a la cámara con cara de sorpresa, celular rosado en la mano, camiseta blanca corta y jean azul ajustado que resalta los glúteos; fondo de cortinas rosadas de probador
+- Product bottle: Lado izquierdo, sostenido por una mano en primer plano (uñas largas claras), ocupa cerca del 60% del alto y el 32% del ancho; frasco gotero ámbar con tapa negra y etiqueta amarilla, de frente y casi recto, apenas inclinado
+- Benefit bullets / checks: no hay
+- Offer block and CTA: no hay
+- Other blocks: Etiqueta tipo badge amarillo «mi secreto 🤫» a la izquierda a media altura, con una flecha blanca curva que apunta al frasco; ícono de gota de agua en círculo blanco arriba a la izquierda del frasco; abajo a la izquierda, un recuadro blanco tipo comentario de redes con foto de perfil redonda de una mujer, usuario en negrilla y pregunta de una amiga
+READING HIERARCHY (unchanged): 1) El titular del jean (globo blanco arriba, con «2 meses» resaltado en amarillo)  2) La modelo con el jean ajustado en el probador  3) El frasco con el badge «mi secreto» y el comentario de la amiga abajo
+TYPOGRAPHY: Titular en sans redondeada muy gruesa (extra bold), en minúsculas con mayúscula inicial, sin sombra; «2 meses» igual de grueso dentro de cápsula. Badge «mi secreto» en sans gruesa minúscula. Comentario en sans normal, usuario en negrilla, estilo chat informal
+PALETTE: Texto del titular negro #111111; globo blanco #FFFFFF con borde amarillo #F5C518; cápsula de «2 meses» amarilla #FFD43B; badge amarillo #FFD43B con texto negro; comentario blanco #FFFFFF con texto negro; fondo de cortinas rosa viejo #D9938C; jean azul #6F93C4; etiqueta del frasco amarilla #F7D21E
+TEXT BLOCK BACKGROUNDS: Titular en globo/recuadro blanco redondeado con borde amarillo; «2 meses» en cápsula amarilla; «mi secreto» en badge amarillo redondeado; comentario en recuadro blanco redondeado con borde gris suave
+SALES ANGLE (identical): desire: Tener más glúteos y curvas que llenen el jean; main benefit: La ropa que antes quedaba floja ahora se ve ajustada y llena atrás; pain: Que el jean quede flojo o vacío atrás por falta de curvas.
+WHAT CHANGES IN THIS IMAGE (and only this):
+- MODEL: a 25 years old woman, short and curvy, light skin, highlighted hair, ordinary and believable (not a fashion model), natural makeup. If the reference has a before/after, it is this same new woman in both halves.
+- SETTING / BACKGROUND OF THE PHOTO: a park path with trees, morning light.
+- POSE AND FRAMING: standing with crossed legs, front view, knees-up framing, inside the same zone and the same % of the image as the reference.
+- HEADLINE WORDING: the one given in TEXTS (same promise, other words).
+
+TEXTS (render each one EXACTLY as written, no spelling changes, in its zone and with the same style as in the reference):
+- main headline (Arriba, en un globo blanco redondeado con borde amarillo que ocupa cerca del 92% del ancho y el 15% del alto; dos líneas centradas; la cifra «2 meses» va resaltada en una cápsula amarilla; termina con emojis 😭🍑): "El jean que hace 2 meses me quedaba grande hoy me queda justo 😭🍑" — the same style, size and background as the headline of the reference
+- titular (the same zone as in the reference): "Me probé el mismo jean que hace 2 meses me quedaba flojo 😭🍑" — the same style and background as in the reference
+- badge (the same zone as in the reference): "mi secreto 🤫" — the same style and background as in the reference
+- comentario (the same zone as in the reference): "@laurita_m: amiga y eso?? pásame el nombre 👀" — the same style and background as in the reference
+
+BRAND IDENTITY:
+- color_palette: exactly the same as the reference: Texto del titular negro #111111; globo blanco #FFFFFF con borde amarillo #F5C518; cápsula de «2 meses» amarilla #FFD43B; badge amarillo #FFD43B con texto negro; comentario blanco #FFFFFF con texto negro; fondo de cortinas rosa viejo #D9938C; jean azul #6F93C4; etiqueta del frasco amarilla #F7D21E
+
+MANDATORY ELEMENTS:
+- the real product from the attached product photo, where the reference has its bottle
+- a different woman: a 25 years old woman, short and curvy, light skin, highlighted hair, ordinary and believable (not a fashion model), natural makeup
+
+STRICT EXCLUSIONS:
+- moving, adding or removing any block
+- a different font or palette
+- any new claim, number or testimonial
+- the reference's brand or logo
+- misspelled words
+- Do not add: new blocks
+- Do not add: new claims
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
