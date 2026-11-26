@@ -1,0 +1,70 @@
+[
+  {
+    "angulo_id": "transformacion",
+    "formato_id": "F86"
+  },
+  {
+    "angulo_id": "dolor",
+    "formato_id": "F54"
+  },
+  {
+    "angulo_id": "testimonio",
+    "formato_id": "F57"
+  },
+  {
+    "angulo_id": "identidad",
+    "formato_id": "F40"
+  },
+  {
+    "angulo_id": "objecion-confianza",
+    "formato_id": "F85"
+  },
+  {
+    "angulo_id": "mecanismo-unico",
+    "formato_id": "F35"
+  },
+  {
+    "angulo_id": "rutina-uso",
+    "formato_id": "F36"
+  },
+  {
+    "angulo_id": "beneficio-sin-sacrificio",
+    "formato_id": "F33"
+  },
+  {
+    "angulo_id": "comparacion",
+    "formato_id": "F38"
+  },
+  {
+    "angulo_id": "objecion-confianza",
+    "formato_id": "F34"
+  },
+  {
+    "angulo_id": "prueba-social",
+    "formato_id": "F17"
+  },
+  {
+    "angulo_id": "objecion-confianza",
+    "formato_id": "F04"
+  },
+  {
+    "angulo_id": "dolor",
+    "formato_id": "F23"
+  },
+  {
+    "angulo_id": "prueba-social",
+    "formato_id": "F29"
+  },
+  {
+    "angulo_id": "promesa-emocional",
+    "formato_id": "F28"
+  },
+  {
+    "angulo_id": "transformacion",
+    "formato_id": "F03"
+  },
+  {
+    "angulo_id": "beneficio-principal",
+    "formato_id": "G16"
+  }
+]

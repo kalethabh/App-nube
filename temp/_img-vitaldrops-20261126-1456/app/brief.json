@@ -1,0 +1,63 @@
+{
+  "slug": "_img-vitaldrops-20261126-1456",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "VITALDROPS",
+  "productoId": "vitaldrops-d183",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "VITALDROPS",
+    "publico": "Mujeres de 20 a 34 años en ciudades de Colombia, gluteos planos, piernas delgadas, que ya probaron gomitas, le tienen miedo al quirófano, quieren resultados sin hacer ejercicios y no quieren tener efecto rebote",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "",
+    "angulo": null
+  },
+  "cantidad": 10,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.png",
+    "entrada/referencias/R02.png",
+    "entrada/referencias/R03.png",
+    "entrada/referencias/R04.png",
+    "entrada/referencias/R05.png"
+  ],
+  "modo": "variantes",
+  "referenciasPropias": [],
+  "conceptosReferencias": [
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "fiel": true,
+  "replicar": true,
+  "elegirTitulos": false,
+  "rapido": true,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-26T19:56:25.345Z",
+  "variacion": "fieles",
+  "venta": {
+    "oferta": "",
+    "sellos": [],
+    "pais": "CO",
+    "prohibido": [],
+    "cuerpo": {
+      "zonas": [
+        "glúteos",
+        "piernas",
+        "caderas"
+      ]
+    },
+    "tiempo": "Tratamiento de 3 meses (3 frascos, uno por mes, una toma diaria de 2 ml). El apetito y la energía se empiezan a notar en las primeras 2 sema"
+  },
+  "investigacionDelProducto": true,
+  "ganchos": "entrada/ganchos.json"
+}

@@ -1,0 +1,42 @@
+{
+  "lote": "_img-vitaldrops-20261126-1353",
+  "identidad_visual": {
+    "color_palette": "Lemon yellow #F5E13A (label color, highlighted words, the 'Pagas al recibir' badge), amber brown #9A4F12 (glass and warm accents, second headline line), deep cocoa #2B1A10 (headlines on light, dark backgrounds and panels), warm cream #FFF6DC (light backgrounds), white #FFFFFF (text on dark), gold #C9962B (thin lines, serif wordmark and details), offer red #D62828 used ONLY for the offer pill 'Tratamiento completo: 3 frascos para 3 meses'.",
+    "visual_style": "Clean, bold direct-response health ad built around the real amber dropper bottle with its yellow label; the same bottle, the same palette, the same red offer pill and the same bordered yellow 'Pagas al recibir' badge in every image.",
+    "visual_atmosphere": "Warm, sunny, honest and hopeful: morning window light, cream and lemon tones or deep cocoa backgrounds, a real young Colombian woman who goes from frustrated with loose jeans to confident in jeans that fit.",
+    "graphic_language": "Rounded photo cards with thin gold borders, rounded pills, a bordered circular or rounded badge for 'Pagas al recibir', one red offer pill, simple line icons; no logos, no medical imagery, no seals that are not listed.",
+    "text_typography": "Poppins ExtraBold in uppercase for headlines (deep cocoa #2B1A10 on light, white #FFFFFF on dark, ONE highlighted word or line in lemon yellow #F5E13A or amber #9A4F12); Playfair Display Bold for quotes and the small wordmark; Poppins Regular and SemiBold for the rest.",
+    "art_direction": "One idea per image, readable on a phone in one second: headline, then the person scene (the loose-jeans moment plus a small result inset), then the bottle, then the bottom block with the offer and 'Pagas al recibir'."
+  },
+  "descripcion_visual_en": "The product is ONE amber-brown glass dropper bottle, exactly as in the attached product photo (the only source of truth for the product: do not redesign, replace or reinterpret it). Measured shape: the whole bottle with its dropper is about 2.6 times taller than it is wide; the glass body is a Boston-round cylinder with rounded shoulders, about 1.2 times taller than wide, with a short neck; a ribbed matte black plastic collar about 55 % of the body width; on top a tall matte black rubber dropper bulb, narrower than the collar, with a rounded tip. A wrap-around label covers the lower two-thirds of the glass: soft lemon-yellow at the top fading to white at the bottom, with the black lowercase word 'amua', the big bold white word 'VITALDROPS' with a thin yellow outline, the small line 'All-In-One Multi-Herbal Supplement', five small outlined circles with the letters A, MA, L, F, BR and tiny ingredient names under them, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. Dark amber liquid visible through the glass above the label. Not a slim bottle and not a squat jar. Label always reads the right way round, never mirrored. Matte finish, no rainbow, no prism light, no lens flare. Never add the yellow '60ml' circle that appears beside the bottle in the product photo. Only the closed bottle: no loose drops, no capsules, no pills.",
+  "paleta": [
+    {
+      "hex": "#F5E13A",
+      "nombre": "Amarillo limón"
+    },
+    {
+      "hex": "#9A4F12",
+      "nombre": "Ámbar del frasco"
+    },
+    {
+      "hex": "#2B1A10",
+      "nombre": "Cacao oscuro"
+    },
+    {
+      "hex": "#FFF6DC",
+      "nombre": "Crema cálido"
+    },
+    {
+      "hex": "#FFFFFF",
+      "nombre": "Blanco"
+    },
+    {
+      "hex": "#C9962B",
+      "nombre": "Dorado"
+    },
+    {
+      "hex": "#D62828",
+      "nombre": "Rojo de oferta"
+    }
+  ]
+}
