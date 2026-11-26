@@ -1,0 +1,44 @@
+{
+  "id": "mv-19",
+  "nombre": "Foto casera: mano con frasco en la cocina, celular con notificaciones y nota adhesiva",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-19.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/c6900dc97245963d800c998c1904a145bd72af42433a850ca6fe37baf7e7103a.png",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F49",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Ventana y cocina de fondo, desenfocadas. 20 %",
+    "centro": "Mano sosteniendo el frasco sobre una encimera; detrás un celular con notificaciones de pedidos y una taza; llaves sobre la mesa. 60 %",
+    "abajo": "Nota adhesiva amarilla escrita a mano con un número de pedidos. 20 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 1,
+    "resaltada": "el número de la nota",
+    "color_resaltado": "azul de bolígrafo",
+    "posicion": "abajo a la derecha",
+    "gancho": "urgencia"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Escena real de todos los días."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "clientes"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo. El número de la nota solo si es real; si no, la nota dice «2 al día con el almuerzo»."
+}

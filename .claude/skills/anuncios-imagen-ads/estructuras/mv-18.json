@@ -1,0 +1,44 @@
+{
+  "id": "mv-18",
+  "nombre": "Escultura 3D con corte que muestra el problema y frasco en nicho",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-18.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/936ef621e5e7c77f36b77d1a232948ff933eee929c22d324f9c7ce2a9bde1184.png",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F48",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular curvo en serif verde oscuro siguiendo un arco. 18 %",
+    "centro": "Escultura 3D tipo arcilla de la zona del cuerpo con un corte que deja ver lo de adentro (grasa dorada, líquido goteando) y el frasco en un nicho de arco a la derecha. 52 %",
+    "abajo": "Titular de solución en 2 líneas, subtítulo de 2 líneas y sello circular de garantía con un % al lado. 30 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 4,
+    "resaltada": "la orden de solución",
+    "color_resaltado": "verde oscuro",
+    "posicion": "abajo al centro",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "invisible-visible",
+    "como": "Lo de adentro hecho visible en un corte de escultura 3D, sin ser grotesco."
+  },
+  "zona_del_cuerpo": "vientre",
+  "segmento": "menopausia",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "garantia"
+  ],
+  "oferta": {
+    "tipo": "porcentaje-estrella",
+    "como": "sello circular + porcentaje"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "3d-pixar",
+  "cuidado": "Para Aguaje: escultura de cadera y glúteo con un corte que muestra fibras doradas «despertando»; nada médico ni sangre."
+}

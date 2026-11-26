@@ -51,6 +51,7 @@ try{
     fixtures[api][key]=fixtures[api][key].filter(p=>!body.ids.includes(p[id]));
     await route.fulfill({json:{ok:true,eliminados:body.ids,errores:[]}});return;
    }
+   if(route.request().method()==='PUT' && /^\/api\/generaciones\/[^/]+\/nombre$/.test(u.pathname)){await route.fulfill({response:await route.fetch()});return;}
    mutaciones.push(u.pathname);await route.fulfill({status:405,json:{error:'Prueba de lectura'}});return;}
   if(fixtures[u.pathname]){await route.fulfill({json:fixtures[u.pathname]});return;}
   try {const r=await route.fetch();if(u.pathname==='/api/ajustes')await route.fulfill({response:r,json:{...await r.json(),bienvenidaVista:true}});else await route.fulfill({response:r});}catch{await route.fulfill({json:{}});}
@@ -61,13 +62,20 @@ try{
   await p.goto(base+'/#'+ruta);await p.locator('.ge-carpeta').waitFor();assert.equal(await p.locator('.ge-carpeta').count(),1);
   assert.match(await p.locator('.ge-carpeta').innerText(),/2 generaciones guardadas/);
   await p.getByLabel('Buscar carpeta').fill('No existe');assert.equal(await p.locator('.ge-carpeta').count(),0);
-  await p.getByLabel('Buscar carpeta').fill('Producto de prueba');await p.locator('.ge-carpeta').click();await p.locator('.ge-proyecto').first().waitFor();
-  assert.equal(await p.locator('.ge-proyecto').count(),2);
-  const direccion=p.url();await p.reload();await p.locator('.ge-proyecto').first().waitFor();assert.equal(p.url(),direccion);
+  await p.getByLabel('Buscar carpeta').fill('Producto de prueba');await p.locator('.ge-carpeta').click();await p.locator('.ge-bloque').first().waitFor();
+  assert.equal(await p.locator('.ge-bloque').count(),2);assert.equal(await p.locator('.ge-bloque .ge-bloque__imagen').count(),2,'cada generación es un bloque con imagen, no otra carpeta');
+  // (2026-11-26c) el nombre propio de cada bloque: «Ángulo 1»; sobrevive a la recarga y se puede buscar
+  await p.getByRole('button',{name:'Cambiar el nombre de Proyecto de prueba',exact:true}).first().click();
+  await p.getByLabel('Nombre de la generación').fill(`Ángulo 1 ${tipo}`);await p.keyboard.press('Enter');
+  await p.locator('.ge-bloque h2',{hasText:`Ángulo 1 ${tipo}`}).waitFor();
+  const direccion=p.url();await p.reload();await p.locator('.ge-bloque h2',{hasText:`Ángulo 1 ${tipo}`}).waitFor();assert.equal(p.url(),direccion);
+  await p.getByLabel('Buscar',{exact:true}).fill('Ángulo');assert.equal(await p.locator('.ge-bloque').count(),1);await p.getByLabel('Buscar',{exact:true}).fill('');
+  await p.getByRole('button',{name:`Cambiar el nombre de Ángulo 1 ${tipo}`,exact:true}).click();await p.getByLabel('Nombre de la generación').fill('');await p.keyboard.press('Enter');
+  await p.waitForFunction(()=>![...document.querySelectorAll('.ge-bloque h2')].some(h=>h.textContent.startsWith('Ángulo')));
   const crear=await p.getByRole('link',{name:accion,exact:true}).getAttribute('href');assert.ok(crear.includes(tipo==='imagenes'?'/imagenes/nuevo':'crear=1'));
   if(tipo==='videos'){assert.match(crear,/estilo=crochet/);assert.match(crear,/producto=producto-prueba/);}
   if(tipo==='landings'){
-   await p.locator('.ge-proyecto').first().click();await p.locator('.ld-item').waitFor();assert.equal(await p.locator('.ld-item').count(),1);assert.equal(await p.locator('.ld-nueva').count(),0);assert.ok(p.url().includes('proyecto='));await p.getByRole('link',{name:'Carpetas de Landings',exact:true}).click();await p.locator('.ge-carpeta').waitFor();
+   await p.locator('.ge-bloque__imagen').first().click();await p.locator('.ld-item').waitFor();assert.equal(await p.locator('.ld-item').count(),1);assert.equal(await p.locator('.ld-nueva').count(),0);assert.ok(p.url().includes('proyecto='));await p.getByRole('link',{name:'Carpetas de Landings',exact:true}).click();await p.locator('.ge-carpeta').waitFor();
   }else{await p.getByRole('link',{name:'Todas las carpetas',exact:true}).click();await p.locator('.ge-carpeta').waitFor();}
   console.log(`OK ${tipo}: carpetas, búsqueda, generaciones, recarga y acceso a creación`);
  }
@@ -89,8 +97,8 @@ try{
   await p.getByRole('dialog').waitFor();assert.match(await p.getByRole('dialog').innerText(),/2 generaciones/);
   const antes=mutaciones.length;await p.getByRole('button',{name:'Cancelar',exact:true}).click();assert.equal(mutaciones.length,antes);
   await p.locator('.ge-carpeta').click();await p.getByRole('button',{name:'Borrar generación Proyecto de prueba',exact:true}).first().click();
-  bloquearBorrado=true;await p.getByRole('button',{name:'Sí, borrar generación',exact:true}).click();await p.getByRole('alert').waitFor();assert.equal(await p.locator('.ge-proyecto').count(),2);
-  bloquearBorrado=false;await p.getByRole('button',{name:'Sí, borrar generación',exact:true}).click();await p.waitForFunction(()=>document.querySelectorAll('.ge-proyecto').length===1);assert.equal(await p.getByRole('dialog').count(),0);
+  bloquearBorrado=true;await p.getByRole('button',{name:'Sí, borrar generación',exact:true}).click();await p.getByRole('alert').waitFor();assert.equal(await p.locator('.ge-bloque').count(),2);
+  bloquearBorrado=false;await p.getByRole('button',{name:'Sí, borrar generación',exact:true}).click();await p.waitForFunction(()=>document.querySelectorAll('.ge-bloque').length===1);assert.equal(await p.getByRole('dialog').count(),0);
   await p.getByRole('button',{name:'Borrar carpeta',exact:true}).click();await p.getByRole('dialog').waitFor();assert.match(await p.getByRole('dialog').innerText(),/1 generación/);
   for(const b of await p.getByRole('dialog').getByRole('button').all()){const r=await b.boundingBox();assert.ok(r.x>=0 && r.x+r.width<=390,'Los botones del diálogo caben en móvil');}
   if(capturas && tipo==='imagenes')await p.screenshot({path:path.join(capturas,'confirmar-borrado.png')});

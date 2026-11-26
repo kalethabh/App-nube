@@ -17,6 +17,8 @@ import { esVariado, nivelDe, reglasDelPlan, reglasDelAnuncio } from './variedad.
 
 export const DIR_SKILL = path.join(SKILLS, 'anuncios-imagen-ads');
 export const TOPE_PROMPT_VERIFICADO = 19000;
+/** (2026-11-26c) El largo mínimo del visual_prompt en Variantes y Estructuras («más detalle en las generaciones»). */
+export const MINIMO_VISUAL = 700;
 
 // ---------------------------------------------------------------- la skill (angulos y formatos)
 
@@ -191,6 +193,11 @@ export function verificarV(carpeta, v, { brief, plan = null, usados = [] } = {})
     const nativo = leerSkill().formatos.get(fPlan)?.nativo === true;
     const venta = brief?.venta ? { ...brief.venta, ...(nativo ? { oferta: '', sellos: [] } : {}) } : null;
     errores.push(...reglasDelAnuncio(datos, { venta, estricto: true }).map((e) => `${v}.json → ${e}`));
+  }
+  // (2026-11-26c) más detalle: en Variantes y Estructuras, el visual_prompt describe cada zona (no tres líneas)
+  if ((esVariado(brief) || (Array.isArray(brief?.estructuras) && brief.estructuras.length)) && typeof datos.visual_prompt === 'string') {
+    const vp = datos.visual_prompt;
+    if (vp.length < MINIMO_VISUAL) errores.push(`${v}.json → visual_prompt: muy corto (${vp.length} caracteres): describe cada zona (arriba, centro, abajo con su %), la luz, la cámara, las texturas, la tipografía de cada texto y el frasco (mínimo ${MINIMO_VISUAL})`);
   }
   if (!errores.length) {
     const { cuadrado, vertical } = largosDePrompt(datos, brief);

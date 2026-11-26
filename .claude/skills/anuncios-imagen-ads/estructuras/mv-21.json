@@ -1,0 +1,44 @@
+{
+  "id": "mv-21",
+  "nombre": "Dibujo a crayón infantil del frasco con frase de humor",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-21.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/3c3c75df79873cfc68f224fafe2c3cbb4ace4fce15a98e5985d9c5fa2d124409.webp",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F51",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Tapa del frasco dibujada con crayón café sobre papel arrugado. 20 %",
+    "centro": "El frasco dibujado a mano con la frase de humor escrita en colores dentro de la etiqueta. 65 %",
+    "abajo": "Monigotes y detalles infantiles alrededor, papel con manchas. 15 %"
+  },
+  "titular": {
+    "lineas": 5,
+    "palabras": 8,
+    "resaltada": "cada línea en un color",
+    "color_resaltado": "varios colores de crayón",
+    "posicion": "centro",
+    "gancho": "emocion"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Humor: rompe el patrón del feed."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "ilustracion-plana",
+  "cuidado": "Nativo, parece hecho por un niño. Frase de humor sin atacar a otros productos ni farmacias."
+}

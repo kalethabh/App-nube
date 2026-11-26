@@ -1,0 +1,44 @@
+{
+  "id": "vg-02",
+  "nombre": "Fondo negro con brillos y precio gigante",
+  "referencia": "mis_archivos/biblioteca/referencias/vgummies/vg-02.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/5721e0a962322b20082f3377e53e77f111c5e36b1ec68d1dc145e74ccf12a622.jpg",
+  "marca_referencia": "V-Gummies (vinagre de manzana): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F54",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Marca espaciada arriba, titular de precio de 2 líneas con el precio en verde brillante y una línea de vigencia. 45 %",
+    "centro": "Tres productos en abanico con luz de estudio y brillos. 50 %",
+    "abajo": "Fondo negro. 5 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 4,
+    "resaltada": "el precio",
+    "color_resaltado": "verde brillante",
+    "posicion": "arriba al centro",
+    "gancho": "oferta"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Producto como objeto deseado."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "3x2",
+    "como": "el titular es el precio del pack"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "bodegon-premium",
+  "cuidado": "La vigencia («termina esta noche») solo si es verdad."
+}

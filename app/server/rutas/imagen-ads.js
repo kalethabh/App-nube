@@ -201,6 +201,36 @@ export default function rutasImagenAds(app) {
   app.get('/api/imagen-ads/opciones', async (req, res) => res.json({ ...lotes.opciones(), costo: await costoDeImagenAds() }));
 
   // (van antes de /api/imagen-ads/:lote, que si no las toma como un lote)
+  // (2026-11-26c) MIS PIEZAS (sellos, logos, precios) y el EDITOR de imágenes (capas, zona con IA, integrar)
+  app.get('/api/imagen-ads/piezas', conErrores(async (req, res) => {
+    const { listarPiezas } = await import('../lib/imagen-ads/piezas.js');
+    res.set('Cache-Control', 'no-store').json({ piezas: listarPiezas(String(req.query.producto || '')) });
+  }));
+  app.get('/api/imagen-ads/piezas/archivo', conErrores(async (req, res) => {
+    const { rutaPieza } = await import('../lib/imagen-ads/piezas.js');
+    const abs = rutaPieza(String(req.query.id || ''));
+    if (!abs) throw new ErrorApp(404, 'No encuentro esa pieza.');
+    enviar(res, abs);
+  }));
+  app.put('/api/imagen-ads/piezas/:ambito', soloDesdeLaApp, leerBinario, conErrores(async (req, res) => {
+    const { guardarPieza } = await import('../lib/imagen-ads/piezas.js');
+    res.status(201).json({ pieza: guardarPieza(String(req.params.ambito || ''), String(req.query.nombre || ''), req.body, req.headers['content-type']) });
+  }));
+  app.delete('/api/imagen-ads/piezas', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { borrarPieza } = await import('../lib/imagen-ads/piezas.js');
+    res.json(borrarPieza(String(req.query.id || '')));
+  }));
+  app.get('/api/imagen-ads/editor/costo', conErrores(async (req, res) => {
+    const { costoDeEditar } = await import('../lib/imagen-ads/editor.js');
+    res.set('Cache-Control', 'no-store').json(costoDeEditar());
+  }));
+  app.get('/api/imagen-ads/editor/trabajos/:id', conErrores(async (req, res) => {
+    const { estadoTrabajo } = await import('../lib/imagen-ads/editor.js');
+    const t = estadoTrabajo(req.params.id);
+    if (!t) throw new ErrorApp(404, 'No encuentro ese cambio (¿se reinició la app?).');
+    res.set('Cache-Control', 'no-store').json(t);
+  }));
+
   // (2026-11-26b) LAS ESTRUCTURAS GANADORAS: la lista (para elegir) y la imagen de cada una (se baja si falta)
   app.get('/api/imagen-ads/estructuras', conErrores(async (req, res) => {
     const { listaEstructuras } = await import('../lib/imagen-ads/estructuras.js');
@@ -559,6 +589,27 @@ export default function rutasImagenAds(app) {
       console.error(`[imagen-ads] ${lote}: no pude reabrir el lote para ${pedido.id}: ${e?.message || e}`);
     }
     res.status(202).json({ pedido: { id: pedido.id, estado: 'pendiente' } });
+  }));
+
+  // (2026-11-26c) EL EDITOR: guardar lo que armaste (PNG del navegador) o un cambio con IA (zona / integrar una pieza)
+  app.put('/api/imagen-ads/:lote/editor/:pieza', soloDesdeLaApp, leerBinario, conErrores(async (req, res) => {
+    const { lote } = elLote(req);
+    if (enMarcha(lote)) throw new ErrorApp(409, 'Este lote se está creando: espera a que termine para editar.');
+    const { guardarComposicion } = await import('../lib/imagen-ads/editor.js');
+    res.json(guardarComposicion(lote, String(req.params.pieza || ''), req.body));
+  }));
+  app.post('/api/imagen-ads/:lote/editor/:pieza/ia', soloDesdeLaApp, leerBinario, conErrores(async (req, res) => {
+    const { lote } = elLote(req);
+    if (enMarcha(lote)) throw new ErrorApp(409, 'Este lote se está creando: espera a que termine para editar.');
+    const { iniciarEdicion } = await import('../lib/imagen-ads/editor.js');
+    // los datos van en ?datos=<json> y, si hay, la capa a integrar (PNG) en el cuerpo
+    let datos = {};
+    try {
+      datos = JSON.parse(String(req.query.datos || '{}'));
+    } catch {
+      throw new ErrorApp(400, 'Datos inválidos.');
+    }
+    res.status(202).json(iniciarEdicion(lote, String(req.params.pieza || ''), datos, Buffer.isBuffer(req.body) ? req.body : null));
   }));
 
   // ------------------------------------------------------------ plantillas: editar los textos (sin IA y sin costo)

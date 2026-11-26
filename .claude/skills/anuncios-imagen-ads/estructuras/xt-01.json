@@ -1,0 +1,45 @@
+{
+  "id": "xt-01",
+  "nombre": "Ingrediente que se derrama sobre el producto con dos titulares a los lados",
+  "referencia": "mis_archivos/biblioteca/referencias/xtratus/xt-01.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/704bbd1dd3cccd75303ad8cf889d6a1799360ddd32f4ead02352852828a11cb4.png",
+  "marca_referencia": "Xtratus (deporte): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F70",
+  "oculta": true,
+  "zonas": {
+    "arriba": "El ingrediente principal arriba (cortado) derramando su jugo en un chorro que cae al centro. 35 %",
+    "centro": "Dos titulares a los lados del chorro (uno en color, otro en negro) con su dato debajo; datos técnicos en una columna a la izquierda. 30 %",
+    "abajo": "El empaque recibiendo el chorro y una mano con el producto preparado. 35 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 3,
+    "resaltada": "el titular de la izquierda",
+    "color_resaltado": "rojo",
+    "posicion": "centro a los lados",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "El ingrediente real en acción."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 4
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "bodegon-premium",
+  "cuidado": "Para Aguaje: fruto de aguaje partido derramando su pulpa naranja sobre el frasco."
+}

@@ -1,0 +1,45 @@
+{
+  "id": "mv-20",
+  "nombre": "Frasco al centro con 4 beneficios con íconos alrededor y fondo botánico",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-20.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/850a84a8254178b56380dc441cf16731e1862ca0a804c4ddf0460936d7f3b895.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F50",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de una línea y párrafo de 3 líneas centrado. 25 %",
+    "centro": "Frasco al centro con sello redondo naranja y 4 beneficios con ícono en círculo verde, dos a cada lado. 60 %",
+    "abajo": "Flores, raíces e ingredientes sobre madera, fondo de bosque desenfocado. 15 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 3,
+    "resaltada": "ninguna",
+    "color_resaltado": "negro",
+    "posicion": "arriba al centro",
+    "gancho": "mecanismo"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Los ingredientes reales al pie."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "circulo-frasco",
+    "cantidad": 4
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Titular afirmativo («Sin efecto rebote»), nunca pregunta. Para Aguaje: aguaje, fenogreco y maca negra al pie."
+}

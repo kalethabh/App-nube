@@ -1,0 +1,45 @@
+{
+  "id": "np-02",
+  "nombre": "Fondo azul premium, titular enorme, 4 beneficios con íconos y frasco en pedestal",
+  "referencia": "mis_archivos/biblioteca/referencias/novapiel/np-02.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/d041be116e734badc8aec3041a418f2ed95ea2013c4af379200ebbd8ed914e28.png",
+  "marca_referencia": "NovaPiel (suplementos): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F59",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular gigante en blanco de 2 líneas y píldora blanca con el ingrediente estrella. 30 %",
+    "centro": "4 beneficios con ícono circular a la izquierda y frasco sobre pedestal de piedra con brillo azul a la derecha; una frase manuscrita al pie de la lista. 55 %",
+    "abajo": "Franja oscura con 3 sellos de confianza con ícono. 15 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 2,
+    "resaltada": "ninguna",
+    "color_resaltado": "blanco",
+    "posicion": "arriba a la izquierda",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Producto como solución premium."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 4
+  },
+  "prueba": [
+    "terceros"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "3 sellos con ícono",
+  "estilo": "bodegon-premium",
+  "cuidado": "Para Aguaje: fondo rosa oscuro/negro del frasco; sellos: INVIMA, pago contra entrega, envío gratis."
+}

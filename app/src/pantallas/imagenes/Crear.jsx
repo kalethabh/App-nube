@@ -23,7 +23,7 @@ export default function PantallaCrearImagenes({ consulta }) {
         </Boton>
         <CabeceraPagina
           titulo="Crear anuncios de imagen"
-          descripcion="Todo lo hace el agente: con tu anuncio de referencia (hace variaciones que conservan lo que lo hace vender) o desde la investigación de mercado de tu producto. Diseño limpio, una imagen por anuncio y control de calidad."
+          descripcion="Elige cómo, tu producto y cuántos. La IA hace el resto, revisa cada imagen y te muestra el costo antes de empezar."
           extra={
             simulando ? (
               <VistaPrevia

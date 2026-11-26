@@ -1,0 +1,44 @@
+{
+  "id": "mv-09",
+  "nombre": "Escena real de stock con frasco en mano y oferta",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-09.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/cd881f26b6a87684ad2e81f2b7df15a6e86a8a0921729dd2b8256449df5b7ad3.webp",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F41",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 2 líneas en blanco con la marca resaltada en verde, cinta oscura con subtítulo y píldora crema con la oferta y flecha. 35 %",
+    "centro": "Mano en primer plano sosteniendo el frasco frente a cajas y palés llenos de producto en una bodega real. 50 %",
+    "abajo": "El mismo fondo de bodega. 15 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 4,
+    "resaltada": "el nombre de la marca",
+    "color_resaltado": "verde claro",
+    "posicion": "arriba al centro",
+    "gancho": "oferta"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Sin cuerpo: la abundancia de producto en bodega es la prueba de que se vende."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "porcentaje-estrella",
+    "como": "píldora con «hasta X % off» y flecha"
+  },
+  "cta": {
+    "tipo": "pildora"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nunca decir «nos sobró» o «se agotó» si no es verdad: para Aguaje, «Nuevo lote listo para enviar hoy»."
+}

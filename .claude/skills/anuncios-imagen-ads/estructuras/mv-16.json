@@ -1,0 +1,44 @@
+{
+  "id": "mv-16",
+  "nombre": "Historia de Instagram con caja de preguntas y producto en mano",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-16.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/b638a2f91f92b72c95694f7a7a3616f372ff0ed1ce40fedd1cee7acd42f20c09.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F46",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Caja de «Hazme una pregunta» con la duda del cliente. 18 %",
+    "centro": "Respuesta en texto sobre fondo blanco (3-4 líneas, frases clave en negrita). 22 %",
+    "abajo": "Mano con el frasco sobre una cama con sábanas blancas, luz de mañana. 60 %"
+  },
+  "titular": {
+    "lineas": 1,
+    "palabras": 4,
+    "resaltada": "ninguna (la pregunta es el gancho)",
+    "color_resaltado": "negro",
+    "posicion": "arriba",
+    "gancho": "emocion"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "La duda del cliente y la respuesta sincera."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "ninguno"
+  },
+  "prueba": [
+    "clientes"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "Nativo (parece una historia). La pregunta del cliente sí puede ser pregunta; la respuesta, afirmativa. Sin cifras de clientes inventadas."
+}

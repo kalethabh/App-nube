@@ -1,0 +1,45 @@
+{
+  "id": "np-07",
+  "nombre": "Persona con el problema a la izquierda, lista de síntomas y frasco en pedestal",
+  "referencia": "mis_archivos/biblioteca/referencias/novapiel/np-07.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/28c8bcb05576dddb2479c05d6d308687a974fe3a73c1f5cee0f05969a7396009.png",
+  "marca_referencia": "NovaPiel (suplementos): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F63",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 3 líneas: la palabra del problema gigante. 28 %",
+    "centro": "Persona con el gesto del problema a la izquierda, 3 síntomas con ícono en círculo al centro, frasco sobre pedestal a la derecha. 57 %",
+    "abajo": "Píldora con ícono y la promesa. 15 %"
+  },
+  "titular": {
+    "lineas": 3,
+    "palabras": 5,
+    "resaltada": "la palabra del problema",
+    "color_resaltado": "azul",
+    "posicion": "arriba al centro",
+    "gancho": "resultado"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "El gesto de la persona."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "general",
+  "beneficios": {
+    "tipo": "iconos",
+    "cantidad": 3
+  },
+  "prueba": [
+    "ninguna"
+  ],
+  "oferta": {
+    "tipo": "ninguna",
+    "como": "sin oferta"
+  },
+  "cta": {
+    "tipo": "pildora"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "foto-real",
+  "cuidado": "El titular, afirmativo («Cansada de que el jean no te quede»)."
+}

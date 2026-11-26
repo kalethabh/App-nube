@@ -405,6 +405,8 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
     ...(nivelDe(brief) ? { variacion: nivelDe(brief), ganador: analisisParaLaPantalla(leerJSON(path.join(carpeta, 'analisis.json'))) } : {}),
     // (2026-11-26b) la comparación contra cada estructura ganadora: el montaje, los 7 puntajes y si pasa o va a rehacer
     ...comparacionParaLaPantalla(carpeta, est, base),
+    // (2026-11-26c) lo que vio el supervisor al terminar el lote y las reglas que anotó
+    ...(existe(path.join(carpeta, 'supervisor.json')) ? { supervisor: supervisorParaLaPantalla(leerJSON(path.join(carpeta, 'supervisor.json'))) } : {}),
     // la IA que hizo la estrategia del lote, 'claude' | 'codex' (null si todavia no la hizo ninguna): «… los hizo
     // {Claude|ChatGPT} con tu plan» (la pantalla la lee con motorDelLote de datos/imagenes.js)
     motor: motorDelLote(est, conductor),
@@ -563,5 +565,16 @@ function comparacionParaLaPantalla(carpeta, est, base) {
         };
       }),
     },
+  };
+}
+
+/** (2026-11-26c) El supervisor del lote, para la pantalla. */
+function supervisorParaLaPantalla(s) {
+  if (!s || typeof s !== 'object') return null;
+  return {
+    resumen: String(s.resumen || '').slice(0, 400),
+    total: Number(s.total) || 0,
+    reglas: (Array.isArray(s.reglas) ? s.reglas : []).slice(0, 3).map((r) => ({ regla: String(r.regla || '').slice(0, 400), nueva: Boolean(r.nueva), veces: Number(r.veces) || 1, porQue: String(r.por_que || '').slice(0, 300) })),
+    fecha: s.fecha || null,
   };
 }

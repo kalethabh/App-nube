@@ -1,0 +1,39 @@
+/* (2026-11-26c) El editor de imágenes: lienzo con capas a la izquierda, panel a la derecha (abajo en el celular). */
+.ed { display: flex; flex-direction: column; gap: 12px; }
+.ed__arriba { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.ed__titulo { margin: 0; font-size: 20px; font-weight: 800; }
+.ed__acciones { margin-left: auto; display: flex; gap: 6px; align-items: center; }
+.ed__trabajando { margin: 0; padding: 8px 12px; border-radius: 10px; background: color-mix(in srgb, var(--acento) 12%, transparent); font-size: 13px; }
+.ed__cuerpo { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; align-items: start; }
+@media (max-width: 900px) { .ed__cuerpo { grid-template-columns: minmax(0, 1fr); } }
+.ed__lienzo-caja { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ed__lienzo { position: relative; width: 100%; max-height: 82vh; border-radius: 10px; overflow: hidden; background: #111; touch-action: none; user-select: none; }
+.ed__lienzo > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.ed__lienzo--zona { cursor: crosshair; }
+.ed__capa { position: absolute; display: grid; place-items: center; cursor: move; outline: 1px dashed transparent; }
+.ed__capa--elegida { outline-color: #22d3ee; }
+.ed__capa img { width: 100%; height: 100%; object-fit: fill; pointer-events: none; }
+.ed__texto { display: grid; place-items: center; width: 100%; height: 100%; text-align: center; line-height: 1.12; white-space: pre-wrap; overflow-wrap: anywhere; pointer-events: none; }
+.ed__asa { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #22d3ee; border: 2px solid #fff; }
+.ed__asa--tamano { right: -7px; bottom: -7px; cursor: nwse-resize; }
+.ed__asa--girar { left: calc(50% - 7px); top: -26px; cursor: grab; }
+.ed__zona { position: absolute; border: 2px dashed #facc15; background: rgba(250, 204, 21, 0.12); pointer-events: none; }
+.ed__panel { display: flex; flex-direction: column; gap: 14px; padding: 12px; border-radius: 14px; border: 1px solid var(--borde-2); background: var(--superficie-1); min-width: 0; }
+.ed__panel section { display: flex; flex-direction: column; gap: 8px; }
+.ed__panel h3 { margin: 0; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 800; }
+.ed__botones { display: flex; flex-wrap: wrap; gap: 6px; }
+.ed__campo { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--texto-2); }
+.ed__campo select, .ed__campo input[type='range'] { width: 100%; }
+.ed__check { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+.ed__colores { display: flex; flex-direction: column; gap: 4px; }
+.ed__colores > div { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.ed__color { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--borde-2); cursor: pointer; padding: 0; }
+.ed__color.activo { border-color: #22d3ee; }
+.ed__color--ninguno { background: linear-gradient(135deg, transparent 45%, #ef4444 45%, #ef4444 55%, transparent 55%), var(--superficie-1); }
+.ed__colores input[type='color'] { width: 26px; height: 26px; padding: 0; border: 0; background: none; }
+.ed__piezas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.ed__piezas li { position: relative; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ed__piezas li > button:first-child { padding: 4px; border-radius: 8px; border: 1px solid var(--borde-2); background: repeating-conic-gradient(rgba(var(--tinte-rgb), 0.06) 0 25%, transparent 0 50%) 0 0 / 12px 12px; cursor: pointer; aspect-ratio: 1 / 1; }
+.ed__piezas img { width: 100%; height: 100%; object-fit: contain; }
+.ed__piezas span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ed__piezas-quitar { position: absolute; top: 2px; right: 2px; width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; border: 0; background: rgba(0, 0, 0, 0.55); color: #fff; cursor: pointer; }

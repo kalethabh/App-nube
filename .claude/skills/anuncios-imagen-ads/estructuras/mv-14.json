@@ -1,0 +1,46 @@
+{
+  "id": "mv-14",
+  "nombre": "Frasco en pedestal con 4 datos en las esquinas y flechas",
+  "referencia": "mis_archivos/biblioteca/referencias/mayaverra/mv-14.jpg",
+  "url_origen": "https://medias.trendtrack.io/facebook/image/c62e58c32a9869571907be91d125b3da2d39f6d918ee9e69f3a6ca1051d6e229.jpg",
+  "marca_referencia": "Mayaverra (drenaje linfático): solo estructura; nunca su texto, su marca ni su producto",
+  "formato_id": "F44",
+  "oculta": true,
+  "zonas": {
+    "arriba": "Titular de 2 líneas, oscuro, con el segmento y el problema. 20 %",
+    "centro": "Frasco al centro sobre pedestal blanco, sello circular con «desde X por día» y 4 datos grandes en las esquinas con flechas curvas hacia el frasco. 70 %",
+    "abajo": "Hojas secas y hierbas al pie. 10 %"
+  },
+  "titular": {
+    "lineas": 2,
+    "palabras": 5,
+    "resaltada": "el segmento",
+    "color_resaltado": "negro",
+    "posicion": "arriba al centro",
+    "gancho": "segmento"
+  },
+  "dolor_visual": {
+    "tipo": "ninguno",
+    "como": "Los datos alrededor del frasco cuentan el resultado."
+  },
+  "zona_del_cuerpo": "ninguna",
+  "segmento": "menopausia",
+  "beneficios": {
+    "tipo": "circulo-frasco",
+    "cantidad": 4
+  },
+  "prueba": [
+    "clientes",
+    "garantia"
+  ],
+  "oferta": {
+    "tipo": "tachado-por-unidad",
+    "como": "sello «desde X por día»"
+  },
+  "cta": {
+    "tipo": "ninguno"
+  },
+  "franja_confianza": "ninguna",
+  "estilo": "bodegon-premium",
+  "cuidado": "Las cifras (kilos, clientas) solo si el usuario las da; si no, datos verificables: dosis, ingredientes, envío, pago contra entrega."
+}
