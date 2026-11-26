@@ -1,0 +1,32 @@
+{
+  "pedidos": [
+    {
+      "id": "U0021",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed on the product box and on the bottle label. Keep everything else exactly the same: the four day panels, the woman, the headline, the day labels, the offer block and its texts, the VITALDROPS logo, colors, the rest of the packaging and the background. Do not add, remove or move anything.",
+      "resumen": "Difuminamos un 28 % la palabra «amua» en la caja y en el frasco. Lo demás queda igual."
+    },
+    {
+      "id": "U0022",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed at the top of the product bottle label. Keep everything else exactly the same: the whiteboard, the two women, the handwritten notes and arrows, the headline and bottom phrase, the VITALDROPS logo, colors, the rest of the label and the background. Do not add, remove or move anything.",
+      "resumen": "Difuminamos un 28 % la palabra «amua» del frasco. Lo demás queda igual."
+    },
+    {
+      "id": "U0023",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Set the blur on the word \"amua\" to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level, in both places it appears: the small white logo above the big VITALDROPS title and the bottle label. Only those two words change. Keep everything else exactly the same: the big VITALDROPS title sharp, the yellow subtitle ribbon, the before and after woman, the red and green labels, the arrow, the bottom offer strip and its texts, colors, the rest of the label and the background. Do not add, remove or move anything.",
+      "resumen": "Dejamos en un 28 % el difuminado de «amua», arriba y en el frasco. Lo demás queda igual."
+    },
+    {
+      "id": "U0024",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the before and after halves, the woman, the headline, the handwritten notes, the guarantee badge, the bottom icons, the VITALDROPS logo, colors, the rest of the label and the background. Do not add, remove or move anything.",
+      "resumen": "Dejamos el difuminado de «amua» en el frasco en un 28 %. Lo demás queda igual."
+    }
+  ]
+}

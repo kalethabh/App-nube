@@ -1,26 +1,66 @@
 {
-  "generado": "2026-11-26T20:56:40.942Z",
-  "segundos": 134,
+  "generado": "2026-11-26T21:02:17.209Z",
+  "segundos": 124,
   "imagenes": [
     {
-      "id": "V07_1x1",
-      "archivo": "V07_1x1.png",
-      "modelo": "gpt-image (ChatGPT)",
-      "respaldo": false,
-      "intentos": 2,
-      "referencias": 2,
-      "creditos": 0,
-      "taskId": "01a219a4-3b05-7392-9956-f6204c161ce3"
-    },
-    {
-      "id": "V10_1x1",
-      "archivo": "V10_1x1.png",
+      "id": "V03_1x1",
+      "archivo": "V03_1x1.png",
       "modelo": "gpt-image (ChatGPT)",
       "respaldo": false,
       "intentos": 1,
       "referencias": 2,
       "creditos": 0,
-      "taskId": "01a219a4-383c-75b2-9ab2-caa1b4c816fa"
+      "taskId": "01a219a8-ab08-7ac3-847c-edb9fad41588"
+    },
+    {
+      "id": "V01_1x1",
+      "archivo": "V01_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a219a8-f397-7051-94a6-b47034b090ed"
+    },
+    {
+      "id": "V02_1x1",
+      "archivo": "V02_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a219a8-f397-78b1-b2e2-c1a46ee5cf23"
+    },
+    {
+      "id": "V04_1x1",
+      "archivo": "V04_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a219a9-80a7-7d53-8633-1205394696f2"
+    },
+    {
+      "id": "V05_1x1",
+      "archivo": "V05_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a219a9-bed5-7313-a759-e26d3e27b2e0"
+    },
+    {
+      "id": "V06_1x1",
+      "archivo": "V06_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a219a9-c31f-73c0-8e22-3cfbcb217530"
     }
   ]
 }

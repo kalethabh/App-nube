@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 17,
-    "T": 17
+    "A": 19,
+    "T": 20
   },
   "tandas": {
     "E001": {
@@ -165,13 +165,35 @@
     "A016": {
       "tipo": "ajuste",
       "uuid": "24551984-ac52-471c-8962-54c80557314e",
-      "estado": "en-curso",
+      "estado": "hecha",
       "pedidos": [
         "U0017",
         "U0018",
         "U0019",
         "U0020"
-      ]
+      ],
+      "empezada": true
+    },
+    "A017": {
+      "tipo": "ajuste",
+      "uuid": "244fd74a-834f-4c89-8087-2b443c5508a5",
+      "estado": "hecha",
+      "pedidos": [
+        "U0021",
+        "U0022",
+        "U0023",
+        "U0024"
+      ],
+      "empezada": true
+    },
+    "A018": {
+      "tipo": "ajuste",
+      "uuid": "614b7d9d-ac47-4bb1-80a9-60b65710ca5e",
+      "estado": "hecha",
+      "pedidos": [
+        "U0025"
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -220,10 +242,10 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "ajustando",
+      "fase": "final",
       "resultado": "listo",
-      "version": 3,
-      "firma": "2039361-1795724026273",
+      "version": 4,
+      "firma": "1992215-1795726884327",
       "orden": null,
       "intentosApi": 1,
       "ronda": "u",
@@ -231,62 +253,56 @@
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:13:47.723Z",
+      "desde": "2026-11-26T21:01:25.166Z",
       "pedido": null,
-      "ultimaOrden": "U0003",
+      "ultimaOrden": "U0018",
       "fallo": null
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "ajustando",
+      "fase": "final",
       "resultado": "listo",
-      "version": 1,
-      "firma": "1791002-1795723296541",
+      "version": 2,
+      "firma": "2141940-1795726885629",
       "orden": null,
-      "intentosApi": 1,
-      "ronda": 1,
-      "reintentoAuto": "no",
-      "revision": null,
-      "motivo": null,
-      "mensaje": null,
-      "desde": "2026-11-26T20:01:36.945Z",
-      "pedido": null,
-      "ultimaOrden": "g"
-    },
-    "V03_1x1": {
-      "v": "V03",
-      "formato": "1:1",
-      "fase": "pedida",
-      "resultado": "listo",
-      "version": 4,
-      "firma": "2062866-1795726368019",
-      "orden": {
-        "id": "U0016",
-        "modo": "editar",
-        "version": 5,
-        "instruccion_en": "Apply a blur of about 28% strength to every 'amua' word in the image: the 'amua' wordmark at the top above 'VITALDROPS' and the 'amua' on the bottle label. It must look clearly soft and out of focus, still faintly visible, not erased and not heavily smeared. Keep 'VITALDROPS', all other texts, the bottle, the women, the layout, colors and background exactly the same.",
-        "textos": false,
-        "trabajo": "T016"
-      },
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:52:48.481Z",
-      "pedido": "U0016",
-      "ultimaOrden": "U0013",
+      "desde": "2026-11-26T21:01:27.168Z",
+      "pedido": null,
+      "ultimaOrden": "U0017",
+      "fallo": null
+    },
+    "V03_1x1": {
+      "v": "V03",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 5,
+      "firma": "2036164-1795726868395",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": "u",
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-26T21:01:09.148Z",
+      "pedido": null,
+      "ultimaOrden": "U0016",
       "fallo": null
     },
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "ajustando",
+      "fase": "final",
       "resultado": "listo",
-      "version": 2,
-      "firma": "1988262-1795726031511",
+      "version": 3,
+      "firma": "1954259-1795726922944",
       "orden": null,
       "intentosApi": 1,
       "ronda": "u",
@@ -294,18 +310,18 @@
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:47:12.583Z",
+      "desde": "2026-11-26T21:02:04.598Z",
       "pedido": null,
-      "ultimaOrden": "U0011",
+      "ultimaOrden": "U0020",
       "fallo": null
     },
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "ajustando",
+      "fase": "final",
       "resultado": "listo",
-      "version": 3,
-      "firma": "2247980-1795725655943",
+      "version": 4,
+      "firma": "2245964-1795726936017",
       "orden": null,
       "intentosApi": 1,
       "ronda": "u",
@@ -313,9 +329,9 @@
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:40:57.135Z",
+      "desde": "2026-11-26T21:02:16.611Z",
       "pedido": null,
-      "ultimaOrden": "U0006",
+      "ultimaOrden": "U0019",
       "fallo": null
     },
     "V06_1x1": {
@@ -323,8 +339,8 @@
       "formato": "1:1",
       "fase": "final",
       "resultado": "listo",
-      "version": 3,
-      "firma": "1871153-1795726219370",
+      "version": 4,
+      "firma": "1832276-1795726937204",
       "orden": null,
       "intentosApi": 1,
       "ronda": "u",
@@ -332,38 +348,52 @@
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:50:20.414Z",
+      "desde": "2026-11-26T21:02:18.614Z",
       "pedido": null,
-      "ultimaOrden": "U0012",
+      "ultimaOrden": "U0021",
       "fallo": null
     },
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "listo",
       "version": 2,
       "firma": "2040547-1795726579141",
-      "orden": null,
-      "intentosApi": 2,
+      "orden": {
+        "id": "U0022",
+        "modo": "editar",
+        "version": 3,
+        "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed at the top of the product bottle label. Keep everything else exactly the same: the whiteboard, the two women, the handwritten notes and arrows, the headline and bottom phrase, the VITALDROPS logo, colors, the rest of the label and the background. Do not add, remove or move anything.",
+        "textos": false,
+        "trabajo": "T018"
+      },
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T20:56:19.530Z",
-      "pedido": null,
+      "pedido": "U0022",
       "ultimaOrden": "U0014",
       "fallo": null
     },
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "listo",
       "version": 3,
       "firma": "2019060-1795725990934",
-      "orden": null,
+      "orden": {
+        "id": "U0023",
+        "modo": "editar",
+        "version": 4,
+        "instruccion_en": "Set the blur on the word \"amua\" to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level, in both places it appears: the small white logo above the big VITALDROPS title and the bottle label. Only those two words change. Keep everything else exactly the same: the big VITALDROPS title sharp, the yellow subtitle ribbon, the before and after woman, the red and green labels, the arrow, the bottom offer strip and its texts, colors, the rest of the label and the background. Do not add, remove or move anything.",
+        "textos": false,
+        "trabajo": "T018"
+      },
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
@@ -371,44 +401,59 @@
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T20:46:32.487Z",
-      "pedido": null,
+      "pedido": "U0023",
       "ultimaOrden": "U0010",
       "fallo": null
     },
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "listo",
       "version": 1,
       "firma": "2050237-1795723589265",
-      "orden": null,
-      "intentosApi": 1,
-      "ronda": 1,
-      "reintentoAuto": "no",
-      "revision": null,
-      "motivo": null,
-      "mensaje": null,
-      "desde": "2026-11-26T20:06:31.174Z",
-      "pedido": null,
-      "ultimaOrden": "g"
-    },
-    "V10_1x1": {
-      "v": "V10",
-      "formato": "1:1",
-      "fase": "final",
-      "resultado": "listo",
-      "version": 2,
-      "firma": "2171510-1795726580908",
-      "orden": null,
+      "orden": {
+        "id": "U0024",
+        "modo": "editar",
+        "version": 2,
+        "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the before and after halves, the woman, the headline, the handwritten notes, the guarantee badge, the bottom icons, the VITALDROPS logo, colors, the rest of the label and the background. Do not add, remove or move anything.",
+        "textos": false,
+        "trabajo": "T018"
+      },
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
+      "desde": "2026-11-26T20:06:31.174Z",
+      "pedido": "U0024",
+      "ultimaOrden": "g",
+      "fallo": null
+    },
+    "V10_1x1": {
+      "v": "V10",
+      "formato": "1:1",
+      "fase": "pedida",
+      "resultado": "listo",
+      "version": 2,
+      "firma": "2171510-1795726580908",
+      "orden": {
+        "id": "U0025",
+        "modo": "editar",
+        "version": 3,
+        "instruccion_en": "Apply a 28% gaussian blur only to the word 'amua' at the top of the yellow bottle label, so it looks clearly softened but still faintly legible. Keep everything else exactly the same: the 'VITALDROPS' name and the rest of the label sharp, the bottle, hand, woman, beach, headline, 'mi secreto' badge, comment box, layout, colors and all texts unchanged.",
+        "textos": false,
+        "trabajo": "T019"
+      },
+      "intentosApi": 0,
+      "ronda": "u",
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
       "desde": "2026-11-26T20:56:21.533Z",
-      "pedido": null,
+      "pedido": "U0025",
       "ultimaOrden": "U0015",
       "fallo": null
     }
@@ -735,7 +780,7 @@
       "pieza": "V03_1x1",
       "instruccion": "un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:56:56.873Z",
-      "estado": "generando",
+      "estado": "listo",
       "ajuste": "A015",
       "instruccion_en": "Apply a blur of about 28% strength to every 'amua' word in the image: the 'amua' wordmark at the top above 'VITALDROPS' and the 'amua' on the bottle label. It must look clearly soft and out of focus, still faintly visible, not erased and not heavily smeared. Keep 'VITALDROPS', all other texts, the bottle, the women, the layout, colors and background exactly the same.",
       "cambiaTextos": false,
@@ -756,67 +801,189 @@
       "pieza": "V02_1x1",
       "instruccion": "un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:57:02.826Z",
-      "estado": "ajustando",
-      "ajuste": "A016"
+      "estado": "listo",
+      "ajuste": "A016",
+      "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed at the top of the product bottle label. Keep everything else exactly the same: the whiteboard, drawings, handwritten texts, headline, bottle shape, colors, the rest of the label and the background. Do not add, remove or move anything.",
+      "cambiaTextos": false,
+      "resumen": "Difuminamos un 28 % la palabra «amua» del frasco. Lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V02_1x1",
+          "orden": "U0017",
+          "modo": "editar",
+          "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed at the top of the product bottle label. Keep everything else exactly the same: the whiteboard, drawings, handwritten texts, headline, bottle shape, colors, the rest of the label and the background. Do not add, remove or move anything.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     },
     "U0018": {
       "id": "U0018",
       "pieza": "V01_1x1",
       "instruccion": "un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:57:10.061Z",
-      "estado": "ajustando",
-      "ajuste": "A016"
+      "estado": "listo",
+      "ajuste": "A016",
+      "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed on the product box and on the bottle label. Keep everything else exactly the same: the four day photos, the woman, the headline, the offer block and its texts, colors, the rest of the packaging and the background. Do not add, remove or move anything.",
+      "cambiaTextos": false,
+      "resumen": "Difuminamos un 28 % la palabra «amua» en la caja y en el frasco. Lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V01_1x1",
+          "orden": "U0018",
+          "modo": "editar",
+          "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed on the product box and on the bottle label. Keep everything else exactly the same: the four day photos, the woman, the headline, the offer block and its texts, colors, the rest of the packaging and the background. Do not add, remove or move anything.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     },
     "U0019": {
       "id": "U0019",
       "pieza": "V05_1x1",
       "instruccion": "cambia ese difuminado a un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:57:34.851Z",
-      "estado": "ajustando",
-      "ajuste": "A016"
+      "estado": "listo",
+      "ajuste": "A016",
+      "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the woman, the park, the hand holding the bottle, the headline bubble, the stickers, the comment bubble, colors and the rest of the label. Do not add, remove or move anything.",
+      "cambiaTextos": false,
+      "resumen": "Dejamos el difuminado de «amua» en el frasco en un 28 %. Lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V05_1x1",
+          "orden": "U0019",
+          "modo": "editar",
+          "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the woman, the park, the hand holding the bottle, the headline bubble, the stickers, the comment bubble, colors and the rest of the label. Do not add, remove or move anything.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     },
     "U0020": {
       "id": "U0020",
       "pieza": "V04_1x1",
       "instruccion": "cambia ese difuminada a un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:58:00.506Z",
-      "estado": "ajustando",
-      "ajuste": "A016"
+      "estado": "listo",
+      "ajuste": "A016",
+      "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the before and after halves, the woman, the headline, the handwritten notes, the guarantee badge, the bottom icons, colors and the rest of the label. Do not add, remove or move anything.",
+      "cambiaTextos": false,
+      "resumen": "Dejamos el difuminado de «amua» en el frasco en un 28 %. Lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V04_1x1",
+          "orden": "U0020",
+          "modo": "editar",
+          "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the before and after halves, the woman, the headline, the handwritten notes, the guarantee badge, the bottom icons, colors and the rest of the label. Do not add, remove or move anything.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     },
     "U0021": {
       "id": "U0021",
       "pieza": "V06_1x1",
       "instruccion": "un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:58:11.413Z",
-      "estado": "pendiente"
+      "estado": "listo",
+      "ajuste": "A017",
+      "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed on the product box and on the bottle label. Keep everything else exactly the same: the four day panels, the woman, the headline, the day labels, the offer block and its texts, the VITALDROPS logo, colors, the rest of the packaging and the background. Do not add, remove or move anything.",
+      "cambiaTextos": false,
+      "resumen": "Difuminamos un 28 % la palabra «amua» en la caja y en el frasco. Lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V06_1x1",
+          "orden": "U0021",
+          "modo": "editar",
+          "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed on the product box and on the bottle label. Keep everything else exactly the same: the four day panels, the woman, the headline, the day labels, the offer block and its texts, the VITALDROPS logo, colors, the rest of the packaging and the background. Do not add, remove or move anything.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     },
     "U0022": {
       "id": "U0022",
       "pieza": "V07_1x1",
       "instruccion": "un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:58:15.075Z",
-      "estado": "pendiente"
+      "estado": "generando",
+      "ajuste": "A017",
+      "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed at the top of the product bottle label. Keep everything else exactly the same: the whiteboard, the two women, the handwritten notes and arrows, the headline and bottom phrase, the VITALDROPS logo, colors, the rest of the label and the background. Do not add, remove or move anything.",
+      "cambiaTextos": false,
+      "resumen": "Difuminamos un 28 % la palabra «amua» del frasco. Lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V07_1x1",
+          "orden": "U0022",
+          "modo": "editar",
+          "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed at the top of the product bottle label. Keep everything else exactly the same: the whiteboard, the two women, the handwritten notes and arrows, the headline and bottom phrase, the VITALDROPS logo, colors, the rest of the label and the background. Do not add, remove or move anything.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     },
     "U0023": {
       "id": "U0023",
       "pieza": "V08_1x1",
       "instruccion": "cambia el difuminado a un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:58:31.372Z",
-      "estado": "pendiente"
+      "estado": "generando",
+      "ajuste": "A017",
+      "instruccion_en": "Set the blur on the word \"amua\" to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level, in both places it appears: the small white logo above the big VITALDROPS title and the bottle label. Only those two words change. Keep everything else exactly the same: the big VITALDROPS title sharp, the yellow subtitle ribbon, the before and after woman, the red and green labels, the arrow, the bottom offer strip and its texts, colors, the rest of the label and the background. Do not add, remove or move anything.",
+      "cambiaTextos": false,
+      "resumen": "Dejamos en un 28 % el difuminado de «amua», arriba y en el frasco. Lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V08_1x1",
+          "orden": "U0023",
+          "modo": "editar",
+          "instruccion_en": "Set the blur on the word \"amua\" to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level, in both places it appears: the small white logo above the big VITALDROPS title and the bottle label. Only those two words change. Keep everything else exactly the same: the big VITALDROPS title sharp, the yellow subtitle ribbon, the before and after woman, the red and green labels, the arrow, the bottom offer strip and its texts, colors, the rest of the label and the background. Do not add, remove or move anything.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     },
     "U0024": {
       "id": "U0024",
       "pieza": "V09_1x1",
       "instruccion": "cambia el difuminado a un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:58:42.748Z",
-      "estado": "pendiente"
+      "estado": "generando",
+      "ajuste": "A017",
+      "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the before and after halves, the woman, the headline, the handwritten notes, the guarantee badge, the bottom icons, the VITALDROPS logo, colors, the rest of the label and the background. Do not add, remove or move anything.",
+      "cambiaTextos": false,
+      "resumen": "Dejamos el difuminado de «amua» en el frasco en un 28 %. Lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V09_1x1",
+          "orden": "U0024",
+          "modo": "editar",
+          "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the before and after halves, the woman, the headline, the handwritten notes, the guarantee badge, the bottom icons, the VITALDROPS logo, colors, the rest of the label and the background. Do not add, remove or move anything.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     },
     "U0025": {
       "id": "U0025",
       "pieza": "V10_1x1",
       "instruccion": "cambia el difuminado a un  un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:58:57.040Z",
-      "estado": "pendiente"
+      "estado": "generando",
+      "ajuste": "A018",
+      "instruccion_en": "Apply a 28% gaussian blur only to the word 'amua' at the top of the yellow bottle label, so it looks clearly softened but still faintly legible. Keep everything else exactly the same: the 'VITALDROPS' name and the rest of the label sharp, the bottle, hand, woman, beach, headline, 'mi secreto' badge, comment box, layout, colors and all texts unchanged.",
+      "cambiaTextos": false,
+      "resumen": "Difuminamos al 28 % la palabra «amua» del frasco; todo lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V10_1x1",
+          "orden": "U0025",
+          "modo": "editar",
+          "instruccion_en": "Apply a 28% gaussian blur only to the word 'amua' at the top of the yellow bottle label, so it looks clearly softened but still faintly legible. Keep everything else exactly the same: the 'VITALDROPS' name and the rest of the label sharp, the bottle, hand, woman, beach, headline, 'mi secreto' badge, comment box, layout, colors and all texts unchanged.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     }
   }
 }

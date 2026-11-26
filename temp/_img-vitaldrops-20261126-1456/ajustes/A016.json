@@ -1,0 +1,32 @@
+{
+  "pedidos": [
+    {
+      "id": "U0017",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed at the top of the product bottle label. Keep everything else exactly the same: the whiteboard, drawings, handwritten texts, headline, bottle shape, colors, the rest of the label and the background. Do not add, remove or move anything.",
+      "resumen": "Difuminamos un 28 % la palabra «amua» del frasco. Lo demás queda igual."
+    },
+    {
+      "id": "U0018",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed on the product box and on the bottle label. Keep everything else exactly the same: the four day photos, the woman, the headline, the offer block and its texts, colors, the rest of the packaging and the background. Do not add, remove or move anything.",
+      "resumen": "Difuminamos un 28 % la palabra «amua» en la caja y en el frasco. Lo demás queda igual."
+    },
+    {
+      "id": "U0019",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the woman, the park, the hand holding the bottle, the headline bubble, the stickers, the comment bubble, colors and the rest of the label. Do not add, remove or move anything.",
+      "resumen": "Dejamos el difuminado de «amua» en el frasco en un 28 %. Lo demás queda igual."
+    },
+    {
+      "id": "U0020",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the before and after halves, the woman, the headline, the handwritten notes, the guarantee badge, the bottom icons, colors and the rest of the label. Do not add, remove or move anything.",
+      "resumen": "Dejamos el difuminado de «amua» en el frasco en un 28 %. Lo demás queda igual."
+    }
+  ]
+}

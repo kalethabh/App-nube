@@ -1,0 +1,38 @@
+{
+  "id": "T017",
+  "creado": "2026-11-26T21:00:31.823Z",
+  "piezas": [
+    {
+      "pieza": "V01_1x1",
+      "orden": "U0018",
+      "modo": "editar",
+      "version": 4,
+      "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed on the product box and on the bottle label. Keep everything else exactly the same: the four day photos, the woman, the headline, the offer block and its texts, colors, the rest of the packaging and the background. Do not add, remove or move anything.",
+      "textos": false
+    },
+    {
+      "pieza": "V02_1x1",
+      "orden": "U0017",
+      "modo": "editar",
+      "version": 2,
+      "instruccion_en": "Apply a light 28% blur (soft Gaussian blur, still faintly readable) only to the word \"amua\" printed at the top of the product bottle label. Keep everything else exactly the same: the whiteboard, drawings, handwritten texts, headline, bottle shape, colors, the rest of the label and the background. Do not add, remove or move anything.",
+      "textos": false
+    },
+    {
+      "pieza": "V04_1x1",
+      "orden": "U0020",
+      "modo": "editar",
+      "version": 3,
+      "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the before and after halves, the woman, the headline, the handwritten notes, the guarantee badge, the bottom icons, colors and the rest of the label. Do not add, remove or move anything.",
+      "textos": false
+    },
+    {
+      "pieza": "V05_1x1",
+      "orden": "U0019",
+      "modo": "editar",
+      "version": 4,
+      "instruccion_en": "Set the blur on the word \"amua\" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the woman, the park, the hand holding the bottle, the headline bubble, the stickers, the comment bubble, colors and the rest of the label. Do not add, remove or move anything.",
+      "textos": false
+    }
+  ]
+}

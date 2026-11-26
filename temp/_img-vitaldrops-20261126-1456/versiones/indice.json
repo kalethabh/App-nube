@@ -16,6 +16,14 @@
         "reemplazadaPor": "U0006",
         "motivo": null,
         "fecha": "2026-11-26T20:40:55.944Z"
+      },
+      {
+        "n": 3,
+        "archivo": "versiones/V05_1x1.v3.png",
+        "prompt": "versiones/V05_1x1.v3.txt",
+        "reemplazadaPor": "U0019",
+        "motivo": null,
+        "fecha": "2026-11-26T21:02:16.022Z"
       }
     ],
     "V01_1x1": [
@@ -34,6 +42,14 @@
         "reemplazadaPor": "U0003",
         "motivo": null,
         "fecha": "2026-11-26T20:13:46.275Z"
+      },
+      {
+        "n": 3,
+        "archivo": "versiones/V01_1x1.v3.png",
+        "prompt": "versiones/V01_1x1.v3.txt",
+        "reemplazadaPor": "U0018",
+        "motivo": null,
+        "fecha": "2026-11-26T21:01:24.332Z"
       }
     ],
     "V03_1x1": [
@@ -60,6 +76,14 @@
         "reemplazadaPor": "U0013",
         "motivo": null,
         "fecha": "2026-11-26T20:52:48.022Z"
+      },
+      {
+        "n": 4,
+        "archivo": "versiones/V03_1x1.v4.png",
+        "prompt": "versiones/V03_1x1.v4.txt",
+        "reemplazadaPor": "U0016",
+        "motivo": null,
+        "fecha": "2026-11-26T21:01:08.398Z"
       }
     ],
     "V08_1x1": [
@@ -96,6 +120,14 @@
         "reemplazadaPor": "U0012",
         "motivo": null,
         "fecha": "2026-11-26T20:50:19.371Z"
+      },
+      {
+        "n": 3,
+        "archivo": "versiones/V06_1x1.v3.png",
+        "prompt": "versiones/V06_1x1.v3.txt",
+        "reemplazadaPor": "U0021",
+        "motivo": null,
+        "fecha": "2026-11-26T21:02:17.209Z"
       }
     ],
     "V04_1x1": [
@@ -106,6 +138,14 @@
         "reemplazadaPor": "U0011",
         "motivo": null,
         "fecha": "2026-11-26T20:47:11.513Z"
+      },
+      {
+        "n": 2,
+        "archivo": "versiones/V04_1x1.v2.png",
+        "prompt": "versiones/V04_1x1.v2.txt",
+        "reemplazadaPor": "U0020",
+        "motivo": null,
+        "fecha": "2026-11-26T21:02:02.948Z"
       }
     ],
     "V07_1x1": [
@@ -126,6 +166,16 @@
         "reemplazadaPor": "U0015",
         "motivo": null,
         "fecha": "2026-11-26T20:56:20.921Z"
+      }
+    ],
+    "V02_1x1": [
+      {
+        "n": 1,
+        "archivo": "versiones/V02_1x1.v1.png",
+        "prompt": "versiones/V02_1x1.v1.txt",
+        "reemplazadaPor": "U0017",
+        "motivo": null,
+        "fecha": "2026-11-26T21:01:25.634Z"
       }
     ]
   }

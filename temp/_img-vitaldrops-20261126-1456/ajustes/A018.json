@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0025",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Apply a 28% gaussian blur only to the word 'amua' at the top of the yellow bottle label, so it looks clearly softened but still faintly legible. Keep everything else exactly the same: the 'VITALDROPS' name and the rest of the label sharp, the bottle, hand, woman, beach, headline, 'mi secreto' badge, comment box, layout, colors and all texts unchanged.",
+      "resumen": "Difuminamos al 28 % la palabra «amua» del frasco; todo lo demás queda igual."
+    }
+  ]
+}
