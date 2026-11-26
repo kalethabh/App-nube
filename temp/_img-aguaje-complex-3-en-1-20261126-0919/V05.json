@@ -59,7 +59,7 @@
     { "block_id": "text_block_07", "reference_function": "offer item 2 (cart icon)", "reference_position": "middle left, line 2", "text_style": "Montserrat ExtraBold condensed uppercase, white", "text": "2 CÁPSULAS AL DÍA" },
     { "block_id": "text_block_08", "reference_function": "offer item 3 (gift icon)", "reference_position": "middle left, line 3", "text_style": "Montserrat ExtraBold condensed uppercase, white", "text": "UN FRASCO PARA CADA MES" },
     { "block_id": "text_block_09", "reference_function": "CTA button / offer and trust block", "reference_position": "bottom left, wide fuchsia button", "text_style": "Montserrat Black uppercase, white on hot fuchsia #E6177F pill, with a small white arrow", "text": "PAGAS AL RECIBIR" },
-    { "block_id": "text_block_10", "reference_function": "trust badge", "reference_position": "bottom, right of the button, inside a fuchsia-bordered badge", "text_style": "Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+    { "block_id": "text_block_10", "reference_function": "trust badge", "reference_position": "bottom, right of the button, inside a fuchsia-bordered badge", "text_style": "Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" }
   ],
   "mandatory_visual_elements": [
     "Real phone-photo inset top right (at least 25% of the canvas): woman at a hallway mirror in loose light-wash jeans sagging at the back, pinching the empty fabric, tired look over her shoulder",
@@ -72,7 +72,7 @@
   "final_generation_exclusions": [
     "No capsules or pills anywhere; no open bottle; no other brand or product",
     "No prices, percentages, '2+1', guarantees, ratings, testimonials, countdowns or 'últimas unidades'",
-    "No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'",
+    "No logos other than the real bottle label",
     "No text on the siren; no red that reads as a medical alarm, the siren is fuchsia",
     "Do not add any visual module that is not described in this prompt.",
     "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",

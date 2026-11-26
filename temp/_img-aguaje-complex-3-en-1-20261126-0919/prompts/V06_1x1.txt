@@ -1,0 +1,40 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 flat vector illustration ad on a pale rose #FCE9F1 background, no gradients, uniform 4 px dark plum #2B1226 outlines and flat fills, editorial style. TOP ZONE (0–24% height): 2-line headline centered, Montserrat Black uppercase, very heavy, line 1 in dark plum #2B1226, line 2 in hot fuchsia #E6177F, each line about 7% of the canvas height; under it a 2-line subtitle centered in black #0E0E10 Poppins SemiBold, sentence case, about 3.5% of the canvas height. MIDDLE ZONE (25–86% height): two equal panels split exactly at the center by a thin vertical dark plum line from 26% to 85% height. Both panels show THE SAME Colombian mom around 36 (same face, light-brown skin, dark brown hair in a low bun with a few loose strands, small gold hoop earrings), drawn three-quarter turned to the right so the seat and the back of the legs are visible, full body from head to ankles, feet on the same baseline, the figure filling about 85% of the panel height. LEFT PANEL (the result, good state): she wears dark-wash indigo #2E4A7D fitted high-rise jeans that follow her legs and fill out smoothly at the back, a tucked-in blush pink #FBE3EE blouse and white sneakers; posture upright and confident, one hand on her hip, looking back over her shoulder with a wide warm smile; her thighs and calves look fuller and toned, the seat rounded and lifted, the denim smooth with no folds. RIGHT PANEL (the problem): same mom on another day, light-wash #8FB3DB straight jeans that hang loose and baggy from the seat down to the knees, a sagging fold of extra denim under the back pockets, empty fabric flapping around thin straight legs, an oversized grey t-shirt and worn flats; shoulders slumped, one hand pulling the loose waistband at the back, eyebrows pinched, mouth turned down, frustrated. The difference must be obvious at phone size: fitted and full on the left, baggy and empty on the right. LABELS: on each figure, across the torso at the same height (50–60% of the canvas), a big hot fuchsia #E6177F label with wavy scalloped edges, white Montserrat ExtraBold text in 2 lines. BOTTOM ZONE (87–100% height): a full-width dark plum #2B1226 band. Left (3–14% width): a small real photographic product bottle standing upright, about 11% of the canvas height, label facing the camera. PRODUCT: use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it. A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed; label reads the right way round, never mirrored. Center (17–55% width): white Montserrat Black uppercase 'PAGAS AL RECIBIR' with a small white hand-and-coin line icon. Right (58–96% width): a rounded badge with a solid 3 px hot-fuchsia border and a small white shield line icon, the registration text in white Poppins Bold uppercase on two lines. All texts crisp, spelled exactly with correct accents, nothing else written anywhere.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (top center, line 1): "NO SOLO TU COLA," — Montserrat Black uppercase, dark plum #2B1226
+- main headline line 2 (highlighted) (top center, line 2): "TAMBIÉN TUS PIERNAS" — Montserrat Black uppercase, hot fuchsia #E6177F
+- subtitle (top center, under the headline, 2 lines): "Aguaje, fenogreco y maca negra para acompañar tus curvas de forma natural." — Poppins SemiBold, black #0E0E10, sentence case, centered
+- label (good state) (left figure, across the torso, wavy-edged label): "Jean que horma" — Montserrat ExtraBold, white on hot fuchsia #E6177F scalloped label, 2 lines
+- label (problem state) (right figure, across the torso, wavy-edged label): "Jean que baila" — Montserrat ExtraBold, white on hot fuchsia #E6177F scalloped label, 2 lines
+- offer and trust block (bottom band) (bottom band, center): "PAGAS AL RECIBIR" — Montserrat Black uppercase, white on dark plum
+- trust badge (bottom band, right, inside a fuchsia-bordered badge): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number
+
+BRAND IDENTITY:
+- color_palette: Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Secondary support for this variation: pale rose #FCE9F1 background, denim blues #2E4A7D (dark wash) and #8FB3DB (light wash).
+- text_typography: Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look).
+
+MANDATORY ELEMENTS:
+- Two flat outlined illustrations of the same mom, three-quarter full body head to ankles: LEFT fitted dark jeans, fuller legs, smiling; RIGHT baggy light jeans on thin legs, pulling the waistband, frustrated
+- Thin vertical dark plum divider line between the two figures
+- Two hot-fuchsia labels with wavy scalloped edges across the torsos
+- Dark plum bottom band with a small real closed bottle, 'PAGAS AL RECIBIR' and a bordered registration badge
+
+STRICT EXCLUSIONS:
+- No capsules or pills anywhere; no open bottle; no other brand
+- No prices, percentages, days, weeks, ratings or testimonials
+- No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'
+- No gradients or 3D shading in the illustrations; no explicit or sexualized body depiction
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add prices, extra badges, benefit lists, ratings, testimonials, discount labels or extra claims beyond the listed band, badge and texts.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Brand logos of any kind
+- Do not add: Prices, percentages, days or weeks of results, ratings, testimonials
+- Do not add: Benefit lists or icons
+- Do not add: Explicit or sexualized body depiction; skin-tight close-ups
+- Do not add: Loose capsules or an open bottle
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

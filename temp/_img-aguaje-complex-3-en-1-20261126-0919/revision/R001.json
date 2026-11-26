@@ -1,0 +1,36 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V01_1x1",
+      "ok": true,
+      "problemas": [],
+      "puntajes": { "estructura": 9, "dolor_visual": 9, "titular": 9, "texto_limpio": 9, "frasco_fiel": 9, "oferta_confianza": 9, "diferencia_real": 8 }
+    },
+    {
+      "pieza": "V02_1x1",
+      "ok": true,
+      "problemas": [],
+      "puntajes": { "estructura": 9, "dolor_visual": 8, "titular": 9, "texto_limpio": 9, "frasco_fiel": 9, "oferta_confianza": 8, "diferencia_real": 8 }
+    },
+    {
+      "pieza": "V03_1x1",
+      "ok": false,
+      "problemas": [
+        "Estructura: no sigue la referencia que le tocaba. La referencia es una mano que sostiene el frasco en una bodega llena de cajas, con titular arriba y una franja abajo; esta imagen es una fruta que cae sobre el frasco con titulares a los lados.",
+        "Los textos están bien escritos y el frasco es fiel; solo falla el parecido con la referencia."
+      ],
+      "puntajes": { "estructura": 3, "dolor_visual": 8, "titular": 8, "texto_limpio": 9, "frasco_fiel": 9, "oferta_confianza": 8, "diferencia_real": 8 },
+      "correccion_en": "Follow the reference layout: a realistic first-person photo of a hand holding the real closed bottle at center, label facing camera, in a warehouse with shelves and stacked cardboard boxes behind. Top: 2-line white headline 'AGUAJE DEL AMAZONAS' / 'TRIPLE ACCIÓN NATURAL' with the subline 'Fenogreco y maca negra'. Near the bottom, a rounded fuchsia pill reading 'PAGAS AL RECIBIR'. Keep the dark plum bottom band with the 'REGISTRO INVIMA RSA-0030271-2024' badge. No prices, discounts or other text."
+    },
+    {
+      "pieza": "V04_1x1",
+      "ok": false,
+      "problemas": [
+        "Estructura: no sigue la referencia que le tocaba. La referencia es un solo frasco en fondo blanco limpio, un círculo de oferta al lado, una palabra gigante abajo y un botón; esta imagen es una infografía de cuatro filas con flechas.",
+        "Los textos están bien escritos y el frasco es fiel; solo falla el parecido con la referencia."
+      ],
+      "puntajes": { "estructura": 3, "dolor_visual": 8, "titular": 8, "texto_limpio": 9, "frasco_fiel": 9, "oferta_confianza": 8, "diferencia_real": 8 },
+      "correccion_en": "Follow the reference layout: clean white background, one real closed bottle large at upper center with a soft shadow and the cap on, a few glossy orange aguaje pulp drops falling toward the cap. To the right of the bottle, a round fuchsia badge with a big white 'X3' and 'TRATAMIENTO COMPLETO' under it. Below the bottle, huge black word 'TRIPLE ACCIÓN' and under it 'NATURAL' in white inside a fuchsia rounded block. At the bottom, a dark plum rounded button 'PAGAS AL RECIBIR' and a small bordered badge 'REGISTRO INVIMA RSA-0030271-2024'. No other text."
+    }
+  ]
+}

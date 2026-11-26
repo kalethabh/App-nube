@@ -2,9 +2,9 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 1,
+    "R": 2,
     "A": 1,
-    "T": 2
+    "T": 3
   },
   "tandas": {
     "E001": {
@@ -22,7 +22,7 @@
     "E002": {
       "tipo": "prompts",
       "uuid": "d9636fc1-f915-4fd4-afe8-701b95b9e2a5",
-      "estado": "en-curso",
+      "estado": "hecha",
       "ids": [
         "V05",
         "V06",
@@ -30,7 +30,37 @@
         "V08",
         "V09",
         "V10"
-      ]
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "b27de10f-40b9-4330-afb5-9a3ee27d58c6",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "2059121-1795703652679",
+          "ronda": 1
+        },
+        {
+          "pieza": "V02_1x1",
+          "firma": "1999824-1795703641281",
+          "ronda": 1
+        },
+        {
+          "pieza": "V03_1x1",
+          "firma": "2050294-1795703638635",
+          "ronda": 1
+        },
+        {
+          "pieza": "V04_1x1",
+          "firma": "2080978-1795703772672",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -51,27 +81,27 @@
       "tanda": "E001"
     },
     "V05": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V06": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V07": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V08": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V09": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V10": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     }
   },
@@ -79,15 +109,30 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2059121-1795703652679",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2059121-1795703652679",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 9,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 9,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T14:34:13.501Z",
@@ -97,15 +142,30 @@
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "1999824-1795703641281",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1999824-1795703641281",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T14:34:01.303Z",
@@ -115,15 +175,35 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2050294-1795703638635",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Estructura: no sigue la referencia que le tocaba. La referencia es una mano que sostiene el frasco en una bodega llena de cajas, con titular arriba y una franja abajo; esta imagen es una fruta que cae sobre el frasco con titulares a los lados.",
+          "Los textos están bien escritos y el frasco es fiel; solo falla el parecido con la referencia.",
+          "No llega a 8 en: Estructura (3)."
+        ],
+        "firma": "2050294-1795703638635",
+        "correccion_en": "Follow the reference layout: a realistic first-person photo of a hand holding the real closed bottle at center, label facing camera, in a warehouse with shelves and stacked cardboard boxes behind. Top: 2-line white headline 'AGUAJE DEL AMAZONAS' / 'TRIPLE ACCIÓN NATURAL' with the subline 'Fenogreco y maca negra'. Near the bottom, a rounded fuchsia pill reading 'PAGAS AL RECIBIR'. Keep the dark plum bottom band with the 'REGISTRO INVIMA RSA-0030271-2024' badge. No prices, discounts or other text.",
+        "puntajes": {
+          "estructura": 3,
+          "dolor_visual": 8,
+          "titular": 8,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T14:33:58.955Z",
@@ -133,15 +213,35 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2080978-1795703772672",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Estructura: no sigue la referencia que le tocaba. La referencia es un solo frasco en fondo blanco limpio, un círculo de oferta al lado, una palabra gigante abajo y un botón; esta imagen es una infografía de cuatro filas con flechas.",
+          "Los textos están bien escritos y el frasco es fiel; solo falla el parecido con la referencia.",
+          "No llega a 8 en: Estructura (3)."
+        ],
+        "firma": "2080978-1795703772672",
+        "correccion_en": "Follow the reference layout: clean white background, one real closed bottle large at upper center with a soft shadow and the cap on, a few glossy orange aguaje pulp drops falling toward the cap. To the right of the bottle, a round fuchsia badge with a big white 'X3' and 'TRATAMIENTO COMPLETO' under it. Below the bottle, huge black word 'TRIPLE ACCIÓN' and under it 'NATURAL' in white inside a fuchsia rounded block. At the bottom, a dark plum rounded button 'PAGAS AL RECIBIR' and a small bordered badge 'REGISTRO INVIMA RSA-0030271-2024'. No other text.",
+        "puntajes": {
+          "estructura": 3,
+          "dolor_visual": 8,
+          "titular": 8,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T14:36:13.875Z",
@@ -151,12 +251,17 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 0,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -168,12 +273,17 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 0,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -185,12 +295,17 @@
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 0,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -202,11 +317,16 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",
@@ -219,11 +339,16 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",
@@ -236,11 +361,16 @@
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",

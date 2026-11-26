@@ -59,7 +59,7 @@
     { "block_id": "text_block_08", "reference_function": "offer (big)", "reference_position": "bottom left, main offer, 2 lines", "text_style": "Montserrat Black condensed uppercase, black; 'X3' huge in hot fuchsia #E6177F", "text": "TRATAMIENTO COMPLETO X3" },
     { "block_id": "text_block_09", "reference_function": "offer sub-line", "reference_position": "bottom left, under the offer", "text_style": "Poppins SemiBold, dark plum #2B1226", "text": "Un frasco para cada mes de tu plan" },
     { "block_id": "text_block_10", "reference_function": "offer and trust block (pill)", "reference_position": "bottom left, fuchsia pill", "text_style": "Montserrat Black uppercase, white on hot fuchsia #E6177F pill", "text": "PAGAS AL RECIBIR" },
-    { "block_id": "text_block_11", "reference_function": "trust badge", "reference_position": "bottom left, right of the pill, inside a fuchsia-bordered badge", "text_style": "Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number", "text": "REGISTRO INVIMA RSA-0030271-2024" },
+    { "block_id": "text_block_11", "reference_function": "trust badge", "reference_position": "bottom left, right of the pill, inside a fuchsia-bordered badge", "text_style": "Poppins Bold uppercase, white, 2 lines: 'REGISTRO INVIMA' above the number", "text": "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" },
     { "block_id": "text_block_12", "reference_function": "disclaimer", "reference_position": "very bottom center", "text_style": "Poppins Regular, tiny, grey #7A6A72", "text": "Los resultados pueden variar." }
   ],
   "mandatory_visual_elements": [
@@ -71,7 +71,7 @@
   "final_generation_exclusions": [
     "No capsules or pills anywhere; no open bottle; no other brand",
     "No prices, strikethrough prices, percentages, 'esta semana solamente', ratings or testimonials",
-    "No logos; never write the words 'AGREGAR' or 'LOGO Y SELLO DE'",
+    "No logos other than the real bottle label",
     "No organs, veins or medical drawings inside the silhouettes; no nudity",
     "Do not add any visual module that is not described in this prompt.",
     "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
