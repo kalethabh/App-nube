@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-11-26T19:04:06.756Z",
+  "firma": "f01d9a6e7215da21",
+  "pedido": {
+    "producto": "VITALDROPS",
+    "modo": "Estructuras F54, F57, F86, F85, F40",
+    "oferta": "",
+    "sellos": [],
+    "cantidad": 5
+  },
+  "total": 5,
+  "fallas": [],
+  "problemas": [],
+  "sinImagen": 0,
+  "rechazos": 0,
+  "reglas": [],
+  "resumen": "Las 5 imágenes pasaron la revisión: nada que corregir."
+}
