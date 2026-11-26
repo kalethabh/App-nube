@@ -24,10 +24,11 @@
       "id": "estrategia",
       "nombre": "La IA arma la estrategia",
       "estado": "corriendo",
-      "intentos": 1,
+      "intentos": 2,
       "inicio": "2026-11-26T16:16:19.841Z",
-      "detalle": "Mirando las imágenes del anuncio",
-      "uuid": "fad524aa-c337-41a6-aa21-c7bdc85ce6c4"
+      "uuid": "fad524aa-c337-41a6-aa21-c7bdc85ce6c4",
+      "retomado": true,
+      "detalle": "Buscando en los archivos"
     },
     {
       "id": "anuncios",
@@ -46,5 +47,5 @@
   "modoPrueba": false,
   "creado": "2026-11-26T16:16:19.742Z",
   "aprobado": "2026-11-26T16:16:19.742Z",
-  "actualizado": "2026-11-26T16:16:35.989Z"
+  "actualizado": "2026-11-26T16:16:55.836Z"
 }
