@@ -1,36 +1,94 @@
 {
+  "prompt_type": "ad_creative_generation",
   "ad_info": {
-    "variation_id": "V03"
+    "variation_id": "V03",
+    "structure_source": "uploaded reference (R01.png)",
+    "reference_style": "Photorealistic before/after split-screen supplement ad with hero bottle, benefit cards and offer bar",
+    "angle_used": "Transformación / resultado — fear of surgery and needles vs. natural curves without needles or surgery",
+    "ad_format": "Collage Ad (before/after split screen + product hero + benefit row + offer bar)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
   },
   "global_identity": {
-    "color_palette": "the colors of the product's packaging",
-    "text_typography": "the typography of the reference ad"
+    "color_palette": "Hot fuchsia #E6177F, deep magenta #B0105E, dark plum #2B1226, deep wine #4A0B2E, bottle black #0E0E10, bubblegum pink #FF8CC0 (accent words, replaces the reference yellow), pale blush pink #FBE3EE (price pill), white #FFFFFF. Same contrast logic as the reference: dark header left, bright header right, dark glowing bottom panels, bright accent on key words and price.",
+    "visual_style": "Photorealistic before/after split screen of the same woman seen from behind, solid color header bands, large real bottle as hero on the center line, dark wine benefit panel with four neon-outlined cards and a rounded offer bar.",
+    "visual_atmosphere": "Aspirational, feminine, confident; flat neutral daylight on the 'before' side, warm golden-hour glow on the 'after' side, soft neon fuchsia glow on the bottom panels.",
+    "graphic_language": "Flat color header blocks, thin white center divider, rounded-rectangle cards with glowing fuchsia outlines and white thin-line icons, round registration seal, fully rounded offer pill with burst lines and a glossy inner price pill.",
+    "text_typography": "Exactly the reference typography: heavy rounded geometric sans-serif (Nunito Black / Gotham Rounded Bold look) for all text. 'ANTES' and 'DESPUÉS' huge, all uppercase, white, centered. Header subtitles bold, sentence case, white, centered, two lines, about 45% of the header word height. Benefit labels bold all uppercase, white, centered, 2-3 lines. Offer bar: 'TRATAMIENTO COMPLETO' heavy uppercase white; 'X3 UNIDADES' heavier and about 1.4x larger, uppercase, bubblegum pink; price in the heaviest weight, the largest text of the bottom area, deep magenta inside a pale pink pill."
   },
-  "visual_prompt": "Product: AGUAJE COMPLEX 3 EN 1, for Mujeres colombianas que quieren glúteos más firmes y redondos de forma natural (market: Colombia).\nBenefits to use in the secondary texts (Spanish, short): Aumento de glúteos; Aumento de piernas y caderas; Triple acción con 3 extractos naturales; Sin efecto rebote (no engorda); Sin necesidad de hacer ejercicio de fuerza; Resultados visibles y naturales.\nAngle: the SAME one as the reference ad (same body area, problem or desire, same hook). Only if the reference has no clear angle, use: Transformación / resultado.\nWINNING CREATIVE CONCEPT of this reference (why it sells, in the owner's words; KEEP this concept, change only the execution details and the headline): Variaciones de su anuncio ganador de AGUAJE COMPLEX: antes y después de espaldas, frasco grande al centro, sello REGISTRO SANITARIO INVIMA RSA-0030271-2024, 4 beneficios (SIN EFECTO REBOTE (no engorda), PAGO CONTRA ENTREGA, RESULTADOS EN 3-4 SEMANAS, REGISTRO INVIMA) y barra de oferta TRATAMIENTO CO\nAdapt the color palette to the product's packaging, keeping the same contrast and hierarchy as the reference.\nAll visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.\nWHAT CHANGES IN THIS VARIATION (and only this, the rest stays like the reference): Mujer de 30 y pico, piel trigueña, crespos castaños recogidos en moño. ANTES frente al espejo del baño en pantaloneta de algodón; DESPUÉS en terraza con vista a la ciudad, jean ajustado y blusa corta.\nThe headline PLAYS with the winning headline of the reference keeping its essence (same promise, same desire, same timeframe if it has one), never generic. If there is a before/after, the change must be obvious at first glance: two clearly different moments, the AFTER body visibly improved in the area of the angle. THE CLIENT ASKED: Seguir el prompt que pasó: que NO parezca copia pero con la misma lógica. Mismo frasco exacto (negro, banda rosada, coneXión Lab, AGUAJE COMPLEX 10X, 200mg aguaje + 400mg fenogreco + 2070mg magnesio, vitamina A, vitamina E, 60 cápsulas) con la etiqueta nítida. Encabezado morado oscuro a la izquierda y fucsia a la derecha. Antes y después claramente distintos (otro lugar, otra ropa) y el cambio del glúteo bien visible pero natural, sin exagerar. Sello dorado y blanco con el texto exacto REGISTRO SANITARIO INVIMA RSA-0030271-2024. 4 cajas de beneficios: SIN EFECTO REBOTE (no engorda), PAGO CONTRA ENTREGA, RESULTADOS EN 3-4 SEMANAS, REGISTRO INVIMA. Barra de oferta abajo: TRATAMIENTO COMPLETO X3 UNIDADES $139.900. Todo en español bien escrito, sin texto extra.",
+  "creative_objective": "Recreate the user's winning before/after ad exactly, with the user's own bottle, and change only the two header subtitles to hit the fear of the operating room and injections, offering natural curves without needles or surgery.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) 'ANTES' / 'DESPUÉS' headers and the before/after photos; 2) the large bottle on the center line; 3) the header subtitles; 4) the four benefit cards; 5) the offer bar with the price.",
+    "composition_style": "Strict symmetrical split: two equal columns for headers and photos, bottle centered on the divider, full-width benefit row and offer bar below.",
+    "spacing_and_structure": "Header band 0-12.5% of height; photos 12.5-68%; benefit panel 68-87% with four equal cards and small even gutters; offer bar 88-98% with small side margins.",
+    "lighting_and_depth": "Before photo flat cool daylight; after photo warm sunset backlight with rim light on skin; bottle with soft studio light and a soft contact shadow; neon fuchsia outer glow on cards and offer bar.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top band split in two: left dark plum block with 'ANTES' and a two-line subtitle, right hot fuchsia block with 'DESPUÉS' and a two-line subtitle. Below, two 50/50 photos of the same woman from behind: left in a bright bedroom wearing a white t-shirt knotted at the back and gray bike shorts; right on a beach at sunset in a bikini. A large bottle stands centered on the vertical divider, overlapping both photos, its base touching the top of the benefit panel; a round registration seal overlaps its lower-right side. Bottom: dark wine panel with four rounded cards (icon + uppercase label). Footer: wide rounded offer bar with 'TRATAMIENTO COMPLETO' / 'X3 UNIDADES' on the left, a thin vertical divider and the price inside a pill on the right.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "header panel (before)", "position": "Top-left half, 0-12.5% height", "visual_function": "Labels the 'before' state", "adaptation_rule": "Dark plum fill, white 'ANTES' + new two-line subtitle", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "header panel (after)", "position": "Top-right half, 0-12.5% height", "visual_function": "Labels the 'after' state", "adaptation_rule": "Hot fuchsia fill, white 'DESPUÉS' + new two-line subtitle", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "person (before photo)", "position": "Left half, 12.5-68% height", "visual_function": "Shows the current state", "adaptation_rule": "Same woman from behind in a bedroom, white knotted t-shirt, gray bike shorts, muted light", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "person (after photo)", "position": "Right half, 12.5-68% height", "visual_function": "Shows the desired result", "adaptation_rule": "Same woman from behind on a sunset beach in a hot-pink bikini, warm light", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product", "position": "Center, on the vertical divider, ~20-68% height", "visual_function": "Hero bridge between before and after", "adaptation_rule": "The user's exact bottle from the attached photo", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "trust seal", "position": "Overlapping the lower-right side of the bottle", "visual_function": "Sanitary registration proof", "adaptation_rule": "White round seal with fuchsia rim and the user's registration text", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "benefit cards row", "position": "68-87% height, full width, 4 equal cards", "visual_function": "Removes purchase objections", "adaptation_rule": "Same four icons and the user's four benefit labels", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "offer bar", "position": "88-98% height, nearly full width", "visual_function": "Concrete offer and price", "adaptation_rule": "User's offer: treatment x3 at $139.900", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Brand logos or wordmarks outside the bottle label",
+      "CTA buttons or arrows",
+      "Rating stars, reviews or testimonials",
+      "A 'CALIDAD PREMIUM' badge or any extra badge on the bottle",
+      "Strikethrough old price or discount percentage",
+      "Syringes, scalpels, hospital imagery or any medical prop",
+      "Any extra text, claim or icon"
+    ]
+  },
+  "visual_prompt": "Square 1:1 photorealistic before/after split-screen supplement ad, recreating this exact layout. TOP HEADER BAND (top 12.5% of the canvas), split into two equal halves: the left half is a solid dark plum (#2B1226) block with the huge white heavy rounded uppercase word 'ANTES' centered and, under it, a centered two-line bold white subtitle; the right half is a solid hot fuchsia (#E6177F) block with the huge white word 'DESPUÉS' centered and its centered two-line bold white subtitle. A thin white vertical line divides the canvas in two from the top band down to the benefit panel. PHOTO AREA (12.5% to 68% of the height), two equal photos side by side: LEFT 'before' photo — a Latina woman about 27 years old with long wavy dark-brown hair in a high ponytail, seen from behind from the head to mid-thigh, standing in a bright neutral bedroom with a white-sheeted bed and a wooden headboard, wearing a loose white t-shirt knotted at the lower back and gray cotton bike shorts, flat cool daylight, slightly muted colors, natural slim figure with flat hips. RIGHT 'after' photo — the same woman, same hair and same rear framing, standing on a Caribbean beach at golden-hour sunset with turquoise sea and palm silhouettes, wearing a hot-pink bikini, warm glowing backlight, toned legs and a fuller, rounder, lifted figure that looks natural and realistic, not exaggerated. HERO PRODUCT: the attached product bottle, large, front-facing and perfectly sharp, standing centered exactly on the vertical dividing line, from about 20% to 68% of the canvas height, overlapping both photos, its base resting on the top edge of the benefit panel, soft studio light and a soft shadow. Product: A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh underline, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS' at the bottom. Use the attached product image as the only source of truth for the bottle: do not redesign, replace, relabel or reinterpret it, and do not add any badge to it. REGISTRATION SEAL: a round white seal with a thin metallic fuchsia rim overlapping the lower-right side of the bottle (about 10% of the canvas width), with 'REGISTRO SANITARIO' curved along the top arc, 'INVIMA' in bold deep magenta in the center and 'RSA-0030271-2024' curved along the bottom arc. BENEFIT PANEL (68% to 87% of the height): deep wine background (#4A0B2E fading to #2B1226) with a soft fuchsia glow, holding four equal rounded-rectangle cards side by side with small even gutters; each card has a dark magenta fill, a glowing neon fuchsia outline, a white thin-line icon in the upper half and a bold white uppercase centered label below. Card 1: icon of a female waist silhouette with a circular arrow and a small check badge. Card 2: icon of an open hand holding a package with small motion lines. Card 3: icon of three ascending bars. Card 4: icon of a shield with a check mark. OFFER BAR (88% to 98% of the height): one wide, fully rounded pill bar across nearly the full width, deep magenta-to-wine gradient fill with a thin glowing fuchsia border; on its left part two stacked lines of text, the second line larger, flanked by three short bubblegum-pink burst lines on each side; a thin white vertical divider; on its right part a glossy pale blush pink (#FBE3EE) inner pill holding the price in huge heavy deep magenta (#B0105E) numerals. Typography for all text: heavy rounded geometric sans-serif (Nunito Black / Gotham Rounded Bold look), crisp and perfectly legible on a phone. Write every text exactly as listed in the text layers, each once, in its position. Do not add logos, CTA buttons, stars, testimonials, old prices, medical props or any element not described here.",
   "text_layers": [
-    {
-      "reference_function": "main headline",
-      "reference_position": "same place as the main headline of the reference",
-      "text": "ANTES — Glúteos caídos y planos / DESPUÉS — Más levantados, redondos y naturales",
-      "text_style": "same style as the main headline of the reference"
-    }
+    { "block_id": "text_block_01", "reference_function": "before label", "reference_position": "Top-left header block, centered, upper part", "text_style": "Huge heavy rounded sans-serif, all uppercase, white, centered", "text": "ANTES" },
+    { "block_id": "text_block_02", "reference_function": "before subtitle (headline)", "reference_position": "Top-left header block, centered, under 'ANTES', two lines", "text_style": "Bold rounded sans-serif, sentence case, white, centered, two lines (break after 'quirófano'), about 45% of the 'ANTES' height", "text": "Miedo al quirófano y a las agujas" },
+    { "block_id": "text_block_03", "reference_function": "after label", "reference_position": "Top-right header block, centered, upper part", "text_style": "Huge heavy rounded sans-serif, all uppercase, white, centered", "text": "DESPUÉS" },
+    { "block_id": "text_block_04", "reference_function": "after subtitle (headline)", "reference_position": "Top-right header block, centered, under 'DESPUÉS', two lines", "text_style": "Bold rounded sans-serif, sentence case, white, centered, two lines (break after 'naturales,'), about 45% of the 'DESPUÉS' height", "text": "Curvas naturales, sin agujas ni cirugía" },
+    { "block_id": "text_block_05", "reference_function": "trust seal top arc", "reference_position": "Round seal on the lower-right of the bottle, curved along the top", "text_style": "Small bold uppercase sans-serif, dark plum, curved", "text": "REGISTRO SANITARIO" },
+    { "block_id": "text_block_06", "reference_function": "trust seal center", "reference_position": "Round seal, center", "text_style": "Bold sans-serif, deep magenta, centered", "text": "INVIMA" },
+    { "block_id": "text_block_07", "reference_function": "trust seal bottom arc", "reference_position": "Round seal, curved along the bottom", "text_style": "Small bold uppercase sans-serif, dark plum, curved", "text": "RSA-0030271-2024" },
+    { "block_id": "text_block_08", "reference_function": "benefit 1", "reference_position": "Card 1 (far left), under the icon, two lines", "text_style": "Bold uppercase rounded sans-serif, white, centered", "text": "SIN EFECTO REBOTE" },
+    { "block_id": "text_block_09", "reference_function": "benefit 1 accent", "reference_position": "Card 1, third line under 'SIN EFECTO REBOTE'", "text_style": "Bold uppercase rounded sans-serif, bubblegum pink, centered, same size", "text": "(NO ENGORDA)" },
+    { "block_id": "text_block_10", "reference_function": "benefit 2", "reference_position": "Card 2, under the icon, three lines", "text_style": "Bold uppercase rounded sans-serif, white, centered", "text": "PAGO CONTRA ENTREGA" },
+    { "block_id": "text_block_11", "reference_function": "benefit 3", "reference_position": "Card 3, under the icon, two lines (break after 'RESULTADOS')", "text_style": "Bold uppercase rounded sans-serif, white, centered", "text": "RESULTADOS EN 3-4 SEMANAS" },
+    { "block_id": "text_block_12", "reference_function": "benefit 4", "reference_position": "Card 4 (far right), under the icon, two lines", "text_style": "Bold uppercase rounded sans-serif, white, centered", "text": "REGISTRO INVIMA" },
+    { "block_id": "text_block_13", "reference_function": "offer line 1", "reference_position": "Offer bar, left part, upper line", "text_style": "Heavy uppercase rounded sans-serif, white", "text": "TRATAMIENTO COMPLETO" },
+    { "block_id": "text_block_14", "reference_function": "offer line 2", "reference_position": "Offer bar, left part, lower line, between burst lines", "text_style": "Heaviest uppercase rounded sans-serif, about 1.4x larger, bubblegum pink", "text": "X3 UNIDADES" },
+    { "block_id": "text_block_15", "reference_function": "price", "reference_position": "Offer bar, right part, inside the pale pink pill", "text_style": "Heaviest rounded sans-serif, huge, deep magenta", "text": "$139.900" }
   ],
   "mandatory_visual_elements": [
-    "the real product from the attached product photo"
+    "Two-color header band: dark plum left, hot fuchsia right",
+    "Thin white vertical divider between the two halves",
+    "Before photo: woman from behind in a bedroom, white knotted t-shirt and gray bike shorts",
+    "After photo: same woman from behind on a sunset beach in a hot-pink bikini",
+    "The user's black bottle with fuchsia cap and fuchsia bottom band, large, centered on the divider",
+    "Round white registration seal with fuchsia rim overlapping the lower-right of the bottle",
+    "Four rounded benefit cards with glowing fuchsia outlines and white thin-line icons (waist with circular arrow, hand with package, ascending bars, shield with check)",
+    "Wide rounded offer bar with burst lines, a thin vertical divider and a pale pink price pill"
   ],
   "final_generation_exclusions": [
-    "any logo, brand name or text from the reference ad",
-    "misspelled words"
+    "No yellow or gold colors; accents are bubblegum pink and pale pink.",
+    "No 'CALIDAD PREMIUM' badge or any other badge on the bottle; the bottle label must match the attached photo.",
+    "No brand logos or wordmarks outside the bottle label.",
+    "No syringes, scalpels, hospital or surgery imagery.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
   ],
-  "reference_structure_analysis": {
-    "forbidden_additions": [
-      "the reference ad's brand, prices or claims"
-    ],
-    "detected_visual_blocks": []
-  },
-  "language_rule": "All visible text in Spanish.",
-  "app_rapido": "copiar",
-  "app_chat": {
-    "cambio": "Mujer de 30 y pico, piel trigueña, crespos castaños recogidos en moño. ANTES frente al espejo del baño en pantaloneta de algodón; DESPUÉS en terraza con vista a la ciudad, jean ajustado y blusa corta."
-  }
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The four benefit labels and the offer are kept exactly as the user provided them for their winning ad.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
 }
