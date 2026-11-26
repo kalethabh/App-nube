@@ -1,0 +1,14 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V04_1x1",
+      "ok": false,
+      "problemas": [
+        "El bikini de la foto de la derecha es tipo tanga: el anuncio pedía uno de cobertura completa. Es un riesgo con las reglas de Facebook e Instagram.",
+        "Las palabras «ANTES» y «DESPUÉS» quedan casi pegadas al borde de arriba (a menos del 5 %). Hay que bajarlas un poco.",
+        "Los textos de la primera y la cuarta tarjeta («(CON TUS COMIDAS)» y «NI QUIRÓFANO») quedan a menos del 5 % de los bordes de los lados. Hay que alejarlos del borde."
+      ],
+      "correccion_en": "On the right photo, dress the woman in a coral bikini with a modest full-coverage bottom (no thong cut). Move 'ANTES' and 'DESPUÉS' slightly down so their tops sit at least 6% of the canvas height from the top edge. Add more side margin to the card row so every card text, including '(CON TUS COMIDAS)' and 'NI QUIRÓFANO', stays at least 6% of the canvas width away from the left and right edges. Keep all texts, colors, layout and the bottle exactly the same."
+    }
+  ]
+}

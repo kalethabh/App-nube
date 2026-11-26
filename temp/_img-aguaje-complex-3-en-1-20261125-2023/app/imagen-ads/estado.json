@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 2,
+    "R": 4,
     "A": 1,
     "T": 3
   },
@@ -36,7 +36,7 @@
     "R001": {
       "tipo": "revision",
       "uuid": "3fa5968f-a80c-445d-b86c-e8b03fbeefb0",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -52,6 +52,34 @@
         {
           "pieza": "V03_1x1",
           "firma": "1987714-1795656707727",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "ce3dc3d6-9a19-480b-84b7-d50c318db912",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V04_1x1",
+          "firma": "1985801-1795656953372",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "35e13d95-4952-45a4-923c-2dd91f81d266",
+      "estado": "en-curso",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "1987134-1795657028438",
           "ronda": 1
         }
       ]
@@ -103,48 +131,123 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1970514-1795656705098",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "La mujer de la playa lleva un bikini tipo tanga. El anuncio pedía un traje de baño con cobertura completa atrás.",
+          "Las palabras «ANTES» y «DESPUÉS» quedan pegadas al borde de arriba, a menos del 5 %. Hay que bajarlas un poco."
+        ],
+        "firma": "1970514-1795656705098",
+        "correccion_en": "On the right beach photo, change the coral bikini bottom to a tasteful full-coverage bikini bottom (no thong cut). Move the 'ANTES' and 'DESPUÉS' headlines and their subtitles down so the top of the letters sits at least 6% of the canvas height below the top edge, keeping them inside their header blocks. Keep every text, the bottle and the layout unchanged."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T01:31:46.703Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1998414-1795656706988",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "La mujer de la playa lleva un bikini tipo tanga. El anuncio pedía un traje de baño con cobertura completa atrás.",
+          "Las palabras «ANTES» y «DESPUÉS» quedan pegadas al borde de arriba, a menos del 5 %. Hay que bajarlas un poco."
+        ],
+        "firma": "1998414-1795656706988",
+        "correccion_en": "On the right beach photo, change the coral bikini bottom to a tasteful full-coverage bikini bottom (no thong cut). Move the 'ANTES' and 'DESPUÉS' headlines and their subtitles down so the top of the letters sits at least 6% of the canvas height below the top edge, keeping them inside their header blocks. Keep every text, the bottle and the layout unchanged."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T01:31:47.089Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1987714-1795656707727",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "La mujer de la playa lleva un bikini tipo tanga. El anuncio pedía un traje de baño con cobertura completa atrás.",
+          "Las palabras «ANTES» y «DESPUÉS» quedan pegadas al borde de arriba, a menos del 5 %. Hay que bajarlas un poco."
+        ],
+        "firma": "1987714-1795656707727",
+        "correccion_en": "On the right beach photo, change the coral bikini bottom to a tasteful full-coverage bikini bottom (no thong cut). Move the 'ANTES' and 'DESPUÉS' headlines and their subtitles down so the top of the letters sits at least 6% of the canvas height below the top edge, keeping them inside their header blocks. Keep every text, the bottle and the layout unchanged."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-26T01:31:49.402Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V04_1x1": {
+      "v": "V04",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1985801-1795656953372",
+      "orden": null,
+      "intentosApi": 2,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El bikini de la foto de la derecha es tipo tanga: el anuncio pedía uno de cobertura completa. Es un riesgo con las reglas de Facebook e Instagram.",
+          "Las palabras «ANTES» y «DESPUÉS» quedan casi pegadas al borde de arriba (a menos del 5 %). Hay que bajarlas un poco.",
+          "Los textos de la primera y la cuarta tarjeta («(CON TUS COMIDAS)» y «NI QUIRÓFANO») quedan a menos del 5 % de los bordes de los lados. Hay que alejarlos del borde."
+        ],
+        "firma": "1985801-1795656953372",
+        "correccion_en": "On the right photo, dress the woman in a coral bikini with a modest full-coverage bottom (no thong cut). Move 'ANTES' and 'DESPUÉS' slightly down so their tops sit at least 6% of the canvas height from the top edge. Add more side margin to the card row so every card text, including '(CON TUS COMIDAS)' and 'NI QUIRÓFANO', stays at least 6% of the canvas width away from the left and right edges. Keep all texts, colors, layout and the bottle exactly the same."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-26T01:35:54.615Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V05_1x1": {
+      "v": "V05",
+      "formato": "1:1",
       "fase": "revisando",
       "resultado": null,
       "version": 1,
-      "firma": "1987714-1795656707727",
+      "firma": "1987134-1795657028438",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
@@ -152,54 +255,10 @@
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T01:31:49.402Z",
+      "desde": "2026-11-26T01:37:09.870Z",
       "pedido": null,
       "ultimaOrden": "g",
-      "tandaRevision": "R001"
-    },
-    "V04_1x1": {
-      "v": "V04",
-      "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
-      "intentosApi": 2,
-      "ronda": 1,
-      "reintentoAuto": "no",
-      "revision": null,
-      "motivo": null,
-      "mensaje": null,
-      "desde": null,
-      "pedido": null
-    },
-    "V05_1x1": {
-      "v": "V05",
-      "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
-      "intentosApi": 1,
-      "ronda": 1,
-      "reintentoAuto": "no",
-      "revision": null,
-      "motivo": null,
-      "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "tandaRevision": "R003"
     },
     "V06_1x1": {
       "v": "V06",
@@ -214,7 +273,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -236,7 +295,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -258,7 +317,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,

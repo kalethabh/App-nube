@@ -1,0 +1,31 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V01_1x1",
+      "ok": false,
+      "problemas": [
+        "La mujer de la playa lleva un bikini tipo tanga. El anuncio pedía un traje de baño con cobertura completa atrás.",
+        "Las palabras «ANTES» y «DESPUÉS» quedan pegadas al borde de arriba, a menos del 5 %. Hay que bajarlas un poco."
+      ],
+      "correccion_en": "On the right beach photo, change the coral bikini bottom to a tasteful full-coverage bikini bottom (no thong cut). Move the 'ANTES' and 'DESPUÉS' headlines and their subtitles down so the top of the letters sits at least 6% of the canvas height below the top edge, keeping them inside their header blocks. Keep every text, the bottle and the layout unchanged."
+    },
+    {
+      "pieza": "V02_1x1",
+      "ok": false,
+      "problemas": [
+        "La mujer de la playa lleva un bikini tipo tanga. El anuncio pedía un traje de baño con cobertura completa atrás.",
+        "Las palabras «ANTES» y «DESPUÉS» quedan pegadas al borde de arriba, a menos del 5 %. Hay que bajarlas un poco."
+      ],
+      "correccion_en": "On the right beach photo, change the coral bikini bottom to a tasteful full-coverage bikini bottom (no thong cut). Move the 'ANTES' and 'DESPUÉS' headlines and their subtitles down so the top of the letters sits at least 6% of the canvas height below the top edge, keeping them inside their header blocks. Keep every text, the bottle and the layout unchanged."
+    },
+    {
+      "pieza": "V03_1x1",
+      "ok": false,
+      "problemas": [
+        "La mujer de la playa lleva un bikini tipo tanga. El anuncio pedía un traje de baño con cobertura completa atrás.",
+        "Las palabras «ANTES» y «DESPUÉS» quedan pegadas al borde de arriba, a menos del 5 %. Hay que bajarlas un poco."
+      ],
+      "correccion_en": "On the right beach photo, change the coral bikini bottom to a tasteful full-coverage bikini bottom (no thong cut). Move the 'ANTES' and 'DESPUÉS' headlines and their subtitles down so the top of the letters sits at least 6% of the canvas height below the top edge, keeping them inside their header blocks. Keep every text, the bottle and the layout unchanged."
+    }
+  ]
+}
