@@ -1,0 +1,41 @@
+Square 1:1 authentic smartphone photo taken at gym-bench height, about 15 degrees down, casual framing, natural daylight from a big window on the left. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. A padded black gym bench in front of a smooth cement grey wall; the wall meets the bench top at about 60% of the height. In the upper-left area (x 8-47%, y 8-47%) a single square neon pink sticky note is stuck on the cement wall, rotated about 4 degrees, matte paper with a slightly curled bottom edge and a faint shadow, with a short message handwritten in thick black felt-tip marker in clear print letters (4 short lines), a tiny sign-off in the bottom-right corner of the note and one short hand-drawn arrow pointing down-right toward the bottle. On the bench in the right-center (x 54-86%, y 34-88%) the real product standing upright, sharp, label facing the camera, soft contact shadow: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. To the left of the bottle on the bench, smaller and in softer focus: a folded light grey towel, a matte grey water bottle and a rolled neon pink resistance band. Far background: a softly blurred dumbbell rack, no posters, no brand names. Bottom left (x 5-42%, y 93-97%) a very small, discreet rounded pale blush pink tag with dark plum text. Shallow depth of field, slightly imperfect real phone-photo feel. No people, no hands, no other text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- handwritten note message (On the sticky note, upper and middle area): "Lo que le faltaba a mi rutina de pierna" — Handwritten thick felt-tip marker lettering, print style, clearly legible, near-black ink, letters about 4.5-5% of the canvas height, 4 short lines (about 'Lo que le / faltaba a mi / rutina de / pierna'), loosely left-aligned, filling about 70% of the note
+- sign-off (Bottom-right corner of the sticky note): "— Yuli" — Same marker handwriting, smaller (about 3% of the canvas height), 1 line, right-aligned
+- trust seal (Bottom left of the photo, inside the tiny pale blush tag): "REGISTRO INVIMA RSA-0030271-2024" — Inter SemiBold, uppercase, about 1.8% of the canvas height, 1 line, dark plum #2B1226
+
+BRAND IDENTITY:
+- color_palette: Brand palette: hot fuchsia #E6177F, deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary colors for this variation: cement grey #8E8E8A (gym wall and floor) and neon pink #FF4FA3 (sticky note, resistance band). The brand appears only in real objects; never flat brand-colored backgrounds.
+- text_typography: The note in native handwritten felt-tip marker lettering (print style, clearly legible); the tiny seal in Inter SemiBold.
+
+MANDATORY ELEMENTS:
+- One square neon pink sticky note with a handwritten marker message, slightly tilted and curled, stuck on the cement wall
+- One small hand-drawn arrow on the note pointing to the bottle
+- The real bottle, sharp, standing on the gym bench right next to the note
+- Folded towel, water bottle and resistance band on the bench, in softer focus
+- Real gym setting with natural daylight and a softly blurred background
+- Tiny discreet registration tag at the bottom left
+
+STRICT EXCLUSIONS:
+- No people, hands, legs or bodies.
+- No gym brand names, posters or logos.
+- The sticky note must not cover the bottle's label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Graphic headline or typed text overlays (other than the tiny registration tag)
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonial cards
+- Do not add: Benefit list or icons
+- Do not add: Additional sticky notes, paper notes or printed labels
+- Do not add: People, hands or bodies
+- Do not add: Studio seamless backdrop or flat brand-colored background
+- Do not add: Bottom bar, banner or graphic frame
+- Do not add: Logos or brand marks outside the bottle label
+- Do not add: Gym brand names, posters or logos on the wall
+- Do not add: Cluttered props that compete with the product
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

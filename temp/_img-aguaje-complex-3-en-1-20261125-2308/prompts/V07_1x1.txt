@@ -1,0 +1,41 @@
+Square 1:1 warm golden-hour lifestyle supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Full-bleed photo of a home terrace at sunset with green plants and a few soft magenta bougainvillea flowers strongly blurred, warm gold light from the upper left; the top area stays soft and clean for the text. Top center (22-78% of the width, 4-18% of the height) one giant ultra-bold uppercase white word in Montserrat ExtraBold; directly below it (20.5-24% of the height, same width) a short white italic tagline in Inter Medium. Left two-thirds (from the left edge to about 64% of the width, from about 26% of the height to the bottom): a 36-year-old Colombian woman with warm tan skin and shoulder-length chestnut brown hair, natural makeup, in a 3/4 profile facing right, eyes closed, serene confident smile, chin slightly up, one hand resting softly on her collarbone, wearing a fitted elegant wine red knee-length dress with a tasteful neckline, framed from the head to the waist, golden rim light on her hair and shoulders. She does not hold the product. Right foreground (64-87% of the width, 30-90% of the height) the real product standing upright, front view, studio-sharp, label fully readable, slightly overlapping her arm: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. It stands on a polished blush pink marble pedestal whose top is at about 90% of the height, from about 60% of the width to the right edge, cut by the bottom edge, with a soft reflection. Bottom left (5-42% of the width, 93-97% of the height) a small rounded pale blush pink pill with dark plum text. Clean air: no particles, petals, droplets, sparkles or flares. No other text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- giant word (Top center, about 4-18% of the canvas height): "SEGURA" — Montserrat ExtraBold, uppercase, about 14-15% of the canvas height, a single word, centered, pure white, tight letter spacing, spanning about half the canvas width
+- tagline (Directly below the giant word, centered, about 20.5-24% of the canvas height): "Vuelve a sentirte tú, al natural" — Inter Medium italic, about 3.5% of the canvas height, 1 line, centered, white, about the same width as the giant word
+- trust seal (Bottom left, inside the small pale blush pill): "REGISTRO INVIMA RSA-0030271-2024" — Inter SemiBold, uppercase, about 1.9% of the canvas height, 1 line, dark plum #2B1226
+
+BRAND IDENTITY:
+- color_palette: Brand palette: hot fuchsia #E6177F, deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary colors for this variation: warm gold #D9A441 (sunset light) and wine red #7A1F35 (her dress), with a blush pink marble pedestal.
+- text_typography: Giant word in Montserrat ExtraBold, uppercase, white; tagline and seal in Inter (Medium / SemiBold). Maximum three text levels.
+
+MANDATORY ELEMENTS:
+- Full-bleed warm golden sunset photo of a home terrace with blurred plants
+- One giant white word centered at the top with an italic tagline below
+- 36-year-old woman in a fitted wine red dress, 3/4 profile, eyes closed, calm confident gesture, in the left two-thirds
+- The real bottle, tall, in the right foreground on a blush pink marble pedestal
+- Small pale blush registration pill at the bottom left
+
+STRICT EXCLUSIONS:
+- No floating particles, petals, droplets, bubbles, sparkles or lens flares.
+- The woman must not hold, touch or take the product.
+- No revealing clothing, no rear views, no body-focused poses.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Floating particles, droplets, bubbles, petals, sparkles or lens flares
+- Do not add: CTA button
+- Do not add: Price, discount, offer or urgency badge
+- Do not add: Free shipping or payment labels
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Any trust seal other than the single registration pill
+- Do not add: Benefit list or icons
+- Do not add: Bands, boxes or cards behind the text
+- Do not add: Person holding or taking the product
+- Do not add: More than one product unit
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks outside the bottle label
+- Do not add: Body-focused poses, rear views or revealing clothing
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

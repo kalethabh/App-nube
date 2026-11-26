@@ -1,0 +1,47 @@
+Square 1:1 flat screenshot of a generic smartphone notes app in light mode, no device frame, no perspective: the canvas is the phone screen. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Flat bone white #F6F1E7 background with an ultra-subtle paper grain. Top strip (y 0-4%): minimal status bar with the time on the left and generic signal, wifi and battery glyphs on the right in dark grey. Navigation bar (y 4-10%): a back chevron and the word 'Notas' in hot fuchsia #E6177F on the left, thin share and three-dot icons in fuchsia on the right. Note body in one left-aligned column at a 6% margin: a bold near-black title (y 12-17.5%), a small grey date line (y 18.5-21.5%), then a list of four single-line items (y 24-52%) each preceded by a round checkbox, the first one checked with a filled fuchsia check and the other three empty outlined circles; one translucent yellow #FFE45C hand-drawn highlighter stroke, slightly uneven, over the first item, text fully legible. Attached photo (x 6-94%, y 55-89%, rounded corners about 2.5% of the canvas): a casual top-down smartphone photo in soft window daylight of a striped coral-and-white beach towel with the real product in the center, label clearly visible, filling about 60-70% of the photo's height, next to a folded black one-piece swimsuit and a pair of tortoiseshell sunglasses. The product: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. Under the photo (y 91.5-95%), one small grey footnote line left-aligned at 6%. Flat UI, no shadows, no stickers, no emojis, no keyboard.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- UI label (status bar time) (Status bar, top left): "9:41" — System sans-serif semibold, about 2.2% of the canvas height, dark grey
+- UI label (back label) (Navigation bar, left, after the back chevron): "Notas" — System sans-serif regular, about 2.6% of the canvas height, hot fuchsia #E6177F
+- note title (Top of the note body, left-aligned at 6%): "Mi plan para diciembre" — Bold system sans-serif (Inter Bold look), about 5.5% of the canvas height, near-black, 1 line
+- date line (Directly under the title, left-aligned): "Domingo, 21:47" — Regular system sans-serif, about 2.2% of the canvas height, mid grey, 1 line
+- list item 1 (highlighted, checked) (First list line, under the yellow highlighter stroke): "2 cápsulas al día con mis comidas" — Regular system sans-serif, about 3.8% of the canvas height, near-black, 1 line, after a filled fuchsia check
+- list item 2 (Second list line): "Pierna 3 veces por semana" — Same as list item 1, after an empty outlined circle
+- list item 3 (Third list line): "Más proteína en el almuerzo" — Same as list item 2
+- list item 4 (Fourth list line): "Foto de perfil cada mes" — Same as list item 2
+- trust seal (Under the attached photo, left-aligned at 6%): "REGISTRO INVIMA RSA-0030271-2024" — Inter SemiBold, uppercase, about 1.9% of the canvas height, mid grey, 1 line
+
+BRAND IDENTITY:
+- color_palette: Native notes-app colors: bone white #F6F1E7 background, near-black #1C1C1E text, mid grey #8A8A8E for the date. Brand accent hot fuchsia #E6177F only on the back chevron, the 'Notas' label, the bar icons and the checks. Secondary colors for this variation: bone white and translucent highlighter yellow #FFE45C (the highlighter stroke). The attached photo may show brand tones in the props.
+- text_typography: Native system sans-serif look (Inter) for the whole note: bold title, regular list, small grey date; the seal line in Inter SemiBold.
+
+MANDATORY ELEMENTS:
+- Generic status bar and notes-app navigation bar with no real branding
+- Flat bone white note background with a screenshot look (no device frame)
+- Left-aligned four-item list with round checkboxes, the first one checked
+- One yellow hand-drawn highlighter stroke over the first item
+- Rounded-corner top-down photo of the real bottle on a beach towel with a swimsuit and sunglasses
+- One small grey seal line under the photo
+
+STRICT EXCLUSIONS:
+- No people, bodies or hands, in the UI or in the photo.
+- No emojis.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Phone device frame, hands holding a phone or perspective mockup
+- Do not add: Real app names, logos or platform-specific interface elements
+- Do not add: Ad headline or graphic text outside the note
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonial cards
+- Do not add: Icons, emojis or illustrations next to the list items
+- Do not add: On-screen keyboard or text cursor
+- Do not add: Logos or brand marks outside the bottle label
+- Do not add: Bottom bar or banner
+- Do not add: Stickers, arrows or decorative graphics
+- Do not add: Before/after images or bodies
+- Do not add: A second photo or a collage
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

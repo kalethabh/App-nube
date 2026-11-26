@@ -1,0 +1,8 @@
+{
+  "revisadas": [
+    { "pieza": "V01_1x1", "ok": true, "problemas": [] },
+    { "pieza": "V02_1x1", "ok": true, "problemas": [] },
+    { "pieza": "V03_1x1", "ok": true, "problemas": [] },
+    { "pieza": "V04_1x1", "ok": true, "problemas": [] }
+  ]
+}

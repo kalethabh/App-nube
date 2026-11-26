@@ -1,0 +1,38 @@
+Square 1:1 premium product hero supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Smooth deep denim blue #1E3550 background, slightly darker in the corners, with a very soft, low-intensity hot-fuchsia back light behind the center that fades smoothly into the blue; no texture, no sparkles, no particles. Top center (6-22% of the height, up to 88% of the width) a two-line extra-bold uppercase white headline in Montserrat ExtraBold with the words 'AL NATURAL' in bubblegum pink #FF8CC0; directly below it (24-28% of the height) one short white subtitle line in Inter Medium. In the center, from about 33% to 84% of the height, the real product standing large and upright, seen from a gentle low angle so it feels heroic, label fully readable: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. The bottle stands on a neatly folded classic mid-blue denim jean (about 26-74% of the width, 78-90% of the height) with visible stitching and a back pocket edge, no brand patch. Soft studio key light from the upper left, a thin fuchsia rim light on the right edge of the bottle, soft contact shadows. Bottom center (92-96% of the height) a small rounded pale blush pink pill with a tiny dark plum check-shield icon and dark plum text. Clean, airy, lots of negative space, everything readable on a phone. No people, no other objects.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, first element of the text stack): "QUE EL JEAN TE HORME, AL NATURAL" — Montserrat ExtraBold, uppercase, each line about 8-9% of the canvas height, 2 lines, centered, white; 'AL NATURAL' in bubblegum pink #FF8CC0
+- subtitle (Directly below the headline, centered): "2 cápsulas al día · Sin agujas ni quirófano" — Inter Medium, about 3.6% of the canvas height, 1 line, centered, white
+- trust seal (Bottom center, inside the small pale blush pill): "REGISTRO INVIMA RSA-0030271-2024" — Inter SemiBold, uppercase, about 2.1% of the canvas height, 1 line, centered, dark plum #2B1226
+
+BRAND IDENTITY:
+- color_palette: Brand palette: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary colors for this variation: deep denim blue #1E3550 (background) and classic mid-blue denim #4A6E99 (the folded jean), with a soft fuchsia back light.
+- text_typography: Headline in Montserrat ExtraBold, uppercase; subtitle and seal in Inter (Medium / SemiBold). Maximum three text levels.
+
+MANDATORY ELEMENTS:
+- The real bottle, large and centered, seen from a gentle low angle
+- A neatly folded blue denim jean under the bottle as its pedestal
+- Smooth deep denim blue background with a very soft fuchsia back light
+- Soft contact shadow under the bottle
+- Small pale blush registration pill at the bottom center
+
+STRICT EXCLUSIONS:
+- No people, bodies, mannequins or hands.
+- No brand labels or leather patches on the jean.
+- No sparkles, lens flares, glitter or particles.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Benefit list or icons
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks outside the bottle label
+- Do not add: People, hands or bodies
+- Do not add: Any trust seal other than the single registration pill
+- Do not add: Extra props that compete with the product (only the folded jean)
+- Do not add: Sparkles, lens flares, particles or glitter
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

@@ -1,0 +1,157 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V10",
+    "structure_source": "library format F15 (Cifra gigante)",
+    "reference_style": "Bold centered typographic ad: a giant '3 EN 1' in the foreground across the lower half, the real bottle rising from behind it on a black background, two aguaje fruits at one side",
+    "angle_used": "Característica estrella: la fórmula 3 en 1",
+    "ad_format": "Big Number Stat Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary colors for this variation: deep black #0A0A0C (background) and aguaje amber #D9822B (the cut fruit flesh).",
+    "visual_style": "Bold, minimal, typographic supplement ad with the real bottle sharp and identical to the photo.",
+    "visual_atmosphere": "Confident and dramatic but clean, studio light.",
+    "graphic_language": "Solid black background with a very soft, low-intensity fuchsia light behind the bottle, one giant number, one small rounded pill. No sparkles, flares, particles or extra shapes.",
+    "text_typography": "Giant number and lead-in in Montserrat ExtraBold; explanation and seal in Inter (Medium / SemiBold). Maximum three text levels."
+  },
+  "creative_objective": "Answer 'does it really work?' with a clear, complete formula instead of a promise: three plants and two vitamins in one bottle, said with one giant figure the eye reads in a fraction of a second.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The giant '3 EN 1' in the foreground. 2) The bottle rising from behind it. 3) The explanation line under the number. 4) The lead-in at the top. 5) The small registration pill.",
+    "composition_style": "Centered, symmetrical, three depth planes: background, bottle, number. The giant number crosses almost the full width of the lower half in FRONT of the bottle, hiding only its pink base band (never the label). Two small whole aguaje fruits and one cut half rest at the lower left, beside the number's left end, small and secondary. Reads top to bottom as one sentence: lead-in, bottle, number, explanation.",
+    "spacing_and_structure": "Lead-in y 5-9%, centered. Bottle centered, x 33-67% and y 12-66%, its top 80% visible above the number. Giant number centered within x 8-92%, baseline at about y 81%, top at about y 52%. Explanation y 84-90%, centered, max 2 lines. Registration pill centered at y 92.5-96.5%. Aguaje fruits x 4-22%, y 60-80%, behind the number's left edge plane. Side margins 5%.",
+    "lighting_and_depth": "Solid black background with a very soft, low-intensity fuchsia radial light behind the bottle (upper center) and a subtle vignette; no flares, no sparkles. Crisp studio key light from the upper left on the bottle with a thin white rim light. The number is flat crisp type casting a short soft shadow (about 25% opacity) onto the bottle where they overlap.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a solid black background and a very soft fuchsia light behind the center. A short all-caps lead-in centered at the top. The real bottle stands centered, large, rising from behind a giant ultra-bold '3 EN 1' in hot fuchsia that runs across the lower half in front of the bottle's base. Two small aguaje fruits and a cut half rest at the lower left. A one- or two-line explanation centered under the number and a small registration pill at the very bottom. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Bold clean field that gives the number maximum impact",
+        "adaptation_rule": "Solid deep black #0A0A0C with a very soft fuchsia radial light behind the bottle and a subtle vignette. No patterns, textures, sparkles or particles.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "lead-in line",
+        "position": "Top center, y 5-9%",
+        "visual_function": "Opens the sentence the number completes",
+        "adaptation_rule": "Short all-caps line in bubblegum pink #FF8CC0, 1 line, centered.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "product",
+        "position": "Centered, x 33-67% and y 12-66%, base hidden behind the number",
+        "visual_function": "Shows what the number belongs to",
+        "adaptation_rule": "The real bottle exactly as in the attached product photo, front view, about 52% of the canvas height, the whole label (including the three ingredient boxes) visible above the number's top edge; only the pink base band hides behind the number.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "giant number",
+        "position": "Centered within x 8-92%, baseline at about y 81%, top at about y 52%, in front of the bottle's base",
+        "visual_function": "Stops the scroll with the formula fact",
+        "adaptation_rule": "'3 EN 1' in ultra-bold condensed type: the '3' and the '1' in hot fuchsia #E6177F, 'EN' in white at about 60% of the digit size. Fully legible, no character hidden or cut.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "ingredient prop (aguaje fruits)",
+        "position": "Lower left, x 4-22% and y 60-80%",
+        "visual_function": "Shows the star ingredient as a real fruit, secondary",
+        "adaptation_rule": "Two whole aguaje palm fruits (egg-sized ovals with glossy reddish-brown scaly skin like snake scales) and one cut half showing orange-amber #D9822B flesh, small, sharp, soft contact shadows. They never touch the number's characters or the bottle.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "explanation line",
+        "position": "Bottom center, y 84-90%",
+        "visual_function": "Completes the sentence and names the formula",
+        "adaptation_rule": "One or two centered white lines at about 85% opacity, with a middle dot separator.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "registration seal",
+        "position": "Bottom center, y 92.5-96.5%",
+        "visual_function": "Trust: the sanitary registration given by the brand",
+        "adaptation_rule": "Small rounded pill in pale blush pink #FBE3EE with dark plum text. Text only, no logos.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars, reviews or testimonials",
+      "Charts, graphs, progress bars or infographics",
+      "Secondary numbers or a stats grid",
+      "Benefit list or icons",
+      "Boxes, badges, divider bars or circles around the number",
+      "Pedestals, podiums or props other than the aguaje fruits",
+      "Leaves, plants, powders or other ingredients",
+      "People or hands",
+      "Bottom bar or banner",
+      "Any trust seal other than the single registration pill",
+      "Logos or brand marks outside the bottle label",
+      "Decorative particles, sparkles, flares, confetti or extra shapes"
+    ]
+  },
+  "visual_prompt": "Square 1:1 bold centered typographic supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Solid deep black #0A0A0C background with a very soft, low-intensity hot-fuchsia radial light behind the bottle in the upper center and a subtle vignette; no sparkles, no flares, no particles. Top center (y 5-9%) one short all-caps lead-in line in bubblegum pink #FF8CC0, Montserrat ExtraBold, wide letter spacing. Centered (x 33-67%, y 12-66%) the real product standing upright, front view, about 52% of the canvas height, crisp studio key light from the upper left and a thin white rim light: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. In front of the bottle's base, across the lower half (centered within x 8-92%, baseline at about y 81%, top at about y 52%) a giant ultra-bold condensed '3 EN 1': the '3' and the '1' in hot fuchsia #E6177F and 'EN' in white at about 60% of the digit size, casting a short soft shadow onto the bottle; it hides only the pink base band, never the label. Lower left (x 4-22%, y 60-80%) two small whole aguaje palm fruits with glossy reddish-brown scaly skin and one cut half showing orange-amber flesh, sharp, with soft contact shadows. Under the number (y 84-90%) a centered white explanation line in Inter Medium at about 85% opacity, max 2 lines. Bottom center (y 92.5-96.5%) a small rounded pale blush pink pill with dark plum text. Clean, minimal, everything readable on a phone. No people, no other elements.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "lead-in line",
+      "reference_position": "Top center, above the bottle",
+      "text_style": "Montserrat ExtraBold, all caps, wide letter spacing, about 3.2% of the canvas height, bubblegum pink #FF8CC0, centered, 1 line",
+      "text": "TRIPLE ACCIÓN PARA TUS CURVAS"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "giant number",
+      "reference_position": "Centered across the lower half, in front of the bottle's base",
+      "text_style": "Ultra-bold condensed sans-serif (Montserrat Black look), glyph height about 28% of the canvas, tight letter spacing, centered, 1 line; '3' and '1' in hot fuchsia #E6177F, 'EN' in white at about 60% of the digit size; short soft shadow on the bottle",
+      "text": "3 EN 1"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "explanation line",
+      "reference_position": "Bottom center, under the number",
+      "text_style": "Inter Medium, about 3.6% of the canvas height, centered, max 2 lines (break after the middle dot), white at about 85% opacity",
+      "text": "Aguaje, fenogreco y maca negra · Con vitaminas A y E"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "trust seal",
+      "reference_position": "Bottom center, inside the small pale blush pill",
+      "text_style": "Inter SemiBold, uppercase, about 1.9% of the canvas height, 1 line, centered, dark plum #2B1226",
+      "text": "REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "One giant ultra-bold '3 EN 1' across the lower half, in front of the bottle's base",
+    "The real bottle, centered and rising from behind the number, label fully visible",
+    "Solid black background with a very soft fuchsia light behind the bottle",
+    "Two small aguaje fruits and one cut half at the lower left",
+    "Small pale blush registration pill at the bottom center"
+  ],
+  "final_generation_exclusions": [
+    "The number must never cover the bottle's label or the ingredient boxes.",
+    "No sparkles, flares, glitter, smoke or particles.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
