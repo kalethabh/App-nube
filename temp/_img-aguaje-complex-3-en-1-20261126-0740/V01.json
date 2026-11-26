@@ -1,0 +1,240 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format F33 (Antes y después 3D con descuento en estrella, winning structure mv-01)",
+    "reference_style": "3D animated (Pixar-like) before/after supplement ad with campaign ribbon, benefit icons, offer star and CTA button",
+    "angle_used": "Beneficio sin sacrificio: more curves without surgery",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep panels), bottle black #0E0E10, bubblegum pink #FF8CC0 (highlighted words), pale blush pink #FBE3EE (soft background and light cards), white #FFFFFF for main texts. Secondary for this variation: soft lilac sky tint #F3D9F0 in the background gradient.",
+    "visual_style": "High-end 3D animated character render (Pixar-like), glossy and friendly, with the real bottle photoreal and sharp.",
+    "visual_atmosphere": "Warm, hopeful and fun; soft fuchsia glow on the branded elements.",
+    "graphic_language": "Ribbon banner, diagonal color panel, cream rounded card with thin line icons separated by thin dividers, multi-point starburst, pill button with round arrow, curved arrow between before and after.",
+    "text_typography": "Headline in very heavy italic geometric sans-serif (Montserrat Black Italic look), uppercase; icon labels, strip and button in rounded bold sans-serif (Poppins Bold look), uppercase."
+  },
+  "creative_objective": "Stop the scroll of Colombian women who want more curves but are scared of surgery: show the same 3D woman going from worried (loose jeans at the back) to happy (jeans that fit, bottle in hand), and close with the 3-month treatment, pay-on-delivery and the INVIMA registration, keeping the exact F33 structure.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) the fuchsia ribbon and the before/after characters, 2) the headline on the plum panel, 3) the big bottle, 4) the offer starburst and the button, 5) the icons and the trust strip.",
+    "composition_style": "Top 15%: ribbon banner centered. Middle 50%: split before/after with a thin light vertical line in the center and a curved arrow from left to right. Bottom 35%: diagonal plum panel on the left with headline, icon card and trust strip; big bottle center-bottom overlapping everything; starburst and button on the right.",
+    "spacing_and_structure": "Tight, dense but organized commercial layout; every block aligned to its zone; the bottle overlaps the panel edge to create depth.",
+    "lighting_and_depth": "Soft studio light on the 3D characters, gentle rim light, the bottle in front with a crisp shadow and a soft fuchsia glow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top center: a glossy fuchsia ribbon banner with white text and a small tag shape at its right end (no brand logo above it; that space stays as background). Center: before (left) and after (right) of the same 3D woman, separated by a thin light vertical line, with a curved bubblegum-pink arrow from left to right. Bottom-left: a diagonal dark plum panel with a 3-line headline, below it a pale blush card with 4 line icons and labels, and below it a dark plum pill strip with 2 trust items. Bottom-center: the real bottle, large, in front. Bottom-right: a fuchsia multi-point starburst with the offer, and under it a bubblegum-pink pill button with a round plum arrow.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "campaign ribbon",
+        "position": "top center",
+        "visual_function": "Campaign hook that frames the ad",
+        "adaptation_rule": "Glossy fuchsia ribbon with a small tag at the right end, text about the 3-month natural plan instead of a seasonal campaign",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "person (before)",
+        "position": "center left",
+        "visual_function": "Shows the pain",
+        "adaptation_rule": "3D woman seen three-quarters from behind, looking back over her shoulder with a worried face, wearing a plain white t-shirt and light blue jeans that hang loose and baggy at the back",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "person (after)",
+        "position": "center right",
+        "visual_function": "Shows the desired result",
+        "adaptation_rule": "Same 3D woman on another day, fuchsia crop top, same pose family but more confident, smiling over her shoulder, the jeans now fit snugly with a rounder, fuller shape at the back; she holds a small version of the real bottle in her hand",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "decorative element",
+        "position": "center, between before and after",
+        "visual_function": "Directs the eye from problem to result",
+        "adaptation_rule": "Curved bubblegum-pink arrow and a thin light vertical divider line",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "headline on diagonal panel",
+        "position": "bottom left",
+        "visual_function": "Main message",
+        "adaptation_rule": "Dark plum diagonal panel, 3-line white heavy italic uppercase headline, last line in bubblegum pink",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "benefit icons card",
+        "position": "bottom left, under the headline",
+        "visual_function": "Quick benefits",
+        "adaptation_rule": "Pale blush rounded card with 4 plum line icons (crossed-out syringe, two capsules, leaf, sparkle drop) and short uppercase labels, separated by thin vertical dividers",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "trust strip",
+        "position": "bottom left, very bottom",
+        "visual_function": "Trust",
+        "adaptation_rule": "Dark plum pill: shield icon + registration text | hand-with-cash icon + pay on delivery text, separated by a thin divider",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "product",
+        "position": "bottom center, overlapping",
+        "visual_function": "Product hero",
+        "adaptation_rule": "The real bottle from the attached photo, large, upright, sharp",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_09",
+        "block_type": "offer starburst",
+        "position": "bottom right",
+        "visual_function": "Offer",
+        "adaptation_rule": "Fuchsia multi-point starburst with a thin white border: a giant white 'X3' and below it the treatment text; no percentage",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_10",
+        "block_type": "CTA button",
+        "position": "bottom right, under the starburst",
+        "visual_function": "Call to action",
+        "adaptation_rule": "Bubblegum-pink wide pill with dark plum text and a round dark plum circle with a white chevron arrow",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Brand logo or brand name text above the ribbon",
+      "Percentage discount, prices or crossed-out prices",
+      "Black Friday or any seasonal campaign text",
+      "Free shipping or guarantee claims",
+      "Rating stars, testimonials or customer counts",
+      "Glowing organs, x-ray or any medical detail on the body"
+    ]
+  },
+  "visual_prompt": "Square 1:1 supplement ad in high-end 3D animated style (Pixar-like characters), on a soft gradient background from pale blush pink #FBE3EE to a light lilac #F3D9F0. TOP 15%: a glossy hot-fuchsia #E6177F ribbon banner centered, with a soft glow and a small tag shape hanging at its right end, carrying the white text 'PLAN NATURAL DE 3 MESES'; nothing above it, just background. MIDDLE 50%: a before/after split with a thin light vertical line in the exact center. LEFT (before): a friendly 3D Latina woman in her early thirties, wavy dark brown hair in a loose bun, seen three-quarters from behind and looking back over her shoulder with a worried, insecure face; she wears a plain white t-shirt and light blue jeans that hang loose, flat and baggy at the back. RIGHT (after): the same woman on another day, wearing a fuchsia crop top and the same jeans, now fitting snugly with a rounder, fuller and lifted shape at the back, standing confident and smiling warmly over her shoulder, holding in one hand a small copy of the exact product bottle. A curved bubblegum-pink #FF8CC0 arrow goes from the before to the after. Tasteful, non-explicit, no medical details. BOTTOM 35%: on the left, a diagonal dark plum #2B1226 panel holding the 3-line headline in heavy white italic uppercase, with the last line in bubblegum pink; under it a pale blush rounded card with 4 plum thin-line icons (a syringe with a cross-out line, two capsules, a leaf, a sparkle drop) each with a short uppercase label, separated by thin vertical dividers; under the card, a dark plum pill strip with a shield icon and the registration text, a thin divider, and a hand-with-cash icon with the payment text. In the bottom center, overlapping the panel edge and in front of everything, the large real product bottle, upright and razor sharp: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; black label with the small pink VITALABH emblem, the huge bold white word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', the small line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; keep its proportions, colors and label layout. On the right, a hot-fuchsia multi-point starburst with a thin white border showing a giant white 'X3' and the treatment text below it; under the starburst a wide bubblegum-pink pill button with dark plum text and a round dark plum circle with a white chevron. Soft studio lighting, gentle shadows, crisp edges, everything readable on a phone. Do not add any brand logo, price, percentage, free-shipping text, guarantee, stars or extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "campaign ribbon",
+      "reference_position": "top center, inside the fuchsia ribbon",
+      "text_style": "White heavy italic uppercase sans-serif, centered",
+      "text": "PLAN NATURAL DE 3 MESES"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "main headline line 1",
+      "reference_position": "bottom left, plum diagonal panel, line 1",
+      "text_style": "Very heavy white italic uppercase sans-serif, left aligned, largest text",
+      "text": "MÁS CURVAS"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "main headline line 2",
+      "reference_position": "bottom left, plum diagonal panel, line 2",
+      "text_style": "Very heavy white italic uppercase sans-serif, left aligned",
+      "text": "SIN PASAR POR"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "main headline line 3 (highlighted)",
+      "reference_position": "bottom left, plum diagonal panel, line 3",
+      "text_style": "Very heavy bubblegum-pink #FF8CC0 italic uppercase sans-serif, left aligned",
+      "text": "EL QUIRÓFANO"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit",
+      "reference_position": "icon card, slot 1 under the syringe icon",
+      "text_style": "Small bold plum uppercase, centered, 2 lines max",
+      "text": "SIN AGUJAS"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "benefit",
+      "reference_position": "icon card, slot 2 under the capsules icon",
+      "text_style": "Small bold plum uppercase, centered, 2 lines max",
+      "text": "2 CÁPSULAS AL DÍA"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "benefit",
+      "reference_position": "icon card, slot 3 under the leaf icon",
+      "text_style": "Small bold plum uppercase, centered, 2 lines max",
+      "text": "ORIGEN VEGETAL"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "benefit",
+      "reference_position": "icon card, slot 4 under the sparkle drop icon",
+      "text_style": "Small bold plum uppercase, centered, 2 lines max",
+      "text": "VITAMINAS A Y E"
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "trust item",
+      "reference_position": "trust strip, left, next to the shield icon",
+      "text_style": "Small bold white uppercase",
+      "text": "REGISTRO INVIMA RSA-0030271-2024"
+    },
+    {
+      "block_id": "text_block_10",
+      "reference_function": "trust item",
+      "reference_position": "trust strip, right, next to the hand-with-cash icon",
+      "text_style": "Small bold white uppercase, 2 lines",
+      "text": "PAGAS AL RECIBIR"
+    },
+    {
+      "block_id": "text_block_11",
+      "reference_function": "offer (big number)",
+      "reference_position": "inside the starburst, top",
+      "text_style": "Giant heavy white sans-serif",
+      "text": "X3"
+    },
+    {
+      "block_id": "text_block_12",
+      "reference_function": "offer (label)",
+      "reference_position": "inside the starburst, under X3",
+      "text_style": "Bold white uppercase, 2 lines, centered",
+      "text": "TRATAMIENTO COMPLETO"
+    },
+    {
+      "block_id": "text_block_13",
+      "reference_function": "CTA",
+      "reference_position": "pill button under the starburst",
+      "text_style": "Heavy dark plum uppercase sans-serif",
+      "text": "PÍDELO HOY"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Glossy fuchsia ribbon banner with a small tag at the right end",
+    "Same 3D woman in before (worried, loose jeans at the back, white t-shirt) and after (smiling, fitted jeans, fuchsia crop top, holding the bottle)",
+    "Thin vertical divider line and curved bubblegum-pink arrow between before and after",
+    "Diagonal dark plum headline panel",
+    "Pale blush card with 4 thin-line icons and dividers",
+    "Dark plum trust strip with shield and hand-with-cash icons",
+    "Large real product bottle in the bottom center, identical to the attached photo",
+    "Fuchsia multi-point starburst",
+    "Bubblegum-pink pill button with round plum arrow circle"
+  ],
+  "final_generation_exclusions": [
+    "No brand logo or brand name above the ribbon; no percentage discount, prices or crossed-out prices; no free shipping, guarantee, stars or testimonials.",
+    "No organs, x-ray, glowing body parts or any medical detail; no nudity; no pointing at body flaws with marks or labels.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia)."
+}

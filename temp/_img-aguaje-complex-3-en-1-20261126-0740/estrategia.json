@@ -1,0 +1,51 @@
+{
+  "resumen": "Vendemos Aguaje Complex 3 en 1 como el apoyo natural de la mujer que quiere más curvas sin quirófano: 2 cápsulas al día que acompañan su comida y su rutina durante 3 meses. Cada imagen sale de una estructura ganadora distinta y le habla a una mujer distinta: la que le teme a la cirugía, la que entrena y no ve cambios, la mamá que quiere recuperar su figura, la flaquita de toda la vida y la que no le horma el jean. Todas cierran con el tratamiento de 3 frascos, el pago al recibir y tu registro INVIMA.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#2B1226", "nombre": "Ciruela oscuro" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" }
+  ],
+  "tipografia": "Títulos en letra muy gruesa y moderna (estilo Montserrat Black), en mayúsculas. Textos de apoyo en letra redondeada y gruesa (estilo Poppins). Solo el nombre del producto en V04 va en una letra elegante con remates.",
+  "estilo": "La misma marca de siempre (fucsia, ciruela y el frasco real), contada en cinco estilos que se turnan: animación 3D, foto real, ilustración plana, foto real e ilustración plana. Mujeres naturales, con jean, licras o ropa de diario, sin mostrar de más y sin nada médico.",
+  "beneficios": [
+    "Acompaña tu proceso de curvas sin agujas ni quirófano",
+    "Más energía y ánimo para cumplirle a tu rutina",
+    "Fácil de cumplir: solo 2 cápsulas al día con tus comidas",
+    "Vuelve a medirte tu ropa favorita con seguridad"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg",
+    "Con vitaminas A y E",
+    "60 cápsulas por frasco: un mes de plan",
+    "Tratamiento completo de 3 frascos para 3 meses, pagas al recibir"
+  ],
+  "deseo_central": "Verse con más curvas y sentirse segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar su proceso de curvas junto con su comida y su rutina.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas y nada se me va ahí",
+    "Ya compré pastillas por internet y perdí la plata",
+    "No sé si lo que venden por redes tiene registro"
+  ],
+  "aprendizajes_de_tus_anuncios": [
+    "Tu anuncio que ya funciona (el de los días 1, 7, 14 y 21) cuenta el cambio paso a paso, sobre fondo claro, con una caja de «tratamiento completo» abajo. Lo usamos en V03: tu plan contado por etapas, con la oferta abajo.",
+    "Los ganadores de la categoría resaltan una o dos palabras del título en otro color y ponen íconos cortos de beneficio. Lo usamos en V01 (cuatro íconos) y en V02 (la segunda línea del título en rosado).",
+    "El antes y después funciona cuando es la misma mujer, de espaldas, en otro día y con otra ropa. Lo usamos en V01, V02 y V04, sin señalar defectos.",
+    "La oferta del tratamiento x3 siempre va en una caja o banda que se ve de lejos. Lo usamos en V01 (estrella), V03 (barra de abajo) y V04 (banda de pincel)."
+  ],
+  "decisiones": [
+    "El ángulo lo elegimos nosotros: «más curvas sin quirófano» como idea central, y cada imagen ataca un dolor distinto.",
+    "No diste precio, así que ninguna imagen lleva precio. Donde la estructura tenía precio o descuento pusimos «Tratamiento completo X3» y «Pagas al recibir», que es la oferta de tu investigación.",
+    "Tu sello dice «AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024». Lo entendimos como una instrucción: en la imagen va el sello con el texto «REGISTRO INVIMA RSA-0030271-2024», con el número exacto. El logo lo pone la app.",
+    "No inventamos descuentos, envío gratis, garantías, estrellas ni clientas.",
+    "Tu investigación pide no prometer «aumento de glúteos» ni «sin ejercicio». Hablamos de acompañar tu proceso de curvas, de energía y de constancia.",
+    "En las imágenes de antes y después usamos «Día 1» y «Mes 3», o la misma mujer en otro día, para que se vea real y pase mejor la revisión de Meta.",
+    "En la de mamás aclaramos «para mamás que ya no lactan», porque el producto no se debe tomar lactando."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "aguaje-complex-3-en-1",
+  "nombre": "AGUAJE COMPLEX 3 EN 1",
+  "analisis": "Suplemento dietario en cápsulas de la marca Vitalabh, con aguaje (200 mg), fenogreco (400 mg) y maca negra (200 mg), más vitaminas A y E. Es un nutracéutico: 2 cápsulas al día con las comidas, 60 cápsulas por frasco (un mes). Se vende como apoyo natural para el proceso de curvas de mujeres que no quieren quirófano. Frasco negro mate con tapa y banda inferior fucsia, etiqueta negra con letras blancas y fucsia.",
+  "tipo_producto": "nutraceutico",
+  "descripcion_visual_en": "A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type.",
+  "foto_producto": "temp/_img-aguaje-complex-3-en-1-20261126-0740/entrada/producto.png",
+  "datos": {
+    "angulo_preferido": "",
+    "publico": "Mujeres colombianas que quieren glúteos y piernas más firmes y redondos de forma natural, sin ir al gym, ni dietas ni pagar cirugías costosas",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "Sello de confianza del usuario: AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024. Oferta según su investigación: tratamiento completo de 3 frascos (3 meses) y pago en efectivo al recibir."
+  },
+  "identidad_visual": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Each variation adds its own secondary support colors from the batch plan.",
+    "visual_style": "Bold, feminine supplement ads for Colombian women built on proven winning ad structures; each variation keeps the rendering style of its structure (3D animated, real photo or flat illustration) while the real bottle always stays sharp and identical to the photo, with fuchsia and plum brand accents.",
+    "visual_atmosphere": "Warm, confident and aspirational, believable and everyday; soft fuchsia glow on branded elements, never clinical.",
+    "graphic_language": "Solid flat color blocks, rounded cards and pills, thin glowing fuchsia borders, white thin-line icons, curved arrows, clean high-contrast typography readable on a phone. Clean backgrounds with negative space, no clutter.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look). The F34 product-name headline uses a heavy elegant serif only in that line.",
+    "art_direction": "Same brand family across the batch (palette, type, the real bottle), but each variation follows a different winning structure, rendering style, body zone, segment, model, wardrobe and camera. One message per image, readable on a phone. Bodies shown tastefully in jeans, leggings or everyday clothes, never explicit, never medical; before/after always the same woman on different days (other light, other clothes), with a believable difference."
+  },
+  "beneficios": [
+    "Acompaña tu proceso de curvas sin agujas ni quirófano",
+    "Más energía y ánimo para cumplirle a tu rutina",
+    "Fácil de cumplir: solo 2 cápsulas al día con tus comidas",
+    "Vuelve a medirte tu ropa favorita con seguridad"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg",
+    "Con vitaminas A y E",
+    "60 cápsulas por frasco: un mes de plan",
+    "Tratamiento completo de 3 frascos para 3 meses, pagas al recibir"
+  ],
+  "deseo_central": "Verse con más curvas y sentirse segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar su proceso de curvas junto con su comida y su rutina.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas y nada se me va ahí",
+    "Ya compré pastillas por internet y perdí la plata",
+    "No sé si lo que venden por redes tiene registro"
+  ]
+}
