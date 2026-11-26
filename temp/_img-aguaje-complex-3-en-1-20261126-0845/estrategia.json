@@ -1,0 +1,52 @@
+{
+  "resumen": "Este lote le habla a la mujer que quiere que el jean le horme y verse con más curvas, pero que no se va a meter a un quirófano. Cada anuncio toma un dolor real (sentadillas sin cambio, jean suelto atrás, miedo a la cirugía, desconfianza) y lo responde con el plan natural de 3 meses: 2 cápsulas al día, comida y rutina de pierna. Se mantiene la misma marca del lote anterior (fucsia, ciruela y negro) y cada imagen usa una estructura ganadora distinta.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#2B1226", "nombre": "Ciruela oscuro" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" }
+  ],
+  "tipografia": "Titulares en letra muy gruesa, recta y en mayúsculas (tipo Montserrat Black). Los textos de apoyo en una letra redonda y firme (tipo Poppins).",
+  "estilo": "Anuncios femeninos y llamativos, fáciles de leer en el celular. Cada imagen tiene su propio estilo (foto real, 3D animado, ilustración plana o bodegón) y el frasco siempre sale igual a la foto, cerrado y sin cápsulas sueltas.",
+  "beneficios": [
+    "Acompaña tu proceso de curvas junto con tu comida y tu rutina de pierna",
+    "Más energía y ánimo para cumplirle a tu rutina",
+    "Fácil de cumplir: 2 cápsulas al día con tus comidas",
+    "Una opción natural, sin agujas ni quirófano"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg por porción",
+    "Con vitaminas A y E",
+    "60 cápsulas por frasco: te dura un mes",
+    "Plan completo de 3 meses con 3 frascos"
+  ],
+  "deseo_central": "Verse con más curvas y que el jean le horme, sintiéndose segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil de 2 cápsulas al día que acompaña su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas y nada se me va ahí",
+    "Ya compré pastillas por internet y no vi nada",
+    "Me comparo con las de Instagram y me siento plana"
+  ],
+  "lo_que_aprendimos_de_tus_anuncios": [
+    "Tu anuncio que ya funciona (curvas en 21 días) dice el resultado en un titular grueso y corto, en mayúsculas, y cierra con un bloque de oferta claro. Lo usamos en V01, V02 y V07: titulares cortos, gruesos y en mayúsculas.",
+    "Los ganadores de la categoría muestran el cambio antes de leer: el mismo cuerpo de perfil, con el jean, en el mismo encuadre. Lo usamos en V01, V06 y V10.",
+    "Funciona ampliar el deseo («no solo la cola, también las piernas»). Lo usamos en el titular de V03.",
+    "Los íconos en círculos fucsia con frases de 2 o 3 palabras se leen en un segundo. Los usamos en V07 y V09.",
+    "El estilo fucsia y negro, con el frasco grande y nítido, es el que más se repite en lo que te gusta: lo mantuvimos en todo el lote."
+  ],
+  "decisiones": [
+    "El ángulo lo elegimos nosotros: el jean que no horma y el miedo al quirófano, que son los dolores más fuertes de tu investigación.",
+    "No diste precio: donde la estructura tenía precio pusimos «Plan de 3 meses» o «60 cápsulas, un mes por frasco», que son datos reales.",
+    "Usamos «Pagas al recibir» porque tu investigación dice que así se vende hoy. No pusimos envío gratis ni garantía porque no los diste.",
+    "El sello que nos diste va en todas las imágenes, copiado letra por letra.",
+    "No decimos «sin gym» ni «aumenta glúteos»: Meta y la ley de Colombia lo pueden frenar. Decimos «acompaña tu proceso de curvas» y «sin agujas ni quirófano».",
+    "Los antes y después salen de lado, con el jean puesto y la ropa cerrada, para que Meta no los frene.",
+    "No usamos cifras de clientas, estrellas ni testimonios con nombre, porque no los tienes todavía."
+  ]
+}
