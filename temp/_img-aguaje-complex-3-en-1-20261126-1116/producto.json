@@ -46,8 +46,8 @@
     "No sé si lo que venden por redes tiene registro"
   ],
   "oferta_fija": {
-    "texto_1": "TRATAMIENTO COMPLETO",
-    "texto_2": "X3 FRASCOS",
+    "texto": "TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES",
+    "nota_antes_despues": "Imagen ilustrativa. Los resultados varían.",
     "confianza": "Pagas al recibir",
     "sello": "REGISTRO INVIMA RSA-0030271-2024",
     "boton": "QUIERO PROBARLO"

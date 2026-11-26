@@ -1,0 +1,22 @@
+{
+  "lote": "_img-vitaldrops-20261121-1738",
+  "identidad_visual": {
+    "color_palette": "the colors of the product packaging",
+    "visual_style": "clean direct-response ad",
+    "visual_atmosphere": "bright and trustworthy",
+    "graphic_language": "six zones: hook, main visual, benefits, product, offer, CTA",
+    "text_typography": "heavy bold sans headline in caps",
+    "art_direction": "new ad built from zero"
+  },
+  "descripcion_visual_en": "Use the attached product photo exactly as it is (packaging, label, colors and proportions).",
+  "paleta": [
+    {
+      "hex": "#000000",
+      "nombre": "la del empaque del producto"
+    },
+    {
+      "hex": "#FFFFFF",
+      "nombre": "fondos claros y textos sobre color"
+    }
+  ]
+}

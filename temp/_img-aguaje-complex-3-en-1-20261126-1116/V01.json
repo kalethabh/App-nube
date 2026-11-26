@@ -1,0 +1,85 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format F52 (Antes y después de una zona con etiquetas, dos frascos y precio en círculo) — winning structure mv-22",
+    "reference_style": "Real-photo before/after ad with labeled callouts, product still life on a stone and a round offer seal, bottom trust band",
+    "angle_used": "Beneficio principal: que el jean te horme, acompañando tu proceso de curvas de forma natural",
+    "ad_format": "Single Image Ad (before/after + product hero)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226 (headline and bottom band), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (background), white #FFFFFF, gold #D4A437 only for seal borders.",
+    "visual_style": "Bold feminine supplement ad for Colombian women; ultra-realistic phone-camera photos for the before/after, crisp studio still life for the bottles.",
+    "visual_atmosphere": "Warm, confident, believable and everyday; soft fuchsia glow on branded elements, never clinical.",
+    "graphic_language": "Rounded photo cards, small solid label tags, thin plum callout lines ending in dots, a round offer seal with gold border, a solid plum bottom band with a white-line icon and a round bordered trust badge.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat Black look), uppercase; labels and band texts in rounded bold sans-serif (Poppins Bold look)."
+  },
+  "creative_objective": "Stop the scroll with the exact pain of the target (jeans loose at the back) and show, on the same woman, the jeans finally fitting her curves; connect that result to the 3-bottle treatment and close with pay-on-delivery and the sanitary registration badge. Keep the exact layout logic of the reference: headline on top, two stacked before/after photos on the left with callouts, bottles on a stone with a round offer seal on the right, trust band at the bottom.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Two-line headline; 2) the before/after photos with their labels; 3) the three bottles and the round offer seal; 4) the bottom band with 'Pagas al recibir' and the registration badge.",
+    "composition_style": "Top 18% headline centered; middle 70% split: left 45% two stacked rounded photo cards (ANTES above, DESPUÉS below) with callout lines pointing to the right, right 55% three bottles on a pale stone with smooth oval leaves and a round offer seal top-right; bottom 12% full-width rounded plum band.",
+    "spacing_and_structure": "Generous margins of about 4% on every side; photo cards separated by a thin gap; labels sit in the space between the photos and the bottles; nothing touches the canvas edge.",
+    "lighting_and_depth": "Photos with soft natural window light from the left; bottles lit by soft daylight from the upper left with a gentle contact shadow on the stone and softly blurred leaves behind them.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Reference image: a huge two-line headline across the top (first line dark, second line in a lighter brand color). Left half: two stacked rectangular photos of the same body zone in profile, each with a small solid tag (ANTES / DESPUÉS) at its top-left corner and two thin lines ending in dots that point to short two-word labels. Right half: dropper bottles standing on a natural rock among green leaves, with a big red circle containing the offer at the top right. Bottom: a full-width rounded dark band with two icons and two short trust texts. Adapted: same order and positions, our body zone (hips and seat of the jeans in profile), our three bottles, the circle with the treatment offer (no price), and a band with 'Pagas al recibir' plus the registration badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top center, 18% of height", "visual_function": "Names the pain and the promise", "adaptation_rule": "Two lines: plum first line, fuchsia second line", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "before photo with tag and callouts", "position": "left column, upper card", "visual_function": "Shows the problem without ambiguity", "adaptation_rule": "Same woman in profile, loose jeans at the back, hand pulling the waistband away", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "after photo with tag and callouts", "position": "left column, lower card", "visual_function": "Shows the result in the same framing", "adaptation_rule": "Same woman, another day and another top, the same jeans now filled and fitted", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "product still life", "position": "right half, lower two thirds", "visual_function": "The real product as hero", "adaptation_rule": "Three identical closed bottles on a pale stone with smooth oval leaves and two small aguaje fruits", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "round offer seal", "position": "top right of the middle zone", "visual_function": "The offer", "adaptation_rule": "Fuchsia circle with gold border and the treatment offer, no price", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "bottom trust band", "position": "bottom 12%, full width", "visual_function": "Removes risk", "adaptation_rule": "Plum band with a hand-and-cash icon, 'Pagas al recibir' and a round bordered registration badge", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Prices, crossed-out prices or discount percentages",
+      "Free shipping text or truck icon",
+      "Stars, ratings, reviews, customer counts or percentages",
+      "Any extra benefit list or icon row",
+      "Any brand logo other than what is printed on the real bottle label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 supplement ad on a pale blush pink #FBE3EE background with very soft out-of-focus smooth oval leaves (no serrated leaves) at the right edge. TOP 18%: a centered two-line headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase: line 1 'QUE EL JEAN TE HORME' in dark plum #2B1226, line 2 'DE FORMA NATURAL' slightly smaller in hot fuchsia #E6177F, no outline, crisp and readable on a phone. MIDDLE 70%, LEFT 45%: two stacked rounded-corner photo cards of the SAME adult Colombian woman, about 27, light-brown skin with real pores and natural texture, long dark wavy hair with loose strands, photographed in profile from the waist to mid-thigh in front of her bedroom mirror, camera at hip height, 50 mm lens, soft natural window light from the left, ultra-realistic phone photo, never AI-looking. UPPER CARD (before): small solid plum tag 'ANTES' in white Poppins Bold at its top-left corner; she wears a plain grey cotton t-shirt tucked in and light-blue jeans one size too big at the back: a baggy fold of extra denim below the seat, drooping back pockets, one straight flat vertical line from waist to thigh, thin straight thighs not filling the legs; her right hand pulls the waistband away from her lower back by a full fist, so the empty gap between denim and skin is clearly visible; her face turned slightly to the mirror with a frustrated frown. UPPER CARD callouts: two thin plum lines ending in small dots point right to labels 'Jean suelto atrás' and 'Bolsillos caídos' in plum Poppins Bold. LOWER CARD (after, a different day): tag 'DESPUÉS' in a solid fuchsia #E6177F pill with white text; same woman, same framing and same jeans but a white ribbed tank top and warmer afternoon light; now a curvy hourglass figure: small waist, hips about one and a half times wider than her waist, rounder lifted seat projecting clearly behind her lower back, fuller thighs filling the jean legs, the denim smooth and fitted with no fold; relaxed confident smile; the change is obvious at first glance, believable, never cartoonish. LOWER CARD callouts: labels 'Jean que horma' and 'Curvas con forma'. Under the cards, a tiny line 'Imagen ilustrativa. Los resultados varían.' in plum Poppins Regular. MIDDLE 70%, RIGHT 55%: three identical closed bottles of the product standing on a smooth pale beige stone, the center one in front and slightly larger, about 45% of the canvas height, label facing the camera and perfectly legible, the other two slightly behind and to each side, all fully inside the frame, never touching the edge; two small reddish scaly aguaje fruits and a few smooth oval green leaves at the base; soft daylight from upper left, gentle contact shadow. Use the attached product photo as the only source of truth for the bottle; do not redesign, replace or reinterpret it. The bottle: A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows a small pink VITALABH emblem, a huge bold white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, the bold italic hot-pink 'TRIPLE ACCIÓN', three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom. Matte finish, no rainbow, no prism light, no lens flare; always closed, no loose capsules, no pills; label never mirrored. TOP-RIGHT of the middle zone, overlapping the leaves above the bottles: a round seal about 26% of the canvas width, solid hot fuchsia #E6177F with a thin gold #D4A437 ring, white Montserrat Black text centered on three lines: 'TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES'. BOTTOM 12%: a full-width rounded rectangle band in dark plum #2B1226; left side a white thin-line icon of a hand receiving a package, then 'Pagas al recibir' in large white Poppins Bold; right side a round trust badge with a solid gold #D4A437 border and a white center, reading 'REGISTRO INVIMA RSA-0030271-2024' in plum bold small caps on two lines.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline line 1", "reference_position": "top center", "text_style": "Montserrat Black look, uppercase, dark plum #2B1226, largest text", "text": "QUE EL JEAN TE HORME" },
+    { "block_id": "text_block_02", "reference_function": "main headline line 2", "reference_position": "top center, below line 1", "text_style": "Montserrat Black look, uppercase, hot fuchsia #E6177F, slightly smaller", "text": "DE FORMA NATURAL" },
+    { "block_id": "text_block_03", "reference_function": "before tag", "reference_position": "top-left corner of the upper photo", "text_style": "White Poppins Bold uppercase on a solid plum tag", "text": "ANTES" },
+    { "block_id": "text_block_04", "reference_function": "callout label", "reference_position": "right of the upper photo, first line", "text_style": "Plum Poppins Bold, two short lines", "text": "Jean suelto atrás" },
+    { "block_id": "text_block_05", "reference_function": "callout label", "reference_position": "right of the upper photo, second line", "text_style": "Plum Poppins Bold, two short lines", "text": "Bolsillos caídos" },
+    { "block_id": "text_block_06", "reference_function": "after tag", "reference_position": "top-left corner of the lower photo", "text_style": "White Poppins Bold uppercase on a solid fuchsia tag", "text": "DESPUÉS" },
+    { "block_id": "text_block_07", "reference_function": "callout label", "reference_position": "right of the lower photo, first line", "text_style": "Plum Poppins Bold", "text": "Jean que horma" },
+    { "block_id": "text_block_08", "reference_function": "callout label", "reference_position": "right of the lower photo, second line", "text_style": "Plum Poppins Bold", "text": "Curvas con forma" },
+    { "block_id": "text_block_09", "reference_function": "disclaimer", "reference_position": "under the photo cards", "text_style": "Tiny plum Poppins Regular", "text": "Imagen ilustrativa. Los resultados varían." },
+    { "block_id": "text_block_10", "reference_function": "offer seal", "reference_position": "round seal, top right of the middle zone", "text_style": "White Montserrat Black, centered on three lines, inside a fuchsia circle with a gold ring", "text": "TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES" },
+    { "block_id": "text_block_11", "reference_function": "trust item", "reference_position": "bottom band, left", "text_style": "Large white Poppins Bold", "text": "Pagas al recibir" },
+    { "block_id": "text_block_12", "reference_function": "trust badge", "reference_position": "bottom band, right, inside a round gold-bordered badge", "text_style": "Plum bold small caps on two lines", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Two stacked photo cards of the same woman in profile: before with loose jeans and the hand pulling the waistband a fist away from her body, after with the same jeans fitted on a curvy hourglass figure",
+    "Thin plum callout lines ending in dots pointing to the labels",
+    "Three identical closed bottles on a pale stone with smooth oval leaves and two aguaje fruits, labels facing the camera",
+    "Round fuchsia offer seal with gold ring",
+    "Full-width plum bottom band with a hand-and-package icon and a round gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "No loose capsules, no pills, no open bottle",
+    "No prices, no crossed-out prices, no percentages, no stars, no reviews, no free shipping",
+    "No words 'AGREGAR', 'LOGO' or 'SELLO DE' anywhere",
+    "No underwear, no bare buttocks, no back-only pose without the profile face",
+    "No serrated or cannabis-like leaves",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra badges, benefit lists, icons, ratings, testimonials or discount labels beyond the offer seal, the bottom band and the registration badge described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The result is framed as the jeans fitting naturally, with the disclaimer 'Imagen ilustrativa. Los resultados varían.'",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "angulo_id": "prueba-social",
+    "formato_id": "F17"
+  },
+  {
+    "angulo_id": "objecion-confianza",
+    "formato_id": "F04"
+  },
+  {
+    "angulo_id": "dolor",
+    "formato_id": "F23"
+  },
+  {
+    "angulo_id": "prueba-social",
+    "formato_id": "F29"
+  },
+  {
+    "angulo_id": "promesa-emocional",
+    "formato_id": "F28"
+  },
+  {
+    "angulo_id": "transformacion",
+    "formato_id": "F03"
+  },
+  {
+    "angulo_id": "beneficio-principal",
+    "formato_id": "G16"
+  }
+]

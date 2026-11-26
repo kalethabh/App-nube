@@ -28,7 +28,7 @@
       "inicio": "2026-11-26T16:16:19.841Z",
       "uuid": "fad524aa-c337-41a6-aa21-c7bdc85ce6c4",
       "retomado": true,
-      "detalle": "Armando la estrategia"
+      "detalle": "Escribiendo cada anuncio"
     },
     {
       "id": "anuncios",
@@ -47,5 +47,5 @@
   "modoPrueba": false,
   "creado": "2026-11-26T16:16:19.742Z",
   "aprobado": "2026-11-26T16:16:19.742Z",
-  "actualizado": "2026-11-26T16:18:30.448Z"
+  "actualizado": "2026-11-26T16:19:50.214Z"
 }
