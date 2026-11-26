@@ -27,6 +27,16 @@
         "motivo": null,
         "fecha": "2026-11-26T20:13:46.275Z"
       }
+    ],
+    "V03_1x1": [
+      {
+        "n": 1,
+        "archivo": "versiones/V03_1x1.v1.png",
+        "prompt": "versiones/V03_1x1.v1.txt",
+        "reemplazadaPor": "U0004",
+        "motivo": null,
+        "fecha": "2026-11-26T20:36:16.998Z"
+      }
     ]
   }
 }

@@ -3,22 +3,16 @@
     "variation_id": "V03"
   },
   "global_identity": {
-    "color_palette": "exactly the same as the reference: Nombre del producto blanco #FFFFFF (con 'O' estilizada amarilla #F5C518); subtítulo negro #111111 sobre amarillo #F5C518; etiquetas con texto blanco #FFFFFF; '60% DE DESCUENTO' negro #111111 sobre amarillo #F7C600; regalo blanco #FFFFFF sobre rojo #D7262B; flecha y destellos amarillo #FFC21A; fondo verde oscuro y marrón #1E2414 / #3A2A15",
-    "text_typography": "exactly the same as the reference: Nombre del producto: sans serif extra negrita, itálica, en mayúsculas, con sombra suave. Subtítulo: sans serif negrita itálica, en minúsculas con inicial mayúscula. Etiquetas antes/después: sans serif negrita en mayúsculas, dos líneas. '60%': sans serif negra extra gruesa muy grande; 'DE DESCUENTO' negrita en mayúsculas debajo. '+ REGALO GRATIS': sans serif negrita itálica en mayúsculas"
+    "color_palette": "exactly the same as the reference: Titular blanco #FFFFFF con la palabra 'AUMENTAR' en amarillo #F5C518; subtítulo negro #111111 sobre amarillo #F5C518; etiquetas con texto blanco #FFFFFF; franja inferior de tratamiento: texto negro #111111 sobre amarillo #F7C600; flecha y destellos amarillo #FFC21A; fondo verde oscuro y marrón #1E2414 / #3A2A15",
+    "text_typography": "exactly the same as the reference: Titular: sans serif extra negrita, itálica, en mayúsculas, con sombra suave. Subtítulo: sans serif negrita itálica, en minúsculas con inicial mayúscula. Etiquetas antes/después: sans serif negrita en mayúsculas, dos líneas. Franja de tratamiento: 'TRATAMIENTO COMPLETO:' sans serif negra extra gruesa grande; 'RESULTADOS PROGRESIVOS Y DURADEROS' negrita en mayúsculas debajo"
   },
-  "visual_prompt": "PRODUCT: VITALDROPS. It replaces the product of the reference, in the same zone, size and angle.\nMAP OF THE REFERENCE (fixed, nothing moves):\n- Headline: Arriba al centro: logo pequeño de marca encima, nombre del producto grande (unos 45% del ancho) y debajo una cinta amarilla con el subtítulo (unos 40% del ancho), todo centrado\n- Model / before-after: Antes/después de la misma modelo de perfil, de espaldas mirando a cámara: 'antes' a la izquierda y 'después' a la derecha, cada una ocupa casi toda la altura y cerca del 40% del ancho; juntas cubren alrededor del 80% de la imagen\n- Product bottle: Frasco gotero ámbar con etiqueta amarilla al centro abajo, sobre un pedestal de piedra con hojas verdes a los lados; ocupa cerca del 55% del alto, de frente y recto\n- Benefit bullets / checks: Dos etiquetas a media altura sobre las modelos: a la izquierda una píldora roja con círculo blanco y X roja ('antes'); a la derecha una píldora verde con círculo blanco y check verde ('después')\n- Offer block and CTA: Franja inferior a lo ancho: a la izquierda bloque amarillo con el porcentaje de descuento en grande; separado por una barra diagonal, a la derecha una píldora roja con ícono de regalo y el texto del regalo. No hay botón\n- Other blocks: Flecha curva amarilla brillante que va del antes al después sobre el frasco; líneas punteadas blancas junto a la cadera izquierda y destellos amarillos curvos junto a la cadera derecha; fondo oscuro de bosque desenfocado con luz cálida\nREADING HIERARCHY (unchanged): 1) El contraste antes/después con las etiquetas 'Glúteos sin forma' y 'Curvas más definidas'  2) El nombre del producto arriba y el frasco al centro  3) La oferta de abajo: 60% de descuento + regalo gratis\nTYPOGRAPHY: Nombre del producto: sans serif extra negrita, itálica, en mayúsculas, con sombra suave. Subtítulo: sans serif negrita itálica, en minúsculas con inicial mayúscula. Etiquetas antes/después: sans serif negrita en mayúsculas, dos líneas. '60%': sans serif negra extra gruesa muy grande; 'DE DESCUENTO' negrita en mayúsculas debajo. '+ REGALO GRATIS': sans serif negrita itálica en mayúsculas\nPALETTE: Nombre del producto blanco #FFFFFF (con 'O' estilizada amarilla #F5C518); subtítulo negro #111111 sobre amarillo #F5C518; etiquetas con texto blanco #FFFFFF; '60% DE DESCUENTO' negro #111111 sobre amarillo #F7C600; regalo blanco #FFFFFF sobre rojo #D7262B; flecha y destellos amarillo #FFC21A; fondo verde oscuro y marrón #1E2414 / #3A2A15\nTEXT BLOCK BACKGROUNDS: Subtítulo: cinta amarilla redondeada. Etiqueta 'antes': píldora roja #C9252B con círculo blanco y X roja. Etiqueta 'después': píldora verde #2E8B2E con círculo blanco y check verde. Descuento: bloque amarillo redondeado con borde fino. Regalo: píldora roja con borde blanco/amarillo e ícono de regalo blanco\nSALES ANGLE (identical): desire: Tener curvas más definidas y una figura que se vea bien en ropa ajustada; main benefit: Fórmula líquida de alta absorción que acompaña el cambio de la figura; pain: Glúteos sin forma.\nWHAT CHANGES IN THIS IMAGE (and only this):\n- MODEL: a 30 years old woman, muscular, medium olive skin, a short bob, ordinary and believable (not a fashion model), natural makeup. If the reference has a before/after, it is this same new woman in both halves.\n- SETTING / BACKGROUND OF THE PHOTO: a balcony or terrace at sunset.\n- POSE AND FRAMING: seated on the edge of a bed or bench, side view, full body framing, inside the same zone and the same % of the image as the reference.\n- HEADLINE WORDING: the one given in TEXTS (same promise, other words).",
+  "visual_prompt": "PRODUCT: the dropper bottle from the attached product photo, in the same zone, size and angle, but its label is softly blurred so no brand name or logo can be read (keep the yellow-and-white label colors and the bottle shape).\nMAP OF THE REFERENCE (fixed, nothing moves):\n- Headline: Arriba al centro: titular grande en dos líneas 'AUMENTA LO QUE / DEBE AUMENTAR' (unos 60% del ancho), blanco #FFFFFF con la palabra 'AUMENTAR' en amarillo #F5C518, y debajo una cinta amarilla con el subtítulo (unos 40% del ancho), todo centrado. No brand logo above it.\n- Model / before-after: Antes/después de la misma modelo de perfil, sentada, mirando a cámara: 'antes' a la izquierda y 'después' a la derecha, cada una ocupa casi toda la altura y cerca del 40% del ancho; juntas cubren alrededor del 80% de la imagen. In the 'after' half the same woman has a visibly curvier, more shapely silhouette at hips and thighs, natural and believable, same pose, same clothes.\n- Product bottle: Frasco gotero ámbar con etiqueta amarilla borrosa al centro abajo, sobre un pedestal de piedra con hojas verdes a los lados; ocupa cerca del 55% del alto, de frente y recto\n- Benefit bullets / checks: Dos etiquetas a media altura sobre las modelos: a la izquierda una píldora roja con círculo blanco y X roja ('antes'); a la derecha una píldora verde con círculo blanco y check verde ('después')\n- Offer block: Franja inferior a lo ancho, un solo bloque amarillo redondeado con borde fino y el texto 'TRATAMIENTO COMPLETO:' grande y debajo 'RESULTADOS PROGRESIVOS Y DURADEROS'. No hay botón\n- Other blocks: Flecha curva amarilla brillante que va del antes al después sobre el frasco; líneas punteadas blancas junto a la cadera izquierda y destellos amarillos curvos junto a la cadera derecha; fondo de balcón al atardecer con luz cálida\nREADING HIERARCHY (unchanged): 1) El contraste antes/después con las etiquetas 'Glúteos sin forma' y 'Curvas más definidas'  2) El titular arriba y el frasco al centro  3) La franja de abajo: tratamiento completo\nTYPOGRAPHY: Titular: sans serif extra negrita, itálica, en mayúsculas, con sombra suave. Subtítulo: sans serif negrita itálica, en minúsculas con inicial mayúscula. Etiquetas antes/después: sans serif negrita en mayúsculas, dos líneas. Franja: sans serif negra extra gruesa\nPALETTE: Titular blanco #FFFFFF con 'AUMENTAR' en amarillo #F5C518; subtítulo negro #111111 sobre amarillo #F5C518; etiquetas con texto blanco #FFFFFF; franja de tratamiento negro #111111 sobre amarillo #F7C600; flecha y destellos amarillo #FFC21A\nTEXT BLOCK BACKGROUNDS: Subtítulo: cinta amarilla redondeada. Etiqueta 'antes': píldora roja #C9252B con círculo blanco y X roja. Etiqueta 'después': píldora verde #2E8B2E con círculo blanco y check verde. Franja de tratamiento: bloque amarillo redondeado con borde fino\nSALES ANGLE (identical): desire: Tener curvas más definidas y una figura que se vea bien en ropa ajustada; main benefit: Fórmula líquida de alta absorción que acompaña el cambio de la figura; pain: Glúteos sin forma.\nWHAT CHANGES IN THIS IMAGE (and only this):\n- MODEL: a 30 years old woman, muscular, medium olive skin, a short bob, ordinary and believable (not a fashion model), natural makeup. Same woman in both halves; the 'after' shows a curvier silhouette at hips and thighs.\n- SETTING / BACKGROUND OF THE PHOTO: a balcony or terrace at sunset.\n- POSE AND FRAMING: seated on the edge of a bench, side view, full body framing, inside the same zone and the same % of the image as the reference.",
   "text_layers": [
     {
       "reference_function": "main headline",
-      "reference_position": "Arriba al centro: logo pequeño de marca encima, nombre del producto grande (unos 45% del ancho) y debajo una cinta amarilla con el subtítulo (unos 40% del ancho), todo centrado",
-      "text": "VITALDROPS — Fórmula en gotas de fácil absorción",
-      "text_style": "the same style, size and background as the headline of the reference"
-    },
-    {
-      "reference_function": "nombre del producto",
-      "reference_position": "the same zone as in the reference",
-      "text": "VITALDROPS",
-      "text_style": "the same style and background as in the reference"
+      "reference_position": "Arriba al centro, donde estaban el logo y el nombre del producto",
+      "text": "AUMENTA LO QUE DEBE AUMENTAR",
+      "text_style": "sans serif extra negrita, itálica, mayúsculas, con sombra suave, en dos líneas; todo blanco #FFFFFF salvo la palabra 'AUMENTAR' (la última) en amarillo #F5C518"
     },
     {
       "reference_function": "subtítulo (cinta)",
@@ -39,20 +33,14 @@
       "text_style": "the same style and background as in the reference"
     },
     {
-      "reference_function": "oferta descuento",
-      "reference_position": "the same zone as in the reference",
-      "text": "60% DE DESCUENTO",
-      "text_style": "the same style and background as in the reference"
-    },
-    {
-      "reference_function": "oferta regalo",
-      "reference_position": "the same zone as in the reference",
-      "text": "+ REGALO GRATIS",
-      "text_style": "the same style and background as in the reference"
+      "reference_function": "oferta tratamiento",
+      "reference_position": "franja inferior a lo ancho, en un solo bloque amarillo",
+      "text": "TRATAMIENTO COMPLETO: RESULTADOS PROGRESIVOS Y DURADEROS",
+      "text_style": "'TRATAMIENTO COMPLETO:' grande en sans serif negra extra gruesa y debajo 'RESULTADOS PROGRESIVOS Y DURADEROS' en negrita mayúsculas, negro #111111 sobre amarillo #F7C600"
     }
   ],
   "mandatory_visual_elements": [
-    "the real product from the attached product photo, where the reference has its bottle",
+    "the real product from the attached product photo, where the reference has its bottle, with its label softly blurred so the brand cannot be read",
     "a different woman: a 30 years old woman, muscular, medium olive skin, a short bob, ordinary and believable (not a fashion model), natural makeup"
   ],
   "final_generation_exclusions": [
@@ -60,7 +48,11 @@
     "a different font or palette",
     "any new claim, number or testimonial",
     "the reference's brand or logo",
-    "misspelled words"
+    "any readable brand name or logo on the bottle or above the headline",
+    "the words 'amua' or 'VITALDROPS' anywhere in the image",
+    "discount percentage or gift block",
+    "misspelled words",
+    "exaggerated or unrealistic body proportions"
   ],
   "reference_structure_analysis": {
     "forbidden_additions": [

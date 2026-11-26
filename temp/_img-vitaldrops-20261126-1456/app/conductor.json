@@ -34,7 +34,7 @@
       "estado": "corriendo",
       "intentos": 5,
       "inicio": "2026-11-26T20:34:16.907Z",
-      "detalle": "Claude está preparando tus cambios: leyendo las instrucciones del estilo · 9 de 10 listas"
+      "detalle": "Claude está preparando tus cambios: buscando en los archivos · 9 de 10 listas"
     },
     {
       "id": "informe",
@@ -47,5 +47,5 @@
   "modoPrueba": false,
   "creado": "2026-11-26T19:56:25.842Z",
   "aprobado": "2026-11-26T19:56:25.842Z",
-  "actualizado": "2026-11-26T20:34:29.162Z"
+  "actualizado": "2026-11-26T20:36:18.164Z"
 }

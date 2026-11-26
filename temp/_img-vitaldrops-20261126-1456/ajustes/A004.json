@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0004",
+      "aplicado": true,
+      "cambia_textos": true,
+      "instruccion_en": "Edit this image. 1) Replace the top 'amua' logo and the 'VITALDROPS' name with one bold italic headline in two lines: 'AUMENTA LO QUE / DEBE AUMENTAR', white #FFFFFF with the word 'AUMENTAR' in yellow #F5C518, same size zone and soft shadow. Keep the yellow ribbon 'Fórmula líquida de alta absorción' below it. 2) Replace the whole bottom bar ('60% DE DESCUENTO' and '+ REGALO GRATIS') with a single rounded yellow #F7C600 bar: 'TRATAMIENTO COMPLETO:' large in black #111111 and below it 'RESULTADOS PROGRESIVOS Y DURADEROS' in black bold caps. No discount, no gift icon. 3) In the right 'after' half, give the same woman a visibly curvier, more shapely silhouette at hips and thighs, natural and believable, same pose, clothes and framing. 4) Softly blur the bottle label so no brand name or logo can be read, keeping its yellow-and-white colors and bottle shape. Keep everything else exactly the same: the before/after labels, arrow, sparkles, background, faces, layout and colors. Spell all Spanish text exactly as given.",
+      "resumen": "Nuevo titular «AUMENTA LO QUE DEBE AUMENTAR». Abajo: «TRATAMIENTO COMPLETO: RESULTADOS PROGRESIVOS Y DURADEROS» («rápido» y «sin efecto rebote» Meta los rechaza). Más curvas a la derecha y etiqueta del frasco borrosa."
+    }
+  ]
+}

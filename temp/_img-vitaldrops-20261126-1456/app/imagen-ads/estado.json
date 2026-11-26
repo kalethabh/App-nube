@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 5,
-    "T": 5
+    "A": 6,
+    "T": 6
   },
   "tandas": {
     "E001": {
@@ -56,9 +56,18 @@
     "A004": {
       "tipo": "ajuste",
       "uuid": "481273bd-dd92-44dc-b4f4-f9b9274cf430",
-      "estado": "en-curso",
+      "estado": "hecha",
       "pedidos": [
         "U0004"
+      ],
+      "empezada": true
+    },
+    "A005": {
+      "tipo": "ajuste",
+      "uuid": "7d1bbb20-a879-45c1-8109-4e1e376e4d83",
+      "estado": "en-curso",
+      "pedidos": [
+        "U0005"
       ]
     }
   },
@@ -145,20 +154,21 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "ajustando",
+      "fase": "final",
       "resultado": "listo",
-      "version": 1,
-      "firma": "2330981-1795723402148",
+      "version": 2,
+      "firma": "2189028-1795725376986",
       "orden": null,
-      "intentosApi": 2,
-      "ronda": 1,
+      "intentosApi": 1,
+      "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T20:03:23.021Z",
+      "desde": "2026-11-26T20:36:18.163Z",
       "pedido": null,
-      "ultimaOrden": "g"
+      "ultimaOrden": "U0004",
+      "fallo": null
     },
     "V04_1x1": {
       "v": "V04",
@@ -236,7 +246,7 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 1,
       "firma": "2165221-1795723502593",
@@ -357,8 +367,29 @@
       "pieza": "V03_1x1",
       "instruccion": "la promo cambiala por: TRATAMIENTO COMPLETO: RÁPIDO, DURADERO Y SIN EFECTO REBOTE\n\nLA PERSONA DE LA DDEBE TENER MÁS GLÚTEOS PIERNAS Y CADERAS\n\nCAMBIA LO Q DICE: \"AMUA VITALDROPS\" POR:\n\nAUMENTA LO QUE DEBE AUMENTA\n\nEL LOGO DEL PRODUCTO HAZLO UN POCO BORROSO PARA NO MOSTRAR LA MARCA",
       "fecha": "2026-11-26T20:34:16.905Z",
+      "estado": "listo",
+      "ajuste": "A004",
+      "instruccion_en": "Edit this image. 1) Replace the top 'amua' logo and the 'VITALDROPS' name with one bold italic headline in two lines: 'AUMENTA LO QUE / DEBE AUMENTAR', white #FFFFFF with the word 'AUMENTAR' in yellow #F5C518, same size zone and soft shadow. Keep the yellow ribbon 'Fórmula líquida de alta absorción' below it. 2) Replace the whole bottom bar ('60% DE DESCUENTO' and '+ REGALO GRATIS') with a single rounded yellow #F7C600 bar: 'TRATAMIENTO COMPLETO:' large in black #111111 and below it 'RESULTADOS PROGRESIVOS Y DURADEROS' in black bold caps. No discount, no gift icon. 3) In the right 'after' half, give the same woman a visibly curvier, more shapely silhouette at hips and thighs, natural and believable, same pose, clothes and framing. 4) Softly blur the bottle label so no brand name or logo can be read, keeping its yellow-and-white colors and bottle shape. Keep everything else exactly the same: the before/after labels, arrow, sparkles, background, faces, layout and colors. Spell all Spanish text exactly as given.",
+      "cambiaTextos": true,
+      "resumen": "Nuevo titular «AUMENTA LO QUE DEBE AUMENTAR». Abajo: «TRATAMIENTO COMPLETO: RESULTADOS PROGRESIVOS Y DURADEROS» («rápido» y «sin efecto rebote» Meta los rechaza). Más curvas a la derecha y etiqueta del frasco borrosa.",
+      "pasos": [
+        {
+          "pieza": "V03_1x1",
+          "orden": "U0004",
+          "modo": "editar",
+          "instruccion_en": "Edit this image. 1) Replace the top 'amua' logo and the 'VITALDROPS' name with one bold italic headline in two lines: 'AUMENTA LO QUE / DEBE AUMENTAR', white #FFFFFF with the word 'AUMENTAR' in yellow #F5C518, same size zone and soft shadow. Keep the yellow ribbon 'Fórmula líquida de alta absorción' below it. 2) Replace the whole bottom bar ('60% DE DESCUENTO' and '+ REGALO GRATIS') with a single rounded yellow #F7C600 bar: 'TRATAMIENTO COMPLETO:' large in black #111111 and below it 'RESULTADOS PROGRESIVOS Y DURADEROS' in black bold caps. No discount, no gift icon. 3) In the right 'after' half, give the same woman a visibly curvier, more shapely silhouette at hips and thighs, natural and believable, same pose, clothes and framing. 4) Softly blur the bottle label so no brand name or logo can be read, keeping its yellow-and-white colors and bottle shape. Keep everything else exactly the same: the before/after labels, arrow, sparkles, background, faces, layout and colors. Spell all Spanish text exactly as given.",
+          "textos": true
+        }
+      ],
+      "paso": 0
+    },
+    "U0005": {
+      "id": "U0005",
+      "pieza": "V08_1x1",
+      "instruccion": "la promo cambiala por: TRATAMIENTO COMPLETO: RÁPIDO, DURADERO Y SIN EFECTO REBOTE\n\nLA PERSONA DE LA DDEBE TENER MÁS GLÚTEOS PIERNAS Y CADERAS\n\nCAMBIA LO Q DICE: \"AMUA VITALDROPS\" POR:\n\n100% ORIGINAL\n\nEL LOGO DEL PRODUCTO HAZLO UN POCO BORROSO PARA NO MOSTRAR LA MARCA",
+      "fecha": "2026-11-26T20:35:46.808Z",
       "estado": "ajustando",
-      "ajuste": "A004"
+      "ajuste": "A005"
     }
   }
 }

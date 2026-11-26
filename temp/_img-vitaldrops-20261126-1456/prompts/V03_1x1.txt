@@ -1,48 +1,10 @@
-MODE: REPLICATE A VALIDATED AD. The FIRST attached image is a VALIDATED, WINNING AD. Reproduce it EXACTLY, as a pixel-faithful layout clone: every block stays in the same position, the same size and the same alignment (headline, model or before/after, product bottle, benefit bullets or checks, offer block and call to action); the same reading hierarchy (what is read first, second and third does not change); the same fonts (style, weight, casing, size and effects), the same colors and the same background of every text block (ribbon, badge, box). The sales angle is IDENTICAL: same central desire, same main benefit, same pain. ONLY these things change, and they MUST change: (1) the MODEL is a different woman (the age, body type and skin tone given below), believable and ordinary, never a fashion model; (2) the SETTING/background of the photo (the one given below); (3) her POSE and the FRAMING (given below); (4) the WORDING of the main headline (given below: same promise, other words, about the same length, so it fits the same zone). FORBIDDEN: moving, adding or removing blocks; changing fonts; changing the palette; changing the angle; inventing new claims, numbers or testimonials; changing the offer or the call to action. Replace the product bottle of the reference with the product of the SECOND attached image, in the same place, size and angle. Every other text keeps exactly the text given below, in its same zone and style, perfectly spelled. GLOBAL RULES: the brand name and the label of the bottle EXACT, letter by letter, as in the product photo; no text closer than 5% to any edge; legible on a phone at half screen. IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+Edit this advertising image (the FIRST attached image) following this instruction: "Edit this image. 1) Replace the top 'amua' logo and the 'VITALDROPS' name with one bold italic headline in two lines: 'AUMENTA LO QUE / DEBE AUMENTAR', white #FFFFFF with the word 'AUMENTAR' in yellow #F5C518, same size zone and soft shadow. Keep the yellow ribbon 'Fórmula líquida de alta absorción' below it. 2) Replace the whole bottom bar ('60% DE DESCUENTO' and '+ REGALO GRATIS') with a single rounded yellow #F7C600 bar: 'TRATAMIENTO COMPLETO:' large in black #111111 and below it 'RESULTADOS PROGRESIVOS Y DURADEROS' in black bold caps. No discount, no gift icon. 3) In the right 'after' half, give the same woman a visibly curvier, more shapely silhouette at hips and thighs, natural and believable, same pose, clothes and framing. 4) Softly blur the bottle label so no brand name or logo can be read, keeping its yellow-and-white colors and bottle shape. Keep everything else exactly the same: the before/after labels, arrow, sparkles, background, faces, layout and colors. Spell all Spanish text exactly as given.". Keep everything else exactly as it is (layout, texts, colors, typography, person, product) unless the instruction says otherwise. The SECOND attached image is the real product photo: the product must stay identical to it. Do not add new elements.
 
-WHAT TO MAKE:
-PRODUCT: VITALDROPS. It replaces the product of the reference, in the same zone, size and angle.
-MAP OF THE REFERENCE (fixed, nothing moves):
-- Headline: Arriba al centro: logo pequeño de marca encima, nombre del producto grande (unos 45% del ancho) y debajo una cinta amarilla con el subtítulo (unos 40% del ancho), todo centrado
-- Model / before-after: Antes/después de la misma modelo de perfil, de espaldas mirando a cámara: 'antes' a la izquierda y 'después' a la derecha, cada una ocupa casi toda la altura y cerca del 40% del ancho; juntas cubren alrededor del 80% de la imagen
-- Product bottle: Frasco gotero ámbar con etiqueta amarilla al centro abajo, sobre un pedestal de piedra con hojas verdes a los lados; ocupa cerca del 55% del alto, de frente y recto
-- Benefit bullets / checks: Dos etiquetas a media altura sobre las modelos: a la izquierda una píldora roja con círculo blanco y X roja ('antes'); a la derecha una píldora verde con círculo blanco y check verde ('después')
-- Offer block and CTA: Franja inferior a lo ancho: a la izquierda bloque amarillo con el porcentaje de descuento en grande; separado por una barra diagonal, a la derecha una píldora roja con ícono de regalo y el texto del regalo. No hay botón
-- Other blocks: Flecha curva amarilla brillante que va del antes al después sobre el frasco; líneas punteadas blancas junto a la cadera izquierda y destellos amarillos curvos junto a la cadera derecha; fondo oscuro de bosque desenfocado con luz cálida
-READING HIERARCHY (unchanged): 1) El contraste antes/después con las etiquetas 'Glúteos sin forma' y 'Curvas más definidas'  2) El nombre del producto arriba y el frasco al centro  3) La oferta de abajo: 60% de descuento + regalo gratis
-TYPOGRAPHY: Nombre del producto: sans serif extra negrita, itálica, en mayúsculas, con sombra suave. Subtítulo: sans serif negrita itálica, en minúsculas con inicial mayúscula. Etiquetas antes/después: sans serif negrita en mayúsculas, dos líneas. '60%': sans serif negra extra gruesa muy grande; 'DE DESCUENTO' negrita en mayúsculas debajo. '+ REGALO GRATIS': sans serif negrita itálica en mayúsculas
-PALETTE: Nombre del producto blanco #FFFFFF (con 'O' estilizada amarilla #F5C518); subtítulo negro #111111 sobre amarillo #F5C518; etiquetas con texto blanco #FFFFFF; '60% DE DESCUENTO' negro #111111 sobre amarillo #F7C600; regalo blanco #FFFFFF sobre rojo #D7262B; flecha y destellos amarillo #FFC21A; fondo verde oscuro y marrón #1E2414 / #3A2A15
-TEXT BLOCK BACKGROUNDS: Subtítulo: cinta amarilla redondeada. Etiqueta 'antes': píldora roja #C9252B con círculo blanco y X roja. Etiqueta 'después': píldora verde #2E8B2E con círculo blanco y check verde. Descuento: bloque amarillo redondeado con borde fino. Regalo: píldora roja con borde blanco/amarillo e ícono de regalo blanco
-SALES ANGLE (identical): desire: Tener curvas más definidas y una figura que se vea bien en ropa ajustada; main benefit: Fórmula líquida de alta absorción que acompaña el cambio de la figura; pain: Glúteos sin forma.
-WHAT CHANGES IN THIS IMAGE (and only this):
-- MODEL: a 30 years old woman, muscular, medium olive skin, a short bob, ordinary and believable (not a fashion model), natural makeup. If the reference has a before/after, it is this same new woman in both halves.
-- SETTING / BACKGROUND OF THE PHOTO: a balcony or terrace at sunset.
-- POSE AND FRAMING: seated on the edge of a bed or bench, side view, full body framing, inside the same zone and the same % of the image as the reference.
-- HEADLINE WORDING: the one given in TEXTS (same promise, other words).
+Exact visible texts (each appears exactly once, correctly spelled, nothing else added):
+- main headline: "AUMENTA LO QUE DEBE AUMENTAR"
+- subtítulo (cinta): "Fórmula líquida de alta absorción"
+- etiqueta antes: "GLÚTEOS SIN FORMA"
+- etiqueta después: "CURVAS MÁS DEFINIDAS"
+- oferta tratamiento: "TRATAMIENTO COMPLETO: RESULTADOS PROGRESIVOS Y DURADEROS"
 
-TEXTS (render each one EXACTLY as written, no spelling changes, in its zone and with the same style as in the reference):
-- main headline (Arriba al centro: logo pequeño de marca encima, nombre del producto grande (unos 45% del ancho) y debajo una cinta amarilla con el subtítulo (unos 40% del ancho), todo centrado): "VITALDROPS — Fórmula en gotas de fácil absorción" — the same style, size and background as the headline of the reference
-- nombre del producto (the same zone as in the reference): "VITALDROPS" — the same style and background as in the reference
-- subtítulo (cinta) (the same zone as in the reference): "Fórmula líquida de alta absorción" — the same style and background as in the reference
-- etiqueta antes (the same zone as in the reference): "GLÚTEOS SIN FORMA" — the same style and background as in the reference
-- etiqueta después (the same zone as in the reference): "CURVAS MÁS DEFINIDAS" — the same style and background as in the reference
-- oferta descuento (the same zone as in the reference): "60% DE DESCUENTO" — the same style and background as in the reference
-- oferta regalo (the same zone as in the reference): "+ REGALO GRATIS" — the same style and background as in the reference
-
-BRAND IDENTITY:
-- color_palette: exactly the same as the reference: Nombre del producto blanco #FFFFFF (con 'O' estilizada amarilla #F5C518); subtítulo negro #111111 sobre amarillo #F5C518; etiquetas con texto blanco #FFFFFF; '60% DE DESCUENTO' negro #111111 sobre amarillo #F7C600; regalo blanco #FFFFFF sobre rojo #D7262B; flecha y destellos amarillo #FFC21A; fondo verde oscuro y marrón #1E2414 / #3A2A15
-
-MANDATORY ELEMENTS:
-- the real product from the attached product photo, where the reference has its bottle
-- a different woman: a 30 years old woman, muscular, medium olive skin, a short bob, ordinary and believable (not a fashion model), natural makeup
-
-STRICT EXCLUSIONS:
-- moving, adding or removing any block
-- a different font or palette
-- any new claim, number or testimonial
-- the reference's brand or logo
-- misspelled words
-- Do not add: new blocks
-- Do not add: new claims
-
-The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
+All visible text in Spanish.
