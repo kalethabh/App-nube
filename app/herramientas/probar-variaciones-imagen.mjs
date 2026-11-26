@@ -128,6 +128,19 @@ check('La mezcla de Mayaverra reparte un lote de 8 en sus ganchos (más resultad
   check('…una foto casera o una carta de texto no la necesitan', erroresPropuestaAnuncio(capas([]), { sinPropuesta: true }).length === 0);
   check('«Garantizado» sin garantía en el formulario FALLA (con garantía real, pasa)', erroresPropuestaAnuncio(capas([{ reference_function: 'value proposition', text: 'Resultados garantizados en solo 4 semanas para volver a lucir tus jeans con seguridad' }]), {}).some((e) => /garantizado/.test(e)) && erroresPropuestaAnuncio(capas([{ reference_function: 'value proposition', text: 'Resultados garantizados en solo 4 semanas para volver a lucir tus jeans con seguridad' }]), { venta: { sellos: ['Garantía de 30 días'] } }).length === 0);
 }
+// (2026-11-26g) antes/después y progreso: cada momento, otro día (pose, ropa, peinado, escenario, luz)
+{
+  const { erroresMomentos, textoCuerpo, textoMomentos } = await import('../server/lib/imagen-ads/cuerpo.js');
+  const x = { id: 'V01', formato_id: 'F61', zona_del_cuerpo: 'glúteos' };
+  const igual = erroresMomentos({ visual_prompt: 'Before and after of the same woman from behind in leggings: flat glutes before, lifted rounder glutes after.' }, x);
+  check('Un antes/después sin cambiar pose, ropa, peinado, escenario ni luz FALLA', igual.some((e) => /falta que cambie/.test(e)), igual);
+  const mismo = erroresMomentos({ visual_prompt: 'Before (week 1) and after (month 3), same outfit: she stands, poses, grey t-shirt, black top, jeans, leggings, hair bun, hair loose, bedroom, living room, morning light, evening light.' }, x);
+  check('…con «same outfit» FALLA', mismo.some((e) => /same outfit/.test(e)), mismo);
+  const bien = erroresMomentos({ visual_prompt: 'BEFORE (week 1): she stands facing the mirror with arms down, wearing a grey t-shirt and light jeans, hair in a messy bun, in her bedroom with cold morning light. AFTER (month 3): she poses turned in profile with a hand on her hip, wearing a black crop top and dark leggings, hair loose in waves, in a sunny living room with warm golden afternoon light.' }, x);
+  check('…con cada momento distinto (pose, ropa, peinado, escenario y luz) pasa', bien.length === 0, bien);
+  check('Una imagen sin personas ni progreso no pide nada', erroresMomentos({ visual_prompt: 'Three bottles on a marble pedestal with soft studio light.' }, { id: 'V02', formato_id: 'F43' }).length === 0);
+  check('La tarea ya no pide «la misma luz» y sí pide cada momento otro día', !/misma luz|mismo encuadre y la misma/.test(textoCuerpo({})) && /OTRO DÍA/.test(textoMomentos()) && /PEINADO/.test(textoMomentos()));
+}
 const manualMv = fs.readFileSync(path.join(DIR_EST, 'mayaverra-manual.md'), 'utf8');
 check('El manual de Mayaverra existe: lo fijo, los titulares (gancho + propuesta de valor + tiempo), cómo vende y lo que no se copia', /NUNCA cambia/.test(manualMv) && /gancho \+ propuesta de valor \+ tiempo/i.test(manualMv) && /en solo 3 semanas/i.test(manualMv) && /Cómo venden/.test(manualMv) && /NO se copia/.test(manualMv) && !/Plazos exactos de resultado como promesa/.test(manualMv));
 const dosIguales = { variaciones: bueno.variaciones.map((x, i) => (i === 3 ? { ...x, formato_id: bueno.variaciones[2].formato_id, estilo: bueno.variaciones[2].estilo, mismo_formato_que_ganador: bueno.variaciones[2].mismo_formato_que_ganador } : x)) };
