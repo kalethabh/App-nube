@@ -79,68 +79,68 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "reescribiendo",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
-      "intentosApi": 2,
+      "orden": null,
+      "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
       "desde": null,
-      "pedido": null
+      "pedido": null,
+      "rescate": {
+        "vez": 1,
+        "dijo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "reescribiendo",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
-      "intentosApi": 2,
+      "orden": null,
+      "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
       "desde": null,
-      "pedido": null
+      "pedido": null,
+      "rescate": {
+        "vez": 1,
+        "dijo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      "ultimaOrden": "g"
     },
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "reescribiendo",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
-      "intentosApi": 2,
+      "orden": null,
+      "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
       "desde": null,
-      "pedido": null
+      "pedido": null,
+      "rescate": {
+        "vez": 1,
+        "dijo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      "ultimaOrden": "g"
     },
     "V04_1x1": {
       "v": "V04",
@@ -155,7 +155,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
