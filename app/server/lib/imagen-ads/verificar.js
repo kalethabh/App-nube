@@ -13,6 +13,7 @@ import { leerJSON, existe } from '../archivos.js';
 import { validarEsquema, cargarEsquema } from '../claude.js';
 import { construirPrompt, construirPromptVertical } from '../../../../produccion/imagen-ads.js';
 import { R, RE_V, idsDelLote, piezaId } from './disco.js';
+import { esVariado, nivelDe, reglasDelPlan, reglasDelAnuncio } from './variedad.js';
 
 export const DIR_SKILL = path.join(SKILLS, 'anuncios-imagen-ads');
 export const TOPE_PROMPT_VERIFICADO = 19000;
@@ -95,7 +96,10 @@ export function verificarPlan(carpeta, brief) {
   const subidas = (brief?.referencias || []).length;
   // «más de lo mismo» (brief.fiel): TODAS salen de las referencias, repartidas en orden (V01 = R01, V02 = R02, … y vuelve a R01)
   const todas = Boolean(brief?.fiel && subidas);
-  const k = todas ? n : Math.min(n, subidas);
+  // (2026-11-26a) «Vecinas» y «Conceptos nuevos»: todas salen de la biblioteca (el ganador va solo como estilo) y el
+  // plan cumple las reglas duras de variedad (variedad.js)
+  const variado = esVariado(brief);
+  const k = variado ? 0 : todas ? n : Math.min(n, subidas);
   const ids = idsDelLote(n);
   if (datos.cantidad !== n) errores.push(`plan.json → cantidad: tiene que ser ${n}`);
   const vs = Array.isArray(datos.variaciones) ? datos.variaciones : [];
@@ -121,6 +125,17 @@ export function verificarPlan(carpeta, brief) {
       if (!angulos.has(x.angulo_id)) errores.push(`${donde}.angulo_id: "${x.angulo_id ?? ''}" no está en angulos.json`);
     }
   });
+  if (variado && vs.length === n) {
+    const r = reglasDelPlan(datos, {
+      nivel: nivelDe(brief),
+      analisis: leerJSON(path.join(carpeta, 'analisis.json')),
+      skill: leerSkill(),
+      historial: brief?.historial || [],
+      tipoProducto: leerJSON(R.productoJson(carpeta))?.tipo_producto || null,
+    });
+    // (los de fuente/formato/ángulo ya los dijo el bucle de arriba)
+    errores.push(...r.errores.filter((e) => !/\.(fuente|formato_id|angulo_id):/.test(e)));
+  }
   return { datos, errores };
 }
 
@@ -158,6 +173,14 @@ export function verificarV(carpeta, v, { brief, plan = null, usados = [] } = {})
   (Array.isArray(datos.text_layers) ? datos.text_layers : []).forEach((t, i) => {
     if (!conTexto(t?.text)) errores.push(`${v}.json → text_layers[${i}].text: está vacío (si no va, saca esa capa)`);
   });
+  // (2026-11-26a) «Vecinas» y «Conceptos»: la oferta y los sellos del formulario letra por letra (los formatos nativos
+  // pueden ir sin ellos), titular afirmativo y corto, máximo 4 beneficios y nada de «Prohibido decir»
+  if (esVariado(brief)) {
+    const fPlan = ((plan || leerJSON(R.plan(carpeta)))?.variaciones || []).find((x) => x?.id === v)?.formato_id;
+    const nativo = leerSkill().formatos.get(fPlan)?.nativo === true;
+    const venta = brief?.venta ? { ...brief.venta, ...(nativo ? { oferta: '', sellos: [] } : {}) } : null;
+    errores.push(...reglasDelAnuncio(datos, { venta, estricto: true }).map((e) => `${v}.json → ${e}`));
+  }
   if (!errores.length) {
     const { cuadrado, vertical } = largosDePrompt(datos, brief);
     if (cuadrado > TOPE_PROMPT_VERIFICADO || vertical > TOPE_PROMPT_VERIFICADO) {

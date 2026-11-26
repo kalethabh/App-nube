@@ -99,6 +99,12 @@ const COPIAR_REFERENCIA =
   'each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. ' +
   "Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.";
 
+// (2026-11-26a) «Vecinas» y «Conceptos nuevos»: el anuncio ganador va como referencia de ESTILO, no de composición.
+const ESTILO_REFERENCIA =
+  'The FIRST attached image is the winning ad of this brand: use the reference only for style, product and offer; do not copy its layout. ' +
+  'Take from it only the visual quality, the feel of the brand, how the product looks and how the offer is presented. ' +
+  'Build a completely different composition: the one described below.';
+
 // MODO RÁPIDO («como pedirle a ChatGPT que me las varíe», 2026-11-16): la app arma cada V##.json sin la IA de texto.
 // El modelo ve la referencia (primera imagen) y el producto (segunda); el titular va exacto y los demás textos los
 // escribe el modelo, cortos y en español, con los beneficios del producto (app_rapido: 'copiar' | 'inspirar').
@@ -389,12 +395,15 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
   if (ad?.app_plantilla?.escena) return construirPromptEscena(ad, { correccion, referencia });
   const pos = posicionDe(logo);
   // «Más de lo mismo» (referencia: true): la PRIMERA imagen adjunta es el anuncio de referencia y la SEGUNDA, el producto
-  const rapido = referencia && ['copiar', 'inspirar', 'plantilla', 'replicar'].includes(ad?.app_rapido) ? ad.app_rapido : null;
+  const estilo = referencia === 'estilo';
+  const rapido = referencia === true && ['copiar', 'inspirar', 'plantilla', 'replicar'].includes(ad?.app_rapido) ? ad.app_rapido : null;
   const desde0 = !rapido && ad?.app_desde0 ? DESDE0 : null;
   const partes = desde0
     ? [desde0, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : rapido
     ? [{ copiar: RAPIDO_COPIAR, inspirar: RAPIDO_INSPIRAR, plantilla: RAPIDO_PLANTILLA, replicar: RAPIDO_REPLICAR }[rapido], 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
+    : estilo
+      ? [ESTILO_REFERENCIA, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : referencia
       ? [COPIAR_REFERENCIA, LEER_REFERENCIA, ANTES_DESPUES, 'SCENE DESCRIPTION (same composition as the reference):\n' + strPy(ad.visual_prompt)]
       : [strPy(ad.visual_prompt)];
@@ -426,7 +435,7 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
 
   const identidad = oPy(getPy(ad, 'global_identity', undefined), {});
   // (con referencia, la tipografía es la de la referencia: no se manda otra)
-  const lineasId = (referencia ? ['color_palette'] : ['color_palette', 'text_typography']).filter((k) => !vacioPy(getPy(identidad, k, undefined))).map((k) => `${k}: ${strPy(identidad[k])}`);
+  const lineasId = (referencia === true ? ['color_palette'] : ['color_palette', 'text_typography']).filter((k) => !vacioPy(getPy(identidad, k, undefined))).map((k) => `${k}: ${strPy(identidad[k])}`);
   if (lineasId.length) partes.push('BRAND IDENTITY:\n- ' + lineasId.join('\n- '));
 
   const obligatorios = getPy(ad, 'mandatory_visual_elements', undefined);

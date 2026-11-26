@@ -10,12 +10,18 @@
 // de la oficina. Servidor: POST /api/imagen-ads (agente: 'variaciones'), referencias, generar.
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Briefcase, FileSearch, ImagePlus, Sparkles, Upload, X } from 'lucide-react';
-import { Boton, CampoTexto, useAvisos } from '../../componentes/index.js';
+import { AreaTexto, Boton, CampoTexto, Selector, useAvisos } from '../../componentes/index.js';
 import { invalidar, pedirNuevo, useDatos } from '../../datos/api.js';
 import { apiImagenes, CLAVE_LOTES } from '../../datos/imagenes.js';
 import { enlace } from '../../datos/rutas.js';
 
 const CANTIDADES = [3, 5, 8, 10];
+// (2026-11-26a) «Qué tan distintas» (reemplaza «Replicar validado (exacto)» / «Variaciones del agente»)
+const VARIACIONES = [
+  { id: 'fieles', etiqueta: 'Fieles', texto: 'Tu anuncio tal cual: mismo diseño, letras, colores, oferta y ángulo. Solo cambian la modelo, el escenario, la pose y el titular. Para escalar algo que ya vende.' },
+  { id: 'vecinas', etiqueta: 'Vecinas', texto: 'El mismo deseo que vende tu ganador, contado de otras formas: la mitad con su mismo ángulo y el resto con otros 3 o más, con formatos, escenas, modelos y cámaras distintos. Para probar sin que Meta las vea iguales.' },
+  { id: 'conceptos', etiqueta: 'Conceptos nuevos', texto: 'Cada imagen es un concepto de formato distinto (captura, antes y después, producto protagonista, meme…) con la esencia de tu ganador. Para buscar el próximo ganador.' },
+];
 const dinero = (n) => `US$${(Math.round(n * 100) / 100).toFixed(2)}`;
 
 /** El ganador elegido: de «Lo que me funciona» o un archivo subido/pegado. */
@@ -92,8 +98,14 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
   const [productoId, setProductoId] = useState(productoPedido || '');
   const [elegidos, setElegidos] = useState(() => (referenciaPedida ? [{ id: referenciaPedida, url: referenciaPedida, titulo: 'Referencia' }] : []));
   const [cantidad, setCantidad] = useState(5);
-  // (2026-11-21) MODO REPLICAR VALIDADO: tu anuncio EXACTO; cambian solo la modelo, el escenario, la pose y el titular
-  const [replicar, setReplicar] = useState(true);
+  // (2026-11-26a) QUÉ TAN DISTINTAS: fieles (antes «Replicar validado»), vecinas (por defecto) o conceptos nuevos
+  const [variacion, setVariacion] = useState('vecinas');
+  const replicar = variacion === 'fieles';
+  // (2026-11-26a) lo de venta (opcional, se guarda con el producto): sellos exactos, el país del precio, prohibido decir
+  const [sellos, setSellos] = useState('');
+  const [paisPrecio, setPaisPrecio] = useState('');
+  const [prohibido, setProhibido] = useState('');
+  const [paises, setPaises] = useState([]);
   // (2026-11-21) MODO NUEVO DESDE 0: las 6 zonas y los 8 formatos (sin referencia)
   const [desde0, setDesde0] = useState(true);
   const [vertical, setVertical] = useState(false);
@@ -110,12 +122,33 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
     const d = p?.ultimoLote?.datos || {};
     setPais(d.pais || p?.investigacion?.pais || 'Colombia');
     setPublico(d.publico || '');
+    // lo de venta guardado con el producto
+    if (!p?.id) return;
+    let vivo = true;
+    apiImagenes
+      .ajustes(p.id)
+      .then((r) => {
+        if (!vivo) return;
+        setPaises(Array.isArray(r?.paises) ? r.paises : []);
+        const a = r?.ajustes || {};
+        setOferta(a.oferta || '');
+        setSellos((a.sellos || []).join('\n'));
+        setPaisPrecio(a.pais || '');
+        setProhibido((a.prohibido || []).join(', '));
+      })
+      .catch(() => {});
+    return () => {
+      vivo = false;
+    };
   }, [p?.id]); // eslint-disable-line react-hooks/exhaustive-deps
   const conInvestigacion = Boolean(p?.investigacion);
   const formatos = vertical ? ['1:1', '9:16'] : ['1:1'];
   const precio = opciones?.costo || null;
   const imagenes = cantidad * formatos.length;
   const costo = precio?.conChatGPT ? 0 : precio?.dolaresPorImagen ? Math.round(precio.dolaresPorImagen * imagenes * 100) / 100 : null;
+  // («Vecinas» y «Conceptos»: la revisión rehace sola hasta 2 veces cada imagen que no aprueba; el máximo las cuenta)
+  const rehace = modo === 'referencia' && !replicar;
+  const costoMax = costo && rehace ? Math.round(precio.dolaresPorImagen * (imagenes + cantidad * 2) * 100) / 100 : costo;
   const falta = !p ? 'Elige tu producto.' : modo === 'referencia' && !elegidos.length ? 'Sube o elige tu anuncio de referencia.' : modo === 'investigacion' && !conInvestigacion ? 'Este producto todavía no tiene investigación de mercado.' : !pais.trim() ? 'Escribe el país.' : null;
   const listo = !falta && costo !== null && !fase;
 
@@ -156,7 +189,9 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         formatos,
         logo: null,
         modo: modo === 'referencia' ? 'variantes' : 'nuevos',
-        ...(modo === 'referencia' && replicar ? { replicar: true, rapido: true } : modo !== 'referencia' && desde0 ? { desde0: true, rapido: false } : { agente: 'variaciones', rapido: false }),
+        ...(modo === 'referencia' ? { variacion, ...(replicar ? { replicar: true, rapido: true } : { rapido: false }) } : desde0 ? { desde0: true, rapido: false } : { agente: 'variaciones', rapido: false }),
+        // lo de venta (se guarda con el producto)
+        venta: { oferta: oferta.trim(), sellos: sellos.split(/\r?\n/).map((x) => x.trim()).filter(Boolean), pais: paisPrecio || null, prohibido: prohibido.split(/[,\n]/).map((x) => x.trim()).filter(Boolean) },
         fiel: modo === 'referencia',
         usarInvestigacion: true,
         ...(modo === 'referencia'
@@ -172,10 +207,10 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         await apiImagenes.subirReferencia(r.lote, i + 1, archivos[i]);
       }
       setFase('Pasándoselo al agente');
-      await apiImagenes.generar(r.lote, costo, []);
+      await apiImagenes.generar(r.lote, costoMax, []);
       invalidar(CLAVE_LOTES);
       invalidar('oficina');
-      aviso({ tipo: 'exito', titulo: modo === 'referencia' && replicar ? 'Replicando tu anuncio validado' : modo !== 'referencia' && desde0 ? 'Creando tus anuncios desde 0' : 'El agente está trabajando', texto: modo === 'referencia' && replicar ? `${cantidad} réplicas exactas: cambian la modelo, el escenario, la pose y el titular.` : `${cantidad} anuncios ${modo === 'referencia' ? 'a partir de tu referencia' : 'desde tu investigación'}.` });
+      aviso({ tipo: 'exito', titulo: modo === 'referencia' && replicar ? 'Replicando tu anuncio validado' : modo === 'referencia' ? 'Creando tus variaciones' : desde0 ? 'Creando tus anuncios desde 0' : 'El agente está trabajando', texto: modo === 'referencia' && replicar ? `${cantidad} réplicas exactas: cambian la modelo, el escenario, la pose y el titular.` : modo === 'referencia' ? `Primero tu IA analiza por qué vende tu ganador; después, ${cantidad} variaciones ${variacion === 'vecinas' ? 'vecinas' : 'con conceptos nuevos'}.` : `${cantidad} anuncios desde tu investigación.` });
       onListo?.(r.lote);
     } catch (e) {
       aviso({ tipo: 'error', titulo: 'No pude crearlos', texto: e?.message || 'Vuelve a intentarlo.' });
@@ -205,7 +240,9 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
       <p className="enc-intro">
         <Sparkles size={15} aria-hidden="true" />
         <span>
-          El <b>agente</b> lo hace todo: analiza {modo === 'referencia' ? 'tu anuncio' : 'tu investigación'} (el ángulo, lo que no se toca y lo que se puede probar), arma la matriz de facetas y crea anuncios cercanos, conceptos vecinos y expandidos, con diseño limpio, una imagen por anuncio y control de calidad. Cada uno sale con qué cambió y qué hipótesis prueba.
+          {modo === 'referencia'
+            ? <>Primero tu IA <b>analiza por qué vende tu ganador</b> (el deseo, el dolor, el hook, lo que no se toca y lo que se puede probar) y te lo muestra. Después crea las variaciones con el nivel que elijas, las revisa una por una con nota del 1 al 10 y rehace sola las que fallan.</>
+            : <>El <b>agente</b> lo hace todo: analiza tu investigación (el ángulo, lo que no se toca y lo que se puede probar), arma la matriz de facetas y crea anuncios cercanos, conceptos vecinos y expandidos, con diseño limpio, una imagen por anuncio y control de calidad. Cada uno sale con qué cambió y qué hipótesis prueba.</>}
         </span>
       </p>
       <section className="enc-paso">
@@ -234,19 +271,15 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         <section className="enc-paso">
           <h4>2. Tu anuncio de referencia</h4>
           <Ganadores elegidos={elegidos} setElegidos={setElegidos} productoId={productoId} />
-          <div className="enc-chips enc-replicar" role="radiogroup" aria-label="Cómo usar tu referencia">
-            <button type="button" role="radio" aria-checked={replicar} className={replicar ? 'activo' : ''} onClick={() => setReplicar(true)}>
-              Replicar validado (exacto)
-            </button>
-            <button type="button" role="radio" aria-checked={!replicar} className={!replicar ? 'activo' : ''} onClick={() => setReplicar(false)}>
-              Variaciones del agente
-            </button>
+          <h4 className="enc-sub">Qué tan distintas</h4>
+          <div className="enc-chips enc-replicar" role="radiogroup" aria-label="Qué tan distintas">
+            {VARIACIONES.map((x) => (
+              <button key={x.id} type="button" role="radio" aria-checked={variacion === x.id} className={variacion === x.id ? 'activo' : ''} onClick={() => setVariacion(x.id)}>
+                {x.etiqueta}
+              </button>
+            ))}
           </div>
-          <p className="t-chico t-3">
-            {replicar
-              ? 'Tu anuncio tal cual: mismas zonas, jerarquía, letras, colores, oferta, CTA y ángulo. Solo cambian la modelo (otra mujer en cada imagen: edad, contextura y tono de piel), el escenario, la pose y la redacción del titular (misma promesa, otras palabras). Nada se repite en el lote.'
-              : 'El agente prueba variaciones cercanas, conceptos vecinos y expandidos, cada una con qué cambió y qué hipótesis prueba.'}
-          </p>
+          <p className="t-chico t-3">{VARIACIONES.find((x) => x.id === variacion)?.texto}</p>
         </section>
       ) : (
         <section className="enc-paso">
@@ -298,12 +331,21 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
       <section className="enc-paso enc-paso--datos">
         <CampoTexto etiqueta="País" maxLength={60} value={pais} onChange={(e) => setPais(e.target.value)} />
         <CampoTexto etiqueta="Público" opcional maxLength={300} value={publico} onChange={(e) => setPublico(e.target.value)} placeholder="Ej.: mujeres de 25 a 45" />
-        <CampoTexto etiqueta="Oferta, precio o envío (si va en el anuncio)" opcional maxLength={300} value={oferta} onChange={(e) => setOferta(e.target.value)} placeholder="Solo lo que es verdad: no se inventa nada" />
+        <CampoTexto etiqueta="Oferta (va tal cual en el anuncio)" opcional maxLength={160} value={oferta} onChange={(e) => setOferta(e.target.value)} placeholder="Tratamiento completo x3 $139.900" />
+        <Selector
+          etiqueta="País del precio"
+          opcional
+          value={paisPrecio}
+          onChange={(e) => setPaisPrecio(e.target.value)}
+          opciones={[{ valor: '', etiqueta: 'El del campo País' }, ...paises.map((x) => ({ valor: x.codigo, etiqueta: x.nombre }))]}
+        />
+        <AreaTexto etiqueta="Sellos de confianza" opcional filas={2} maxLength={800} value={sellos} onChange={(e) => setSellos(e.target.value)} placeholder={'REGISTRO SANITARIO INVIMA …\nPago contra entrega'} ayuda="Uno por línea, exactos. No se inventa ningún otro." />
+        <CampoTexto etiqueta="Prohibido decir" opcional maxLength={600} value={prohibido} onChange={(e) => setProhibido(e.target.value)} placeholder="cura, milagroso, garantizado" ayuda="Separado por comas." />
       </section>
       <div className="enc-pie">
-        <span className="enc-costo">{falta ? <span className="enc-falta">{falta}</span> : costo === null ? 'Calculando el costo…' : costo === 0 ? `${imagenes} imágenes con tu ChatGPT: sin costo por imagen` : `${imagenes} imágenes · ${dinero(costo)} (${dinero(precio.dolaresPorImagen)} cada una)`}</span>
+        <span className="enc-costo">{falta ? <span className="enc-falta">{falta}</span> : costo === null ? 'Calculando el costo…' : costo === 0 ? `${imagenes} imágenes con tu ChatGPT: sin costo por imagen` : costoMax > costo ? `${imagenes} imágenes · ${dinero(costo)}, máximo ${dinero(costoMax)} si la revisión rehace alguna (${dinero(precio.dolaresPorImagen)} cada una)` : `${imagenes} imágenes · ${dinero(costo)} (${dinero(precio.dolaresPorImagen)} cada una)`}</span>
         <Boton variante="primario" icono={Briefcase} onClick={crear} cargando={Boolean(fase)} disabled={!listo}>
-          {fase || (modo === 'referencia' && replicar ? (costo ? `Replicar · ${dinero(costo)}` : 'Replicar') : modo !== 'referencia' && desde0 ? (costo ? `Crear desde 0 · ${dinero(costo)}` : 'Crear desde 0') : costo ? `Crear con el agente · ${dinero(costo)}` : 'Crear con el agente')}
+          {fase || (modo === 'referencia' && replicar ? (costo ? `Replicar · ${dinero(costo)}` : 'Replicar') : modo === 'referencia' ? (costo ? `Crear variaciones · hasta ${dinero(costoMax)}` : 'Crear variaciones') : desde0 ? (costo ? `Crear desde 0 · ${dinero(costo)}` : 'Crear desde 0') : costo ? `Crear con el agente · ${dinero(costo)}` : 'Crear con el agente')}
         </Boton>
       </div>
     </div>

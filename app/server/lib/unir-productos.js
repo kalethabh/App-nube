@@ -148,7 +148,7 @@ export function unir(principal, otros) {
   const dirP = path.join(PRODUCTOS, principal);
   for (const id of lista) {
     const dirO = path.join(PRODUCTOS, id);
-    for (const n of ['ficha.json', 'investigacion', 'competencia', 'kit-marca.json']) llevar(path.join(dirO, n), path.join(dirP, n), id, principal);
+    for (const n of ['ficha.json', 'investigacion', 'competencia', 'kit-marca.json', 'anuncios-imagen.json']) llevar(path.join(dirO, n), path.join(dirP, n), id, principal);
     let destino = path.join(DIR_UNIDOS, id);
     if (existe(destino)) destino = `${destino}-${Date.now()}`;
     fs.renameSync(dirO, destino);

@@ -426,7 +426,8 @@ a.o3-zona:hover { background: #000; }
 .enc-intro svg { color: #A3FF12; flex: none; margin-top: 2px; }
 .enc-paso { display: flex; flex-direction: column; gap: 8px; }
 .enc-paso h4 { margin: 0; font-size: 13px; font-weight: 800; color: var(--texto-1); }
-.enc-paso--datos { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 10px; }
+.enc-paso--datos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.enc-sub { margin: 12px 0 0; font-size: 13px; }
 @media (max-width: 760px) { .enc-paso--datos { grid-template-columns: 1fr; } }
 .enc-ganadores { display: flex; flex-direction: column; gap: 8px; }
 .enc-subir { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }

@@ -2,6 +2,28 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-26a · Anuncios de imagen: variaciones distintas de verdad
+
+- **«Qué tan distintas»** reemplaza a «Replicar validado (exacto)» al crear desde un anuncio ganador:
+  - **Fieles**: tu anuncio tal cual (lo de antes).
+  - **Vecinas** (por defecto): la mitad con el ángulo de tu ganador y el resto con 3 ángulos más o más, con otros formatos, escenas, modelos y cámaras.
+  - **Conceptos nuevos**: cada imagen con un formato distinto.
+- **Antes de todo, tu IA analiza por qué vende tu ganador**: el deseo, el dolor, la promesa, la emoción, lo que se ve primero, qué no se toca, qué se puede cambiar y qué probar. Lo ves arriba de las imágenes.
+- **Reglas que la app revisa sola** en Vecinas y Conceptos (si fallan, la IA rehace el plan). Con 10 imágenes:
+  - máximo 2 con el mismo formato;
+  - al menos 4 ángulos;
+  - escena, modelo, ropa, cámara y colores de apoyo distintos en cada una;
+  - al menos 3 que parecen contenido normal y 3 con el producto como protagonista.
+
+  Tu ganador se usa solo como guía de estilo: no se copia su diseño.
+- **Campos nuevos (opcionales, se guardan con el producto):**
+  - **Oferta**, que sale tal cual y con el punto de miles de Colombia (o el separador de tu país);
+  - **Sellos de confianza**, exactos, sin inventar otros;
+  - **País del precio**;
+  - **Prohibido decir**.
+- **Revisión con nota del 1 al 10**: cada tarjeta muestra su formato, su ángulo, por qué debería vender y su nota, y el lote sale ordenado de la mejor a la peor. Lo que la revisión no aprueba se rehace solo (hasta 2 veces). El costo máximo que ves antes de generar ya lo incluye.
+- **Aprender de mis ventas** (botón en Anuncios de imagen): lee tus anuncios en Meta y guarda qué formato y ángulo vendió más de cada producto. Para eso, las imágenes se descargan con nombres como `producto_V03-F17-ugc-selfie-transformacion.png`: súbelas a Meta con ese nombre.
+
 ## 2026-11-25k · Landings creadas: revisadas de verdad contra la base
 
 - Probé el proceso completo con CAYENNE PEPPER y su investigación real, y comparé cada sección con la base. Arreglos:

@@ -330,6 +330,26 @@ async function alMensaje(texto) {
     }));
     return resultado({ result: 'LISTO' });
   }
+  // (2026-11-26a) el ANÁLISIS DEL GANADOR («Qué tan distintas»): lo que vende y lo que no se toca
+  const analisisGanador = /TAREA: análisis del anuncio ganador/.test(textoTarea) ? /Escribe (temp\/\S+\/analisis\.json) con este JSON/.exec(textoTarea) : null;
+  if (analisisGanador) {
+    fs.writeFileSync(path.join(RAIZ, analisisGanador[1]), JSON.stringify({
+      deseo_central: 'Verse con más curvas sin pasar horas en el gimnasio',
+      dolor_principal: 'Sentir que la ropa no le queda por tener la cola plana',
+      promesa: 'Más volumen en glúteos de forma natural',
+      emocion: 'Orgullo y confianza',
+      nivel_conciencia: 'consciente-del-problema',
+      mecanismo_persuasion: 'Antes y después con la misma persona',
+      hook_visual: { que: 'El antes y después de espaldas, lado a lado', por_que: 'El cambio se entiende en un segundo, sin leer' },
+      invariables: ['El deseo de tener más curvas', 'El producto real en primer plano', 'La prueba visual del cambio'],
+      modificables: ['La modelo', 'La escena', 'La cámara', 'Los colores de apoyo', 'La redacción del titular'],
+      experimentales: ['Un formato nativo tipo captura', 'La faceta de la ropa que no queda'],
+      esencia: 'El cambio de la cola plana a una con curvas se ve en un segundo.',
+      formato_ganador: 'F03',
+      angulo_ganador: 'transformacion',
+    }));
+    return resultado({ result: 'LISTO' });
+  }
   // (2026-11-21) el MAPA de una referencia validada (modo «Replicar validado»): zonas, jerarquía, letra y paleta, ángulo
   // y N titulares con la misma promesa
   const mapaRef = /TAREA: mapa de la referencia validada/.test(textoTarea) ? /Escribe (temp\/\S+\/entrada\/mapa-R\d{2}\.json)/.exec(textoTarea) : null;
