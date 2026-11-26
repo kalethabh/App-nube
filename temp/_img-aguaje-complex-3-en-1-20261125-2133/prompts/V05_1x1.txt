@@ -1,0 +1,48 @@
+The FIRST attached image is the winning ad of this brand: use the reference only for style, product and offer; do not copy its layout. Take from it only the visual quality, the feel of the brand, how the product looks and how the offer is presented. Build a completely different composition: the one described below.
+
+WHAT TO MAKE:
+Photorealistic premium studio still-life advertising image, square 1:1, camera frontal and slightly from above. Background: a smooth matte dark plum (#2B1226) surface filling the whole frame, soft even studio light and a very subtle vignette, no props. Layered card composition on the left 64% of the canvas: behind, a desaturated paper-cream (#F3EBDD, slightly grayed and faded) note with slightly rounded corners and subtle paper texture, rotated about -5 degrees, occupying about 6-60% of the width and 7-44% of the height, with only a faint short shadow. On it, left-aligned between about 20% and 34% of the height, the myth sentence 'Más curvas solo con quirófano' in muted dark gray medium-weight sans-serif, crossed out by one rough hand-drawn red (#C8202F) marker line. Pressed across the note's upper-right corner (about 36-62% of the width, 4-17% of the height), a rectangular red (#C8202F) rubber-stamp impression with a double border, rotated about -12 degrees, distressed like real pressed ink, reading 'MITO'; the stamp never covers the myth sentence. In front, perfectly straight, a larger vivid hot fuchsia (#E6177F) card with a subtle gradient to deep magenta (#B0105E) at the bottom and rounded corners, occupying about 6-64% of the width and 38-90% of the height, overlapping the lower part of the cream note and casting a deep, wide soft shadow onto it and onto the plum surface, with a soft fuchsia glow. Inside the card at the top left: a solid dark plum circle with a white check mark (about 5.5% of the canvas width) followed by the white label 'REALIDAD' in bold uppercase with wide letter spacing. Below it, left-aligned between about 51% and 84% of the height, the statement 'Tus curvas, sin agujas ni quirófano' in very heavy white geometric sans-serif, tight line spacing, with the words 'sin agujas' in pale blush pink (#FBE3EE). Right column (about 62-95% of the width, 16-92% of the height): the product standing upright on the plum surface, front view, about 62-68% of the canvas height tall, slightly overlapping the right edge of the fuchsia card by 2-3% of the width, with a soft key light from the upper left, a subtle pink rim light and a soft contact shadow. The product is a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Use the attached product image as the only source of truth for the bottle: same shape, cap, label, colors and proportions; do not redesign, replace or reinterpret it, keep its label sharp and readable. Safe margins of about 5-6%; nothing touches the edges. No people, no hands, no extra props, no other text. Do not add CTA buttons, price badges, benefit lists, icons, trust badges, rating stars, bottom bars, discount labels, social proof, testimonials or extra text blocks.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- myth label (stamp) (Inside the red rubber stamp over the myth note's upper-right corner): "MITO" — Bold condensed uppercase stamp lettering, about 5.5-6% of the canvas height, 1 line, red #C8202F ink with a distressed texture, rotated with the stamp
+- myth statement (Inside the visible part of the myth note, below the stamp and above the reality card, left-aligned): "Más curvas solo con quirófano" — Medium weight sans-serif, about 4.5-5% of the canvas height per line, max 2 lines, left-aligned, muted dark gray, crossed out by a rough red hand-drawn line
+- reality label (Top-left inside the reality card, right of the check icon): "REALIDAD" — Bold uppercase sans-serif with wide letter spacing, about 3.2% of the canvas height, 1 line, white on fuchsia
+- reality statement (Inside the reality card, below the label, left-aligned): "Tus curvas, sin agujas ni quirófano" — Extra bold heavy geometric sans-serif, about 5.5-6% of the canvas height per line, max 4 lines, left-aligned, tight line spacing, white on fuchsia; the words 'sin agujas' in pale blush pink #FBE3EE
+
+BRAND IDENTITY:
+- color_palette: Brand palette taken from the bottle: hot fuchsia #E6177F (main accent, the reality card), deep magenta #B0105E (card gradient and shadow tones), dark plum #2B1226 (background surface), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF for the reality texts. Secondary colors for this variation: paper cream #F3EBDD, slightly desaturated, for the myth note, and stamp red #C8202F for the strikethrough line and the rubber stamp. Brand colors never touch the myth note.
+- text_typography: Reality statement in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look); reality label in bold uppercase sans-serif with wide letter spacing (Poppins Bold look); myth statement in a medium-weight sans-serif (Poppins Medium look) in muted dark gray; the stamp word in bold condensed uppercase stamp lettering.
+
+MANDATORY ELEMENTS:
+- Smooth dark plum studio surface as background
+- Desaturated paper-cream myth note, tilted about -5 degrees, behind the reality card
+- Rough red hand-drawn strikethrough over the myth text
+- Red distressed double-border rubber stamp over the myth note's upper-right corner
+- Straight, vivid fuchsia reality card overlapping the myth note, with a dark plum check icon
+- The real black bottle with glossy fuchsia cap standing tall on the right, label readable, slightly overlapping the reality card
+- Clear depth layering through shadows
+
+STRICT EXCLUSIONS:
+- No people, hands, faces, bodies or before/after photos.
+- No syringes, needles, scalpels, pills spilled or any medical or surgical imagery.
+- No second myth, no second stamp, no arrows or stickers.
+- No headline or text outside the two cards, the stamp and the bottle's own label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Headline or text outside the two cards and the stamp
+- Do not add: A second myth or more than one myth/reality pair
+- Do not add: Arrows, extra stickers or a second stamp
+- Do not add: Split-screen panels or photo backgrounds
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Benefit list or benefit icons
+- Do not add: People, hands, faces or before/after photos
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks outside the bottle's own label
+- Do not add: Loose capsules, plants, fruits or other props
+- Do not add: Syringes, needles, scalpels or any medical imagery
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

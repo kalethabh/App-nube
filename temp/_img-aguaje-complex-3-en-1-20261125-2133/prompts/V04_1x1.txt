@@ -1,0 +1,45 @@
+The FIRST attached image is the winning ad of this brand: use the reference only for style, product and offer; do not copy its layout. Take from it only the visual quality, the feel of the brand, how the product looks and how the offer is presented. Build a completely different composition: the one described below.
+
+WHAT TO MAKE:
+Square 1:1 flat screenshot of a generic messaging app, no device frame, no perspective: the canvas is the phone screen. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. The product is a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. HEADER (top 11%): dark plum #2B1226 bar with a thin generic status bar (time, signal and battery glyphs), a back arrow, a small circular avatar of a Colombian woman about 23 with brown skin and loose curly hair wearing a yellow strappy blouse, her first name and an online status in white, and generic call and video line icons on the right. CHAT AREA on a pearl grey #ECE7EF wallpaper with an ultra-subtle soft lilac doodle pattern: (1) left, a white incoming bubble with the friend's message and a tiny timestamp; (2) right, a pale blush pink #FBE3EE outgoing bubble with dark text, tiny timestamp and fuchsia double read ticks; (3) right-aligned, an outgoing photo bubble about half the canvas wide: a casual, well-lit smartphone photo of a woman's hand with a grey gym hoodie sleeve holding the bottle at chest height over a kitchen counter with a breakfast plate (arepa and eggs) and a glass of water in morning daylight, label toward the camera and readable, sharp; a tiny timestamp at its bottom right and a small round heart-eyes emoji reaction on its bottom-left corner; (4) right, another pale pink outgoing bubble of up to 2 lines; (5) left, a white incoming bubble with the friend's reaction. INPUT BAR (bottom 10%): rounded text field with a grey placeholder and generic emoji, camera and microphone line icons in soft lilac #B9A3D6. Flat bubbles, hairline shadows at most, generic system sans-serif text, all texts exactly as listed. No real app names, colors or logos, no keyboard, no other text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- contact name + online status (Chat header, right of the avatar): "Caro 💕 / en línea" — Name in semibold system sans-serif about 3% of the canvas height, white; status below in regular weight about 2%, white at reduced opacity
+- incoming message 1 (problem) (First bubble, left): "Hago sentadillas hace meses y sigo igual 😩" — Regular system sans-serif, about 3.3% of the canvas height, dark text, max 2 lines; tiny grey timestamp '7:12'
+- outgoing message 2 (recommendation) (Second bubble, right, above the photo): "Yo le sumé esto a mi rutina" — Regular system sans-serif, about 3.3% of the canvas height, dark text on pale pink, 1 line; tiny timestamp '7:14' and read ticks
+- outgoing message 3 (result) (Bubble right, below the photo): "2 cápsulas al día y entreno con más ganas" — Same style as text_block_03, max 2 lines; tiny timestamp '7:15'
+- incoming message 4 (reaction) (Last bubble, left): "Pásame el dato ya 😍" — Same style as text_block_02, 1 line; tiny timestamp '7:16'
+- UI micro-labels (status bar time and input placeholder) (Status bar top left and inside the input field): "7:16 / Mensaje" — System sans-serif, about 2% of the canvas height, light on the header and grey in the input field
+
+BRAND IDENTITY:
+- color_palette: Native chat colors with brand accents: pearl grey #ECE7EF chat wallpaper, white incoming bubbles, outgoing bubbles in pale blush pink #FBE3EE with dark text, read ticks and icons in hot fuchsia #E6177F, header in dark plum #2B1226 with white text. Secondary for this variation: pearl grey #ECE7EF and soft lilac #B9A3D6 (subtle wallpaper pattern and input bar icons).
+- text_typography: Generic system sans-serif for all chat texts.
+
+MANDATORY ELEMENTS:
+- Generic dark plum chat header with a circular avatar of the friend and generic icons
+- Pearl grey chat wallpaper (screenshot look, no device frame)
+- Incoming bubbles on the left in white
+- Outgoing bubbles on the right in pale blush pink with timestamps and fuchsia read ticks
+- Photo bubble with a casual real photo of the bottle in a hand over a breakfast counter and a small heart-eyes reaction on its corner
+- Generic message input bar at the bottom
+
+STRICT EXCLUSIONS:
+- No green or blue colors of real messaging apps, no app names or logos.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Real messaging-app names, logos, wallpapers or signature colors
+- Do not add: Phone device frame, hands holding a phone or perspective mockup
+- Do not add: On-screen keyboard
+- Do not add: Ad headline or graphic text outside the chat
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, review cards or testimonial graphics
+- Do not add: Link previews, voice-note bubbles or a second photo
+- Do not add: Group chat names or more than two participants
+- Do not add: Benefit list, icons or arrows
+- Do not add: Logos or brand marks
+- Do not add: Notification banners or stickers
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

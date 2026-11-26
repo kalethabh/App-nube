@@ -1,0 +1,168 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "library format F19 (Mito vs. realidad)",
+    "reference_style": "Bold editorial myth-busting ad with layered cards: a tilted, rubber-stamped and crossed-out myth note behind a vivid fuchsia reality card, with the supplement bottle standing tall beside it, shot as a premium studio still life",
+    "angle_used": "Romper expectativas / mito",
+    "ad_format": "Myth vs. Reality Layered Cards Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent, the reality card), deep magenta #B0105E (card gradient and shadow tones), dark plum #2B1226 (background surface), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF for the reality texts. Secondary colors for this variation: paper cream #F3EBDD, slightly desaturated, for the myth note, and stamp red #C8202F for the strikethrough line and the rubber stamp. Brand colors never touch the myth note.",
+    "visual_style": "Photorealistic, bold and feminine supplement ad for Colombian women: the real bottle always sharp and identical to the photo, fuchsia and plum brand accents, real-looking paper and card materials.",
+    "visual_atmosphere": "Warm, confident and reassuring, like a calm truth placed on the table; soft fuchsia glow around the reality card.",
+    "graphic_language": "Physical layered cards on a smooth surface, rounded corners, real pressed-ink rubber stamp, rough hand-drawn red marker line, clean high-contrast typography readable on a phone.",
+    "text_typography": "Reality statement in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look); reality label in bold uppercase sans-serif with wide letter spacing (Poppins Bold look); myth statement in a medium-weight sans-serif (Poppins Medium look) in muted dark gray; the stamp word in bold condensed uppercase stamp lettering."
+  },
+  "creative_objective": "Break the strongest fear of the audience, the belief that more curves only come from surgery, by literally covering that myth with a fuchsia reality card that says curves can be supported naturally, without needles or surgery, and placing the real bottle next to it as the calm, natural option. One message: your curves, without needles or surgery.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The reality statement on the front fuchsia card. 2) The tall black bottle with fuchsia cap standing on the right. 3) The red rubber stamp and the crossed-out myth on the tilted cream note behind. 4) The small reality label with its check icon.",
+    "composition_style": "Layered, asymmetric still-life collage seen frontally from slightly above. The left 64% of the canvas holds two overlapping cards lying/leaning on a smooth dark plum surface: the cream myth note behind, rotated about -5 degrees and desaturated, and the fuchsia reality card in front, perfectly straight, covering the myth note's lower part. A red rubber stamp is pressed at an angle over the myth note's upper-right corner. The bottle stands upright in the right column and slightly overlaps the reality card's right edge, tying the truth to the product.",
+    "spacing_and_structure": "Myth note about 6-60% of the canvas width and 7-44% of the height, rotated about -5 degrees. Rubber stamp about 36-62% of the width and 4-17% of the height, rotated about -12 degrees. Myth statement about 10-56% of the width and 20-34% of the height, below the stamp and above the reality card. Reality card about 6-64% of the width and 38-90% of the height, overlapping the bottom of the myth note by about 6% of the canvas height; inside it, the check icon and label at about 42-48% of the height and the reality statement at about 51-84%. Bottle about 62-95% of the width and 16-92% of the height, overlapping the reality card's right edge by about 2-3% of the width. Safe margins of about 5-6%; nothing touches the edges.",
+    "lighting_and_depth": "Soft studio lighting on a smooth dark plum surface, gentle vignette toward the corners. The myth note has a faint short shadow and looks flat and faded; the fuchsia reality card casts a deeper, wider soft shadow onto the myth note and the surface, so it clearly sits on top, with a subtle fuchsia glow. The stamp looks like real pressed red ink with a slightly distressed texture. The bottle gets a soft key light from the upper left, a subtle pink rim light and a soft contact shadow on the plum surface.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a smooth dark plum (#2B1226) studio surface as background, camera frontal and slightly from above. Upper left, a desaturated cream paper note tilted about -5 degrees shows the myth statement crossed out with a rough red hand-drawn line, and a red rectangular rubber stamp reading 'MITO' is pressed across its upper-right corner. Overlapping the lower part of that note, a larger, straight, vivid fuchsia card holds a check icon with the label 'REALIDAD' and the reality statement in large bold white type. On the right, the real supplement bottle stands tall, slightly overlapping the reality card's right edge. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Deep stage that makes the layered cards and the bottle stand out",
+        "adaptation_rule": "Smooth matte dark plum #2B1226 studio surface with soft even studio light and a very subtle vignette. No textures, props or decorative shapes.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "myth note",
+        "position": "Upper left, about 6-60% of the canvas width and 7-44% of the canvas height, rotated about -5 degrees, behind the reality card",
+        "visual_function": "Holds the false belief and visually discards it",
+        "adaptation_rule": "Desaturated paper-cream #F3EBDD note (slightly grayed, faded look) with slightly rounded corners and subtle paper texture. No brand colors on it.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "myth statement with strikethrough",
+        "position": "Inside the visible part of the myth note, below the stamp, left-aligned, about 10-56% of the canvas width and 20-34% of the canvas height",
+        "visual_function": "States the common false belief the audience holds",
+        "adaptation_rule": "The myth 'Más curvas solo con quirófano' in muted dark gray type, crossed out by one rough hand-drawn red #C8202F marker line running across the text. Fully below the stamp and above the area covered by the reality card, so neither covers a single letter.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "rubber stamp",
+        "position": "Over the myth note's upper-right corner, about 36-62% of the canvas width and 4-17% of the canvas height, rotated about -12 degrees",
+        "visual_function": "Instantly brands the note as false with a bold, physical gesture",
+        "adaptation_rule": "Rectangular rubber-stamp impression with a double border in red #C8202F ink, slightly distressed and uneven like real pressed ink, containing the word 'MITO'.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "reality card",
+        "position": "Left, in front, about 6-64% of the canvas width and 38-90% of the canvas height, perfectly straight",
+        "visual_function": "The hero of the ad: the truth covering the myth",
+        "adaptation_rule": "Solid hot fuchsia #E6177F card with a smooth subtle gradient to deep magenta #B0105E at the bottom, rounded corners (radius about 2.5% of the canvas width), deep soft shadow cast onto the myth note and the plum surface.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "reality label with check icon",
+        "position": "Top-left inside the reality card, inset about 4% from its edges",
+        "visual_function": "Marks the card as the correct answer",
+        "adaptation_rule": "Solid dark plum #2B1226 circle with a white check mark, about 5.5% of the canvas width in diameter, followed by the label 'REALIDAD' in white.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "reality statement",
+        "position": "Inside the reality card, below the label, left-aligned, about 10-60% of the canvas width and 51-84% of the canvas height",
+        "visual_function": "Delivers the truth that the product embodies",
+        "adaptation_rule": "'Tus curvas, sin agujas ni quirófano' in large extra bold white type, with 'sin agujas' in pale blush pink #FBE3EE as the key words, maximum contrast against the fuchsia card.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "product",
+        "position": "Right column, about 62-95% of the canvas width and 16-92% of the canvas height, slightly overlapping the reality card's right edge",
+        "visual_function": "Visual proof of the reality; anchors the truth to what is being sold",
+        "adaptation_rule": "The real supplement bottle exactly as in the attached product photo, front view with the label fully readable, standing upright about 62-68% of the canvas height tall, with a soft contact shadow on the plum surface.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Headline or text outside the two cards and the stamp",
+      "A second myth or more than one myth/reality pair",
+      "Arrows, extra stickers or a second stamp",
+      "Split-screen panels or photo backgrounds",
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars, reviews or testimonials",
+      "Benefit list or benefit icons",
+      "People, hands, faces or before/after photos",
+      "Bottom bar or banner",
+      "Logos or brand marks outside the bottle's own label",
+      "Loose capsules, plants, fruits or other props",
+      "Syringes, needles, scalpels or any medical imagery"
+    ]
+  },
+  "visual_prompt": "Photorealistic premium studio still-life advertising image, square 1:1, camera frontal and slightly from above. Background: a smooth matte dark plum (#2B1226) surface filling the whole frame, soft even studio light and a very subtle vignette, no props. Layered card composition on the left 64% of the canvas: behind, a desaturated paper-cream (#F3EBDD, slightly grayed and faded) note with slightly rounded corners and subtle paper texture, rotated about -5 degrees, occupying about 6-60% of the width and 7-44% of the height, with only a faint short shadow. On it, left-aligned between about 20% and 34% of the height, the myth sentence 'Más curvas solo con quirófano' in muted dark gray medium-weight sans-serif, crossed out by one rough hand-drawn red (#C8202F) marker line. Pressed across the note's upper-right corner (about 36-62% of the width, 4-17% of the height), a rectangular red (#C8202F) rubber-stamp impression with a double border, rotated about -12 degrees, distressed like real pressed ink, reading 'MITO'; the stamp never covers the myth sentence. In front, perfectly straight, a larger vivid hot fuchsia (#E6177F) card with a subtle gradient to deep magenta (#B0105E) at the bottom and rounded corners, occupying about 6-64% of the width and 38-90% of the height, overlapping the lower part of the cream note and casting a deep, wide soft shadow onto it and onto the plum surface, with a soft fuchsia glow. Inside the card at the top left: a solid dark plum circle with a white check mark (about 5.5% of the canvas width) followed by the white label 'REALIDAD' in bold uppercase with wide letter spacing. Below it, left-aligned between about 51% and 84% of the height, the statement 'Tus curvas, sin agujas ni quirófano' in very heavy white geometric sans-serif, tight line spacing, with the words 'sin agujas' in pale blush pink (#FBE3EE). Right column (about 62-95% of the width, 16-92% of the height): the product standing upright on the plum surface, front view, about 62-68% of the canvas height tall, slightly overlapping the right edge of the fuchsia card by 2-3% of the width, with a soft key light from the upper left, a subtle pink rim light and a soft contact shadow. The product is a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Use the attached product image as the only source of truth for the bottle: same shape, cap, label, colors and proportions; do not redesign, replace or reinterpret it, keep its label sharp and readable. Safe margins of about 5-6%; nothing touches the edges. No people, no hands, no extra props, no other text. Do not add CTA buttons, price badges, benefit lists, icons, trust badges, rating stars, bottom bars, discount labels, social proof, testimonials or extra text blocks.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "myth label (stamp)",
+      "reference_position": "Inside the red rubber stamp over the myth note's upper-right corner",
+      "text_style": "Bold condensed uppercase stamp lettering, about 5.5-6% of the canvas height, 1 line, red #C8202F ink with a distressed texture, rotated with the stamp",
+      "text": "MITO"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "myth statement",
+      "reference_position": "Inside the visible part of the myth note, below the stamp and above the reality card, left-aligned",
+      "text_style": "Medium weight sans-serif, about 4.5-5% of the canvas height per line, max 2 lines, left-aligned, muted dark gray, crossed out by a rough red hand-drawn line",
+      "text": "Más curvas solo con quirófano"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "reality label",
+      "reference_position": "Top-left inside the reality card, right of the check icon",
+      "text_style": "Bold uppercase sans-serif with wide letter spacing, about 3.2% of the canvas height, 1 line, white on fuchsia",
+      "text": "REALIDAD"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "reality statement",
+      "reference_position": "Inside the reality card, below the label, left-aligned",
+      "text_style": "Extra bold heavy geometric sans-serif, about 5.5-6% of the canvas height per line, max 4 lines, left-aligned, tight line spacing, white on fuchsia; the words 'sin agujas' in pale blush pink #FBE3EE",
+      "text": "Tus curvas, sin agujas ni quirófano"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Smooth dark plum studio surface as background",
+    "Desaturated paper-cream myth note, tilted about -5 degrees, behind the reality card",
+    "Rough red hand-drawn strikethrough over the myth text",
+    "Red distressed double-border rubber stamp over the myth note's upper-right corner",
+    "Straight, vivid fuchsia reality card overlapping the myth note, with a dark plum check icon",
+    "The real black bottle with glossy fuchsia cap standing tall on the right, label readable, slightly overlapping the reality card",
+    "Clear depth layering through shadows"
+  ],
+  "final_generation_exclusions": [
+    "No people, hands, faces, bodies or before/after photos.",
+    "No syringes, needles, scalpels, pills spilled or any medical or surgical imagery.",
+    "No second myth, no second stamp, no arrows or stickers.",
+    "No headline or text outside the two cards, the stamp and the bottle's own label.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The message talks about a natural, non-invasive option, with no promised results, figures or medical claims.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
