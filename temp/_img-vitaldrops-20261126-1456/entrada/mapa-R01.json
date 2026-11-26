@@ -1,0 +1,40 @@
+{
+  "zonas": {
+    "titular": "Arriba, en dos líneas centradas, ocupa cerca del 92% del ancho y el 12% del alto; texto grande y centrado sobre el fondo crema",
+    "modelo": "Antes/después en una cuadrícula de 2x2 recuadros (Día 1, Día 7, Día 14, Día 21) en el centro, del 15% al 73% del alto; la misma modelo de espaldas, en top deportivo beige y leggings grises, cuya figura se ve más llena en cada recuadro; ocupa cerca del 58% de la imagen",
+    "producto": "Abajo a la izquierda: la caja amarilla de pie y delante el frasco gotero ámbar con etiqueta amarilla, de frente y un poco de lado; el frasco mide cerca del 30% del alto y la caja el 30%; una rama dorada decorativa detrás del frasco",
+    "beneficios": "no hay",
+    "oferta_cta": "Abajo a la derecha: recuadro dorado con degradado y esquinas redondeadas (cerca del 45% del ancho), con tres líneas centradas separadas por líneas finas: título de la oferta, descuento más regalo y plazo. No hay botón",
+    "otros": "Etiquetas «DÍA 1», «DÍA 7», «DÍA 14», «DÍA 21» arriba a la izquierda de cada recuadro; logo de la marca en letras espaciadas abajo a la derecha, bajo la oferta"
+  },
+  "jerarquia": [
+    "El titular de arriba",
+    "La secuencia de antes/después por días",
+    "El recuadro dorado de la oferta junto al producto"
+  ],
+  "tipografia_paleta": {
+    "fuentes": "Titular: sans serif muy gruesa, todo en mayúsculas, sin efectos. Etiquetas de días: sans serif gruesa en mayúsculas, color dorado. Oferta: sans serif gruesa en mayúsculas, la línea del descuento más grande; logo: serif delgada en mayúsculas con letras espaciadas",
+    "colores": "Titular negro #111111; etiquetas de días dorado #C9A24A; textos de la oferta negro #1A1A1A; fondo general crema #F6F0E4; recuadros de los días casi blanco #FAF6EE con borde beige #E6DCC8; recuadro de oferta dorado #D4B26A a #B8913E; caja y etiqueta del producto amarillo #F2C84B; logo gris oscuro #333333",
+    "fondos_de_bloques": "Titular: directo sobre el fondo crema, sin cinta. Días: recuadros claros con esquinas redondeadas y borde fino. Oferta: recuadro dorado degradado con borde más claro y líneas finas que separan cada línea de texto"
+  },
+  "angulo": {
+    "deseo": "Tener curvas más llenas y marcadas",
+    "beneficio": "Ver el cambio en la figura poco a poco, en pocas semanas",
+    "dolor": "Sentir que a la figura le falta volumen y forma"
+  },
+  "titular_original": "CURVAS MÁS LLENAS EN 21 DÍAS",
+  "textos": [
+    { "zona": "etiqueta recuadro 1", "texto": "DÍA 1" },
+    { "zona": "etiqueta recuadro 2", "texto": "DÍA 7" },
+    { "zona": "etiqueta recuadro 3", "texto": "DÍA 14" },
+    { "zona": "etiqueta recuadro 4", "texto": "DÍA 21" },
+    { "zona": "oferta título", "texto": "OFERTA ESPECIAL" },
+    { "zona": "oferta descuento", "texto": "60% DE DESCUENTO + REGALO GRATIS" },
+    { "zona": "oferta plazo", "texto": "SOLO ESTA SEMANA" },
+    { "zona": "logo", "texto": "VITALDROPS" }
+  ],
+  "titulares": [
+    "AYUDA A LLENAR TUS CURVAS EN 21 DÍAS",
+    "TU FIGURA MÁS LLENA EN 21 DÍAS"
+  ]
+}

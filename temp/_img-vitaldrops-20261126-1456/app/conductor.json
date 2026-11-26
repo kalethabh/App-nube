@@ -25,7 +25,8 @@
       "nombre": "La IA arma la estrategia",
       "estado": "corriendo",
       "intentos": 1,
-      "inicio": "2026-11-26T19:56:25.905Z"
+      "inicio": "2026-11-26T19:56:25.905Z",
+      "detalle": "Leyendo el mapa de tu anuncio validado 4 de 5"
     },
     {
       "id": "anuncios",
@@ -44,5 +45,5 @@
   "modoPrueba": false,
   "creado": "2026-11-26T19:56:25.842Z",
   "aprobado": "2026-11-26T19:56:25.842Z",
-  "actualizado": "2026-11-26T19:56:25.905Z"
+  "actualizado": "2026-11-26T19:58:31.445Z"
 }

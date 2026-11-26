@@ -1,0 +1,43 @@
+{
+  "zonas": {
+    "titular": "Abajo, en el tercio inferior de una pizarra blanca, debajo de una línea horizontal negra: dos líneas grandes escritas a mano que ocupan cerca del 75% del ancho de la imagen, centradas, con un trazo subrayado debajo de la segunda línea",
+    "modelo": "No hay modelo real: dentro de la pizarra hay dos dibujos a mano de una mujer de espaldas en ropa interior (antes a la izquierda, después a la derecha), separados por una línea vertical negra; juntos ocupan cerca del 55% de la imagen, en la parte central y alta. El de la izquierda marca la panza y la hinchazón en amarillo con flechas rojas; el de la derecha marca glúteos y caderas en amarillo con líneas rojas de forma",
+    "producto": "Abajo a la derecha, delante de la pizarra y apoyado en un mesón de cocina: frasco gotero de vidrio ámbar con tapa negra y etiqueta amarilla, de frente, recto, ocupa cerca del 45% del alto de la imagen",
+    "beneficios": "No hay bullets ni checks: en su lugar hay etiquetas escritas a mano con flechas rojas alrededor de cada dibujo. Izquierda: Panza, Hinchazón, Poca forma atrás, Sueño. Derecha: Más forma, Glúteos, Caderas, Rutina diaria",
+    "oferta_cta": "no hay",
+    "otros": "Arriba de cada columna, un encabezado escrito a mano y subrayado: a la izquierda la opción común, a la derecha el nombre del producto. Fondo: cocina clara con ventana, planta verde en maceta blanca arriba a la derecha y repisa de madera. La pizarra tiene marco de aluminio gris con esquinas plásticas grises y ocupa casi toda la imagen"
+  },
+  "jerarquia": [
+    "Los dos dibujos de antes y después con sus encabezados (Vitaminas para engordar / VitalDrops)",
+    "El titular de abajo: No es subir por subir. Es que se note donde tú quieres.",
+    "El frasco del producto y las etiquetas con flechas"
+  ],
+  "tipografia_paleta": {
+    "fuentes": "Todo parece escrito a mano con marcador sobre pizarra: letra de imprenta redondeada, trazo grueso, en mayúsculas y minúsculas. Encabezados grandes y subrayados; titular el texto más grande y grueso, con subrayado a mano; etiquetas de los dibujos más pequeñas y delgadas, con flechas rojas. Sin sombras ni efectos",
+    "colores": "Texto negro de marcador (#1A1A1A) sobre pizarra blanca (#F7F7F5); flechas y líneas de forma en rojo (#D63A2F); zonas resaltadas en amarillo (#F5D94A); marco gris aluminio (#B8BCC0); etiqueta del frasco amarilla (#F4D23C) con letras negras; vidrio ámbar oscuro (#4A2A12); fondo de cocina crema y beige (#E8E2D6)",
+    "fondos_de_bloques": "Ningún texto tiene cinta, badge ni recuadro: todo va escrito directo sobre la pizarra blanca. Separación por líneas negras dibujadas a mano: una vertical entre las dos columnas y una horizontal sobre el titular"
+  },
+  "angulo": {
+    "deseo": "Ganar curvas y forma justo donde ella quiere (glúteos y caderas), no subir de peso en cualquier parte",
+    "beneficio": "Que el cambio se note en la parte de atrás y las caderas, como parte de una rutina diaria",
+    "dolor": "Las vitaminas para engordar que dan panza, hinchazón y poca forma atrás"
+  },
+  "titular_original": "No es subir por subir. Es que se note donde tú quieres.",
+  "textos": [
+    { "zona": "encabezado izquierdo", "texto": "Vitaminas para engordar" },
+    { "zona": "encabezado derecho", "texto": "VitalDrops" },
+    { "zona": "etiqueta izquierda 1", "texto": "Sueño" },
+    { "zona": "etiqueta izquierda 2", "texto": "Panza" },
+    { "zona": "etiqueta izquierda 3", "texto": "Hinchazón" },
+    { "zona": "etiqueta izquierda 4", "texto": "Poca forma atrás" },
+    { "zona": "etiqueta derecha 1", "texto": "Rutina diaria" },
+    { "zona": "etiqueta derecha 2", "texto": "Más forma" },
+    { "zona": "etiqueta derecha 3", "texto": "Caderas" },
+    { "zona": "etiqueta derecha 4", "texto": "Glúteos" },
+    { "zona": "titular", "texto": "No es subir por subir. Es que se note donde tú quieres." }
+  ],
+  "titulares": [
+    "No es engordar por engordar. Es que se vea donde tú quieres.",
+    "No se trata de solo subir. Se trata de notarlo donde tú quieres."
+  ]
+}

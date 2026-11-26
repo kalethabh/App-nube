@@ -1,0 +1,39 @@
+{
+  "deseo_central": "Tener curvas más llenas y redondas, y verse y sentirse más atractiva con su cuerpo.",
+  "dolor_principal": "Sentir que sus curvas son planas o pequeñas y que nada le ha dado el cambio que quiere.",
+  "promesa": "Curvas más llenas en 21 días.",
+  "emocion": "Deseo y esperanza, con un empujón de urgencia por la oferta de esta semana.",
+  "nivel_conciencia": "consciente-de-la-solucion",
+  "mecanismo_persuasion": "Demostración del avance día a día (Día 1, 7, 14 y 21) con la misma mujer, más una oferta con descuento, regalo y plazo corto.",
+  "hook_visual": {
+    "que": "Un titular enorme en negro, «Curvas más llenas en 21 días», y debajo cuatro cuadros de la misma mujer de espaldas cuyas curvas crecen de un cuadro al siguiente.",
+    "por_que": "El ojo compara los cuadros sin querer y busca la diferencia. El cambio se entiende en un segundo, sin leer nada más que el titular."
+  },
+  "invariables": [
+    "La promesa directa de curvas más llenas con un plazo corto y concreto en el titular.",
+    "El avance por etapas de la misma persona, en la misma pose y el mismo encuadre, para que el cambio se note solo.",
+    "Las etiquetas de tiempo en cada etapa (Día 1, Día 7, Día 14, Día 21) que hacen el progreso creíble y fácil de seguir.",
+    "El frasco con gotero y su caja a la vista, cerrando el anuncio como la causa del cambio.",
+    "El bloque de oferta con descuento, regalo y «solo esta semana» que empuja a comprar ya."
+  ],
+  "modificables": [
+    "La modelo: otra mujer, otro tono de piel, otro peinado o edad dentro del mismo público.",
+    "La ropa deportiva y sus colores.",
+    "El estilo de la imagen: ilustración suave, foto real o 3D.",
+    "El fondo y la paleta: crema, beige y dorado pueden cambiar a otros tonos de marca.",
+    "La forma de mostrar la oferta: sello redondo, franja o etiqueta, en lugar de la placa dorada.",
+    "La redacción del titular y de la oferta, manteniendo la misma idea.",
+    "La decoración, como la rama de hojas junto al frasco."
+  ],
+  "experimentales": [
+    "Mostrar solo dos etapas, Día 1 y Día 21, lado a lado, para un contraste más fuerte.",
+    "Una línea de tiempo vertical u horizontal con fotos que crecen en vez de la cuadrícula de cuatro.",
+    "Vista de perfil en lugar de espalda, para que el volumen se lea distinto.",
+    "Un formato que parezca contenido real, como una selfie en el espejo o una nota en el celular contando el avance.",
+    "Probar otra faceta del deseo: la seguridad al ponerse un jean o un vestido ajustado.",
+    "Una versión sin oferta, que se apoye solo en la transformación."
+  ],
+  "esencia": "Ver en segundos cómo las curvas de la misma mujer crecen día a día, con una promesa de plazo corto y una oferta que invita a empezar hoy.",
+  "formato_ganador": "F26",
+  "angulo_ganador": "transformacion"
+}
