@@ -1,0 +1,37 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261125-2023",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "AGUAJE COMPLEX 3 EN 1",
+  "productoId": "producto-edb1",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "publico": "Mujeres colombianas que quieren glúteos más firmes y redondos de forma natural",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "",
+    "angulo": null
+  },
+  "cantidad": 10,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [],
+  "modo": "variantes",
+  "referenciasPropias": [],
+  "conceptosReferencias": [
+    ""
+  ],
+  "fiel": true,
+  "replicar": true,
+  "elegirTitulos": false,
+  "rapido": true,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-26T01:23:26.249Z",
+  "investigacionDelProducto": true
+}
