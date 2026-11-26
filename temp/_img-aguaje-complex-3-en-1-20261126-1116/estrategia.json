@@ -1,0 +1,44 @@
+{
+  "resumen": "Cinco anuncios para la mujer que quiere más curvas y que el jean le horme, sin agujas ni quirófano. Todos repiten una sola idea: a tu rutina de pierna le faltaba un apoyo, y ese apoyo es la triple acción de aguaje, fenogreco y maca negra en 2 cápsulas al día. Todos cierran con «Pagas al recibir» y el sello del registro INVIMA, y la oferta va igual en todos: tratamiento completo x3 frascos.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#2B1226", "nombre": "Ciruela oscuro" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#E0242F", "nombre": "Rojo oferta" },
+    { "hex": "#D4A23A", "nombre": "Dorado sello" }
+  ],
+  "tipografia": "Titulares en letra muy gruesa y en mayúsculas (estilo Montserrat Black). Textos de apoyo en letra redondeada y gruesa (estilo Poppins).",
+  "estilo": "La misma marca de tu lote anterior: fucsia, ciruela y el frasco negro real. Cada anuncio cambia de forma: foto real de antes y después, bodegón con frase honesta, foto partida al medio, ilustración con tu tratamiento y una carta. El rojo solo aparece en la oferta. Aprendí de tus anuncios que funcionan: el titular grande con el deseo arriba y la oferta en un bloque aparte (lo uso en V01 y V04), el antes y después con etiquetas que señalan el cambio (V01 y V03), y la franja de abajo con el pago al recibir, como en los de tu biblioteca (en todos).",
+  "beneficios": [
+    "Acompaña tu proceso de curvas sin agujas ni quirófano",
+    "El apoyo diario que le faltaba a tu rutina de pierna",
+    "Más energía para cumplirle a tu plan",
+    "Fácil de cumplir: 2 cápsulas al día con tus comidas"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje, fenogreco y maca negra",
+    "Con vitaminas A y E",
+    "60 cápsulas por frasco: un mes de uso",
+    "Registro INVIMA y pago al recibir"
+  ],
+  "deseo_central": "Verse con más curvas y que el jean le horme, sintiéndose segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil de cumplir, 2 cápsulas al día, para acompañar su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas y nada se me va ahí",
+    "Ya compré pastillas por internet y perdí la plata",
+    "No sé si lo que venden por redes tiene registro"
+  ],
+  "decisiones": [
+    "No diste precio: ningún anuncio muestra precio. Donde la estructura tenía precio, va la oferta de tu investigación: «TRATAMIENTO COMPLETO X3 FRASCOS», escrita igual en todos.",
+    "No hay envío gratis confirmado: no se menciona. El cierre es siempre «Pagas al recibir».",
+    "Tu sello va como «REGISTRO INVIMA RSA-0030271-2024» dentro de una insignia; tu logo lo pones tú.",
+    "Donde la estructura traía porcentajes de clientas o frascos de regalo, los cambié por datos verdaderos: ingredientes, dosis y los 3 meses del tratamiento.",
+    "Orden del lote para que no se repita el estilo seguido: foto real, bodegón, foto real, ilustración y carta."
+  ]
+}

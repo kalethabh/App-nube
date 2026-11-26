@@ -1,0 +1,55 @@
+{
+  "slug": "aguaje-complex-3-en-1",
+  "nombre": "AGUAJE COMPLEX 3 EN 1",
+  "analisis": "Suplemento dietario en cápsulas (nutracéutico) con aguaje, fenogreco y maca negra, más vitaminas A y E. Se toma 2 cápsulas al día con las comidas; un frasco de 60 cápsulas dura un mes y el tratamiento completo es de 3 frascos. Acompaña el proceso de curvas (glúteos, piernas y caderas) junto con la comida y la rutina. Frasco negro mate de boca ancha, tapa fucsia brillante y franja fucsia abajo, etiqueta negra con letras blancas y rosadas.",
+  "tipo_producto": "nutracéutico",
+  "descripcion_visual_en": "A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with straight vertical sides and no neck: a wide-mouth bottle whose glossy hot-pink/magenta screw cap is almost as wide as the body (about 90% of its width) and about one fifth of the total height, printed with a repeating small white 'VITALABH' wordmark pattern; not a slim bottle and not a squat jar. A solid hot-pink band wraps the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Matte finish, no rainbow, no prism light, no lens flare. The bottle is always closed with its cap on; no loose capsules, no pills anywhere. The label always reads the right way round, never mirrored.",
+  "foto_producto": "temp/_img-aguaje-complex-3-en-1-20261126-1116/entrada/producto.png",
+  "datos": {
+    "angulo_preferido": "",
+    "publico": "Mujeres colombianas que quieren glúteos y piernas más firmes y redondos de forma natural, sin ir al gym, ni dietas ni pagar cirugías costosas",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "Sello de confianza pedido: registro INVIMA RSA-0030271-2024. Oferta de la investigación: tratamiento completo de 3 frascos y pago al recibir (sin precio definido)."
+  },
+  "identidad_visual": {
+    "color_palette": "Brand palette taken from the bottle: hot fuchsia #E6177F (main accent), dark plum #2B1226 (deep backgrounds and header blocks), bottle black #0E0E10, bubblegum pink #FF8CC0 (accent text and highlighted words), pale blush pink #FBE3EE (light pills, cards and soft surfaces) and white #FFFFFF for main texts. Offer red #E0242F is used ONLY for the offer circle or offer seal, and warm gold #D4A23A only for seal borders. Each variation adds its own secondary support colors from the batch plan.",
+    "visual_style": "Bold, feminine supplement ads for Colombian women built on proven winning ad structures; each variation keeps the rendering style of its structure (real photo, premium still life, flat illustration or text letter) while the real bottle always stays sharp and identical to the photo, with fuchsia and plum brand accents.",
+    "visual_atmosphere": "Warm, confident and aspirational, believable and everyday; soft fuchsia glow on branded elements, never clinical.",
+    "graphic_language": "Solid flat color blocks, rounded cards and pills, thin glowing fuchsia borders, white thin-line icons inside circles, curved hand-drawn arrows, clean high-contrast typography readable on a phone. Clean backgrounds with negative space, no clutter. A round trust badge with a solid gold border for the sanitary registration and a bold bottom block with 'Pagas al recibir'.",
+    "text_typography": "Headlines in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold / Bold look).",
+    "art_direction": "Same brand family across the batch (palette, type, the real bottle, the same offer wording and the same 'QUIERO PROBARLO' pill button), but each variation follows a different winning structure, rendering style, body zone, segment, model, wardrobe and camera. One single enemy repeated across the batch: the leg routine without support (squats alone) versus the routine with the triple action support. One message per image, readable on a phone. Every image shows a woman in the moment of the pain (loose jeans at the back, frustrated look) and the result in the zone the product supports (glutes, legs, hips), always in jeans or leggings. Before/after always the same adult woman on different days (other light, other top), with a believable but clear difference. Only the closed bottle, never loose capsules."
+  },
+  "beneficios": [
+    "Acompaña tu proceso de curvas sin agujas ni quirófano",
+    "El apoyo diario que le faltaba a tu rutina de pierna",
+    "Más energía para cumplirle a tu plan",
+    "Fácil de cumplir: 2 cápsulas al día con tus comidas"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg",
+    "Con vitaminas A y E",
+    "60 cápsulas por frasco: un mes de uso",
+    "Registro INVIMA RSA-0030271-2024 y pago al recibir"
+  ],
+  "deseo_central": "Verse con más curvas y que el jean le horme, sintiéndose segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil de cumplir, 2 cápsulas al día, para acompañar su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas y nada se me va ahí",
+    "Ya compré pastillas por internet y perdí la plata",
+    "No sé si lo que venden por redes tiene registro"
+  ],
+  "oferta_fija": {
+    "texto_1": "TRATAMIENTO COMPLETO",
+    "texto_2": "X3 FRASCOS",
+    "confianza": "Pagas al recibir",
+    "sello": "REGISTRO INVIMA RSA-0030271-2024",
+    "boton": "QUIERO PROBARLO"
+  }
+}
