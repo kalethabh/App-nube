@@ -4,7 +4,7 @@
     "E": 3,
     "R": 2,
     "A": 1,
-    "T": 3
+    "T": 4
   },
   "tandas": {
     "E001": {
@@ -216,12 +216,17 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "reescribiendo",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "g-r1",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T003"
+      },
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -229,11 +234,8 @@
       "mensaje": null,
       "desde": null,
       "pedido": null,
-      "rescate": {
-        "vez": 1,
-        "dijo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      },
-      "ultimaOrden": "g"
+      "ultimaOrden": "g",
+      "rescates": 1
     }
   },
   "pedidos": {}

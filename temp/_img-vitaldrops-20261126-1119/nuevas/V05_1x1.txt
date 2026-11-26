@@ -1,0 +1,46 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 premium supplement ad on a warm cream #FFF6DC background with very faint diagonal light streaks and a soft warm vignette. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it. TOP ZONE (0-25 % of the canvas height): no logo; a thin gold #C9962B horizontal line on the left and on the right at about 8 % height. Centered at about 13 % height, one huge line of heavy high-contrast serif type (Playfair Display Black style) in deep cocoa #2B1A10 reading 'VITALDROPS', spanning about 85 % of the width. Under it, at about 21 % height, one line of wide letter-spaced uppercase Poppins SemiBold in deep cocoa reading 'TU RITUAL DIARIO PARA TUS CURVAS', with a short thin gold line at each side. MIDDLE ZONE (25-75 %): on the left 60 % of the width, two equal tall rounded-corner photo cards side by side (corner radius about 3 % of the canvas), 2 % gap between them, each with a deep cocoa #2B1A10 rounded pill on its top edge with white Poppins ExtraBold uppercase text: 'ANTES' on the left card, 'DESPUÉS' on the right card. Both are natural lifestyle photographs of the same young adult Colombian woman (about 28 years old, light-brown skin, dark hair in a ponytail, real skin texture, no retouching), seen in a relaxed three-quarter view, camera at chest height, 50 mm lens, medium shot framed from the top of her head to her knees, fully clothed, with her face and expression clearly visible, turned slightly sideways so the outline of her hips and glutes under her everyday clothes reads clearly as part of her whole figure (never a close-up). BEFORE card: at home, beige wall and a sofa edge softly blurred behind, cool soft window light from the left; she wears a loose heather-grey cotton sweatsuit (long-sleeve sweatshirt and baggy jogger pants) that hangs shapeless on her slim frame, the joggers loose and flat over her glutes; she looks at a small wall mirror with a doubtful, slightly disappointed expression, arms crossed, shoulders a bit slumped; muted cool tones. AFTER card, clearly another day: outdoors on a sunny city sidewalk with a warm blurred brick wall behind, warm late-morning sunlight from the left; she wears well-fitting mid-blue high-waisted denim jeans and a loose cream short-sleeve blouse tucked in, with a small shoulder bag; her silhouette looks a little curvier and more filled out in her everyday clothes, the jeans showing rounder, lifted glutes and fuller hips in a natural, modest way, and she smiles widely, standing tall with a relaxed confident posture, one hand resting on her waist, glowing and happy with her result; warm golden tones. Between the two cards, centered at mid-height, a deep cocoa circle (about 8 % of the canvas width) with a thin white border and a white right-pointing arrow. On the right 40 % of the width, standing upright and facing the camera, the product: ONE amber-brown glass Boston-round dropper bottle with ribbed matte black collar and tall matte black rubber bulb, about 58 % of the canvas height, from about 28 % down to about 80 % height, straight-on with a very slight 5-degree turn, the wrap-around lemon-yellow-to-white label fully facing the viewer and legible: lowercase black 'amua', big bold white 'VITALDROPS' with thin yellow outline, 'All-In-One Multi-Herbal Supplement', five small outlined circles, 'Dietary Supplement 2 fl. oz. (60mL)'; dark amber liquid visible above the label, glossy glass with a soft vertical window reflection, soft contact shadow on the cream surface; matte finish, no rainbow, no lens flare. BOTTOM ZONE (75-100 %): on the left 50 %, a rough diagonal brush stroke in deep cocoa #2B1A10 with dry-brush ragged edges, tilted about 8 degrees upward to the right; inside it a rounded badge with a 3 px white border containing large white Poppins ExtraBold text 'Pagas al recibir', with a thin gold #C9962B underline. On the right, under the bottle, two rounded rectangular boxes side by side separated by a thin vertical gold line: the left box warm cream with a gold #C9962B border and gold sheen, deep cocoa Poppins ExtraBold uppercase text '1 FRASCO RINDE 1 MES' on two lines; the right box solid deep cocoa with white Poppins ExtraBold uppercase text 'SIN SUSCRIPCIÓN' on two lines. No prices, no numbers other than those written, no stars, no logo, no button.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top center, one line, very large): "VITALDROPS" — Heavy high-contrast serif (Playfair Display Black style), uppercase, deep cocoa #2B1A10 on cream, about 85 % of the width
+- subtitle (top center, under the headline, between thin gold lines): "TU RITUAL DIARIO PARA TUS CURVAS" — Poppins SemiBold uppercase, wide letter spacing, deep cocoa #2B1A10
+- before label (pill on the top edge of the left photo card): "ANTES" — Poppins ExtraBold uppercase, white #FFFFFF on deep cocoa #2B1A10 pill
+- after label (pill on the top edge of the right photo card): "DESPUÉS" — Poppins ExtraBold uppercase, white #FFFFFF on deep cocoa #2B1A10 pill
+- offer band / trust badge (bottom-left, inside the diagonal cocoa brush stroke, in a white-bordered rounded badge): "Pagas al recibir" — Poppins ExtraBold, large, white #FFFFFF on deep cocoa, thin gold underline
+- info box left (replaces normal price box) (bottom-right, left box under the bottle): "1 FRASCO RINDE 1 MES" — Poppins ExtraBold uppercase, deep cocoa #2B1A10 on warm cream with gold #C9962B border, two lines
+- info box right (replaces unit price box) (bottom-right, right box under the bottle): "SIN SUSCRIPCIÓN" — Poppins ExtraBold uppercase, white #FFFFFF on solid deep cocoa #2B1A10, two lines
+
+BRAND IDENTITY:
+- color_palette: Lemon yellow #F5E13A (highlights, label color), amber brown #9A4F12 (glass and warm accents), deep cocoa #2B1A10 (headline, pills, brush band, dark box), warm cream #FFF6DC (background and light box), white #FFFFFF (text on dark), gold #C9962B (thin lines and details). No red: there is no price in this image.
+- text_typography: Headline in a heavy high-contrast serif (like Playfair Display Black) in deep cocoa #2B1A10; subtitle and all other text in Poppins (SemiBold to ExtraBold), uppercase where indicated.
+
+MANDATORY ELEMENTS:
+- Cream background with thin gold lines framing the title block
+- Two rounded real-photo cards side by side of the same fully clothed woman in a medium shot (head to knees): BEFORE at home in a loose grey sweatsuit, looking unsure at a mirror; AFTER another day on a sunny street in blue jeans and a cream blouse, a little curvier, smiling and confident
+- Round deep cocoa arrow badge between the two cards
+- The real VITALDROPS amber dropper bottle standing large on the right with its yellow label facing the viewer and legible
+- Diagonal deep cocoa brush-stroke band bottom-left with the white-bordered 'Pagas al recibir' badge
+- Two rounded info boxes bottom-right separated by a thin gold vertical line
+
+STRICT EXCLUSIONS:
+- No brand logo, leaf icon or wordmark other than the bottle's own label.
+- No price, currency symbol, strikethrough, discount or quantity offer.
+- No stars, reviews, testimonials, names, seals, certificates or registration numbers.
+- No underwear, swimwear, tight leggings or revealing clothes: only the loose sweatsuit and the jeans with blouse; no close-ups of body parts.
+- No second bottle, no drops, capsules or pills, no yellow '60ml' circle beside the bottle.
+- Do not mirror or redesign the bottle label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any brand logo, leaf icon or wordmark at the top
+- Do not add: Any price, currency, strikethrough price or discount number
+- Do not add: Any number offer like 3x2 or 2x1
+- Do not add: Star ratings, reviews, testimonials or customer names
+- Do not add: Medical seals, registration numbers or certificates
+- Do not add: CTA button (the structure has none)
+- Do not add: Extra benefit lists or icons outside the bottle label
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
