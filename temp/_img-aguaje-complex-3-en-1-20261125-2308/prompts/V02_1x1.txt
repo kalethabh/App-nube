@@ -1,0 +1,49 @@
+Square 1:1 clean progress-timeline supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Flat pale blush pink #FBE3EE background with a very subtle lighter top. Top center (6-19% of the height) a two-line extra-bold uppercase headline in dark plum #2B1226 with '3 MESES' in fuchsia #E6177F. Across the middle, three circular photos growing from left to right along a thin horizontal timeline track at about 46% of the height (mauve on the left turning fuchsia on the right, a small chevron pointing right in each gap): circle 1 about 20% of the width at 7-27% of the width, circle 2 about 25% at 30.5-55.5%, circle 3 about 32% at 59-91%, each with a thin white outline and a soft drop shadow; circle 3 has a fuchsia ring and a faint fuchsia glow. All three circles show the SAME Colombian woman about 28 years old, light brown skin, curly brown hair in a loose bun, in front of the same full-length bedroom mirror with the same waist-up three-quarter framing and the same window light: circle 1, loose gray hoodie, tired and unsure, muted cool tones; circle 2, fitted black workout top and a gym bag on her shoulder, energized, neutral tones; circle 3, medium-blue fitted high-waisted jeans and a fuchsia blouse, standing tall with a big confident smile, warm vibrant tones. Her body stays realistic and the same in all three: the change is mood, energy and confidence, not body size. A rounded pill straddles the top edge of each circle (pills 1 and 2 muted mauve, pill 3 fuchsia, white text). One short caption centered under each circle on a shared baseline at about 65-71% of the height, dark plum, the third in fuchsia. Bottom center (74-95% of the height) the real product standing with a soft contact shadow, about 21% of the canvas height: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a bold italic hot-pink 'TRIPLE ACCIÓN', three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. Bottom left (6-32% of the width, 84-90% of the height) a small rounded dark plum pill with a tiny white check-shield icon and white text. Bottom right (70-94% of the width, 85-89% of the height) a small plain dark plum legal note. Clean, airy, everything readable on a phone. No other elements.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, first element of the canvas): "TU PLAN NATURAL DE CURVAS EN 3 MESES" — Extra bold geometric sans-serif, uppercase, each line about 6.5-7.5% of the canvas height, max 2 lines, centered, dark plum; '3 MESES' in fuchsia
+- stage label 1 (Inside the pill on the top edge of circle 1): "Mes 1" — Bold sans-serif, about 2.8-3% of the canvas height, centered, white on muted mauve
+- stage label 2 (Inside the pill on the top edge of circle 2): "Mes 2" — Bold sans-serif, about 2.8-3% of the canvas height, centered, white on muted mauve
+- stage label 3 (Inside the pill on the top edge of circle 3): "Mes 3" — Bold sans-serif, about 3-3.2% of the canvas height, centered, white on fuchsia
+- caption stage 1 (Centered under circle 1): "Empiezas tu plan" — Medium sans-serif, about 2.6-3% of the canvas height, 1 line, centered, dark plum
+- caption stage 2 (Centered under circle 2): "Más energía" — Medium sans-serif, about 2.6-3% of the canvas height, 1 line, centered, dark plum
+- caption stage 3 (Centered under circle 3): "Segura con tu jean" — Semi-bold sans-serif, about 2.8-3.2% of the canvas height, 1 line, centered, fuchsia
+- trust seal (Bottom left, inside the small dark plum pill): "REGISTRO INVIMA RSA-0030271-2024" — Bold sans-serif, uppercase, about 2% of the canvas height, 1 line, centered, white
+- legal note (Bottom right, plain text): "Los resultados varían." — Regular sans-serif, about 2% of the canvas height, 1 line, right-aligned, dark plum
+
+BRAND IDENTITY:
+- color_palette: Brand palette: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. For this variation the background is pale blush pink #FBE3EE with dark plum #2B1226 texts and fuchsia accents.
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; labels and captions in a rounded bold sans-serif (Poppins SemiBold look).
+
+MANDATORY ELEMENTS:
+- Three circular photo frames growing in size from left to right (about 20%, 25% and 32% of the canvas width)
+- The same woman, mirror, crop and light in all three circles, changing only in clothes, mood and energy
+- Thin horizontal timeline track through the circle centers with a chevron arrow in each gap
+- Fuchsia ring and faint glow on the largest circle
+- Rounded month pill on the top edge of each circle
+- The real bottle centered in the bottom band with a soft contact shadow
+- Small dark plum registration pill at the bottom left
+- Pale blush pink background
+
+STRICT EXCLUSIONS:
+- No body-shape, butt-size or weight change between the circles; no measuring tapes.
+- No explicit or revealing clothing or poses.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: A fourth stage or extra circles
+- Do not add: Rectangular photo panels or a two-panel before/after split
+- Do not add: Number badges instead of month labels
+- Do not add: Charts, graphs, percentages or measurements
+- Do not add: Benefit list or icons
+- Do not add: The product repeated inside the circles
+- Do not add: Body, weight or butt-size comparisons between the circles
+- Do not add: Bottom bar or banner
+- Do not add: Any trust seal other than the single registration pill
+- Do not add: Logos or brand marks outside the bottle label
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

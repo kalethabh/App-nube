@@ -1,0 +1,164 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F08 (Beneficios con íconos)",
+    "reference_style": "Clean two-column benefits ad: the large real bottle standing in front of a tall fuchsia arch on the left and a vertical stack of icon-tile-plus-text benefits on the right, under a centered headline",
+    "angle_used": "Beneficio sin sacrificio: tus curvas sin agujas ni quirófano",
+    "ad_format": "Product Hero Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. For this variation: a dark plum to deep magenta background gradient, a deep magenta arch, fuchsia icon tiles and white texts.",
+    "visual_style": "Bold, feminine premium supplement ad with the real bottle as the hero, sharp and identical to the photo.",
+    "visual_atmosphere": "Confident, calm and trustworthy, with a soft fuchsia glow.",
+    "graphic_language": "A tall arch panel with a rounded top, solid rounded-square fuchsia tiles with white line icons, one small rounded pill, clean high-contrast typography readable on a phone, smooth background with no texture.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; benefits in a rounded bold sans-serif (Poppins SemiBold / Bold look)."
+  },
+  "creative_objective": "Contrast with the operating room: curves the natural way, without needles or surgery. The real bottle framed by the arch and four honest benefits prove the promise in three seconds.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The headline. 2) The bottle framed by the arch on the left. 3) The four benefits on the right, top to bottom. 4) The small registration pill under the benefits.",
+    "composition_style": "Asymmetric two-column grid under a centered full-width headline. Left column (6-50% of the width): tall arch with the bottle in front. Right column (54-94% of the width): four benefit rows and, under them, the small registration pill.",
+    "spacing_and_structure": "Headline 6-21% of the height, centered, up to 88% of the width. Arch about 10-46% of the width and 28-94% of the height, fully rounded top. Bottle centered on the arch, base at about 90% of the height, about 50-56% of the canvas height. Four benefit rows evenly spaced between about 28% and 82% of the height, each about 12% tall; tiles about 9% of the canvas starting at about 54% of the width, text from about 66% to 94%. Registration pill about 54-94% of the width and 86-92% of the height.",
+    "lighting_and_depth": "Soft studio light from the upper left; the bottle casts a soft contact shadow at the base of the arch and has a thin fuchsia rim light. The arch has a very subtle vertical gradient and a faint shadow. Tiles and text are flat, without shadows.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a smooth dark plum to deep magenta gradient. A bold centered white headline spans the top with the word 'QUIRÓFANO' in bubblegum pink. Left half: a tall deep magenta arch with a rounded top and the real bottle standing large in front of it. Right half: four benefit rows stacked with equal spacing, each a solid fuchsia rounded-square tile with a white line icon followed by a short bold white benefit. Under the benefits, a small rounded registration pill. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Calm brand-colored base",
+        "adaptation_rule": "Smooth gradient from dark plum #2B1226 at the top to a slightly lighter plum-magenta at the bottom. No patterns, no textures, no particles."
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top center, 6-21% of the height, up to 88% of the width",
+        "visual_function": "States the promise the benefits prove",
+        "adaptation_rule": "Two lines, white, with 'QUIRÓFANO' in bubblegum pink #FF8CC0."
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "arch backdrop panel",
+        "position": "About 10-46% of the width and 28-94% of the height, fully rounded top",
+        "visual_function": "Frames the bottle like a showcase niche",
+        "adaptation_rule": "Solid deep magenta #B0105E arch with a very subtle vertical gradient and a faint soft shadow; flat, no text on it."
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "In front of the arch, centered, base at about 90% of the height, about 50-56% of the canvas height",
+        "visual_function": "Main visual anchor",
+        "adaptation_rule": "The real bottle exactly as in the attached product photo, front view, upright, with a soft contact shadow, a visible band of arch color above and around it."
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "benefit icon tiles (4)",
+        "position": "Right column, starting at about 54% of the width, four tiles stacked with equal spacing",
+        "visual_function": "Scannable anchors",
+        "adaptation_rule": "Solid fuchsia #E6177F rounded-square tiles (about 9% of the canvas) with simple white monoline icons: a crossed-out syringe, a capsule, a lightning bolt, a leaf. One style, one stroke, one size."
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "benefit texts (4)",
+        "position": "Right of each tile, from about 66% to 94% of the width",
+        "visual_function": "Names each benefit",
+        "adaptation_rule": "One short bold white benefit per row, max 2 lines."
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "registration seal",
+        "position": "Under the benefit column, about 54-94% of the width and 86-92% of the height",
+        "visual_function": "Trust: the sanitary registration given by the brand",
+        "adaptation_rule": "Small rounded pill in pale blush pink #FBE3EE with a tiny dark plum check-shield icon and dark plum text. Text only, no logos."
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount, offer or urgency badge",
+      "Any trust seal other than the single registration pill",
+      "Callout lines or arrows pointing at the product",
+      "Numbers on the benefit rows",
+      "Divider lines, boxes or cards behind each benefit",
+      "Round pedestal or circular backdrop shape",
+      "Rating stars, reviews or testimonials",
+      "Subheadline or paragraph text",
+      "People or lifestyle scenes",
+      "More than 4 benefits",
+      "Bottom bar or banner",
+      "Logos or brand marks outside the bottle label",
+      "Syringes, needles or medical images other than the small crossed-out syringe icon"
+    ]
+  },
+  "visual_prompt": "Square 1:1 clean benefit-icons supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Smooth background gradient from dark plum #2B1226 at the top to a slightly lighter plum-magenta at the bottom, no texture. Top center (6-21% of the height, up to 88% of the width) a two-line extra-bold uppercase white headline with the word 'QUIRÓFANO' in bubblegum pink #FF8CC0. Left half: a tall solid deep magenta #B0105E arch with a fully rounded top (about 10-46% of the width, 28-94% of the height), faint soft shadow; in front of it, centered, the real product standing large (about 50-56% of the canvas height, base at about 90%), front view, soft contact shadow and a thin fuchsia rim light: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. Right half: four benefit rows evenly spaced between about 28% and 82% of the height, each with a solid fuchsia #E6177F rounded-square tile (about 9% of the canvas) holding a simple white line icon (crossed-out syringe, capsule, lightning bolt, leaf) and a short bold white benefit text to its right (about 66-94% of the width). Under the benefits (about 54-94% of the width, 86-92% of the height) a small rounded pale blush pink pill with a tiny dark plum check-shield icon and dark plum text. Clean, airy, premium, everything readable on a phone. No people, no other elements.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, spanning up to 88% of the width",
+      "text_style": "Extra bold geometric sans-serif, uppercase, each line about 6.5-7.5% of the canvas height, max 2 lines, centered, white; 'QUIRÓFANO' in bubblegum pink",
+      "text": "TUS CURVAS, SIN AGUJAS NI QUIRÓFANO"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "benefit 1",
+      "reference_position": "Right column, first row, right of the crossed-out syringe tile",
+      "text_style": "Bold rounded sans-serif, about 3.4-4% of the canvas height, max 2 lines, left-aligned, white",
+      "text": "Natural, sin agujas"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit 2",
+      "reference_position": "Right column, second row, right of the capsule tile",
+      "text_style": "Same style as benefit 1",
+      "text": "Solo 2 cápsulas al día"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 3",
+      "reference_position": "Right column, third row, right of the lightning tile",
+      "text_style": "Same style as benefit 1",
+      "text": "Más energía para tu rutina"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 4",
+      "reference_position": "Right column, fourth row, right of the leaf tile",
+      "text_style": "Same style as benefit 1",
+      "text": "Aguaje, fenogreco y maca negra"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "trust seal",
+      "reference_position": "Under the benefit column, inside the small pale blush pill",
+      "text_style": "Bold sans-serif, uppercase, about 2.2% of the canvas height, 1 line, centered, dark plum",
+      "text": "REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Tall deep magenta arch panel with a fully rounded top in the left half",
+    "The real bottle, large, standing in front of the arch with a soft contact shadow",
+    "Four benefit rows stacked in the right half with equal spacing",
+    "Solid fuchsia rounded-square tile with a simple white line icon at the start of each row",
+    "Small pale blush registration pill under the benefits",
+    "Smooth dark plum gradient background"
+  ],
+  "final_generation_exclusions": [
+    "No realistic syringes, scalpels or medical scenes.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

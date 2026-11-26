@@ -1,0 +1,44 @@
+Square 1:1 premium lifestyle supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Full-bleed photo of a clean, warm Colombian bedroom at golden hour, bed and sheer curtains heavily blurred into soft rose-gold and champagne bokeh. In the center-right (about 34-82% of the width, head top at about 15% of the height, cropped at mid-thigh by the bottom edge) a Colombian woman about 25 years old, warm tan skin, long wavy black hair, black strappy top and medium-blue high-waisted fitted jeans, stands three-quarter turned away from the camera and looks back over her shoulder with a confident natural smile, one hand on her hip; realistic proportions, fully clothed, tasteful, believable skin texture. The left third of the photo stays darker and calm. Top left (3.5-58% of the width), a two-line extra-bold uppercase headline: line 1 white at about 4-12% of the height, line 2 in a rose-gold to fuchsia #E6177F gradient at about 14.5-22%. Below, a left column (3.5-34.5% of the width) of three benefit rows at about 26-38%, 43-54% and 58-69% of the height, separated by thin fading rose-gold lines; each row has a thin rose-gold ring with a white line icon (leaf, capsule, crossed-out syringe) and 2-3 lines of white text. In the lower-right foreground (78-98% of the width, 35-96% of the height) the real product, large, upright and studio-sharp: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern and a solid hot-pink band wrapping the bottom fifth; the black label shows a small pink VITALABH emblem, a huge bold white condensed word 'AGUAJE', the line 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom; it stands on a glossy surface with soft light ripples. Bottom left (3.5-76% of the width, 81-96.5% of the height) a wide rounded satin rose-gold band with a soft shadow: a thin-ringed circle with a house-with-package line icon, a thin vertical divider and two lines of deep plum text. Top-right corner (72-96% of the width, 4-10% of the height) a small rounded dark plum pill with a thin fuchsia border, a tiny white check-shield icon and white text. Clean, uncluttered, premium, everything readable on a phone. No other elements.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- headline line 1 (Top left, first line, about 4-12% of the canvas height): "NO SOLO TU COLA" — Extra bold geometric sans-serif, uppercase, about 8% of the canvas height, 1 line, left-aligned, white
+- headline line 2 (Top left, second line, about 14.5-22% of the canvas height): "TAMBIÉN TUS PIERNAS" — Extra bold geometric sans-serif, uppercase, about 7.5% of the canvas height, 1 line, left-aligned, rose-gold to fuchsia gradient
+- benefit 1 (Left column, first row, right of the leaf icon): "Acompaña tus curvas de forma natural" — Semi-bold rounded sans-serif, sentence case, about 2.8% of the canvas height, max 3 lines, left-aligned, white
+- benefit 2 (Left column, second row, right of the capsule icon): "Solo 2 cápsulas al día con tus comidas" — Same style as benefit 1
+- benefit 3 (Left column, third row, right of the crossed-out syringe icon): "Sin agujas ni quirófano" — Same style as benefit 1
+- delivery line (Inside the band, right of the vertical divider, top line): "LO RECIBES EN CASA" — Extra bold sans-serif, uppercase, about 5% of the canvas height, 1 line, left-aligned, deep plum #2B1226
+- payment line (Inside the band, under the delivery line): "PAGAS AL RECIBIR" — Medium sans-serif, uppercase, about 3.5% of the canvas height, 1 line, left-aligned, deep plum #2B1226
+- trust seal (Top-right corner, inside the small dark plum pill): "REGISTRO INVIMA RSA-0030271-2024" — Bold sans-serif, uppercase, about 2.2% of the canvas height, 1 line, centered, white
+
+BRAND IDENTITY:
+- color_palette: Brand palette: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary for this variation: warm champagne #F3D9B1 and rose gold #D9A38F in the light, the bokeh, the icon rings and the delivery band.
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; secondary texts in a rounded bold sans-serif (Poppins SemiBold look).
+
+MANDATORY ELEMENTS:
+- Full-bleed warm bedroom lifestyle photo with soft rose-gold bokeh and a confident woman in fitted high-waisted jeans in the center-right
+- Two-line headline at the top left: white line over a rose-gold to fuchsia line
+- Left column of three benefits with thin-ringed white line-icon circles separated by thin dividers
+- The real bottle large in the lower-right foreground, identical to the attached photo
+- Wide rounded rose-gold delivery and payment band with a ringed icon at the bottom left
+- Small dark plum registration pill in the top-right corner
+
+STRICT EXCLUSIONS:
+- No explicit or revealing poses, no exaggerated body proportions, no hands pointing at body parts.
+- No second person and no before/after comparison.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount or urgency badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Any trust seal, guarantee or certification badge other than the single registration pill
+- Do not add: Before/after images or a second photo of the woman
+- Do not add: More than three benefits
+- Do not add: Numbers on the benefit rows
+- Do not add: Boxes or cards behind each benefit
+- Do not add: Cold or blue-toned lighting
+- Do not add: Logos or brand marks outside the bottle label
+- Do not add: Bubbles, flowers, leaves or particles cluttering the scene
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

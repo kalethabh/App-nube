@@ -1,0 +1,141 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format F05 (Problema en primer plano)",
+    "reference_style": "Documentary-style close-up photo of a relatable fitting-room frustration, with a bold overlaid headline and the product as a small branded way-out tile",
+    "angle_used": "Dolor / problema: el jean que queda suelto atrás",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Brand palette: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. For this variation the photo keeps cool fitting-room grays and denim blues; the brand colors appear only in the product tile, one headline word and the seal.",
+    "visual_style": "Photorealistic, candid smartphone-style photo of a real everyday moment, with the real bottle sharp and identical to the photo.",
+    "visual_atmosphere": "Relatable, mildly frustrated, real and close; the product tile is the only warm element.",
+    "graphic_language": "A soft dark diagonal gradient for text contrast, one rounded fuchsia tile, clean high-contrast typography readable on a phone.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; subtitle in a rounded sans-serif (Poppins Regular / Medium look)."
+  },
+  "creative_objective": "Stop the scroll with the exact moment the customer lives: in the fitting room, the jeans are loose at the back again. Name the pain in her words and present the real bottle as the natural way out, without pointing at body flaws.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The close-up of the hand pinching the loose jean waistband. 2) The headline. 3) The small fuchsia product tile in the bottom-right corner. 4) The subtitle. 5) The small seal.",
+    "composition_style": "Full-bleed photographic composition, camera very close to the action; the pinched waistband sits in the center to lower-center (about 35-65% of the width and 45-75% of the height), the top-left stays calmer and darker for the text and the bottom-right corner stays free for the tile.",
+    "spacing_and_structure": "Text block top left: starts at the 7% margin, max 70% of the width, top 35-40% of the height. Product tile bottom right, inset 6% from the right and bottom edges, about 24-28% of the width and 28-32% of the height. Seal pill bottom left, inset 6% from the left and bottom edges, about 6-36% of the width and 88-94% of the height. Nothing else.",
+    "lighting_and_depth": "Cool overhead fitting-room light, mildly desaturated, shallow depth of field with the hand and waistband in sharp focus and the curtain and mirror softly blurred. Dark gradient from the top-left corner. The product tile is the only warm, saturated, studio-lit element.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas filled edge to edge with a realistic, tight close-up photo from behind at waist level in a clothing-store fitting room: a woman's hand pulls the loose back waistband of light-blue jeans away from her lower back, showing a visible gap. A dark diagonal gradient in the top-left corner holds a large white headline (2-3 lines) and a short subtitle. Bottom right, a small rounded fuchsia tile holds the real bottle. Bottom left, a small dark plum registration pill. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "close-up pain-moment photo",
+        "position": "Full canvas, edge to edge",
+        "visual_function": "Makes the viewer instantly recognize her own frustration",
+        "adaptation_rule": "Clothing-store fitting room with a gray curtain and a mirror blurred in the background. Tight close-up from behind at waist level: a woman with light brown skin wearing a plain white t-shirt tucked up slightly and light-blue jeans; her hand with natural nails pinches and pulls the back waistband of the jeans away from her lower back, showing a clear gap of loose fabric. The framing is centered on the waistband and lower back, not on the buttocks; tasteful and clothed. Candid smartphone feel, mild frustration. The product does not appear in the photo."
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "dark gradient overlay",
+        "position": "Top-left corner, about the top 45% and left 75% of the canvas, fading diagonally",
+        "visual_function": "Text contrast without hiding the photo",
+        "adaptation_rule": "Smooth gradient from dark plum #2B1226 at about 65% opacity to transparent. No hard edges."
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "headline",
+        "position": "Top left, starting at the 7% margin, over the gradient",
+        "visual_function": "Names the pain exactly as she feels it",
+        "adaptation_rule": "Max 3 lines within 70% of the width; the word 'SUELTO' in fuchsia."
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "subheadline",
+        "position": "Directly below the headline, left-aligned",
+        "visual_function": "Opens the door to the natural way out",
+        "adaptation_rule": "One short line in white at 90% opacity."
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "product way-out tile",
+        "position": "Bottom right, inset 6%, about 24-28% of the width and 28-32% of the height",
+        "visual_function": "Presents the product as the exit",
+        "adaptation_rule": "Rounded rectangle filled with a fuchsia #E6177F to deep magenta #B0105E gradient, soft drop shadow and a thin light outline."
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "product",
+        "position": "Inside the tile, centered, about 20-24% of the canvas height; its cap may break slightly out of the tile",
+        "visual_function": "Shows what helps",
+        "adaptation_rule": "The real bottle exactly as in the attached product photo, front view, studio-lit with a subtle glow."
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "registration seal",
+        "position": "Bottom left, inset 6%, about 6-36% of the width and 88-94% of the height",
+        "visual_function": "Trust: the sanitary registration given by the brand",
+        "adaptation_rule": "Small rounded dark plum pill at 85% opacity with a thin fuchsia border, a tiny white check-shield icon and white text. Text only, no logos."
+      }
+    ],
+    "forbidden_additions": [
+      "Product inside the photo scene",
+      "Large or centered product",
+      "CTA button",
+      "Price, discount, offer or urgency badge",
+      "Any trust seal other than the single registration pill",
+      "Benefit list or icons",
+      "Rating stars, reviews or testimonials",
+      "Before/after split or a second photo",
+      "Arrows, stickers or emojis",
+      "Bottom bar or banner",
+      "Logos or brand marks outside the bottle label",
+      "Glossy studio look on the photo"
+    ]
+  },
+  "visual_prompt": "Square 1:1 pain-point close-up supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Full-bleed, realistic smartphone-style close-up taken from behind at waist level inside a clothing-store fitting room, gray curtain and mirror softly blurred, cool overhead light, mildly desaturated. A woman with light brown skin, plain white t-shirt and light-blue jeans pinches and pulls the back waistband of the jeans away from her lower back with one hand, showing a clear gap of loose denim; the waistband and hand are in sharp focus in the center to lower-center of the frame (about 35-65% of the width, 45-75% of the height). Framing centered on the waistband and lower back, tasteful and fully clothed, mild relatable frustration. A smooth dark plum #2B1226 diagonal gradient (about 65% opacity fading to transparent) covers the top-left corner. Over it, starting at the 7% margin and within 70% of the width, a large extra-bold white uppercase headline in up to 3 lines with the word 'SUELTO' in fuchsia #E6177F, and right below it a short white subtitle at 90% opacity. Bottom-right corner, inset 6% (about 24-28% of the width, 28-32% of the height), a rounded tile in a fuchsia to deep magenta gradient with a soft shadow and a thin light outline, holding the real product centered and studio-lit, its cap slightly breaking out of the tile: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a bold italic hot-pink 'TRIPLE ACCIÓN', three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. Bottom-left corner, inset 6% (about 6-36% of the width, 88-94% of the height), a small rounded dark plum pill with a thin fuchsia border, a tiny white check-shield icon and white text. The tile is the only warm, saturated element. No other elements.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top left, over the dark gradient",
+      "text_style": "Extra bold geometric sans-serif, uppercase, each line about 7-8.5% of the canvas height, max 3 lines, left-aligned, white; 'SUELTO' in fuchsia",
+      "text": "OTRA VEZ EL JEAN SUELTO ATRÁS"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, left-aligned",
+      "text_style": "Regular rounded sans-serif, about 3.2-3.8% of the canvas height, max 2 lines, left-aligned, white at 90% opacity",
+      "text": "Acompaña tus curvas de forma natural, sin quirófano"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "trust seal",
+      "reference_position": "Bottom left, inside the small dark plum pill",
+      "text_style": "Bold sans-serif, uppercase, about 2% of the canvas height, 1 line, centered, white",
+      "text": "REGISTRO INVIMA RSA-0030271-2024"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed, realistic close-up of a hand pulling the loose back waistband of jeans in a fitting room",
+    "Dark plum diagonal gradient in the top-left corner behind the text",
+    "Small fuchsia tile in the bottom-right corner holding the real bottle",
+    "Shallow depth of field with the waistband in sharp focus",
+    "Small dark plum registration pill in the bottom-left corner"
+  ],
+  "final_generation_exclusions": [
+    "No focus on the buttocks, no revealing clothing, no underwear visible.",
+    "No face shown and no second person.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

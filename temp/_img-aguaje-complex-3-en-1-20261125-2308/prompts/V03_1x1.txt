@@ -1,0 +1,39 @@
+Square 1:1 pain-point close-up supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Full-bleed, realistic smartphone-style close-up taken from behind at waist level inside a clothing-store fitting room, gray curtain and mirror softly blurred, cool overhead light, mildly desaturated. A woman with light brown skin, plain white t-shirt and light-blue jeans pinches and pulls the back waistband of the jeans away from her lower back with one hand, showing a clear gap of loose denim; the waistband and hand are in sharp focus in the center to lower-center of the frame (about 35-65% of the width, 45-75% of the height). Framing centered on the waistband and lower back, tasteful and fully clothed, mild relatable frustration. A smooth dark plum #2B1226 diagonal gradient (about 65% opacity fading to transparent) covers the top-left corner. Over it, starting at the 7% margin and within 70% of the width, a large extra-bold white uppercase headline in up to 3 lines with the word 'SUELTO' in fuchsia #E6177F, and right below it a short white subtitle at 90% opacity. Bottom-right corner, inset 6% (about 24-28% of the width, 28-32% of the height), a rounded tile in a fuchsia to deep magenta gradient with a soft shadow and a thin light outline, holding the real product centered and studio-lit, its cap slightly breaking out of the tile: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a bold italic hot-pink 'TRIPLE ACCIÓN', three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. Bottom-left corner, inset 6% (about 6-36% of the width, 88-94% of the height), a small rounded dark plum pill with a thin fuchsia border, a tiny white check-shield icon and white text. The tile is the only warm, saturated element. No other elements.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top left, over the dark gradient): "OTRA VEZ EL JEAN SUELTO ATRÁS" — Extra bold geometric sans-serif, uppercase, each line about 7-8.5% of the canvas height, max 3 lines, left-aligned, white; 'SUELTO' in fuchsia
+- subtitle (Directly below the headline, left-aligned): "Acompaña tus curvas de forma natural, sin quirófano" — Regular rounded sans-serif, about 3.2-3.8% of the canvas height, max 2 lines, left-aligned, white at 90% opacity
+- trust seal (Bottom left, inside the small dark plum pill): "REGISTRO INVIMA RSA-0030271-2024" — Bold sans-serif, uppercase, about 2% of the canvas height, 1 line, centered, white
+
+BRAND IDENTITY:
+- color_palette: Brand palette: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. For this variation the photo keeps cool fitting-room grays and denim blues; the brand colors appear only in the product tile, one headline word and the seal.
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase; subtitle in a rounded sans-serif (Poppins Regular / Medium look).
+
+MANDATORY ELEMENTS:
+- Full-bleed, realistic close-up of a hand pulling the loose back waistband of jeans in a fitting room
+- Dark plum diagonal gradient in the top-left corner behind the text
+- Small fuchsia tile in the bottom-right corner holding the real bottle
+- Shallow depth of field with the waistband in sharp focus
+- Small dark plum registration pill in the bottom-left corner
+
+STRICT EXCLUSIONS:
+- No focus on the buttocks, no revealing clothing, no underwear visible.
+- No face shown and no second person.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Product inside the photo scene
+- Do not add: Large or centered product
+- Do not add: CTA button
+- Do not add: Price, discount, offer or urgency badge
+- Do not add: Any trust seal other than the single registration pill
+- Do not add: Benefit list or icons
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Before/after split or a second photo
+- Do not add: Arrows, stickers or emojis
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks outside the bottle label
+- Do not add: Glossy studio look on the photo
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
