@@ -1,0 +1,39 @@
+Square 1:1 bold editorial two-tone question-and-answer supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. The canvas is split by one clean straight horizontal line at 52% of the height: top zone flat dark plum #2B1226, bottom zone flat pale blush pink #FBE3EE, no gradient. Behind the right side of the top zone (62-96% of the width, 2-50% of the height) one giant flat question mark in plum #3A1A33, very low contrast, clipped at the split line. Top left (6-11% of the height, from 6% of the width) a small rounded pill with a thin hot fuchsia #E6177F outline and fuchsia uppercase text. Below it (13-40% of the height, 6-62% of the width) a very large three-line extra-bold white question in Montserrat ExtraBold, left-aligned, tight line spacing, with the word 'INVIMA' in bubblegum pink #FF8CC0. Bottom zone, left column (58-90% of the height, 6-56% of the width): a short answer in dark plum Inter Regular, left-aligned, its first word 'Sí:' in bold hot fuchsia. On the right (60-92% of the width, 40-93% of the height) the real product in a 3/4 view, about 50% of the canvas height, crossing the split line, cap and upper label over the plum zone, body over the blush zone, soft key light from the upper left, a subtle white rim light on the cap, soft contact shadow: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. Clean, flat, everything readable on a phone. No people, no other elements.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- kicker (Inside the small pill at the top left of the plum zone): "Nos preguntan" — Inter SemiBold, uppercase, wide letter spacing, about 2.5% of the canvas height, 1 line, hot fuchsia
+- question (Plum top zone, left-aligned, 13-40% of the height): "¿Y eso sí tiene registro INVIMA?" — Montserrat ExtraBold, each line about 8% of the canvas height, 3 lines, left-aligned, tight line spacing, white; 'INVIMA' in bubblegum pink
+- answer (Pale blush bottom zone, left column, left-aligned): "Sí: RSA-0030271-2024. Y pagas cuando lo recibes." — Inter Regular, about 4.5% of the canvas height per line, max 4 lines, left-aligned, dark plum #2B1226; the verdict 'Sí:' in Inter Bold hot fuchsia #E6177F
+
+BRAND IDENTITY:
+- color_palette: Brand palette: hot fuchsia #E6177F (accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary colors for this variation: plum (top zone #2B1226, question mark #3A1A33) and pale blush pink (bottom zone #FBE3EE).
+- text_typography: Question in Montserrat ExtraBold; kicker and answer in Inter (SemiBold / Regular, verdict in Bold). Maximum three text levels.
+
+MANDATORY ELEMENTS:
+- Two-tone horizontal split: dark plum top zone and pale blush bottom zone
+- Giant tone-on-tone question mark behind the right side of the top zone
+- Small outlined fuchsia kicker pill at the top left
+- The real bottle, large, on the right, in 3/4 view, crossing the split line
+
+STRICT EXCLUSIONS:
+- No separate seal badge, shield, certification logo or government emblem.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Separate seal badges, shields or certification logos (the registration number lives inside the answer)
+- Do not add: Chat bubbles, app or social media interface elements
+- Do not add: More than one question or answer
+- Do not add: Arrows or connectors between question and answer
+- Do not add: Subheadline or any text besides the kicker, question and answer
+- Do not add: Photo backgrounds or photo panels
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Benefit list or icons
+- Do not add: People or faces
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks outside the bottle label
+- Do not add: Glow, sparkles or particles
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

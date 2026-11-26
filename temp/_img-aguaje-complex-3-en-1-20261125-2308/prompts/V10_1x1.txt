@@ -1,0 +1,42 @@
+Square 1:1 bold centered typographic supplement ad. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. Solid deep black #0A0A0C background with a very soft, low-intensity hot-fuchsia radial light behind the bottle in the upper center and a subtle vignette; no sparkles, no flares, no particles. Top center (y 5-9%) one short all-caps lead-in line in bubblegum pink #FF8CC0, Montserrat ExtraBold, wide letter spacing. Centered (x 33-67%, y 12-66%) the real product standing upright, front view, about 52% of the canvas height, crisp studio key light from the upper left and a thin white rim light: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, glossy hot-pink/magenta screw cap with a repeating small white 'VITALABH' pattern, solid hot-pink band on the bottom fifth, black label with a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' and '60 CÁPSULAS'. In front of the bottle's base, across the lower half (centered within x 8-92%, baseline at about y 81%, top at about y 52%) a giant ultra-bold condensed '3 EN 1': the '3' and the '1' in hot fuchsia #E6177F and 'EN' in white at about 60% of the digit size, casting a short soft shadow onto the bottle; it hides only the pink base band, never the label. Lower left (x 4-22%, y 60-80%) two small whole aguaje palm fruits with glossy reddish-brown scaly skin and one cut half showing orange-amber flesh, sharp, with soft contact shadows. Under the number (y 84-90%) a centered white explanation line in Inter Medium at about 85% opacity, max 2 lines. Bottom center (y 92.5-96.5%) a small rounded pale blush pink pill with dark plum text. Clean, minimal, everything readable on a phone. No people, no other elements.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- lead-in line (Top center, above the bottle): "TRIPLE ACCIÓN PARA TUS CURVAS" — Montserrat ExtraBold, all caps, wide letter spacing, about 3.2% of the canvas height, bubblegum pink #FF8CC0, centered, 1 line
+- giant number (Centered across the lower half, in front of the bottle's base): "3 EN 1" — Ultra-bold condensed sans-serif (Montserrat Black look), glyph height about 28% of the canvas, tight letter spacing, centered, 1 line; '3' and '1' in hot fuchsia #E6177F, 'EN' in white at about 60% of the digit size; short soft shadow on the bottle
+- explanation line (Bottom center, under the number): "Aguaje, fenogreco y maca negra · Con vitaminas A y E" — Inter Medium, about 3.6% of the canvas height, centered, max 2 lines (break after the middle dot), white at about 85% opacity
+- trust seal (Bottom center, inside the small pale blush pill): "REGISTRO INVIMA RSA-0030271-2024" — Inter SemiBold, uppercase, about 1.9% of the canvas height, 1 line, centered, dark plum #2B1226
+
+BRAND IDENTITY:
+- color_palette: Brand palette: hot fuchsia #E6177F (main accent), deep magenta #B0105E, dark plum #2B1226, bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Secondary colors for this variation: deep black #0A0A0C (background) and aguaje amber #D9822B (the cut fruit flesh).
+- text_typography: Giant number and lead-in in Montserrat ExtraBold; explanation and seal in Inter (Medium / SemiBold). Maximum three text levels.
+
+MANDATORY ELEMENTS:
+- One giant ultra-bold '3 EN 1' across the lower half, in front of the bottle's base
+- The real bottle, centered and rising from behind the number, label fully visible
+- Solid black background with a very soft fuchsia light behind the bottle
+- Two small aguaje fruits and one cut half at the lower left
+- Small pale blush registration pill at the bottom center
+
+STRICT EXCLUSIONS:
+- The number must never cover the bottle's label or the ingredient boxes.
+- No sparkles, flares, glitter, smoke or particles.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Charts, graphs, progress bars or infographics
+- Do not add: Secondary numbers or a stats grid
+- Do not add: Benefit list or icons
+- Do not add: Boxes, badges, divider bars or circles around the number
+- Do not add: Pedestals, podiums or props other than the aguaje fruits
+- Do not add: Leaves, plants, powders or other ingredients
+- Do not add: People or hands
+- Do not add: Bottom bar or banner
+- Do not add: Any trust seal other than the single registration pill
+- Do not add: Logos or brand marks outside the bottle label
+- Do not add: Decorative particles, sparkles, flares, confetti or extra shapes
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
