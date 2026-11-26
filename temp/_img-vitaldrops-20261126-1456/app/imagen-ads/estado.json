@@ -3,7 +3,7 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 4,
+    "A": 5,
     "T": 5
   },
   "tandas": {
@@ -52,6 +52,14 @@
         "U0003"
       ],
       "empezada": true
+    },
+    "A004": {
+      "tipo": "ajuste",
+      "uuid": "481273bd-dd92-44dc-b4f4-f9b9274cf430",
+      "estado": "en-curso",
+      "pedidos": [
+        "U0004"
+      ]
     }
   },
   "variaciones": {
@@ -137,7 +145,7 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 1,
       "firma": "2330981-1795723402148",
@@ -343,6 +351,14 @@
         }
       ],
       "paso": 0
+    },
+    "U0004": {
+      "id": "U0004",
+      "pieza": "V03_1x1",
+      "instruccion": "la promo cambiala por: TRATAMIENTO COMPLETO: RÁPIDO, DURADERO Y SIN EFECTO REBOTE\n\nLA PERSONA DE LA DDEBE TENER MÁS GLÚTEOS PIERNAS Y CADERAS\n\nCAMBIA LO Q DICE: \"AMUA VITALDROPS\" POR:\n\nAUMENTA LO QUE DEBE AUMENTA\n\nEL LOGO DEL PRODUCTO HAZLO UN POCO BORROSO PARA NO MOSTRAR LA MARCA",
+      "fecha": "2026-11-26T20:34:16.905Z",
+      "estado": "ajustando",
+      "ajuste": "A004"
     }
   }
 }

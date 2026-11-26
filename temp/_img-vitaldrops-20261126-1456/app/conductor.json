@@ -1,8 +1,8 @@
 {
   "slug": "_img-vitaldrops-20261126-1456",
   "familia": "imagen-ads",
-  "estado": "listo",
-  "paso": "informe",
+  "estado": "corriendo",
+  "paso": "anuncios",
   "pasos": [
     {
       "id": "preparar",
@@ -31,24 +31,21 @@
     {
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
-      "estado": "hecho",
-      "intentos": 4,
-      "inicio": "2026-11-26T20:12:14.305Z",
-      "fin": "2026-11-26T20:14:06.316Z"
+      "estado": "corriendo",
+      "intentos": 5,
+      "inicio": "2026-11-26T20:34:16.907Z",
+      "detalle": "Claude está preparando tus cambios: leyendo las instrucciones del estilo · 9 de 10 listas"
     },
     {
       "id": "informe",
       "nombre": "Armando tu informe",
-      "estado": "hecho",
-      "intentos": 4,
-      "inicio": "2026-11-26T20:14:06.316Z",
-      "fin": "2026-11-26T20:14:06.318Z"
+      "estado": "pendiente",
+      "intentos": 4
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-26T19:56:25.842Z",
   "aprobado": "2026-11-26T19:56:25.842Z",
-  "actualizado": "2026-11-26T20:14:06.318Z",
-  "terminado": "2026-11-26T20:14:06.318Z"
+  "actualizado": "2026-11-26T20:34:29.162Z"
 }
