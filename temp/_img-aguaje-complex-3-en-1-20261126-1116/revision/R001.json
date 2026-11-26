@@ -1,0 +1,38 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V01_1x1",
+      "ok": true,
+      "problemas": [],
+      "puntajes": { "estructura": 9, "dolor_visual": 9, "titular": 8, "texto_limpio": 9, "frasco_fiel": 9, "oferta_confianza": 9, "diferencia_real": 8 }
+    },
+    {
+      "pieza": "V02_1x1",
+      "ok": false,
+      "problemas": [
+        "Dolor visual: la foto del gimnasio solo muestra a la mujer triste, sin el resultado. Además sus glúteos ya se ven redondos en el leggins, así que no se entiende el problema."
+      ],
+      "puntajes": { "estructura": 8, "dolor_visual": 6, "titular": 9, "texto_limpio": 9, "frasco_fiel": 9, "oferta_confianza": 8, "diferencia_real": 9 },
+      "correccion_en": "Keep everything else. Replace the gym photo card with a split card: left half the same woman in profile in grey leggings with a visibly flat seat and thin straight legs, frustrated; right half the same woman, same leggings and framing, with a rounder lifted seat and fuller thighs filling the leggings, smiling. The change must be obvious at first glance."
+    },
+    {
+      "pieza": "V03_1x1",
+      "ok": false,
+      "problemas": [
+        "Oferta y confianza: no aparece la oferta del tratamiento (3 frascos, 3 meses); solo están el pago al recibir y el registro.",
+        "Titular: no hay titular; solo las dos palabras «sin apoyo» y «triple acción», sin una palabra resaltada en color."
+      ],
+      "puntajes": { "estructura": 9, "dolor_visual": 9, "titular": 7, "texto_limpio": 9, "frasco_fiel": 9, "oferta_confianza": 7, "diferencia_real": 8 },
+      "correccion_en": "Keep the split photo, the bottle and the words. Write 'triple acción' in hot fuchsia #E6177F with a soft dark shadow, keep 'sin apoyo' in white. Add a small round hot fuchsia seal with a thin gold ring at the upper center over the white seam, reading 'TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES' in white bold on three lines, not covering the jeans."
+    },
+    {
+      "pieza": "V04_1x1",
+      "ok": false,
+      "problemas": [
+        "Titular: «TU PLAN COMPLETO» no tiene ninguna palabra resaltada en otro color."
+      ],
+      "puntajes": { "estructura": 9, "dolor_visual": 8, "titular": 7, "texto_limpio": 9, "frasco_fiel": 8, "oferta_confianza": 9, "diferencia_real": 9 },
+      "correccion_en": "Keep everything else. In the headline '«TU PLAN COMPLETO»', write the word 'COMPLETO' in hot fuchsia #E6177F and keep '«TU PLAN' and '»' in dark plum #2B1226."
+    }
+  ]
+}

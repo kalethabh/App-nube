@@ -31,7 +31,7 @@
     "R001": {
       "tipo": "revision",
       "uuid": "c49bb236-449d-4d43-89c9-b7a141c85166",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -54,7 +54,8 @@
           "firma": "1797531-1795710393378",
           "ronda": 1
         }
-      ]
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -83,78 +84,147 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2135612-1795710297205",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2135612-1795710297205",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 9,
+          "titular": 8,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 9,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T16:24:58.795Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1856139-1795710285614",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Dolor visual: la foto del gimnasio solo muestra a la mujer triste, sin el resultado. Además sus glúteos ya se ven redondos en el leggins, así que no se entiende el problema.",
+          "No llega a 8 en: Dolor visual (6)."
+        ],
+        "firma": "1856139-1795710285614",
+        "correccion_en": "Keep everything else. Replace the gym photo card with a split card: left half the same woman in profile in grey leggings with a visibly flat seat and thin straight legs, frustrated; right half the same woman, same leggings and framing, with a rounder lifted seat and fuller thighs filling the leggings, smiling. The change must be obvious at first glance.",
+        "puntajes": {
+          "estructura": 8,
+          "dolor_visual": 6,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T16:24:46.592Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2510736-1795710276666",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Oferta y confianza: no aparece la oferta del tratamiento (3 frascos, 3 meses); solo están el pago al recibir y el registro.",
+          "Titular: no hay titular; solo las dos palabras «sin apoyo» y «triple acción», sin una palabra resaltada en color.",
+          "No llega a 8 en: Titular (7), Oferta y confianza (7)."
+        ],
+        "firma": "2510736-1795710276666",
+        "correccion_en": "Keep the split photo, the bottle and the words. Write 'triple acción' in hot fuchsia #E6177F with a soft dark shadow, keep 'sin apoyo' in white. Add a small round hot fuchsia seal with a thin gold ring at the upper center over the white seam, reading 'TRATAMIENTO COMPLETO: 3 FRASCOS · 3 MESES' in white bold on three lines, not covering the jeans.",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 9,
+          "titular": 7,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 7,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T16:24:38.250Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1797531-1795710393378",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Titular: «TU PLAN COMPLETO» no tiene ninguna palabra resaltada en otro color.",
+          "No llega a 8 en: Titular (7)."
+        ],
+        "firma": "1797531-1795710393378",
+        "correccion_en": "Keep everything else. In the headline '«TU PLAN COMPLETO»', write the word 'COMPLETO' in hot fuchsia #E6177F and keep '«TU PLAN' and '»' in dark plum #2B1226.",
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 7,
+          "texto_limpio": 9,
+          "frasco_fiel": 8,
+          "oferta_confianza": 9,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T16:26:35.158Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V05_1x1": {
       "v": "V05",
@@ -169,7 +239,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
