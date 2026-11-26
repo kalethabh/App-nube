@@ -1,0 +1,14 @@
+{
+  "id": "T016",
+  "creado": "2026-11-26T21:00:13.020Z",
+  "piezas": [
+    {
+      "pieza": "V03_1x1",
+      "orden": "U0016",
+      "modo": "editar",
+      "version": 5,
+      "instruccion_en": "Apply a blur of about 28% strength to every 'amua' word in the image: the 'amua' wordmark at the top above 'VITALDROPS' and the 'amua' on the bottle label. It must look clearly soft and out of focus, still faintly visible, not erased and not heavily smeared. Keep 'VITALDROPS', all other texts, the bottle, the women, the layout, colors and background exactly the same.",
+      "textos": false
+    }
+  ]
+}

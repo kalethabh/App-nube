@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 16,
-    "T": 16
+    "A": 17,
+    "T": 17
   },
   "tandas": {
     "E001": {
@@ -156,9 +156,21 @@
     "A015": {
       "tipo": "ajuste",
       "uuid": "364c42bd-412e-434d-9677-8307cecd31e7",
-      "estado": "en-curso",
+      "estado": "hecha",
       "pedidos": [
         "U0016"
+      ],
+      "empezada": true
+    },
+    "A016": {
+      "tipo": "ajuste",
+      "uuid": "24551984-ac52-471c-8962-54c80557314e",
+      "estado": "en-curso",
+      "pedidos": [
+        "U0017",
+        "U0018",
+        "U0019",
+        "U0020"
       ]
     }
   },
@@ -208,7 +220,7 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 3,
       "firma": "2039361-1795724026273",
@@ -227,7 +239,7 @@
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 1,
       "firma": "1791002-1795723296541",
@@ -245,11 +257,18 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "ajustando",
+      "fase": "pedida",
       "resultado": "listo",
       "version": 4,
       "firma": "2062866-1795726368019",
-      "orden": null,
+      "orden": {
+        "id": "U0016",
+        "modo": "editar",
+        "version": 5,
+        "instruccion_en": "Apply a blur of about 28% strength to every 'amua' word in the image: the 'amua' wordmark at the top above 'VITALDROPS' and the 'amua' on the bottle label. It must look clearly soft and out of focus, still faintly visible, not erased and not heavily smeared. Keep 'VITALDROPS', all other texts, the bottle, the women, the layout, colors and background exactly the same.",
+        "textos": false,
+        "trabajo": "T016"
+      },
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
@@ -257,14 +276,14 @@
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T20:52:48.481Z",
-      "pedido": null,
+      "pedido": "U0016",
       "ultimaOrden": "U0013",
       "fallo": null
     },
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 2,
       "firma": "1988262-1795726031511",
@@ -283,7 +302,7 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 3,
       "firma": "2247980-1795725655943",
@@ -716,36 +735,53 @@
       "pieza": "V03_1x1",
       "instruccion": "un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:56:56.873Z",
-      "estado": "ajustando",
-      "ajuste": "A015"
+      "estado": "generando",
+      "ajuste": "A015",
+      "instruccion_en": "Apply a blur of about 28% strength to every 'amua' word in the image: the 'amua' wordmark at the top above 'VITALDROPS' and the 'amua' on the bottle label. It must look clearly soft and out of focus, still faintly visible, not erased and not heavily smeared. Keep 'VITALDROPS', all other texts, the bottle, the women, the layout, colors and background exactly the same.",
+      "cambiaTextos": false,
+      "resumen": "Difuminamos un 28% la palabra «amua», arriba y en la etiqueta del frasco. Todo lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V03_1x1",
+          "orden": "U0016",
+          "modo": "editar",
+          "instruccion_en": "Apply a blur of about 28% strength to every 'amua' word in the image: the 'amua' wordmark at the top above 'VITALDROPS' and the 'amua' on the bottle label. It must look clearly soft and out of focus, still faintly visible, not erased and not heavily smeared. Keep 'VITALDROPS', all other texts, the bottle, the women, the layout, colors and background exactly the same.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     },
     "U0017": {
       "id": "U0017",
       "pieza": "V02_1x1",
       "instruccion": "un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:57:02.826Z",
-      "estado": "pendiente"
+      "estado": "ajustando",
+      "ajuste": "A016"
     },
     "U0018": {
       "id": "U0018",
       "pieza": "V01_1x1",
       "instruccion": "un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:57:10.061Z",
-      "estado": "pendiente"
+      "estado": "ajustando",
+      "ajuste": "A016"
     },
     "U0019": {
       "id": "U0019",
       "pieza": "V05_1x1",
       "instruccion": "cambia ese difuminado a un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:57:34.851Z",
-      "estado": "pendiente"
+      "estado": "ajustando",
+      "ajuste": "A016"
     },
     "U0020": {
       "id": "U0020",
       "pieza": "V04_1x1",
       "instruccion": "cambia ese difuminada a un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:58:00.506Z",
-      "estado": "pendiente"
+      "estado": "ajustando",
+      "ajuste": "A016"
     },
     "U0021": {
       "id": "U0021",
@@ -759,6 +795,27 @@
       "pieza": "V07_1x1",
       "instruccion": "un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:58:15.075Z",
+      "estado": "pendiente"
+    },
+    "U0023": {
+      "id": "U0023",
+      "pieza": "V08_1x1",
+      "instruccion": "cambia el difuminado a un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:58:31.372Z",
+      "estado": "pendiente"
+    },
+    "U0024": {
+      "id": "U0024",
+      "pieza": "V09_1x1",
+      "instruccion": "cambia el difuminado a un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:58:42.748Z",
+      "estado": "pendiente"
+    },
+    "U0025": {
+      "id": "U0025",
+      "pieza": "V10_1x1",
+      "instruccion": "cambia el difuminado a un  un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:58:57.040Z",
       "estado": "pendiente"
     }
   }

@@ -131,6 +131,24 @@
       "pieza": "V07_1x1",
       "instruccion": "un 28% difuminado para lo que dice amua",
       "fecha": "2026-11-26T20:58:15.075Z"
+    },
+    {
+      "id": "U0023",
+      "pieza": "V08_1x1",
+      "instruccion": "cambia el difuminado a un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:58:31.372Z"
+    },
+    {
+      "id": "U0024",
+      "pieza": "V09_1x1",
+      "instruccion": "cambia el difuminado a un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:58:42.748Z"
+    },
+    {
+      "id": "U0025",
+      "pieza": "V10_1x1",
+      "instruccion": "cambia el difuminado a un  un 28% difuminado para lo que dice amua",
+      "fecha": "2026-11-26T20:58:57.040Z"
     }
   ]
 }

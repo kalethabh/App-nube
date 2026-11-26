@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0016",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Apply a blur of about 28% strength to every 'amua' word in the image: the 'amua' wordmark at the top above 'VITALDROPS' and the 'amua' on the bottle label. It must look clearly soft and out of focus, still faintly visible, not erased and not heavily smeared. Keep 'VITALDROPS', all other texts, the bottle, the women, the layout, colors and background exactly the same.",
+      "resumen": "Difuminamos un 28% la palabra «amua», arriba y en la etiqueta del frasco. Todo lo demás queda igual."
+    }
+  ]
+}
