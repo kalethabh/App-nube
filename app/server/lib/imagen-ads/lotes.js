@@ -8,6 +8,7 @@
 //
 // Solo los lotes de ESTA app (una app de prueba en otro puerto tiene los suyos: brief.puerto, como los videos).
 import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { resumenDe, aMarkdown } from '../investigacion.js';
 import { aMarkdown as competenciaAMarkdown, ganchosValidados } from '../competencia.js';
 import crypto from 'node:crypto';
@@ -22,7 +23,7 @@ import { modoPrueba } from '../procesos.js';
 import * as gasto from '../gasto.js';
 import { leerSkill } from './verificar.js';
 import { leerEstado, resumenDelLote } from './estado.js';
-import { PEDIDO_TERMINADO } from './planificador.js';
+import { PEDIDO_TERMINADO, RE_ADJUNTO } from './planificador.js';
 import { POR_ID, escenasDe, catalogoParaLaPantalla } from './catalogo-plantillas.js';
 import * as plantillasRef from './plantillas-referencia.js';
 import { repartoDeFormatos } from './desde0.js';
@@ -486,6 +487,11 @@ export function agregarPedido(lote, cuerpo = {}) {
     if (!RE_PIEZA.test(pieza) || !est.piezas?.[pieza] || !(brief.formatos || []).includes(formatoDe(pieza))) throw new ErrorApp(404, 'No encuentro esa imagen en el lote.');
     const instruccion = typeof cuerpo.instruccion === 'string' ? cuerpo.instruccion.trim() : '';
     if (instruccion.length > 600) throw new ErrorApp(400, 'Lo que quieres cambiar es demasiado largo (hasta 600 caracteres).');
+    // (2026-11-26h) las imágenes adjuntas (subidas antes con PUT …/adjuntos): hasta 3, del lote, y con una instrucción
+    const adjuntos = Array.isArray(cuerpo.adjuntos) ? [...new Set(cuerpo.adjuntos.map(String))] : [];
+    if (adjuntos.length > 3) throw new ErrorApp(400, 'Puedes adjuntar hasta 3 imágenes.');
+    if (adjuntos.some((a) => !RE_ADJUNTO.test(a) || !existe(path.join(carpeta, ...a.split('/'))))) throw new ErrorApp(400, 'Una de las imágenes adjuntas no está. Vuelve a adjuntarla.');
+    if (adjuntos.length && !instruccion) throw new ErrorApp(400, 'Escribe qué hacer con la imagen adjunta.');
     if (ocupada(vDe(pieza))) throw new ErrorApp(409, 'Esta imagen ya tiene un cambio en camino.');
     const p = est.piezas[pieza];
     if (est.variaciones?.[vDe(pieza)]?.prompt === 'sin-prompt') throw new ErrorApp(409, 'Este anuncio quedó sin escribir: usa «Escribir de nuevo».');
@@ -494,13 +500,45 @@ export function agregarPedido(lote, cuerpo = {}) {
       const c = est.piezas[piezaId(vDe(pieza), '1:1')];
       if (c && (c.fase !== 'final' || !existe(R.img(carpeta, piezaId(vDe(pieza), '1:1'))))) throw new ErrorApp(409, 'Su imagen cuadrada no salió: rehaz primero la cuadrada.');
     }
-    pedido = { pieza, instruccion };
+    pedido = { pieza, instruccion, ...(adjuntos.length ? { adjuntos } : {}) };
   }
   const lista = leerPedidos(carpeta);
   const n = Math.max(0, ...lista.map((x) => Number(String(x.id || '').slice(1)) || 0)) + 1;
   const nuevo = { id: `U${String(n).padStart(4, '0')}`, ...pedido, fecha: ahora() };
   guardarJSON(R.pedidos(carpeta), { pedidos: [...lista, nuevo] });
   return nuevo;
+}
+
+/**
+ * (2026-11-26h) PUT /api/imagen-ads/:lote/adjuntos: una imagen para adjuntar a un cambio (la sube el usuario o sale de
+ * «Mis piezas»). Queda en entrada/adjuntos/A0001.jpg (png si trae transparencia). -> { archivo }
+ */
+export function guardarAdjunto(lote, { datos = null, tipo = '', origen = null } = {}) {
+  const carpeta = carpetaDe(lote);
+  if (!leerEstado(carpeta)) throw new ErrorApp(409, 'Este lote todavía se está preparando.');
+  const dir = path.join(carpeta, 'entrada', 'adjuntos');
+  let entrada = origen;
+  if (!entrada) {
+    const ext = { 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp' }[String(tipo || '').split(';')[0].trim()];
+    if (!ext) throw new ErrorApp(400, 'Adjunta una imagen PNG, JPG o WEBP.');
+    if (!Buffer.isBuffer(datos) || datos.length < 100) throw new ErrorApp(400, 'La imagen llegó vacía.');
+    if (datos.length > 15 * 1024 * 1024) throw new ErrorApp(413, 'La imagen pesa más de 15 MB.');
+    fs.mkdirSync(dir, { recursive: true });
+    entrada = path.join(dir, `.subida-${process.pid}-${Date.now()}.${ext}`);
+    fs.writeFileSync(entrada, datos);
+  }
+  fs.mkdirSync(dir, { recursive: true });
+  const n = Math.max(0, ...listar(dir).map((x) => Number(/^A(\d{4})\./.exec(x)?.[1]) || 0)) + 1;
+  const png = /\.png$/i.test(entrada);
+  const nombre = `A${String(n).padStart(4, '0')}.${png ? 'png' : 'jpg'}`;
+  try {
+    execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', entrada, '-vf', "scale='min(2048,iw)':-2", ...(png ? [] : ['-q:v', '2']), path.join(dir, nombre)]);
+  } catch {
+    throw new ErrorApp(400, 'No pude leer esa imagen. Prueba con otra.');
+  } finally {
+    if (!origen) fs.rmSync(entrada, { force: true });
+  }
+  return { archivo: `entrada/adjuntos/${nombre}` };
 }
 
 /**

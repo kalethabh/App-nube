@@ -179,6 +179,31 @@ async function principal() {
   const vi = (await pedir(`/api/imagen-ads/${lote}`)).datos;
   const p1 = vi.variaciones.find((x) => x.v === 'V01')?.piezas['1:1'];
   check('La pantalla ve la versión 4 y las 3 anteriores en su historial', p1?.version === 4 && p1.versiones.length === 3, { version: p1?.version, versiones: p1?.versiones?.length });
+
+  // (2026-11-26h) ADJUNTAR IMÁGENES al regenerar con instrucción
+  r = await pedir(`/api/imagen-ads/${lote}/adjuntos`, { metodo: 'PUT', cuerpo: fs.readFileSync(FOTO), headers: { 'Content-Type': 'image/png' } });
+  const adj = r.datos?.archivo;
+  check('Subir una imagen para adjuntar la guarda en el lote (entrada/adjuntos/A0001.png)', r.st === 201 && adj === 'entrada/adjuntos/A0001.png' && fs.existsSync(path.join(RAIZ, 'temp', lote, adj)), r);
+  const servida = await fetch(`${BASE}/archivos/imagen-ads/${lote}/${adj}`);
+  check('…y la pantalla la puede mostrar', servida.status === 200, servida.status);
+  r = await pedir(`/api/imagen-ads/piezas/${id}?nombre=${encodeURIComponent('sello para adjuntar.png')}`, { metodo: 'PUT', cuerpo: fs.readFileSync(PIEZA), headers: { 'Content-Type': 'image/png' } });
+  const piezaId = r.datos?.pieza?.id;
+  r = await pedir(`/api/imagen-ads/${lote}/adjuntos?pieza=${encodeURIComponent(piezaId)}`, { metodo: 'PUT' });
+  check('Una de «Mis piezas» también se adjunta (se copia al lote)', r.st === 201 && r.datos?.archivo === 'entrada/adjuntos/A0002.png', r);
+  r = await pedir(`/api/imagen-ads/${lote}/regenerar`, { json: { pieza: 'V01_1x1', adjuntos: [adj], costoMaximoConfirmado: 1 } });
+  check('Con una imagen adjunta y sin decir qué hacer, no se acepta (400)', r.st === 400 && /imagen adjunta/.test(r.datos?.error || ''), r);
+  r = await pedir(`/api/imagen-ads/${lote}/regenerar`, { json: { pieza: 'V01_1x1', instruccion: 'Usa la pose de la imagen adjunta', adjuntos: ['../../.env'], costoMaximoConfirmado: 1 } });
+  check('Un adjunto inventado (fuera del lote) no se acepta (400)', r.st === 400, r);
+  const versionAntes = (await pedir(`/api/imagen-ads/${lote}`)).datos.variaciones.find((x) => x.v === 'V01')?.piezas['1:1']?.version;
+  r = await pedir(`/api/imagen-ads/${lote}/regenerar`, { json: { pieza: 'V01_1x1', instruccion: 'Usa la pose de la imagen adjunta', adjuntos: [adj], costoMaximoConfirmado: 1 } });
+  check('Con la instrucción y el adjunto, el pedido entra', r.st === 202 || r.st === 200, r);
+  const tras = await esperar(3, async () => (await pedir(`/api/imagen-ads/${lote}`)).datos, (d) => (d?.variaciones?.find((x) => x.v === 'V01')?.piezas['1:1']?.version || 0) > versionAntes && d?.conductor?.estado !== 'trabajando');
+  const nueva = tras?.variaciones?.find((x) => x.v === 'V01')?.piezas['1:1'];
+  check('…y termina con una versión nueva de la imagen', (nueva?.version || 0) === versionAntes + 1, { versionAntes, ahora: nueva?.version, conductor: tras?.conductor?.estado });
+  const txts = [];
+  const buscar = (d) => { for (const n of fs.readdirSync(d, { withFileTypes: true })) { const a = path.join(d, n.name); if (n.isDirectory()) buscar(a); else if (/\.txt$/.test(n.name)) txts.push(a); } };
+  buscar(path.join(RAIZ, 'temp', lote));
+  check('Al modelo de imagen le llegó el adjunto como 3.ª imagen, con la instrucción de usarlo', txts.some((t) => /THIRD attached image is a reference the user attached/.test(fs.readFileSync(t, 'utf8'))), txts.map((t) => path.relative(RAIZ, t)));
 }
 
 try {

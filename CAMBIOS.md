@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-26h · Anuncios de imagen: adjuntar imágenes al pedir un cambio
+
+- **En «¿Regenerar esta imagen?» puedes adjuntar hasta 3 imágenes:** una pose, una persona, un fondo o un sello. Las subes, las arrastras, las pegas con Cmd/Ctrl + V o las eliges de «Mis piezas».
+- **Escribe qué hacer con ellas**, por ejemplo «Usa la pose de la imagen adjunta». La IA las mira y las usa solo para eso; el resto del anuncio queda igual.
+
 ## 2026-11-26g · Anuncios de imagen: cada momento, otro día
 
 - **Antes y después y progreso:** en cada momento (antes, 24 horas, semana 1, mes 3…) cambian la pose, la ropa, el peinado, el lugar y la luz. Así se nota que pasó el tiempo y no parece la misma foto. La app lo revisa en cada imagen.
