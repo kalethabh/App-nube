@@ -73,12 +73,15 @@ export function limpiarAjustes(a = {}) {
   const pais = paisDe(a.pais) || null;
   const oferta = String(a.oferta || '').replace(/\s+/g, ' ').trim().slice(0, 160);
   const cuerpo = limpiarCuerpo(a.cuerpo);
+  // (2026-11-26f) el tiempo de transformación del producto («Tratamiento de 3 meses · se nota desde la semana 4»)
+  const tiempo = String(a.tiempo || '').replace(/\s+/g, ' ').trim().slice(0, 140);
   return {
     oferta: oferta ? normalizarOferta(oferta, pais || 'CO') : '',
     sellos: lista(lista(a.sellos, 6, 120).map(selloLimpio), 6, 120),
     pais,
     prohibido: lista(Array.isArray(a.prohibido) ? a.prohibido : String(a.prohibido || '').split(/[,\n]/), 30, 60),
     ...(cuerpo ? { cuerpo } : {}),
+    ...(tiempo ? { tiempo } : {}),
   };
 }
 

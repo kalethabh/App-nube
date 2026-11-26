@@ -2,6 +2,16 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-26f · Anuncios de imagen: títulos como Mayaverra, con propuesta de valor y tiempo
+
+- **Cada imagen lleva ahora un gancho y debajo su propuesta de valor**, como Mayaverra, con tu fórmula: **deseo principal + tiempo de transformación + deseo central**.
+  - Ejemplo: «LEVANTA TUS GLÚTEOS» y debajo «Glúteos más redondos y firmes en solo 4 semanas, para volver a lucir tus jeans con seguridad».
+  - A veces también una línea de tiempo: «Semana 1 · Semana 4 · Mes 3».
+- **Promesa directa** («en solo 4 semanas», «tu tratamiento de 3 meses»), como pediste. Siguen prohibidas las cifras inventadas, los testimonios con nombre, las enfermedades y la palabra «garantizado» si no tienes garantía.
+- **Nuevo campo «Tiempo de transformación»**: por ejemplo, «Tratamiento de 3 meses · se nota desde la semana 4». Si lo dejas vacío, la IA lo deduce de tu oferta y lo recuerda.
+- **La app revisa los títulos:** cada imagen lleva su propuesta de valor con las tres partes y el tiempo (salvo las fotos caseras y las cartas de texto).
+- **Las fórmulas de títulos de Mayaverra están en el manual**, con su versión para glúteos y piernas.
+
 ## 2026-11-26e · Anuncios de imagen: se ve el resultado en TU zona del cuerpo
 
 - **La imagen muestra la zona que mejora tu producto, con el resultado.** Antes la IA copiaba la escena de Mayaverra: pies hinchados, o una mujer mostrando el problema. Ahora la traduce a tu producto.
