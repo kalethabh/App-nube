@@ -1,0 +1,61 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 premium ad on a dark background. Use the attached product image as the only source of truth for the bottle: do not redesign, replace or reinterpret it; ignore any hand or surface in that photo. If a layout reference image is attached, use it ONLY for the position of the blocks; never copy its text, brand, product, person or colors.
+
+BACKGROUND: deep dark plum #2B1226 with a subtle radial glow in the center-left and darker plum-purple #1A0B17 toward the edges, very fine grain.
+
+TOP RIGHT PHOTO (0-55% of height, right 45% of width): a real photo inside a clothing store fitting room: warm beige #CDB79E curtain on the left of the frame, a tall mirror, warm amber #F2B66D light coming from the right. A Colombian woman of about 27, warm tan skin with visible pores and natural texture, long dark straight hair, wearing a white fitted crop t-shirt and a pair of mid-wash blue jeans that look loose and baggy at the back, with empty folds below the glute. She stands sideways (profile), framed from the head to mid-thigh, her face turned to the mirror, looking over her shoulder at her own back with a doubtful, disappointed expression, one hand pulling the loose waistband at the back. 50 mm lens at chest height. The photo fades softly into the plum background on its left and bottom edges.
+
+TOP LEFT (6-36%, left 58%): headline in three lines, very heavy geometric sans-serif (Montserrat Black look), uppercase, left-aligned: line 1 'MÁS CURVAS' white #FFFFFF; line 2 'SIN AGUJAS NI' white; line 3 'QUIRÓFANO' bubblegum pink #FF8CC0, the largest. At 38%: a thin glowing hot fuchsia #E6177F horizontal line with a small bright spark in its middle, about 50% of the width.
+
+MIDDLE LEFT (41-50%): paragraph in Poppins Regular, white, two lines: 'Comer bien y entrenar pierna es la base.' and, in Poppins SemiBold bubblegum pink #FF8CC0, 'Este apoyo natural acompaña tu proceso.'
+
+ICONS (53-70%, left 58%): three columns, each a thin white circle (about 11% of the width) with a white thin-line icon inside, and a centered caption below in Poppins Regular white: 1) dumbbell icon, 'Acompaña tu rutina'; 2) lightning bolt icon, 'Más energía'; 3) small calendar icon, '2 cápsulas al día'.
+
+EXPLANATION BOX (72-84%, left 55%): a rounded rectangle filled slightly lighter plum #3A1A33 with a thin glowing deep magenta #B0105E border; at its left a white leaf icon; to the right, in Poppins Regular white, three lines: 'Aguaje, fenogreco y maca negra con vitaminas A y E, para acompañar tu proceso de curvas.' with 'para acompañar tu proceso de curvas.' in bubblegum pink.
+
+RIGHT BOTTLE (32-92% of height, right 40%): ONE closed bottle, large, about 56% of the canvas height, standing upright with a slight three-quarter turn but the label facing the camera, fully legible and never mirrored, photographic and sharp, overlapping the bottom of the fitting-room photo: matte black cylinder about 1.6 times taller than wide, straight sides, no neck, wide glossy hot-pink #E6177F cap almost as wide as the body with a small white 'VITALABH' pattern, hot-pink band on the bottom fifth, black label with the huge white 'AGUAJE', 'COMPLEX 3 EN 1', the pink banner, italic pink 'TRIPLE ACCIÓN' and the three pink-outlined boxes '200mg AGUAJE + 400mg FENOGRECO + 200mg MACA NEGRA'. A faint fuchsia rim light on its right edge separates it from the dark background; matte, no rainbow, no prism light, no lens flare.
+
+BOTTOM STRIP (88-99%, left 62%): three items in a row separated by thin white vertical lines, each a small white thin-line icon and Poppins Regular white text: 1) shield icon, 'AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024' (in two lines, small); 2) leaf icon, 'Origen vegetal'; 3) hand-with-package icon, 'Pagas al recibir'.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline line 1 (top left): "MÁS CURVAS" — Montserrat Black look, uppercase, white
+- main headline line 2 (top left, line 2): "SIN AGUJAS NI" — Montserrat Black look, uppercase, white
+- main headline line 3 (highlighted) (top left, line 3): "QUIRÓFANO" — Montserrat Black look, uppercase, bubblegum pink #FF8CC0, largest
+- paragraph line 1 (middle left): "Comer bien y entrenar pierna es la base." — Poppins Regular, white
+- paragraph line 2 (highlighted) (middle left, under line 1): "Este apoyo natural acompaña tu proceso." — Poppins SemiBold, bubblegum pink #FF8CC0
+- benefit 1 (icon row, 1st, under dumbbell icon): "Acompaña tu rutina" — Poppins Regular, white, centered
+- benefit 2 (icon row, 2nd, under lightning icon): "Más energía" — Poppins Regular, white, centered
+- benefit 3 (icon row, 3rd, under calendar icon): "2 cápsulas al día" — Poppins Regular, white, centered
+- explanation box (lower left rounded box): "Aguaje, fenogreco y maca negra con vitaminas A y E, para acompañar tu proceso de curvas." — Poppins Regular white, last phrase in bubblegum pink
+- trust item 1 (user seal, exact) (bottom strip, 1st, with shield icon): "AGREGAR LOGO Y SELLO DE REGISTRO INVIMA RSA-0030271-2024" — Poppins Regular, small, white
+- trust item 2 (bottom strip, 2nd, with leaf icon): "Origen vegetal" — Poppins Regular, white
+- trust item 3 (bottom strip, 3rd, with package icon): "Pagas al recibir" — Poppins Regular, white
+
+BRAND IDENTITY:
+- color_palette: Dark plum #2B1226 (main background), deep magenta #B0105E (box border glow), hot fuchsia #E6177F (divider glow, icon strokes), bubblegum pink #FF8CC0 (highlighted words), pale blush pink #FBE3EE, bottle black #0E0E10, white #FFFFFF (main texts). Secondary for this variation: deep plum-purple #1A0B17 for the edges, warm fitting-room beige #CDB79E and warm amber light #F2B66D.
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat ExtraBold / Black look), uppercase, white with the keyword in bubblegum pink; body texts in Poppins Regular / SemiBold.
+
+MANDATORY ELEMENTS:
+- Real woman in a fitting room looking sideways at her loose jeans in the mirror, top right, fading into the background
+- Thin glowing fuchsia divider under the headline
+- Three white thin-line icons in thin circles
+- Rounded explanation box with a glowing magenta border and a leaf icon
+- The real closed bottle, large, on the right, label legible
+- Bottom strip with three icon+text items separated by thin lines
+
+STRICT EXCLUSIONS:
+- No loose capsules, no pills, no open bottle.
+- No needles, syringes or surgical imagery.
+- No price, CTA button, stars or customer counts.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Loose capsules next to the bottle (present in the reference, removed by brand rule)
+- Do not add: Price, CTA button, stars, testimonials or customer counts
+- Do not add: Any extra seal or certificate apart from the user's exact seal text
+- Do not add: Brand logos other than the real bottle label
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

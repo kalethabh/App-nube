@@ -3,47 +3,68 @@
   "piezas": {
     "V05_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": "01a21824-c482-7612-97a9-b4c4fe68495b",
+      "firma": "1958975-1795701505702",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     },
     "V06_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": "01a21824-c482-7891-8195-3d53342a1f96",
+      "firma": "1901259-1795701517567",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     },
     "V07_1x1": {
       "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a21824-c482-7d40-8e21-e9e63a4d5a9a",
+      "firma": "2026121-1795701510534",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V08_1x1": {
+      "orden": "g",
       "estado": "generando",
       "intentosApi": 1,
       "version": 1,
       "intentoAbierto": true,
       "taskId": null
     },
-    "V08_1x1": {
-      "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
-      "version": 1
-    },
     "V09_1x1": {
       "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
-      "version": 1
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
     },
     "V10_1x1": {
       "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
-      "version": 1
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
     }
   },
-  "actualizado": "2026-11-26T13:56:31.890Z",
+  "actualizado": "2026-11-26T13:58:37.569Z",
   "terminado": false
 }
