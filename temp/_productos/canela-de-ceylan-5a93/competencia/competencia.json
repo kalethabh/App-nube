@@ -505,6 +505,137 @@
         "Hablarle a alguien por su enfermedad («tú que eres diabético») puede chocar con las reglas de Meta sobre atributos personales: mejor hablar en tercera persona o en general.",
         "El avatar 1 lleva a prometer cosas sobre la medicación: el más riesgoso."
       ]
+    },
+    {
+      "titulo": "Validación en Colombia",
+      "contexto": "Se buscó en anuncios que llegan a Colombia, en español y como lo dice la gente: canela de Ceylán, canela y azúcar, glucosa, diabetes natural, metformina, resistencia a la insulina, berberina, azúcar en la sangre, aceite MCT y cassia. La pregunta: ¿ya existen ofertas con estos ángulos?",
+      "bloques": [
+        { "tipo": "metricas", "items": [
+          { "etiqueta": "«canela de ceylan»", "valor": "208", "nota": "Anuncios que llegan a Colombia (activos e inactivos)", "tono": "verde" },
+          { "etiqueta": "«berberina»", "valor": "6.124", "nota": "La alternativa domina", "tono": "rojo" },
+          { "etiqueta": "«glucosa»", "valor": "5.935", "nota": "", "tono": "rojo" },
+          { "etiqueta": "«canela» + «azúcar»", "valor": "2.317", "nota": "", "tono": "ambar" },
+          { "etiqueta": "«diabetes» + «natural»", "valor": "1.793", "nota": "", "tono": "ambar" },
+          { "etiqueta": "«azúcar en la sangre»", "valor": "1.468", "nota": "", "tono": "ambar" },
+          { "etiqueta": "«metformina»", "valor": "1.281", "nota": "", "tono": "ambar" },
+          { "etiqueta": "«resistencia a la insulina»", "valor": "1.033", "nota": "", "tono": "ambar" },
+          { "etiqueta": "«aceite MCT»", "valor": "860", "nota": "Casi todo astaxantina, no canela", "tono": "verde" }
+        ] },
+        { "tipo": "barras", "titulo": "Anuncios en Colombia por búsqueda", "unidad": "anuncios", "items": [
+          { "etiqueta": "Berberina", "valor": 6124, "nota": "Alternativa", "tono": "rojo" },
+          { "etiqueta": "Glucosa", "valor": 5935, "nota": "Problema", "tono": "rojo" },
+          { "etiqueta": "Canela + azúcar", "valor": 2317, "nota": "Directa e indirecta", "tono": "ambar" },
+          { "etiqueta": "Diabetes + natural", "valor": 1793, "nota": "", "tono": "ambar" },
+          { "etiqueta": "Azúcar en la sangre", "valor": 1468, "nota": "", "tono": "ambar" },
+          { "etiqueta": "Metformina", "valor": 1281, "nota": "", "tono": "ambar" },
+          { "etiqueta": "Resistencia a la insulina", "valor": 1033, "nota": "", "tono": "ambar" },
+          { "etiqueta": "Aceite MCT", "valor": 860, "nota": "", "tono": "verde" },
+          { "etiqueta": "Canela de Ceylán", "valor": 208, "nota": "Directa", "tono": "verde" }
+        ] },
+        { "tipo": "subtitulo", "texto": "1. Cruce completo" },
+        { "tipo": "tabla", "columnas": ["Elemento (etapas 1 a 5)", "En Colombia (solo competencia directa)", "Evidencia", "Permanencia"], "filas": [
+          ["G1. La enfermera que no tomó la metformina", "No existe", "En canela no hay nada. Parecido solo en alternativas: Venturo (ácido alfa lipoico) ataca la metformina, facebook_1970290446996683", "Sostenido (alternativa)"],
+          ["G2. Autenticidad («la de Amazon es falsa»)", "Parecido", "Ksstore Home: «¡No todas las canelas son iguales! La Canela de Ceylán auténtica…» con INVIMA, facebook_4621131151548251. En berberina: NextGen «¿Cómo saber si tu berberina es original o una copia?», facebook_1805506987553936", "Prueba (directa); Sostenido (berberina)"],
+          ["G3. Las 3 mentiras de la diabetes", "No existe", "Solo videos de «receta» que hablan de lo que la farmacéutica oculta (Dr Ethan Parker, facebook_1001933252924334), que no venden canela", "Prueba (alternativa)"],
+          ["G4. Rabia contra el médico (Caroline)", "No existe", "Sin casos", "—"],
+          ["G5. La cardióloga con stents", "No existe", "Solo una copia en inglés de At2a que también llega a Colombia (facebook_1162997996107877), con público principal en el Reino Unido", "Prueba"],
+          ["G6. Línea de tiempo de 30 días", "Ya existe", "Tu Hogar Moderno (Lirae Ceylon Cinnamon 7200 mg): «¿Tu glucosa en ayunas no baja de 140?… Día 3: se acaba el bajón de las 3 de la tarde», facebook_2195973951797280", "Prueba"],
+          ["G7. Canela común vs. Ceylán (cassia)", "Ya existe", "Dr. Carlos Zapata: «La que compras en el supermercado casi siempre es cassia», facebook_1830587885734526. Nahu Foods (canela como alimento): «No todas las canelas son iguales», facebook_988427640744973", "Prueba (suplemento); Sostenido (alimento, inactivo desde agosto)"],
+          ["G8. Espuma en el inodoro (riñón)", "No existe", "Sin casos", "—"],
+          ["Hooks: escena de ficción tipo serie", "No existe", "Sin casos", "—"],
+          ["Hooks: la marca habla en primera persona (disculpa, cofundador)", "No existe", "Sin casos", "—"],
+          ["Hooks: vergüenza (baño, pañales)", "No existe", "Solo en próstata (Ellos & Ellas: «me levantaba tres y cuatro veces en la noche a orinar»), otro problema", "—"],
+          ["Hooks: experto con nombre de médico", "Parecido", "La página «Dr. Carlos Zapata» vende canela de Ceylán; tienda creada el 10 nov 2026", "Prueba"],
+          ["Hooks: escéptico convertido", "No existe (directa)", "Alternativa: Mocktale GLP-1 «Empecé a tomarlo con cero fe», facebook_1021259810945193", "Prueba"],
+          ["Ángulo: absorción en aceite MCT", "Ya existe", "Lirae 7200 mg en aceite MCT (Tu Hogar Moderno) y softgels líquidas de Dr. Carlos Zapata", "Prueba"],
+          ["Ángulo: antojos de dulce", "No existe (directa)", "Ocupado por alternativas: Bonbato berberina (60 duplicados desde el 25 dic 2025), Evil Goods, Mocktale", "Consolidado (alternativa)"],
+          ["Ángulo: bajón de la tarde", "Parecido", "Paso del «Día 3» en el anuncio de Lirae", "Prueba"],
+          ["Ángulo: complemento y no reemplazo", "Parecido", "«Una alternativa natural para complementar tu rutina de bienestar» (Ksstore; Vitanaturalis)", "Prueba"],
+          ["Ángulo: menopausia", "No existe", "Sin casos", "—"],
+          ["Ángulo: colesterol y corazón", "Sin verificar", "No se hizo una búsqueda propia para Colombia", "—"],
+          ["Ángulo: la abuela y la cocina", "No existe", "Sin casos", "—"],
+          ["Avatar 1. Diabético con metformina", "No existe (directa)", "Lo trabaja Venturo con ácido alfa lipoico (52 días, 16 duplicados)", "Sostenido (alternativa)"],
+          ["Avatar 2. Ya probó canela", "Parecido", "Dr. Carlos Zapata (cassia del supermercado)", "Prueba"],
+          ["Avatar 3. Buscador de lo natural", "Ya existe", "Ksstore Home, Nahu Foods", "Prueba / Sostenido"],
+          ["Avatar 4. Complicaciones silenciosas", "No existe (directa)", "Alternativa: Longevity Methods con lista de síntomas (153 duplicados en 3 días), facebook_1034422866335779", "Prueba"],
+          ["Avatar 5. Mujer de 60+", "No existe", "Sin casos en español", "—"],
+          ["Avatar 6. Cuidador", "No existe", "Sin casos", "—"],
+          ["Avatar 7. Prediabético", "Parecido", "Lirae: «¿Tu glucosa en ayunas no baja de 140?»", "Prueba"],
+          ["Avatar 8. Menopausia", "No existe", "Sin casos", "—"],
+          ["Avatar 9. Comparador de precios", "Sin verificar", "Dr. Carlos Zapata publica escalera de precios (114.900, 149.900 y 249.900 pesos), pero no se vio un anuncio de precio", "—"]
+        ], "nota": "Solo la competencia directa (canela) cuenta para decir «ya existe». Las alternativas se marcan aparte." },
+        { "tipo": "tabla", "columnas": ["Ángulo o avatar local (no estaba en la investigación original)", "Evidencia", "Permanencia"], "filas": [
+          ["Contra entrega y WhatsApp como cierre", "Lirae y Vitanaturalis mandan a WhatsApp; Ksstore y NextGen ofrecen contra entrega", "Prueba a Sostenido"],
+          ["INVIMA como prueba de confianza", "Ksstore Home (canela con INVIMA); Ellos & Ellas (próstata)", "Prueba"],
+          ["«Aprobado FDA» como sello importado", "Bonbato berberina, facebook_1435998621214190", "Consolidado"],
+          ["«GLP-1 natural sin aguja»", "Mocktale (berberina, Akkermansia y canela de Ceylán), 19 duplicados", "Prueba"],
+          ["Glucómetro sin pinchazos", "Glucomax, página «Dra. Ana Martínez», 126 duplicados, 179 días, facebook_1484088119953477", "Consolidado"],
+          ["Recetas caseras en video largo (miel, aceite de oliva)", "Dr Ethan Parker y Dr. Michael Carter, facebook_1001933252924334 y facebook_1436055248472024", "Prueba"],
+          ["Reto o método de ayuno (infoproducto)", "Dr. Guillermo Rodríguez Navarrete, 21 duplicados, 40 días", "Sostenido"]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "2. Competencia directa frente a alternativas" },
+        { "tipo": "tabla", "columnas": ["Tipo", "Marca y producto", "Texto (inicio)", "Inicio y días", "Versiones", "Anuncio", "Landing", "Permanencia", "Vendedor"], "filas": [
+          ["Directa", "Lirae Ceylon Cinnamon 7200 mg en aceite MCT (Tu Hogar Moderno)", "«¿Tu glucosa en ayunas no baja de 140? Esto es lo que muchas personas notan cuando agregan canela de Ceylán con el desayuno: Día 3…»", "25 nov 2026, 2 días", "3 anuncios", "facebook_2195973951797280 · https://medias.trendtrack.io/facebook/video/1e499cd3ec4a1c8c12661b6c0546e4788068960dd60aacecfe8a9aeb93a95c77.mp4", "WhatsApp y https://www.jdglobalstore.com.co/products/lirae-ceylon-cinnamon-7200mg", "Prueba", "Dropshipping probable (tienda de enero de 2026 con 12 productos mezclados)"],
+          ["Directa", "Canela de Ceylán orgánica en cápsulas con INVIMA (Ksstore Home)", "«¡No todas las canelas son iguales! La Canela de Ceylán auténtica es una alternativa natural para complementar tu rutina…»", "25 nov 2026, 2 días", "2 videos", "facebook_4621131151548251 · https://medias.trendtrack.io/facebook/video/07bfe55846b50d66761bd2837cfda784326712adde2fb24e60cac27254565302.mp4", "https://ksstorehome.lat/products/organic-ceylon-cinnamon", "Prueba", "Dropshipping probable (16 productos de hogar mezclados, 69 anuncios activos)"],
+          ["Directa", "Canela de Ceylán en softgels líquidas (Dr. Carlos Zapata)", "«No toda la canela es igual… y casi nadie lo sabe. La que compras en el supermercado casi siempre es cassia…»", "25 nov 2026, 2 días", "1", "facebook_1830587885734526 · https://medias.trendtrack.io/facebook/video/d92c128e03c371a0c0d48480a641a59df35c025f1a76004ff077ce1bc8cefd78.mp4", "https://carloszapatadr.com/products/canela-ceilan-landing-v6", "Prueba", "Dropshipping probable (tienda del 10 nov 2026, página con nombre de médico y 7 me gusta)"],
+          ["Directa (alimento)", "Canela de Ceylán para cocinar (Nahu Foods)", "«No todas las canelas son iguales. La Canela de Ceylán es reconocida por su pureza…»", "10 jun 2026, 65 días (inactivo desde el 14 ago)", "3", "facebook_988427640744973 · https://medias.trendtrack.io/facebook/image/ef68dd9e7f9f930e7116d824f89852aca31eb12d78f4b6f7ea69fec72c2829cc.jpg", "https://nahufoods.co/search?q=canela", "Sostenido", "No se puede saber"],
+          ["Directa (en inglés)", "At2a, Ceylán 12:1 en MCT", "«I don't give a f*ck if this upsets you…» (Me importa un carajo si esto te molesta…)", "25 nov 2026, 2 días", "1", "facebook_1162997996107877 · https://medias.trendtrack.io/facebook/video/a4c0d407588ee13d2bd728c30d8a8c55ca119bdb8cf14a3e5488c435816413c4.mp4", "http://cc.muvost.com/", "Prueba", "Dropshipping probable (dominio con muchas marcas)"],
+          ["Mezcla", "Berberina 1500 mg + canela de Ceylán (NextGen Nutrition)", "«¿Cómo saber si tu berberina es original o una copia?…»", "13 sep 2026, 39 días", "6 + 3 (video «la cápsula verde»)", "facebook_1805506987553936 · https://medias.trendtrack.io/facebook/image/68beb58d1b2e291fffcfea2851ccf22827195d974ba9cf17583c599333fe8b5a.png", "https://suplementosnextgen.com/products/berberine-premium-control-de-azucar-perdida-de-grasa-y-energia-metabolica-natural", "Sostenido", "No se puede saber"],
+          ["Mezcla", "Gluco Tone en gotas: berberina, canela de Ceylán, cromo, melón amargo y cúrcuma (Vitanaturalis)", "«Una fórmula líquida que combina berberina, canela de Ceylán, cromo…»", "22 oct 2026, 21 + 13 días", "4 + 3", "facebook_1013718458408859 · https://medias.trendtrack.io/facebook/video/16be88f6413330445a59b1d9f121c3e852685128cfb05fbb7c580d117ce8391e.mp4", "WhatsApp (sin landing)", "Sostenido", "No se puede saber"],
+          ["Mezcla", "Mocktale-1 GLP-1 en sobres (Maison Deals)", "«Empece a tomarlo con cero fe. Un mes despues, entiendo el escandalo…»", "31 ago 2026, 1 día", "19 duplicados, 3 videos", "facebook_1021259810945193 · https://medias.trendtrack.io/facebook/video/8437d91608a34ca9dcabf02c648c9b8f56db0e1f507c84cbfddd28308ed2a3ca.mp4", "riverofn.shop", "Prueba", "Dropshipping probable"],
+          ["Alternativa", "Berberina 1500 (Bonbato)", "«¿Tu azúcar sigue fuera de control aunque hagas dieta y ejercicio?…»", "25 dic 2025 (dato a revisar: figura activo, último registro en febrero)", "60 duplicados", "facebook_1435998621214190 · https://medias.trendtrack.io/facebook/video/57e6b64198ea227473c15229943797ee63eefdde67eecebcee5a162b226bc1f3.mp4", "https://bonbato.com/products/berberina-1500-suplemento", "Consolidado", "No se puede saber"],
+          ["Alternativa", "R-ácido alfa lipoico Noverly (Venturo Store)", "«Si tu glucosa en ayunas sigue subiendo cada vez que te haces análisis…»", "22 sep 2026, 29 a 52 días", "16 + 14 + 11", "facebook_1970290446996683 · https://medias.trendtrack.io/facebook/video/1c43880064b86c960b3b7cb246cdd4feb7b2eb47293d69bad4519e2e5481153e.mp4", "https://venturostore.com/products/noverly-acido-alfa-lipoico-ala", "Sostenido", "No se puede saber"],
+          ["Alternativa", "Blood Sugar Complex (NaturaShoppy)", "«Picos de azúcar = daño silencioso…»", "15 nov 2025, 326 días", "24", "facebook_1497010134852141 · https://medias.trendtrack.io/facebook/video/a61d6720cbb9fd8b34d4d33013d51a98427e04dba6bfef19dddb1623c9268c24.mp4", "https://naturashoppy.com/products/blood-sugar-complex", "Consolidado", "No se puede saber"],
+          ["Alternativa (aparato)", "Glucómetro Glucomax (Dra. Ana Martínez)", "«Pincharse el dedo para medir la glucosa es cosa del pasado…»", "22 feb 2026, 179 días", "126", "facebook_1484088119953477 · https://medias.trendtrack.io/facebook/video/cbc9777ba2777489752521bfefc1fc7a7c9756ff9af20c783eba0c0fb4fd94e0.mp4", "https://tiendanoah.com/products/glucomax-pro", "Consolidado", "Dropshipping probable (página con nombre de médica)"],
+          ["Alternativa (app)", "GluHealth", "«¡Controla tus niveles de glucosa, consumo de carbohidratos y medicamentos sin esfuerzo!…»", "19 jun 2026, 135 días", "22", "facebook_2410398276120010 · https://medias.trendtrack.io/facebook/video/5f60e36c6fc854ab28fff72bed7884860160fefe4a4aaa8e9086a2856e1edd49.mp4", "glulife.app", "Consolidado", "Marca probable"]
+        ], "nota": "La clasificación del vendedor es probable; las fichas de tienda se revisaron solo para jdglobalstore.com.co, ksstorehome.lat y carloszapatadr.com." },
+        { "tipo": "caja", "estilo": "clave", "titulo": "¿Se quedan los competidores?", "texto": "Dato: los 3 vendedores directos de canela de Ceylán en cápsulas arrancaron el 25 de noviembre de 2026 y llevan 2 días: son pruebas. Ninguna canela de Ceylán tiene un anuncio de más de un mes en Colombia, salvo una marca de canela para cocinar que apagó en agosto. Inferencia: el hueco sigue abierto, pero los imitadores ya están probando con el mismo producto que escala en EE. UU. (Lirae 7200 mg en MCT). Quien sí se quedó es la alternativa: la berberina (Bonbato, consolidado), el glucómetro (Glucomax) y los complejos para el azúcar (NaturaShoppy).", "items": [] },
+        { "tipo": "caja", "estilo": "veredicto", "titulo": "Viable con condiciones", "texto": "La canela de Ceylán en cápsulas está casi sin competencia directa en Colombia (solo pruebas de 2 días), pero hay que entrar ya, con un mensaje defendible y diferente al de berberina, porque las copias del producto de EE. UU. empezaron el 25 de noviembre.", "items": [
+          "Condición 1: tener registro sanitario y una etiqueta que pruebe que es Ceylán (Cinnamomum verum) y cuánto trae.",
+          "Condición 2: no copiar las promesas de EE. UU. (bajar la A1C, dejar la metformina): en Colombia un suplemento no puede decir que trata la diabetes.",
+          "Condición 3: entrar por un ángulo que la berberina no tenga (la canela de tu cocina, el bajón de la tarde, el cuidador)."
+        ] },
+        { "tipo": "tabla", "columnas": ["Sigue libre", "Ya ocupado por competidores consolidados"], "filas": [
+          ["Canela de Ceylán como producto principal en cápsula (solo pruebas de 2 días)", "Berberina para el azúcar y los antojos (Bonbato, 60 duplicados, desde diciembre de 2025)"],
+          ["La educación de especie como gancho (solo Dr. Carlos Zapata, 2 días)", "El glucómetro sin pinchazos (Glucomax, 126 duplicados, 179 días)"],
+          ["El cuidador o la hija que compra para sus papás", "Los complejos para el azúcar con «picos = daño silencioso» (NaturaShoppy, 326 días)"],
+          ["La mujer de 45 a 60 (menopausia) y la mujer de 60+", "La app para controlar la glucosa (GluHealth, 135 días)"],
+          ["Escena de ficción, riñón, la abuela y la cocina", "—"]
+        ], "nota": "" },
+        { "tipo": "escala", "titulo": "Sofisticación del mercado en Colombia frente al original", "items": [
+          { "nombre": "Canela de Ceylán en Colombia", "nivel": 2, "nota": "Recién empieza a decir «no todas las canelas son iguales» y «en aceite MCT»: promesa ampliada y primer mecanismo." },
+          { "nombre": "Berberina en Colombia", "nivel": 3, "nota": "Ya compite con mecanismo y autenticidad (original vs. copia, «GLP-1 natural»)." },
+          { "nombre": "Alternativas para el azúcar en Colombia (videos largos y métodos)", "nivel": 4, "nota": "Copian el estilo de EE. UU.: lo que la farmacéutica oculta, médicos con nombre." },
+          { "nombre": "Canela de Ceylán en EE. UU. y Reino Unido", "nivel": 5, "nota": "Identificación con personajes e historias (etapas 1 y 2)." }
+        ] },
+        { "tipo": "caja", "estilo": "hipotesis", "titulo": "Hipótesis de hueco a ocupar", "texto": "", "items": [
+          "**H1. «La canela de tu cocina no es la de Ceylán».** Evidencia: en Colombia solo lo usa Dr. Carlos Zapata desde el 25 nov 2026; en EE. UU. es la base de G7 (73 duplicados) y G2. Riesgo: se copia en días; exige que la etiqueta pruebe la especie.",
+          "**H2. El bajón de la tarde y los antojos del prediabético, con línea de tiempo y voz colombiana.** Evidencia: Lirae empezó el formato el 25 nov 2026; en EE. UU. G6 juntó 107.266. Riesgo: la berberina ya es dueña de «antojos» (Bonbato, consolidado) y las promesas por días pueden pasar de la raya.",
+          "**H3. La hija que cuida a sus papás.** Evidencia: no existe en Colombia; en EE. UU. la viuda de Primal juntó 132.059 en 23 días. Riesgo: convierte más lento y pide buena historia.",
+          "**H4. Original con registro sanitario y pago contra entrega.** Evidencia: Ksstore usa INVIMA; NextGen sostuvo 39 días el «original vs. copia» con berberina. Riesgo: solo sirve si el registro existe de verdad.",
+          "**Dónde no entrar:** el ataque a la metformina y las «3 mentiras de la diabetes» con médicos inventados. Venturo ya lo hace con ácido alfa lipoico, es lo más riesgoso ante Meta y la ley, y en EE. UU. ya muestra fatiga."
+        ] },
+        { "tipo": "caja", "estilo": "oportunidad", "titulo": "La combinación recomendada para llegar primero", "texto": "Un paso por delante del mercado local (del nivel 2 al 3), no dos: mecanismo simple, sin MHCP ni «puertas de la célula».", "items": [
+          "Ángulo: la canela que tienes en la cocina casi siempre es cassia; la de Ceylán es otra planta.",
+          "Mecanismo: canela de Ceylán verdadera, disuelta en aceite para que el cuerpo la aproveche (explicado como «en aceite, no en polvo»).",
+          "Avatar: adulto de 40 a 60 con el bajón de la tarde y antojos, y la hija que cuida a sus papás.",
+          "Gancho: «La canela que tienes en la cocina casi seguro no es la que crees.»"
+        ] },
+        { "tipo": "caja", "estilo": "riesgo", "titulo": "Ventana de tiempo", "texto": "Inferencia: tres vendedores directos arrancaron el mismo día (25 nov 2026) y uno ya trae el mismo producto que escala en EE. UU. (Lirae 7200 mg en MCT) con el mismo formato de línea de tiempo. Si alguno de ellos encuentra un ganador, el resto lo copiará en 1 o 2 semanas. La ventana para llegar primero con un ángulo propio es de unas 3 a 6 semanas.", "items": [] }
+      ],
+      "limitaciones": [
+        "Dato: fuera de la Unión Europea no hay alcance ni gasto: para Colombia solo se ven días al aire y duplicados.",
+        "Dato: la búsqueda lee el copy, no el video.",
+        "Dato: la búsqueda de canela de Ceylán con mínimo 30 días al aire devolvió 0 aunque había anuncios de 31 a 65 días: el filtro parece fallar con ese orden. La permanencia se calculó con las fechas de cada anuncio.",
+        "Dato: algunas búsquedas trajeron menos de 5 anuncios porque las respuestas eran demasiado largas.",
+        "Dato: la clasificación de vendedores es probable; dos anuncios (Bonbato, Evil Goods) figuran activos pero su último registro es de febrero y junio.",
+        "Dato: colesterol y precio no se verificaron con búsquedas propias en Colombia."
+      ],
+      "riesgos": [
+        "En Colombia un suplemento no puede anunciarse como tratamiento de la diabetes ni prometer bajar la glucosa o la hemoglobina glicosilada: el mensaje debe ser de apoyo y bienestar.",
+        "Páginas con nombre de médico (Dr. Carlos Zapata, Dra. Ana Martínez) ya están en el mercado: competir con un médico inventado es riesgo legal.",
+        "Si el producto no es Ceylán comprobable, el ángulo de la cassia se vuelve en contra."
+      ]
     }
   ]
 }

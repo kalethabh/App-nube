@@ -1,7 +1,7 @@
 {
   "id": "f17f1593-2f67-4602-83cb-0d79fa14ee5c",
   "uuid": "f17f1593-2f67-4602-83cb-0d79fa14ee5c",
-  "estado": "investigando",
+  "estado": "lista",
   "enlace": "https://app.trendtrack.io/es/kaleth-benjumea-hernandez/explorer?tab=products&q=CEYLON",
   "producto": "",
   "pais": "Colombia",
@@ -12,10 +12,17 @@
     "Buscando en los archivos",
     "Leyendo lo que contaste de tu producto",
     "Buscando en los archivos",
-    "Guardando"
+    "Guardando",
+    "Buscando en los archivos"
   ],
   "intentos": 1,
   "inicio": "2026-11-27T18:48:22.318Z",
   "error": null,
-  "actualizado": "2026-11-27T18:51:37.948Z"
+  "fin": "2026-11-27T19:03:41.600Z",
+  "medida": {
+    "turnos": 47,
+    "duracionMs": 919279,
+    "motor": "claude"
+  },
+  "actualizado": "2026-11-27T19:03:41.601Z"
 }
