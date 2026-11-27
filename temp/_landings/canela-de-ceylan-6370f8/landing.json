@@ -20,12 +20,6 @@
   "creado": "2026-11-27T20:28:09.486Z",
   "estado": "trabajando",
   "progreso": [
-    "Antonia (diseñadora visual) está trabajando…",
-    "Valeria (copywriter) está trabajando…",
-    "Mateo (director de imágenes) está trabajando…",
-    "Renata (revisión) está trabajando…",
-    "ChatGPT está haciendo 31 imágenes con tu producto, 3 a la vez (cada una con la medida de la plantilla)…",
-    "Imagen 1 de 31 lista (galeria-01).",
     "Imagen 2 de 31 lista (galeria-03).",
     "Imagen 3 de 31 lista (galeria-02).",
     "Imagen 4 de 31 lista (galeria-06).",
@@ -33,12 +27,18 @@
     "Imagen 6 de 31 lista (galeria-05).",
     "Imagen 7 de 31 lista (galeria-07).",
     "Imagen 8 de 31 lista (galeria-08).",
-    "Imagen 9 de 31 lista (galeria-09)."
+    "Imagen 9 de 31 lista (galeria-09).",
+    "Imagen 10 de 31 lista (combo-3).",
+    "Imagen 11 de 31 lista (galeria-10).",
+    "Imagen 12 de 31 lista (galeria-11).",
+    "Imagen 13 de 31 lista (combo-1).",
+    "Imagen 14 de 31 lista (combo-2).",
+    "Imagen 15 de 31 lista (creativo)."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-27T20:34:33.560Z",
+  "actualizado": "2026-11-27T20:36:30.410Z",
   "agentes": [
     {
       "id": "estratega",
