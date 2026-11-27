@@ -50,6 +50,14 @@
         "reemplazadaPor": "U0018",
         "motivo": null,
         "fecha": "2026-11-26T21:01:24.332Z"
+      },
+      {
+        "n": 4,
+        "archivo": "versiones/V01_1x1.v4.png",
+        "prompt": "versiones/V01_1x1.v4.txt",
+        "reemplazadaPor": "tamano",
+        "motivo": "tamano",
+        "fecha": "2026-11-27T02:02:48.773Z"
       }
     ],
     "V03_1x1": [
@@ -152,6 +160,14 @@
         "reemplazadaPor": "U0021",
         "motivo": null,
         "fecha": "2026-11-26T21:02:17.209Z"
+      },
+      {
+        "n": 4,
+        "archivo": "versiones/V06_1x1.v4.png",
+        "prompt": "versiones/V06_1x1.v4.txt",
+        "reemplazadaPor": "tamano",
+        "motivo": "tamano",
+        "fecha": "2026-11-27T02:02:48.784Z"
       }
     ],
     "V04_1x1": [
@@ -188,6 +204,14 @@
         "reemplazadaPor": "U0022",
         "motivo": null,
         "fecha": "2026-11-26T21:02:54.874Z"
+      },
+      {
+        "n": 3,
+        "archivo": "versiones/V07_1x1.v3.png",
+        "prompt": "versiones/V07_1x1.v3.txt",
+        "reemplazadaPor": "tamano",
+        "motivo": "tamano",
+        "fecha": "2026-11-27T02:02:48.782Z"
       }
     ],
     "V10_1x1": [
@@ -216,6 +240,14 @@
         "reemplazadaPor": "U0017",
         "motivo": null,
         "fecha": "2026-11-26T21:01:25.634Z"
+      },
+      {
+        "n": 2,
+        "archivo": "versiones/V02_1x1.v2.png",
+        "prompt": "versiones/V02_1x1.v2.txt",
+        "reemplazadaPor": "tamano",
+        "motivo": "tamano",
+        "fecha": "2026-11-27T02:02:48.774Z"
       }
     ],
     "V09_1x1": [

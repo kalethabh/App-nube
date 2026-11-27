@@ -59,19 +59,5 @@
     "tiempo": "Tratamiento de 3 meses (3 frascos, uno por mes, una toma diaria de 2 ml). El apetito y la energía se empiezan a notar en las primeras 2 sema"
   },
   "investigacionDelProducto": true,
-  "ganchos": "entrada/ganchos.json",
-  "extras": {
-    "V01": [
-      "4:5"
-    ],
-    "V02": [
-      "4:5"
-    ],
-    "V07": [
-      "4:5"
-    ],
-    "V06": [
-      "4:5"
-    ]
-  }
+  "ganchos": "entrada/ganchos.json"
 }
