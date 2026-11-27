@@ -13,7 +13,7 @@
     "Inferencia: el mercado está lleno de clones del mismo producto (mismo nombre «7200mg Equivalent with MCT Oil» y hasta la misma foto) en tiendas como getalevia.shop, buylevia.shop, tryvitalia.com y felevia.de. Varias cifras de ventas de esas tiendas son estimaciones redondeadas y algunas no cuadran (por ejemplo, Resilia con 75.000 unidades y 0 visitas).",
     "Dato: casi todos los anuncios prometen bajar el azúcar, la A1C y hasta revertir la diabetes, y atacan a la metformina y a Ozempic. Es un riesgo alto de rechazo en Meta y de problemas legales si se copia tal cual. En Colombia, además, un suplemento no puede decir que trata o cura una enfermedad."
   ],
-  "creditos": { "antes": 10000, "despues": 0 },
+  "creditos": { "antes": 10000, "despues": 9457 },
   "etapas": [
     {
       "titulo": "Investigación maestra",
@@ -320,6 +320,190 @@
         "Las versiones mejoradas evitan prometer curar o bajar cifras exactas; aun así, cualquier mención de diabetes o glucosa en Meta puede llevar a revisión.",
         "No usar groserías, raza ni personajes médicos inventados.",
         "Evitar decir «sin más remedios» o «cámbiate de la metformina»: puede hacer que alguien deje su tratamiento."
+      ]
+    },
+    {
+      "titulo": "Mapa de saturación de ángulos",
+      "contexto": "Se midió el mercado entero, no solo a Metabolae: anuncios activos hoy que combinan «ceylon» con cada ángulo en el texto escrito. Ojo: la búsqueda lee el copy, no lo que se dice en el video.",
+      "bloques": [
+        { "tipo": "metricas", "items": [
+          { "etiqueta": "Anuncios activos con «ceylon»", "valor": "31.665", "nota": "Incluye té, especias y tiendas de Sri Lanka", "tono": "azul" },
+          { "etiqueta": "«cinnamon» + «blood sugar»", "valor": "25.173", "nota": "Sin exigir «ceylon»", "tono": "rojo" },
+          { "etiqueta": "«berberine» (la alternativa)", "valor": "17.324", "nota": "Mercado vecino del mismo tamaño", "tono": "ambar" }
+        ] },
+        { "tipo": "barras", "titulo": "Anuncios activos con «ceylon» + cada ángulo", "unidad": "anuncios", "items": [
+          { "etiqueta": "Absorción con MCT", "valor": 25900, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "Azúcar en la sangre", "valor": 23743, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "Cassia falsa", "valor": 15328, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "Energía y bajón", "valor": 14990, "nota": "Alto", "tono": "rojo" },
+          { "etiqueta": "Insulina (puertas de la célula)", "valor": 14859, "nota": "Alto", "tono": "rojo" },
+          { "etiqueta": "Origen Sri Lanka", "valor": 13407, "nota": "Alto", "tono": "rojo" },
+          { "etiqueta": "Médico", "valor": 12996, "nota": "Alto", "tono": "rojo" },
+          { "etiqueta": "A1C", "valor": 11806, "nota": "Alto", "tono": "rojo" },
+          { "etiqueta": "Cumarina e hígado", "valor": 11211, "nota": "Alto", "tono": "rojo" },
+          { "etiqueta": "Metformina", "valor": 8592, "nota": "Medio", "tono": "ambar" },
+          { "etiqueta": "Dormir y orinar de noche", "valor": 8093, "nota": "Medio", "tono": "ambar" },
+          { "etiqueta": "Enfermera", "valor": 5459, "nota": "Medio", "tono": "ambar" },
+          { "etiqueta": "Peso", "valor": 4878, "nota": "Medio", "tono": "ambar" },
+          { "etiqueta": "Riñón", "valor": 4834, "nota": "Medio y subiendo", "tono": "ambar" },
+          { "etiqueta": "Antojos de azúcar", "valor": 3526, "nota": "Bajo", "tono": "verde" },
+          { "etiqueta": "Colesterol", "valor": 2535, "nota": "Bajo", "tono": "verde" },
+          { "etiqueta": "Neuropatía (pies)", "valor": 2509, "nota": "Bajo", "tono": "verde" },
+          { "etiqueta": "Ozempic", "valor": 1108, "nota": "Bajo en copy (alto en video)", "tono": "verde" },
+          { "etiqueta": "Menopausia", "valor": 448, "nota": "Virgen", "tono": "verde" },
+          { "etiqueta": "Las farmacéuticas", "valor": 24, "nota": "Bajo en copy (alto en video)", "tono": "verde" }
+        ] },
+        { "tipo": "caja", "estilo": "limite", "titulo": "Cómo leer estas barras", "texto": "Dato: TrendTrack marcó varios de estos totales como aproximados, y algunos parecen inflados frente a los 31.665 de «ceylon» solo. Muchos advertoriales largos (por ejemplo los de AT2A y Metabolae) mencionan casi todas estas palabras en un mismo texto. Sirven para comparar ángulos entre sí, no como cifra exacta. Ozempic y «big pharma» salen bajos porque viven en el video (transcripciones) y no en el copy.", "items": [] },
+        { "tipo": "subtitulo", "texto": "Ángulos sobreusados" },
+        { "tipo": "vinetas", "items": [
+          "Dato: absorción con MCT (25.900), cassia y cumarina (15.328 y 11.211) y origen Sri Lanka (13.407): son las 4 «pruebas» de todos los clones. Ya no diferencian.",
+          "Dato: la promesa del azúcar (23.743) y la A1C (11.806): todo el mercado vende el mismo resultado.",
+          "Dato: la autoridad de bata (médico 12.996, enfermera 5.459) y el ataque a la metformina (8.592): es la base de los ganadores de Metabolae y ya la copian clones (At2a, Venturo en Colombia)."
+        ] },
+        { "tipo": "subtitulo", "texto": "Ángulos frescos" },
+        { "tipo": "vinetas", "items": [
+          "Dato: menopausia (448 anuncios). Inferencia: la mujer de 45 a 60 con cambios de peso, antojos y azúcar que empieza a subir no tiene un anuncio propio.",
+          "Dato: colesterol (2.535) y corazón (Metabolae lo prueba desde el 13 nov con el «efecto dominó», facebook_1100961186080202).",
+          "Dato: neuropatía o pies que arden (2.509): aparece dentro de los guiones pero casi nunca como gancho.",
+          "Dato: antojos de azúcar (3.526): muy concreto y defendible («ayuda a controlar los antojos» es más fácil que «baja la A1C»).",
+          "Dato: riñón (4.834) e hígado: Metabolae y nubae los están probando en noviembre; todavía no están gastados."
+        ] },
+        { "tipo": "subtitulo", "texto": "Impulsores emocionales poco usados" },
+        { "tipo": "vinetas", "items": [
+          "Inferencia: **la alegría de volver a comer** (la cardióloga que come arroz con su esposo es una línea perdida al final del texto; nadie abre con eso).",
+          "Inferencia: **no ser una carga para los hijos** (independencia en la vejez): no apareció en ningún gancho.",
+          "Dato: **la vergüenza** (pañales, levantarse al baño en casa ajena) solo en una prueba de AT2A del 26 nov 2026.",
+          "Inferencia: **el amor del cuidador** (la hija o la esposa que compra para otro): solo en el anuncio de la viuda de Primal.",
+          "Inferencia: **la esperanza tranquila** sin miedo: casi todos los ganadores empiezan por amenaza o rabia."
+        ] },
+        { "tipo": "subtitulo", "texto": "Avatares sin explotar" },
+        { "tipo": "vinetas", "items": [
+          "Dato: el prediabético recién diagnosticado (Primal lo probó en marzo con «tu médico dijo prediabetes», facebook_2903054866725383, solo 4 anuncios).",
+          "Inferencia: la mujer en menopausia (448 anuncios activos).",
+          "Inferencia: la hija adulta que cuida a sus papás.",
+          "Inferencia: la persona que cocina y ya usa canela en casa (el puente entre especia y suplemento).",
+          "Dato: el hispanohablante: ningún gran jugador pauta en español (Metabolae: 94,5 % EE. UU. en inglés)."
+        ] },
+        { "tipo": "subtitulo", "texto": "Claims sobreusados" },
+        { "tipo": "tabla", "columnas": ["Claim", "Quién lo usa", "Saturación"], "filas": [
+          ["«7200 mg equivalente»", "Metabolae, Primal, felevia, tryvitalia, buylevia, getalevia", "Alta"],
+          ["«12 veces más potente» / 12:1", "Metabolae, Primal, Elorita", "Alta"],
+          ["«ADN verificado»", "Metabolae, Primal", "Media"],
+          ["«Sin cumarina» / «la cassia daña el hígado»", "Todos", "Alta"],
+          ["«Garantía de 90 días»", "Metabolae, Primal", "Alta"],
+          ["«200+ estudios clínicos»", "Metabolae", "Media"],
+          ["«Menos de un dólar al día»", "Metabolae, Primal", "Media"]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "Posicionamiento débil que todos repiten" },
+        { "tipo": "parrafo", "texto": "Inferencia: «la canela de Ceylán verdadera de Sri Lanka, en aceite MCT, para apoyar tu azúcar de forma natural» es hoy la frase de todo el mercado. Si todos dicen lo mismo, gana el que más gasta (Metabolae, con 23.630 anuncios). Entrar con ese mismo posicionamiento es pelear por precio y volumen." },
+        { "tipo": "subtitulo", "texto": "Estilos visuales que se están gastando" },
+        { "tipo": "vinetas", "items": [
+          "Dato: la carta larga en imagen con foto de «profesional de salud» (86,6 % de los anuncios de Metabolae son imagen).",
+          "Dato: la persona con bata hablando a cámara (familia A, apagada desde el 31 de octubre en Metabolae).",
+          "Inferencia: el estático de producto (la bolsa con fondo blanco y chulitos de beneficios): lo repiten todos los clones con la misma foto."
+        ] },
+        { "tipo": "subtitulo", "texto": "Oportunidades contrarias" },
+        { "tipo": "tabla", "columnas": ["Contrario a…", "Oportunidad", "Ejemplo de frase"], "filas": [
+          ["«Tu médico te miente»", "Ir con el médico, no contra él", "«Lleva tus exámenes a tu control y pregúntale por esto.»"],
+          ["«Deja la metformina»", "Complemento de la rutina", "«No reemplaza tu tratamiento. Acompaña tu desayuno.»"],
+          ["«Cápsula milagrosa»", "Hábito pequeño y realista", "«No es magia: es una cápsula, tu caminata y tu plato.»"],
+          ["Miedo y rabia", "Esperanza y gusto por la comida", "«Volver a disfrutar el almuerzo sin el bajón de las 3.»"],
+          ["«La canela de tu cocina no sirve»", "Tu cocina ya te dio la pista", "«Tu abuela tenía razón con la canela. Solo le faltaba la de Ceylán.»"]
+        ], "nota": "" },
+        { "tipo": "caja", "estilo": "oportunidad", "titulo": "Posicionamiento de océano azul", "texto": "Inferencia: «La canela de Ceylán para la rutina de la mañana de quien quiere cuidar su azúcar antes de necesitar remedios». Le habla al prediabético y a la mujer de 45 a 60, con un tono de cuidado y no de miedo, en español y con una prueba local (registro sanitario, etiqueta clara).", "items": [] },
+        { "tipo": "caja", "estilo": "hipotesis", "titulo": "Mecanismos nuevos (hipótesis que hay que sustentar)", "texto": "Ninguno de estos está verificado: antes de usarlos hace falta una fuente seria y revisar que la etiqueta lo permita.", "items": [
+          "Hipótesis: «el pico después de comer» (glucosa posprandial) como villano cotidiano, en lugar de la A1C.",
+          "Hipótesis: «la canela como acompañante de la comida» (tomarla con el desayuno para que el almuerzo no te tumbe).",
+          "Hipótesis: «antojos de dulce a media tarde» como señal visible de los altibajos del azúcar.",
+          "Hipótesis: la frescura y el empaque que protege de la luz (lo menciona Primal de pasada: bolsa opaca en vez de frasco)."
+        ] },
+        { "tipo": "subtitulo", "texto": "Estructuras narrativas nuevas" },
+        { "tipo": "vinetas", "items": [
+          "Inferencia: «Un día en la vida»: de la mañana a la noche, mostrando el bajón de la tarde y la noche sin levantarse al baño.",
+          "Inferencia: la conversación de cocina entre madre e hija (la hija descubre que la canela de la casa es cassia).",
+          "Inferencia: la comparación honesta «lo que sí y lo que no hace» (rompe con las promesas exageradas del mercado).",
+          "Dato y extensión: la escena de ficción tipo serie (Metabolae la prueba desde septiembre) llevada a una familia latina."
+        ] },
+        { "tipo": "subtitulo", "texto": "Direcciones visuales nuevas" },
+        { "tipo": "vinetas", "items": [
+          "Inferencia: la rama de canela de Ceylán (capas finas como papel enrollado) junto a la cassia (corteza gruesa): la diferencia se ve a simple vista y nadie la muestra en primer plano.",
+          "Inferencia: la cápsula abierta mostrando el aceite, frente a una cápsula seca con polvo.",
+          "Inferencia: escenas de cocina y desayuno reales en vez de consultorios."
+        ] },
+        { "tipo": "subtitulo", "texto": "Arquetipos de creador nuevos" },
+        { "tipo": "vinetas", "items": [
+          "Inferencia: la abuela o tía que cocina (la sabiduría de la casa, sin bata).",
+          "Inferencia: la hija cuidadora de 35 a 45 años.",
+          "Inferencia: el hombre de 55 que hace sus exámenes de control y cuenta su rutina sin dramatizar.",
+          "Inferencia: nutricionista real con tarjeta profesional (verificable), en vez de médicos inventados."
+        ] },
+        { "tipo": "caja", "estilo": "clave", "titulo": "Lectura crítica: las 3 apuestas con mejor relación oportunidad y riesgo", "texto": "", "items": [
+          "1. **La canela de tu cocina no es la de Ceylán** (educación de especie como gancho de entrada). Riesgo bajo de política, curiosidad alta y en español casi nadie lo usa (solo Dr. Carlos Zapata desde el 25 nov 2026).",
+          "2. **El bajón de la tarde y los antojos** (prediabético y mujer de 45 a 60). Ángulos con 3.526 anuncios o menos y una promesa defendible.",
+          "3. **Autenticidad local** («compra la original, revisa el registro»): es lo que más crece en Metabolae y en Colombia ya funciona con la berberina (NextGen)."
+        ] },
+        { "tipo": "caja", "estilo": "riesgo", "titulo": "Lo que no haría", "texto": "", "items": [
+          "Copiar «las 3 mentiras de la diabetes» o «no tomé la metformina»: está gastado y es el riesgo más alto de rechazo y de daño real a una persona.",
+          "Prometer bajar la A1C o revertir la diabetes con cifras de laboratorio.",
+          "Inventar médicos o enfermeras.",
+          "Pelear por «7200 mg» y «12 veces más potente»: es la guerra de números que ya ganó el que más gasta."
+        ] }
+      ],
+      "limitaciones": [
+        "Dato: la búsqueda lee el copy, no el video: los ángulos que viven en los videos (Ozempic, las farmacéuticas) salen subestimados.",
+        "Dato: los totales son aproximados y algunos están inflados por advertoriales que mencionan casi todo.",
+        "Dato: los conteos son de anuncios activos hoy (27 nov 2026) en todos los países, no solo de canela en cápsula."
+      ],
+      "riesgos": [
+        "Los mecanismos nuevos son hipótesis: no usarlos como afirmación sin fuente.",
+        "Menopausia y diabetes son datos de salud: en Meta no se puede segmentar ni decir «sé que tienes…»; hay que hablar en general."
+      ]
+    },
+    {
+      "titulo": "Avatares",
+      "contexto": "9 avatares del mercado de canela de Ceylán para el azúcar, ordenados de los más saturados a los vírgenes. TrendTrack no da demografía de la audiencia: se deducen del texto, los ganchos y las landings.",
+      "bloques": [
+        { "tipo": "avatares", "items": [
+          { "nombre": "1. El diabético tipo 2 con metformina que «hizo todo bien»", "frase": "Dejé el pan, camino todos los días, me tomo la pastilla… y el examen sigue igual.", "perfil": "55 a 70 años, diagnosticado hace años, con metformina. Dolor: frustración y miedo a empeorar aunque «esté controlado». Deseo: sentir que hace algo que ataca la causa.", "angulo": "La metformina solo baja el número; las puertas de la célula; la canela correcta", "ganchos": ["I'm a nurse and I've been administering M*tformin for 28 years…", "Is it true you can flush all the sugar out of your blood through your urine?", "Look, if you don't want to deal with Metformin side effects…"], "evidencia": "Dato: G1 (facebook_1024052563854382, 432.632, 15 anuncios), G3 (facebook_1071821172284516, 646.615), felevia (facebook_1686260423020023, 203.173 en Alemania)", "volumen": "8.592 anuncios activos con «ceylon» + «metformin»; 11.806 con «A1C»", "momento": "desacelerando", "saturacion": "alta" },
+          { "nombre": "2. El que ya probó canela y no le funcionó", "frase": "Ya me tomé tres frascos de canela y no sentí nada.", "perfil": "50 a 70 años, compra suplementos por internet o en farmacia. Dolor: plata perdida y desconfianza. Deseo: no volver a equivocarse.", "angulo": "La que tomaste era cassia o cápsula seca; la original solo en la página oficial", "ganchos": ["If you bought Metabolae on Amazon, you got a fake.", "You've spent more on cinnamon pills that did nothing than this sale would ever cost you.", "Taking cinnamon for blood sugar support? The type matters."], "evidencia": "Dato: G2 (facebook_1018311471256499, 26 anuncios, +30.544 en 7 días), AT2A (facebook_1676590304260247, 26 nov 2026), Primal (facebook_1449131290027953)", "volumen": "15.328 anuncios activos con «ceylon» + «cassia»", "momento": "creciendo", "saturacion": "alta" },
+          { "nombre": "3. El buscador de lo natural", "frase": "Prefiero algo natural antes que seguir sumando pastillas.", "perfil": "45 a 65 años, consciente de que su azúcar está alto o al límite. Dolor: no quiere depender de remedios. Deseo: una opción natural y segura.", "angulo": "Canela de Ceylán auténtica de Sri Lanka, apoyo natural", "ganchos": ["Looking to Support Healthy Blood Sugar Naturally?", "Most people don't know there's a huge difference between regular cinnamon and true Ceylon cinnamon."], "evidencia": "Dato: facebook_1017657837790383 (18 anuncios, 235.033, 128 días), Primal facebook_896295246121183 (73 duplicados), nubae (facebook_1852144746580180, 145.938)", "volumen": "23.743 anuncios activos con «ceylon» + «blood sugar»", "momento": "estable", "saturacion": "alta" },
+          { "nombre": "4. El que teme las complicaciones silenciosas", "frase": "Mis números salen bien, pero me da miedo terminar como mi papá, en diálisis.", "perfil": "55 a 70 años, diabético con antecedentes familiares (riñón, pies, corazón). Dolor: miedo. Deseo: proteger sus órganos.", "angulo": "Riñones, pies que arden, corazón; el azúcar atrapado daña en silencio", "ganchos": ["If your A1C is managed and there is still foam in your toilet every morning…", "My eGFR came back at 58.", "HbA1c über 6,5? Schau auf deine Nieren."], "evidencia": "Dato: facebook_1763419348115477 (20 anuncios, 204.098), facebook_1495647675834126 (26 nov 2026), nubae facebook_1487532426620531 (+86.331 en 4 días, Alemania)", "volumen": "4.834 con «kidney», 2.509 con «neuropathy», 2.535 con «cholesterol»", "momento": "creciendo", "saturacion": "media" },
+          { "nombre": "5. La mujer de 60+ con diabetes tipo 2", "frase": "Dejé los dulces y la harina, y aun así el azúcar no me baja.", "perfil": "60 a 75 años, mujer, diabética. Dolor: hace todo y no ve cambios, y nadie la escucha. Deseo: energía y tranquilidad.", "angulo": "Lo que ninguna mujer de 60+ quiere oír; la abuela de Sri Lanka", "ganchos": ["I don't give a f*ck if this upsets you. I am going to say something that no woman who's 60+ with Type 2 diabetes wants to hear.", "Ab 60: Der Zimt-Fehler, den fast alle machen"], "evidencia": "Dato: facebook_969378796247097 (+39.840 en 7 días, 30 oct 2026), facebook_1162997996107877 (At2a, 25 nov 2026), nubae facebook_1715637290232697 (87.429)", "volumen": "Sin conteo directo (TrendTrack no separa por sexo); 3 creativos recientes", "momento": "creciendo", "saturacion": "media" },
+          { "nombre": "6. El cuidador o la cuidadora", "frase": "A mi mamá no le gusta ir al médico; yo soy la que está pendiente.", "perfil": "35 a 60 años, hija, hijo o esposa de un diabético. Dolor: miedo a perder a alguien y culpa. Deseo: hacer algo por esa persona.", "angulo": "Pérdida, prevención y cuidado de la familia", "ganchos": ["My husband died a week ago.", "For three years, my dad kept pretending the ache under his ribs was nothing."], "evidencia": "Dato: Primal facebook_1088847760284220 (132.059 en 23 días), Metabolae facebook_4750023455265322 (27 nov 2026)", "volumen": "2 creativos claros en todo el mercado", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "7. El prediabético con el bajón de la tarde", "frase": "Después del almuerzo me da un sueño que no me aguanto, y el médico ya me dijo «prediabetes».", "perfil": "40 a 60 años, trabaja, todavía sin remedios. Dolor: cansancio, antojos y el aviso del médico. Deseo: no llegar a la diabetes.", "angulo": "Antojos, bajón de las 3 p. m., orinar de noche, línea de tiempo de 30 días", "ganchos": ["Your doctor said «prediabetic». That word hit different than you expected.", "If somebody whose blood sugar is making them pee three times a night took this…", "¿Tu glucosa en ayunas no baja de 140?"], "evidencia": "Dato: Primal facebook_2903054866725383 (4 anuncios, marzo de 2026), facebook_946888944768303 (107.266), Tu Hogar Moderno en Colombia (25 nov 2026)", "volumen": "3.526 con «cravings»; casi ningún gancho dedicado a «prediabetes»", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "8. La mujer en la menopausia", "frase": "Desde la menopausia todo me cambió: el peso, los antojos y ahora el azúcar.", "perfil": "45 a 60 años. Dolor: cambios en el cuerpo, grasa abdominal, el azúcar empieza a subir. Deseo: sentirse en control.", "angulo": "Cambios hormonales y metabolismo; antojos", "ganchos": [], "evidencia": "Dato: solo 448 anuncios activos combinan «ceylon» y «menopause», y el que salió primero era de orégano, no de canela", "volumen": "448 anuncios", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "9. El que compara precios", "frase": "Me gusta, pero está muy cara para tomarla todos los meses.", "perfil": "Cualquier edad; ya conoce el producto. Dolor: el precio mensual. Deseo: no pagar de más.", "angulo": "Precio por día, kits, la misma fórmula más barata", "ganchos": ["The number one thing that almost stopped people ordering was the price.", "Why pay $39.99 per bottle when you can get Vitalia Ceylon Cinnamon for just $15 per bottle?"], "evidencia": "Dato: Metabolae facebook_2416912332468683 (21 duplicados, 4 nov 2026), Vitalia facebook_2220381832687732 (7 nov 2026)", "volumen": "Pocos creativos, todos de noviembre", "momento": "emergente", "saturacion": "baja" }
+        ] },
+        { "tipo": "barras", "titulo": "Volumen de anuncios activos del ángulo principal de cada avatar", "unidad": "anuncios", "items": [
+          { "etiqueta": "3. Buscador de lo natural (blood sugar)", "valor": 23743, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "2. Ya probó canela (cassia)", "valor": 15328, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "1. Con metformina (metformin)", "valor": 8592, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "4. Complicaciones (kidney)", "valor": 4834, "nota": "Creciendo", "tono": "ambar" },
+          { "etiqueta": "7. Prediabético (cravings)", "valor": 3526, "nota": "Emergente", "tono": "verde" },
+          { "etiqueta": "8. Menopausia (menopause)", "valor": 448, "nota": "Virgen", "tono": "verde" }
+        ] },
+        { "tipo": "tabla", "columnas": ["Avatar", "Señal principal", "Momento", "Saturación"], "filas": [
+          ["1. Diabético con metformina", "Los ganadores más grandes, pero el video principal se apagó el 31 oct", "Desacelerando", "Alta"],
+          ["2. Ya probó canela", "Autenticidad: lo que más crece en Metabolae", "Creciendo", "Alta"],
+          ["3. Buscador de lo natural", "Texto base de todo el mercado", "Estable", "Alta"],
+          ["4. Complicaciones silenciosas", "Riñón e hígado: creativos nuevos en noviembre en EE. UU. y Alemania", "Creciendo", "Media"],
+          ["5. Mujer de 60+", "Tres creativos recientes que la nombran", "Creciendo", "Media"],
+          ["6. Cuidador", "Viuda con 132.059 en 23 días; hijo del papá (27 nov)", "Emergente", "Baja"],
+          ["7. Prediabético", "Pocos creativos; ya llegó a Colombia", "Emergente", "Baja"],
+          ["8. Menopausia", "448 anuncios", "Emergente", "Baja"],
+          ["9. Comparador de precios", "Creativos de noviembre", "Emergente", "Baja"]
+        ], "nota": "" },
+        { "tipo": "caja", "estilo": "oportunidad", "titulo": "Cuáles elegiría para entrar", "texto": "Inferencia: el **7 (prediabético con el bajón de la tarde)** y el **6 (cuidador)** como entrada, con el **2 (ya probó canela)** como ángulo de apoyo para la objeción. Los dos primeros tienen poca competencia, permiten un mensaje defendible (energía, antojos, cuidar a la familia) y no dependen de atacar al médico. El 2 ya está probado y en español casi nadie lo usa.", "items": [] },
+        { "tipo": "caja", "estilo": "limite", "titulo": "De dónde salen los avatares", "texto": "Dato: TrendTrack no da edad, sexo ni situación de quien ve los anuncios. Los avatares se deducen del texto, de los ganchos, de la persona que habla y de la landing. Las edades son inferencias.", "items": [] }
+      ],
+      "limitaciones": [
+        "Dato: sin demografía de audiencia; todo es lectura del copy.",
+        "Dato: los volúmenes son conteos de anuncios en el copy y están aproximados.",
+        "Dato: el avatar 8 no tiene ningún creativo de canela que lo confirme: es un hueco, no una prueba."
+      ],
+      "riesgos": [
+        "Hablarle a alguien por su enfermedad («tú que eres diabético») puede chocar con las reglas de Meta sobre atributos personales: mejor hablar en tercera persona o en general.",
+        "El avatar 1 lleva a prometer cosas sobre la medicación: el más riesgoso."
       ]
     }
   ]
