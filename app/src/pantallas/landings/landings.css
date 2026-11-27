@@ -118,3 +118,6 @@
 .ld-pegar { width: 100%; }
 .ld-pegar summary { cursor: pointer; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
 .ld-pegar textarea { display: block; width: 100%; margin: 8px 0; font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--borde-1, rgba(127,127,127,.35)); background: transparent; color: inherit; resize: vertical; }
+
+/* (2026-11-27k) el profesional real */
+.ld-pro__ok { grid-column: 1 / -1; display: flex; gap: 8px; align-items: center; font-size: 13px; }

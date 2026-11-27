@@ -79,7 +79,8 @@ function historiasIG(D) {
 }
 
 /** Las secciones de la página (solo el <main>). */
-export const ORDEN_SCROLL = ['galeria', 'prueba-social', 'titulo-y-beneficios', 'dolor', 'creativo', 'ruta', 'testimonio-destacado', 'ellas-cuentan', 'historias', 'experiencias', 'experiencias-fotos', 'resenas', 'ingredientes', 'pasos', 'franja', 'comparacion', 'oferta', 'aviso-pedido', 'compra-clara', 'dudas-rapidas', 'cuidado', 'preguntas-frecuentes', 'pie'];
+// (2026-11-27k) el usuario eligió «AMUNA tal cual»: el orden de su página (los combos arriba, justo después del título)
+export const ORDEN_SCROLL = ['galeria', 'prueba-social', 'titulo-y-beneficios', 'oferta', 'testimonio-destacado', 'dudas-rapidas', 'aviso-pedido', 'creativo', 'ellas-cuentan', 'ingredientes', 'historias', 'ruta', 'experiencias', 'experiencias-fotos', 'pasos', 'franja', 'comparacion', 'compra-clara', 'cuidado', 'resenas', 'preguntas-frecuentes', 'pie'];
 
 export function cuerpoDeLanding(D) {
   const P = D.producto || {};
@@ -88,8 +89,7 @@ export function cuerpoDeLanding(D) {
   const R = D.resenas || {};
   const totalBarras = lista(R.barras).reduce((a, b) => a + (Number(b) || 0), 0) || 1;
   const ellas = lista(D.ellas?.items);
-  // (2026-11-27j) el scroll en los 8 pasos de la clase de Joaquín Buelvas: engancho → identifico (dolor) → prometo →
-  // pruebo (la prueba social EN MEDIO) → explico → ofrezco (los combos después de beneficios y pruebas) → tranquilizo → cierro
+  // las secciones; ORDEN_SCROLL dice en qué orden van
   const B = {
     'galeria': `
   <section class="galeria" data-seccion="galeria" aria-label="Imágenes del producto">
@@ -203,9 +203,10 @@ export function cuerpoDeLanding(D) {
   ${lista(D.dudas).length ? `<div class="sec acord" data-seccion="dudas-rapidas" style="padding-bottom:8px">${acordeon(D.dudas)}</div>` : ''}`,
     'cuidado': `
   ${D.cuidado ? `<section class="sec cuidado" data-seccion="cuidado">
-    ${D.cuidado.foto ? `<div class="ph"><img src="${S(D.cuidado.foto)}" alt="" loading="lazy"></div>` : ''}
+    ${D.cuidado.foto ? `<div class="ph"><img src="${S(D.cuidado.foto)}" alt="${D.cuidado.profesional ? esc(`${D.cuidado.profesional.nombre}, ${D.cuidado.profesional.especialidad}`) : 'Consulta médica'}" loading="lazy">${D.cuidado.profesional ? `<span class="care-badge">${esc(D.cuidado.profesional.nombre)} · ${esc(D.cuidado.profesional.especialidad)}</span>` : ''}</div>` : ''}
     <h2>${fmt(D.cuidado?.titulo)}</h2>
     ${lista(D.cuidado?.parrafos).map((p) => `<p>${fmt(p)}</p>`).join('')}
+    ${D.cuidado?.nota ? `<p class="nota-img">${esc(D.cuidado.nota)}</p>` : ''}
     ${D.cuidado?.pie ? `<div class="pie-est"><span class="estrellas">★★★★★</span>${esc(D.cuidado.pie)}</div>` : ''}
   </section>` : ''}`,
     'preguntas-frecuentes': `
