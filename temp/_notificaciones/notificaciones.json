@@ -53,6 +53,15 @@
       "destino": "#/landings?proyecto=canela-de-ceylan-08bc42",
       "fecha": "2026-11-27T19:41:41.796Z",
       "leida": "2026-11-27T19:41:55.756Z"
+    },
+    {
+      "id": "n-0ef54806b866213e7a008628",
+      "tipo": "landing-lista",
+      "titulo": "Landing lista",
+      "texto": "«Canela de Ceylán · Pide y paga al recibir» está clonada y lista para revisar.",
+      "destino": "#/landings?proyecto=canela-de-ceylan-6370f8",
+      "fecha": "2026-11-27T20:42:32.477Z",
+      "leida": null
     }
   ]
 }
