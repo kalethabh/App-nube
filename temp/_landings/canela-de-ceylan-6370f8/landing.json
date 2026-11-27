@@ -24,12 +24,16 @@
     "Antonia (diseñadora visual) está trabajando…",
     "Valeria (copywriter) está trabajando…",
     "Mateo (director de imágenes) está trabajando…",
-    "Renata (revisión) está trabajando…"
+    "Renata (revisión) está trabajando…",
+    "ChatGPT está haciendo 31 imágenes con tu producto, 3 a la vez (cada una con la medida de la plantilla)…",
+    "Imagen 1 de 31 lista (galeria-01).",
+    "Imagen 2 de 31 lista (galeria-03).",
+    "Imagen 3 de 31 lista (galeria-02)."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-27T20:30:17.230Z",
+  "actualizado": "2026-11-27T20:32:30.710Z",
   "agentes": [
     {
       "id": "estratega",
@@ -63,8 +67,17 @@
       "id": "revision",
       "nombre": "Renata",
       "rol": "Revisión",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Quité las promesas de resultado y de plazo: «Dile adiós al antojo», «Sin antojos» y «Desde la semana 4» en la imagen principal y en el creativo, y el «menos antojo» del nombre del combo de 3. Ahora todo gira en torno a la idea «no era la canela correcta». Saqué «una cápsula» de los textos y las imágenes porque todavía no se conoce la dosis. También cambié los títulos que hablaban de «nuestras clientas»: no hay reseñas reales y no se pueden inventar.",
+      "pendientes": [
+        "Confirma cuántas cápsulas al día dice la etiqueta. Quité «una cápsula» de los textos y las imágenes porque no sabemos la dosis. Si es una al día, cada bolsa dura un mes y los nombres de los combos (1, 2 y 3 meses) quedan bien. Si no, hay que cambiarlos.",
+        "El @ de las historias («@canela.ceylan.co») lo inventamos. Cámbialo por el Instagram real de tu tienda o confirma que es tuyo.",
+        "Falta tu correo de atención en el pie. Mientras no lo pongas, la garantía dice «Ayuda con tu pedido» en vez de «Atención por correo».",
+        "El empaque dice «Metabolae», pero la página usa «Canela de Ceylán» como marca. Decide con qué nombre quieres vender.",
+        "Confirma de dónde sale el aceite MCT (si es de coco). Por eso quitamos el coco de la imagen de ingredientes.",
+        "Ten listas tus políticas de envíos, cambios y devoluciones: la página las menciona.",
+        "Confirma que tienes el registro sanitario antes de pautar."
+      ]
     },
     {
       "id": "visual",
