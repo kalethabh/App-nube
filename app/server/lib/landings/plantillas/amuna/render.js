@@ -137,6 +137,7 @@ export function cuerpoDeLanding(D) {
   ${lista(D.ugc?.fotos).length ? `<section class="sec ugc" data-seccion="experiencias-fotos">
     <div class="carril">${lista(D.ugc?.fotos).map((s) => `<img src="${S(s)}" alt="" loading="lazy">`).join('')}</div>
     <h2 class="titulo-sec">${fmt(D.ugc?.titulo)}</h2>
+    ${D.ugc?.estrellas ? '<div class="estrellas" aria-hidden="true">★★★★★</div>' : ''}
   </section>` : ''}
   ${lista(D.pasos?.items).length ? `<section class="sec pasos" data-seccion="pasos">
     <h2 class="titulo-sec">${fmt(D.pasos?.titulo)}</h2>
@@ -173,6 +174,7 @@ export function cuerpoDeLanding(D) {
     <div class="barras">${lista(R.barras).map((n, k) => `<div><span>${5 - k}</span><i><b style="width:${Math.round((100 * (Number(n) || 0)) / totalBarras)}%"></b></i><span>${Number(n) || 0}</span></div>`).join('')}</div>
     <p class="chica">Calificaciones de las reseñas mostradas (${lista(R.items).length})</p>
     ${lista(R.fotos).length ? `<hr><div class="carril fotos-res">${lista(R.fotos).map((s) => `<img src="${S(s)}" alt="" loading="lazy">`).join('')}</div>` : ''}
+    ${lista(R.items).length > 1 ? '<div class="ordenar"><select id="orden" aria-label="Ordenar reseñas"><option value="recientes">Más recientes primero</option><option value="mejores">Mejor calificadas</option><option value="peores">Peor calificadas</option></select></div>' : ''}
     <div class="lista-res" id="listaRes">${lista(R.items).map((x) => `<article class="res" data-estrellas="${x.estrellas || 5}"><div class="top"><b>${esc(x.nombre)}</b><span>Opinión de cliente</span></div><div class="estrellas" aria-label="${x.estrellas || 5} de 5">${est(x.estrellas || 5)}</div><div class="cuerpo"><div>${x.titulo ? `<h3>${esc(x.titulo)}</h3>` : ''}<p>${fmt(x.texto)}</p></div>${x.foto ? `<img src="${S(x.foto)}" alt="" loading="lazy">` : ''}</div>${x.lugar ? `<p class="lugar">${esc(x.lugar)}</p>` : ''}</article>`).join('')}</div>
   </section>` : ''}
   ${lista(D.faq?.items).length ? `<section class="sec faq acord" data-seccion="preguntas-frecuentes">
@@ -208,6 +210,7 @@ m&&m.addEventListener('click',function(e){if(e.target===m)m.close()});
 $('#mPedir')&&$('#mPedir').addEventListener('click',function(){var c=combo();if(c.url&&c.url!=='#')location.href=c.url;else m.close()});
 var f=$('#fija');function fija(){var b=$('#ctaOferta'),p=b?b.getBoundingClientRect().bottom<0:scrollY>600;f.classList.toggle('ver',p);f.setAttribute('aria-hidden',String(!p))}
 addEventListener('scroll',fija,{passive:true});marcar();fija();
+var ord=$('#orden'),lr=$('#listaRes');if(ord&&lr){var rs=[].slice.call(lr.children);rs.forEach(function(x,i){x.setAttribute('data-i',i)});ord.addEventListener('change',function(){var v=ord.value;rs.slice().sort(function(a,b){var ea=+a.getAttribute('data-estrellas'),eb=+b.getAttribute('data-estrellas'),d=v==='mejores'?eb-ea:v==='peores'?ea-eb:0;return d||(+a.getAttribute('data-i'))-(+b.getAttribute('data-i'))}).forEach(function(x){lr.appendChild(x)})})}
 })();`;
 
 /** La página completa. */

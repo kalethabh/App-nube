@@ -11,6 +11,7 @@ import { CircleAlert, Copy, Download, ExternalLink, Eye, Gauge, LayoutTemplate, 
 import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Selector, useAvisos } from '../../componentes/index.js';
 import { enlace, ir } from '../../datos/rutas.js';
 import { bandera } from '../../datos/paises.js';
+import { resenasPegadas } from '../../datos/resenas-pegadas.js';
 import { pedirNuevo, useDatos } from '../../datos/api.js';
 import { fechaRelativa } from '../../datos/formato.js';
 import './landings.css';
@@ -276,6 +277,7 @@ export default function Landings({ consulta }) {
   const [resenas, setResenas] = useState([]); // (2026-11-27d) solo reseñas reales de sus clientas
   const [plantilla, setPlantilla] = useState('amuna'); // (2026-11-27f) la estructura de la landing de AMUNA o la de CEN
   const [subiendo, setSubiendo] = useState(null);
+  const [pegadas, setPegadas] = useState('');
   const [capturas, setCapturas] = useState([]); // (2026-11-27g) capturas reales de clientas: [{ id, vista }]
   const subirCapturas = async (archivos) => {
     setSubiendo('capturas');
@@ -403,6 +405,14 @@ export default function Landings({ consulta }) {
                   Agregar una reseña real
                 </Boton>
               ) : null}
+              <details className="ld-pegar">
+                <summary>Pegar varias reseñas</summary>
+                <textarea rows={4} value={pegadas} onChange={(e) => setPegadas(e.target.value)} placeholder={'Una por línea: Nombre | Ciudad | Estrellas | Texto\nLuz Marina R. | Medellín | 5 | Desde la segunda semana duermo mejor.'} aria-label="Reseñas para pegar" />
+                <Boton variante="secundario" tamano="chico" disabled={!resenasPegadas(pegadas).length} onClick={() => { const nuevas = resenasPegadas(pegadas); setResenas((l) => [...l, ...nuevas].slice(0, 12)); setPegadas(''); }}>
+                  {`Agregar ${resenasPegadas(pegadas).length || ''} reseñas`}
+                </Boton>
+              </details>
+              {plantilla === 'amuna' ? <small className="ld-ayuda"><strong>{`Para que quede igual a AMUNA: 11 reseñas (5 con foto) y 9 capturas. Llevas ${resenas.filter((r) => r.nombre.trim() && r.texto.trim()).length} reseñas (${resenas.filter((r) => r.foto).length} con foto) y ${capturas.length} capturas.`}</strong></small> : null}
               <small className="ld-ayuda">Salen tal cual en la página. Sin reseñas reales, la landing no lleva reseñas ni opiniones de médicos: inventarlas engaña al comprador y la SIC o Meta lo castigan.</small>
             </div>
             {plantilla === 'amuna' ? (

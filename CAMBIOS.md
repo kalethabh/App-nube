@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27h · Plantilla AMUNA: la misma estructura y la misma cantidad de información
+
+- **La misma cantidad que tu página de AMUNA:** 4 checks, 4 dudas, 4 momentos de la ruta, 3 pasos, 6 filas de comparación, 11 preguntas frecuentes y 2 avisos legales. Cada texto tiene el largo del de AMUNA; si sale más corto o más largo, el equipo lo rehace.
+- **9 fotos en el carrusel de «Experiencias con…»**, como AMUNA, o hasta 9 capturas reales tuyas.
+- **Con una sola reseña real ya salen todas las secciones de AMUNA:** testimonio, «Ellas cuentan», «Experiencias personales», reseñas con su nota, las estrellas bajo «Experiencias con…» y el selector para ordenarlas. Si una reseña no trae foto, va la de tu producto, nunca una persona inventada.
+- **Pegar varias reseñas de una vez:** una por línea, «Nombre | Ciudad | Estrellas | Texto» (sirve copiar de Excel, Judge.me o Loox). Un contador te dice cuántas llevas para que quede igual a AMUNA: 11 reseñas (5 con foto) y 9 capturas.
+
 ## 2026-11-27g · Plantilla AMUNA: imágenes sin cortes, fotos caseras y más rápida
 
 - **Ninguna imagen sale cortada.** A ChatGPT se le piden solo los tamaños que hace bien (cuadrada o 2:3) y después:

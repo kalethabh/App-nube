@@ -78,7 +78,7 @@ export function moldeDeTextos() {
 const REQUERIDOS = [
   ['producto.nombre'], ['producto.unidad'], ['producto.unidades'], ['titulo.lede'], ['titulo.checks', 4], ['oferta.titulo'], ['oferta.combos.tres.nombre'], ['oferta.combos.tres.insignia'], ['oferta.combos.dos.nombre'], ['oferta.combos.uno.nombre'], ['oferta.envio.texto'], ['oferta.boton'],
   ['dudas', 4], ['aviso.titulo'], ['aviso.texto'], ['historias.titulo'], ['historias.texto'], ['historias.boton'], ['ruta.titulo'], ['ruta.pasos', 4], ['ugc.titulo'], ['pasos.titulo'], ['pasos.items', 3], ['franja', 3],
-  ['comparacion.titulo'], ['comparacion.nuestra'], ['comparacion.filas', 5], ['compraClara.titulo'], ['compraClara.texto'], ['compraClara.boton'], ['compraClara.garantias', 3], ['cuidado.titulo'], ['cuidado.parrafos', 3], ['faq.titulo'], ['faq.items', 8], ['pie.legal', 1],
+  ['comparacion.titulo'], ['comparacion.nuestra'], ['comparacion.filas', 6], ['compraClara.titulo'], ['compraClara.texto'], ['compraClara.boton'], ['compraClara.garantias', 3], ['cuidado.titulo'], ['cuidado.parrafos', 3], ['faq.titulo'], ['faq.items', 11], ['pie.legal', 2],
 ];
 export const leerRuta = (o, ruta) => ruta.split('.').reduce((x, k) => (x == null ? undefined : x[k]), o);
 function ponerRuta(o, ruta, v) {
@@ -106,7 +106,8 @@ export function erroresTextos(d, { nombre = '' } = {}) {
   const e = [];
   for (const [r, n] of REQUERIDOS) {
     const v = leerRuta(d, r);
-    if (n ? !Array.isArray(v) || v.length < n : !T(v)) e.push(n ? `«${r}»: hacen falta ${n} (como en el ejemplo).` : `Falta «${r}».`);
+    // (2026-11-27h) «la misma estructura y cantidad de info»: exactamente los de AMUNA
+    if (n ? !Array.isArray(v) || v.length !== n : !T(v)) e.push(n ? `«${r}»: deben ser exactamente ${n}, como en el ejemplo (hay ${Array.isArray(v) ? v.length : 0}).` : `Falta «${r}».`);
   }
   const malos = [];
   const ver = (x, ruta) => {
@@ -115,6 +116,21 @@ export function erroresTextos(d, { nombre = '' } = {}) {
     } else if (Array.isArray(x)) x.forEach((y, i) => ver(y, `${ruta}.${i}`));
     else if (x && typeof x === 'object') for (const [k, y] of Object.entries(x)) ver(y, ruta ? `${ruta}.${k}` : k);
   };
+  // (2026-11-27h) cada texto con el largo de su par en AMUNA (70 % a 135 % de las palabras; los de 6 palabras o más)
+  const palabras = (t) => String(t).replace(/[*]/g, '').split(/\s+/).filter(Boolean).length;
+  const largos = [];
+  const comparar = (m, x, ruta) => {
+    if (typeof m === 'string') {
+      const a = palabras(m);
+      if (a >= 6 && typeof x === 'string') {
+        const b = palabras(x);
+        if (b < a * 0.7 || b > a * 1.35) largos.push(`«${ruta}» tiene ${b} palabras y la de AMUNA ${a}`);
+      }
+    } else if (Array.isArray(m)) m.forEach((y, i) => comparar(y, Array.isArray(x) ? x[i] : undefined, `${ruta}.${i}`));
+    else if (m && typeof m === 'object') for (const [k, y] of Object.entries(m)) if (!['producto', 'pie'].includes(k) || ruta) comparar(y, x?.[k], ruta ? `${ruta}.${k}` : k);
+  };
+  comparar(moldeDeTextos(), d, '');
+  if (largos.length) e.push(`Cada texto con el largo del de AMUNA (± 30 %): ${largos.slice(0, 8).join('; ')}`);
   // (el resumen es para el dueño: puede nombrar la plantilla)
   for (const [k, y] of Object.entries(d)) if (k !== 'resumen') ver(y, k);
   if (malos.length) e.push(`Sin variables, cifras de clientas, textos de la plantilla ni la marca del ejemplo (AMUNA / VitalDrops): ${malos.slice(0, 6).join('; ')}`);
@@ -194,7 +210,7 @@ export function promptDeImagen(slot, base, { bg, accent, conFoto, persona = null
 // ---------------------------------------------------------------- las reseñas reales
 
 /** La prueba social, SOLO con las reseñas reales del dueño (ya limpias, con su foto en assets/ si la subió). */
-export function pruebaSocialReal(reales, marca) {
+export function pruebaSocialReal(reales, marca, fotoProducto = null) {
   if (!reales.length) return {};
   const n = reales.length;
   const prom = reales.reduce((a, r) => a + r.estrellas, 0) / n;
@@ -204,8 +220,14 @@ export function pruebaSocialReal(reales, marca) {
   return {
     pruebaSocial: { avatares: conFoto.slice(0, 4).map((r) => r.foto), texto: 'Opiniones de clientas', enlace: `${nota} de 5 · ${n} ${n === 1 ? 'opinión' : 'opiniones'}`, nota },
     testimonio: { nombre: reales[0].nombre, texto: reales[0].texto, estrellas: reales[0].estrellas, ...(reales[0].foto ? { foto: reales[0].foto } : {}) },
-    ellasItems: conFoto.slice(0, 5).map((r) => ({ nombre: r.nombre, ciudad: r.ciudad, texto: r.texto, foto: r.foto, estrellas: r.estrellas })),
-    experienciasItems: conFoto.slice(5, 8).map((r) => ({ nombre: r.nombre, texto: r.texto, foto: r.foto, estrellas: r.estrellas })),
+    // (2026-11-27h) con 1 sola reseña real ya salen todas las secciones de AMUNA: primero las que tienen foto; sin foto, la
+    // del producto (nunca una persona inventada). Experiencias: las que no salieron en «Ellas cuentan» y, si no hay, las mismas
+    ellasItems: [...conFoto, ...reales.filter((r) => !r.foto)].slice(0, 5).map((r) => ({ nombre: r.nombre, ciudad: r.ciudad, texto: r.texto, foto: r.foto || fotoProducto, estrellas: r.estrellas })).filter((x) => x.foto),
+    experienciasItems: (() => {
+      const orden = [...conFoto, ...reales.filter((r) => !r.foto)];
+      const resto = orden.slice(5);
+      return (resto.length ? resto : orden).slice(0, 3).map((r) => ({ nombre: r.nombre, texto: r.texto, foto: r.foto || fotoProducto, estrellas: r.estrellas })).filter((x) => x.foto);
+    })(),
     resenas: {
       nota,
       cuantas: `${n} ${n === 1 ? 'opinión' : 'opiniones'} de clientas`,
@@ -233,7 +255,7 @@ export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, ca
     const antes = p.antes ? p.antes * n[k] : null;
     return { id: k, cantidad: n[k], precio: precio[k], antes: antes && antes > precio[k] ? antes : null, nombre: T(c.nombre, 160), ...(T(c.insignia) ? { insignia: T(c.insignia, 30) } : {}), foto: img(`combo-${n[k]}`) };
   });
-  const social = pruebaSocialReal(reales, P.marca || P.corto || P.nombre);
+  const social = pruebaSocialReal(reales, P.marca || P.corto || P.nombre, fotoProducto || imagenes['combo-1'] || null);
   const D = {
     tema,
     tituloPagina: T(t.tituloPagina, 120) || P.nombre,
@@ -253,7 +275,7 @@ export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, ca
     ruta: t.ruta,
     experiencias: { pill: t.experiencias?.pill, titulo: t.experiencias?.titulo, fotoProducto: fotoProducto || img('combo-1'), precioDesde: p.uno, items: social.experienciasItems || [] },
     // (2026-11-27g) con capturas reales de clientas: ellas, tal cual y enteras («Experiencias con …»); sin: fotos caseras
-    ugc: capturas.length ? { titulo: `Experiencias con ${P.corto || P.nombre}`, fotos: capturas, reales: true } : { titulo: t.ugc?.titulo, fotos: [1, 2, 3, 4, 5].map((k) => img(`ugc-${k}`)) },
+    ugc: capturas.length ? { titulo: `Experiencias con ${P.corto || P.nombre}`, fotos: capturas, reales: true, estrellas: reales.length > 0 } : { titulo: t.ugc?.titulo, fotos: [1, 2, 3, 4, 5, 6, 7, 8, 9].map((k) => img(`ugc-${k}`)) },
     pasos: { titulo: t.pasos?.titulo, sub: t.pasos?.sub, items: lista(t.pasos?.items).slice(0, 3).map((x, k) => ({ ...x, foto: img(`paso-${k + 1}`) })) },
     franja: t.franja,
     comparacion: t.comparacion,
