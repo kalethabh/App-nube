@@ -1,0 +1,40 @@
+{
+  "deseo_central": "Tener glúteos más grandes y piernas más firmes, una figura con curvas que la haga sentir segura y atractiva.",
+  "dolor_principal": "Sentir que su cuerpo no tiene las curvas que quiere y que, sin años de gimnasio, nunca las va a tener.",
+  "promesa": "Esta Navidad puedes regalarte la figura que sueñas: más glúteos, piernas más firmes y más seguridad en ti, de forma natural.",
+  "emocion": "Deseo y aspiración, con un toque de cariño propio (darse un regalo a sí misma).",
+  "nivel_conciencia": "consciente-de-la-solucion",
+  "mecanismo_persuasion": "Aspiración con una modelo que ya muestra el resultado, apoyada por una lista de beneficios con íconos, un antes y después pequeño, un sello de calidad y el gancho de temporada de Navidad.",
+  "hook_visual": {
+    "que": "Una mujer con curvas marcadas, de espaldas y mirando a cámara, con gorro de Navidad y ropa roja y blanca, sosteniendo el frasco junto al árbol de Navidad.",
+    "por_que": "El cuerpo de la modelo es justo el resultado que la clienta desea, así que lo ve en un segundo; y la escena navideña la hace sentir actual y distinta de los anuncios de siempre."
+  },
+  "invariables": [
+    "Una modelo que muestra el resultado deseado (glúteos y caderas con curvas) como protagonista de la imagen",
+    "La modelo sosteniendo el producto, para unir el cuerpo soñado con el frasco",
+    "La idea de regalarte a ti misma tu mejor figura (titular tipo «Regálate la figura que sueñas»)",
+    "Una columna corta de beneficios con íconos: más glúteos, piernas más firmes, resultados visibles, natural",
+    "El frasco grande y nítido en primer plano para que se reconozca al comprar",
+    "Un antes y después pequeño de la zona de glúteos como prueba del cambio"
+  ],
+  "modificables": [
+    "La modelo (otra mujer, otro tono de piel, otro peinado), siempre mostrando curvas",
+    "La pose y la cámara: de lado, de pie frente al espejo, de tres cuartos",
+    "La escena: otra sala navideña, una habitación, un fondo de estudio con detalles festivos",
+    "Los colores secundarios (rojo y rosado pueden pasar a dorado, blanco o verde navideño)",
+    "La redacción del titular y del subtítulo, manteniendo la idea de regalarte tu figura",
+    "Los textos sueltos de la esquina y de la franja de abajo",
+    "El frasco: usar el de AGUAJE COMPLEX 3 EN 1 y destacar la triple acción en vez de lo que dice el frasco del anuncio original"
+  ],
+  "experimentales": [
+    "Antes y después en grande, a pantalla dividida, con la misma estética navideña",
+    "Destacar que no necesitas hacer ejercicio de fuerza: figura soñada sin vivir en el gimnasio",
+    "Destacar que no engorda ni tiene efecto rebote, para quien teme subir de peso en todo el cuerpo",
+    "Explicar la triple acción con los 3 extractos naturales, como el secreto de por qué funciona",
+    "Llevar la idea a otra fecha (Año Nuevo: «empieza el año con la figura que quieres») o a las vacaciones de playa",
+    "Un formato más casero: selfie frente al espejo con el frasco y textos tipo historia"
+  ],
+  "esencia": "Ver en un segundo el cuerpo con curvas que ella sueña, junto al frasco, y sentir que este fin de año se lo puede regalar a sí misma.",
+  "formato_ganador": "G17",
+  "angulo_ganador": "transformacion"
+}

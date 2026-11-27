@@ -1,0 +1,50 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261127-0834",
+  "familia": "imagen-ads",
+  "estado": "corriendo",
+  "paso": "estrategia",
+  "pasos": [
+    {
+      "id": "preparar",
+      "nombre": "Preparando tu lote",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-27T13:34:28.606Z",
+      "fin": "2026-11-27T13:34:28.666Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Revisando con qué se hacen tus imágenes",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-27T13:34:28.666Z",
+      "fin": "2026-11-27T13:34:28.667Z"
+    },
+    {
+      "id": "estrategia",
+      "nombre": "La IA arma la estrategia",
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-27T13:34:28.667Z",
+      "detalle": "Eligiendo los ángulos de venta",
+      "uuid": "81f95ff2-45b9-4cd5-8244-64e1832e6e0e"
+    },
+    {
+      "id": "anuncios",
+      "nombre": "Creando tus anuncios",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "informe",
+      "nombre": "Armando tu informe",
+      "estado": "pendiente",
+      "intentos": 0
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-27T13:34:28.605Z",
+  "aprobado": "2026-11-27T13:34:28.605Z",
+  "actualizado": "2026-11-27T13:35:54.208Z"
+}

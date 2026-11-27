@@ -1,0 +1,69 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261127-0834",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "AGUAJE COMPLEX 3 EN 1",
+  "productoId": "producto-edb1",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "publico": "Mujeres colombianas que quieren glúteos y piernas más firmes y redondos de forma natural, sin ir al gym, ni dietas ni pagar cirugías costosas",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "",
+    "angulo": null
+  },
+  "cantidad": 10,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.png",
+    "entrada/referencias/R02.png",
+    "entrada/referencias/R03.png",
+    "entrada/referencias/R04.png"
+  ],
+  "modo": "variantes",
+  "referenciasPropias": [],
+  "conceptosReferencias": [
+    "",
+    "",
+    "",
+    ""
+  ],
+  "fiel": false,
+  "elegirTitulos": false,
+  "rapido": false,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-27T13:34:27.818Z",
+  "variacion": "vecinas",
+  "venta": {
+    "oferta": "",
+    "sellos": [
+      "REGISTRO INVIMA RSA-0030271-2024"
+    ],
+    "pais": "CO",
+    "prohibido": [],
+    "cuerpo": {
+      "zonas": [
+        "glúteos",
+        "piernas",
+        "caderas"
+      ],
+      "resultado": "La misma mujer con el jean que horma: cintura pequeña, caderas más anchas y redondeadas, cola más llena y levantada que se proyecta detrás de la espalda baja, muslos más gruesos que llenan la pernera; se nota a primera vista, sin caricatura"
+    }
+  },
+  "sugeridas": [
+    "F86",
+    "F42",
+    "F50",
+    "F77",
+    "F60",
+    "F71"
+  ],
+  "investigacionDelProducto": true
+}
