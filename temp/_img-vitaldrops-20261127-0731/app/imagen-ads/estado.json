@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "siguiente": {
+    "E": 2,
+    "R": 1,
+    "A": 1,
+    "T": 2
+  },
+  "tandas": {
+    "E001": {
+      "tipo": "estrategia",
+      "ids": [
+        "V01"
+      ],
+      "uuid": null,
+      "motor": null,
+      "estado": "hecha",
+      "rapido": true
+    }
+  },
+  "variaciones": {
+    "V01": {
+      "prompt": "listo",
+      "tanda": "E001"
+    }
+  },
+  "piezas": {
+    "V01_1x1": {
+      "v": "V01",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1871415-1795782920139",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-27T12:35:20.727Z",
+      "pedido": null,
+      "aspecto": "9:16",
+      "ultimaOrden": "g"
+    }
+  },
+  "pedidos": {}
+}

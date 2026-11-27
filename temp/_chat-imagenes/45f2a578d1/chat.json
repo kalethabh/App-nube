@@ -5,7 +5,7 @@
   "producto": "VITALDROPS",
   "lote": "_img-vitaldrops-20261127-0731",
   "uuid": "f620b3cd-f529-4220-99bb-b3fb7b4f56b2",
-  "turnos": 0,
+  "turnos": 1,
   "mensajes": [
     {
       "id": "847d69a5",
@@ -15,9 +15,18 @@
         "A0001.png"
       ],
       "fecha": "2026-11-27T12:32:33.560Z"
+    },
+    {
+      "id": "031dffbc",
+      "de": "chat",
+      "texto": "Listo. Tu imagen la hago de nuevo, igual a la tuya y del mismo tamaño (vertical). El único cambio: en el frasco, donde decía «amua», ahora dice «amuna», con la misma letra, el mismo color y en el mismo lugar. Lo demás queda igual: la modelo, los textos, las zonas, la garantía y los colores. Solo arreglé una letra de más en la frase de arriba («llevva» ahora es «lleva»). Así el frasco muestra el nombre correcto y quien lo vea lo reconoce cuando le llegue. Eso da confianza y ayuda a vender. Mírala bien cuando salga: si algo no quedó igual, dime qué y lo ajusto.",
+      "imagenes": [
+        "V01"
+      ],
+      "fecha": "2026-11-27T12:33:52.588Z"
     }
   ],
   "autorizado": null,
   "fecha": "2026-11-27T12:31:42.572Z",
-  "actualizado": "2026-11-27T12:32:33.560Z"
+  "actualizado": "2026-11-27T12:33:52.588Z"
 }

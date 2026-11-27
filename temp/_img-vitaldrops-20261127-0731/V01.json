@@ -1,0 +1,90 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "uploaded reference (the user's own ad, recreated identically; only the brand word on the bottle label changes to 'amuna')",
+    "reference_style": "Bold infographic body-zone product ad with a fitness model, callout labels and icon list",
+    "angle_used": "Resultado por zonas: caderas, glúteos y piernas en 4 semanas",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1920 px",
+    "aspect_ratio": "9:16 Vertical",
+    "output_goal": "High-conversion premium e-commerce image ad, same layout as the user's reference"
+  },
+  "global_identity": {
+    "color_palette": "Clean off-white background #F7F7F5, black #111111 for text and icon circles, bright lemon yellow #FFE01B for highlight boxes, pills and podium, white #FFFFFF outlined letters",
+    "visual_style": "Bold, high-contrast fitness infographic ad with a real photographic model",
+    "visual_atmosphere": "Energetic, clean, bright, confident",
+    "graphic_language": "Yellow rounded pill labels with black outline, thin yellow callout lines ending in dots, black circular line icons with yellow strokes, glossy yellow 3D hearts",
+    "text_typography": "Heavy condensed sans-serif (like Anton / Bebas Neue Bold) for headlines and zone names; clean rounded sans-serif (like Montserrat / Poppins) for body text"
+  },
+  "creative_objective": "Recreate the user's existing ad exactly (same layout, model, texts, colors and proportions) with the only change being that the brand word printed on the bottle label reads 'amuna'.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Giant headline at top. 2) Model in the center-right. 3) Zone icon list on the left and callout pills. 4) '¡EN 4 SEMANAS!' and guarantee seal bottom left. 5) Bottle on yellow podium bottom right.",
+    "composition_style": "Vertical stacked layout: headline block top 22%, subtitle + two badges 22-31%, model and side list 31-88%, bottom row with time claim, guarantee seal and product on podium.",
+    "spacing_and_structure": "Tight, dense infographic spacing with clear left column of icons and a right column with the model and callouts.",
+    "lighting_and_depth": "Soft bright studio light from front-left, gentle shadows on the model, glossy reflections on the amber glass bottle, soft shadow under the podium.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top: three-line headline 'ENFOCADO EN' (white letters, thick black outline), 'CADERAS, GLÚTEOS' (black on yellow rounded box), 'Y PIERNAS.' ('Y' white outlined, 'PIERNAS.' black on yellow box), with two glossy yellow 3D hearts at the top right. Below: two-line black subtitle. Then two black rectangular badges with yellow border: wheat icon + 'GLUTEN FREE' left, sugar cube icon + 'SUGAR FREE' right. Center-right: adult Latina fitness model with long dark hair, black sports bra and black high-waist shorts, one arm behind her head, three-quarter pose. Left column: four black circle icons with yellow line drawings (abdomen, waist with arrows, hips, glutes), each with a bold zone name and a short description. Callout pills with lines pointing at the model: 'ABDOMEN' and 'CINTURA' at right, 'CADERAS' and 'GLÚTEOS' at left-center. Bottom left: '¡EN 4 SEMANAS!' with a big yellow '4' and a yellow underline swoosh, then a gold circular seal 'GARANTÍA 90 DÍAS' with three stars beside a yellow pill 'DEVOLUCIÓN DE DINERO'. Bottom right: the amber dropper bottle standing on a yellow cylindrical podium.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top 0-22%", "visual_function": "Hook naming the zones", "adaptation_rule": "Identical", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "decorative element", "position": "top right", "visual_function": "Two glossy yellow 3D hearts", "adaptation_rule": "Identical", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "subtitle", "position": "22-26%", "visual_function": "Mechanism line", "adaptation_rule": "Identical text, spelling typo corrected", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "badges", "position": "26-31%, two side by side", "visual_function": "Gluten free / Sugar free", "adaptation_rule": "Identical", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "person", "position": "center-right, 31-100% height", "visual_function": "Result shown on the body", "adaptation_rule": "Identical pose and outfit", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "icon list", "position": "left column 34-68%", "visual_function": "Four zone benefits", "adaptation_rule": "Identical", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "callout pills", "position": "around the model", "visual_function": "Point to the zones", "adaptation_rule": "Identical", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "time claim", "position": "bottom left 78-88%", "visual_function": "Transformation time", "adaptation_rule": "Identical", "present_in_reference": true },
+      { "block_id": "block_09", "block_type": "guarantee seal", "position": "bottom left 90-99%", "visual_function": "Risk reversal", "adaptation_rule": "Identical", "present_in_reference": true },
+      { "block_id": "block_10", "block_type": "product", "position": "bottom right on yellow podium, 63-98% height", "visual_function": "Product hero", "adaptation_rule": "Same bottle; brand word on label reads 'amuna'", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Price tags, discount labels, CTA buttons, rating stars, testimonials, logos of other brands, extra badges or extra text"
+    ]
+  },
+  "visual_prompt": "Vertical 9:16 fitness infographic ad on a clean off-white background (#F7F7F5). TOP ZONE (0-22%): three stacked centered headline lines in a heavy condensed sans-serif, all caps: line 1 'ENFOCADO EN' in white letters with a thick black #111111 outline; line 2 'CADERAS, GLÚTEOS' in black on a bright yellow #FFE01B rounded rectangle with black border; line 3 a big white outlined 'Y' followed by 'PIERNAS.' in black on a yellow rounded box. Two glossy yellow 3D hearts float at the top right edge. SUBTITLE (22-26%): two centered lines in black rounded sans-serif medium weight: 'Centraliza la grasa mal ubicada y la lleva a caderas, glúteos y piernas tonificadas.' BADGES (26-31%): two black rectangles with yellow borders side by side; left one with a yellow wheat icon and 'GLUTEN' (small white) over 'FREE' (bold yellow); right one with a yellow sugar-cube icon and 'SUGAR' over 'FREE'. CENTER (31-100%, right two-thirds): an ultra realistic adult Latina woman in her late 20s, long straight dark brown hair with loose strands, warm tan skin with real texture and pores, natural makeup, toned fit body with a small waist and curvy hips and thighs, wearing a black sports bra and black high-waist fitted shorts, standing in a three-quarter pose facing the camera, left arm raised with hand behind her head, looking at the camera, soft bright studio light from front-left, 50mm lens at waist height. LEFT COLUMN (34-68%): four stacked black circles with thin yellow line icons (flat abdomen, waist with two inward arrows, hips silhouette, glutes silhouette), each followed by a bold condensed black zone name and two lines of small black body text: 'ABDOMEN' / 'Apariencia más plana y estilizada.'; 'CINTURA' / 'Mayor definición visual.'; 'CADERAS' / 'Apariencia más pronunciada.'; 'GLÚTEOS' / 'Mayor volumen visual y realce.'. CALLOUTS: yellow rounded pills with black outline and black bold condensed text connected by thin yellow lines ending in yellow dots on the model: 'ABDOMEN' (right, at 50% height, pointing to her belly), 'CINTURA' (right, 58%, pointing to her waist), 'CADERAS' (left-center, 70%, pointing to her hip), 'GLÚTEOS' (left-center, 76%, pointing to her upper thigh/hip side). BOTTOM LEFT (78-88%): '¡EN 4 SEMANAS!' in black heavy condensed caps on two lines, the '4' huge in yellow #FFE01B, with a yellow brush swoosh underline. BOTTOM LEFT (90-99%): a gold circular seal with a thin dark border reading 'GARANTÍA' / '90' (large) / 'DÍAS' with three small stars, next to a yellow rounded pill reading 'DEVOLUCIÓN DE DINERO' in black bold caps. BOTTOM RIGHT (63-98%): the product from the attached product image, used as the only source of truth: an amber brown glass dropper bottle with a black ribbed cap and black rubber dropper bulb, about 1.6 times taller than wide with round shoulders, standing upright on a yellow cylindrical podium, label facing the camera and readable, matte, no rainbow, no prism light, no lens flare. Yellow label with white band: at the top of the label the brand word printed in black lowercase bold rounded sans-serif reads exactly 'amuna' (five letters: a-m-u-n-a), same size and position as on the original label; below it 'VITALDROPS' in white bold caps, 'All-in-One Multi-Herbal Supplement', ingredient circles A, F, L, MA, BR, and 'Dietary Supplement | 2 fl. oz. (60mL)'. Do not redesign the bottle in any other way.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top line 1", "text_style": "Heavy condensed caps, white #FFFFFF with thick black #111111 outline", "text": "ENFOCADO EN" },
+    { "block_id": "text_block_02", "reference_function": "main headline", "reference_position": "top line 2", "text_style": "Heavy condensed caps, black #111111 on yellow #FFE01B rounded box (highlighted line)", "text": "CADERAS, GLÚTEOS" },
+    { "block_id": "text_block_03", "reference_function": "main headline", "reference_position": "top line 3", "text_style": "'Y' white with black outline; 'PIERNAS.' black #111111 on yellow #FFE01B rounded box", "text": "Y PIERNAS." },
+    { "block_id": "text_block_04", "reference_function": "value proposition", "reference_position": "below headline, centered, two lines", "text_style": "Rounded sans-serif medium, black #111111", "text": "Centraliza la grasa mal ubicada y la lleva a caderas, glúteos y piernas tonificadas." },
+    { "block_id": "text_block_05", "reference_function": "badge", "reference_position": "left badge", "text_style": "'GLUTEN' small white, 'FREE' bold yellow #FFE01B on black", "text": "GLUTEN FREE" },
+    { "block_id": "text_block_06", "reference_function": "badge", "reference_position": "right badge", "text_style": "'SUGAR' small white, 'FREE' bold yellow #FFE01B on black", "text": "SUGAR FREE" },
+    { "block_id": "text_block_07", "reference_function": "benefit", "reference_position": "left column 1", "text_style": "Bold condensed black name + small black body", "text": "ABDOMEN Apariencia más plana y estilizada." },
+    { "block_id": "text_block_08", "reference_function": "benefit", "reference_position": "left column 2", "text_style": "Bold condensed black name + small black body", "text": "CINTURA Mayor definición visual." },
+    { "block_id": "text_block_09", "reference_function": "benefit", "reference_position": "left column 3", "text_style": "Bold condensed black name + small black body", "text": "CADERAS Apariencia más pronunciada." },
+    { "block_id": "text_block_10", "reference_function": "benefit", "reference_position": "left column 4", "text_style": "Bold condensed black name + small black body", "text": "GLÚTEOS Mayor volumen visual y realce." },
+    { "block_id": "text_block_11", "reference_function": "other", "reference_position": "callout pill right, 50%", "text_style": "Black bold condensed on yellow pill with black outline", "text": "ABDOMEN" },
+    { "block_id": "text_block_12", "reference_function": "other", "reference_position": "callout pill right, 58%", "text_style": "Black bold condensed on yellow pill with black outline", "text": "CINTURA" },
+    { "block_id": "text_block_13", "reference_function": "other", "reference_position": "callout pill left-center, 70%", "text_style": "Black bold condensed on yellow pill with black outline", "text": "CADERAS" },
+    { "block_id": "text_block_14", "reference_function": "other", "reference_position": "callout pill left-center, 76%", "text_style": "Black bold condensed on yellow pill with black outline", "text": "GLÚTEOS" },
+    { "block_id": "text_block_15", "reference_function": "other", "reference_position": "bottom left, two lines", "text_style": "Heavy condensed black caps; the '4' huge in yellow #FFE01B; yellow swoosh underline", "text": "¡EN 4 SEMANAS!" },
+    { "block_id": "text_block_16", "reference_function": "trust item", "reference_position": "gold circular seal bottom left", "text_style": "Dark bold caps on gold seal, '90' large, three small stars", "text": "GARANTÍA 90 DÍAS" },
+    { "block_id": "text_block_17", "reference_function": "trust item", "reference_position": "yellow pill next to the seal", "text_style": "Black bold caps on yellow pill", "text": "DEVOLUCIÓN DE DINERO" },
+    { "block_id": "text_block_18", "reference_function": "other", "reference_position": "brand word at the top of the bottle label", "text_style": "Black lowercase bold rounded sans-serif, same size as the original label brand word", "text": "amuna" }
+  ],
+  "mandatory_visual_elements": [
+    "The same amber dropper bottle from the product photo on a yellow cylindrical podium, label readable, brand word 'amuna'",
+    "The fitness model in black sports bra and black high-waist shorts, arm behind her head, facing the camera",
+    "Four black circle icons with yellow line drawings in the left column",
+    "Yellow callout pills with thin yellow lines and dots",
+    "Two glossy yellow 3D hearts at the top right",
+    "Gold circular guarantee seal with three stars"
+  ],
+  "final_generation_exclusions": [
+    "The bottle label must not read 'amua'; it reads exactly 'amuna'",
+    "No mirrored or warped label, no extra bottles, no capsules, no pills",
+    "No back-facing pose",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish, except the product label texts and the 'GLUTEN FREE' / 'SUGAR FREE' badges, which stay as in the reference."
+}

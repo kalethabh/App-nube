@@ -16,7 +16,7 @@
     "adicional": "",
     "angulo": null
   },
-  "cantidad": 0,
+  "cantidad": 1,
   "formatos": [
     "1:1"
   ],
@@ -113,6 +113,8 @@
   "ganchos": "entrada/ganchos.json",
   "chat": {
     "id": "45f2a578d1",
-    "aspectos": {}
+    "aspectos": {
+      "V01": "9:16"
+    }
   }
 }

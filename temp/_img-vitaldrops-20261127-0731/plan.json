@@ -1,0 +1,20 @@
+{
+  "producto": "VITALDROPS",
+  "lote": "_img-vitaldrops-20261127-0731",
+  "cantidad": 1,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "chat",
+      "angulo_id": "chat",
+      "angulo": "Chat",
+      "concepto": "Cambia amuna por \"amuna\" con las mismas dimensiones",
+      "titular": "ENFOCADO EN",
+      "escena": "Vertical 9:16 fitness infographic ad on a clean off-white background (#F7F7F5). TOP ZONE (0-22%): three stacked centered headline lines in a heavy condensed sans-serif, all caps: line 1 'ENFOCADO EN' in white letters with a thick black #111111 outline; line 2 'CADERAS, GLÚTEOS' in black on a bright ",
+      "camara": "La del anuncio"
+    }
+  ]
+}
