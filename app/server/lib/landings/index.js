@@ -37,6 +37,20 @@ import { limpiarPrecios, limpiarResenas, conInter, ANTI_EFECTOS } from './planti
 
 const DIR = path.join(TEMP, '_landings');
 const RE_ID = /^[a-z0-9-]{3,80}$/;
+// (2026-11-27f) las fotos de las reseñas reales que sube el dueño antes de crear la landing
+const DIR_FOTOS = path.join(DIR, '_fotos');
+const RE_FOTO = /^[a-f0-9]{12}\.(jpg|png)$/;
+
+/** Una foto de una reseña real (la imagen en el cuerpo). -> { id } para mandarlo en resenas[].foto */
+export async function subirFotoResena(datos, tipo = '') {
+  const formato = { 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp' }[String(tipo || '').split(';')[0].trim()];
+  if (!formato) throw new ErrorApp(400, 'Sube una foto JPG, PNG o WEBP.');
+  if (!Buffer.isBuffer(datos) || datos.length < 100) throw new ErrorApp(400, 'La foto llegó vacía.');
+  if (datos.length > 12 * 1024 * 1024) throw new ErrorApp(413, 'La foto pesa más de 12 MB.');
+  const { normalizarImagen } = await import('../imagen-ads/local.js');
+  const destino = await normalizarImagen(datos, path.join(DIR_FOTOS, crypto.randomBytes(6).toString('hex')), formato);
+  return { id: path.basename(destino) };
+}
 const enCurso = new Set();
 registrarOcupado(()=>enCurso.size?'Hay trabajos de landing o tienda en curso.':null);
 
@@ -124,13 +138,18 @@ export function crear({ url, prompt = '', modo = null, motor = null, productoId 
  * (2026-11-25f) CREAR desde la plantilla, con el equipo de agentes (plantilla.js): { productoId, prompt?, motor? }.
  * Sin URL: la landing nace de la plantilla y la investigación de mercado del producto.
  */
-export function crearDesdePlantilla({ productoId, prompt = '', motor = null, precios = null, registro = '', resenas = [] } = {}) {
+export function crearDesdePlantilla({ productoId, prompt = '', motor = null, precios = null, registro = '', resenas = [], plantilla = 'amuna' } = {}) {
   const prod = listarProductos().find((p) => p.id === productoId);
   if (!prod) throw new ErrorApp(400, 'Elige el producto para el que creas la landing.');
   // (2026-11-27d) sin precios la página quedaba con «Precio por definir»: ahora son obligatorios
   const listos = limpiarPrecios(precios);
   if (!listos) throw new ErrorApp(400, 'Pon los precios de 1, 2 y 3 unidades para crear la landing.');
-  const reales = limpiarResenas(resenas);
+  // (2026-11-27f) con su foto subida (/api/landings/fotos): se guarda el nombre y se copia a la landing al crearla
+  const reales = limpiarResenas(resenas).map((r, k) => {
+    const f = String(resenas?.[k]?.foto || '');
+    return RE_FOTO.test(f) && fs.existsSync(path.join(DIR_FOTOS, f)) ? { ...r, fotoSubida: f } : r;
+  });
+  if (!['amuna', 'cen'].includes(plantilla)) throw new ErrorApp(400, 'Elige la plantilla de la landing.');
   if (!motor) {
     try {
       motor = motorElegido() || 'claude';
@@ -142,7 +161,7 @@ export function crearDesdePlantilla({ productoId, prompt = '', motor = null, pre
   const base = String(prod.nombre || productoId).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'landing';
   const id = `${base}-${crypto.randomBytes(3).toString('hex')}`;
   fs.mkdirSync(carpetaDe(id), { recursive: true });
-  guardar(id, { id, url: null, modo: 'crear', motor, prompt: String(prompt || '').trim().slice(0, 4000), precios: listos, resenas: reales, registro: String(registro || '').trim().slice(0, 60), productoId, analizar: false, titulo: prod.nombre, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, informe: null, puntajes: null });
+  guardar(id, { id, url: null, modo: 'crear', motor, prompt: String(prompt || '').trim().slice(0, 4000), precios: listos, resenas: reales, plantilla, registro: String(registro || '').trim().slice(0, 60), productoId, analizar: false, titulo: prod.nombre, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, informe: null, puntajes: null });
   crearConElEquipo(id);
   return leer(id);
 }
@@ -151,8 +170,18 @@ async function crearConElEquipo(id) {
   enCurso.add(id);
   try {
     const l = leer(id);
+    // (2026-11-27f) las fotos de las reseñas reales, dentro de la landing
+    const carpeta = carpetaDe(id);
+    const resenas = (l.resenas || []).map((x, k) => {
+      if (!x.fotoSubida || !RE_FOTO.test(x.fotoSubida) || !fs.existsSync(path.join(DIR_FOTOS, x.fotoSubida))) return x;
+      const destino = `assets/resena-${k + 1}${path.extname(x.fotoSubida)}`;
+      fs.mkdirSync(path.join(carpeta, 'assets'), { recursive: true });
+      fs.copyFileSync(path.join(DIR_FOTOS, x.fotoSubida), path.join(carpeta, destino));
+      return { ...x, foto: destino };
+    });
     const { crearConEquipo } = await import('./plantilla.js');
-    const r = await crearConEquipo({ carpeta: carpetaDe(id), productoId: l.productoId, pedido: l.prompt, precios: l.precios, registro: l.registro, resenas: l.resenas || [], motor: l.motor, guardar: (c) => guardar(id, c), avanzar: (t) => avanzar(id, t) });
+    const { crearConAmuna } = await import('./plantilla-amuna.js');
+    const r = await (l.plantilla === 'cen' ? crearConEquipo : crearConAmuna)({ carpeta: carpetaDe(id), productoId: l.productoId, pedido: l.prompt, precios: l.precios, registro: l.registro, resenas, motor: l.motor, guardar: (c) => guardar(id, c), avanzar: (t) => avanzar(id, t) });
     guardar(id, { titulo: r.titulo, creada: { textos: r.cambiados, imagenes: r.imagenes.hechas, pedidas: r.imagenes.pedidas } });
     guardar(id, { estado: 'midiendo' });
     await medir(id);

@@ -422,6 +422,16 @@ async function alMensaje(texto) {
       d = { ...d, imagenes: lista.length ? lista : [{ imagen: 'img0', funcion: 'hero', prompt: 'product hero', aspecto: '4:5' }] };
     }
     if (quien === 'revision') d = { ...d, cambios: {}, pendientes: ['Poner reseñas reales'] };
+    // (2026-11-27f) la plantilla AMUNA: los textos con el mismo molde (la marca del ejemplo -> el producto) y un prompt por imagen
+    if (/PLANTILLA AMUNA/.test(textoTarea)) {
+      if (quien === 'copy') {
+        const molde = /<<<EJEMPLO\n([\s\S]*?)\nEJEMPLO>>>/.exec(textoTarea)?.[1];
+        const t = JSON.parse(String(molde || '{}').replace(/AMUNA Vitaldrops™|AMUNA|AMUA|Vital ?drops™?/gi, prod));
+        d = { ...t, resumen: `Prueba: textos de ${prod} con la estructura de AMUNA.` };
+      }
+      if (quien === 'imagenes') d = { ...d, imagenes: [...textoTarea.matchAll(/^SLOT ([\w-]+) ·/gm)].map(([, slot]) => ({ slot, prompt: `prueba ${slot}` })) };
+      if (quien === 'revision') d = { ...d, cambios: { 'titulo.lede': `Prueba: ${prod}, a tu ritmo y sin tantas vueltas. Elige el combo que más te convenga y paga al recibir.` }, pendientes: [] };
+    }
     if (quien === 'visual') d = { ...d, cambios: {}, quitar: [], problemas: [] };
     // (2026-11-25k) KADS_EQUIPO_DIR: respuestas escritas a mano (una por agente) para probar el proceso de verdad
     if (process.env.KADS_EQUIPO_DIR && fs.existsSync(path.join(process.env.KADS_EQUIPO_DIR, `${quien}.json`))) d = JSON.parse(fs.readFileSync(path.join(process.env.KADS_EQUIPO_DIR, `${quien}.json`), 'utf8'));

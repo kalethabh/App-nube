@@ -11,10 +11,13 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import express from 'express';
 import { soloDesdeLaApp } from '../lib/productos.js';
-import { listar, leer, crear, crearDesdePlantilla, borrar, medirDeNuevo, analizarDeNuevo, carpetaDe } from '../lib/landings/index.js';
+import { listar, leer, crear, crearDesdePlantilla, borrar, medirDeNuevo, analizarDeNuevo, carpetaDe, subirFotoResena } from '../lib/landings/index.js';
 import { prepararZip, enviarZip } from '../lib/imagen-ads/zip.js';
 
 const json = express.json({ limit: '16kb' });
+// (2026-11-27f) crear lleva hasta 12 reseñas reales
+const jsonCrear = express.json({ limit: '96kb' });
+const foto = express.raw({ type: () => true, limit: '12mb' });
 const TIPOS = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.gif': 'image/gif', '.avif': 'image/avif', '.mp4': 'video/mp4', '.webm': 'video/webm', '.woff2': 'font/woff2', '.woff': 'font/woff', '.ttf': 'font/ttf', '.otf': 'font/otf', '.ico': 'image/x-icon' };
 
 export default function rutasLandings(app) {
@@ -30,7 +33,9 @@ export default function rutasLandings(app) {
   app.get('/api/landings', r(() => listar()));
   app.post('/api/landings', soloDesdeLaApp, json, r((req) => crear(req.body || {})));
   // (2026-11-25f) crear desde la plantilla con el equipo de agentes: { productoId, prompt?, motor? }
-  app.post('/api/landings/crear', soloDesdeLaApp, json, r((req) => crearDesdePlantilla(req.body || {})));
+  app.post('/api/landings/crear', soloDesdeLaApp, jsonCrear, r((req) => crearDesdePlantilla(req.body || {})));
+  // (2026-11-27f) la foto de una reseña real (la imagen en el cuerpo) -> { id }
+  app.post('/api/landings/fotos', soloDesdeLaApp, foto, r((req) => subirFotoResena(req.body, req.get('Content-Type'))));
   app.get('/api/landings/:id', r((req) => leer(req.params.id)));
   app.delete('/api/landings/:id', soloDesdeLaApp, r((req) => borrar(req.params.id)));
   app.post('/api/landings/:id/medir', soloDesdeLaApp, r((req) => medirDeNuevo(req.params.id)));
