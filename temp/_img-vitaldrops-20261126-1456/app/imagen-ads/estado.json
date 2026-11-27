@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 25,
-    "T": 29
+    "A": 26,
+    "T": 30
   },
   "tandas": {
     "E001": {
@@ -248,6 +248,15 @@
         "U0031"
       ],
       "empezada": true
+    },
+    "A025": {
+      "tipo": "ajuste",
+      "uuid": "76e8c085-5489-4936-be23-353d322dc5ad",
+      "estado": "hecha",
+      "pedidos": [
+        "U0032"
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -338,8 +347,8 @@
       "formato": "1:1",
       "fase": "final",
       "resultado": "listo",
-      "version": 7,
-      "firma": "2012085-1795731358198",
+      "version": 8,
+      "firma": "2006988-1795745655149",
       "orden": null,
       "intentosApi": 1,
       "ronda": "u",
@@ -347,9 +356,9 @@
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T22:15:59.841Z",
+      "desde": "2026-11-27T02:14:15.661Z",
       "pedido": null,
-      "ultimaOrden": "U0027",
+      "ultimaOrden": "U0032",
       "fallo": null
     },
     "V04_1x1": {
@@ -471,27 +480,20 @@
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "listo",
-      "version": 3,
-      "firma": "2110692-1795727024739",
-      "orden": {
-        "id": "U0031",
-        "modo": "editar",
-        "version": 4,
-        "instruccion_en": "Edit only the woman's body: give her moderately more natural volume in the hips, thighs and legs so the blue jeans look well filled, with a realistic, healthy shape for a 50-year-old woman (not exaggerated, not sexualized). Keep her face, skin tone, ponytail, white top, pink phone, kneeling pose, expression and position exactly the same. Do not change the headline, badge, comment, bottle, label, beach background, colors or layout. All text stays identical and correctly spelled.",
-        "textos": false,
-        "trabajo": "T028"
-      },
+      "version": 4,
+      "firma": "2115233-1795745568022",
+      "orden": null,
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T21:03:46.697Z",
-      "pedido": "U0031",
-      "ultimaOrden": "U0025",
+      "desde": "2026-11-27T02:12:48.215Z",
+      "pedido": null,
+      "ultimaOrden": "U0031",
       "fallo": null
     }
   },
@@ -1120,7 +1122,7 @@
       "pieza": "V10_1x1",
       "instruccion": "Que la modelo tenga más volumen en glúteos, piernas y caderas",
       "fecha": "2026-11-27T02:11:13.647Z",
-      "estado": "generando",
+      "estado": "listo",
       "ajuste": "A024",
       "instruccion_en": "Edit only the woman's body: give her moderately more natural volume in the hips, thighs and legs so the blue jeans look well filled, with a realistic, healthy shape for a 50-year-old woman (not exaggerated, not sexualized). Keep her face, skin tone, ponytail, white top, pink phone, kneeling pose, expression and position exactly the same. Do not change the headline, badge, comment, bottle, label, beach background, colors or layout. All text stays identical and correctly spelled.",
       "cambiaTextos": false,
@@ -1131,6 +1133,27 @@
           "orden": "U0031",
           "modo": "editar",
           "instruccion_en": "Edit only the woman's body: give her moderately more natural volume in the hips, thighs and legs so the blue jeans look well filled, with a realistic, healthy shape for a 50-year-old woman (not exaggerated, not sexualized). Keep her face, skin tone, ponytail, white top, pink phone, kneeling pose, expression and position exactly the same. Do not change the headline, badge, comment, bottle, label, beach background, colors or layout. All text stays identical and correctly spelled.",
+          "textos": false
+        }
+      ],
+      "paso": 0
+    },
+    "U0032": {
+      "id": "U0032",
+      "pieza": "V03_1x1",
+      "instruccion": "agrega un poco más de volumen en glúteos piernas y caderas",
+      "fecha": "2026-11-27T02:12:54.826Z",
+      "estado": "listo",
+      "ajuste": "A025",
+      "instruccion_en": "Edit only the woman on the right ('after' side): give her a slightly curvier silhouette at the hips, thighs and legs, a bit more than now, still natural, proportional and believable for an ordinary woman. Keep the same woman, face, pose, side view, outfit, bench, lighting and background. Do not change the 'before' woman, the bottle, the arrow, the labels, the headline, the bottom strip or any text. No exaggerated or unrealistic proportions, no new focus or zoom on body parts.",
+      "cambiaTextos": false,
+      "resumen": "Le damos un poco más de curva a caderas y piernas en el «después», sin exagerar. Todo lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V03_1x1",
+          "orden": "U0032",
+          "modo": "editar",
+          "instruccion_en": "Edit only the woman on the right ('after' side): give her a slightly curvier silhouette at the hips, thighs and legs, a bit more than now, still natural, proportional and believable for an ordinary woman. Keep the same woman, face, pose, side view, outfit, bench, lighting and background. Do not change the 'before' woman, the bottle, the arrow, the labels, the headline, the bottom strip or any text. No exaggerated or unrealistic proportions, no new focus or zoom on body parts.",
           "textos": false
         }
       ],
