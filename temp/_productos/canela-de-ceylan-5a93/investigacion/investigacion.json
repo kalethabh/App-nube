@@ -1,0 +1,228 @@
+{
+  "formato": "documento",
+  "producto": "Canela de Ceilán Metabolae",
+  "pais": "Colombia",
+  "fecha": "27 de noviembre de 2026",
+  "color": "#7A3B16",
+  "portada": {
+    "titulo": "Canela de Ceilán",
+    "subtitulo": "Metabolae · 30 cápsulas blandas · canela de Ceilán de Sri Lanka con aceite MCT",
+    "avatar": "Luz Marina, la del antojo de dulce a las tres de la tarde",
+    "quien_compra": "Ella misma; a veces la hija que se lo compra a la mamá",
+    "canal": "Meta Ads + WhatsApp · pago contra entrega · oferta x3"
+  },
+  "claves": {
+    "deseo_central": "Dejar de vivir pendiente del dulce y sentirme liviana y con energía todo el día, sin miedo a terminar como mi mamá con el azúcar.",
+    "beneficio_principal": "Una rutina natural de canela de Ceilán que ayuda a sentir menos antojos de dulce y una energía más pareja después de comer.",
+    "puntos_dolor": [
+      "A las tres de la tarde ya estoy buscando algo dulce, otra vez",
+      "Después del almuerzo me da un sueño y un bajón que no me deja trabajar",
+      "En mi familia todos tienen el azúcar alta y me da miedo ser la siguiente",
+      "Me siento pesada e inflada después de comer",
+      "Llevo años tomando agua de canela y no noto nada",
+      "Hago dieta, pero el antojo de pan y postre me gana por la noche",
+      "No tengo tiempo de preparar tés ni aguas todos los días"
+    ]
+  },
+  "secciones": [
+    {
+      "titulo": "Resumen ejecutivo",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "**Canela de Ceilán de Metabolae** es un suplemento en 30 cápsulas blandas con canela de Ceilán de Sri Lanka (la «canela verdadera», con muy poca cumarina) y aceite MCT. El empaque dice «equivalente a 7200 mg», sin aclarar si es por cápsula o por porción. La marca casi no tiene presencia en internet: aparece en un catálogo de suplementos de EE. UU. con cuatro versiones de canela de Ceilán, sin certificaciones registradas. Puede tratarse de una marca de importación o de marca blanca: hay que pedir la ficha técnica." },
+        { "tipo": "parrafo", "texto": "El mercado es grande y está asustado: Colombia tiene **2.597.719 casos de diabetes reportados** (agosto de 2025, 60 % mujeres), la Federación Internacional de Diabetes estima **3 millones de adultos** con diabetes y un **9,4 %** con glucosa alterada en ayunas, y la Asociación Colombiana de Endocrinología calcula que **entre el 8 % y el 10 %** de los adultos tiene prediabetes. Además, el **64 %** de los adultos tiene sobrepeso u obesidad. La canela ya es parte de la cultura (agua de canela, aromática, natilla), así que el producto no necesita educar sobre qué es: necesita explicar por qué esta canela es distinta y por qué en cápsula." },
+        { "tipo": "parrafo", "texto": "La evidencia es moderada y mixta: varios metaanálisis encuentran que la canela en cápsula mejora un poco la glucosa en ayunas, sobre todo en personas con diabetes, pero los institutos de salud de EE. UU. dicen que no está claro que sirva para ninguna condición. Por eso el anuncio **no puede hablar de azúcar, diabetes ni glucosa como promesa**: debe hablar de antojos, energía después de comer, sensación de liviandad y rutina." },
+        { "tipo": "caja", "estilo": "recomendacion", "titulo": "Recomendación central", "texto": "Entrar con el ángulo de **los antojos de dulce y el bajón de la tarde**, en las palabras de una mujer de 40 a 58 años con miedo a «terminar como mi mamá». El mecanismo que diferencia es **«no es cualquier canela»**: la de Ceilán es la verdadera, la que se puede tomar a diario, frente a la canela común de la tienda. Oferta de 3 bolsas (90 días) con pago al recibir.", "items": [], "pie": "" },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Alertas antes de pautar", "texto": "", "items": [
+          "**Registro INVIMA pendiente.** Sin registro sanitario de suplemento dietario no se puede vender en Colombia. Confirma el número antes de pautar.",
+          "**El empaque dice «Suplemento Alimenticio».** En Colombia el término correcto es **suplemento dietario**. Usa ese en anuncios y en la landing.",
+          "**«Probado en laboratorio» y «Alta potencia».** Son afirmaciones que tienes que poder demostrar con un certificado de análisis. Si no lo tienes, no las uses como sello.",
+          "**«Equivalente a 7200 mg».** No dice si es por cápsula o por porción ni de qué concentración sale. No pongas la cifra en los anuncios hasta tener la ficha técnica.",
+          "**Dosis no visible.** La etiqueta frontal no dice cuántas cápsulas al día. Queda como [X] en el modo de uso.",
+          "**Interacción con medicamentos para el azúcar.** Quien toma metformina, insulina u otros medicamentos para la glucosa podría tener bajones de azúcar. Agrega preguntas de seguridad en WhatsApp y nunca sugieras dejar un tratamiento.",
+          "**Embarazo.** Las cantidades grandes de canela de Ceilán se consideran no seguras en el embarazo. No dirigir a embarazadas ni lactantes."
+        ], "pie": "" }
+      ]
+    },
+    {
+      "titulo": "Ficha del producto",
+      "bloques": [
+        { "tipo": "ficha", "filas": [
+          ["Nombre", "Canela de Ceilán"],
+          ["Marca", "Metabolae (presencia casi nula en internet; posible marca de importación o marca blanca)"],
+          ["Presentación", "Bolsa doypack con 30 cápsulas blandas"],
+          ["Ingredientes visibles", "Canela de Ceilán (Cinnamomum verum) de Sri Lanka y aceite MCT. La foto muestra coco: el MCT suele venir del coco, pero hay que confirmarlo."],
+          ["Cantidad declarada", "«Equivalente a 7200 mg con aceite MCT de alta biodisponibilidad» (pendiente: por cápsula o por porción, y de qué extracto sale la equivalencia)"],
+          ["Atributos del empaque", "Sin gluten · Sin OGM · Probado en laboratorio · Alta potencia"],
+          ["Dosis", "Pendiente: no aparece en la etiqueta frontal. Se trabaja como [X] cápsula al día con una comida."],
+          ["Duración por bolsa", "Pendiente: 30 días si es 1 cápsula al día"],
+          ["Precio de referencia en EE. UU.", "Las versiones de Metabolae aparecen entre USD 29,99 (100 cápsulas) y USD 59,99 (30 porciones), según un catálogo de suplementos. Referencia, no precio confirmado."],
+          ["Nivel de evidencia", "Moderado y mixto. Metaanálisis de 24 y 28 ensayos encuentran mejoras pequeñas en glucosa en ayunas con canela en cápsula (dosis de hasta 2 g al día), sobre todo en diabetes. Pocos estudios separan la canela de Ceilán de la común. No hay estudios sobre antojos como resultado principal."],
+          ["Ventaja de seguridad", "La canela de Ceilán tiene solo trazas de cumarina, el compuesto de la canela común (cassia) que en exceso puede afectar el hígado."],
+          ["Registro sanitario", "Pendiente: confirmar registro INVIMA como suplemento dietario"]
+        ], "nota": "Lo marcado como pendiente se confirma con la ficha técnica y la etiqueta trasera." },
+        { "tipo": "caja", "estilo": "pendiente", "titulo": "Pendiente de confirmar", "texto": "", "items": [
+          "Etiqueta trasera: porción, cápsulas al día, mg por cápsula y advertencias.",
+          "Origen del aceite MCT (coco) y material de la cápsula blanda (gelatina bovina o vegetal).",
+          "Certificado de análisis que respalde «probado en laboratorio».",
+          "Número de registro INVIMA y quién es el importador en Colombia."
+        ], "pie": "" }
+      ]
+    },
+    {
+      "titulo": "Panorama del mercado en Colombia",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "Tamaño del dolor" },
+        { "tipo": "tabla", "columnas": ["Indicador", "Dato", "Fuente"], "filas": [
+          ["Casos de diabetes reportados", "2.597.719 (corte 31 de agosto de 2025, preliminar)", "Cuenta de Alto Costo, citada por ConsultorSalud"],
+          ["Mujeres entre los casos", "60,46 %; edad promedio 64,8 años", "Cuenta de Alto Costo"],
+          ["Con examen de control al día", "Solo 44,02 % tenía su prueba de control de los últimos 6 meses", "Cuenta de Alto Costo"],
+          ["Adultos con diabetes (estimación)", "3,0 millones; prevalencia 8,4 % (20 a 79 años)", "Atlas de la Federación Internacional de Diabetes 2024"],
+          ["Glucosa alterada en ayunas", "9,4 % de los adultos", "Atlas FID 2024"],
+          ["No saben que tienen diabetes", "Alrededor del 16,2 %", "Atlas FID, citado por Publimetro (noviembre de 2026)"],
+          ["Prediabetes", "Entre 8 % y 10 % de los adultos (estimación); progresión anual hasta 9 %", "Asociación Colombiana de Endocrinología"],
+          ["Sobrepeso u obesidad", "64 % de los adultos; 26 % con obesidad", "World Obesity Atlas 2025, citado por El Espectador"],
+          ["Último dato medido en el país", "56,4 % con exceso de peso (2015)", "ENSIN 2015"],
+          ["Regiones con más casos", "Central 26,42 % y Caribe 21,07 %", "Cuenta de Alto Costo"]
+        ], "nota": "Las cifras de prediabetes son estimaciones: no hay encuesta nacional reciente.", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "Contexto cultural" },
+        { "tipo": "vinetas", "items": [
+          "**La canela ya es de la casa.** Agua de canela, aromática, arroz con leche, natilla y buñuelos: nadie desconfía de la canela. El reto es que crean que una cápsula hace algo distinto a la astilla de la tienda.",
+          "**El miedo al azúcar es familiar.** Casi todos tienen una mamá, un papá o una tía con diabetes. Ese miedo a «ser la siguiente» mueve más que cualquier dato.",
+          "**El corrientazo y el tinto con pan.** Almuerzos con arroz, papa y jugo con azúcar, y el pan o el postre de la tarde: el bajón y el antojo son de todos los días.",
+          "**La tendencia del agua de canela.** En redes circula el agua de canela para bajar de peso y quitar antojos. Hay curiosidad, pero también la gente ya la probó sin ver nada: oportunidad para «no era la canela correcta».",
+          "**Diciembre.** Natilla, buñuelos, novenas y comidas familiares: el anuncio llega justo cuando más se come dulce y antes de los propósitos de enero."
+        ] },
+        { "tipo": "subtitulo", "texto": "Comercio electrónico y pago contra entrega" },
+        { "tipo": "tabla", "columnas": ["Indicador", "Dato", "Fuente"], "filas": [
+          ["Ventas en línea 2025", "$145,4 billones y 684,6 millones de transacciones", "Cámara Colombiana de Comercio Electrónico (CCCE)"],
+          ["Medio de pago principal", "PSE con 63,9 % de las transacciones (segundo trimestre de 2025)", "CCCE, citada por Valora Analitik"],
+          ["Efectivo y contra entrega en tiendas formales", "2,7 % (bajó desde 5,2 %)", "CCCE / MinTIC"],
+          ["Efectivo en el año", "Cerca de 14 % según otra medición", "El País, con datos de la CCCE"]
+        ], "nota": "Estas cifras miden tiendas formales. La venta por redes y WhatsApp con pago al recibir no aparece bien en estas estadísticas, pero sigue siendo clave para quien no tiene tarjeta o desconfía de pagar antes.", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "Competencia" },
+        { "tipo": "tabla", "columnas": ["Competidor", "Qué ofrece", "Precio de referencia", "Lectura"], "filas": [
+          ["Berberina con canela de Ceilán (Nutricost, importado)", "120 cápsulas, 60 porciones", "$188.730 (tienda de importación)", "El competidor fuerte es la berberina, no la canela sola"],
+          ["Berberina NutriFlair con canela (importado)", "120 cápsulas", "$151.740 (tienda de importación)", "Precio alto, sin pago al recibir"],
+          ["Gotas de berberina con canela (Mercado Libre)", "Gotas, importado de EE. UU.", "Pendiente; entrega de 7 a 11 días hábiles", "Demora larga: ventaja para la entrega rápida"],
+          ["Canela en polvo o astilla (Farmatodo, tiendas)", "Canela común para cocinar", "Bajo; pendiente", "Es casi siempre cassia: argumento de diferencia"],
+          ["Berberina con canela «2000 mg» (videos de Mercado Libre)", "Metabolismo y energía", "Pendiente", "Ya hay publicidad de esta categoría en Colombia"]
+        ], "nota": "No encontramos cápsulas de canela de Ceilán sola con precio en pesos en Mercado Libre Colombia ni en Farmatodo: la categoría está poco ocupada. Los precios se confirman en las tiendas antes de fijar la oferta.", "estilo": "normal" }
+      ]
+    },
+    {
+      "titulo": "Problemas que resuelve",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "Todo se plantea como apoyo y sensación, nunca como tratamiento. La canela de Ceilán no cura ni trata la diabetes ni ninguna otra enfermedad." },
+        { "tipo": "ficha", "filas": [
+          ["Sensación física", "Antojos de dulce después de comer y por la tarde; sueño y bajón después del almuerzo; sensación de pesadez."],
+          ["Hábitos", "El pan con el tinto, el postre después del almuerzo, el picoteo nocturno; dietas que se caen por el antojo."],
+          ["Estético", "Kilos que no bajan aunque se cuide; barriga que se nota más después de comer (sin prometer pérdida de peso)."],
+          ["Ciclo de vida", "Mujeres de 40 a 58 años, en la premenopausia o la menopausia, que sienten que su cuerpo cambió y ya no responde igual."],
+          ["Miedo a futuro y familia", "Antecedentes de diabetes en la mamá o el papá; un examen con el azúcar «un poquito alta»; miedo a «ser la siguiente»."],
+          ["Frustración", "Ya probó el agua de canela, tés y dietas sin notar nada; no sabía que hay dos tipos de canela."],
+          ["Tiempo y rutina", "No tiene tiempo de preparar aguas ni tés todos los días; quiere algo que quepa en la cartera."],
+          ["Económico", "Los suplementos importados con berberina cuestan entre $150.000 y $190.000 y tardan en llegar."]
+        ], "nota": "" }
+      ]
+    },
+    {
+      "titulo": "Problema y solución, con el sentimiento de las comunidades",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Problema", "Cómo lo dicen (parafraseado)", "Sentimiento", "Solución del producto"], "filas": [
+          ["Antojos de dulce", "Llevaba años con un antojo de dulce que no se iba y lo noté más tranquilo después de empezar las cápsulas de canela de Ceilán", "Esperanza, sorpresa", "Rutina diaria de canela de Ceilán con la comida; muchas personas cuentan que sienten menos antojo"],
+          ["Picos después de comer", "Me ayuda a sentirme más estable cuando como harinas o algo dulce", "Alivio, control", "Tomarla con la comida principal, como en los estudios"],
+          ["Miedo a la canela común", "La de Ceilán es mucho más segura para tomar todos los días; la común trae algo que puede afectar el hígado", "Desconfianza hacia la canela común", "Canela de Ceilán, con solo trazas de cumarina"],
+          ["Dudas de que funcione", "Es más segura, pero no sé si de verdad hace algo; unos estudios dicen que sí y otros que no", "Escepticismo", "Hablar de experiencia y rutina, no de promesas; dar tiempo de 4 a 8 semanas"],
+          ["Interacción con medicamentos", "Ojo, que sí baja el azúcar: si tomas medicamento, mídete", "Precaución", "Preguntas de seguridad en WhatsApp y aviso de consultar al médico"],
+          ["Cápsulas grandes o eructos", "Las cápsulas son muy grandes; a veces repite con sabor a canela si la tomo en ayunas", "Molestia leve", "Cápsula blanda y tomarla con comida"],
+          ["Agua de canela sin resultado", "La tomé semanas para bajar de peso y no pasó nada", "Frustración", "No es la misma canela ni la misma cantidad; no prometer bajar de peso"]
+        ], "nota": "", "estilo": "normal" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Nota metodológica", "texto": "Reddit no se pudo revisar directamente: las búsquedas limitadas a Reddit no devolvieron hilos. Usamos foros abiertos de pacientes (Diabetes UK, Diabetes.co.uk, Mayo Clinic Connect, comunidad de QVC), reseñas de usuarios en WebMD y Sam's Club (por los fragmentos de los buscadores; las páginas pedían verificación), un análisis de reseñas de Amazon (Fakespot) y publicaciones de Mercado Libre Colombia. No hay reseñas públicas de la marca Metabolae en Colombia. Todas las frases están parafraseadas; ninguna es cita textual. Reemplázalas por frases de tus chats de WhatsApp en cuanto las tengas.", "items": [], "pie": "" }
+      ]
+    },
+    {
+      "titulo": "Barrido por plataformas",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Plataforma", "Qué dicen", "Insight para la venta"], "filas": [
+          ["Reddit", "No se pudo acceder a hilos con las búsquedas", "Pendiente; usar foros abiertos como referencia"],
+          ["Foros de pacientes (Diabetes UK, Mayo Clinic Connect)", "Opiniones divididas: unos sienten que ayuda, otros que no hace nada; recomiendan medirse y consultar si toman medicamento", "No vender como solución al azúcar; vender rutina y experiencia"],
+          ["WebMD (reseñas de usuarios)", "Una persona cuenta que sus antojos de dulce bajaron mucho; otra advierte que sí le bajó el azúcar y hay que vigilarla", "El antojo es el ángulo más humano; la advertencia va en WhatsApp"],
+          ["Sam's Club y Walmart (EE. UU.)", "Elogian que les ayuda cuando comen harinas o un postre; dicen que no les da acidez ni repite", "El momento de «después de comer» es el escenario visual"],
+          ["Amazon (vía Fakespot)", "Quejas por cápsulas muy grandes; la tienda tuvo reseñas alteradas o retiradas", "La cápsula blanda es más fácil de tragar; desconfianza de reseñas: usar testimonios reales"],
+          ["Reseñas de compras (roundups)", "Algunas personas sienten eructos con sabor a canela si la toman en ayunas", "Indicar tomarla con comida"],
+          ["TikTok y prensa", "El agua de canela para bajar de peso y los antojos es viral; los análisis dicen que el efecto en el peso no está probado", "Hay curiosidad; usar el ángulo «no era la canela correcta» sin prometer peso"],
+          ["Mercado Libre Colombia", "Casi todo es berberina con canela importada y canela en polvo; poca canela de Ceilán sola", "Categoría poco ocupada; diferenciar por canela verdadera y pago al recibir"],
+          ["YouTube, AliExpress y Trustpilot", "No revisados en esta búsqueda", "Pendiente"]
+        ], "nota": "", "estilo": "normal" }
+      ]
+    },
+    {
+      "titulo": "Puntos de dolor en las reseñas",
+      "bloques": [
+        { "tipo": "vinetas", "items": [
+          "**El antojo que no se va.** Años luchando contra el dulce; sentirse sin control frente al postre.",
+          "**El bajón después de comer.** Sueño, cansancio y ganas de algo dulce para «levantarse».",
+          "**El miedo al resultado del examen.** Ver la glucosa subir y no saber qué hacer además de la dieta.",
+          "**No saber cuál canela comprar.** Confusión entre canela común y de Ceilán; miedo a la cumarina.",
+          "**Dudar de que funcione.** Opiniones divididas y estudios que dicen cosas distintas.",
+          "**Cápsulas difíciles.** Cápsulas grandes o que repiten con sabor a canela.",
+          "**Desconfianza de las reseñas.** Tiendas con reseñas borradas o alteradas.",
+          "**Precio alto de lo importado.** Productos de berberina con canela que pasan de $150.000 y tardan en llegar."
+        ] }
+      ]
+    },
+    {
+      "titulo": "Impulso de compra",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Detonante", "Momento real", "Cómo activarlo en el anuncio"], "filas": [
+          ["El antojo de la tarde", "3 a 4 p.m. en la oficina, buscando el pan o la galleta", "Mostrar la mano yendo al cajón del dulce; hook «otra vez a las 3 de la tarde»"],
+          ["El examen de laboratorio", "Cuando le entregan resultados y el médico dice «cuídese»", "Escena del papel del laboratorio en la mesa; aclarar que es un apoyo y que siga a su médico"],
+          ["Ver a la mamá con diabetes", "La visita del domingo, la mamá midiéndose el azúcar", "Historia en primera persona: «yo no quiero llegar ahí»"],
+          ["Diciembre", "Novenas, natilla, buñuelos y comidas familiares", "«Este diciembre que el dulce no te gane»"],
+          ["La foto o la ropa", "Probarse la ropa de fin de año y sentirse inflada", "Sin prometer peso: hablar de sentirse liviana"],
+          ["La frustración con lo casero", "Después de semanas de agua de canela sin notar nada", "«No es que la canela no sirva: es que no era la correcta»"]
+        ], "nota": "", "estilo": "normal" }
+      ]
+    },
+    {
+      "titulo": "Beneficios que evalúa el cliente (en orden de prioridad)",
+      "bloques": [
+        { "tipo": "numerada", "items": [
+          "**Menos antojo de dulce.** Es lo primero que la persona quiere sentir y lo más contado en reseñas.",
+          "**Energía más pareja después de comer.** Sin el bajón ni el sueño del almuerzo.",
+          "**Tranquilidad frente al miedo al azúcar.** Sentir que está haciendo algo por su bienestar (sin prometer resultados en exámenes).",
+          "**Seguridad para tomarla a diario.** Canela de Ceilán con muy poca cumarina, a diferencia de la común.",
+          "**Facilidad.** Una cápsula blanda en vez de preparar aguas y tés.",
+          "**Sentirse liviana.** Menos pesadez después de comer.",
+          "**Precio y confianza.** Pagar al recibir, entrega rápida y precio menor que lo importado."
+        ] }
+      ]
+    },
+    {
+      "titulo": "Los 5 resultados deseados",
+      "bloques": [
+        { "tipo": "numerada", "items": [
+          "**Controlar el antojo de dulce** sin sentir que vive a dieta.",
+          "**No tener el bajón de la tarde** y rendir en el trabajo y en la casa.",
+          "**Sentir que se está cuidando** para no terminar como su mamá con el azúcar.",
+          "**Sentirse liviana** después de comer y verse mejor con la ropa.",
+          "**Tener una rutina fácil y segura** que pueda mantener todos los días."
+        ] },
+        { "tipo": "cita", "estilo": "deseo", "texto": "Quiero poder pasar por la panadería sin entrar, y llegar a la noche con energía, sin sentir que el dulce manda en mi vida." }
+      ]
+    },
+    {
+      "titulo": "Tiempos de transformación",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "Son experiencias reportadas por usuarios y referencias de los estudios, no garantías. Cada persona es distinta." },
+        { "tipo": "tabla", "columnas": ["Resultado", "Cuándo lo cuentan", "Base"], "filas": [
+          ["Menos antojo de dulce después de comer", "Desde la primera o segunda semana (experiencia reportada)", "Reseñas de usuarios; evidencia débil"],
+          ["Energía más pareja en la tarde", "Entre la segunda y la tercera semana (experiencia reportada)", "Reseñas de usuarios"],
+          ["Sentirse más liviana después de comer", "Entre la segunda y la cuarta semana (experiencia reportada)", "Reseñas; sin estudios específicos"],
+          ["Cambios que notan quienes se miden", "Entre 4 y 6 semanas", "Artículos de salud que resumen estudios"],
+          ["Duración de los estudios clínicos", "8 a 12 semanas de uso constante", "Metaanálisis de ensayos con canela"]
+        ], "nota": "Por eso la oferta de 3 bolsas (90 días si es 1 cápsula diaria) tiene sentido: coincide con la duración de los estudios.", "estilo": "normal" }
+      ]
+    }
+  ]
+}
