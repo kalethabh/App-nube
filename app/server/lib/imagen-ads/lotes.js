@@ -500,7 +500,9 @@ export function agregarPedido(lote, cuerpo = {}) {
       const c = est.piezas[piezaId(vDe(pieza), '1:1')];
       if (c && (c.fase !== 'final' || !existe(R.img(carpeta, piezaId(vDe(pieza), '1:1'))))) throw new ErrorApp(409, 'Su imagen cuadrada no salió: rehaz primero la cuadrada.');
     }
-    pedido = { pieza, instruccion, ...(adjuntos.length ? { adjuntos } : {}) };
+    // (2026-11-27a) el chat de imágenes ya manda el cambio en inglés (instruccion_en): va directo, sin tanda de ajuste
+    const instruccionEn = instruccion && typeof cuerpo.instruccion_en === 'string' ? cuerpo.instruccion_en.trim().slice(0, 800) : '';
+    pedido = { pieza, instruccion, ...(adjuntos.length ? { adjuntos } : {}), ...(instruccionEn ? { instruccion_en: instruccionEn, textos: cuerpo.textos === true } : {}) };
   }
   const lista = leerPedidos(carpeta);
   const n = Math.max(0, ...lista.map((x) => Number(String(x.id || '').slice(1)) || 0)) + 1;
