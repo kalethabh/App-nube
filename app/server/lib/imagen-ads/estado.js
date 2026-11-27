@@ -326,9 +326,11 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
         const f2 = firma(R.versionPng(carpeta, id, x.n));
         // (un pedido del usuario llega sin motivo: se reconoce por la orden que la reemplazo, U####)
         const motivo = x.motivo || (/^U\d+$/.test(String(x.reemplazadaPor || '')) ? 'usuario' : null);
-        return { n: Number(x.n), url: `${base}/versiones/${id}.v${x.n}.png?v=${f2}`, miniatura: `${mini}/versiones/${id}.v${x.n}.png?ancho=480&v=${f2}`, fecha: x.fecha || null, motivo };
+        // (2026-11-26j) el tamaño que tenía esa versión (una imagen a la que le cambiaste el tamaño)
+        return { n: Number(x.n), url: `${base}/versiones/${id}.v${x.n}.png?v=${f2}`, miniatura: `${mini}/versiones/${id}.v${x.n}.png?ancho=480&v=${f2}`, fecha: x.fecha || null, motivo: x.motivo === 'tamano' ? 'tamano' : motivo, formato: ['1:1', '9:16', '4:5'].includes(x.aspecto) ? x.aspecto : f };
       });
     const cuadrado = est?.piezas?.[piezaId(v, '1:1')];
+    const tamano = p?.aspecto || f; // (2026-11-26j) el tamaño que tiene hoy la imagen
     const puedeRegenerar = Boolean(
       p && !sinPrompt && p.fase === 'final' && !pedido && (f === '1:1' || (cuadrado?.fase === 'final' && firma(R.img(carpeta, piezaId(v, '1:1')))))
     );
@@ -339,7 +341,8 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
       url: fImg ? `${base}/${rel}?v=${marca}` : null,
       urlSinLogo: fImg ? `${base}/img/${id}.png?v=${fImg}` : null,
       miniatura: fImg ? `${mini}/${rel}?ancho=480&v=${marca}` : null,
-      descarga: descargaDe(v, f),
+      descarga: descargaDe(v, tamano),
+      formato: tamano,
       version: p?.version || 0,
       versiones,
       problemas,
@@ -363,6 +366,8 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
       titular: x?.titular || '',
       // (2026-11-26i) «Más como esta»: de qué imagen es variante
       ...(x?.variante_de ? { varianteDe: x.variante_de } : {}),
+      // (2026-11-26j) «Como las que me funcionan»: sale de una imagen que te funciona
+      ...(x?.ganadora ? { comoGanadora: true } : {}),
       // (agente de variaciones) qué nivel es, qué cambió respecto del ganador y qué se quiere probar
       ...(x?.nivel ? { nivel: String(x.nivel).slice(0, 1), cambio: String(x.cambio || '').slice(0, 300), hipotesis: String(x.hipotesis || '').slice(0, 300), faceta: String(x.faceta || '').slice(0, 120) } : {}),
       // (2026-11-26a) «Qué tan distintas»: el id del formato, por qué debería vender y la nota de la revisión (1-10)

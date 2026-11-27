@@ -623,7 +623,7 @@ export default function rutasImagenAds(app) {
     res.status(202).json({ pedido: { id: pedido.id, estado: 'pendiente' } });
   }));
 
-  // (2026-11-26i) «CREAR OTRO TAMAÑO» de un anuncio (1:1, 9:16 o 4:5): sale de su cuadrado; lo de antes no se toca
+  // (2026-11-26j) CAMBIAR EL TAMAÑO de una imagen (1:1, 9:16 o 4:5): versión nueva de la misma; la de antes, en versiones
   app.post('/api/imagen-ads/:lote/tamano', soloDesdeLaApp, conErrores(async (req, res) => {
     const { lote, brief } = elLote(req);
     const c = leerConductor(lote);
@@ -632,7 +632,7 @@ export default function rutasImagenAds(app) {
     if (brief.plantillas) throw new ErrorApp(409, 'Los lotes de plantillas ya traen sus tamaños.');
     if (!tomarElMando()) throw new ErrorApp(409, 'La app ya está abierta en otra ventana, y es esa la que produce. Usa esa ventana.');
     await comprobarCostoConfirmado(brief, { ...req.body, accion: 'tamano' });
-    const r = lotes.agregarTamano(lote, { v: String(req.body?.v || ''), formato: String(req.body?.formato || '') });
+    const r = lotes.agregarTamano(lote, { pieza: String(req.body?.pieza || ''), formato: String(req.body?.formato || '') });
     if (c.estado === 'pausado' && c.motivo === 'detenido' && !enMarcha(lote)) return res.status(202).json({ ...r, estado: 'en-espera' });
     try {
       reabrir(lote, 'anuncios');
@@ -655,7 +655,7 @@ export default function rutasImagenAds(app) {
     const sin = motivoSinMas(brief);
     if (sin) throw new ErrorApp(409, sin);
     await comprobarCostoConfirmado(brief, { ...req.body, accion: 'mas' });
-    const r = pedirMas(carpeta, brief, leerEstado(carpeta), { cantidad: Number(req.body?.cantidad), modo: String(req.body?.modo || ''), base: req.body?.base ? String(req.body.base) : null });
+    const r = pedirMas(carpeta, brief, leerEstado(carpeta), { cantidad: Number(req.body?.cantidad), modo: String(req.body?.modo || ''), base: req.body?.base ? String(req.body.base) : null, funcionan: Array.isArray(req.body?.funcionan) ? req.body.funcionan.slice(0, 10) : [] });
     try {
       reabrir(lote, 'anuncios', { tambienPausado: true });
     } catch (e) {

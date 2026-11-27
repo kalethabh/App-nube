@@ -123,6 +123,12 @@ function iniciarPaso(est, ped, i) {
   p.ronda = 'u';
   p.pedido = ped.id;
   p.fallo = null;
+  // (2026-11-26j) cambiar el tamaño: versión nueva de la misma imagen, en el tamaño pedido
+  if (paso.modo === 'tamano') {
+    p.orden = { id: paso.orden, modo: 'tamano', version: (p.version || 0) + 1, aspecto: paso.aspecto, aspectoAntes: p.aspecto || p.formato, motivo: 'tamano' };
+    ped.estado = 'generando';
+    return;
+  }
   const editar = paso.modo === 'editar' && p.version >= 1;
   // «otra version» (sin instruccion) de una imagen que la revision marco: tambien lleva lo que salio mal, para que la
   // IA no repita el mismo error a ciegas
@@ -135,6 +141,7 @@ function iniciarPaso(est, ped, i) {
     ...(editar ? { instruccion_en: paso.instruccion_en, textos: Boolean(paso.textos) } : {}),
     ...(editar && Array.isArray(paso.adjuntos) && paso.adjuntos.length ? { adjuntos: paso.adjuntos } : {}),
     ...(correccion ? { correccion_en: correccion } : {}),
+    ...(p.aspecto ? { aspecto: p.aspecto } : {}),
   };
   ped.estado = 'generando';
 }
@@ -145,6 +152,8 @@ function iniciarPaso(est, ped, i) {
  * vertical sale de el; si no cambia texto, solo el vertical.
  */
 export function pasosDelPedido(est, ped, { instruccionEn = null, cambiaTextos = false } = {}) {
+  // (2026-11-26j) cambiar el tamaño: solo esa imagen (lo demás del anuncio no cambia)
+  if (ped.tipo === 'tamano') return [{ pieza: ped.pieza, orden: ped.id, modo: 'tamano', aspecto: ped.formato }];
   const v = vDe(ped.pieza);
   const cuadrado = piezaId(v, '1:1');
   const vertical = piezaId(v, '9:16');
@@ -347,6 +356,9 @@ export function decidir(est, hechos = {}, opciones = {}) {
             ...(o.instruccion_en ? { instruccion_en: o.instruccion_en, textos: Boolean(o.textos) } : {}),
             ...(Array.isArray(o.adjuntos) && o.adjuntos.length ? { adjuntos: o.adjuntos } : {}),
             ...(o.correccion_en ? { correccion_en: o.correccion_en } : {}),
+            // (2026-11-26j) el tamaño que tiene la imagen (si cambió) y, al cambiarlo, el de antes
+            ...(o.aspecto || est.piezas[p].aspecto ? { aspecto: o.aspecto || est.piezas[p].aspecto } : {}),
+            ...(o.modo === 'tamano' ? { aspectoAntes: o.aspectoAntes || est.piezas[p].formato } : {}),
           };
         }),
       };
@@ -502,6 +514,10 @@ export function aplicarResultado(est, pieza, res, { firmaActual = null, ahora = 
   if (Number.isFinite(Number(res.intentosApi))) p.intentosApi = Number(res.intentosApi);
   if (res.estado === 'lista') {
     p.version = Number(res.version) || p.orden.version || p.version + 1;
+    // (2026-11-26j) el tamaño con el que quedó la imagen (solo se anota si no es el de su nombre)
+    const aspecto = res.aspecto || (p.orden.modo === 'tamano' ? p.orden.aspecto : null);
+    if (aspecto && aspecto !== p.formato) p.aspecto = aspecto;
+    else if (aspecto) delete p.aspecto;
     p.firma = firmaActual || res.firma || null;
     p.fase = 'por-revisar';
     p.desde = ahora;
@@ -745,7 +761,7 @@ export function absorberPedidos(est, lista) {
     if (!x?.id || est.pedidos[x.id]) continue;
     est.pedidos[x.id] = {
       id: x.id,
-      ...(x.tipo === 'prompt' ? { tipo: 'prompt', v: x.v } : { pieza: x.pieza }),
+      ...(x.tipo === 'prompt' ? { tipo: 'prompt', v: x.v } : x.tipo === 'tamano' ? { tipo: 'tamano', pieza: x.pieza, formato: x.formato } : { pieza: x.pieza }),
       instruccion: typeof x.instruccion === 'string' ? x.instruccion.trim() : '',
       // (2026-11-26h) las imágenes que adjuntó el usuario al pedir el cambio (entrada/adjuntos/A0001.jpg)
       ...(Array.isArray(x.adjuntos) && x.adjuntos.length ? { adjuntos: x.adjuntos.filter((a) => RE_ADJUNTO.test(String(a))).slice(0, 3) } : {}),
