@@ -23,12 +23,13 @@
     "Emilio (estratega (investigación)) está trabajando…",
     "Antonia (diseñadora visual) está trabajando…",
     "Valeria (copywriter) está trabajando…",
-    "Mateo (director de imágenes) está trabajando…"
+    "Mateo (director de imágenes) está trabajando…",
+    "Renata (revisión) está trabajando…"
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-27T20:28:42.275Z",
+  "actualizado": "2026-11-27T20:30:17.230Z",
   "agentes": [
     {
       "id": "estratega",
@@ -48,21 +49,21 @@
       "id": "copy",
       "nombre": "Valeria",
       "rol": "Copywriter",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Escribí la página alrededor de la idea «la canela verdadera»: la cápsula de canela de Ceilán que te tomas con el almuerzo, sin preparar nada. El combo de 3 lleva la insignia «SIN PREPARAR NADA», porque la excusa más común es no tener tiempo para aguas y tés. El antojo de dulce y la energía de la tarde solo aparecen en el nombre del combo. Las dudas y las preguntas nunca garantizan cambios ni hablan de azúcar, peso o enfermedades, y siempre dicen cuándo consultar al médico. Como la ficha no traía marca, correo ni Instagram, usé el nombre del producto como marca, inventé el @ «canela.ceylan.co» y dejé el correo vacío."
     },
     {
       "id": "imagenes",
       "nombre": "Mateo",
       "rol": "Director de imágenes",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Todas las piezas hablan del antojo de dulce, el bajón de la tarde y la canela verdadera de Ceilán, sin promesas de salud ni de peso, y el tiempo va como «desde la semana 4». Como la bolsa solo trae canela de Ceilán y aceite MCT, en ingredientes mostré eso más su origen y la cápsula blanda, sin inventar otros. Puse solo los sellos que trae tu empaque (sin gluten, sin OGM) y ninguna garantía de devolución. A las mujeres de las fotos les subí la edad a entre 42 y 55 años para que se parezcan a tu clienta, y dejé el lugar y el estilo distintos en cada una."
     },
     {
       "id": "revision",
       "nombre": "Renata",
       "rol": "Revisión",
-      "estado": "esperando",
+      "estado": "trabajando",
       "resumen": null
     },
     {

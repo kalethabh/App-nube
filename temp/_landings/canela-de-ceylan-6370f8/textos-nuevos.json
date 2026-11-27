@@ -1,0 +1,248 @@
+{
+ "producto": {
+  "nombre": "Canela de Ceylán",
+  "corto": "Ceylán",
+  "marca": "Canela de Ceylán",
+  "unidad": "bolsa",
+  "unidades": "bolsas"
+ },
+ "tituloPagina": "Canela de Ceylán · Pide y paga al recibir",
+ "descripcion": "Cápsulas blandas de canela de Ceilán para tu rutina diaria. Elige tu combo y paga al recibir.",
+ "titulo": {
+  "lede": "Dale un espacio a tu rutina con la canela verdadera, una cápsula con el almuerzo y listo. Elige el combo que más te convenga, sin tantas vueltas.",
+  "checks": [
+   "Cápsula blanda, fácil de tragar",
+   "Canela verdadera de Sri Lanka",
+   "Compra única, sin suscripción",
+   "Elige entre 1, 2 o 3 bolsas"
+  ]
+ },
+ "oferta": {
+  "titulo": "Elige tu tratamiento",
+  "combos": {
+   "tres": {
+    "nombre": "Tratamiento completo x3 meses — Menos antojo de dulce y energía pareja, la rutina completa de 90 días",
+    "insignia": "SIN PREPARAR NADA"
+   },
+   "dos": {
+    "nombre": "Tratamiento doble - 2 Meses"
+   },
+   "uno": {
+    "nombre": "Tratamiento inicial - 1 Mes"
+   }
+  },
+  "envio": {
+   "titulo": "Envío y cobertura:",
+   "texto": "Precios en pesos colombianos. El envío y la cobertura se confirman en el formulario."
+  },
+  "boton": "Pedir y pagar al recibir",
+  "subBoton": "Quiero este tratamiento"
+ },
+ "dudas": [
+  [
+   "¿Qué hace diferente a esta canela?",
+   "La canela de la tienda casi siempre es la común. Esta es canela de Ceilán, la canela verdadera, en cápsula blanda **pensada para tomarse con la comida todos los días**. Sin preparar aguas ni hacer malabares."
+  ],
+  [
+   "¿En cuánto tiempo veré cambios?",
+   "Cada cuerpo responde distinto a un suplemento. No podemos garantizar cambios ni un plazo concreto. Lo importante es la constancia, seguir las indicaciones y escuchar a tu cuerpo."
+  ],
+  [
+   "¿Cuándo recibiré mi pedido?",
+   "El tiempo depende de tu ciudad y de la transportadora. **Consulta los tiempos disponibles** en el formulario de pedido antes de confirmar tu compra. Si necesitas ayuda con el seguimiento, escríbenos con tu número de pedido."
+  ],
+  [
+   "¿Qué pasa si necesito ayuda o una devolución?",
+   "Escríbenos con tu número de pedido y el motivo de tu solicitud. Revisaremos tu caso según las políticas de cambios y devoluciones de la tienda."
+  ]
+ ],
+ "aviso": {
+  "titulo": "Revisa bien tu pedido.",
+  "texto": "Antes de confirmar, comprueba el combo, tus datos, la cobertura y el total. Así evitamos enredos y tu pedido sale con la información correcta."
+ },
+ "ellas": {
+  "titulo": "Ellas cuentan su experiencia",
+  "sub": "Historias compartidas por nuestras clientas, en sus propias palabras."
+ },
+ "historias": {
+  "usuario": "@canela.ceylan.co",
+  "stickers": [
+   "Mi cápsula del almuerzo",
+   "Constancia > prisa",
+   "La canela verdadera",
+   "Cabe en la cartera",
+   "Sin preparar nada",
+   "Pequeños hábitos, gran cambio"
+  ],
+  "titulo": "Tu ritual con la canela verdadera",
+  "texto": "Un momento para ti en cada almuerzo: una cápsula, tu tinto y a seguir con tu día.",
+  "boton": "Quiero el mío",
+  "nota": "Fotos del día a día con Canela de Ceylán."
+ },
+ "ruta": {
+  "titulo": "Tu rutina, *a tu ritmo*",
+  "sub": "Una guía para organizar tus hábitos, sin promesas mágicas ni afanes.",
+  "pasos": [
+   [
+    "Primera semana",
+    "Conoce tu rutina",
+    "Empieza por leer la etiqueta y tomar tu cápsula con el almuerzo. No dupliques la dosis para intentar acelerar cambios: aquí las carreras no ayudan."
+   ],
+   [
+    "Semanas 2 y 3",
+    "La constancia cuenta",
+    "Revisa cómo te sientes en las tardes y cuida tu alimentación, tu descanso y tu movimiento. Una cápsula no sustituye esos cuidados ni tu tratamiento médico."
+   ],
+   [
+    "Un mes",
+    "Haz una pausa y revisa",
+    "Observa tu experiencia sin compararte con otras personas. Si notas alguna molestia, suspende el uso y consulta con un profesional de salud."
+   ],
+   [
+    "Tres meses",
+    "Tu bienestar va primero",
+    "Revisa tu rutina y decide qué te funciona. No hay un plazo igual para todas ni una garantía de cambio en tu cuerpo."
+   ]
+  ]
+ },
+ "experiencias": {
+  "pill": "Opiniones de nuestras clientas",
+  "titulo": "Experiencias *personales*"
+ },
+ "ugc": {
+  "titulo": "Así se vive la canela de Ceylán"
+ },
+ "pasos": {
+  "titulo": "Un pequeño ritual *para tu rutina diaria*",
+  "sub": "Tres pasos sencillos, sin complicarte el día",
+  "items": [
+   {
+    "titulo": "Revisa y prepara",
+    "texto": "Lee la dosis del empaque que recibas y lleva tus cápsulas en la cartera. No aumentes la cantidad para intentar acelerar resultados."
+   },
+   {
+    "titulo": "Tómala con la comida",
+    "texto": "Sigue el modo de uso de la etiqueta y tómala con el almuerzo. Si tomas medicamentos o tienes dudas, consulta con tu médico antes de empezar."
+   },
+   {
+    "titulo": "Escucha a tu cuerpo",
+    "texto": "Mantén tu horario y acompaña tu rutina con buenos hábitos. Si notas molestias, suspende el uso y consulta. Tu bienestar va primero."
+   }
+  ]
+ },
+ "franja": [
+  "CANELA VERDADERA",
+  "PAGO AL RECIBIR",
+  "COMBOS CON AHORRO"
+ ],
+ "comparacion": {
+  "titulo": "Una rutina que se adapta a ti",
+  "sub": "Conoce la presentación y compara antes de decidir.",
+  "nuestra": "Ceylán",
+  "nuestraSub": "De Canela de Ceylán",
+  "otra": "Otras opciones",
+  "otraSub": "Compara la etiqueta",
+  "filas": [
+   "Cápsula blanda con aceite MCT",
+   "Compra por combos",
+   "Lista para tomar, sin preparar",
+   "Canela de Ceilán de Sri Lanka",
+   "Compra única, sin suscripción",
+   "Información en el empaque"
+  ]
+ },
+ "compraClara": {
+  "titulo": "*Tu compra,* con información clara",
+  "texto": "Antes de confirmar, revisa tu combo, el envío y el total. Si necesitas ayuda después de comprar, escríbenos con tu número de pedido. Las solicitudes de cambio o devolución se revisan según las políticas de la tienda.",
+  "boton": "Quiero hacer mi pedido",
+  "garantias": [
+   "Compra única",
+   "Pago al recibir",
+   "Atención por correo"
+  ]
+ },
+ "cuidado": {
+  "titulo": "Tu rutina merece cuidado, no promesas mágicas.",
+  "parrafos": [
+   "Cada cuerpo responde de forma distinta. La alimentación, el descanso, el movimiento y tu estado de salud influyen en cómo te sientes. Un suplemento complementa tu rutina: no reemplaza un tratamiento médico ni puede garantizar un cambio en tu cuerpo.",
+   "Cada cápsula blanda reúne canela de Ceilán, la canela verdadera, con aceite MCT. Antes de usarla, revisa la etiqueta y las indicaciones de tu empaque. Si estás embarazada, amamantando, tomas medicamentos o tienes una condición de salud, consulta con un profesional.",
+   "Sin afán y sin comparaciones: escucha a tu cuerpo y decide con información."
+  ]
+ },
+ "resenas": {
+  "titulo": "La comunidad Canela de Ceylán opina"
+ },
+ "faq": {
+  "titulo": "Preguntas frecuentes",
+  "sub": "Resolvamos esas dudas antes de que hagas tu pedido.",
+  "items": [
+   [
+    "¿Cómo la tomo?",
+    "Sigue la dosis y el modo de uso del empaque, y tómala con la comida para no sentir el sabor a canela. No aumentes la dosis para intentar acelerar resultados. Si tienes dudas, consulta con un profesional de salud."
+   ],
+   [
+    "¿En cuánto tiempo veré cambios?",
+    "Cada persona responde de forma diferente. No podemos garantizar un plazo ni un cambio concreto. La constancia es lo que cuenta: escucha a tu cuerpo y sigue las indicaciones."
+   ],
+   [
+    "¿Qué hace diferente a esta canela?",
+    "Es canela de Ceilán, la canela verdadera, no la común de la tienda, en cápsula blanda lista para tomar. Revisa su etiqueta y tus necesidades antes de decidir si la integras a tu rutina."
+   ],
+   [
+    "¿Es adecuada para mi edad?",
+    "Antes de usar un suplemento, revisa la etiqueta y consulta con un profesional si tienes dudas. Las necesidades y precauciones pueden variar según la edad y el estado de salud."
+   ],
+   [
+    "¿Funciona igual para todas las personas?",
+    "Cada organismo lleva su propio ritmo. Esta canela acompaña tu rutina de cada comida, pero no reemplaza los cuidados que te indique tu médico ni da lo mismo en todos los cuerpos."
+   ],
+   [
+    "¿Qué pasa si dejo de tomarla?",
+    "Si tienes dudas sobre continuar o suspender un suplemento, revisa sus indicaciones y consulta con un profesional. No asumimos que los cambios sean permanentes ni garantizados."
+   ],
+   [
+    "¿Puede causar efectos no deseados?",
+    "Un ingrediente natural no es adecuado para todas las personas. Si estás embarazada, amamantando, tomas medicamentos para el azúcar o la presión, tienes alergias o una condición de salud, consulta antes de usarla. Si notas molestias, suspende el uso."
+   ],
+   [
+    "¿Qué contiene?",
+    "Cada cápsula blanda reúne canela de Ceilán y aceite MCT. La etiqueta de tu presentación es la referencia para revisar su composición."
+   ],
+   [
+    "¿Cuándo recibiré mi pedido?",
+    "Depende de tu ciudad, la cobertura y la transportadora. Revisa la información del formulario y la confirmación del pedido. Si necesitas ayuda, escríbenos con tu número de pedido."
+   ],
+   [
+    "¿Cómo pido un cambio o una devolución?",
+    "Escríbenos con tu número de pedido y el motivo de tu solicitud. Revisaremos tu caso según las políticas de cambios y devoluciones de la tienda."
+   ],
+   [
+    "¿Es una suscripción?",
+    "No. Los combos de esta página son compras únicas, sin envíos automáticos ni cobros recurrentes."
+   ]
+  ]
+ },
+ "pie": {
+  "contacto": "¿Necesitas una mano con tu pedido? Escríbenos y te ayudamos.",
+  "enlaces": [
+   "Consulta tu pedido",
+   "Nuestra misión",
+   "Contáctanos"
+  ],
+  "tienda": [
+   "Envíos",
+   "Cambios y devoluciones",
+   "Privacidad",
+   "Términos del servicio"
+  ],
+  "correo": "",
+  "empresa": "Canela de Ceylán",
+  "pais": "Colombia",
+  "legal": [
+   "Este producto es un suplemento. No está destinado a diagnosticar, tratar, curar ni prevenir enfermedades.",
+   "Consulta con un profesional antes de usar suplementos si estás embarazada, amamantando, tomas medicamentos o tienes una condición de salud."
+  ],
+  "copy": "© 2026 CANELA DE CEYLÁN"
+ },
+ "resumen": "Escribí la página alrededor de la idea «la canela verdadera»: la cápsula de canela de Ceilán que te tomas con el almuerzo, sin preparar nada. El combo de 3 lleva la insignia «SIN PREPARAR NADA», porque la excusa más común es no tener tiempo para aguas y tés. El antojo de dulce y la energía de la tarde solo aparecen en el nombre del combo. Las dudas y las preguntas nunca garantizan cambios ni hablan de azúcar, peso o enfermedades, y siempre dicen cuándo consultar al médico. Como la ficha no traía marca, correo ni Instagram, usé el nombre del producto como marca, inventé el @ «canela.ceylan.co» y dejé el correo vacío."
+}

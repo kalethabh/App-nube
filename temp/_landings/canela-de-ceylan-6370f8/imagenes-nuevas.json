@@ -1,0 +1,129 @@
+{
+  "imagenes": [
+    {
+      "slot": "galeria-01",
+      "prompt": "Vertical 942x1670 mobile ad graphic, clean warm off-white background (#FBF7F2), brand color cinnamon brown #A9541F for highlight boxes, near-black bold condensed sans-serif text. TOP: giant uppercase headline in 3 lines: \"DILE ADIÓS AL\" / \"ANTOJO DE DULCE\" / \"DE LA TARDE\", with \"ANTOJO DE DULCE\" inside rounded cinnamon-brown boxes with white text. Below, one line: \"La canela verdadera de Sri Lanka, en una cápsula con tu almuerzo.\" Then 2 short pill seals in brown with white icons: \"SIN GLUTEN\" and \"SIN OGM\". LEFT COLUMN: 4 round cinnamon-brown line icons stacked, each with bold title and small line: \"MENOS ANTOJO\" / \"De dulce en la tarde.\"; \"MÁS ENERGÍA\" / \"Una tarde más pareja.\"; \"MÁS LIVIANA\" / \"Después de cada comida.\"; \"FÁCIL DE TOMAR\" / \"Una cápsula y listo.\" RIGHT: a real-looking Colombian woman around 48 years old, warm light-brown skin, shoulder-length dark wavy hair, natural makeup, wearing a cream blouse and jeans, 3/4 body, relaxed confident smile, one hand on her waist, looking energetic and light; thin brown pointer lines with small brown label boxes pointing near her: \"ENERGÍA\", \"LIVIANA\", \"SIN ANTOJOS\". BOTTOM RIGHT: the exact real product from the reference photo — a white stand-up pouch with the brand \"Metabolae\" and \"Canela de Ceilán\" in large brown serif letters, a brown bottom band with cinnamon sticks and star anise and the badge \"30 CÁPSULAS BLANDAS\" — standing on a round cinnamon-brown podium with a few cinnamon sticks and glossy brown softgels at its base. BOTTOM LEFT: big bold time text \"¡DESDE LA\" / \"SEMANA 4!\" with \"4\" in brown, and a small line \"Con constancia, a tu ritmo.\" No guarantee seal, no money-back badge, no medical claims, no other text."
+    },
+    {
+      "slot": "galeria-02",
+      "prompt": "Square 1200x1200 product ingredients graphic, warm off-white background with soft cinnamon-dust texture. Top headline in 2 lines, bold dark serif: \"Lo mejor de la canela\" / \"En cada cápsula\", the words \"En cada cápsula\" in brown #A9541F. CENTER: the exact real product from the reference photo (white stand-up pouch, \"Metabolae\", \"Canela de Ceilán\" in brown serif, brown bottom band with cinnamon sticks, \"30 CÁPSULAS BLANDAS\") standing upright, slightly larger than everything else. AROUND IT, 4 natural photo vignettes in soft circles, each with a rounded cinnamon-brown label with white text: thin pale rolled Ceylon cinnamon quills labeled \"Canela de Ceilán\"; a halved coconut with a small glass of clear oil labeled \"Aceite MCT\"; a lush green Sri Lanka cinnamon plantation leaf branch labeled \"De Sri Lanka\"; a small pile of glossy amber softgels labeled \"Cápsula blanda\". Clean, premium, natural light, realistic food photography. No other text, no medical claims, no numbers."
+    },
+    {
+      "slot": "galeria-03",
+      "prompt": "Square 1200x1200 graphic, warm off-white background. Top headline 2 lines in bold dark sans-serif: \"Una cápsula.\" / \"Tu rutina cuenta.\" with \"Tu rutina\" highlighted in brown #A9541F. LEFT: the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band with cinnamon sticks, \"30 CÁPSULAS BLANDAS\") tilted about 15 degrees to the left, with a few glossy amber softgels and cinnamon sticks at its base. RIGHT: 5 horizontal rounded strips stacked, light cream with a brown round icon on each: \"Una cápsula con tu almuerzo\" (plate icon); \"Sin preparar aguas ni tés\" (cup icon with slash-free simple style); \"Cápsula blanda, fácil de tragar\" (capsule icon); \"Cabe en tu cartera\" (handbag icon); \"Canela verdadera de Sri Lanka\" (leaf icon). Clean, legible, premium. No other text."
+    },
+    {
+      "slot": "galeria-04",
+      "prompt": "Square 1200x1200 infographic, warm off-white background, brown #A9541F accents. Headline 2 lines: \"Tu camino de 90 días\" (bold dark) / \"A tu ritmo, con constancia\" (in brown). Subtitle line: \"Una cápsula con la comida, todos los días.\" Below, a horizontal timeline with a brown line and 4 round brown markers, 4 columns, each with a small cinnamon icon, a bold label, a 2-3 word title and 2 short lines: \"SEMANA 1\" / \"Empieza el hábito\" / \"Una cápsula con el almuerzo.\" \"Lee bien la etiqueta.\"; \"SEMANAS 2-3\" / \"Sin saltarte días\" / \"La constancia es la clave.\" \"Escucha a tu cuerpo.\"; \"SEMANAS 4-8\" / \"Nota cómo te sientes\" / \"Fíjate en tus tardes.\" \"Cada cuerpo va distinto.\"; \"DÍA 90\" / \"Ya es tu rutina\" / \"Haz una pausa y revisa.\" \"Tu bienestar va primero.\" Small note at the bottom in gray: \"Complementa tus hábitos, no reemplaza ningún tratamiento.\" Small product pouch (exact real product from reference: white pouch \"Metabolae\" \"Canela de Ceilán\") in one corner. Clean layout, no other text."
+    },
+    {
+      "slot": "galeria-05",
+      "prompt": "Square 1200x1200 casual smartphone photo, natural window light, not studio. A Colombian woman about 46 years old with light brown skin and long wavy dark hair, in a fitted sports top, taking a mirror selfie in a gym with big windows and natural daylight, smiling warmly at the camera, holding the exact real product from the reference photo (white stand-up pouch with \"Metabolae\" and \"Canela de Ceilán\" in brown serif letters, brown bottom band with cinnamon sticks, \"30 CÁPSULAS BLANDAS\") close to her face, label clearly visible. Real skin texture, slightly imperfect framing like a real phone photo. At the top, one white rounded speech bubble with dark text: \"Mi ritual de canela, aquí también\". No name, no signature, no other text."
+    },
+    {
+      "slot": "galeria-06",
+      "prompt": "Square 1200x1200 graphic, warm off-white background. Bold uppercase dark headline at top: \"3 RAZONES PARA ELEGIR LA CANELA VERDADERA\" with \"CANELA VERDADERA\" in brown #A9541F. Below, 3 wide rounded cards in solid cinnamon brown #A9541F, stacked vertically, each with a round white icon on the left, a bold white sentence and a thin white explanation line: card 1 (cinnamon stick icon) \"Es canela de Ceilán\" / \"La de Sri Lanka, no la común de la tienda.\"; card 2 (calendar icon) \"Para tomar a diario\" / \"Trae solo trazas de cumarina.\"; card 3 (plate icon) \"Te acompaña en cada comida\" / \"Una cápsula con tu almuerzo, sin preparar nada.\" Small exact real product pouch (white, \"Metabolae\" \"Canela de Ceilán\") peeking at the bottom right corner. No names, no quotes, no other text."
+    },
+    {
+      "slot": "galeria-07",
+      "prompt": "Square 1200x1200 close-up product graphic, warm off-white background. LEFT: in the foreground, the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) slightly open, with a woman's hand holding one glossy translucent amber softgel capsule between fingertips in sharp macro detail, a few more softgels and two Ceylon cinnamon quills on the surface. RIGHT: headline in 2 lines: \"Tu rutina\" (bold dark) / \"EN CÁPSULA BLANDA\" (bold uppercase in brown #A9541F), and below a small gray line: \"Sigue las indicaciones del empaque\". Soft natural light, premium and clean. No other text."
+    },
+    {
+      "slot": "galeria-08",
+      "prompt": "Square 1200x1200 clean comparison table, warm off-white background. Title at top: \"Compara antes de decidir\" with \"decidir\" in brown #A9541F. Two columns: left column header shows the exact real product from the reference photo (white pouch \"Metabolae\" \"Canela de Ceilán\") above the label \"Canela de Ceilán\"; right column header is a plain gray generic shape with the label \"Otras opciones\". 6 rows with thin dividers, row labels on the far left in dark text: \"Canela de Ceilán de Sri Lanka\", \"Cápsula blanda fácil de tragar\", \"Con aceite MCT\", \"Sin preparar aguas ni tés\", \"Combos de 1, 2 o 3 bolsas\", \"Pago al recibir en casa\". Product column: round solid brown #A9541F checkmarks in every row. Other column: light gray question marks in every row. No competitor brands, no other text."
+    },
+    {
+      "slot": "galeria-09",
+      "prompt": "Square 1200x1200 graphic, warm off-white background. Headline at top in bold uppercase dark: \"3 PASOS SENCILLOS\" with \"SENCILLOS\" in brown #A9541F. CENTER: the exact real product from the reference photo (white pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band, \"30 CÁPSULAS BLANDAS\"). Around it, 3 steps arranged in a circle connected by curved brown #A9541F arrows, each with a solid brown numbered circle and short text: \"1\" \"Sirve tu almuerzo\"; \"2\" \"Toma una cápsula con la comida\"; \"3\" \"Repite cada día\". Small icons next to each step (plate, capsule with glass of water, calendar). Clean, legible. No other text."
+    },
+    {
+      "slot": "galeria-10",
+      "prompt": "Square 1200x1200 graphic, warm off-white background. LEFT side: headline in 2 lines \"Tu compra,\" (in brown #A9541F) / \"con información clara\" (bold dark), below it a solid brown rounded tag with white uppercase text \"TE AYUDAMOS CON TU PEDIDO\", and 2 short dark lines: \"Pagas cuando lo recibes en tu casa.\" / \"Revisa tu combo y tus datos antes de confirmar.\" RIGHT side: the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) standing next to a plain kraft-brown shipping box, with a few cinnamon sticks, soft natural shadow. No other text, no prices."
+    },
+    {
+      "slot": "galeria-11",
+      "prompt": "Square 1200x1200 label information graphic, warm off-white background. LEFT: the exact real product from the reference photo (white stand-up pouch, \"Metabolae\", \"Canela de Ceilán\" in brown serif, brown bottom band with cinnamon sticks, \"30 CÁPSULAS BLANDAS\"), upright. RIGHT: a clean white card with brown #A9541F headers: \"LO QUE TRAE\" followed by a list \"Canela de Ceilán de Sri Lanka\" and \"Aceite MCT\"; then \"PRESENTACIÓN\" with \"30 cápsulas blandas\"; then \"MODO DE USO\" with \"Una cápsula con la comida. Sigue las indicaciones del empaque.\" BOTTOM: a row of 3 round brown line icons with labels: \"Sin gluten\", \"Sin OGM\", \"Cápsula blanda\". No other text, no numbers of mg, no nutrition table."
+    },
+    {
+      "slot": "combo-3",
+      "prompt": "Square 1200x1200 clean product photo, plain smooth very light warm cream background, soft even studio light, gentle shadows. Three identical units of the exact real product from the reference photo (white stand-up pouch with \"Metabolae\" and \"Canela de Ceilán\" in brown serif letters, brown bottom band with cinnamon sticks and star anise, \"30 CÁPSULAS BLANDAS\") standing upright, front-facing, side by side in a neat row, the middle one slightly forward. No extra text, no props."
+    },
+    {
+      "slot": "combo-2",
+      "prompt": "Square 1200x1200 clean product photo, the same plain smooth very light warm cream background, soft even studio light, gentle shadows. Two identical units of the exact real product from the reference photo (white stand-up pouch with \"Metabolae\" and \"Canela de Ceilán\" in brown serif letters, brown bottom band with cinnamon sticks, \"30 CÁPSULAS BLANDAS\") standing upright, front-facing, side by side, slightly overlapping. No extra text, no props."
+    },
+    {
+      "slot": "combo-1",
+      "prompt": "Square 1200x1200 clean product photo, the same plain smooth very light warm cream background, soft even studio light, gentle shadow. One unit of the exact real product from the reference photo (white stand-up pouch with \"Metabolae\" and \"Canela de Ceilán\" in brown serif letters, brown bottom band with cinnamon sticks, \"30 CÁPSULAS BLANDAS\") standing upright, front-facing, centered. No extra text, no props."
+    },
+    {
+      "slot": "creativo",
+      "prompt": "Vertical 1092x1440 strong ad graphic, warm off-white background, brown #A9541F accents, bold condensed uppercase dark text. TOP: rounded brown tag with white text \"METABOLAE · CANELA DE CEILÁN\". Giant headline in 2 lines: \"QUE EL DULCE DE LA TARDE\" / \"YA NO TE GANE DESDE LA SEMANA 4\" with \"SEMANA 4\" inside a solid brown highlight box with white text. Subtitle line: \"No era tu culpa: no era la canela correcta.\" with \"no era la canela correcta\" highlighted in light brown. LEFT: a cream rounded box titled \"BENEFICIOS:\" with 4 rows, each with a round brown icon, a bold line and a small line: \"MENOS ANTOJO\" / \"De dulce en la tarde y la noche.\"; \"ENERGÍA PAREJA\" / \"Sin el bajón después del almuerzo.\"; \"MÁS LIVIANA\" / \"Después de cada comida.\"; \"SIN PREPARAR NADA\" / \"Una cápsula y listo.\" Below, a second box titled \"LO QUE TRAE:\" with brown checks: \"Canela de Ceilán\", \"De Sri Lanka\", \"Aceite MCT\", \"Cápsula blanda\", \"Sin gluten\". RIGHT: a real-looking Colombian woman about 50 years old, warm tan skin, dark wavy hair to the shoulders, in a soft terracotta blouse, shown from the side turning toward the camera with a relaxed, light, energetic smile, holding the exact real product from the reference photo (white pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) up near her shoulder, label visible. No guarantee seal, no money-back badge, no medical claims, no other text."
+    },
+    {
+      "slot": "ingredientes",
+      "prompt": "Vertical 1122x1402 ingredient infographic, warm off-white background, brown #A9541F accents. TOP: brand text \"Metabolae\" in brown serif. Headline in bold uppercase dark: \"LA CANELA VERDADERA,\" / \"LISTA PARA TU RUTINA\" with \"CANELA VERDADERA\" in a brown highlight box with white text. One line below: \"Todo lo que trae tu cápsula, en una sola fórmula.\" with \"en una sola fórmula\" highlighted. CENTER: the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band, \"30 CÁPSULAS BLANDAS\") on a round brown podium. AROUND it, 4 round photo circles, each with a solid brown label with white uppercase name and a short dark line below: pale rolled Ceylon cinnamon quills \"CANELA DE CEILÁN\" / \"La canela verdadera.\"; green cinnamon tree leaves and plantation \"ORIGEN SRI LANKA\" / \"Donde nace la de Ceilán.\"; halved coconut and clear oil \"ACEITE MCT\" / \"De origen coco.\"; glossy amber softgels \"CÁPSULA BLANDA\" / \"Fácil de tragar.\" BOTTOM: a dark brown full-width strip with white text \"PRESENTACIÓN EN CÁPSULAS BLANDAS · 30 UNIDADES\" and a small capsule icon. No other text, no mg numbers."
+    },
+    {
+      "slot": "historia-1",
+      "prompt": "Vertical 1080x1920 casual smartphone photo, not studio, natural morning light through curtains. A Colombian woman about 44 years old with olive skin and a high ponytail, in casual leggings and an oversized t-shirt, in her bedroom, smiling softly, holding the exact real product from the reference photo (white stand-up pouch with \"Metabolae\" and \"Canela de Ceilán\" in brown serif letters, brown bottom band with cinnamon sticks) in one hand at chest height, label visible. Real skin texture, slightly tilted phone framing, everyday unmade bed behind. Leave the top and bottom areas visually simple for an Instagram story frame. No text in the image."
+    },
+    {
+      "slot": "historia-2",
+      "prompt": "Vertical 1080x1920 casual smartphone selfie, not studio. A Colombian woman about 42 years old with dark brown skin and curly hair, in a denim jacket, sitting inside her parked car in the afternoon, soft daylight from the side window, smiling at the camera, holding the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) near her face, a handbag on the passenger seat. Real skin texture, everyday look. Keep top and bottom areas simple for an Instagram story frame. No text in the image."
+    },
+    {
+      "slot": "historia-3",
+      "prompt": "Vertical 1080x1920 casual smartphone photo, not studio. A Colombian woman about 52 years old with fair skin and shoulder-length straight hair, in a comfortable home dress, in her kitchen with daylight from a window and green plants behind, standing by the counter next to a plate of lunch, holding the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) and one amber softgel in her other hand, calm smile. Real home details, natural light. Keep top and bottom areas simple for an Instagram story frame. No text in the image."
+    },
+    {
+      "slot": "historia-4",
+      "prompt": "Vertical 1080x1920 casual smartphone photo, not studio. A Colombian woman about 45 years old with warm tan skin and braids, in a fitted top and high-waist jeans, taking a full-body mirror selfie in a simple bathroom with natural light, phone in one hand and the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) in the other, smiling, looking light and confident. Real everyday bathroom, slight phone grain. Keep top and bottom areas simple for an Instagram story frame. No text in the image."
+    },
+    {
+      "slot": "historia-5",
+      "prompt": "Vertical 1080x1920 casual smartphone photo, not studio. A Colombian woman about 48 years old with medium brown skin and her hair in a bun, in pajamas, sitting on her bed with white sheets, early morning window light, relaxed smile, holding the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) on her lap, a cup of coffee on the nightstand. Soft natural tones, real skin texture. Keep top and bottom areas simple for an Instagram story frame. No text in the image."
+    },
+    {
+      "slot": "historia-6",
+      "prompt": "Vertical 1080x1920 casual smartphone photo, not studio. A Colombian woman about 50 years old with light skin and wavy auburn hair, in comfortable workout clothes, on a small apartment balcony with city buildings behind and warm golden-hour light, holding the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) in her hands next to a glass of water on a small table, gentle smile. Real everyday look. Keep top and bottom areas simple for an Instagram story frame. No text in the image."
+    },
+    {
+      "slot": "ugc-1",
+      "prompt": "Vertical 941x1672 casual smartphone photo, not studio, soft daylight. A Colombian woman about 47 years old with brown skin and short curly hair, in a blouse, sitting at a wooden dining table with breakfast (arepa, coffee, fruit), smiling, holding the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) next to her plate. Real home, natural colors. No text in the image."
+    },
+    {
+      "slot": "ugc-2",
+      "prompt": "Vertical 941x1672 casual smartphone photo, not studio, afternoon light. A Colombian woman about 43 years old with olive skin and long straight black hair, in a tank top, in her living room with a sofa and green plants, relaxed smile, holding the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) at chest height. Everyday home details. No text in the image."
+    },
+    {
+      "slot": "ugc-3",
+      "prompt": "Vertical 941x1672 casual smartphone photo, not studio. A Colombian woman about 55 years old with tan skin and wavy hair with some grey, wearing reading glasses and a cardigan, standing at a sunny window of her home, warm smile, holding the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band), looking at the label. Natural window light. No text in the image."
+    },
+    {
+      "slot": "ugc-4",
+      "prompt": "Vertical 941x1672 casual smartphone photo, not studio. A Colombian woman about 44 years old with dark skin and box braids, in a sports top and joggers, outdoors in a neighborhood park with trees, natural daylight, full body, smiling after a walk, holding the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) and a water bottle. Real everyday scene. No text in the image."
+    },
+    {
+      "slot": "ugc-5",
+      "prompt": "Vertical 941x1672 casual smartphone photo, not studio, soft cloudy daylight. A small home office corner: laptop, notebook and a lunch container on the desk; the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band, \"30 CÁPSULAS BLANDAS\") standing on the desk with a few amber softgels beside it; a Colombian woman about 46 years old with light brown skin, a low ponytail and a simple t-shirt partly visible, reaching for one capsule. Everyday, real. No text in the image."
+    },
+    {
+      "slot": "paso-1",
+      "prompt": "Vertical 786x1074 casual smartphone photo, not studio. Close-up of the hands of a Colombian woman about 45 years old with fair freckled skin and wavy brown hair, in a sundress, on a terrace with plants behind, late afternoon light, opening the zipper of the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band), label visible. Shallow depth of field. No text in the image."
+    },
+    {
+      "slot": "paso-2",
+      "prompt": "Vertical 786x1074 casual smartphone photo, not studio, natural light. In a hallway with a full-length mirror, a light console table holding the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band), a glass of water and a lunch plate, with one amber softgel in the open palm of a Colombian woman about 48 years old with medium skin and a curly bob, in leggings, partly visible. A small plant behind. No text in the image."
+    },
+    {
+      "slot": "paso-3",
+      "prompt": "Vertical 786x1074 casual smartphone photo, not studio. A Colombian woman about 50 years old with brown skin and long wavy hair, in a robe, in a bright bathroom by the sink with morning light, smiling calmly at the camera, holding the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) near her face. Fresh, rested look. No text in the image."
+    },
+    {
+      "slot": "cuidado",
+      "prompt": "Square 1080x1080 lifestyle smartphone photo, not studio, soft natural light. A Colombian woman about 53 years old with light brown skin and long wavy dark hair, calm and smiling, in a relaxed cream sweater, sitting at her home dining table after lunch, taking one amber softgel with a glass of water, the exact real product from the reference photo (white stand-up pouch \"Metabolae\" \"Canela de Ceilán\", brown bottom band) on the table beside her. The lower third of the image is simple and light (plain light tablecloth) so it can fade to white. No doctor, no white coat, no clinic. No text in the image."
+    }
+  ],
+  "resumen": "Todas las piezas hablan del antojo de dulce, el bajón de la tarde y la canela verdadera de Ceilán, sin promesas de salud ni de peso, y el tiempo va como «desde la semana 4». Como la bolsa solo trae canela de Ceilán y aceite MCT, en ingredientes mostré eso más su origen y la cápsula blanda, sin inventar otros. Puse solo los sellos que trae tu empaque (sin gluten, sin OGM) y ninguna garantía de devolución. A las mujeres de las fotos les subí la edad a entre 42 y 55 años para que se parezcan a tu clienta, y dejé el lugar y el estilo distintos en cada una."
+}
