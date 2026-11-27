@@ -3,7 +3,7 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 23,
+    "A": 24,
     "T": 27
   },
   "tandas": {
@@ -230,6 +230,14 @@
         "U0029"
       ],
       "empezada": true
+    },
+    "A023": {
+      "tipo": "ajuste",
+      "uuid": "750d3bcb-36a5-45e1-a49f-9a2417fbd6f6",
+      "estado": "en-curso",
+      "pedidos": [
+        "U0030"
+      ]
     }
   },
   "variaciones": {
@@ -434,7 +442,7 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "ajustando",
       "resultado": "listo",
       "version": 2,
       "firma": "1947773-1795727063566",
@@ -1068,6 +1076,14 @@
         }
       ],
       "paso": 0
+    },
+    "U0030": {
+      "id": "U0030",
+      "pieza": "V09_1x1",
+      "instruccion": "elimina el antes y después",
+      "fecha": "2026-11-27T02:10:16.047Z",
+      "estado": "ajustando",
+      "ajuste": "A023"
     }
   }
 }

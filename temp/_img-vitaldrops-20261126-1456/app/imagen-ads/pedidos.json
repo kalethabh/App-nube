@@ -173,6 +173,12 @@
       "pieza": "V04_1x1",
       "instruccion": "sin colocar el texto antes y después",
       "fecha": "2026-11-27T02:03:31.007Z"
+    },
+    {
+      "id": "U0030",
+      "pieza": "V09_1x1",
+      "instruccion": "elimina el antes y después",
+      "fecha": "2026-11-27T02:10:16.047Z"
     }
   ]
 }
