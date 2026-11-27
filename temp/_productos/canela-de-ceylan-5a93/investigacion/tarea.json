@@ -1,7 +1,7 @@
 {
   "id": "59ea5afb-9ec5-4467-8c60-33af625db21a",
   "uuid": "59ea5afb-9ec5-4467-8c60-33af625db21a",
-  "estado": "investigando",
+  "estado": "lista",
   "pais": null,
   "progreso": [
     "Claude está investigando tu mercado",
@@ -12,5 +12,11 @@
   "intentos": 1,
   "inicio": "2026-11-27T18:48:22.291Z",
   "error": null,
-  "actualizado": "2026-11-27T18:50:06.851Z"
+  "fin": "2026-11-27T18:55:16.089Z",
+  "medida": {
+    "turnos": 35,
+    "duracionMs": 413769,
+    "motor": "claude"
+  },
+  "actualizado": "2026-11-27T18:55:16.090Z"
 }

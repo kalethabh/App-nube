@@ -64,7 +64,8 @@
           "Etiqueta trasera: porción, cápsulas al día, mg por cápsula y advertencias.",
           "Origen del aceite MCT (coco) y material de la cápsula blanda (gelatina bovina o vegetal).",
           "Certificado de análisis que respalde «probado en laboratorio».",
-          "Número de registro INVIMA y quién es el importador en Colombia."
+          "Número de registro INVIMA y quién es el importador en Colombia.",
+          "Hasta confirmar la dosis y la frecuencia, el texto de modo de uso para las imágenes de la landing queda vacío; la guía lo deja como [X]."
         ], "pie": "" }
       ]
     },
@@ -611,6 +612,49 @@
     ],
     "uso": []
   },
-  "anuncios_imagen": [],
-  "fuentes": []
+  "anuncios_imagen": [
+    { "plantilla": "pregunta-revelacion", "concepto": 1, "faceta": "Luz Marina, la oficinista del antojo", "angulo": "dolor", "contexto": "3 p.m. en la oficina", "textos": { "pregunta": "¿Otra vez buscando algo dulce a las 3 de la tarde?", "revelacion": "No es falta de voluntad", "cierre": "Es que no tomabas la canela correcta", "legal": "Suplemento dietario. No es un medicamento. Los resultados varían." } },
+    { "plantilla": "historia", "concepto": 2, "faceta": "Luz Marina, la hija de una mamá con azúcar", "angulo": "deseo", "contexto": "Visita del domingo a la mamá", "textos": { "antes": "Con antojo", "despues": "Tranquila", "frase": "Vi a mi mamá con el azúcar y me prometí cuidarme distinto…", "remate": "hasta que descubrí la canela de Ceilán", "iconos": ["Canela verdadera", "Cápsula blanda", "Sin gluten ni OGM"], "legal": "Suplemento dietario. No reemplaza tratamiento médico. Los resultados varían." } },
+    { "plantilla": "nosotros-vs-ellos", "concepto": 3, "faceta": "Luz Marina, la que ya probó todo", "angulo": "mecanismo", "contexto": "Cocina de noche, con la olla de agua de canela", "textos": { "titular": "No es cualquier *canela*", "subtitulo": "La de la tienda no es la misma que la de Ceilán", "nuestro": "Canela de Ceilán", "ellos": "Canela común de la tienda", "nuestros": ["La canela verdadera de Sri Lanka", "Solo trazas de cumarina", "En cápsula, sin preparar nada"], "suyos": ["Casi siempre es canela cassia", "Más cumarina", "Hervir agua todos los días"], "legal": "Suplemento dietario. No es un medicamento." } },
+    { "plantilla": "dos-mitades", "concepto": 4, "faceta": "Daniela, la del bajón después del corrientazo", "angulo": "beneficio", "contexto": "Reunión de las 2 p.m.", "textos": { "titular": "Del bajón del almuerzo a *tardes con energía*", "pildora": "Entre la segunda y la tercera semana", "boton": "Quiero mis tardes", "marca": "Canela de Ceilán", "legal": "Experiencia reportada por usuarios. Los resultados varían." } },
+    { "plantilla": "no-compres", "concepto": 5, "faceta": "Don Jairo, el del examen con el azúcar alta", "angulo": "objeción", "contexto": "Sala de espera de la EPS con el sobre del laboratorio", "textos": { "titular": "No compres esta canela si…", "texto": "…crees que una cápsula reemplaza lo que te dijo el médico. Es un apoyo natural para tu rutina, junto a tu comida y tus controles.", "legal": "No reemplaza tratamiento médico. Si tomas medicamentos para el azúcar, consulta a tu médico." } },
+    { "plantilla": "solo-vs-con", "concepto": 6, "faceta": "Carolina, la hija que cuida a la mamá", "angulo": "beneficio", "contexto": "Almuerzo familiar del domingo", "textos": { "sin": "Solo fuerza de voluntad", "con": "Voluntad + canela de Ceilán", "titular": "Para tu mamá: menos antojo en 2 semanas", "subtitulo": "Una rutina natural y fácil que sí puede seguir, con la canela verdadera de Ceilán.", "boton": "Regálasela", "legal": "Suplemento dietario. Los resultados varían. No reemplaza tratamiento médico." } },
+    { "plantilla": "estado-vs-estado", "concepto": 7, "faceta": "Luz Marina, la de diciembre", "angulo": "dolor", "contexto": "Novena de diciembre", "textos": { "zona": "Tu diciembre", "mal": "Con antojo", "bien": "Tranquila", "sub_mal": "Natilla, buñuelo y otra natilla", "sub_bien": "Disfrutas sin que el dulce mande", "legal": "Suplemento dietario. Los resultados varían." } },
+    { "plantilla": "foto-iconos", "concepto": 8, "faceta": "Daniela, sin tiempo", "angulo": "beneficio", "contexto": "TransMilenio a las 6 a.m.", "textos": { "titular": "Menos antojo, y *cero preparación*", "iconos": ["Cápsula blanda", "Cabe en tu cartera", "Sin hervir agua"], "nota": "¡5 segundos!", "legal": "Suplemento dietario. No es un medicamento." } },
+    { "plantilla": "antes-despues-plazo", "concepto": 7, "faceta": "Luz Marina, la que quiere verse bien en diciembre", "angulo": "beneficio", "contexto": "Frente al espejo antes de la novena", "textos": { "titular": "MENOS ANTOJO DE DULCE", "plazo": "EN 2 SEMANAS", "marca": "Canela de Ceilán", "antes": "ANTES", "despues": "2 SEMANAS DESPUÉS", "legal": "Experiencia reportada por usuarios. Los resultados varían." } },
+    { "plantilla": "cuadricula-tiempo", "concepto": 1, "faceta": "Luz Marina, la oficinista del antojo", "angulo": "deseo", "contexto": "Las tardes de todo un mes en la oficina", "textos": { "titular": "El antojo de la tarde por fin se *calma*", "etapas": ["Antes", "1 semana", "2 semanas", "8 semanas"], "legal": "Experiencia reportada por usuarios. Los resultados varían." } },
+    { "plantilla": "beneficios-lados", "concepto": 3, "faceta": "Daniela, la que vio el agua de canela en TikTok", "angulo": "beneficio", "contexto": "Scroll de noche en el celular", "textos": { "titular": "Tu día sin el antojo de dulce", "subtitulo": "Con la canela verdadera de Ceilán", "antes": "Antes", "despues": "Después", "males": ["Antojo a media tarde", "Sueño después de almorzar", "Pesadez después de comer", "Pan por la noche"], "bienes": ["Tarde sin ir por dulce", "Energía más pareja", "Más liviana", "Noches tranquilas"], "sello": "Desde la segunda semana", "atributos": ["Sin gluten", "Sin OGM", "Cápsula blanda"], "legal": "Experiencia reportada por usuarios. Los resultados varían." } },
+    { "plantilla": "zonas-semanas", "concepto": 5, "faceta": "Don Jairo, el que empieza a cuidarse", "angulo": "deseo", "contexto": "Enero, con los propósitos del año", "textos": { "titular": "Tu rutina de canela, semana a semana", "pasos": [ { "ingrediente": "Semanas 1 y 2", "beneficio": "Muchos notan menos antojo" }, { "ingrediente": "Semanas 2 y 3", "beneficio": "Energía más pareja en la tarde" }, { "ingrediente": "Semanas 8 a 12", "beneficio": "Un hábito de todos los días" } ], "legal": "Sigue las indicaciones de tu médico. No reemplaza tratamiento médico." } }
+  ],
+  "fuentes": [
+    { "titulo": "ConsultorSalud · Día Mundial de la Diabetes 2025, cifras de la Cuenta de Alto Costo", "url": "https://consultorsalud.com/dia-mundial-de-la-diabetes-2025/" },
+    { "titulo": "Atlas de la Diabetes (FID) · Datos de Colombia", "url": "https://diabetesatlas.org/es/data-by-location/country/colombia/" },
+    { "titulo": "Publimetro · Diabetes en Colombia y casos sin diagnóstico (2026)", "url": "https://www.publimetro.co/estilo-vida/2026/11/07/diabetes-en-colombia-mas-de-25-millones-de-casos-y-un-162-de-pacientes-que-desconoce-su-diagnostico/" },
+    { "titulo": "El Heraldo · Prediabetes en Colombia, Asociación Colombiana de Endocrinología", "url": "https://www.elheraldo.co/salud/como-tratar-la-prediabetes-en-colombia-la-asociacion-colombiana-de-endocrinologia-hace-un" },
+    { "titulo": "PMC · Consenso de expertos sobre prediabetes en Colombia", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5896726/" },
+    { "titulo": "El Espectador · Radiografía de la obesidad en Colombia", "url": "https://www.elespectador.com/punto-de-encuentro/radiografia-de-la-obesidad-en-colombia-y-el-mundo/" },
+    { "titulo": "PubMed · Metaanálisis de canela y glucosa en diabetes tipo 2 (24 ensayos)", "url": "https://pubmed.ncbi.nlm.nih.gov/37818728/" },
+    { "titulo": "PubMed · Revisión sistemática de la canela y la glucosa por calidad de estudio", "url": "https://pubmed.ncbi.nlm.nih.gov/38466959/" },
+    { "titulo": "PMC · Revisión paraguas de la canela en enfermedades metabólicas (2025)", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12620228/" },
+    { "titulo": "NCCIH (Institutos de Salud de EE. UU.) · Canela: eficacia y seguridad", "url": "https://nccih.nih.gov/health/cinnamon" },
+    { "titulo": "MSK · Canela: interacciones y precauciones", "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/cinnamon" },
+    { "titulo": "AOL · Cuatro formas en que la canela puede interactuar con medicamentos", "url": "https://www.aol.com/4-ways-cinnamon-may-interact-122211978.html" },
+    { "titulo": "WebMD · Reseñas de usuarios de canela de Ceilán", "url": "https://reviews.webmd.com/vitamins-supplements/ingredientreview-330-ceylon-cinnamon" },
+    { "titulo": "Vitabase · Evidencia de la canela de Ceilán y los antojos de dulce", "url": "https://vitabase.com/relationships/relationship-sugar-cravings-and-ceylon-cinnamon" },
+    { "titulo": "Diabetes.co.uk · Foro sobre canela y diabetes tipo 2", "url": "https://www.diabetes.co.uk/forum/threads/diabetes-type-2-taking-cinnamon-powder.19924/page-2?amp=1" },
+    { "titulo": "Mayo Clinic Connect · Suplementos para personas con diabetes", "url": "https://connect.mayoclinic.org/comment/283220/replies" },
+    { "titulo": "Sam's Club · Reseñas de suplemento de canela", "url": "https://www.samsclub.com/reviews/product/84009311448" },
+    { "titulo": "Fakespot · Análisis de reseñas de canela de Ceilán en Amazon", "url": "https://www.fakespot.com/product/organic-ceylon-cinnamon-100-usda-certified-supplement-180-capsules" },
+    { "titulo": "SingleCare · Canela y diabetes, tiempos", "url": "https://www.singlecare.com/blog/cinnamon-for-diabetes/" },
+    { "titulo": "WeightLossRankings · Agua de canela y pérdida de peso, evidencia", "url": "https://www.weightlossrankings.org/es/research/agua-canela-perdida-peso-evidencia" },
+    { "titulo": "SuppCo · Marca Metabolae y sus productos", "url": "https://supp.co/brands/metabolae" },
+    { "titulo": "Encarguelo · Berberina con canela de Ceilán Nutricost, precio en pesos", "url": "https://encarguelo.com/producto/B0CZMDPWG5/nutricost-berberine-hcl-with-ceylon-cinnamon-capsules-120-capsules-60-servings-non-gmo-animal-free-product" },
+    { "titulo": "Encarguelo · Berberina NutriFlair con canela, precio en pesos", "url": "https://encarguelo.com/producto/B08HHQWBBZ/nutriflair-premium-berberine-hcl-1200-mg-120-capsulas-ademas-de-suplementos-de-raiz-de-berberina-hci-y-canela-pura-de-ceilan-sistema-inmunitario-control-de-peso-saludable" },
+    { "titulo": "Mercado Libre Colombia · Gotas de berberina con canela de Ceilán", "url": "https://www.mercadolibre.com.co/gotas-liquidas-de-berberina-3000-mg-con-canela-de-ceilan-te/up/MCOU3514371889" },
+    { "titulo": "Valora Analitik · Comercio electrónico en Colombia, segundo trimestre de 2025", "url": "https://www.valoraanalitik.com/?p=499270" },
+    { "titulo": "CCCE · Informe de cierre 2025 del comercio electrónico", "url": "https://ccce.org.co/wp-content/uploads/2017/06/V2-1-PUBLICO-INFORME-DE-CIERRE-2025.pdf" },
+    { "titulo": "INVIMA · Resolución 3096 de 2007, suplementos dietarios", "url": "https://normograma.invima.gov.co/compilacion/docs/resolucion_minproteccion_3096_2007.htm" },
+    { "titulo": "INVIMA · Decreto 3249 de 2006, suplementos dietarios", "url": "https://normograma.invima.gov.co/compilacion/docs/decreto_3249_2006.htm" }
+  ],
+  "nota_fuentes": "Reddit, YouTube, AliExpress y Trustpilot no se pudieron revisar. Algunas páginas pedían verificación y se usaron los fragmentos de los buscadores. Las frases de clientes están parafraseadas."
 }
