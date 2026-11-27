@@ -1,0 +1,49 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 line-illustration progress ad. BACKGROUND: light sand #F2E4CF. TOP ZONE (0-17%): a centered headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase, one line: 'ESTA VEZ SÍ LO TERMINÉ' in dark plum #2B1226 with the highlighted word 'TERMINÉ' in hot fuchsia #E6177F. Under it, one centered line in Poppins SemiBold, dark plum: 'Caderas con curva y piernas firmes al mes 3, con solo 2 cápsulas al día, para sentirte orgullosa de ti.' GRID ZONE (17-89%): a 2x2 grid divided by a thick terracotta #C8643B cross; each cell holds a square panel with a thin terracotta frame and, overlapping its top right corner, a dark plum #2B1226 rounded label with white Poppins Bold text. All four panels are clean editorial line drawings in terracotta lines with soft flat tints, showing the SAME illustrated adult woman, 26 years old, warm light-brown skin, short pixie haircut, drawn from the head to below the knees, facing the viewer or three-quarters, never from behind, each panel a DIFFERENT DAY. PANEL 1 (top left, label 'Día 1'): her bedroom at night under a lamp (soft blue-grey tint), pixie hair messy and flat, a wide oversized t-shirt and baggy straight jeans; she stands side-on with her face to the viewer, a frustrated look in a mirror, one hand pulling the jeans waistband a full fist away from her lower back so the empty gap is visible; straight silhouette with hips the same width as her waist, glutes flat with no curve, thin straight legs. PANEL 2 (top right, label 'Semana 2'): a kitchen in cool morning light (pale mint tint), pixie hair with a thin headband, a short hoodie and medium-blue jeans, three-quarter pose holding a glass of water and smiling a little; the jeans fit a little better. PANEL 3 (bottom left, label 'Semana 4'): a city sidewalk in warm afternoon light (soft peach tint), pixie hair slicked to one side with a hair clip, a shirt knotted at the waist and high-waist jeans, walking pose facing the viewer with a hand in a pocket; hips visibly rounder, thighs fuller. PANEL 4 (bottom right, label 'Mes 3'): a terrace at golden sunset with string lights (warm golden tint), pixie hair tousled with small gold earrings, a wrap crop top and flared jeans, confident three-quarter pose facing the viewer with a hand on her hip and a proud smile; small waist, hips clearly wider and curved, toned fuller legs filling the jeans; the change from panel 1 is obvious at first glance but natural. At the lower right of panel 4, overlapping its frame, the attached product as a sharp photographic cut-out, upright, front view, about 22% of the canvas height; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, italic pink 'TRIPLE ACCIÓN' and three small boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; label readable; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. BOTTOM STRIP (89-100%): a slim full-width dark plum #2B1226 strip with, left to right: white Poppins Bold 'Tratamiento completo: 3 frascos para 3 meses', a white pill with plum Poppins Bold 'Pagas al recibir', and a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top center): "ESTA VEZ SÍ LO TERMINÉ" — Montserrat Black look, uppercase, dark plum #2B1226; the highlighted word 'TERMINÉ' in hot fuchsia #E6177F
+- value proposition (top center under the headline): "Caderas con curva y piernas firmes al mes 3, con solo 2 cápsulas al día, para sentirte orgullosa de ti." — Poppins SemiBold, dark plum #2B1226, centered
+- time label (panel 1, top right label): "Día 1" — Poppins Bold, white on a dark plum rounded label
+- time label (panel 2, top right label): "Semana 2" — Poppins Bold, white on a dark plum rounded label
+- time label (panel 3, top right label): "Semana 4" — Poppins Bold, white on a dark plum rounded label
+- time label (panel 4, top right label): "Mes 3" — Poppins Bold, white on a dark plum rounded label
+- offer (bottom strip, left): "Tratamiento completo: 3 frascos para 3 meses" — Poppins Bold, white on the plum strip
+- trust item (bottom strip, middle pill): "Pagas al recibir" — Poppins Bold, dark plum #2B1226 on a white pill
+- badge (bottom strip, right round badge): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (highlighted headline word), dark plum #2B1226 (headline, panel labels, bottom strip), white #FFFFFF (label text), bottle black #0E0E10, seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: terracotta #C8643B (all drawing lines and panel frames) and light sand #F2E4CF (background).
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; value proposition, labels and strip in Poppins SemiBold / Bold look.
+
+MANDATORY ELEMENTS:
+- 2x2 grid of terracotta line-illustration panels on a light sand background with a thick terracotta cross
+- The same woman in four moments, each with another outfit, pose, hairstyle, place and light; panel 1 with the visible gap in the loose waistband, panel 4 with curvy hips and toned legs in jeans
+- Dark plum rounded labels at the top right of each panel
+- The real bottle small at the lower right of panel 4, label readable
+- Slim plum strip with the offer, the 'Pagas al recibir' pill and the gold-bordered registration badge
+
+STRICT EXCLUSIONS:
+- sin poses de espaldas ni enfoque en zonas del cuerpo
+- No back views, no close-ups centered on the buttocks or crotch, no nudity, no lingerie or swimwear
+- Never the same outfit, pose, hairstyle, place or light in two panels
+- No prices, percentages, 'gratis', guarantee or free shipping claims
+- No stars, reviews, customer counts or names
+- No logos outside the bottle label
+- No loose capsules, no pills, no open bottle
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add extra buttons, badges, seals or strips beyond the ones described here.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Nude or underwear bodies; the woman is always dressed with jeans
+- Do not add: Brand names inside the panel labels
+- Do not add: Prices, percentages, 'gratis', guarantee or free shipping claims
+- Do not add: Stars, reviews, customer counts or names
+- Do not add: Logos outside the bottle label
+- Do not add: Loose capsules, pills or an open bottle
+
+IMAGE QUALITY: the highest quality possible. Ultra sharp, high resolution detail, crisp and perfectly legible text with correct spelling, realistic skin, hair and fabric textures, clean edges and professional color grading. No blur, no noise, no compression artifacts, no warped or melted letters, no extra fingers or distorted faces.
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

@@ -1,0 +1,19 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V06_1x1",
+      "ok": true,
+      "problemas": [],
+      "nota": 8,
+      "puntajes": {
+        "estructura": 9,
+        "dolor_visual": 9,
+        "titular": 9,
+        "texto_limpio": 9,
+        "frasco_fiel": 9,
+        "oferta_confianza": 9,
+        "diferencia_real": 9
+      }
+    }
+  ]
+}
