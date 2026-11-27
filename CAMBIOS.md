@@ -2,6 +2,17 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27g · Plantilla AMUNA: imágenes sin cortes, fotos caseras y más rápida
+
+- **Ninguna imagen sale cortada.** A ChatGPT se le piden solo los tamaños que hace bien (cuadrada o 2:3) y después:
+  - las imágenes con texto entran enteras, con el color de fondo de la página alrededor;
+  - en las fotos, la persona y el producto quedan en el centro.
+  - Las historias y los pasos tienen ahora la medida de la caja donde se ven.
+- **Fotos caseras y variadas:** cada foto lleva otra mujer, otro lugar y otra ropa, con luz natural, como tomada con el celular.
+- **Historias con el marco de Instagram de tu marca:** barritas, avatar, tu @ y una frase tipo sticker.
+- **Capturas reales de tus clientas** (chats, mensajes; opcional, hasta 9): salen tal cual en «Experiencias con…», como en AMUNA. Sin ellas, esa parte lleva fotos caseras de tu producto; nunca se inventan chats.
+- **Más rápida:** las imágenes se hacen de a 3 a la vez.
+
 ## 2026-11-27f · Landings con la estructura de tu página de AMUNA
 
 - **Plantilla nueva en «Landings → Crear con el equipo»: «AMUNA: combos y ritual».** Ahora es la que sale por defecto; la de CEN sigue disponible. Hace la landing con la misma estructura de tu página de AMUNA:

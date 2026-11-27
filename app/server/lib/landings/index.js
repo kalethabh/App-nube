@@ -138,7 +138,7 @@ export function crear({ url, prompt = '', modo = null, motor = null, productoId 
  * (2026-11-25f) CREAR desde la plantilla, con el equipo de agentes (plantilla.js): { productoId, prompt?, motor? }.
  * Sin URL: la landing nace de la plantilla y la investigación de mercado del producto.
  */
-export function crearDesdePlantilla({ productoId, prompt = '', motor = null, precios = null, registro = '', resenas = [], plantilla = 'amuna' } = {}) {
+export function crearDesdePlantilla({ productoId, prompt = '', motor = null, precios = null, registro = '', resenas = [], plantilla = 'amuna', capturas = [] } = {}) {
   const prod = listarProductos().find((p) => p.id === productoId);
   if (!prod) throw new ErrorApp(400, 'Elige el producto para el que creas la landing.');
   // (2026-11-27d) sin precios la página quedaba con «Precio por definir»: ahora son obligatorios
@@ -150,6 +150,8 @@ export function crearDesdePlantilla({ productoId, prompt = '', motor = null, pre
     return RE_FOTO.test(f) && fs.existsSync(path.join(DIR_FOTOS, f)) ? { ...r, fotoSubida: f } : r;
   });
   if (!['amuna', 'cen'].includes(plantilla)) throw new ErrorApp(400, 'Elige la plantilla de la landing.');
+  // (2026-11-27g) capturas REALES de clientas (chats, mensajes), subidas con /api/landings/fotos
+  const capturasOk = (Array.isArray(capturas) ? capturas : []).map(String).filter((f) => RE_FOTO.test(f) && fs.existsSync(path.join(DIR_FOTOS, f))).slice(0, 9);
   if (!motor) {
     try {
       motor = motorElegido() || 'claude';
@@ -161,7 +163,7 @@ export function crearDesdePlantilla({ productoId, prompt = '', motor = null, pre
   const base = String(prod.nombre || productoId).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'landing';
   const id = `${base}-${crypto.randomBytes(3).toString('hex')}`;
   fs.mkdirSync(carpetaDe(id), { recursive: true });
-  guardar(id, { id, url: null, modo: 'crear', motor, prompt: String(prompt || '').trim().slice(0, 4000), precios: listos, resenas: reales, plantilla, registro: String(registro || '').trim().slice(0, 60), productoId, analizar: false, titulo: prod.nombre, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, informe: null, puntajes: null });
+  guardar(id, { id, url: null, modo: 'crear', motor, prompt: String(prompt || '').trim().slice(0, 4000), precios: listos, resenas: reales, plantilla, capturas: capturasOk, registro: String(registro || '').trim().slice(0, 60), productoId, analizar: false, titulo: prod.nombre, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, informe: null, puntajes: null });
   crearConElEquipo(id);
   return leer(id);
 }
@@ -179,9 +181,15 @@ async function crearConElEquipo(id) {
       fs.copyFileSync(path.join(DIR_FOTOS, x.fotoSubida), path.join(carpeta, destino));
       return { ...x, foto: destino };
     });
+    const capturasReales = (l.capturas || []).filter((f) => RE_FOTO.test(f) && fs.existsSync(path.join(DIR_FOTOS, f))).map((f, k) => {
+      const destino = `assets/captura-${k + 1}${path.extname(f)}`;
+      fs.mkdirSync(path.join(carpeta, 'assets'), { recursive: true });
+      fs.copyFileSync(path.join(DIR_FOTOS, f), path.join(carpeta, destino));
+      return destino;
+    });
     const { crearConEquipo } = await import('./plantilla.js');
     const { crearConAmuna } = await import('./plantilla-amuna.js');
-    const r = await (l.plantilla === 'cen' ? crearConEquipo : crearConAmuna)({ carpeta: carpetaDe(id), productoId: l.productoId, pedido: l.prompt, precios: l.precios, registro: l.registro, resenas, motor: l.motor, guardar: (c) => guardar(id, c), avanzar: (t) => avanzar(id, t) });
+    const r = await (l.plantilla === 'cen' ? crearConEquipo : crearConAmuna)({ carpeta: carpetaDe(id), productoId: l.productoId, pedido: l.prompt, precios: l.precios, registro: l.registro, resenas, capturasReales, motor: l.motor, guardar: (c) => guardar(id, c), avanzar: (t) => avanzar(id, t) });
     guardar(id, { titulo: r.titulo, creada: { textos: r.cambiados, imagenes: r.imagenes.hechas, pedidas: r.imagenes.pedidas } });
     guardar(id, { estado: 'midiendo' });
     await medir(id);

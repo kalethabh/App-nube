@@ -40,7 +40,7 @@ export const AMUNA = {
     ],
   },
   ingredientes: 'img/ingredientes.webp',
-  historias: { titulo: 'Historias de clientas AMUA', texto: 'Fotos y mensajes que nos mandan las que ya empezaron su ritual.', boton: 'Quiero el mío', nota: 'Experiencias compartidas por nuestra comunidad AMUA.', fotos: [1, 2, 3, 4, 5, 6].map((k) => `img/historia-${k}.webp`) },
+  historias: { usuario: '@amua.co', stickers: ['Mi ritual de cada mañana', 'Constancia > prisa', 'Gotas + agua + a darle', 'Día 21 del ritual', 'Lista para mi día', 'Pequeños hábitos, gran cambio'], titulo: 'Historias de clientas AMUA', texto: 'Fotos y mensajes que nos mandan las que ya empezaron su ritual.', boton: 'Quiero el mío', nota: 'Experiencias compartidas por nuestra comunidad AMUA.', fotos: [1, 2, 3, 4, 5, 6].map((k) => `img/historia-${k}.webp`) },
   ruta: {
     titulo: 'Tu rutina, *a tu ritmo*', sub: 'Una guía para organizar tus hábitos, sin promesas mágicas ni afanes.',
     pasos: [
