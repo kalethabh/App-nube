@@ -22,12 +22,14 @@
     "Emilio (estratega (investigación)) está trabajando…",
     "Antonia (diseñadora visual) está trabajando…",
     "Valeria (copywriter) está trabajando…",
-    "Mateo (director de imágenes) está trabajando…"
+    "Mateo (director de imágenes) está trabajando…",
+    "Renata (revisión) está trabajando…",
+    "ChatGPT está haciendo 31 imágenes con tu producto (cada una con la medida de la plantilla)…"
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-27T19:05:51.065Z",
+  "actualizado": "2026-11-27T19:08:10.722Z",
   "agentes": [
     {
       "id": "estratega",
@@ -54,15 +56,23 @@
       "id": "imagenes",
       "nombre": "Mateo",
       "rol": "Director de imágenes",
-      "estado": "trabajando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Traduje cada pieza de la plantilla a esta canela: en vez de hablar del cuerpo, hablamos del antojo de la tarde, de la energía después de almorzar y de sentirse más liviana, con el tiempo real de 4 a 8 semanas. Las mujeres son colombianas de 44 a 55 años, en su casa, en la cocina o caminando, como tu clienta. En ingredientes solo puse lo que trae de verdad: canela de Ceilán de Sri Lanka y aceite MCT, en cápsula blanda; no inventé más. No hay sello de garantía, ni reseñas, ni cifras de la etiqueta, ni registros, y en las imágenes de ayuda siempre va que cada cuerpo es distinto y que consulte a su médico si toma medicamentos."
     },
     {
       "id": "revision",
       "nombre": "Renata",
       "rol": "Revisión",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "Quité de la imagen principal el «¡En 4 a 8 semanas!» y las etiquetas de «menos antojo», «energía pareja» y «más liviana», porque eran promesas sin respaldo y chocaban con las preguntas, que dicen que no hay plazo garantizado. También suavicé el nombre del combo de 3 y cambié «una cápsula» por «según la etiqueta», porque todavía no sabemos la dosis. Puse Metabolae como marca, porque es la que aparece en la bolsa. Quité el coco de la imagen de ingredientes hasta que confirmes de dónde sale el aceite.",
+      "pendientes": [
+        "La dosis no aparece en el empaque de frente. Confirma cuántas cápsulas van al día y si una bolsa dura un mes, porque los combos dicen 1, 2 y 3 meses.",
+        "El correo de la tienda está vacío y la página promete «Atención por correo». Agrega tu correo antes de publicar.",
+        "Confirma de dónde sale el aceite MCT (casi siempre del coco) y de qué está hecha la cápsula. Por ahora la imagen no muestra coco.",
+        "Tienes que tener tus políticas de envío, cambios y devoluciones publicadas, porque la página las menciona.",
+        "Las secciones de reseñas y experiencias deben quedar ocultas hasta que tengas reseñas reales con foto.",
+        "No pautes con promesas de azúcar, glucosa ni plazos de resultados. Revisa con tu médico la advertencia para quien toma medicamentos."
+      ]
     },
     {
       "id": "visual",
