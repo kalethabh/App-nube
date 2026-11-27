@@ -28,29 +28,21 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "listo",
-      "version": 1,
-      "firma": "1871415-1795782920139",
-      "orden": {
-        "id": "U0001",
-        "modo": "editar",
-        "version": 2,
-        "instruccion_en": "On the bottle label, change only the brand word 'amuna' to 'amua' (lowercase, exactly four letters: a-m-u-a), same font, same bold weight, same black color, same size and same centered position above 'VITALDROPS'. Keep everything else identical: the woman, all other texts, colors, layout, bottle shape and the exact same image dimensions and aspect ratio.",
-        "textos": true,
-        "aspecto": "9:16",
-        "trabajo": "T002"
-      },
+      "version": 2,
+      "firma": "1963642-1795783050494",
+      "orden": null,
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-27T12:35:20.727Z",
-      "pedido": "U0001",
+      "desde": "2026-11-27T12:37:30.975Z",
+      "pedido": null,
       "aspecto": "9:16",
-      "ultimaOrden": "g",
+      "ultimaOrden": "U0001",
       "fallo": null
     }
   },
@@ -63,7 +55,7 @@
       "instruccionEnLista": true,
       "cambiaTextos": true,
       "fecha": "2026-11-27T12:36:26.934Z",
-      "estado": "generando",
+      "estado": "listo",
       "pasos": [
         {
           "pieza": "V01_1x1",

@@ -1,47 +1,25 @@
-Vertical 9:16 fitness infographic ad on a clean off-white background (#F7F7F5). TOP ZONE (0-22%): three stacked centered headline lines in a heavy condensed sans-serif, all caps: line 1 'ENFOCADO EN' in white letters with a thick black #111111 outline; line 2 'CADERAS, GLÚTEOS' in black on a bright yellow #FFE01B rounded rectangle with black border; line 3 a big white outlined 'Y' followed by 'PIERNAS.' in black on a yellow rounded box. Two glossy yellow 3D hearts float at the top right edge. SUBTITLE (22-26%): two centered lines in black rounded sans-serif medium weight: 'Centraliza la grasa mal ubicada y la lleva a caderas, glúteos y piernas tonificadas.' BADGES (26-31%): two black rectangles with yellow borders side by side; left one with a yellow wheat icon and 'GLUTEN' (small white) over 'FREE' (bold yellow); right one with a yellow sugar-cube icon and 'SUGAR' over 'FREE'. CENTER (31-100%, right two-thirds): an ultra realistic adult Latina woman in her late 20s, long straight dark brown hair with loose strands, warm tan skin with real texture and pores, natural makeup, toned fit body with a small waist and curvy hips and thighs, wearing a black sports bra and black high-waist fitted shorts, standing in a three-quarter pose facing the camera, left arm raised with hand behind her head, looking at the camera, soft bright studio light from front-left, 50mm lens at waist height. LEFT COLUMN (34-68%): four stacked black circles with thin yellow line icons (flat abdomen, waist with two inward arrows, hips silhouette, glutes silhouette), each followed by a bold condensed black zone name and two lines of small black body text: 'ABDOMEN' / 'Apariencia más plana y estilizada.'; 'CINTURA' / 'Mayor definición visual.'; 'CADERAS' / 'Apariencia más pronunciada.'; 'GLÚTEOS' / 'Mayor volumen visual y realce.'. CALLOUTS: yellow rounded pills with black outline and black bold condensed text connected by thin yellow lines ending in yellow dots on the model: 'ABDOMEN' (right, at 50% height, pointing to her belly), 'CINTURA' (right, 58%, pointing to her waist), 'CADERAS' (left-center, 70%, pointing to her hip), 'GLÚTEOS' (left-center, 76%, pointing to her upper thigh/hip side). BOTTOM LEFT (78-88%): '¡EN 4 SEMANAS!' in black heavy condensed caps on two lines, the '4' huge in yellow #FFE01B, with a yellow brush swoosh underline. BOTTOM LEFT (90-99%): a gold circular seal with a thin dark border reading 'GARANTÍA' / '90' (large) / 'DÍAS' with three small stars, next to a yellow rounded pill reading 'DEVOLUCIÓN DE DINERO' in black bold caps. BOTTOM RIGHT (63-98%): the product from the attached product image, used as the only source of truth: an amber brown glass dropper bottle with a black ribbed cap and black rubber dropper bulb, about 1.6 times taller than wide with round shoulders, standing upright on a yellow cylindrical podium, label facing the camera and readable, matte, no rainbow, no prism light, no lens flare. Yellow label with white band: at the top of the label the brand word printed in black lowercase bold rounded sans-serif reads exactly 'amuna' (five letters: a-m-u-n-a), same size and position as on the original label; below it 'VITALDROPS' in white bold caps, 'All-in-One Multi-Herbal Supplement', ingredient circles A, F, L, MA, BR, and 'Dietary Supplement | 2 fl. oz. (60mL)'. Do not redesign the bottle in any other way.
+Edit this advertising image (the FIRST attached image) following this instruction: "On the bottle label, change only the brand word 'amuna' to 'amua' (lowercase, exactly four letters: a-m-u-a), same font, same bold weight, same black color, same size and same centered position above 'VITALDROPS'. Keep everything else identical: the woman, all other texts, colors, layout, bottle shape and the exact same image dimensions and aspect ratio.". Keep everything else exactly as it is (layout, texts, colors, typography, person, product) unless the instruction says otherwise. The SECOND attached image is the real product photo: the product must stay identical to it. Do not add new elements.
 
-EXACT VISIBLE TEXT (render exactly, no spelling changes):
-- main headline (top line 1): "ENFOCADO EN" — Heavy condensed caps, white #FFFFFF with thick black #111111 outline
-- main headline (top line 2): "CADERAS, GLÚTEOS" — Heavy condensed caps, black #111111 on yellow #FFE01B rounded box (highlighted line)
-- main headline (top line 3): "Y PIERNAS." — 'Y' white with black outline; 'PIERNAS.' black #111111 on yellow #FFE01B rounded box
-- value proposition (below headline, centered, two lines): "Centraliza la grasa mal ubicada y la lleva a caderas, glúteos y piernas tonificadas." — Rounded sans-serif medium, black #111111
-- badge (left badge): "GLUTEN FREE" — 'GLUTEN' small white, 'FREE' bold yellow #FFE01B on black
-- badge (right badge): "SUGAR FREE" — 'SUGAR' small white, 'FREE' bold yellow #FFE01B on black
-- benefit (left column 1): "ABDOMEN Apariencia más plana y estilizada." — Bold condensed black name + small black body
-- benefit (left column 2): "CINTURA Mayor definición visual." — Bold condensed black name + small black body
-- benefit (left column 3): "CADERAS Apariencia más pronunciada." — Bold condensed black name + small black body
-- benefit (left column 4): "GLÚTEOS Mayor volumen visual y realce." — Bold condensed black name + small black body
-- other (callout pill right, 50%): "ABDOMEN" — Black bold condensed on yellow pill with black outline
-- other (callout pill right, 58%): "CINTURA" — Black bold condensed on yellow pill with black outline
-- other (callout pill left-center, 70%): "CADERAS" — Black bold condensed on yellow pill with black outline
-- other (callout pill left-center, 76%): "GLÚTEOS" — Black bold condensed on yellow pill with black outline
-- other (bottom left, two lines): "¡EN 4 SEMANAS!" — Heavy condensed black caps; the '4' huge in yellow #FFE01B; yellow swoosh underline
-- trust item (gold circular seal bottom left): "GARANTÍA 90 DÍAS" — Dark bold caps on gold seal, '90' large, three small stars
-- trust item (yellow pill next to the seal): "DEVOLUCIÓN DE DINERO" — Black bold caps on yellow pill
-- other (brand word at the top of the bottle label): "amuna" — Black lowercase bold rounded sans-serif, same size as the original label brand word
+Exact visible texts (each appears exactly once, correctly spelled, nothing else added):
+- main headline: "ENFOCADO EN"
+- main headline: "CADERAS, GLÚTEOS"
+- main headline: "Y PIERNAS."
+- value proposition: "Centraliza la grasa mal ubicada y la lleva a caderas, glúteos y piernas tonificadas."
+- badge: "GLUTEN FREE"
+- badge: "SUGAR FREE"
+- benefit: "ABDOMEN Apariencia más plana y estilizada."
+- benefit: "CINTURA Mayor definición visual."
+- benefit: "CADERAS Apariencia más pronunciada."
+- benefit: "GLÚTEOS Mayor volumen visual y realce."
+- other: "ABDOMEN"
+- other: "CINTURA"
+- other: "CADERAS"
+- other: "GLÚTEOS"
+- other: "¡EN 4 SEMANAS!"
+- trust item: "GARANTÍA 90 DÍAS"
+- trust item: "DEVOLUCIÓN DE DINERO"
+- other: "amuna"
 
-BRAND IDENTITY:
-- color_palette: Clean off-white background #F7F7F5, black #111111 for text and icon circles, bright lemon yellow #FFE01B for highlight boxes, pills and podium, white #FFFFFF outlined letters
-- text_typography: Heavy condensed sans-serif (like Anton / Bebas Neue Bold) for headlines and zone names; clean rounded sans-serif (like Montserrat / Poppins) for body text
+Keep the top 15% and the bottom 15% of the vertical canvas free of important text and free of the product label, because Instagram, Facebook and TikTok cover those areas with their own interface. All headlines, texts and the product label must stay inside the central safe zone and remain perfectly legible.
 
-MANDATORY ELEMENTS:
-- The same amber dropper bottle from the product photo on a yellow cylindrical podium, label readable, brand word 'amuna'
-- The fitness model in black sports bra and black high-waist shorts, arm behind her head, facing the camera
-- Four black circle icons with yellow line drawings in the left column
-- Yellow callout pills with thin yellow lines and dots
-- Two glossy yellow 3D hearts at the top right
-- Gold circular guarantee seal with three stars
-
-STRICT EXCLUSIONS:
-- The bottle label must not read 'amua'; it reads exactly 'amuna'
-- No mirrored or warped label, no extra bottles, no capsules, no pills
-- No back-facing pose
-- Do not add any visual module that is not described in this prompt.
-- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
-- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
-- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
-- Do not add: Price tags, discount labels, CTA buttons, rating stars, testimonials, logos of other brands, extra badges or extra text
-
-The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
-
-CANVAS: this ad is a vertical 9:16 portrait layout for Instagram Stories, Reels and TikTok, not a square: lay out the same blocks for that canvas.
+All visible text inside the generated image must be written in Spanish, except the product label texts and the 'GLUTEN FREE' / 'SUGAR FREE' badges, which stay as in the reference.

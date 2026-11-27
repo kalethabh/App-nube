@@ -1,0 +1,15 @@
+{
+  "piezas": {
+    "V01_1x1": [
+      {
+        "n": 1,
+        "archivo": "versiones/V01_1x1.v1.png",
+        "prompt": "versiones/V01_1x1.v1.txt",
+        "reemplazadaPor": "U0001",
+        "motivo": null,
+        "aspecto": "9:16",
+        "fecha": "2026-11-27T12:37:30.494Z"
+      }
+    ]
+  }
+}

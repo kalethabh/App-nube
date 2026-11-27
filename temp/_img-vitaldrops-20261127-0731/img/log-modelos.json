@@ -1,6 +1,6 @@
 {
-  "generado": "2026-11-27T12:35:40.161Z",
-  "segundos": 107,
+  "generado": "2026-11-27T12:37:50.514Z",
+  "segundos": 84,
   "imagenes": [
     {
       "id": "V01_1x1",
@@ -8,9 +8,9 @@
       "modelo": "gpt-image (ChatGPT)",
       "respaldo": false,
       "intentos": 1,
-      "referencias": 1,
+      "referencias": 2,
       "creditos": 0,
-      "taskId": "01a21cff-74c0-7563-a3f2-d7b82bd04f36"
+      "taskId": "01a21d01-cf93-7bb3-b62e-b5935fe96df5"
     }
   ]
 }
