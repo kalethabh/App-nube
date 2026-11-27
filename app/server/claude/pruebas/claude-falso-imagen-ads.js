@@ -306,7 +306,11 @@ async function chatImagenes(texto) {
   const salida = (texto.match(/Escribe `(temp\/\S+\/app\/chat\/respuesta-\d+\.json)`/) || [])[1];
   const libres = idsDe((texto.match(/Usa estos ids, en orden: ([^.\n]+)\./) || [])[1] || '');
   const msg = (texto.split('## El mensaje del usuario\n')[1] || '').split('\n\nEscribe `')[0];
-  const [, cantDef, formDef] = texto.match(/Por defecto (\d) en (1:1|9:16|4:5)/) || [null, '1', '1:1'];
+  // (2026-11-27b) lo que eligió el usuario abajo (si eligió); si no, una en 1:1
+  const cantDef = (texto.match(/eligió abajo:[^\n]*?(\d) imag/) || [])[1] || '1';
+  const formDef = (texto.match(/eligió abajo: en (1:1|9:16|4:5)/) || [])[1] || '1:1';
+  fs.mkdirSync(path.join(RAIZ, C, 'app', 'chat'), { recursive: true });
+  fs.writeFileSync(path.join(RAIZ, C, 'app', 'chat', `preferido-${(salida.match(/respuesta-(\d+)/) || [])[1]}.txt`), (texto.match(/Si pide imágenes NUEVAS:[^\n]*/) || [''])[0]);
   // lo que vio (para la prueba): si retomó la sesión y si trae el conocimiento
   fs.mkdirSync(path.join(RAIZ, C, 'app', 'chat'), { recursive: true });
   fs.writeFileSync(path.join(RAIZ, C, 'app', 'chat', `falso-${(salida.match(/respuesta-(\d+)/) || [])[1]}.json`), JSON.stringify({ resume: Boolean(val('--resume')), primera: !/sigue la misma conversación/.test(texto), conocimiento: ['Cómo trabaja Mayaverra', 'Reglas de conversión', 'Detalle del visual_prompt', 'El producto'].filter((k) => texto.includes(k)), conAdjunto: /Adjuntó: /.test(texto) }));

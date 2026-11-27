@@ -4,7 +4,7 @@
 // lote del producto: sus imágenes quedan en Anuncios de imagen → la carpeta del producto.
 // Servidor: /api/chat-imagenes (lib/imagen-ads/chat.js).
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { FolderOpen, ImagePlus, MessageSquarePlus, Paperclip, Send, Sparkles, Trash2, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Download, FolderOpen, ImagePlus, MessageSquarePlus, Paperclip, Pencil, Send, Sparkles, Trash2, X } from 'lucide-react';
 import { Boton, CabeceraPagina, Chip, EstadoVacio, Modal, useAvisos } from '../../componentes/index.js';
 import { pedirNuevo, useDatos, refrescar } from '../../datos/api.js';
 import { apiImagenes, copiarDesde, useProductosImagen } from '../../datos/imagenes.js';
@@ -111,8 +111,11 @@ function Conversacion({ id }) {
   const { datos, error } = useDatos(clave, () => pedirNuevo(`${BASE}/${id}`), { cadaMs: 2500 });
   const { aviso } = useAvisos();
   const [texto, setTexto] = useState('');
-  const [formato, setFormato] = useState('1:1');
-  const [cantidad, setCantidad] = useState(1);
+  // (2026-11-27b) chat libre: sin tamaño ni cantidad salvo que los elijas
+  const [formato, setFormato] = useState(null);
+  const [cantidad, setCantidad] = useState(null);
+  const [ver, setVer] = useState(null); // { lista: [url], i } la imagen adjunta en grande
+  const [editando, setEditando] = useState(null); // { id, texto } tu mensaje que estás corrigiendo
   const [adjuntos, setAdjuntos] = useState([]); // [{ archivo, url }]
   const [enviando, setEnviando] = useState(false);
   const [falla, setFalla] = useState('');
@@ -156,15 +159,30 @@ function Conversacion({ id }) {
     return () => window.removeEventListener('paste', alPegar);
   });
 
-  const enviar = async (t = texto) => {
+  // (de la caja; o, con `adj`, tu mensaje corregido con sus mismas imágenes: «editar y volver a enviar»)
+  useEffect(() => {
+    if (!ver || ver.lista.length < 2) return undefined;
+    const tecla = (e) => {
+      if (e.key === 'ArrowLeft') setVer((x) => (x && x.i > 0 ? { ...x, i: x.i - 1 } : x));
+      if (e.key === 'ArrowRight') setVer((x) => (x && x.i < x.lista.length - 1 ? { ...x, i: x.i + 1 } : x));
+    };
+    window.addEventListener('keydown', tecla);
+    return () => window.removeEventListener('keydown', tecla);
+  }, [ver]);
+
+  const enviar = async (t = texto, { adj = null } = {}) => {
     const m = String(t || '').trim();
-    if ((!m && !adjuntos.length) || enviando || pensando) return;
+    const lista = adj || adjuntos.map((a) => a.archivo);
+    if ((!m && !lista.length) || enviando || pensando) return;
     setEnviando(true);
     setFalla('');
     try {
-      await pedirNuevo(`${BASE}/${id}/mensajes`, { metodo: 'POST', cuerpo: { texto: m, adjuntos: adjuntos.map((a) => a.archivo), formato, cantidad } });
-      setTexto('');
-      setAdjuntos([]);
+      await pedirNuevo(`${BASE}/${id}/mensajes`, { metodo: 'POST', cuerpo: { texto: m, adjuntos: lista, formato, cantidad } });
+      if (adj) setEditando(null);
+      else {
+        setTexto('');
+        setAdjuntos([]);
+      }
       refrescar(clave);
       refrescar('chat-imagenes:lista');
     } catch (e) {
@@ -232,11 +250,27 @@ function Conversacion({ id }) {
           ) : (
             mensajes.map((m) => (
               <div key={m.id} className={`chat-img__msj chat-img__msj--${m.de === 'tu' ? 'tu' : 'ia'}`}>
-                {m.texto ? <p>{m.texto}</p> : null}
+                {editando?.id === m.id ? (
+                  <div className="chat-img__editar">
+                    <textarea rows={3} value={editando.texto} onChange={(e) => setEditando({ ...editando, texto: e.target.value })} aria-label="Corrige tu mensaje" autoFocus />
+                    <div className="fila" style={{ '--hueco': '6px' }}>
+                      <Boton variante="fantasma" tamano="chico" onClick={() => setEditando(null)}>
+                        Cancelar
+                      </Boton>
+                      <Boton variante="secundario" tamano="chico" icono={Send} cargando={enviando} disabled={pensando || !editando.texto.trim()} onClick={() => enviar(editando.texto, { adj: (m.adjuntos || []).map((a) => a.archivo) })}>
+                        Volver a enviar
+                      </Boton>
+                    </div>
+                  </div>
+                ) : m.texto ? (
+                  <p>{m.texto}</p>
+                ) : null}
                 {(m.adjuntos || []).length ? (
                   <div className="chat-img__adjuntos">
-                    {m.adjuntos.map((a) => (
-                      <img key={a.archivo} src={a.url} alt="Imagen adjunta" />
+                    {m.adjuntos.map((a, i) => (
+                      <button key={a.archivo} type="button" className="chat-img__ver" onClick={() => setVer({ lista: m.adjuntos.map((x) => x.url), i })} aria-label="Ver la imagen adjunta en grande">
+                        <img src={a.url} alt="Imagen adjunta" />
+                      </button>
                     ))}
                   </div>
                 ) : null}
@@ -250,7 +284,14 @@ function Conversacion({ id }) {
                     ))}
                   </div>
                 ) : null}
-                <small>{fechaRelativa(m.fecha)}</small>
+                <small className="chat-img__pie">
+                  {fechaRelativa(m.fecha)}
+                  {m.de === 'tu' && editando?.id !== m.id ? (
+                    <button type="button" className="chat-img__editar-btn" onClick={() => setEditando({ id: m.id, texto: m.texto || '' })} disabled={pensando}>
+                      <Pencil size={11} aria-hidden="true" /> Editar y volver a enviar
+                    </button>
+                  ) : null}
+                </small>
               </div>
             ))
           )}
@@ -286,7 +327,9 @@ function Conversacion({ id }) {
             <div className="chat-img__adjuntos chat-img__adjuntos--caja">
               {adjuntos.map((a) => (
                 <span key={a.archivo} className="chat-img__adjunto">
-                  <img src={a.url} alt="" />
+                  <button type="button" className="chat-img__ver" onClick={() => setVer({ lista: adjuntos.map((x) => x.url), i: adjuntos.indexOf(a) })} aria-label="Ver en grande">
+                    <img src={a.url} alt="" />
+                  </button>
                   <button type="button" aria-label="Quitar" onClick={() => setAdjuntos((l) => l.filter((x) => x.archivo !== a.archivo))}>
                     <X size={12} />
                   </button>
@@ -313,14 +356,16 @@ function Conversacion({ id }) {
                 Adjuntar
               </Boton>
               <input ref={subir} type="file" accept="image/png,image/jpeg,image/webp" multiple hidden onChange={(e) => adjuntar(e.target.files)} />
+              <span className="t-mini t-3">{formato ? 'Tamaño:' : 'Tamaño: libre'}</span>
               {TAMANOS.map(([f, t]) => (
-                <Chip key={f} tamano="chico" activo={formato === f} onClick={() => setFormato(f)}>
+                <Chip key={f} tamano="chico" activo={formato === f} onClick={() => setFormato((x) => (x === f ? null : f))} title={formato === f ? 'Tócalo otra vez para dejarlo libre' : `Que salgan en ${t.toLowerCase()}`}>
                   {t}
                 </Chip>
               ))}
               <label className="chat-img__cantidad t-chico">
                 <ImagePlus size={13} aria-hidden="true" />
-                <select value={cantidad} onChange={(e) => setCantidad(Number(e.target.value))} aria-label="Cuántas imágenes">
+                <select value={cantidad ?? ''} onChange={(e) => setCantidad(e.target.value ? Number(e.target.value) : null)} aria-label="Cuántas imágenes">
+                  <option value="">Las que diga</option>
                   {[1, 2, 3, 4].map((n) => (
                     <option key={n} value={n}>
                       {n} {n === 1 ? 'imagen' : 'imágenes'}
@@ -352,6 +397,20 @@ function Conversacion({ id }) {
         }}
         onCopiar={copiar}
       />
+      <Modal abierto={Boolean(ver)} onCerrar={() => setVer(null)} tamano="grande" titulo="Imagen adjunta" className="chat-img__modal-ver">
+        {ver ? (
+          <div className="chat-img__grande">
+            <img src={ver.lista[ver.i]} alt="Imagen adjunta en grande" />
+            <div className="fila" style={{ '--hueco': '6px', justifyContent: 'center' }}>
+              {ver.lista.length > 1 ? <Boton variante="fantasma" tamano="chico" soloIcono icono={ChevronLeft} etiqueta="Anterior" disabled={ver.i <= 0} onClick={() => setVer({ ...ver, i: ver.i - 1 })} /> : null}
+              <Boton variante="secundario" tamano="chico" icono={Download} href={ver.lista[ver.i]} download>
+                Descargar
+              </Boton>
+              {ver.lista.length > 1 ? <Boton variante="fantasma" tamano="chico" soloIcono icono={ChevronRight} etiqueta="Siguiente" disabled={ver.i >= ver.lista.length - 1} onClick={() => setVer({ ...ver, i: ver.i + 1 })} /> : null}
+            </div>
+          </div>
+        ) : null}
+      </Modal>
       <Modal
         abierto={confirmar !== null}
         onCerrar={() => setConfirmar(null)}

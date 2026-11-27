@@ -2,6 +2,19 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27b · Chat de imágenes: libre, rápido y siempre con tu ChatGPT
+
+- **Las imágenes de anuncios y del chat se hacen siempre con tu ChatGPT (gratis), nunca con kie.** Cada prompt pide la mayor calidad posible: nitidez, textos perfectos, piel y telas realistas.
+- **Chat libre:** ya no trae un tamaño ni una cantidad elegidos.
+  - Si no eliges, la IA hace lo que dice tu mensaje (si no dice cuántas, una).
+  - Para el tamaño usa el de tu imagen de referencia o el que mejor sirva.
+  - Si eliges un tamaño, tócalo otra vez para dejarlo libre.
+- **Los cambios sencillos van directo:** borrar un texto, cambiar a la persona, un color, la tipografía o el tamaño de algo.
+  - El chat los manda al instante, sin analizar, y queda la versión nueva de esa imagen.
+  - Por ejemplo: «borra el texto de abajo en V02», «cambia en V01: el botón a verde» o «la última con fondo blanco».
+- **Las imágenes que adjuntas se abren en grande** al tocarlas, con «Descargar» y flechas si hay varias.
+- **«Editar y volver a enviar»** en cada mensaje tuyo: lo corriges y se vuelve a enviar con sus mismas imágenes.
+
 ## 2026-11-27a · Chat de imágenes
 
 - **Nueva sección «Chat de imágenes»** en el menú, debajo de «Anuncios de imagen». Le pides imágenes con tus palabras y las crea directo.

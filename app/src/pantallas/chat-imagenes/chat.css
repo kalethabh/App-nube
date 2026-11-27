@@ -50,3 +50,14 @@
 .chat-img__conversacion { height: calc(100vh - 300px); }
 .chat-img__barra { flex-wrap: wrap; }
 @media (max-width: 860px) { .chat-img__conversacion { height: 78vh; } .chat-img__imagenes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* (2026-11-27b) los adjuntos se abren en grande; editar y volver a enviar tu mensaje */
+.chat-img__ver { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; line-height: 0; }
+.chat-img__ver:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+.chat-img__grande { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.chat-img__grande img { max-width: 100%; max-height: 72vh; object-fit: contain; border-radius: 10px; background: rgba(0, 0, 0, 0.3); }
+.chat-img__pie { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.chat-img__editar-btn { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; color: inherit; font: inherit; font-size: 11px; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; opacity: 0.85; }
+.chat-img__editar-btn:hover { opacity: 1; }
+.chat-img__editar-btn:disabled { opacity: 0.4; cursor: default; }
+.chat-img__editar { display: flex; flex-direction: column; gap: 6px; min-width: min(420px, 70vw); }
+.chat-img__editar textarea { width: 100%; resize: vertical; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.5); background: rgba(0, 0, 0, 0.18); color: inherit; font: inherit; padding: 8px 10px; }
