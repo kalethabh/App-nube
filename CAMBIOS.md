@@ -2,6 +2,31 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27k · Landings AMUNA tal cual y el profesional de la salud en «cuidado»
+
+- **Las landings vuelven al orden y el título de tu página de AMUNA**, como en el artefacto: los combos arriba, justo después del nombre del producto. Se quitaron el titular de resultado, el bloque de dolor y el auditor de la versión anterior.
+- **«Tu rutina merece cuidado» lleva un profesional de la salud:**
+  - **Si tienes uno real que te autorizó:** subes su foto, nombre y especialidad (y marcas «Me autorizó…»), y sale él con su placa.
+  - **Si no:** ChatGPT hace una imagen de una consulta médica (doctora o doctor con su paciente, sin tu producto y sin nombre), con la nota «Imagen ilustrativa. No representa una recomendación médica del producto», como en tu página de AMUNA.
+
+## 2026-11-27j · Landings con la clase «Cada página es una landing»
+
+- **Primera pantalla nueva:**
+  - arriba, el nombre del producto en chico;
+  - debajo, el titular de resultado (beneficio + tiempo + deseo, siguiendo la promesa de tus anuncios);
+  - un subtítulo «Para quién es»;
+  - la prueba social, si hay reseñas reales;
+  - y el botón «Pedir ahora · pago al recibir».
+- **Bloque de dolor:** «¿Te pasa esto?», 3 frases de la clienta con sus palabras (de la investigación) y «¿Te suena? No eres la única».
+- **El scroll en los 8 pasos de la clase:** engancho → dolor → promesa → pruebas en medio → ingredientes y modo de uso → combos (ahora después de beneficios y pruebas) → pago al recibir, dudas y preguntas → cierre. Siguen todas las secciones y la cantidad de AMUNA.
+- **Reglas en los textos:** el titular dice el tiempo; el subtítulo empieza con «Para…»; nada de promesas de cura (bienestar, nunca curas).
+- **Auditor de la clase:** cada landing sale con su nota (6 pilares, 18 puntos) y por dónde empezar a mejorarla. Sin reseñas ni capturas reales, te dice que las subas.
+
+## 2026-11-27i · Plantilla AMUNA: titulares que no se cortan
+
+- **Arreglado: el titular de la imagen principal salía cortado arriba y la última línea abajo.** ChatGPT solo hace imágenes 2:3 y copiaba la composición alta de AMUNA (9:16), así que se le salía el texto. Ahora le decimos el lienzo real que tiene, con márgenes de 8 % arriba y abajo.
+- **Si aun así sale algo pegado al borde, la app la rehace una vez**, con todo más chico.
+
 ## 2026-11-27h · Plantilla AMUNA: la misma estructura y la misma cantidad de información
 
 - **La misma cantidad que tu página de AMUNA:** 4 checks, 4 dudas, 4 momentos de la ruta, 3 pasos, 6 filas de comparación, 11 preguntas frecuentes y 2 avisos legales. Cada texto tiene el largo del de AMUNA; si sale más corto o más largo, el equipo lo rehace.

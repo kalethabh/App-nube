@@ -340,7 +340,8 @@ async function principal() {
     // (2026-11-27g) dos capturas reales de clientas
     const caps = [];
     for (let i = 0; i < 2; i++) caps.push((await pedir('/api/landings/fotos', { cuerpo: fs.readFileSync(path.join(TMP, 'producto.png')), headers: { 'Content-Type': 'image/png' } })).datos?.id);
-    r = await pedir('/api/landings/crear', { json: { productoId: prod, plantilla: 'amuna', capturas: caps, precios: { uno: '89900', dos: '152900', tres: '199900', antes: '89900' }, resenas: [{ nombre: 'Luz Marina R.', ciudad: 'Medellín', texto: 'Desde la segunda semana duermo de corrido, y eso que no creía.', estrellas: 5, foto: fotoId }, { nombre: 'Paola G.', ciudad: 'Cali', texto: 'Me gusta que es fácil de tomar y me ayuda a descansar mejor.', estrellas: 4 }] } });
+    const proFoto = (await pedir('/api/landings/fotos', { cuerpo: fs.readFileSync(path.join(TMP, 'producto.png')), headers: { 'Content-Type': 'image/png' } })).datos?.id;
+    r = await pedir('/api/landings/crear', { json: { productoId: prod, plantilla: 'amuna', capturas: caps, profesional: { foto: proFoto, nombre: 'Dra. Laura Gómez', especialidad: 'Nutrición clínica', autorizado: true }, precios: { uno: '89900', dos: '152900', tres: '199900', antes: '89900' }, resenas: [{ nombre: 'Luz Marina R.', ciudad: 'Medellín', texto: 'Desde la segunda semana duermo de corrido, y eso que no creía.', estrellas: 5, foto: fotoId }, { nombre: 'Paola G.', ciudad: 'Cali', texto: 'Me gusta que es fácil de tomar y me ayuda a descansar mejor.', estrellas: 4 }] } });
     const idA = r.datos?.id;
     if (idA) creados.landings.push(idA);
     const lA = await esperar(300, () => leerLanding(idA), terminada);
@@ -348,15 +349,16 @@ async function principal() {
     const hA = idA && fs.existsSync(path.join(RAIZ, 'temp', '_landings', idA, 'index.html')) ? html(idA) : '';
     const visibleA = hA.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>/g, '');
     const secsA = [...hA.matchAll(/data-seccion="([^"]+)"/g)].map((m) => m[1]);
+    // (2026-11-27k) el orden de la página de AMUNA, tal cual (el usuario lo eligió)
     const esperadas = ['galeria', 'prueba-social', 'titulo-y-beneficios', 'oferta', 'testimonio-destacado', 'dudas-rapidas', 'aviso-pedido', 'creativo', 'ellas-cuentan', 'ingredientes', 'historias', 'ruta', 'experiencias', 'experiencias-fotos', 'pasos', 'franja', 'comparacion', 'compra-clara', 'cuidado', 'resenas', 'preguntas-frecuentes', 'pie'];
-    check('(AMUNA) Las secciones de AMUNA, en su orden', JSON.stringify(secsA.filter((x) => esperadas.includes(x))) === JSON.stringify(esperadas), secsA);
+    check('(AMUNA) Todas las secciones de AMUNA, en el orden de su página', JSON.stringify(secsA.filter((x) => esperadas.includes(x))) === JSON.stringify(esperadas), secsA);
     const envA = idA ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', '_landings', idA, 'prueba-imagenes.json'), 'utf8')) : [];
     const { medidas } = await import(path.join(APP, 'server', 'lib', 'landings', 'clonar.js'));
     const malas = envA.filter((e) => {
       const m = medidas(fs.readFileSync(path.join(RAIZ, 'temp', '_landings', idA, e.archivo)));
       return !m || m.w !== e.w || m.h !== e.h;
     });
-    check('(AMUNA) Con capturas reales: 26 imágenes de GPT (las 5 fotos del carrusel no se hacen) y las capturas tal cual en «Experiencias con…»', envA.length === 26 && !envA.some((e) => e.slot.startsWith('ugc-')) && /data-seccion="experiencias-fotos"[\s\S]*?assets\/captura-1\.(png|jpg)[\s\S]*?assets\/captura-2\.(png|jpg)[\s\S]*?Experiencias con /.test(hA), envA.length);
+    check('(AMUNA) Con capturas reales y profesional real: 25 imágenes de GPT (las fotos del carrusel y la de «cuidado» no se hacen) y las capturas tal cual en «Experiencias con…»', envA.length === 25 && !envA.some((e) => e.slot.startsWith('ugc-')) && /data-seccion="experiencias-fotos"[\s\S]*?assets\/captura-1\.(png|jpg)[\s\S]*?assets\/captura-2\.(png|jpg)[\s\S]*?Experiencias con /.test(hA), envA.length);
     check('(2026-11-27h) Con reseñas reales: las estrellas bajo «Experiencias con…» y el selector para ordenar las reseñas (y funciona sin JS: el orden es el de las reseñas)', /data-seccion="experiencias-fotos"[\s\S]*?<div class="estrellas" aria-hidden="true">★★★★★<\/div>/.test(hA) && /<select id="orden" aria-label="Ordenar reseñas">/.test(hA), (hA.match(/<div class="ordenar">[\s\S]{0,200}/) || [''])[0]);
     {
       const { resenasPegadas } = await import(path.join(APP, 'src', 'datos', 'resenas-pegadas.js'));
@@ -369,10 +371,15 @@ async function principal() {
       tx.faq.items.pop();
       tx.titulo.lede = 'Muy corto aquí.';
       const mal = erroresTextos(tx, { nombre: 'Sueño Profundo' });
+      const tx2 = JSON.parse(JSON.stringify(moldeDeTextos()).replace(/AMUNA Vitaldrops™|AMUNA|AMUA|Vital ?drops™?/gi, 'Sueño Profundo'));
+      tx2.resumen = 'x';
+      tx2.dudas[0][1] = tx2.dudas[0][1].replace(/\.$/, '. Cura el insomnio.');
+      const mal2 = erroresTextos(tx2, { nombre: 'Sueño Profundo' });
+      check('(2026-11-27j) Bienestar, nunca curas: una promesa de cura se rechaza', mal2.some((e) => /nunca curas/.test(e)), mal2);
       check('(2026-11-27h) La misma cantidad de AMUNA: 11 preguntas exactas y cada texto con su largo (± 30 %)', !bien.length && mal.some((e) => /faq\.items.*exactamente 11/.test(e)) && mal.some((e) => /titulo\.lede.*3 palabras/.test(e)), { bien, mal });
     }
     check('(AMUNA) Las historias son 9:16 (1080×1920) con el marco de Instagram de la marca (@ y sticker); los pasos con la medida de su caja', envA.filter((e) => e.slot.startsWith('historia-')).every((e) => e.w === 1080 && e.h === 1920) && envA.filter((e) => e.slot.startsWith('paso-')).every((e) => e.w === 786 && e.h === 1074) && (hA.match(/<figure class="ig">/g) || []).length === 6 && /class="ig-quien"><span class="ig-ava">[^<]+<\/span><b>@/.test(hA) && /class="ig-sticker">/.test(hA), (hA.match(/<figure class="ig">[\s\S]{0,400}/) || [''])[0]);
-    check('(AMUNA) A ChatGPT solo sus tamaños (1:1 o 2:3) y en el prompt cuánto se ve; las piezas sin recorte', envA.every((e) => (e.w / e.h < 0.85 ? e.aspecto === '2:3' : e.aspecto === '1:1')) && envA.filter((e) => e.slot.startsWith('historia-')).every((e) => /only the central \d+% of the width will be shown/.test(e.prompt)) && envA.filter((e) => /^galeria-0[1-4]$|^creativo$/.test(e.slot)).every((e) => /nothing may touch or be cut by an edge/.test(e.prompt)), envA.slice(0, 3).map((e) => [e.slot, e.aspecto]));
+    check('(AMUNA) A ChatGPT solo sus tamaños (1:1 o 2:3) y en el prompt cuánto se ve; las piezas sin recorte', envA.every((e) => (e.w / e.h < 0.85 ? e.aspecto === '2:3' : e.aspecto === '1:1')) && envA.filter((e) => e.slot.startsWith('historia-')).every((e) => /only the central \d+% of the width will be shown/.test(e.prompt)) && envA.filter((e) => /^galeria-0[1-4]$|^creativo$/.test(e.slot)).every((e) => /Leave at least 8% EMPTY background at the top and at the bottom/.test(e.prompt) && /Nothing may touch or be cut by any edge/.test(e.prompt)), envA.slice(0, 3).map((e) => [e.slot, e.aspecto]));
     {
       // la primera de la galería (alta) viene de una foto cuadrada en la prueba: queda ENTERA, con el fondo de la página arriba y abajo
       const g1 = envA.find((e) => e.slot === 'galeria-01');
@@ -380,16 +387,32 @@ async function principal() {
       const fondoA = (/--fondo:(#[0-9a-f]{6})/i.exec(hA) || [])[1] || '#ffffff';
       const rgb = [1, 3, 5].map((i) => parseInt(fondoA.slice(i, i + 2), 16));
       const filaArriba = px ? [0, 6, 12, 18, 23].every((x) => [0, 1, 2].every((c) => Math.abs(px[x * 4 + c] - rgb[c]) <= 12)) : false;
-      check('(AMUNA) Una pieza alta no se recorta: entra entera y se rellena con el color del fondo de la página', filaArriba, { fondoA, primeros: px && [...px.slice(0, 12)] });
+      {
+      // (2026-11-27i) una pieza con el titular pegado al borde de arriba se detecta (y se rehace)
+      const { tocaElBorde } = await import(path.join(APP, 'server', 'lib', 'landings', 'plantilla-amuna.js'));
+      const bin2 = (await (await import(path.join(APP, 'server', 'lib', 'imagen-ads', 'local.js'))).comprobarFfmpeg())?.bin;
+      const [c1, c2] = ['cortada', 'bien'].map((n) => path.join(os.tmpdir(), `kads-${n}-${process.pid}.png`));
+      if (bin2) {
+        cp.execFileSync(bin2, ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'color=c=0xF7EFE6:s=400x600', '-vf', 'drawbox=x=40:y=0:w=320:h=60:color=0x8A4A1E:t=fill', '-frames:v', '1', c1]);
+        cp.execFileSync(bin2, ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'color=c=0xF7EFE6:s=400x600', '-vf', 'drawbox=x=40:y=60:w=320:h=60:color=0x8A4A1E:t=fill', '-frames:v', '1', c2]);
+      }
+      const r1 = bin2 ? await tocaElBorde(c1, '#F7EFE6') : true;
+      const r2 = bin2 ? await tocaElBorde(c2, '#F7EFE6') : false;
+      for (const f of [c1, c2]) fs.rmSync(f, { force: true });
+      check('(2026-11-27i) Un titular pegado al borde de arriba se detecta (la app la rehace con más margen); uno con margen, no', r1 === true && r2 === false, { r1, r2 });
+    }
+    check('(AMUNA) Una pieza alta no se recorta: entra entera y se rellena con el color del fondo de la página', filaArriba, { fondoA, primeros: px && [...px.slice(0, 12)] });
     }
     {
-      const personas = envA.filter((e) => /^historia|^paso|^cuidado|^galeria-05/.test(e.slot)).map((e) => (/The person and place: ([^.]+)/.exec(e.prompt) || [])[1]);
-      check('(AMUNA) Fotos caseras y variadas: cada una con otra mujer y otro lugar, luz natural', personas.length === 11 && personas.every(Boolean) && new Set(personas).size === personas.length && envA.filter((e) => /^historia/.test(e.slot)).every((e) => /HOMEMADE PHOTO/.test(e.prompt) && /natural light only/.test(e.prompt)), personas);
+      const personas = envA.filter((e) => /^historia|^paso|^galeria-05/.test(e.slot)).map((e) => (/The person and place: ([^.]+)/.exec(e.prompt) || [])[1]);
+      check('(AMUNA) Fotos caseras y variadas: cada una con otra mujer y otro lugar, luz natural', personas.length === 10 && personas.every(Boolean) && new Set(personas).size === personas.length && envA.filter((e) => /^historia/.test(e.slot)).every((e) => /HOMEMADE PHOTO/.test(e.prompt) && /natural light only/.test(e.prompt)), personas);
     }
-    check('(AMUNA) Las imágenes, cada una con la medida exacta de la de AMUNA (p. ej. la primera de la galería 942×1670)', envA.length === 26 && !malas.length && envA.some((e) => e.slot === 'galeria-01' && e.w === 942 && e.h === 1670) && envA.every((e) => hA.includes(e.archivo)), { n: envA.length, malas: malas.map((e) => e.slot) });
-    check('(AMUNA) Cada imagen va a ChatGPT con la foto del producto y su referencia de AMUNA; las piezas con el fondo liso de la página y sin efectos; las fotos, sin médicos', envA.length && envA.every((e) => e.referencias.length === 2 && e.referencias[1] === `app/server/lib/landings/plantillas/amuna/referencias/${e.slot}.jpg` && /Reference image 2 is ONLY a LAYOUT/.test(e.prompt) && /No typical AI-image effects/.test(e.prompt)) && envA.filter((e) => /^galeria-0[1-4]$|^creativo$|^ingredientes$/.test(e.slot)).every((e) => /BACKGROUND: flat solid #/.test(e.prompt)) && envA.filter((e) => /^historia|^ugc|^cuidado/.test(e.slot)).every((e) => /never a doctor/.test(e.prompt)), envA.slice(0, 2).map((e) => e.prompt.slice(0, 300)));
+    check('(AMUNA) Las imágenes, cada una con la medida exacta de la de AMUNA (p. ej. la primera de la galería 942×1670)', envA.length === 25 && !malas.length && envA.some((e) => e.slot === 'galeria-01' && e.w === 942 && e.h === 1670) && envA.every((e) => hA.includes(e.archivo)), { n: envA.length, malas: malas.map((e) => e.slot) });
+    check('(AMUNA) Cada imagen va a ChatGPT con la foto del producto y su referencia de AMUNA; las piezas con el fondo liso de la página y sin efectos; las fotos, sin médicos', envA.length && envA.filter((e) => e.slot !== 'cuidado').every((e) => e.referencias.length === 2 && e.referencias[1] === `app/server/lib/landings/plantillas/amuna/referencias/${e.slot}.jpg` && /Reference image 2 is ONLY a LAYOUT/.test(e.prompt) && /No typical AI-image effects/.test(e.prompt)) && envA.filter((e) => /^galeria-0[1-4]$|^creativo$|^ingredientes$/.test(e.slot)).every((e) => /BACKGROUND: flat solid #/.test(e.prompt)) && envA.filter((e) => /^historia|^ugc/.test(e.slot)).every((e) => /never a doctor/.test(e.prompt)), envA.slice(0, 2).map((e) => e.prompt.slice(0, 300)));
     check('(AMUNA) Sin variables, sin la marca del ejemplo y sin cifras de clientas inventadas', !/Nombre Apellido|\bXX\b|Aquí va|Por definir|Producto X|TU MARCA|AMUNA|AMUA|Vital ?Drops|\+\s?\d{1,3}\.\d{3}/i.test(visibleA) && /Sueño Profundo/.test(visibleA), (visibleA.match(/[^<>]{0,40}(Producto X|TU MARCA|AMUNA|AMUA|Vital ?Drops|\+\d{1,3}\.\d{3})[^<>]{0,40}/gi) || []).slice(0, 5));
     const trioA = (hA.match(/<button type="button" class="combo"[^>]*data-combo="tres"[\s\S]*?<\/button>/) || [''])[0];
+    check('(2026-11-27k) AMUNA tal cual: H1 = el nombre del producto, sin titular de resultado ni bloque de dolor', /<h1>Sueño Profundo<\/h1>/.test(hA) && !/data-seccion="dolor"|class="t-producto"/.test(hA), (hA.match(/<div class="titulo"[\s\S]{0,200}/) || [''])[0]);
+    check('(2026-11-27k) Con profesional real autorizado: su foto y su placa en «cuidado», y esa imagen no va a ChatGPT', /data-seccion="cuidado"[\s\S]*?assets\/profesional\.(png|jpg)[\s\S]*?class="care-badge">Dra\. Laura Gómez · Nutrición clínica</.test(hA) && !envA.some((e) => e.slot === 'cuidado') && !/Imagen ilustrativa/.test(hA), (hA.match(/data-seccion="cuidado"[\s\S]{0,500}/) || [''])[0]);
     check('(AMUNA) Los precios del dueño en los combos (tachado y «Ahorras» calculados) y en la barra fija', /<strong>\$199\.900<\/strong>/.test(trioA) && /<s>\$269\.700<\/s>/.test(trioA) && /Ahorras \$69\.800/.test(trioA) && /id="fPrecio">\$199\.900 COP/.test(hA), trioA.slice(0, 500));
     check('(AMUNA) Las reseñas reales tal cual: testimonio, «Ellas cuentan» (la que tiene foto), la nota y las barras calculadas', /data-seccion="testimonio-destacado"[\s\S]{0,400}Luz Marina R\./.test(hA) && /data-seccion="ellas-cuentan"[\s\S]*?Luz Marina R\.[\s\S]*?Desde la segunda semana duermo de corrido, y eso que no creía\./.test(hA) && /data-seccion="ellas-cuentan"[\s\S]*?Paola G\.[\s\S]*?data-seccion="ingredientes"/.test(hA) && /data-seccion="experiencias"[\s\S]*?Luz Marina R\./.test(hA) && /<span class="nota">4,5<\/span>/.test(hA) && /2 opiniones de clientas/.test(hA) && (hA.match(/<article class="res"/g) || []).length === 2 && /assets\/resena-1\.(png|jpg)/.test(hA), (hA.match(/<section class="sec resenas"[\s\S]{0,600}/) || [''])[0]);
     check('(AMUNA) Las fotos de estilo de vida no dicen que son clientas', !/clientas/i.test((hA.match(/data-seccion="historias"[\s\S]*?<\/section>/) || [''])[0] + (hA.match(/data-seccion="experiencias-fotos"[\s\S]*?<\/section>/) || [''])[0]));
@@ -424,6 +447,18 @@ async function principal() {
     const lB = await esperar(300, () => leerLanding(idB), terminada);
     const hB = idB && fs.existsSync(path.join(RAIZ, 'temp', '_landings', idB, 'index.html')) ? html(idB) : '';
     const envB = idB && fs.existsSync(path.join(RAIZ, 'temp', '_landings', idB, 'prueba-imagenes.json')) ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', '_landings', idB, 'prueba-imagenes.json'), 'utf8')) : [];
+    {
+      const cB = envB.find((e) => e.slot === 'cuidado');
+      check('(2026-11-27k) Sin profesional real: «cuidado» es una consulta médica ilustrativa (sin el producto, sin nombre, sin referencias) con su nota en la página', cB && /medical consultation/.test(cB.prompt) && /NO product/.test(cB.prompt) && /no name tag/.test(cB.prompt) && cB.referencias.length === 0 && /class="nota-img">Imagen ilustrativa\. No representa una recomendación médica del producto\./.test(hB) && !/care-badge"/.test(hB), cB && { prompt: cB.prompt.slice(0, 200), refs: cB.referencias });
+    }
+    {
+      // sin marcar la autorización, el profesional no se usa
+      const pf = (await pedir('/api/landings/fotos', { cuerpo: fs.readFileSync(path.join(TMP, 'producto.png')), headers: { 'Content-Type': 'image/png' } })).datos?.id;
+      const rr = await pedir('/api/landings/crear', { json: { productoId: prod, precios: { uno: '89900', dos: '152900', tres: '199900' }, profesional: { foto: pf, nombre: 'Dr. Prueba', especialidad: 'Medicina', autorizado: false } } });
+      if (rr.datos?.id) creados.landings.push(rr.datos.id);
+      check('(2026-11-27k) Sin marcar «Me autorizó…», el profesional no se usa', rr.st === 200 && !rr.datos?.profesional, rr.datos && { profesional: rr.datos.profesional });
+      await esperar(300, () => leerLanding(rr.datos?.id), terminada);
+    }
     check('(AMUNA) Sin capturas reales: las 35 imágenes, con 9 fotos caseras en el carrusel (como AMUNA) y un título que no habla de clientas', envB.length === 35 && envB.filter((e) => e.slot.startsWith('ugc-')).length === 9 && (hB.match(/data-seccion="experiencias-fotos"[\s\S]*?<\/section>/) || [''])[0].split('<img').length - 1 === 9 && !/clientas/i.test((hB.match(/data-seccion="experiencias-fotos"[\s\S]*?<\/section>/) || [''])[0]), envB.length);
     check('(AMUNA) Sin reseñas reales: no salen testimonio, «Ellas cuentan», experiencias, reseñas, prueba social ni «N testimonios»', lB?.estado === 'lista' && lB.plantilla === 'amuna' && !/data-seccion="(testimonio-destacado|ellas-cuentan|experiencias|resenas|prueba-social)"/.test(hB) && !/testimonios? compartidos?/.test(hB) && /data-seccion="historias"/.test(hB) && /data-seccion="pasos"/.test(hB), [lB?.estado, lB?.error, [...hB.matchAll(/data-seccion="([^"]+)"/g)].map((m) => m[1])]);
   }
