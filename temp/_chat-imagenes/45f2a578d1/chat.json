@@ -1,13 +1,23 @@
 {
   "id": "45f2a578d1",
-  "titulo": "Chat · VITALDROPS",
+  "titulo": "Cambia amuna por \"amuna\" con las mismas dimensio…",
   "productoId": "vitaldrops-d183",
   "producto": "VITALDROPS",
   "lote": "_img-vitaldrops-20261127-0731",
   "uuid": "f620b3cd-f529-4220-99bb-b3fb7b4f56b2",
   "turnos": 0,
-  "mensajes": [],
+  "mensajes": [
+    {
+      "id": "847d69a5",
+      "de": "tu",
+      "texto": "Cambia amuna por \"amuna\" con las mismas dimensiones",
+      "adjuntos": [
+        "A0001.png"
+      ],
+      "fecha": "2026-11-27T12:32:33.560Z"
+    }
+  ],
   "autorizado": null,
   "fecha": "2026-11-27T12:31:42.572Z",
-  "actualizado": "2026-11-27T12:31:42.572Z"
+  "actualizado": "2026-11-27T12:32:33.560Z"
 }
