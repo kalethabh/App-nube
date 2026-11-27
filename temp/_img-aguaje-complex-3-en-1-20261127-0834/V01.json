@@ -1,0 +1,84 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format F86 (Fila de 4 fotos de la misma zona con titular de 2 colores y frasco)",
+    "reference_style": "Real-photo progress row ad (four phone photos of the same woman on different days) with the product standing at the right",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Collage Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (highlighted headline words, button, accents), deep magenta #B0105E, dark plum #2B1226 (headline text and bottom block), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (main background), white #FFFFFF, seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: sage green #8FAF94 and cream #F5EDE0 (photo label pills and the Month 3 outfit).",
+    "visual_style": "Bold feminine supplement ad built on a real-photo progress row; the photos look like real, unretouched phone photos and the real bottle stays sharp and identical to the product photo.",
+    "visual_atmosphere": "Warm, believable, everyday and hopeful; each photo clearly taken on a different day.",
+    "graphic_language": "Four rounded-corner vertical photo cards in a row with thin white borders, small pill labels under each card, a solid plum bottom block with pills and a round gold-bordered badge.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; value proposition and labels in Poppins SemiBold / Bold look."
+  },
+  "creative_objective": "Stop the scroll with a visible, believable progress of the same woman across four days (Antes, Semana 2, Semana 4, Mes 3) where her jeans go from loose at the back to fitting her curves, next to the real bottle, and close with the treatment offer, 'Pagas al recibir' and the sanitary registration badge.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Two-line headline with 'SEMANA 4.' in fuchsia; 2) the row of four progress photos plus the bottle; 3) value proposition; 4) bottom offer and trust block.",
+    "composition_style": "Top band for headline and value proposition, wide middle band with four equal vertical photos on the left three quarters and the bottle standing on the right quarter, thin label row, solid bottom block.",
+    "spacing_and_structure": "Even 16 px gutters between photo cards, generous margin around the headline, labels centered under each card, bottom block full width.",
+    "lighting_and_depth": "Each photo keeps its own real light (cold morning, warm lamp, golden afternoon, bright shade); the bottle lit with soft frontal studio light and a soft contact shadow on the blush background.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top 24%: two-line headline centered (line 1 the promise in dark plum, line 2 the time in fuchsia) and a one-line value proposition below. Middle 52%: four vertical photo cards in a row across the left 76% of the canvas, each the same woman on a different day, and the bottle standing tall on the right 22%. Under the photos (6%): four small pill labels 'Antes', 'Semana 2', 'Semana 4', 'Mes 3'. Bottom 18%: plum block with the treatment offer pill, the 'Pagas al recibir' pill and a round gold-bordered registration badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top center, 2 lines", "visual_function": "Promise plus the time it takes", "adaptation_rule": "Line 1 the result in dark plum, line 2 the week in fuchsia", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "value proposition", "position": "top center under the headline", "visual_function": "Desire + time + deep desire", "adaptation_rule": "One line in Poppins SemiBold dark plum", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "person (four progress photos)", "position": "middle, left 76%", "visual_function": "Visual proof of the change; the first photo is the pain moment", "adaptation_rule": "Same woman, four different days, hips and legs in jeans, facing camera or three-quarters", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "product", "position": "middle right, standing", "visual_function": "Ties the progress to the bottle", "adaptation_rule": "The real closed bottle from the attached photo, label facing camera", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "time labels", "position": "under each photo", "visual_function": "Marks the time between photos", "adaptation_rule": "Antes · Semana 2 · Semana 4 · Mes 3", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "offer and trust block", "position": "bottom full width", "visual_function": "Offer, cash on delivery and sanitary registration", "adaptation_rule": "Mandatory batch kit: offer pill, 'Pagas al recibir' pill and gold-bordered registration badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Prices, percentages, discounts or the word 'gratis'",
+      "Star ratings, customer counts, reviews or testimonials with names",
+      "Brand logos or wordmarks outside the bottle label",
+      "Loose capsules, pills or an open bottle",
+      "Any medical claim, doctor, lab coat or certificate other than the registration badge"
+    ]
+  },
+  "visual_prompt": "Square 1:1 image ad on a pale blush pink #FBE3EE background with a very subtle paper grain. TOP ZONE (0-24% of the canvas): a centered two-line headline in a very heavy geometric sans-serif (Montserrat Black look), all caps, tight leading: line 1 'MI JEAN YA HORMA.' in dark plum #2B1226, line 2 'SEMANA 4.' in hot fuchsia #E6177F (the highlighted words are 'SEMANA 4.', fuchsia #E6177F; the rest of the headline is plum). Directly below, one centered line in Poppins SemiBold, dark plum #2B1226, about one third of the headline size: 'Caderas con más curva y piernas firmes desde la semana 4, para mirarte al espejo y decir: ahora sí.' MIDDLE ZONE (24-76%): on the left 76% of the width, four equal vertical photo cards in a row (rounded 18 px corners, 6 px white border, soft drop shadow), each a real, unretouched smartphone photo of the SAME adult Colombian woman, 27 years old, light-medium tan (trigueña) skin with visible pores and natural texture, long dark-brown wavy hair, a small mole above her upper lip, natural brows, no studio makeup; framed from the head to mid-thigh at hip height, normal phone lens, light grain; she always faces the camera or stands three-quarters with her face to the camera, never with her back to the camera. Each card is clearly a DIFFERENT DAY: CARD 1 (Antes): her small bedroom next to a wardrobe mirror, cold bluish early-morning window light from the left, hair in a messy top bun, wearing an oversized grey cotton t-shirt and light-blue mom jeans one size too big; she stands three-quarters, face to camera with a frustrated frown, and her right hand pulls the back waistband of the jeans a full fist away from her lower back so the empty gap and her skin inside it are clearly visible; a baggy fold of extra denim below the seat, drooping back pockets, one straight flat vertical line from waist to thigh, thin straight thighs that do not fill the jean legs, waist and hips almost the same width. CARD 2 (Semana 2): a tiled bathroom at night under a warm yellow ceiling lamp, low ponytail, black fitted tank top and dark-wash skinny jeans, facing the camera with both hands on her waist, a small first change, neutral hopeful face. CARD 3 (Semana 4): a living room in golden late-afternoon light through a window, loose soft waves, white blouse knotted at the waist and medium-blue high-waist jeans, three-quarter pose with one hand on her hip, smiling; her hips look visibly curvier and the jeans now fit snug at the hips and thighs with no loose fabric. CARD 4 (Mes 3): an outdoor balcony with potted plants in bright open shade at midday, hair a little longer, straight with a middle part, a cropped sage green #8FAF94 sweater and black high-waist jeans, three-quarter pose facing the camera with a confident smile; a curvy hourglass figure: small waist, hips about one and a half times wider than her waist, toned thicker thighs filling the jean legs, the jeans fitting her shape perfectly at the hips and legs, obvious at first glance, natural and not exaggerated. Ordinary everyday clothes in every card, no lingerie. On the right 22% of the middle zone: the product from the attached product photo standing upright, about 46% of the canvas height, front-facing, label perfectly legible and the right way round, on the blush background with a soft contact shadow. Use the attached product image as the only source of truth for the bottle; do not redesign, replace or reinterpret it: A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, straight vertical sides, wide mouth with no neck, glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a solid hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA' and '60 CÁPSULAS' at the bottom; not a slim bottle, not a squat jar; closed, no capsules; matte, no rainbow, no prism light, no lens flare. LABEL ROW (76-82%): under each photo card a small cream #F5EDE0 pill with dark plum Poppins Bold text: 'Antes', 'Semana 2', 'Semana 4', 'Mes 3'. BOTTOM ZONE (82-100%): a full-width dark plum #2B1226 block; on the left a fuchsia #E6177F rounded pill with white Poppins Bold text 'Tratamiento completo: 3 frascos para 3 meses'; in the middle a white pill with plum Poppins Bold text 'Pagas al recibir'; on the right a round badge with a solid gold #D4A437 border, plum center and white small-caps text 'REGISTRO INVIMA RSA-0030271-2024' in two lines. Everything crisp and readable on a phone.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top center, line 1", "text_style": "Montserrat Black look, uppercase, dark plum #2B1226, largest text of the ad", "text": "MI JEAN YA HORMA." },
+    { "block_id": "text_block_02", "reference_function": "main headline (highlighted line)", "reference_position": "top center, line 2", "text_style": "Montserrat Black look, uppercase, same size as line 1; the highlighted words are 'SEMANA 4.' in hot fuchsia #E6177F", "text": "SEMANA 4." },
+    { "block_id": "text_block_03", "reference_function": "value proposition", "reference_position": "top center under the headline", "text_style": "Poppins SemiBold look, dark plum #2B1226, one or two centered lines, about one third of the headline size", "text": "Caderas con más curva y piernas firmes desde la semana 4, para mirarte al espejo y decir: ahora sí." },
+    { "block_id": "text_block_04", "reference_function": "time label", "reference_position": "under photo 1", "text_style": "Poppins Bold, dark plum #2B1226 on a cream #F5EDE0 pill", "text": "Antes" },
+    { "block_id": "text_block_05", "reference_function": "time label", "reference_position": "under photo 2", "text_style": "Poppins Bold, dark plum #2B1226 on a cream #F5EDE0 pill", "text": "Semana 2" },
+    { "block_id": "text_block_06", "reference_function": "time label", "reference_position": "under photo 3", "text_style": "Poppins Bold, dark plum #2B1226 on a cream #F5EDE0 pill", "text": "Semana 4" },
+    { "block_id": "text_block_07", "reference_function": "time label", "reference_position": "under photo 4", "text_style": "Poppins Bold, dark plum #2B1226 on a cream #F5EDE0 pill", "text": "Mes 3" },
+    { "block_id": "text_block_08", "reference_function": "offer", "reference_position": "bottom block, left pill", "text_style": "Poppins Bold, white on a hot fuchsia #E6177F rounded pill", "text": "Tratamiento completo: 3 frascos para 3 meses" },
+    { "block_id": "text_block_09", "reference_function": "trust item", "reference_position": "bottom block, middle pill", "text_style": "Poppins Bold, dark plum #2B1226 on a white rounded pill", "text": "Pagas al recibir" },
+    { "block_id": "text_block_10", "reference_function": "badge", "reference_position": "bottom block, right round badge", "text_style": "Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border, two lines", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Four vertical photo cards of the same adult woman on four different days, each with a different pose, outfit, hairstyle, place and light",
+    "Card 1 shows the pain moment: her hand pulling the loose back waistband a fist away from her body with the gap visible",
+    "Card 4 shows the clear result: curvy hips and toned legs filling the jeans, facing the camera or three-quarters",
+    "The real closed bottle standing at the right, label legible and not mirrored",
+    "Bottom plum block with the offer pill, the 'Pagas al recibir' pill and the gold-bordered round registration badge"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear",
+    "Never the same outfit, pose, hairstyle, place or light in two photo cards",
+    "No loose capsules, no pills, no open bottle, no second product",
+    "No prices, percentages, discounts, 'gratis', stars, customer counts, reviews or names",
+    "No logos or brand wordmarks outside the bottle label",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra buttons, badges, seals or strips beyond the bottom block, the pills and the single registration badge described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
