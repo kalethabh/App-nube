@@ -288,6 +288,14 @@ async function principal() {
   const gen = await import('../../produccion/imagen-ads.js');
   const estilo = gen.construirPrompt(vs.find(({ x }) => !x.mismo_formato_que_ganador).ad, { referencia: 'estilo' });
   check('Al modelo de imagen, el ganador va SOLO como estilo («do not copy its layout»)', /use the reference only for style, product and offer; do not copy its layout/.test(estilo) && !/keep its exact layout/.test(estilo), estilo.slice(0, 400));
+  // (2026-11-27d) el diseño limpio: márgenes y letra grande siempre; la dirección limpia salvo cuando se copia una referencia
+  const adLimpio = vs[0].ad;
+  const copiado = gen.construirPrompt(adLimpio, { referencia: true });
+  const variante = gen.construirPrompt(adLimpio, { referencia: 'variante' });
+  const propio = gen.construirPrompt(adLimpio, {});
+  check('(2026-11-27d) Diseño limpio: la dirección limpia (letra gruesa, barra de color, fondo claro, INVIMA grande) va en las nuevas y en las de solo estilo', [propio, estilo].every((t) => /DESIGN DIRECTION \(clean, simple, trustworthy\)/.test(t) && /white rounded badge/.test(t) && /never dark, never purple/.test(t)));
+  check('…pero no cuando se copia una referencia o es una variante (manda su diseño), y la legibilidad va en todas', ![copiado, variante].some((t) => /DESIGN DIRECTION/.test(t)) && [propio, estilo, copiado, variante].every((t) => /LEGIBILITY: keep every text/.test(t)));
+  check('…el vertical y el cambio de tamaño también cuidan los márgenes', /LEGIBILITY/.test(gen.construirPromptVertical(adLimpio, {})) && /LEGIBILITY/.test(gen.construirPromptCambioTamano(adLimpio, { de: '1:1', a: '4:5' })));
   const { R } = await import('../server/lib/imagen-ads/disco.js');
   const enviados = vs.map(({ x }) => ({ x, txt: fs.existsSync(R.prompt(carpeta, `${x.id}_1x1`)) ? fs.readFileSync(R.prompt(carpeta, `${x.id}_1x1`), 'utf8') : '' }));
   check('Lo que se mandó al generador: estructura en las de estructura ganadora, solo estilo en las demás, composición en las del formato del ganador', enviados.every(({ x, txt }) => (skill.formatos.get(x.formato_id)?.referencia ? /STRUCTURE REFERENCE from another brand/.test(txt) : x.mismo_formato_que_ganador ? /REFERENCE AD/.test(txt) && !/do not copy its layout/.test(txt) : /do not copy its layout/.test(txt))), enviados.map(({ x, txt }) => [x.id, x.mismo_formato_que_ganador, txt.slice(0, 120)]));
@@ -342,6 +350,7 @@ async function principal() {
       const b4 = JSON.parse(fs.readFileSync(path.join(c4, 'app', 'brief.json'), 'utf8'));
       const sE4 = sesionEstrategia({ carpeta: c4, lote: lote4, brief: b4 });
       check('(2026-11-26f) …y los títulos como Mayaverra: gancho + propuesta de valor + tiempo, promesa agresiva', /Títulos como Mayaverra/.test(sE4.prompt) && /PROPUESTA DE VALOR/.test(sE4.prompt) && /AGRESIVA/.test(sE4.prompt) && !/sin promesas médicas ni garantías de resultados/.test(sE4.prompt));
+      check('(2026-11-27d) La estrategia pide el diseño limpio y UN fondo claro para todo el lote', /## Diseño limpio/.test(sE4.prompt) && /UN solo color claro y limpio para TODO el lote/.test(sE4.prompt));
       check('(2026-11-26d) La estrategia de un lote con estructuras lleva cómo trabaja Mayaverra (lo fijo, su mezcla, sus titulares, cómo vende, lo que nunca)', /Cómo trabaja Mayaverra/.test(sE4.prompt) && /LO FIJO/.test(sE4.prompt) && /SUS TITULARES/.test(sE4.prompt) && /CÓMO VENDEN/.test(sE4.prompt) && sE4.material.aPedido.some((r) => r.endsWith('mayaverra-manual.md')));
       check('…y el lote tiene el mapa de imágenes de sus estructuras para el generador', fs.existsSync(path.join(c4, 'entrada', 'estructuras', 'mapa.json')));
       // como Mayaverra: la oferta escrita IGUAL en todo el lote

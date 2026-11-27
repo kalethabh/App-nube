@@ -273,6 +273,7 @@ export default function Landings({ consulta }) {
   const [productoId, setProductoId] = useState('');
   const [precios, setPrecios] = useState({ uno: '', dos: '', tres: '', antes: '' });
   const [registro, setRegistro] = useState('');
+  const [resenas, setResenas] = useState([]); // (2026-11-27d) solo reseñas reales de sus clientas
   const [analizar, setAnalizar] = useState(true);
   const [ocupado, setOcupado] = useState(false);
   const [abierta, setAbierta] = useState(null);
@@ -286,7 +287,7 @@ export default function Landings({ consulta }) {
   const crearConEquipo = async () => {
     setOcupado(true);
     try {
-      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, prompt: prompt.trim(), precios, registro: registro.trim() } });
+      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, prompt: prompt.trim(), precios, registro: registro.trim(), resenas: resenas.filter((r) => r.nombre.trim() && r.texto.trim()) } });
       setPrompt('');
       await recargar?.();
       ir(`/landings?proyecto=${encodeURIComponent(creada.id)}`);
@@ -337,9 +338,26 @@ export default function Landings({ consulta }) {
                   </label>
                 ))}
               </div>
-              <small className="ld-ayuda">Sin precios, los combos dicen «Precio por definir». El precio normal es opcional: con él se calculan el tachado y el «Ahorras».</small>
+              <small className="ld-ayuda">Los de 1, 2 y 3 unidades son obligatorios. El precio normal es opcional: con él se calculan el tachado y el «Ahorras».</small>
             </div>
             <CampoTexto etiqueta="Registro sanitario (opcional)" placeholder="Ej.: RSA-0012345-2024. Sin número, la landing no muestra el sello del registro." value={registro} onChange={(e) => setRegistro(e.target.value)} maxLength={60} />
+            <div className="ld-resenas">
+              <span className="ld-grupo__etiqueta">Reseñas reales de tus clientas (opcional)</span>
+              {resenas.map((r, k) => (
+                <div className="ld-resenas__fila" key={k}>
+                  <input placeholder="Nombre (ej.: Luz Marina R.)" value={r.nombre} maxLength={60} onChange={(e) => setResenas((l) => l.map((x, i) => (i === k ? { ...x, nombre: e.target.value } : x)))} />
+                  <input placeholder="Ciudad" value={r.ciudad} maxLength={40} onChange={(e) => setResenas((l) => l.map((x, i) => (i === k ? { ...x, ciudad: e.target.value } : x)))} />
+                  <textarea placeholder="Lo que escribió tu clienta, tal cual" value={r.texto} maxLength={700} rows={2} onChange={(e) => setResenas((l) => l.map((x, i) => (i === k ? { ...x, texto: e.target.value } : x)))} />
+                  <Boton variante="fantasma" tamano="chico" onClick={() => setResenas((l) => l.filter((_, i) => i !== k))}>Quitar</Boton>
+                </div>
+              ))}
+              {resenas.length < 12 ? (
+                <Boton variante="secundario" tamano="chico" onClick={() => setResenas((l) => [...l, { nombre: '', ciudad: '', texto: '' }])}>
+                  Agregar una reseña real
+                </Boton>
+              ) : null}
+              <small className="ld-ayuda">Salen tal cual en la página. Sin reseñas reales, la landing no lleva reseñas ni opiniones de médicos: inventarlas engaña al comprador y la SIC o Meta lo castigan.</small>
+            </div>
             <AreaTexto
               etiqueta="Qué quieres (opcional)"
               placeholder={'Por ejemplo: «enfócala en mujeres de 45 a 60 con sofocos», «tono cercano», «combo 2x1 a 99.900».'}
@@ -349,12 +367,12 @@ export default function Landings({ consulta }) {
               maxLength={4000}
             />
             <div className="ld-opciones">
-              <Boton variante="primario" icono={LayoutTemplate} onClick={crearConEquipo} cargando={ocupado} disabled={!productoId}>
+              <Boton variante="primario" icono={LayoutTemplate} onClick={crearConEquipo} cargando={ocupado} disabled={!productoId || !precios.uno || !precios.dos || !precios.tres}>
                 Crear con el equipo
               </Boton>
             </div>
             <p className="ld-ayuda">
-              La landing nace de la plantilla (galería, oferta por combos con pago contra entrega, creativos, reseñas y preguntas) y la arma el equipo con la investigación de mercado de tu producto: Emilio decide la estrategia, Simón entiende qué hace cada sección, título e imagen, Antonia le da la identidad de tu producto (colores de su empaque y tipografías), Valeria escribe los textos, Mateo diseña las imágenes (ChatGPT: los creativos con la foto de tu producto, y las fotos de las opiniones con personas como tu cliente ideal) y Renata revisa que nada esté inventado y después mira la página terminada, sección por sección, contra la base. Usa tu plan de IA: unos 7 trabajos de IA y una imagen por cada foto de la página.
+              La landing nace de la plantilla (galería, oferta por combos con pago contra entrega, creativos, reseñas y preguntas) y la arma el equipo con la investigación de mercado de tu producto: Emilio decide la estrategia, Simón entiende qué hace cada sección, título e imagen, Antonia le da la identidad de tu producto (los colores de su empaque; la letra es siempre Inter y el fondo de la página es el mismo de las imágenes), Valeria escribe los textos, Mateo diseña las imágenes (ChatGPT: los creativos con la foto de tu producto y fotos de estilo de vida con mujeres como tu cliente ideal, sin efectos de IA) y Renata revisa que nada esté inventado y después mira la página terminada, sección por sección, contra la base. Usa tu plan de IA: unos 7 trabajos de IA y una imagen por cada foto de la página.
             </p>
           </>
         ) : <>
