@@ -1,0 +1,14 @@
+{
+  "id": "T030",
+  "creado": "2026-11-27T02:16:34.505Z",
+  "piezas": [
+    {
+      "pieza": "V09_1x1",
+      "orden": "U0033",
+      "modo": "editar",
+      "version": 4,
+      "instruccion_en": "Apply a light blur (about 20%) only to the small word «amua» at the top of the yellow bottle label, so it looks soft and slightly out of focus but its shape is still faintly visible. Do not change anything else: keep «VITALDROPS», the rest of the label, the bottle, the women, the headline, the notes, the seal, the icons, the colors and the layout exactly the same.",
+      "textos": false
+    }
+  ]
+}

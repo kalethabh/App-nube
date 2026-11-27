@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 26,
-    "T": 30
+    "A": 27,
+    "T": 31
   },
   "tandas": {
     "E001": {
@@ -257,6 +257,15 @@
         "U0032"
       ],
       "empezada": true
+    },
+    "A026": {
+      "tipo": "ajuste",
+      "uuid": "cc92b1ce-06c5-4439-a3b2-f91a2d8e2856",
+      "estado": "hecha",
+      "pedidos": [
+        "U0033"
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -461,11 +470,18 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "listo",
       "version": 3,
       "firma": "2004243-1795745546623",
-      "orden": null,
+      "orden": {
+        "id": "U0033",
+        "modo": "editar",
+        "version": 4,
+        "instruccion_en": "Apply a light blur (about 20%) only to the small word «amua» at the top of the yellow bottle label, so it looks soft and slightly out of focus but its shape is still faintly visible. Do not change anything else: keep «VITALDROPS», the rest of the label, the bottle, the women, the headline, the notes, the seal, the icons, the colors and the layout exactly the same.",
+        "textos": false,
+        "trabajo": "T030"
+      },
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
@@ -473,7 +489,7 @@
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-27T02:12:28.117Z",
-      "pedido": null,
+      "pedido": "U0033",
       "ultimaOrden": "U0030",
       "fallo": null
     },
@@ -1154,6 +1170,27 @@
           "orden": "U0032",
           "modo": "editar",
           "instruccion_en": "Edit only the woman on the right ('after' side): give her a slightly curvier silhouette at the hips, thighs and legs, a bit more than now, still natural, proportional and believable for an ordinary woman. Keep the same woman, face, pose, side view, outfit, bench, lighting and background. Do not change the 'before' woman, the bottle, the arrow, the labels, the headline, the bottom strip or any text. No exaggerated or unrealistic proportions, no new focus or zoom on body parts.",
+          "textos": false
+        }
+      ],
+      "paso": 0
+    },
+    "U0033": {
+      "id": "U0033",
+      "pieza": "V09_1x1",
+      "instruccion": "un 20% difuminado para lo que dice amua",
+      "fecha": "2026-11-27T02:16:23.584Z",
+      "estado": "generando",
+      "ajuste": "A026",
+      "instruccion_en": "Apply a light blur (about 20%) only to the small word «amua» at the top of the yellow bottle label, so it looks soft and slightly out of focus but its shape is still faintly visible. Do not change anything else: keep «VITALDROPS», the rest of the label, the bottle, the women, the headline, the notes, the seal, the icons, the colors and the layout exactly the same.",
+      "cambiaTextos": false,
+      "resumen": "Difuminamos un poco (20 %) la palabra «amua» de la etiqueta del frasco. Todo lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V09_1x1",
+          "orden": "U0033",
+          "modo": "editar",
+          "instruccion_en": "Apply a light blur (about 20%) only to the small word «amua» at the top of the yellow bottle label, so it looks soft and slightly out of focus but its shape is still faintly visible. Do not change anything else: keep «VITALDROPS», the rest of the label, the bottle, the women, the headline, the notes, the seal, the icons, the colors and the layout exactly the same.",
           "textos": false
         }
       ],

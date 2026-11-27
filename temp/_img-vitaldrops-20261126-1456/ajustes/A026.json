@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0033",
+      "aplicado": true,
+      "cambia_textos": false,
+      "instruccion_en": "Apply a light blur (about 20%) only to the small word «amua» at the top of the yellow bottle label, so it looks soft and slightly out of focus but its shape is still faintly visible. Do not change anything else: keep «VITALDROPS», the rest of the label, the bottle, the women, the headline, the notes, the seal, the icons, the colors and the layout exactly the same.",
+      "resumen": "Difuminamos un poco (20 %) la palabra «amua» de la etiqueta del frasco. Todo lo demás queda igual."
+    }
+  ]
+}
