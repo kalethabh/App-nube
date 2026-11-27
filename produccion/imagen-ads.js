@@ -87,6 +87,12 @@ export const FIDELIDAD_COLOR =
   'and the graphic elements. If the original background is a flat solid color, the ' +
   'vertical version must use that same flat solid color edge to edge.';
 
+// (2026-11-27b) «siempre generar las imágenes con la mayor calidad posible»: va en todos los prompts de esta sección
+export const CALIDAD =
+  'IMAGE QUALITY: the highest quality possible. Ultra sharp, high resolution detail, crisp and perfectly legible text with ' +
+  'correct spelling, realistic skin, hair and fabric textures, clean edges and professional color grading. No blur, no noise, ' +
+  'no compression artifacts, no warped or melted letters, no extra fingers or distorted faces.';
+
 export const CIERRE =
   'Do not add, remove or rewrite any text, price, badge, seal, icon or visual block. ' +
   'Do not change the design, the palette, the typography, the person or the product.';
@@ -483,6 +489,7 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
   const fix = bloqueCorreccion(correccion);
   if (fix) partes.push(fix);
   if (pos) partes.push(bloqueLogo('1:1', pos));
+  partes.push(CALIDAD);
   partes.push(referencia ? PRODUCTO_SEGUNDA : FIDELIDAD_PRODUCTO);
   return partes.join('\n\n');
 }
@@ -530,6 +537,7 @@ export function construirPromptVertical(ad, { conProducto = true, logo = null, c
   const fix = bloqueCorreccion(correccion);
   if (fix) bloques.push(fix);
   if (pos) bloques.push(bloqueLogo(retrato ? '1:1' : '9:16', pos));
+  bloques.push(CALIDAD);
   bloques.push(CIERRE);
   return bloques.join('\n\n');
 }
@@ -557,6 +565,7 @@ export function construirPromptCambioTamano(ad, { de = '1:1', a = '9:16', logo =
   const regla = getPy(oPy(ad, {}), 'language_rule', undefined);
   if (!vacioPy(regla)) bloques.push(strPy(regla));
   if (pos) bloques.push(bloqueLogo(a === '9:16' ? '9:16' : '1:1', pos));
+  bloques.push(CALIDAD);
   bloques.push(CIERRE);
   return bloques.join('\n\n');
 }
@@ -585,6 +594,7 @@ export function construirPromptEdicion(ad, { instruccion, formato, textos = fals
   if (pos) bloques.push(bloqueLogo(formato === '9:16' ? '9:16' : '1:1', pos));
   const regla = getPy(oPy(ad, {}), 'language_rule', undefined);
   if (!vacioPy(regla)) bloques.push(strPy(regla));
+  bloques.push(CALIDAD);
   return bloques.join('\n\n');
 }
 

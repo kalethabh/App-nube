@@ -142,7 +142,9 @@ async function iaSobreRecorte({ recorte, referencias = [], prompt, salida }) {
     const codex = codexParaImagenes();
     if (!codex) throw new ErrorApp(409, 'Conecta ChatGPT para imágenes en Ajustes › Conexiones.');
     const { generarConChatGPT } = await import('../../../../produccion/chatgpt-imagen.js');
-    await generarConChatGPT({ prompt, referencias: [recorte, ...referencias], aspecto: '1:1', rutaDestino: salida, codex });
+    // (2026-11-27b) con la mayor calidad posible
+    const { CALIDAD } = await import('../../../../produccion/imagen-ads.js');
+    await generarConChatGPT({ prompt: `${prompt}\n\n${CALIDAD}`, referencias: [recorte, ...referencias], aspecto: '1:1', rutaDestino: salida, codex });
     return;
   }
   const { generarImagen, subirArchivo } = await import('../../../../produccion/kie-client.js');

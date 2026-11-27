@@ -136,7 +136,6 @@ export function TarjetaChatGPTImagenes() {
     );
   }
 
-  const conKie = m.motor === 'kie';
   return (
     <Tarjeta className="conexion-bloque">
       <div className="conexion-bloque__cabecera">
@@ -159,19 +158,11 @@ export function TarjetaChatGPTImagenes() {
         <span className="claude-fila__acciones">{acciones}</span>
       </div>
       {m.conectado ? <Cupo limites={c.limites} /> : null}
+      {/* (2026-11-27b) las imágenes de anuncios van siempre con tu ChatGPT (gratis): sin la opción de kie */}
       <div className="claude-fila">
         <span className="claude-fila__textos">
-          <span className="claude-fila__titulo">{conKie ? 'Ahora: kie.ai (se cobra cada imagen)' : 'Ahora: tu ChatGPT (sin costo por imagen)'}</span>
-          <span className="claude-fila__detalle">
-            {conKie
-              ? 'Las imágenes se hacen con GPT Image 2.5 en kie.ai y se descuentan de tu saldo.'
-              : 'kie.ai queda apagado para las imágenes de anuncios. Úsalo solo si se te acaba el cupo de ChatGPT y no quieres esperar.'}
-          </span>
-        </span>
-        <span className="claude-fila__acciones">
-          <Boton variante={conKie ? 'primario' : 'fantasma'} tamano="chico" cargando={ocupado === 'elegir'} onClick={() => elegir(conKie ? 'chatgpt' : 'kie')}>
-            {conKie ? 'Usar mi ChatGPT' : 'Usar kie.ai'}
-          </Boton>
+          <span className="claude-fila__titulo">Siempre con tu ChatGPT (sin costo por imagen)</span>
+          <span className="claude-fila__detalle">Los anuncios de imagen y el chat de imágenes se hacen con tu ChatGPT, con la mayor calidad. Si no está conectado, conéctalo arriba.</span>
         </span>
       </div>
     </Tarjeta>

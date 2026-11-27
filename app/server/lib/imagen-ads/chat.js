@@ -256,6 +256,19 @@ function resumenImagenes(c, brief, carpeta) {
     .join('\n');
 }
 
+/** (2026-11-27b) Un chat LIBRE: el tamaño y la cantidad solo si el usuario los eligió abajo. */
+function textoPreferido(p) {
+  const partes = [];
+  if (p.formato) partes.push(`en ${p.formato}`);
+  if (p.cantidad) partes.push(`${p.cantidad} ${p.cantidad === 1 ? 'imagen' : 'imágenes'}`);
+  const elegido = partes.length ? `El usuario eligió abajo: ${partes.join(', ')}; respétalo salvo que el mensaje diga otra cosa. ` : '';
+  const libre = [
+    !p.cantidad ? 'Haz las que pida el mensaje (si no dice cuántas, una).' : '',
+    !p.formato ? 'El tamaño: el que diga el mensaje; si no dice, el de la imagen que adjuntó (si es una referencia) o el que mejor sirva para lo que pide (1:1 para el feed, 9:16 para historias o reels, 4:5 para el feed vertical).' : '',
+  ].filter(Boolean).join(' ');
+  return `${elegido}${libre} Al CAMBIAR una imagen, se queda con su tamaño.`;
+}
+
 function textoTurno(c, brief, carpeta, { primera, mensaje, n, preferido }) {
   const lote = c.lote;
   const antes = Number(brief?.cantidad) || 0;
@@ -271,7 +284,8 @@ ${conocimiento(c, brief, carpeta)}
     : `TAREA: imagen-ads-chat (sigue la misma conversación)\nCarpeta del lote: temp/${lote}\n(Con todo lo que ya sabes del producto y de cómo quiere sus imágenes.)\n`;
   return `${cabeza}
 ## Cómo trabajas en cada mensaje
-- Si pide imágenes NUEVAS: créalas YA (el usuario eligió que el chat genere directo, sin preguntar). Por defecto ${preferido.cantidad} en ${preferido.formato}, salvo que el mensaje diga otra cantidad o tamaño (1:1, 9:16 o 4:5; hasta ${MAX_NUEVAS} por mensaje). Usa estos ids, en orden: ${libres.join(', ')}. Para cada una escribe \`temp/${lote}/<id>.json\` con el JSON del PASO 5 de la skill (global_identity, visual_prompt detallado por zonas, text_layers con todos los textos visibles letra por letra, mandatory_visual_elements, final_generation_exclusions, ad_info.variation_id = el id…). Cada una distinta (ningún titular repetido con las que ya hay).
+- Si pide imágenes NUEVAS: créalas YA (el usuario eligió que el chat genere directo, sin preguntar). ${textoPreferido(preferido)} (Tamaños posibles: 1:1, 9:16 o 4:5; hasta ${MAX_NUEVAS} por mensaje.) Usa estos ids, en orden: ${libres.join(', ')}. Para cada una escribe \`temp/${lote}/<id>.json\` con el JSON del PASO 5 de la skill (global_identity, visual_prompt detallado por zonas, text_layers con todos los textos visibles letra por letra, mandatory_visual_elements, final_generation_exclusions, ad_info.variation_id = el id…). Cada una distinta (ningún titular repetido con las que ya hay).
+- Si es un cambio CHICO sobre una imagen (borrar un texto, cambiar a la persona, un color, la tipografía, el tamaño de algo): NO leas la skill ni otros archivos y no analices: escribe directo la respuesta (una línea) con el cambio.
 - Si pide CAMBIAR una que ya existe («cambia el fondo de V02», «la última más grande»): no escribas su JSON; anótalo en "cambios" con la instrucción en inglés para el editor de imagen (\`instruccion_en\`, corta y concreta: what to change and keep everything else identical) y \`textos: true\` si cambia algún texto.
 - Si solo pregunta o conversa: contesta, sin crear nada.
 - Si adjuntó imágenes, míralas con Read y úsalas como dice (pose, estilo, referencia de diseño…).
@@ -284,7 +298,7 @@ ${charla ? `\n## Lo último de la conversación\n${charla}\n` : ''}
 ${limpio(mensaje.texto, 4000) || '(sin texto)'}${adj.length ? `\nAdjuntó: ${adj.join(', ')}` : ''}
 
 Escribe \`temp/${lote}/${relRespuesta(n)}\` con EXACTAMENTE este JSON:
-{ "respuesta": "lo que le dices, en español simple y corto (qué hiciste y por qué vende; máximo ~900 caracteres)", "nuevas": [{ "v": "${libres[0]}", "aspecto": "${preferido.formato}" }], "cambios": [{ "pieza": "V01_1x1", "instruccion_en": "…", "textos": false }] }
+{ "respuesta": "lo que le dices, en español simple y corto (qué hiciste y por qué vende; máximo ~900 caracteres)", "nuevas": [{ "v": "${libres[0]}", "aspecto": "${preferido.formato || '1:1 | 9:16 | 4:5'}" }], "cambios": [{ "pieza": "V01_1x1", "instruccion_en": "…", "textos": false }] }
 ("nuevas" y "cambios" pueden ir vacíos.) No escribas ningún otro archivo.`;
 }
 
@@ -412,7 +426,7 @@ async function responder(id, mensaje, preferido) {
 }
 
 /** POST …/mensajes { texto, adjuntos, formato, cantidad }: guarda tu mensaje y la IA contesta de fondo. */
-export async function enviar(id, { texto = '', adjuntos = [], formato = '1:1', cantidad = 1 } = {}) {
+export async function enviar(id, { texto = '', adjuntos = [], formato = null, cantidad = null } = {}) {
   const c = leerChat(id);
   const t = limpio(texto, 4000);
   const lista = (Array.isArray(adjuntos) ? adjuntos : []).map(String).filter((a) => rutaAdjunto(id, a)).slice(0, 6);
@@ -421,14 +435,86 @@ export async function enviar(id, { texto = '', adjuntos = [], formato = '1:1', c
   const k = await costoDelChat(c);
   if (k.sinPrecio) throw new ErrorApp(503, 'No pude calcular el costo de las imágenes. Vuelve a intentarlo.');
   if (!k.autorizado) throw new ErrorApp(428, 'Antes de crear, confirma el costo por imagen.');
-  const preferido = { formato: FORMATOS.includes(formato) ? formato : '1:1', cantidad: Math.max(1, Math.min(MAX_NUEVAS, Number(cantidad) || 1)) };
+  // (2026-11-27b) chat libre: sin tamaño ni cantidad salvo que los elijas
+  const preferido = { formato: FORMATOS.includes(formato) ? formato : null, cantidad: Number(cantidad) >= 1 ? Math.min(MAX_NUEVAS, Math.round(Number(cantidad))) : null };
   const mensaje = { id: crypto.randomBytes(4).toString('hex'), de: 'tu', texto: t, adjuntos: lista, fecha: ahora() };
   c.mensajes.push(mensaje);
   if (c.mensajes.filter((m) => m.de === 'tu').length === 1 && t) c.titulo = `${limpio(t, 48)}${t.length > 48 ? '…' : ''}`;
   guardarChat(c);
+  // (2026-11-27b) un cambio chico sobre una imagen: directo al editor de imagen, sin pasar por la IA (rápido)
+  const atajo = cambioSimple(c, t, lista);
+  if (atajo) {
+    const r = await hacerCambioSimple(c, atajo, t);
+    if (r) return vistaChat(id);
+  }
   pensando.set(id, ahora());
   responder(id, mensaje, preferido);
   return vistaChat(id);
 }
 
 export const chatPensando = (id) => pensando.has(id);
+
+// ---------------------------------------------------------------- los cambios chicos, sin la IA (2026-11-27b)
+// «Cuando sean cosas muy sencillas (borrar un texto, cambiar solamente una persona, el color de algo, la tipografía, el
+// tamaño de algo) no debe darle mucho análisis y hacerlo lo más rápido y mejor posible»: el pedido va directo al modelo
+// de imagen (que entiende el español), como una edición de la imagen de ahora que deja todo lo demás igual.
+const RE_CAMBIO = /\b(borra|b[oó]rra(le|lo|la)|quita|qu[ií]ta(le|lo|la)|elimina|cambia|c[aá]mbia(le|lo|la)|pon|p[oó]n(le|lo|la)|reemplaza|mueve|agranda|achica|aumenta|reduce|corrige|arregla|m[aá]s grande|m[aá]s peque[nñ]|m[aá]s chic|color|tipograf|letra|fuente|persona|modelo|mujer|fondo|tama[nñ]o)/i;
+const RE_NUEVAS = /\b(im[aá]genes|anuncios|hazme|haz\s+(otra|otras|\d|una|dos|tres|cuatro)|crea|cr[eé]ame|genera|gen[eé]rame|nuevas?|otra imagen|otras im[aá]genes|m[aá]s im[aá]genes|variante|versiones|como (esta|la)\b.*(pero|otra))/i;
+const RE_TAMANO_IMAGEN = /\b(vertical|cuadrad|horizontal|retrato|9:16|4:5|1:1|historias|stories|reels?|formato)\b/i;
+
+/** ¿Es un cambio chico sobre UNA imagen del chat? -> { pieza, v } | null */
+export function cambioSimple(c, texto, adjuntos = []) {
+  const t = String(texto || '').trim();
+  if (!t || t.length > 220 || (adjuntos || []).length) return null;
+  if (!RE_CAMBIO.test(t) || RE_NUEVAS.test(t) || RE_TAMANO_IMAGEN.test(t)) return null;
+  const carpeta = carpetaDe(c.lote);
+  const brief = lotes.leerBrief(carpeta);
+  const ids = idsDelLote(Number(brief?.cantidad) || 0);
+  if (!ids.length) return null;
+  const nombradas = [...new Set((t.match(/\bV\d{2,3}\b/gi) || []).map((x) => x.toUpperCase()))];
+  let v = null;
+  if (nombradas.length === 1) v = nombradas[0];
+  else if (!nombradas.length && /\b(la [uú]ltima|esta|esa|la anterior|la de arriba)\b/i.test(t)) {
+    // la última imagen que salió en el chat
+    for (const m of [...c.mensajes].reverse()) if (m.de === 'chat' && (m.imagenes || []).length) { v = m.imagenes[m.imagenes.length - 1]; break; }
+    v ||= ids[ids.length - 1];
+  }
+  if (!v || !ids.includes(v)) return null;
+  const est = leerEstado(carpeta);
+  const p = est?.piezas?.[piezaId(v, '1:1')];
+  if (!p || p.fase !== 'final' || !existe(R.img(carpeta, piezaId(v, '1:1')))) return null;
+  return { v, pieza: piezaId(v, '1:1') };
+}
+
+async function hacerCambioSimple(c, { v, pieza }, texto) {
+  const pedido = texto.replace(/^\s*cambia en V\d{2,3}\s*:\s*/i, '').trim() || texto;
+  try {
+    lotes.agregarPedido(c.lote, {
+      pieza,
+      instruccion: limpio(texto, 600),
+      instruccion_en: `The user asked, in Spanish: «${limpio(pedido, 500)}». Apply ONLY this change to the image; keep everything else exactly identical (layout, all other texts, colors, people, product, lighting).`,
+      textos: false,
+    });
+  } catch {
+    return false; // (ocupada o algo raro: que lo vea la IA)
+  }
+  const avisos = [];
+  try {
+    if (!leerConductor(c.lote)) iniciarProduccion(c.lote);
+    else if (!enMarcha(c.lote)) reabrir(c.lote, 'anuncios', { tambienPausado: true });
+  } catch (e) {
+    avisos.push(`No pude poner a trabajar el lote: ${e.message}`);
+  }
+  const k = await costoDelChat(c);
+  const c2 = leerChat(c.id);
+  c2.mensajes.push({
+    id: crypto.randomBytes(4).toString('hex'),
+    de: 'chat',
+    texto: `Listo, lo hago en ${v}: ${limpio(pedido, 200)}.${!k.conChatGPT && k.dolaresPorImagen ? `\n\n(1 imagen · ~US$ ${k.dolaresPorImagen.toFixed(2)})` : ''}${avisos.length ? `\n\n${avisos.join('\n')}` : ''}`,
+    imagenes: [v],
+    rapido: true,
+    fecha: ahora(),
+  });
+  guardarChat(c2);
+  return true;
+}
