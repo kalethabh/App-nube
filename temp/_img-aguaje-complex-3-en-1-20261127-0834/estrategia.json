@@ -1,0 +1,47 @@
+{
+  "resumen": "Vendemos el plan de 3 meses para tener más curvas sin quirófano: el jean que por fin horma es la prueba que todas quieren ver. Cada imagen muestra a la misma mujer en días distintos, el frasco real y cierra con «Pagas al recibir» y el sello del registro. Del ganador conservamos lo que funciona: la mujer con curvas y el frasco, la idea de regalarte tu figura en Navidad y el antes y después; cambiamos la forma, las modelos y los escenarios. Cuatro imágenes usan el mismo ángulo del ganador (el cambio que se ve) y seis prueban otros: comparar 1 frasco con el plan completo, la emoción de Navidad, la oferta de temporada, la confianza al recibir, la que no se opera y la triple acción.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#2B1226", "nombre": "Ciruela oscuro" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#D4A437", "nombre": "Dorado del sello" }
+  ],
+  "tipografia": "Títulos en letra muy gruesa y en mayúsculas (estilo Montserrat Black), con una palabra en fucsia. Textos de apoyo en letra redonda y gruesa (estilo Poppins).",
+  "estilo": "Anuncios femeninos y llamativos, con la misma marca en todo el lote: el frasco real, fucsia y ciruela, la misma oferta escrita igual y el sello dorado del registro. Cada imagen cambia de estilo: fotos de celular, ilustración, bodegón del frasco y carta.",
+  "beneficios": [
+    "Acompaña tu proceso de curvas en caderas, cola y piernas",
+    "Más energía para cumplirle a tu rutina",
+    "Fácil de cumplir: 2 cápsulas al día con tus comidas",
+    "Seguridad para volver a ponerte el jean que quieres"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje, fenogreco y maca negra",
+    "Con vitaminas A y E",
+    "1 frasco de 60 cápsulas te dura 1 mes",
+    "Tratamiento completo de 3 frascos para 3 meses"
+  ],
+  "deseo_central": "Verme con más curvas y sentirme segura con mi cuerpo, sin agujas, sin quirófano y sin arriesgar mi salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, que acompaña tu proceso de curvas junto con tu comida y tu rutina.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Ya compré pastillas por internet y no vi nada",
+    "No sé si lo que venden por redes tiene registro",
+    "Me comparo con las de Instagram y me siento plana"
+  ],
+  "reparto": "Del ganador se conserva la esencia: ver en un segundo la figura con curvas junto al frasco, el antes y después y la idea de regalártela esta Navidad (una imagen repite su mismo formato). Se prueban otras formas de contarlo: progreso por semanas y meses, comparar 1 frasco con el plan completo, oferta de temporada, la confianza de pagar al recibir, una carta para la que no se opera y la triple acción.",
+  "decisiones": [
+    "Como no diste precio, ninguna imagen lleva precio ni descuento. La oferta que va en todas es la de tu investigación: «Tratamiento completo: 3 frascos para 3 meses» y «Pagas al recibir».",
+    "El ángulo principal es el del ganador: el cambio que se ve (el jean que por fin horma).",
+    "El tiempo del cambio sale de la dosis: 1 frasco por mes, plan de 3 meses, y los primeros cambios se cuentan desde la semana 4.",
+    "El único sello es el que diste: REGISTRO INVIMA RSA-0030271-2024. No se agregan otros sellos, estrellas ni cifras.",
+    "El cuerpo se muestra de frente o de lado con la cara a la cámara, siempre con jean o leggins, nunca de espaldas.",
+    "Solo se ve el frasco cerrado: nunca cápsulas sueltas.",
+    "No se usa el logo de la marca aparte: la marca se ve en el frasco."
+  ]
+}
