@@ -2,6 +2,18 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27e · Landings terminadas: sin variables, letra Inter y el fondo de tus imágenes
+
+- **Ya no queda nada para completar:** sin «Nombre Apellido», «XX», «Aquí va…» ni «Precio por definir». Lo que no se puede sostener se quita solo.
+- **Reseñas, solo las reales:** en «Crear con el equipo» puedes pegar las reseñas de tus clientas (nombre, ciudad y lo que escribieron) y salen tal cual. Sin reseñas reales, la landing no lleva reseñas ni testimonios.
+- **Sin médicos ni opiniones inventadas:** la sección de profesionales se quitó; la del médico pasa a «Cuidado» (cómo usarlo y cuándo consultar), con una foto de estilo de vida. La encuesta con porcentajes pasa a «Cómo funciona», en pasos.
+  - Por qué: inventar reseñas, médicos o cifras de clientas engaña al comprador, y en Colombia la SIC lo sanciona; Meta también puede tumbar la cuenta.
+- **Fotos de estilo de vida:** ChatGPT hace fotos de mujeres colombianas como tu clienta, usando el producto, sin bata ni nada de médico.
+- **La letra es siempre Inter**, también en las landings que adaptas desde un link.
+- **El fondo de la página es el mismo de las imágenes:** los creativos se piden con ese fondo liso y la app mide el color que de verdad quedó en sus bordes para usarlo en la página.
+- **Sin los efectos típicos de ChatGPT:** nada de letras con brillo, sombras, destellos ni colores saturados.
+- **Los precios ahora son obligatorios** (1, 2 y 3 unidades).
+
 ## 2026-11-27d · Anuncios de imagen más limpios: menos texto, letra grande y fondo claro
 
 - **Menos texto y más grande:** cada imagen lleva pocos bloques de texto (lo ideal son 3) y nada de letra pequeña, párrafos ni franjas con texto diminuto. La propuesta de valor es más corta (de 8 a 16 palabras).
