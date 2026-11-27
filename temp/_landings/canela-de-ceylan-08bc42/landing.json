@@ -19,7 +19,6 @@
   "creado": "2026-11-27T19:04:39.744Z",
   "estado": "trabajando",
   "progreso": [
-    "Emilio (estratega (investigación)) está trabajando…",
     "Antonia (diseñadora visual) está trabajando…",
     "Valeria (copywriter) está trabajando…",
     "Mateo (director de imágenes) está trabajando…",
@@ -31,12 +30,14 @@
     "Imagen 4 de 31 lista (galeria-04).",
     "Imagen 5 de 31 lista (galeria-05).",
     "Imagen 6 de 31 lista (galeria-06).",
-    "Imagen 7 de 31 lista (galeria-07)."
+    "Imagen 7 de 31 lista (galeria-07).",
+    "Imagen 8 de 31 lista (galeria-08).",
+    "Imagen 9 de 31 lista (galeria-09)."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-27T19:15:50.504Z",
+  "actualizado": "2026-11-27T19:17:48.225Z",
   "agentes": [
     {
       "id": "estratega",
