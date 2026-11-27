@@ -20,12 +20,6 @@
   "creado": "2026-11-27T20:28:09.486Z",
   "estado": "trabajando",
   "progreso": [
-    "Imagen 2 de 31 lista (galeria-03).",
-    "Imagen 3 de 31 lista (galeria-02).",
-    "Imagen 4 de 31 lista (galeria-06).",
-    "Imagen 5 de 31 lista (galeria-04).",
-    "Imagen 6 de 31 lista (galeria-05).",
-    "Imagen 7 de 31 lista (galeria-07).",
     "Imagen 8 de 31 lista (galeria-08).",
     "Imagen 9 de 31 lista (galeria-09).",
     "Imagen 10 de 31 lista (combo-3).",
@@ -33,12 +27,18 @@
     "Imagen 12 de 31 lista (galeria-11).",
     "Imagen 13 de 31 lista (combo-1).",
     "Imagen 14 de 31 lista (combo-2).",
-    "Imagen 15 de 31 lista (creativo)."
+    "Imagen 15 de 31 lista (creativo).",
+    "Imagen 16 de 31 lista (ingredientes).",
+    "Imagen 17 de 31 lista (historia-1).",
+    "Imagen 18 de 31 lista (historia-2).",
+    "Imagen 19 de 31 lista (historia-3).",
+    "Imagen 20 de 31 lista (historia-4).",
+    "Imagen 21 de 31 lista (historia-5)."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-27T20:36:30.410Z",
+  "actualizado": "2026-11-27T20:38:09.620Z",
   "agentes": [
     {
       "id": "estratega",
