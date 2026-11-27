@@ -1,0 +1,14 @@
+{
+  "id": "T026",
+  "creado": "2026-11-27T02:03:49.629Z",
+  "piezas": [
+    {
+      "pieza": "V04_1x1",
+      "orden": "U0029",
+      "modo": "editar",
+      "version": 4,
+      "instruccion_en": "Remove the two label pills «ANTES» and «DESPUÉS» at the top of the two photos, and fill that area with the same background (dark purple on the left, pink on the right). Keep everything else exactly the same: the headline «ANTES: NADIE LA VEÍA. HOY: TODOS LA MIRAN.», the subtitle, the handwritten notes, the woman, the arrow, the bottle, the seal, the icons, colors and layout.",
+      "textos": true
+    }
+  ]
+}

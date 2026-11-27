@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 22,
-    "T": 26
+    "A": 23,
+    "T": 27
   },
   "tandas": {
     "E001": {
@@ -221,6 +221,15 @@
         "U0028"
       ],
       "empezada": true
+    },
+    "A022": {
+      "tipo": "ajuste",
+      "uuid": "dd721e82-ca85-4990-99c8-faf75f91e938",
+      "estado": "hecha",
+      "pedidos": [
+        "U0029"
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -328,11 +337,18 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "listo",
       "version": 3,
       "firma": "1954259-1795726922944",
-      "orden": null,
+      "orden": {
+        "id": "U0029",
+        "modo": "editar",
+        "version": 4,
+        "instruccion_en": "Remove the two label pills «ANTES» and «DESPUÉS» at the top of the two photos, and fill that area with the same background (dark purple on the left, pink on the right). Keep everything else exactly the same: the headline «ANTES: NADIE LA VEÍA. HOY: TODOS LA MIRAN.», the subtitle, the handwritten notes, the woman, the arrow, the bottle, the seal, the icons, colors and layout.",
+        "textos": true,
+        "trabajo": "T026"
+      },
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
@@ -340,7 +356,7 @@
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T21:02:04.598Z",
-      "pedido": null,
+      "pedido": "U0029",
       "ultimaOrden": "U0020",
       "fallo": null
     },
@@ -1038,6 +1054,27 @@
       "estado": "no-aplicado",
       "ajuste": "A021",
       "motivo": "Meta suele rechazar anuncios con una persona en vestido de baño y la atención puesta en glúteos, caderas o piernas. Además, el titular habla del jean, y si la modelo no lo tiene puesto la imagen deja de tener sentido. Por eso la dejamos como está: con su jean, de frente o de lado, con un cuerpo natural para su edad."
+    },
+    "U0029": {
+      "id": "U0029",
+      "pieza": "V04_1x1",
+      "instruccion": "sin colocar el texto antes y después",
+      "fecha": "2026-11-27T02:03:31.007Z",
+      "estado": "generando",
+      "ajuste": "A022",
+      "instruccion_en": "Remove the two label pills «ANTES» and «DESPUÉS» at the top of the two photos, and fill that area with the same background (dark purple on the left, pink on the right). Keep everything else exactly the same: the headline «ANTES: NADIE LA VEÍA. HOY: TODOS LA MIRAN.», the subtitle, the handwritten notes, the woman, the arrow, the bottle, the seal, the icons, colors and layout.",
+      "cambiaTextos": true,
+      "resumen": "Quitamos las etiquetas «ANTES» y «DESPUÉS» de arriba de las fotos. Todo lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V04_1x1",
+          "orden": "U0029",
+          "modo": "editar",
+          "instruccion_en": "Remove the two label pills «ANTES» and «DESPUÉS» at the top of the two photos, and fill that area with the same background (dark purple on the left, pink on the right). Keep everything else exactly the same: the headline «ANTES: NADIE LA VEÍA. HOY: TODOS LA MIRAN.», the subtitle, the handwritten notes, the woman, the arrow, the bottle, the seal, the icons, colors and layout.",
+          "textos": true
+        }
+      ],
+      "paso": 0
     }
   }
 }
