@@ -2,6 +2,20 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27a · Chat de imágenes
+
+- **Nueva sección «Chat de imágenes»** en el menú, debajo de «Anuncios de imagen». Le pides imágenes con tus palabras y las crea directo.
+- **Ya sabe cómo las quieres:**
+  - tu producto y su foto, tu oferta y tus sellos, el cuerpo y el tiempo de transformación;
+  - tu investigación y tus ganchos validados;
+  - cómo trabaja Mayaverra y los títulos con propuesta de valor;
+  - tus preferencias, lo que aprendió el supervisor y lo que te funciona.
+  - Recuerda la conversación: le puedes decir «la última, pero en vertical».
+- **Eliges el tamaño (1:1, 9:16 o 4:5) y cuántas** (1 a 4). Puedes adjuntar imágenes: pegarlas, arrastrarlas o subirlas.
+- **Para cambiar una imagen, díselo**, por ejemplo «cambia el fondo de V02». Sale la versión nueva y la anterior queda en «Versiones anteriores».
+- **Las imágenes quedan en la carpeta del producto**, en Anuncios de imagen, con todos sus botones: descargar, Me funciona, editar y versiones.
+- **El costo:** con tu ChatGPT no cuesta por imagen. Con kie, la primera vez el chat te muestra cuánto cuesta cada imagen; después las crea sin preguntar y cada respuesta dice cuánto costó.
+
 ## 2026-11-26k · Anuncios de imagen: la imagen de antes ya no queda al lado
 
 - **Los lotes donde creaste «otro tamaño» con la versión anterior** mostraban las dos imágenes lado a lado (por ejemplo, la 1:1 y la 4:5).

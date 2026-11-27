@@ -217,8 +217,9 @@ function avanzarPedidos(est, hechos) {
         continue;
       }
       ped.estado = 'pendiente';
-      if (ped.instruccion) continue; // la toma una tanda de ajuste (decidir)
-      ped.pasos = pasosDelPedido(est, ped);
+      // (2026-11-27a) un cambio del chat de imágenes ya viene traducido (instruccion_en): sin tanda de ajuste
+      if (ped.instruccion && !ped.instruccionEnLista) continue; // la toma una tanda de ajuste (decidir)
+      ped.pasos = ped.instruccionEnLista ? pasosDelPedido(est, ped, { instruccionEn: ped.instruccion_en, cambiaTextos: ped.cambiaTextos }) : pasosDelPedido(est, ped);
       iniciarPaso(est, ped, 0);
       empezados.add(v);
       continue;
@@ -393,7 +394,7 @@ function elegirTanda(est, hechos, opciones, { piezas, ahora, prompts: porTanda =
   // 1. ajustes que pidio el usuario (con instruccion): la IA prepara el cambio antes de rehacer
   const ajustes = Object.values(est.pedidos || {})
     // (la IA mira la vista de la imagen actual: si la imagen existe, se espera a que este su vista)
-    .filter((x) => x.estado === 'pendiente' && x.instruccion && x.tipo !== 'prompt' && (!hechos?.imagenes?.[x.pieza] || !hechos?.vistas || hechos.vistas[x.pieza]))
+    .filter((x) => x.estado === 'pendiente' && x.instruccion && !x.instruccionEnLista && x.tipo !== 'prompt' && (!hechos?.imagenes?.[x.pieza] || !hechos?.vistas || hechos.vistas[x.pieza]))
     .sort((a, b) => String(a.fecha || a.id).localeCompare(String(b.fecha || b.id)) || String(a.id).localeCompare(String(b.id)))
     .slice(0, TOPES.ajustesPorTanda);
   if (ajustes.length) return { tipo: 'ajuste', pedidos: ajustes.map((x) => x.id), prioridad: PRIORIDAD.ajuste };
@@ -763,6 +764,8 @@ export function absorberPedidos(est, lista) {
       id: x.id,
       ...(x.tipo === 'prompt' ? { tipo: 'prompt', v: x.v } : x.tipo === 'tamano' ? { tipo: 'tamano', pieza: x.pieza, formato: x.formato } : { pieza: x.pieza }),
       instruccion: typeof x.instruccion === 'string' ? x.instruccion.trim() : '',
+      // (2026-11-27a) el chat de imágenes manda el cambio ya en inglés para el editor
+      ...(typeof x.instruccion_en === 'string' && x.instruccion_en.trim() ? { instruccion_en: x.instruccion_en.trim().slice(0, 800), instruccionEnLista: true, cambiaTextos: x.textos === true } : {}),
       // (2026-11-26h) las imágenes que adjuntó el usuario al pedir el cambio (entrada/adjuntos/A0001.jpg)
       ...(Array.isArray(x.adjuntos) && x.adjuntos.length ? { adjuntos: x.adjuntos.filter((a) => RE_ADJUNTO.test(String(a))).slice(0, 3) } : {}),
       fecha: x.fecha || null,

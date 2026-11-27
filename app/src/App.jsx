@@ -49,6 +49,7 @@ const Imagenes = lazy(() => import('./pantallas/imagenes/index.jsx'));
 const CrearImagenes = lazy(() => import('./pantallas/imagenes/Crear.jsx'));
 const LoteImagenes = lazy(() => import('./pantallas/imagenes-lote/index.jsx'));
 const EditorImagen = lazy(() => import('./pantallas/imagenes-editor/index.jsx'));
+const ChatImagenes = lazy(() => import('./pantallas/chat-imagenes/index.jsx'));
 const Inspiracion = lazy(() => import('./pantallas/inspiracion/index.jsx'));
 const Investigaciones = lazy(() => import('./pantallas/investigacion/index.jsx'));
 const InformeInvestigacion = lazy(() => import('./pantallas/investigacion/Informe.jsx'));
@@ -147,6 +148,9 @@ export const RUTAS = [
     titulo: 'Tu lote de imágenes',
     migas: () => [{ texto: 'Anuncios de imagen', href: enlace.imagenes() }, { texto: 'Tu lote' }],
   },
+  // (2026-11-27a) el chat de imágenes (con su conversación abierta o la más reciente)
+  { patron: '/chat-imagenes', Pantalla: ChatImagenes, menu: 'chat-imagenes', titulo: 'Chat de imágenes', migas: () => [{ texto: 'Chat de imágenes' }] },
+  { patron: '/chat-imagenes/:id', Pantalla: ChatImagenes, menu: 'chat-imagenes', titulo: 'Chat de imágenes', migas: () => [{ texto: 'Chat de imágenes', href: enlace.chatImagenes() }, { texto: 'Conversación' }] },
   // Inspiración: los anuncios que están funcionando en Meta, de TrendTrack (con el conector de la cuenta de Claude).
   // #/ganadores (la antigua «Mejores anuncios») abre la misma pantalla, para que los enlaces viejos sigan andando
   { patron: '/inspiracion', Pantalla: Inspiracion, menu: 'inspiracion', titulo: 'Inspiración', migas: () => [{ texto: 'Inspiración' }] },
@@ -342,7 +346,7 @@ export default function App() {
             {pantalla}
           </main>
           {/* la coordinadora flotante en todas las pantallas (en la oficina ya está su chat) */}
-          <AvisoCoordinadora oculto={actual?.ruta.patron === '/oficina'} />
+          <AvisoCoordinadora oculto={actual?.ruta.patron === '/oficina' || String(actual?.ruta.patron || '').startsWith('/chat-imagenes')} />
           {/* en Ajustes la bienvenida se abre con su botón; en las demás pantallas, sola la primera vez */}
           {actual?.ruta.menu !== 'ajustes' ? (
             <Suspense fallback={null}>
