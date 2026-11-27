@@ -190,7 +190,7 @@ async function crearConElEquipo(id) {
     const { crearConEquipo } = await import('./plantilla.js');
     const { crearConAmuna } = await import('./plantilla-amuna.js');
     const r = await (l.plantilla === 'cen' ? crearConEquipo : crearConAmuna)({ carpeta: carpetaDe(id), productoId: l.productoId, pedido: l.prompt, precios: l.precios, registro: l.registro, resenas, capturasReales, motor: l.motor, guardar: (c) => guardar(id, c), avanzar: (t) => avanzar(id, t) });
-    guardar(id, { titulo: r.titulo, creada: { textos: r.cambiados, imagenes: r.imagenes.hechas, pedidas: r.imagenes.pedidas } });
+    guardar(id, { titulo: r.titulo, ...(r.auditoria ? { auditoria: r.auditoria } : {}), creada: { textos: r.cambiados, imagenes: r.imagenes.hechas, pedidas: r.imagenes.pedidas } });
     guardar(id, { estado: 'midiendo' });
     await medir(id);
     guardar(id, { estado: 'lista' });

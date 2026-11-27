@@ -23,10 +23,12 @@ import { RAIZ } from '../rutas.js';
 import { leerJSON } from '../archivos.js';
 import { escribirJSON, leerFicha, listarProductos, rutaFoto } from '../productos.js';
 import { modoPrueba } from '../procesos.js';
+import { TIEMPO } from '../imagen-ads/titulares.js';
 import { agente, disenoFinal, limpiarPrecios, limpiarResenas, RE_VARIABLE, RE_CIFRA_CLIENTES, ANTI_EFECTOS, colorDeBorde, contraste, mezclar, leible, esHex, lum, aHex, aRgb, cop } from './plantilla.js';
 import { AMUNA } from './plantillas/amuna/datos.js';
 import { GUIA, SLOTS, VARIEDAD } from './plantillas/amuna/guia.js';
 import { htmlDeLanding } from './plantillas/amuna/render.js';
+import { auditarLanding } from './plantillas/amuna/auditor.js';
 
 const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), 'plantillas', 'amuna');
 export const PLANTILLA_AMUNA = 'amuna';
@@ -56,6 +58,7 @@ export function moldeDeTextos() {
     descripcion: 'Gotas con ingredientes de origen vegetal para tu rutina diaria. Elige tu combo y paga al recibir.',
     titulo: A.titulo,
     oferta: { titulo: A.oferta.titulo, combos: { tres: { nombre: A.oferta.combos[0].nombre, insignia: A.oferta.combos[0].insignia }, dos: { nombre: A.oferta.combos[1].nombre }, uno: { nombre: A.oferta.combos[2].nombre } }, envio: A.oferta.envio, boton: A.oferta.boton, subBoton: A.oferta.subBoton },
+    dolor: A.dolor,
     dudas: A.dudas,
     aviso: A.aviso,
     ellas: { titulo: A.ellas.titulo, sub: A.ellas.sub },
@@ -76,7 +79,7 @@ export function moldeDeTextos() {
 
 // lo que no puede faltar (ruta en el JSON -> cuántos, si es una lista)
 const REQUERIDOS = [
-  ['producto.nombre'], ['producto.unidad'], ['producto.unidades'], ['titulo.lede'], ['titulo.checks', 4], ['oferta.titulo'], ['oferta.combos.tres.nombre'], ['oferta.combos.tres.insignia'], ['oferta.combos.dos.nombre'], ['oferta.combos.uno.nombre'], ['oferta.envio.texto'], ['oferta.boton'],
+  ['producto.nombre'], ['producto.unidad'], ['producto.unidades'], ['titulo.titular'], ['titulo.subtitulo'], ['titulo.boton'], ['dolor.titulo'], ['dolor.frases', 3], ['dolor.cierre'], ['titulo.lede'], ['titulo.checks', 4], ['oferta.titulo'], ['oferta.combos.tres.nombre'], ['oferta.combos.tres.insignia'], ['oferta.combos.dos.nombre'], ['oferta.combos.uno.nombre'], ['oferta.envio.texto'], ['oferta.boton'],
   ['dudas', 4], ['aviso.titulo'], ['aviso.texto'], ['historias.titulo'], ['historias.texto'], ['historias.boton'], ['ruta.titulo'], ['ruta.pasos', 4], ['ugc.titulo'], ['pasos.titulo'], ['pasos.items', 3], ['franja', 3],
   ['comparacion.titulo'], ['comparacion.nuestra'], ['comparacion.filas', 6], ['compraClara.titulo'], ['compraClara.texto'], ['compraClara.boton'], ['compraClara.garantias', 3], ['cuidado.titulo'], ['cuidado.parrafos', 3], ['faq.titulo'], ['faq.items', 11], ['pie.legal', 2],
 ];
@@ -98,6 +101,8 @@ const RE_GRIS = /Producto X|TU MARCA|Tu Marca|\bNombre [A-Z]\b|correo@tutienda|N
 const conVariable = (t) => RE_VARIABLE.test(t) || RE_CIFRA_CLIENTES.test(t) || RE_GRIS.test(t);
 
 // la marca del ejemplo (se permite solo si el producto es ese)
+// (2026-11-27j) promesas de cura (la clase: «bienestar, nunca cura»; INVIMA y Meta)
+export const RE_CURA = /\b(cura|curar|cur[oa]n|sana[rn]?|elimina(?:r)? (?:la|el|las|los) (?:diabetes|hipertensi[oó]n|enfermedad|c[aá]ncer|artritis)|trata(?:r|miento m[eé]dico) (?:la|el) (?:diabetes|hipertensi[oó]n|enfermedad)|adi[oó]s a la (?:diabetes|enfermedad)|reemplaza (?:tu|el) medicamento)\b/i;
 const RE_EJEMPLO = /\bAMUNA\b|\bAMUA\b|vital ?drops|klickshoppe/i;
 /** Qué le falta o qué está mal en los textos de Valeria (vacío = bien). */
 export function erroresTextos(d, { nombre = '' } = {}) {
@@ -116,6 +121,18 @@ export function erroresTextos(d, { nombre = '' } = {}) {
     } else if (Array.isArray(x)) x.forEach((y, i) => ver(y, `${ruta}.${i}`));
     else if (x && typeof x === 'object') for (const [k, y] of Object.entries(x)) ver(y, ruta ? `${ruta}.${k}` : k);
   };
+  // (2026-11-27j) la clase de Joaquín: titular de resultado CON TIEMPO, subtítulo «Para …», bienestar sin curas
+  if (T(d.titulo?.titular) && !TIEMPO.test(d.titulo.titular) && !/\b(primer[ao]? (d[ií]a|semana|mes)|desde (hoy|la primera|el primer))\b/i.test(d.titulo.titular)) e.push(`«titulo.titular» debe decir el tiempo (beneficio + tiempo + deseo): «${d.titulo.titular}»`);
+  if (T(d.titulo?.subtitulo) && !/^para\b/i.test(d.titulo.subtitulo.trim())) e.push(`«titulo.subtitulo» empieza con «Para …» (para quién es y qué situación resuelve): «${d.titulo.subtitulo}»`);
+  const curas = [];
+  const verCuras = (x, ruta) => {
+    if (typeof x === 'string') {
+      if (RE_CURA.test(x)) curas.push(`«${ruta}»: «${x.slice(0, 80)}»`);
+    } else if (Array.isArray(x)) x.forEach((y, i) => verCuras(y, `${ruta}.${i}`));
+    else if (x && typeof x === 'object') for (const [k, y] of Object.entries(x)) if (!['pie', 'cuidado', 'faq', 'resumen'].includes(k) || ruta) verCuras(y, ruta ? `${ruta}.${k}` : k);
+  };
+  verCuras(d, '');
+  if (curas.length) e.push(`Bienestar, nunca curas ni enfermedades: ${curas.slice(0, 4).join('; ')}`);
   // (2026-11-27h) cada texto con el largo de su par en AMUNA (70 % a 135 % de las palabras; los de 6 palabras o más)
   const palabras = (t) => String(t).replace(/[*]/g, '').split(/\s+/).filter(Boolean).length;
   const largos = [];
@@ -292,6 +309,7 @@ export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, ca
     ellas: { titulo: t.ellas?.titulo, sub: t.ellas?.sub, items: social.ellasItems || [] },
     ingredientes: img('ingredientes'),
     historias: { ...t.historias, usuario: /^@[\w.]{2,30}$/.test(String(t.historias?.usuario || '')) ? t.historias.usuario : `@${String(P.marca || P.corto || P.nombre || 'tienda').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '').slice(0, 24)}`, fotos: [1, 2, 3, 4, 5, 6].map((k) => img(`historia-${k}`)) },
+    dolor: t.dolor,
     ruta: t.ruta,
     experiencias: { pill: t.experiencias?.pill, titulo: t.experiencias?.titulo, fotoProducto: fotoProducto || img('combo-1'), precioDesde: p.uno, items: social.experienciasItems || [] },
     // (2026-11-27g) con capturas reales de clientas: ellas, tal cual y enteras («Experiencias con …»); sin: fotos caseras
@@ -341,6 +359,14 @@ export async function crearConAmuna({ carpeta, productoId, pedido = '', motor, g
   };
   guardar({ agentes, plantilla: PLANTILLA_AMUNA });
   const reg = String(registro || '').trim().slice(0, 60);
+  // (2026-11-27j) la promesa de los anuncios del producto (el tiempo y los deseos de sus ajustes de imágenes)
+  let anuncios = '';
+  try {
+    const a = (await import('../imagen-ads/ajustes-producto.js')).ajustesDe(productoId) || {};
+    anuncios = [a.tiempo && `tiempo: ${a.tiempo}`, a.deseo_principal && `deseo principal: ${a.deseo_principal}`, a.deseo_central && `deseo central: ${a.deseo_central}`, a.promesa && `promesa: ${a.promesa}`].filter(Boolean).join(' · ');
+  } catch {
+    /* sin ajustes */
+  }
   const producto = `PLANTILLA AMUNA.\nSu producto: ${prod?.nombre || productoId}\nFicha: ${JSON.stringify(ficha).slice(0, 6000)}`;
   const datosTxt = `
 PRECIOS DEL DUEÑO (la app los pone en la página): 1 unidad ${cop(p.uno)}, 2 unidades ${cop(p.dos)}, 3 unidades ${cop(p.tres)}${p.antes ? `; precio normal de 1 unidad ${cop(p.antes)}` : ''}.
@@ -355,7 +381,8 @@ Nunca inventes testimonios, opiniones, nombres de clientas o de médicos, cifras
     valida: (d) => d && T(d.resumen) && T(d.angulo) && T(d.promesa),
     prompt: `${producto}\n${investigacion ? `Su investigación de mercado:\n${investigacion.slice(0, 16000)}\n` : 'Este producto NO tiene investigación de mercado todavía: trabaja con la ficha y dilo en el resumen.\n'}${datosTxt}
 Lee la investigación como un estratega de respuesta directa y decide la estrategia de la landing. Escribe ${rel(carpeta, Q('estratega').archivo)}:
-{ "avatar": "quién compra (edad, momento de vida, situación)", "dolor_principal": "", "deseo": "", "angulo": "", "mecanismo": "por qué funciona, simple y verdadero", "promesa": "la promesa principal con su tiempo, sin exagerar", "tiempo": "el tiempo de transformación del tratamiento", "objeciones": [""], "palabras_del_cliente": [""], "tono": "", "resumen": "" }`,
+{ "avatar": "quién compra (edad, momento de vida, situación)", "dolor_principal": "", "deseo": "", "angulo": "", "mecanismo": "por qué funciona, simple y verdadero", "promesa": "la promesa principal con su tiempo, sin exagerar", "tiempo": "el tiempo de transformación del tratamiento", "objeciones": [""], "palabras_del_cliente": [""], "titular": "beneficio + tiempo + deseo, 10 a 16 palabras, continuando la promesa de los anuncios", "subtitulo": "Para quién es y qué situación resuelve (empieza con «Para»)", "dolor_frases": ["3 frases en primera persona, en sus palabras (de la investigación si las hay)"], "tono": "", "resumen": "" }
+La clase que sigue esta landing (Joaquín Buelvas): el titular promete un RESULTADO (beneficio + tiempo + deseo) y continúa la promesa del anuncio; el subtítulo dice para quién es; el dolor va con las palabras textuales de la clienta; el cuerpo es problema-agitación-solución; en suplementos, bienestar y nunca cura.${anuncios ? `\nLa promesa de los anuncios de este producto (sus ajustes): ${anuncios}` : ''}`,
   });
   marcar('estratega', { estado: 'listo', resumen: T(estrategia.resumen, 800) });
 
@@ -556,5 +583,8 @@ Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<ruta en el JSON>"
   }
   const faltan = slots.length - hechas;
   if (faltan) avanzar(`${faltan} imagen(es) quedaron como recuadro gris con su medida: vuelve a crear la landing cuando ChatGPT esté conectado.`);
-  return { titulo: D.tituloPagina, agentes, cambiados, diseno, fondo, resenas: reales.length, imagenes: { hechas, pedidas: slots.length, quitadas: 0 }, capturas: reales2.length };
+  // (2026-11-27j) el auditor de la clase de Joaquín Buelvas
+  const auditoria = auditarLanding(D);
+  escribirJSON(path.join(carpeta, 'auditoria.json'), auditoria);
+  return { titulo: D.tituloPagina, auditoria, agentes, cambiados, diseno, fondo, resenas: reales.length, imagenes: { hechas, pedidas: slots.length, quitadas: 0 }, capturas: reales2.length };
 }

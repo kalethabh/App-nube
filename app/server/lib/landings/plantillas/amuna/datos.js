@@ -6,6 +6,9 @@ export const AMUNA = {
   galeria: Array.from({ length: 11 }, (_, k) => `img/galeria-${String(k + 1).padStart(2, '0')}.webp`),
   pruebaSocial: { avatares: ['img/avatar-1.webp', 'img/avatar-2.webp', 'img/avatar-3.webp', 'img/avatar-4.webp'], texto: 'Opiniones de clientas', enlace: '+12,537 Clientas recibieron Vitaldrops™' },
   titulo: {
+    titular: 'Caderas y glúteos con más forma en 4 semanas, para volver a lucir tus jeans con seguridad',
+    subtitulo: 'Para la mujer delgada que ya probó batidos y pastillas y quiere ver curvas sin vivir en el gimnasio.',
+    boton: 'Pedir ahora · pago al recibir',
     lede: 'Dale un espacio a tu rutina, a tu ritmo y con buena actitud. Elige el combo que más te convenga, sin tantas vueltas.',
     checks: ['Formato líquido con gotero', 'Ingredientes de origen vegetal', 'Compra única, sin suscripción', 'Elige entre 1, 2 o 3 frascos'],
   },
@@ -21,6 +24,11 @@ export const AMUNA = {
     boton: 'Pedir y pagar al recibir', subBoton: 'Quiero este tratamiento',
   },
   testimonio: { nombre: 'Valentina R.', foto: 'img/testimonio.webp', texto: '¡A mí sí me funcionó! Toda la vida sentí que tenía los glúteos planos —todavía un poquito, jaja—, pero la diferencia desde que empecé me parece enorme. En mi caso, la gente lo ha notado. Mi pareja también lo nota 😅😂. Lo que más cuidé fue ser constante.' },
+  dolor: {
+    titulo: '¿Te pasa esto?',
+    frases: ['Me pongo un jean y me queda suelto atrás, como si no tuviera nada.', 'Ya probé batidos y pastillas y lo único que subió fue la barriga.', 'Me da pena ponerme vestido porque siento que no lleno nada.'],
+    cierre: '¿Te suena? *No eres la única.*',
+  },
   dudas: [
     ['¿Qué hace diferente a VitalDrops?', 'VitalDrops combina varios ingredientes en un formato líquido con gotero. Su presentación está **pensada para integrarse a tu rutina diaria** siguiendo la dosis y las indicaciones del producto. Sin hacer malabares.'],
     ['¿En cuánto tiempo veré cambios?', 'La respuesta a un suplemento varía entre personas. No podemos garantizar cambios en medidas ni un plazo concreto. Lo importante es seguir las indicaciones y escuchar a tu cuerpo.'],

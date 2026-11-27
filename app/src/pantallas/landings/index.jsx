@@ -179,6 +179,26 @@ function Equipo({ agentes }) {
   );
 }
 
+/** (2026-11-27j) El auditor de la clase «Cada página es una landing» (Joaquín Buelvas): 6 pilares y por dónde empezar. */
+function Auditor({ a }) {
+  if (!a?.pilares?.length) return null;
+  return (
+    <details className="ld-equipo ld-auditor">
+      <summary>{`Auditor de la clase: ${a.porcentaje} %${a.empezarPor ? ` · Empieza por: ${a.empezarPor}` : ' · Funciona como una landing'}`}</summary>
+      <ol>
+        {a.pilares.map((p) => (
+          <li key={p.nombre} className="ld-equipo__agente">
+            <strong>{`${p.cumple === p.total ? '✓' : '·'} ${p.nombre} (${p.cumple} de ${p.total})`}</strong>
+            {p.puntos.filter((x) => !x.ok && x.falta).length ? (
+              <ul className="ld-equipo__pendientes">{p.puntos.filter((x) => !x.ok && x.falta).map((x) => <li key={x.texto}>{x.falta}</li>)}</ul>
+            ) : null}
+          </li>
+        ))}
+      </ol>
+    </details>
+  );
+}
+
 function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
   const { aviso } = useAvisos();
   const [subiendo, setSubiendo] = useState(false);
@@ -236,6 +256,7 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
         </div>
       ) : null}
       <Equipo agentes={l.agentes} />
+      <Auditor a={l.auditoria} />
       {l.analisis ? <Analisis a={l.analisis} /> : null}
       {!l.analisis && l.analisisError && !ocupado ? <p className="ld-ayuda"><CircleAlert size={13} aria-hidden="true" /> {l.analisisError}</p> : null}
       {l.informe?.avisos?.length ? (
