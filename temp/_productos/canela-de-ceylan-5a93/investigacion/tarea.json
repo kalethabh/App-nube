@@ -1,0 +1,16 @@
+{
+  "id": "59ea5afb-9ec5-4467-8c60-33af625db21a",
+  "uuid": "59ea5afb-9ec5-4467-8c60-33af625db21a",
+  "estado": "investigando",
+  "pais": null,
+  "progreso": [
+    "Claude está investigando tu mercado",
+    "Leyendo las instrucciones del estilo",
+    "Mirando las fotos de tu producto",
+    "Guardando"
+  ],
+  "intentos": 1,
+  "inicio": "2026-11-27T18:48:22.291Z",
+  "error": null,
+  "actualizado": "2026-11-27T18:50:06.851Z"
+}
