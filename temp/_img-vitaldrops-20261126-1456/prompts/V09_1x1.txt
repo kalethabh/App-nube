@@ -1,3 +1,13 @@
-Edit this advertising image (the FIRST attached image) following this instruction: "Set the blur on the word "amua" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the before and after halves, the woman, the headline, the handwritten notes, the guarantee badge, the bottom icons, the VITALDROPS logo, colors, the rest of the label and the background. Do not add, remove or move anything.". Keep everything else exactly as it is (layout, texts, colors, typography, person, product) unless the instruction says otherwise. The SECOND attached image is the real product photo: the product must stay identical to it. Do not add new elements.
+Edit this advertising image (the FIRST attached image) following this instruction: "Remove the before/after: delete the dark left 'before' strip with the first woman, the 'ANTES' and 'DESPUÉS' pills, the curved arrow, the scribble cloud and the three negative handwritten notes ('Sin curvas', 'Sin confianza', 'La que nadie nota'). Show only one woman (the smiling one), facing the camera in everyday clothes, larger on the left about 60% of the width, on a single pink background. Change the headline to exactly 'AHORA NADIE LA OLVIDA.' with 'AHORA NADIE LA' in white (#FFFFFF) and 'OLVIDA.' in yellow (#FFD21F). Keep the same subtitle, the three positive notes with hearts, the bottle, the 90-day seal, the bottom icons, fonts and palette unchanged.". Keep everything else exactly as it is (layout, texts, colors, typography, person, product) unless the instruction says otherwise. The SECOND attached image is the real product photo: the product must stay identical to it. Do not add new elements.
+
+Exact visible texts (each appears exactly once, correctly spelled, nothing else added):
+- main headline: "AHORA NADIE LA OLVIDA."
+- subtítulo: "El cambio que hizo que todos empezaran a mirarla diferente."
+- nota después 1: "Curvas naturales"
+- nota después 2: "Más confianza"
+- nota después 3: "Todos la notan"
+- etiqueta del frasco: "VITALDROPS"
+- sello: "90 DÍAS DE GARANTÍA"
+- ícono 1: "Ingredientes de origen vegetal"
 
 All visible text in Spanish.

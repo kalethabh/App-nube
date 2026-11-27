@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 24,
-    "T": 27
+    "A": 25,
+    "T": 29
   },
   "tandas": {
     "E001": {
@@ -234,10 +234,20 @@
     "A023": {
       "tipo": "ajuste",
       "uuid": "750d3bcb-36a5-45e1-a49f-9a2417fbd6f6",
-      "estado": "en-curso",
+      "estado": "hecha",
       "pedidos": [
         "U0030"
-      ]
+      ],
+      "empezada": true
+    },
+    "A024": {
+      "tipo": "ajuste",
+      "uuid": "a88e5a8a-ea52-47d7-b989-1569ba84774c",
+      "estado": "hecha",
+      "pedidos": [
+        "U0031"
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -442,10 +452,10 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "ajustando",
+      "fase": "final",
       "resultado": "listo",
-      "version": 2,
-      "firma": "1947773-1795727063566",
+      "version": 3,
+      "firma": "2004243-1795745546623",
       "orden": null,
       "intentosApi": 1,
       "ronda": "u",
@@ -453,19 +463,26 @@
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T21:04:24.739Z",
+      "desde": "2026-11-27T02:12:28.117Z",
       "pedido": null,
-      "ultimaOrden": "U0024",
+      "ultimaOrden": "U0030",
       "fallo": null
     },
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "listo",
       "version": 3,
       "firma": "2110692-1795727024739",
-      "orden": null,
+      "orden": {
+        "id": "U0031",
+        "modo": "editar",
+        "version": 4,
+        "instruccion_en": "Edit only the woman's body: give her moderately more natural volume in the hips, thighs and legs so the blue jeans look well filled, with a realistic, healthy shape for a 50-year-old woman (not exaggerated, not sexualized). Keep her face, skin tone, ponytail, white top, pink phone, kneeling pose, expression and position exactly the same. Do not change the headline, badge, comment, bottle, label, beach background, colors or layout. All text stays identical and correctly spelled.",
+        "textos": false,
+        "trabajo": "T028"
+      },
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
@@ -473,7 +490,7 @@
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T21:03:46.697Z",
-      "pedido": null,
+      "pedido": "U0031",
       "ultimaOrden": "U0025",
       "fallo": null
     }
@@ -1082,8 +1099,42 @@
       "pieza": "V09_1x1",
       "instruccion": "elimina el antes y después",
       "fecha": "2026-11-27T02:10:16.047Z",
-      "estado": "ajustando",
-      "ajuste": "A023"
+      "estado": "listo",
+      "ajuste": "A023",
+      "instruccion_en": "Remove the before/after: delete the dark left 'before' strip with the first woman, the 'ANTES' and 'DESPUÉS' pills, the curved arrow, the scribble cloud and the three negative handwritten notes ('Sin curvas', 'Sin confianza', 'La que nadie nota'). Show only one woman (the smiling one), facing the camera in everyday clothes, larger on the left about 60% of the width, on a single pink background. Change the headline to exactly 'AHORA NADIE LA OLVIDA.' with 'AHORA NADIE LA' in white (#FFFFFF) and 'OLVIDA.' in yellow (#FFD21F). Keep the same subtitle, the three positive notes with hearts, the bottle, the 90-day seal, the bottom icons, fonts and palette unchanged.",
+      "cambiaTextos": true,
+      "resumen": "Quitamos el antes y después: queda una sola mujer, más grande, y el titular ahora dice «AHORA NADIE LA OLVIDA.»",
+      "pasos": [
+        {
+          "pieza": "V09_1x1",
+          "orden": "U0030",
+          "modo": "editar",
+          "instruccion_en": "Remove the before/after: delete the dark left 'before' strip with the first woman, the 'ANTES' and 'DESPUÉS' pills, the curved arrow, the scribble cloud and the three negative handwritten notes ('Sin curvas', 'Sin confianza', 'La que nadie nota'). Show only one woman (the smiling one), facing the camera in everyday clothes, larger on the left about 60% of the width, on a single pink background. Change the headline to exactly 'AHORA NADIE LA OLVIDA.' with 'AHORA NADIE LA' in white (#FFFFFF) and 'OLVIDA.' in yellow (#FFD21F). Keep the same subtitle, the three positive notes with hearts, the bottle, the 90-day seal, the bottom icons, fonts and palette unchanged.",
+          "textos": true
+        }
+      ],
+      "paso": 0
+    },
+    "U0031": {
+      "id": "U0031",
+      "pieza": "V10_1x1",
+      "instruccion": "Que la modelo tenga más volumen en glúteos, piernas y caderas",
+      "fecha": "2026-11-27T02:11:13.647Z",
+      "estado": "generando",
+      "ajuste": "A024",
+      "instruccion_en": "Edit only the woman's body: give her moderately more natural volume in the hips, thighs and legs so the blue jeans look well filled, with a realistic, healthy shape for a 50-year-old woman (not exaggerated, not sexualized). Keep her face, skin tone, ponytail, white top, pink phone, kneeling pose, expression and position exactly the same. Do not change the headline, badge, comment, bottle, label, beach background, colors or layout. All text stays identical and correctly spelled.",
+      "cambiaTextos": false,
+      "resumen": "La modelo ahora tiene más volumen en caderas, muslos y piernas, de forma natural. Todo lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V10_1x1",
+          "orden": "U0031",
+          "modo": "editar",
+          "instruccion_en": "Edit only the woman's body: give her moderately more natural volume in the hips, thighs and legs so the blue jeans look well filled, with a realistic, healthy shape for a 50-year-old woman (not exaggerated, not sexualized). Keep her face, skin tone, ponytail, white top, pink phone, kneeling pose, expression and position exactly the same. Do not change the headline, badge, comment, bottle, label, beach background, colors or layout. All text stays identical and correctly spelled.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     }
   }
 }

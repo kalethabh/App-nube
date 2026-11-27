@@ -1,0 +1,11 @@
+{
+  "pedidos": [
+    {
+      "id": "U0030",
+      "aplicado": true,
+      "cambia_textos": true,
+      "instruccion_en": "Remove the before/after: delete the dark left 'before' strip with the first woman, the 'ANTES' and 'DESPUÉS' pills, the curved arrow, the scribble cloud and the three negative handwritten notes ('Sin curvas', 'Sin confianza', 'La que nadie nota'). Show only one woman (the smiling one), facing the camera in everyday clothes, larger on the left about 60% of the width, on a single pink background. Change the headline to exactly 'AHORA NADIE LA OLVIDA.' with 'AHORA NADIE LA' in white (#FFFFFF) and 'OLVIDA.' in yellow (#FFD21F). Keep the same subtitle, the three positive notes with hearts, the bottle, the 90-day seal, the bottom icons, fonts and palette unchanged.",
+      "resumen": "Quitamos el antes y después: queda una sola mujer, más grande, y el titular ahora dice «AHORA NADIE LA OLVIDA.»"
+    }
+  ]
+}

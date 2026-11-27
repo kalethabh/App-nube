@@ -34,7 +34,7 @@
       "estado": "corriendo",
       "intentos": 15,
       "inicio": "2026-11-27T02:10:16.050Z",
-      "detalle": "Claude está preparando tus cambios: ajustando un anuncio · 9 de 10 listas"
+      "detalle": "Creando 1 imagen · 9 de 10 listas"
     },
     {
       "id": "informe",
@@ -47,5 +47,5 @@
   "modoPrueba": false,
   "creado": "2026-11-26T19:56:25.842Z",
   "aprobado": "2026-11-26T19:56:25.842Z",
-  "actualizado": "2026-11-27T02:10:32.110Z"
+  "actualizado": "2026-11-27T02:12:28.126Z"
 }
