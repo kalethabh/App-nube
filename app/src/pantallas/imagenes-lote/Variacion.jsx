@@ -32,10 +32,12 @@ export function porQueNo(p, { cuadrado = null, sinPrompt = false } = {}) {
 }
 
 /** Una imagen con sus tres botones. `nombre` va arriba cuando la pieza se ve sola (Cuadrados / Verticales). */
-export const TarjetaPieza = memo(function TarjetaPieza({ p, formato, onAbrir, onRegenerar, onCopiar, nombre, cuadrado = null }) {
+export const TarjetaPieza = memo(function TarjetaPieza({ p, formato: delNombre, onAbrir, onRegenerar, onCopiar, nombre, cuadrado = null }) {
   const [cargada, setCargada] = useState(false);
   const lote = useContext(LoteFunciona);
   if (!p) return null;
+  // (2026-11-26j) el tamaño que tiene hoy la imagen (si se lo cambiaste, ya no es el de su nombre)
+  const formato = p.formato || delNombre;
   const vertical = formato === '9:16';
   const src = p.miniatura || p.url;
   const enMarcha = PIEZA_EN_MARCHA.has(p.estado);
@@ -151,6 +153,7 @@ export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical,
         ) : null}
         {/* (2026-11-26i) de qué imagen es variante y «Más como esta» */}
         {x.varianteDe ? <span className="lote-var__variante t-mini">Variante de {x.varianteDe}</span> : null}
+        {x.comoGanadora ? <span className="lote-var__variante t-mini">Como una que te funciona</span> : null}
         {onMasComoEsta && cuadrado?.url && PIEZA_FINAL.has(cuadrado.estado) && cuadrado.estado !== 'sin-imagen' ? (
           <Boton variante="fantasma" tamano="chico" icono={CopyPlus} className="lote-var__mas" onClick={() => onMasComoEsta(x.v)}>
             Más como esta

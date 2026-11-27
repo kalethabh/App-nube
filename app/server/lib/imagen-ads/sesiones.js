@@ -406,6 +406,8 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
   // (2026-11-26b) las variaciones que salen de una estructura ganadora: su ficha y su imagen (copiada al lote)
   const conEstructura = copiarEstructuras(carpeta);
   const variantes = variaciones.filter((x) => RE_V.test(String(x.variante_de || '')));
+  // (2026-11-26j) «Como las que me funcionan»: la imagen que eligió el usuario para cada una
+  const ganadoras = variaciones.filter((x) => /^entrada\/mas\/M\d{2}-\d\.(jpg|png)$/.test(String(x.ganadora || '')));
   const material = {
     textos: unicas([
       deLaSkill('SKILL.md'),
@@ -425,6 +427,7 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
         .concat(ids.map((v) => (conEstructura[v] ? delLote(carpeta, lote, conEstructura[v].copia) : null)))
         // (2026-11-26i) «Más como esta»: la imagen base de cada variante
         .concat(variantes.map((x) => delLote(carpeta, lote, `entrada/variantes/${x.variante_de}.png`)))
+        .concat(ganadoras.map((x) => delLote(carpeta, lote, x.ganadora)))
         .filter(Boolean)
     ),
   };
@@ -444,6 +447,7 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
       (usaEstructuras(brief) || esVariado(brief) ? textoTitulosMayaverra(brief) : '') +
       textoVenta(brief) +
       textoVariantes(lote, variantes) +
+      textoGanadoras(lote, ganadoras) +
       (esDelAgente(brief)
         ? `\n## Agente de variaciones (guía \`${GUIA_AGENTE}\`, pegada)\nCada prompt respeta el nivel, el cambio y los invariables de su variación (plan.json y \`analisis-ganador.json\`), y la dirección de arte LIMPIA de la guía: fondo simple con espacio negativo, sin brillos, destellos, partículas ni objetos que compitan; jerarquía titular → imagen del deseo → producto → beneficios → oferta; Montserrat ExtraBold en el titular e Inter en lo secundario; máximo tres niveles de texto; producto con su envase, logo y etiqueta reales; una sola pieza por imagen, sin collage ni rótulos de «Variante».\n`
         : ''),
@@ -455,6 +459,16 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
     esfuerzo: 'alto',
     verificar: async () => verificarSesion({ carpeta, brief, tipo: 'prompts', ids }),
   };
+}
+
+/** (2026-11-26j) «Como las que me funcionan»: cada una, un anuncio NUEVO con la estructura de una imagen que le funciona. */
+function textoGanadoras(lote, ganadoras) {
+  if (!ganadoras.length) return '';
+  return `
+## Como las que le funcionan al usuario (lo pidió el usuario)
+${ganadoras.map((x) => `- ${x.id} se basa en \`temp/${lote}/${x.ganadora}\` (mírala con Read): una imagen que YA LE FUNCIONA (de este producto o de otro).`).join('\n')}
+Copia de esa imagen su ESTRUCTURA (las mismas zonas, en el mismo orden y con proporciones parecidas), su estilo, su tipo de gancho y su forma de vender; todo lo demás es de ESTE producto: el frasco real, los textos del plan, la oferta y los sellos del formulario letra por letra. Si es de otro producto, nunca su marca, su producto, su frasco ni sus textos. Que no se parezca a ninguna imagen que ya esté en el lote: otro titular, otra modelo y otra escena. El motor le pasa al modelo de imagen esa imagen como referencia de diseño.
+`;
 }
 
 /** (2026-11-26i) «Más como esta»: cada variante es otra foto del MISMO anuncio que eligió el usuario. */
@@ -471,6 +485,8 @@ Cada variante es OTRA FOTO DEL MISMO ANUNCIO: mantén su estructura, sus zonas y
 
 export function sesionRevision({ carpeta, lote, brief, tanda, t }) {
   const vertical = t.formato === '9:16' || t.formato === '4:5'; // (2026-11-26i) el retrato 4:5 también sale de su cuadrado
+  // (2026-11-26j) el tamaño real de cada imagen (si se lo cambiaste, ya no es el de su nombre)
+  const aspectos = Object.fromEntries(Object.entries(leerJSON(R.estado(carpeta))?.piezas || {}).filter(([, x]) => x?.aspecto).map(([k, x]) => [k, x.aspecto]));
   const conLogo = Boolean(brief?.logo?.posicion);
   const c = `temp/${lote}`;
   const foto = (fotoDelLote(carpeta) || 'entrada/producto.png').replace(/^entrada\//, '');
@@ -479,7 +495,7 @@ export function sesionRevision({ carpeta, lote, brief, tanda, t }) {
       const v = vDe(pieza);
       const recortes = [1, 2, 3, 4].map((i) => `${c}/revision/${pieza}_r${i}.png`).join(', ');
       const cuadrado = vertical ? ` · su cuadrado ${c}/revision/${piezaId(v, '1:1')}_vista.jpg` : '';
-      return `- ${pieza} (${nombreFormato(formatoDe(pieza))}): vista ${c}/revision/${pieza}_vista.jpg · recortes ${recortes} · anuncio ${c}/${v}.json${cuadrado}`;
+      return `- ${pieza} (${nombreFormato(aspectos[pieza] || formatoDe(pieza))}): vista ${c}/revision/${pieza}_vista.jpg · recortes ${recortes} · anuncio ${c}/${v}.json${cuadrado}`;
     })
     .join('\n');
   const valores = {

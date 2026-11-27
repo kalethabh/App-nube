@@ -1330,3 +1330,6 @@ button.lote-pieza__marco:hover .lote-pieza__img {
   .lote-rejilla:not(.lote-rejilla--doble) > .lote-var--doble { grid-column: span 2; }
   .lote-rejilla--doble > .lote-var--triple { grid-column: span 2; }
 }
+/* (2026-11-26j) el nombre bajo cada miniatura, en una línea */
+.lote-mas__base span { right: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; }
+.lote-mas__bases { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }

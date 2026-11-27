@@ -134,19 +134,21 @@ export default function PantallaLote({ params, consulta }) {
   const escribirDeNuevo = (v) => confirmarCosto(`Escribir y generar ${v}`, (vista?.brief?.formatos || ['1:1']).length, (costoMaximoConfirmado) =>
     hacer('escribir', () => acciones.regenerar({ v, tipo: 'prompt', costoMaximoConfirmado }), { ok: { titulo: `Escribo de nuevo ${v}`, texto: 'Cuando esté, se crean sus imágenes solas.' }, error: 'No pude pedirlo' }));
 
-  // (2026-11-26i) «Crear otro tamaño» de un anuncio: 1 imagen, sale de su cuadrado (lo de antes no se toca)
+  // (2026-11-26j) «Cambiar el tamaño» de una imagen: 1 imagen; queda como versión nueva de la misma (la de antes, en
+  // «Versiones anteriores», como después de una edición)
   const NOMBRE_TAMANO = { '1:1': 'cuadrado 1:1', '9:16': 'vertical 9:16', '4:5': 'retrato 4:5' };
-  const pedirTamano = (v, formato) => {
+  const pedirTamano = (pieza, formato) => {
+    const { v } = partesDePieza(pieza);
     setARegenerar(null);
-    confirmarCosto(`Crear el ${NOMBRE_TAMANO[formato]} de ${v}`, 1, (costoMaximoConfirmado) =>
-      hacer('tamano', () => acciones.tamano({ v, formato, costoMaximoConfirmado }), { ok: { titulo: `Creo el ${NOMBRE_TAMANO[formato]} de ${v}`, texto: 'Sale de su cuadrado, con los mismos textos. Lo de antes queda igual.' }, error: 'No pude pedirlo' }));
+    confirmarCosto(`Pasar ${v} a ${NOMBRE_TAMANO[formato]}`, 1, (costoMaximoConfirmado) =>
+      hacer('tamano', () => acciones.tamano({ pieza, formato, costoMaximoConfirmado }), { ok: { titulo: `Paso ${v} a ${NOMBRE_TAMANO[formato]}`, texto: 'Con los mismos textos. La de ahora queda en «Versiones anteriores» (ábrela en grande).' }, error: 'No pude pedirlo' }));
   };
 
   // (2026-11-26i) «Más imágenes en este lote»: nuevos o variantes de una imagen (1-10), con su costo antes
-  const pedirMas = ({ modo, cantidad, base, imagenes }) => {
+  const pedirMas = ({ modo, cantidad, base, funcionan, imagenes }) => {
     setMas(null);
     confirmarCosto(modo === 'variantes' ? `${cantidad} ${cantidad === 1 ? 'variante' : 'variantes'} de ${base}` : `${cantidad} ${cantidad === 1 ? 'anuncio nuevo' : 'anuncios nuevos'} en este lote`, imagenes, (costoMaximoConfirmado) =>
-      hacer('mas', () => acciones.mas({ modo, cantidad, base, costoMaximoConfirmado }), {
+      hacer('mas', () => acciones.mas({ modo, cantidad, base, funcionan, costoMaximoConfirmado }), {
         ok: { titulo: modo === 'variantes' ? `Creo ${cantidad} ${cantidad === 1 ? 'variante' : 'variantes'} de ${base}` : `Creo ${cantidad} ${cantidad === 1 ? 'anuncio nuevo' : 'anuncios nuevos'}`, texto: 'Aparecen abajo, al final del lote. Las que ya tienes no cambian.' },
         error: 'No pude pedirlas',
       }));
@@ -466,8 +468,8 @@ export default function PantallaLote({ params, consulta }) {
       />
       {confirmacionCosto}
       <ModalTextos variacion={aEditar} onGuardar={guardarTextos} onCerrar={() => setAEditar(null)} />
-      <ModalMas abierto={Boolean(mas)} baseInicial={mas?.base || null} variaciones={variaciones} formatos={(brief.formatos || ['1:1']).length} precio={precio} ocupado={ocupado === 'mas'} onCerrar={() => setMas(null)} onConfirmar={pedirMas} />
-      <ModalRegenerar onMasComoEsta={puedeMas ? (v) => { setARegenerar(null); setMas({ base: v }); } : null} pieza={aRegenerar} conVertical={conVertical} precio={precio} formatosHechos={aRegenerar ? Object.keys(vista?.variaciones?.find((x) => x.v === partesDePieza(aRegenerar.pieza).v)?.piezas || {}) : []} onTamano={brief.plantillas ? null : pedirTamano} lote={simulando ? null : lote} productoId={vista?.producto?.id || null} onCerrar={() => setARegenerar(null)} onConfirmar={pedirRegenerar} />
+      <ModalMas abierto={Boolean(mas)} baseInicial={mas?.base || null} variaciones={variaciones} formatos={(brief.formatos || ['1:1']).length} precio={precio} productoId={vista?.producto?.id || null} ocupado={ocupado === 'mas'} onCerrar={() => setMas(null)} onConfirmar={pedirMas} />
+      <ModalRegenerar onMasComoEsta={puedeMas ? (v) => { setARegenerar(null); setMas({ base: v }); } : null} pieza={aRegenerar} conVertical={conVertical} precio={precio} onTamano={brief.plantillas ? null : pedirTamano} lote={simulando ? null : lote} productoId={vista?.producto?.id || null} onCerrar={() => setARegenerar(null)} onConfirmar={pedirRegenerar} />
       <PanelEstrategia estrategia={vista.estrategia} abierto={verEstrategia && Boolean(vista.estrategia)} onCerrar={() => setVerEstrategia(false)} />
     </div>
     </LoteFunciona.Provider>

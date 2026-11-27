@@ -534,6 +534,36 @@ export function construirPromptVertical(ad, { conProducto = true, logo = null, c
   return bloques.join('\n\n');
 }
 
+// (2026-11-26j) CAMBIAR EL TAMAÑO de una imagen (queda como versión nueva de la misma pieza; la de antes, en versiones/)
+const NOMBRE_LIENZO = { '1:1': 'a 1:1 square layout for the Facebook and Instagram feed', '9:16': 'a vertical 9:16 portrait layout for Instagram Stories, Reels and TikTok', '4:5': 'a 4:5 portrait layout for the Facebook and Instagram feed' };
+export function construirPromptCambioTamano(ad, { de = '1:1', a = '9:16', logo = null } = {}) {
+  const pos = posicionDe(logo);
+  let p1 = RECREAR;
+  if (!vacioPy(ad)) {
+    const resumen = resumenIdentidad(ad);
+    if (resumen) p1 += '. Specifically preserve: ' + resumen;
+  }
+  p1 += '.';
+  const cambio =
+    `The ONLY change is the dimension: the first attached image is ${de}; convert it to ${NOMBRE_LIENZO[a] || NOMBRE_LIENZO['9:16']}. ` +
+    'Re-arrange the same elements so they fit naturally and look premium in the new canvas (more air where the canvas grows, ' +
+    'tighter where it shrinks). Do not simply add empty bands, borders, blurred strips or solid color bars, and do not crop or cut off any element. ' +
+    'Keep the same visual hierarchy.';
+  const bloques = [p1, FIDELIDAD_COLOR, cambio];
+  if (a === '9:16') bloques.push(ZONA_SEGURA);
+  bloques.push(PRODUCTO_SEGUNDA);
+  const textos = bloqueTextosVertical(ad);
+  if (textos) bloques.push(textos);
+  const regla = getPy(oPy(ad, {}), 'language_rule', undefined);
+  if (!vacioPy(regla)) bloques.push(strPy(regla));
+  if (pos) bloques.push(bloqueLogo(a === '9:16' ? '9:16' : '1:1', pos));
+  bloques.push(CIERRE);
+  return bloques.join('\n\n');
+}
+
+/** (2026-11-26j) Una imagen que cambió de tamaño se sigue haciendo en ese tamaño (el prompt del cuadrado lo aclara). */
+export const notaDeLienzo = (formato) => (formato && formato !== '1:1' ? `\n\nCANVAS: this ad is ${NOMBRE_LIENZO[formato]}, not a square: lay out the same blocks for that canvas.` : '');
+
 /**
  * Regenerar con instruccion = EDITAR la imagen (imagen a imagen sobre la
  * imagen limpia actual, sin logo, mas la foto del producto). `instruccion` va

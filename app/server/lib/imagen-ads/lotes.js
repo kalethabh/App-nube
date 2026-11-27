@@ -510,24 +510,28 @@ export function agregarPedido(lote, cuerpo = {}) {
 }
 
 /**
- * (2026-11-26i) «CREAR OTRO TAMAÑO» de un anuncio: { v, formato } con formato 1:1, 9:16 o 4:5. Se agrega solo a esa
- * variación (brief.extras[v]); la nueva pieza sale de su cuadrado ya hecho, como el vertical. Nada de lo que ya existe
- * se toca. 409 si ese tamaño ya está o si su cuadrado todavía no salió.
+ * (2026-11-26j) CAMBIAR EL TAMAÑO de una imagen: { pieza, formato } con formato 1:1, 9:16 o 4:5. Es una versión nueva
+ * de LA MISMA imagen (como una edición): la de antes queda en «Versiones anteriores». 409 si ya tiene ese tamaño, si no
+ * terminó o si tiene otro cambio en camino.
  */
-export function agregarTamano(lote, { v, formato } = {}) {
+export function agregarTamano(lote, { pieza, formato } = {}) {
   const carpeta = carpetaDe(lote);
   const brief = leerBrief(carpeta);
   const est = leerEstado(carpeta);
   if (!est) throw new ErrorApp(409, 'Este lote todavía se está preparando.');
-  if (!RE_V.test(String(v || '')) || !est.variaciones?.[v]) throw new ErrorApp(404, 'No encuentro ese anuncio en el lote.');
+  pieza = String(pieza || '');
+  if (!RE_PIEZA.test(pieza) || !est.piezas?.[pieza] || !formatosDe(brief, vDe(pieza)).includes(formatoDe(pieza))) throw new ErrorApp(404, 'No encuentro esa imagen en el lote.');
   if (!['1:1', '9:16', '4:5'].includes(formato)) throw new ErrorApp(400, 'Elige cuadrado 1:1, vertical 9:16 o retrato 4:5.');
-  if (formatosDe(brief, v).includes(formato)) throw new ErrorApp(409, `Este anuncio ya tiene su ${nombreFormato(formato)}.`);
-  const c = est.piezas[piezaId(v, '1:1')];
-  if (!c || c.fase !== 'final' || !existe(R.img(carpeta, piezaId(v, '1:1')))) throw new ErrorApp(409, 'Su imagen cuadrada todavía no está: espera a que termine.');
-  if (pedidosSinTerminar(carpeta).some((x) => (x.v || vDe(x.pieza || '')) === v)) throw new ErrorApp(409, 'Este anuncio ya tiene un cambio en camino.');
-  brief.extras = { ...(brief.extras || {}), [v]: [...new Set([...(brief.extras?.[v] || []), formato])] };
-  guardarJSON(R.brief(carpeta), brief);
-  return { v, formato, pieza: piezaId(v, formato) };
+  const p = est.piezas[pieza];
+  if ((p.aspecto || p.formato || formatoDe(pieza)) === formato) throw new ErrorApp(409, `Esta imagen ya es ${nombreFormato(formato)}.`);
+  if (p.local) throw new ErrorApp(409, 'Esta imagen la dibuja la app: no se le cambia el tamaño.');
+  if (p.fase !== 'final' || !existe(R.img(carpeta, pieza))) throw new ErrorApp(409, 'Esta imagen todavía se está creando: espera a que termine.');
+  if (pedidosSinTerminar(carpeta).some((x) => (x.v || vDe(x.pieza || '')) === vDe(pieza))) throw new ErrorApp(409, 'Esta imagen ya tiene un cambio en camino.');
+  const lista = leerPedidos(carpeta);
+  const n = Math.max(0, ...lista.map((x) => Number(String(x.id || '').slice(1)) || 0)) + 1;
+  const nuevo = { id: `U${String(n).padStart(4, '0')}`, tipo: 'tamano', pieza, formato, instruccion: '', fecha: ahora() };
+  guardarJSON(R.pedidos(carpeta), { pedidos: [...lista, nuevo] });
+  return { ...nuevo, pieza, formato };
 }
 
 /**

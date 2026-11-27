@@ -12,6 +12,7 @@ const MOTIVO_VERSION = {
   revision: 'La rehízo la revisión', // (solo en lotes de antes: desde 2026-11-09 la revisión no rehace nada sola)
   usuario: 'Le pediste un cambio',
   'cuadrado-nuevo': 'Cambió su cuadrado',
+  tamano: 'Antes de cambiar el tamaño',
 };
 
 function MenuMas({ p, conLogo, onCopiarJson }) {
@@ -116,7 +117,9 @@ export function Visor({ vista, variaciones, abierto, onCerrar, onIr, onFormato, 
   const anterior = verVersion !== null ? versiones.find((o) => o.n === verVersion) : null;
   const mostrar = anterior && comparar === 'antes' ? anterior : null;
   const src = mostrar ? mostrar.url : p?.url;
-  const vertical = formato === '9:16';
+  // (2026-11-26j) cada imagen (y cada versión anterior) se ve en su propio tamaño: el de ahora o el que tenía
+  const aspecto = (mostrar ? mostrar.formato : p?.formato) || formato;
+  const vertical = aspecto === '9:16';
   const nombre = p ? partesDePieza(p.pieza).nombre : x.v;
 
   // los tres botones (y "Más") van en el pie del modal. Con una versión anterior a la vista, Descargar y Copiar
@@ -174,7 +177,7 @@ export function Visor({ vista, variaciones, abierto, onCerrar, onIr, onFormato, 
       </div>
 
       <div className={`lote-visor__escena${vertical ? ' lote-visor__escena--vertical' : ''}`}>
-        <div className="lote-visor__media" style={{ aspectRatio: vertical ? '9 / 16' : formato === '4:5' ? '4 / 5' : '1 / 1' }} tabIndex={-1} data-autofocus>
+        <div className="lote-visor__media" style={{ aspectRatio: vertical ? '9 / 16' : aspecto === '4:5' ? '4 / 5' : '1 / 1' }} tabIndex={-1} data-autofocus>
           {src ? (
             <img key={src} src={src} alt={`${nombre}${mostrar ? `, versión ${mostrar.n}` : ''}`} decoding="async" style={p?.miniatura && !mostrar ? { backgroundImage: `url("${p.miniatura}")` } : undefined} />
           ) : (
@@ -235,7 +238,7 @@ export function Visor({ vista, variaciones, abierto, onCerrar, onIr, onFormato, 
                   <li key={o.n}>
                     <button
                       type="button"
-                      className={`lote-version${sel ? ' lote-version--sel' : ''}${vertical ? ' lote-version--vertical' : ''}`}
+                      className={`lote-version${sel ? ' lote-version--sel' : ''}${o.formato === '9:16' ? ' lote-version--vertical' : ''}`}
                       aria-pressed={sel}
                       onClick={() => {
                         setVerVersion(sel ? null : o.n);

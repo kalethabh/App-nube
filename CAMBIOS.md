@@ -2,6 +2,16 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-26j · Anuncios de imagen: cambiar el tamaño como una edición y anuncios como los que te funcionan
+
+- **Cambiar el tamaño ya no pone otra imagen al lado:** en «¿Regenerar esta imagen?» toca «Vertical 9:16», «Retrato 4:5» o «Cuadrado 1:1».
+  - La misma imagen se rehace en ese tamaño, con los mismos textos.
+  - La de antes queda en «Versiones anteriores»: ábrela en grande y pasa con las flechas a la anterior, igual que después de una edición.
+  - Si después la regeneras, sigue en el tamaño nuevo. Cuesta 1 imagen.
+- **Más imágenes, «Como las que me funcionan»:** eliges imágenes que marcaste con «Me funciona» (de este producto o de otro, hasta 5).
+  - Salen anuncios nuevos para este producto, con la estructura y el estilo de esas imágenes.
+- **Ninguna imagen nueva repite un titular del lote**, ni en «Anuncios nuevos» ni en «Como las que me funcionan».
+
 ## 2026-11-26i · Anuncios de imagen: otro tamaño y más imágenes en el mismo lote
 
 - **Otro tamaño de un anuncio:** en «¿Regenerar esta imagen?» elige «+ Vertical 9:16», «+ Retrato 4:5» o «+ Cuadrado 1:1».
