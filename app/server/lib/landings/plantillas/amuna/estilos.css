@@ -156,7 +156,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,select:focus-visible,
 /* pasos */
 .pasos .lista{display:grid;gap:22px;margin-top:24px}
 .paso{display:grid;grid-template-columns:130px minmax(0,1fr);gap:12px;align-items:center;border:1px dashed var(--amarillo);border-radius:14px;overflow:hidden;padding-right:12px}
-.paso img{width:130px;height:100%;min-height:160px;object-fit:cover}
+.paso img{width:130px;height:auto;aspect-ratio:786/1074;object-fit:cover}
 .paso .cab{display:flex;gap:10px;align-items:center}
 .num{flex:none;width:38px;height:38px;border-radius:50%;border:2px solid var(--amarillo);display:grid;place-items:center;font-weight:700;font-size:20px;color:var(--negro)}
 .paso h3{font-size:19px;line-height:1.2}
@@ -265,3 +265,16 @@ dialog::backdrop{background:rgba(17,17,17,.5)}
 .modal .cerrar{border:0;background:#f1f1f1;border-radius:50%;width:34px;height:34px;font-size:18px;flex:none}
 
 @media (min-width:700px){body{padding-block:24px}.pagina{border-radius:18px}}
+
+/* (2026-11-27g) historias con el marco de Instagram de la marca */
+.historias .carril .ig{position:relative;flex:none;margin:0;width:200px;border-radius:16px;overflow:hidden;text-align:left}
+.historias .carril .ig img{width:200px;aspect-ratio:9/16;object-fit:cover;border-radius:0}
+.ig-top{position:absolute;inset:0 0 auto 0;padding:8px 8px 22px;background:linear-gradient(rgba(0,0,0,.38),rgba(0,0,0,0))}
+.ig-barras{display:flex;gap:3px}
+.ig-barras i{flex:1;height:2px;border-radius:2px;background:rgba(255,255,255,.45)}
+.ig-barras i.ya{background:#fff}
+.ig-quien{display:flex;align-items:center;gap:6px;margin-top:8px;color:#fff;font-size:11px;line-height:1}
+.ig-quien b{font-weight:700}
+.ig-quien small{opacity:.8}
+.ig-ava{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:10px;background:var(--amarillo);color:var(--tinta-btn);border:1.5px solid #fff}
+.ig-sticker{position:absolute;left:50%;bottom:20%;transform:translateX(-50%) rotate(-3deg);max-width:88%;background:#fff;color:#111;font-weight:800;font-size:13px;line-height:1.25;text-align:center;padding:6px 10px;border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,.22)}

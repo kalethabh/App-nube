@@ -108,3 +108,8 @@
 .ld-resenas__extra select { font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--borde-1, rgba(127,127,127,.35)); background: transparent; color: inherit; }
 .ld-resenas__foto { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
 .ld-resenas__foto img { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
+
+/* (2026-11-27g) capturas reales */
+.ld-capturas { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.ld-capturas__una { padding: 0; border: 1px solid var(--borde-1, rgba(127,127,127,.35)); border-radius: 8px; overflow: hidden; background: transparent; cursor: pointer; }
+.ld-capturas__una img { display: block; width: 48px; height: 86px; object-fit: cover; }
