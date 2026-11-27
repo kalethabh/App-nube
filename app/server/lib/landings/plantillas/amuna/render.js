@@ -66,6 +66,18 @@ function combosHtml(D, elegido) {
 }
 const acordeon = (items) => lista(items).map(([p, r]) => `<details><summary>${esc(p)}</summary><div class="resp">${fmt(r)}</div></details>`).join('');
 
+// (2026-11-27g) las historias con el marco de Instagram de la MARCA (barritas, avatar, @usuario y un sticker), en HTML:
+// el texto se ve nítido y nunca se corta
+function historiasIG(D) {
+  const fotos = lista(D.historias?.fotos);
+  const usuario = String(D.historias?.usuario || '').trim();
+  const ini = (String(D.producto?.marca || D.producto?.corto || D.producto?.nombre || '').trim()[0] || '•').toUpperCase();
+  const stickers = lista(D.historias?.stickers);
+  return fotos
+    .map((src, k) => `<figure class="ig"><img src="${S(src)}" alt="" loading="lazy"><div class="ig-top" aria-hidden="true"><div class="ig-barras">${fotos.map((_, i) => `<i class="${i <= k ? 'ya' : ''}"></i>`).join('')}</div>${usuario ? `<div class="ig-quien"><span class="ig-ava">${esc(ini)}</span><b>${esc(usuario)}</b><small>${k + 2} h</small></div>` : ''}</div>${stickers[k] ? `<span class="ig-sticker">${esc(stickers[k])}</span>` : ''}</figure>`)
+    .join('');
+}
+
 /** Las secciones de la página (solo el <main>). */
 export function cuerpoDeLanding(D) {
   const P = D.producto || {};
@@ -110,7 +122,7 @@ export function cuerpoDeLanding(D) {
     <p class="sub-sec" style="font-size:16px;line-height:1.7">${fmt(D.historias?.texto)}</p>
     <a class="btn" href="#oferta" style="text-decoration:none">${esc(D.historias?.boton)} <span aria-hidden="true">↓</span></a>
     ${D.historias?.nota ? `<p class="nota">${fmt(D.historias.nota)}</p>` : ''}
-    <div class="carril">${lista(D.historias?.fotos).map((s) => `<img src="${S(s)}" alt="" loading="lazy">`).join('')}</div>
+    <div class="carril">${historiasIG(D)}</div>
   </section>` : ''}
   ${lista(D.ruta?.pasos).length ? `<section class="sec ruta" data-seccion="ruta">
     <h2 class="titulo-sec" style="font-size:34px">${fmt(D.ruta?.titulo)}</h2>

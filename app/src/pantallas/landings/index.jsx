@@ -276,6 +276,20 @@ export default function Landings({ consulta }) {
   const [resenas, setResenas] = useState([]); // (2026-11-27d) solo reseñas reales de sus clientas
   const [plantilla, setPlantilla] = useState('amuna'); // (2026-11-27f) la estructura de la landing de AMUNA o la de CEN
   const [subiendo, setSubiendo] = useState(null);
+  const [capturas, setCapturas] = useState([]); // (2026-11-27g) capturas reales de clientas: [{ id, vista }]
+  const subirCapturas = async (archivos) => {
+    setSubiendo('capturas');
+    try {
+      for (const a of [...(archivos || [])].slice(0, 9 - capturas.length)) {
+        const r = await pedirNuevo('/api/landings/fotos', { metodo: 'POST', binario: a });
+        setCapturas((l) => [...l, { id: r.id, vista: URL.createObjectURL(a) }].slice(0, 9));
+      }
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude subir la captura', texto: e.message });
+    } finally {
+      setSubiendo(null);
+    }
+  };
   const cambiarResena = (k, cambios) => setResenas((l) => l.map((x, i) => (i === k ? { ...x, ...cambios } : x)));
   const subirFoto = async (k, archivo) => {
     if (!archivo) return;
@@ -302,7 +316,7 @@ export default function Landings({ consulta }) {
   const crearConEquipo = async () => {
     setOcupado(true);
     try {
-      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, plantilla, prompt: prompt.trim(), precios, registro: registro.trim(), resenas: resenas.filter((r) => r.nombre.trim() && r.texto.trim()).map(({ vista, ...r }) => r) } });
+      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, plantilla, capturas: capturas.map((c) => c.id), prompt: prompt.trim(), precios, registro: registro.trim(), resenas: resenas.filter((r) => r.nombre.trim() && r.texto.trim()).map(({ vista, ...r }) => r) } });
       setPrompt('');
       await recargar?.();
       ir(`/landings?proyecto=${encodeURIComponent(creada.id)}`);
@@ -391,6 +405,25 @@ export default function Landings({ consulta }) {
               ) : null}
               <small className="ld-ayuda">Salen tal cual en la página. Sin reseñas reales, la landing no lleva reseñas ni opiniones de médicos: inventarlas engaña al comprador y la SIC o Meta lo castigan.</small>
             </div>
+            {plantilla === 'amuna' ? (
+              <div className="ld-resenas">
+                <span className="ld-grupo__etiqueta">Capturas reales de tus clientas (opcional, hasta 9)</span>
+                <div className="ld-capturas">
+                  {capturas.map((c, k) => (
+                    <button type="button" key={c.id} className="ld-capturas__una" title="Quitar" onClick={() => setCapturas((l) => l.filter((_, i) => i !== k))}>
+                      <img src={c.vista} alt={`Captura ${k + 1}`} />
+                    </button>
+                  ))}
+                  {capturas.length < 9 ? (
+                    <label className="ld-resenas__foto">
+                      <span>{subiendo === 'capturas' ? 'Subiendo…' : 'Subir capturas'}</span>
+                      <input type="file" accept="image/png,image/jpeg,image/webp" multiple hidden onChange={(e) => subirCapturas(e.target.files)} />
+                    </label>
+                  ) : null}
+                </div>
+                <small className="ld-ayuda">Chats, mensajes o historias que te mandaron tus clientas: salen tal cual en «Experiencias con…», como en AMUNA. Sin capturas, esa parte lleva fotos caseras de tu producto en el día a día (nunca se inventan chats).</small>
+              </div>
+            ) : null}
             <AreaTexto
               etiqueta="Qué quieres (opcional)"
               placeholder={'Por ejemplo: «enfócala en mujeres de 45 a 60 con sofocos», «tono cercano», «combo 2x1 a 99.900».'}

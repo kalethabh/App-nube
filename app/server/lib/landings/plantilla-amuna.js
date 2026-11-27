@@ -25,7 +25,7 @@ import { escribirJSON, leerFicha, listarProductos, rutaFoto } from '../productos
 import { modoPrueba } from '../procesos.js';
 import { agente, disenoFinal, limpiarPrecios, limpiarResenas, RE_VARIABLE, RE_CIFRA_CLIENTES, ANTI_EFECTOS, colorDeBorde, contraste, mezclar, leible, esHex, lum, aHex, aRgb, cop } from './plantilla.js';
 import { AMUNA } from './plantillas/amuna/datos.js';
-import { GUIA, SLOTS } from './plantillas/amuna/guia.js';
+import { GUIA, SLOTS, VARIEDAD } from './plantillas/amuna/guia.js';
 import { htmlDeLanding } from './plantillas/amuna/render.js';
 
 const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), 'plantillas', 'amuna');
@@ -59,7 +59,7 @@ export function moldeDeTextos() {
     dudas: A.dudas,
     aviso: A.aviso,
     ellas: { titulo: A.ellas.titulo, sub: A.ellas.sub },
-    historias: { titulo: 'Tu ritual con AMUNA', texto: 'Un momento para ti, todos los días, con tu rutina de gotas y a tu ritmo.', boton: A.historias.boton, nota: 'Fotos del día a día con Vitaldrops™.' },
+    historias: { usuario: A.historias.usuario, stickers: A.historias.stickers, titulo: 'Tu ritual con AMUNA', texto: 'Un momento para ti, todos los días, con tu rutina de gotas y a tu ritmo.', boton: A.historias.boton, nota: 'Fotos del día a día con Vitaldrops™.' },
     ruta: A.ruta,
     experiencias: { pill: A.experiencias.pill, titulo: A.experiencias.titulo },
     ugc: { titulo: 'Así se vive VitalDrops' },
@@ -150,33 +150,44 @@ export function temaDe(dIA, kit) {
 
 // ---------------------------------------------------------------- las imágenes
 
-const ASPECTOS_GPT = { '1:1': 1, '2:3': 2 / 3, '3:4': 3 / 4, '4:5': 4 / 5, '9:16': 9 / 16 };
-export const aspectoGpt = (w, h) => Object.entries(ASPECTOS_GPT).sort((a, b) => Math.abs(a[1] - w / h) - Math.abs(b[1] - w / h))[0][0];
+// (2026-11-27g) solo los tamaños que ChatGPT hace de verdad (1:1 y 2:3): pedirle 9:16 hacía que se recortara un 15 % de
+// cada lado y se cortaban textos y personas
+export const RATIO_GPT = { '1:1': 1, '2:3': 2 / 3, '3:2': 3 / 2 };
+export const aspectoGpt = (w, h) => (w / h < 0.85 ? '2:3' : w / h > 1.2 ? '3:2' : '1:1');
 
-/** La imagen recortada al centro y escalada a la medida exacta (JPG). */
-async function aMedida(origen, destino, w, h) {
+/**
+ * La imagen a la medida exacta (JPG), SIN cortar contenido: una pieza con textos entra entera y se rellena con el color
+ * del fondo de la página; una foto solo pierde el sobrante del borde (el prompt deja a la persona en el centro).
+ */
+async function aMedida(origen, destino, w, h, { pieza = false, fondo = '#ffffff' } = {}) {
   const { comprobarFfmpeg } = await import('../imagen-ads/local.js');
   const bin = (await comprobarFfmpeg())?.bin;
   if (!bin) throw new Error('No encuentro ffmpeg.');
   const r = w / h;
   const tmp = `${destino}.${process.pid}.tmp.jpg`;
   await new Promise((ok, mal) =>
-    execFile(bin, ['-v', 'error', '-y', '-i', origen, '-frames:v', '1', '-vf', `crop='min(iw,ih*${r})':'min(ih,iw/${r})',scale=${w}:${h}:flags=lanczos`, '-q:v', '3', tmp], { timeout: 120000 }, (e) => (e ? mal(e) : ok()))
+    execFile(bin, ['-v', 'error', '-y', '-i', origen, '-frames:v', '1', '-vf', pieza ? `scale=${w}:${h}:force_original_aspect_ratio=decrease:flags=lanczos,pad=${w}:${h}:(ow-iw)/2:(oh-ih)/2:color=0x${String(fondo).replace('#', '')}` : `crop='min(iw,ih*${r})':'min(ih,iw/${r})',scale=${w}:${h}:flags=lanczos`, '-q:v', '3', tmp], { timeout: 120000 }, (e) => (e ? mal(e) : ok()))
   );
   fs.renameSync(tmp, destino);
 }
 
 /** El prompt final de una imagen: el de Mateo + las reglas fijas (producto, referencia, fondo, sin efectos, medida). */
-export function promptDeImagen(slot, base, { bg, accent, conFoto }) {
+export function promptDeImagen(slot, base, { bg, accent, conFoto, persona = null }) {
   const pieza = slot.tipo === 'pieza';
+  const g = RATIO_GPT[aspectoGpt(slot.w, slot.h)];
+  const r = slot.w / slot.h;
+  // lo que se ve de la foto después de llevarla a su medida (de lado o de alto)
+  const visible = r < g ? `the central ${Math.round((100 * r) / g)}% of the width` : r > g ? `the central ${Math.round((100 * g) / r)}% of the height` : 'the whole image';
   return [
     `${conFoto ? 'Reference image 1 is the REAL PRODUCT: show it exactly as it is (same packaging, label, colors and proportions); never redesign it. Reference image 2' : 'Reference image 1'} is ONLY a LAYOUT and STYLE guide from another brand: copy its composition, block layout, visual hierarchy and how it uses one brand color, but NEVER its brand, product, packaging, people, numbers or texts.`,
     base,
     pieza
       ? `BACKGROUND: flat solid ${bg} from edge to edge (no gradient, no vignette, no frame), so it blends with the web page. Every text in Spanish (Colombia), perfectly spelled, large and readable on a phone; headlines in a heavy geometric sans serif (like Inter Black or Montserrat Black) in near-black, with the highlighted words in ${accent}. Never invent seals, guarantees, registrations, numbers of customers or ratings that are not in this prompt.`
-      : 'Realistic photo, as if taken with a good phone, natural light and real skin texture. No text, no logos, no watermark, no user interface. Any woman is Colombian, like the target customer; never a doctor, lab coat or clinic.',
+      : `HOMEMADE PHOTO: a real, casual phone photo taken at home or in daily life (not a studio, not a professional shoot, no retouching), natural light only, real skin texture and small everyday imperfections, a real lived-in background. ${persona ? `The person and place: ${persona}. ` : ''}Every photo of this page shows a DIFFERENT woman in a DIFFERENT place. No text, no logos, no watermark, no user interface, no phone screen. Any woman is Colombian, like the target customer; never a doctor, lab coat or clinic.`,
     ANTI_EFECTOS,
-    `The final image is ${slot.w}×${slot.h} px: keep every text, face and the product inside the central safe area, at least 6% away from every edge.`,
+    pieza
+      ? `Final size ${slot.w}×${slot.h} px. Keep every text, the product and any person fully inside the canvas with at least 6% margin on every side: nothing may touch or be cut by an edge.`
+      : `Final size ${slot.w}×${slot.h} px: only ${visible} will be shown, so keep the person's whole head, the hands and the product inside that central area, never near the edges.`,
   ].join('\n\n');
 }
 
@@ -208,7 +219,7 @@ export function pruebaSocialReal(reales, marca) {
 }
 
 /** Los datos de la página: los textos + precios + imágenes + reseñas reales + colores. */
-export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto }) {
+export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas = [] }) {
   const t = sinVariables(textos);
   const P = { ...t.producto };
   const img = (id) => imagenes[id] || (() => {
@@ -238,10 +249,11 @@ export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto }) 
     creativo: img('creativo'),
     ellas: { titulo: t.ellas?.titulo, sub: t.ellas?.sub, items: social.ellasItems || [] },
     ingredientes: img('ingredientes'),
-    historias: { ...t.historias, fotos: [1, 2, 3, 4, 5, 6].map((k) => img(`historia-${k}`)) },
+    historias: { ...t.historias, usuario: /^@[\w.]{2,30}$/.test(String(t.historias?.usuario || '')) ? t.historias.usuario : `@${String(P.marca || P.corto || P.nombre || 'tienda').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '').slice(0, 24)}`, fotos: [1, 2, 3, 4, 5, 6].map((k) => img(`historia-${k}`)) },
     ruta: t.ruta,
     experiencias: { pill: t.experiencias?.pill, titulo: t.experiencias?.titulo, fotoProducto: fotoProducto || img('combo-1'), precioDesde: p.uno, items: social.experienciasItems || [] },
-    ugc: { titulo: t.ugc?.titulo, fotos: [1, 2, 3, 4, 5].map((k) => img(`ugc-${k}`)) },
+    // (2026-11-27g) con capturas reales de clientas: ellas, tal cual y enteras («Experiencias con …»); sin: fotos caseras
+    ugc: capturas.length ? { titulo: `Experiencias con ${P.corto || P.nombre}`, fotos: capturas, reales: true } : { titulo: t.ugc?.titulo, fotos: [1, 2, 3, 4, 5].map((k) => img(`ugc-${k}`)) },
     pasos: { titulo: t.pasos?.titulo, sub: t.pasos?.sub, items: lista(t.pasos?.items).slice(0, 3).map((x, k) => ({ ...x, foto: img(`paso-${k + 1}`) })) },
     franja: t.franja,
     comparacion: t.comparacion,
@@ -257,7 +269,11 @@ export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto }) 
 // ---------------------------------------------------------------- el equipo
 
 /** -> { titulo, agentes, cambiados, diseno, fondo, resenas, imagenes } (como crearConEquipo). */
-export async function crearConAmuna({ carpeta, productoId, pedido = '', motor, guardar, avanzar, precios = null, registro = '', resenas = [] }) {
+export async function crearConAmuna({ carpeta, productoId, pedido = '', motor, guardar, avanzar, precios = null, registro = '', resenas = [], capturasReales = [] }) {
+  // (2026-11-27g) las capturas REALES de clientas (chats, mensajes) que subió el dueño: van tal cual en el carrusel
+  const reales2 = (Array.isArray(capturasReales) ? capturasReales : []).filter((c) => /^assets\/[\w.-]+\.(jpg|jpeg|png|webp)$/i.test(String(c))).slice(0, 9);
+  const slots = SLOTS.filter((s) => !(reales2.length && s.id.startsWith('ugc-')));
+  const persona = Object.fromEntries(slots.filter((s) => s.tipo === 'foto' && !s.id.startsWith('combo-')).map((s, k) => [s.id, VARIEDAD[k % VARIEDAD.length]]));
   const p = limpiarPrecios(precios);
   if (!p) throw Object.assign(new Error('precios'), { publico: 'Pon los precios de tus combos (1, 2 y 3 unidades) para crear la landing.' });
   const reales = limpiarResenas(resenas);
@@ -324,7 +340,7 @@ La landing usa la plantilla AMUNA: fondo claro y limpio, UN color de marca para 
   const molde = moldeDeTextos();
   marcar('copy', { estado: 'trabajando' });
   marcar('imagenes', { estado: 'trabajando' });
-  const refs = Object.fromEntries(SLOTS.map((s) => [s.id, path.join(DIR, 'referencias', `${s.id}.jpg`)]));
+  const refs = Object.fromEntries(slots.map((s) => [s.id, path.join(DIR, 'referencias', `${s.id}.jpg`)]));
   const [copy, imgs] = await Promise.all([
     agente({
       carpeta, motor, quien: Q('copy'), avanzar, maxTurnos: 16,
@@ -333,7 +349,7 @@ La landing usa la plantilla AMUNA: fondo claro y limpio, UN color de marca para 
       prompt: `${comun}
 Escribe TODOS los textos de la landing de este producto con la estructura de AMUNA: el MISMO formato JSON del ejemplo de abajo, las mismas claves y la misma cantidad de elementos, cada texto del mismo largo (± 15 % de palabras) y con la MISMA intención que el de AMUNA (lee la guía de arriba), pero para este producto, su avatar y su estrategia. Usa las palabras del cliente de la investigación. *asteriscos* = la palabra resaltada en el color; **dos** = negrita.
 - producto: el nombre real (con ™ si lo usa), un nombre corto, la marca, y cómo se llama una unidad (frasco, tarro, caja…) en singular y plural.
-- historias y ugc: títulos que hablan del ritual o del día a día, NUNCA de clientas.
+- historias y ugc: títulos que hablan del ritual o del día a día, NUNCA de clientas. historias.usuario: el @ de la marca en Instagram (inventa uno simple con el nombre de la marca si no está en la ficha); historias.stickers: 6 frases cortas (2 a 5 palabras) de la marca, como stickers de una historia de Instagram (sin citas de clientas ni resultados).
 - comparacion.nuestra: el nombre corto del producto (máximo 12 letras: va en una columna angosta).
 - pie.correo: solo si está en la ficha; si no, "".
 - Nada de reseñas, testimonios, nombres de clientas, cifras de clientas, calificaciones ni porcentajes.
@@ -347,13 +363,14 @@ EJEMPLO>>>`,
     }),
     agente({
       carpeta, motor, quien: Q('imagenes'), avanzar, maxTurnos: 30, leer: [...Object.values(refs), ...(foto ? [foto] : [])],
-      valida: (d) => d && T(d.resumen) && SLOTS.every((s) => lista(d.imagenes).some((x) => x?.slot === s.id && T(x.prompt))),
-      errores: (d) => SLOTS.filter((s) => !lista(d?.imagenes).some((x) => x?.slot === s.id && T(x.prompt))).map((s) => `Falta el prompt de «${s.id}».`),
+      valida: (d) => d && T(d.resumen) && slots.every((s) => lista(d.imagenes).some((x) => x?.slot === s.id && T(x.prompt))),
+      errores: (d) => slots.filter((s) => !lista(d?.imagenes).some((x) => x?.slot === s.id && T(x.prompt))).map((s) => `Falta el prompt de «${s.id}».`),
       prompt: `${comun}
 Colores: el de la marca ${tema.amarillo}, el fondo de la página ${tema.fondo}, texto casi negro.
 ${foto ? `La foto del producto: ${delRepo(foto)} (ábrela con Read).` : ''}
 Escribe el prompt de CADA imagen de la landing. Cada una tiene su referencia de AMUNA (ábrela con Read: mira su composición, sus bloques, sus textos, la persona y con qué intención sale) y su medida exacta. La de este producto es una TRADUCCIÓN de esa imagen: la misma composición e intención, con el producto real, su avatar (mujeres colombianas), su promesa y su tiempo, y sus textos en español (los de las piezas, escritos completos entre comillas, cortos y grandes). Nunca copies la marca, el frasco, las personas ni los textos de AMUNA.
-${SLOTS.map((s) => `SLOT ${s.id} · ${s.w}×${s.h} px · ${s.tipo === 'pieza' ? 'pieza gráfica con textos' : 'foto sin textos'} · referencia ${delRepo(refs[s.id])}\n  ${s.que}`).join('\n')}
+Las fotos son CASERAS (de celular, luz natural, sin estudio) y cada una con una mujer y un lugar distintos: usa la persona y la escena que trae cada una.
+${slots.map((s) => `SLOT ${s.id} · ${s.w}×${s.h} px · ${s.tipo === 'pieza' ? 'pieza gráfica con textos' : 'foto casera sin textos'} · referencia ${delRepo(refs[s.id])}\n  ${s.que}${persona[s.id] ? `\n  Persona y escena: ${persona[s.id]}` : ''}`).join('\n')}
 Escribe ${rel(carpeta, Q('imagenes').archivo)}: { "imagenes": [ { "slot": "<id>", "prompt": "<en inglés, detallado; los textos que van dentro, en español y entre comillas>" } ], "resumen": "" }`,
     }).then((d) => {
       marcar('imagenes', { estado: 'listo', resumen: T(d.resumen, 800) });
@@ -390,46 +407,50 @@ Escribe ${rel(carpeta, Q('revision').archivo)}:
   const enviados = [];
   const bordes = [];
   let hechas = 0;
-  avanzar(`ChatGPT está haciendo ${SLOTS.length} imágenes con tu producto (cada una con la medida de la plantilla)…`);
+  avanzar(`ChatGPT está haciendo ${slots.length} imágenes con tu producto, 3 a la vez (cada una con la medida de la plantilla)…`);
   const { motorDeImagenes, codexParaImagenes } = await import('../motor-imagenes.js');
-  for (const s of SLOTS) {
+  const codex = modoPrueba() ? null : motorDeImagenes() === 'chatgpt' ? codexParaImagenes() : null;
+  if (!modoPrueba() && !codex) avanzar('Las imágenes se hacen con tu ChatGPT: conéctalo en Ajustes › Conexiones (quedaron los recuadros grises con su medida).');
+  const hacer = async (s) => {
     const base = prompts.get(s.id);
-    if (!base) continue;
-    const prompt = promptDeImagen(s, base, { bg: tema.fondo, accent: tema.fuerte, conFoto: Boolean(foto) });
+    if (!base || (!modoPrueba() && !codex)) return;
+    const prompt = promptDeImagen(s, base, { bg: tema.fondo, accent: tema.fuerte, conFoto: Boolean(foto), persona: persona[s.id] || null });
     const referencias = [...(foto ? [foto] : []), refs[s.id]].filter((r) => r && fs.existsSync(r));
     const archivo = `assets/${s.id}-${crypto.randomBytes(3).toString('hex')}.jpg`;
     const crudo = path.join(carpeta, '_crudo', `${s.id}.png`);
     try {
       fs.mkdirSync(path.dirname(crudo), { recursive: true });
       if (modoPrueba()) {
-        if (!foto) continue;
+        if (!foto) return;
         fs.copyFileSync(foto, crudo);
       } else {
-        const codex = motorDeImagenes() === 'chatgpt' ? codexParaImagenes() : null;
-        if (!codex) {
-          avanzar('Las imágenes se hacen con tu ChatGPT: conéctalo en Ajustes › Conexiones (quedaron los recuadros grises con su medida).');
-          break;
-        }
         const { generarConChatGPT } = await import('../../../../produccion/chatgpt-imagen.js');
         await generarConChatGPT({ prompt, referencias, aspecto: aspectoGpt(s.w, s.h), rutaDestino: crudo, codex });
       }
-      await aMedida(crudo, path.join(carpeta, archivo), s.w, s.h);
+      await aMedida(crudo, path.join(carpeta, archivo), s.w, s.h, { pieza: s.tipo === 'pieza', fondo: tema.fondo });
       imagenes[s.id] = archivo;
-      enviados.push({ slot: s.id, w: s.w, h: s.h, archivo, prompt, referencias: referencias.map(delRepo) });
+      enviados.push({ slot: s.id, w: s.w, h: s.h, archivo, prompt, aspecto: aspectoGpt(s.w, s.h), referencias: referencias.map(delRepo) });
       if (s.tipo === 'pieza') bordes.push(await colorDeBorde(path.join(carpeta, archivo)));
       hechas++;
-      avanzar(`Imagen ${hechas} de ${SLOTS.length} lista (${s.id}).`);
+      avanzar(`Imagen ${hechas} de ${slots.length} lista (${s.id}).`);
     } catch (e) {
       avanzar(`La imagen ${s.id} no salió (${String(e?.message || e).slice(0, 100)}): queda el recuadro gris con su medida.`);
     } finally {
       fs.rmSync(crudo, { force: true });
     }
-  }
+  };
+  // (2026-11-27g) «lo más rápido posible»: 3 imágenes a la vez
+  const cola = [...slots];
+  await Promise.all([0, 1, 2].map(async () => {
+    while (cola.length) await hacer(cola.shift());
+  }));
   fs.rmSync(path.join(carpeta, '_crudo'), { recursive: true, force: true });
 
   // el fondo de la página = el que quedó en los bordes de las piezas (si es claro y el texto se lee)
   const fondo = { pedido: tema.fondo, medido: null, usado: tema.fondo };
-  const claros = bordes.filter((c) => c && lum(c) > 0.7 && contraste('#111111', c) >= 7);
+  // (2026-11-27g) solo si es casi el pedido (un borde que mezcla foto y fondo no tiñe la página)
+  const cerca = (c) => aRgb(c).every((v, i) => Math.abs(v - aRgb(tema.fondo)[i]) <= 24);
+  const claros = bordes.filter((c) => c && lum(c) > 0.7 && contraste('#111111', c) >= 7 && cerca(c));
   if (claros.length) {
     fondo.medido = aHex([0, 1, 2].map((i) => claros.map((c) => aRgb(c)[i]).sort((a, b) => a - b)[Math.floor(claros.length / 2)]));
     fondo.usado = fondo.medido;
@@ -438,7 +459,7 @@ Escribe ${rel(carpeta, Q('revision').archivo)}:
   }
 
   // armar la página
-  let D = armarDatos({ textos, p, imagenes, reales, tema, fotoProducto });
+  let D = armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas: reales2 });
   const escribir = () => fs.writeFileSync(path.join(carpeta, 'index.html'), htmlDeLanding(D));
   escribirJSON(path.join(carpeta, 'datos-landing.json'), D);
   escribir();
@@ -471,7 +492,7 @@ Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<ruta en el JSON>"
       let n2 = 0;
       for (const [r, v] of Object.entries(visual.cambios || {})) if (typeof v === 'string' && ponerRuta(textos, r, v.trim())) n2++;
       if (n2) {
-        D = armarDatos({ textos, p, imagenes, reales, tema, fotoProducto });
+        D = armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas: reales2 });
         escribirJSON(path.join(carpeta, 'datos-landing.json'), D);
         escribir();
         avanzar(`Renata corrigió ${n2} texto(s) al ver la página terminada.`);
@@ -486,7 +507,7 @@ Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<ruta en el JSON>"
     escribirJSON(path.join(carpeta, 'prueba-imagenes.json'), enviados);
     escribirJSON(path.join(carpeta, 'prueba-fondo.json'), fondo);
   }
-  const faltan = SLOTS.length - hechas;
+  const faltan = slots.length - hechas;
   if (faltan) avanzar(`${faltan} imagen(es) quedaron como recuadro gris con su medida: vuelve a crear la landing cuando ChatGPT esté conectado.`);
-  return { titulo: D.tituloPagina, agentes, cambiados, diseno, fondo, resenas: reales.length, imagenes: { hechas, pedidas: SLOTS.length, quitadas: 0 } };
+  return { titulo: D.tituloPagina, agentes, cambiados, diseno, fondo, resenas: reales.length, imagenes: { hechas, pedidas: slots.length, quitadas: 0 }, capturas: reales2.length };
 }
