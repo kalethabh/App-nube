@@ -1,0 +1,75 @@
+{
+  "id": "canela-de-ceylan-08bc42",
+  "url": null,
+  "modo": "crear",
+  "motor": "claude",
+  "prompt": "",
+  "precios": {
+    "uno": 89900,
+    "dos": 119900,
+    "tres": 139900,
+    "antes": null
+  },
+  "resenas": [],
+  "plantilla": "amuna",
+  "registro": "",
+  "productoId": "canela-de-ceylan-5a93",
+  "analizar": false,
+  "titulo": "CANELA DE CEYLAN",
+  "creado": "2026-11-27T19:04:39.744Z",
+  "estado": "trabajando",
+  "progreso": [
+    "Emilio (estratega (investigación)) está trabajando…",
+    "Antonia (diseñadora visual) está trabajando…",
+    "Valeria (copywriter) está trabajando…",
+    "Mateo (director de imágenes) está trabajando…"
+  ],
+  "error": null,
+  "informe": null,
+  "puntajes": null,
+  "actualizado": "2026-11-27T19:05:51.065Z",
+  "agentes": [
+    {
+      "id": "estratega",
+      "nombre": "Emilio",
+      "rol": "Estratega (investigación)",
+      "estado": "listo",
+      "resumen": "Decidí entrar por el antojo de dulce de la tarde y el bajón después de comer, que es lo que esta mujer vive todos los días. El argumento que la convence es «no era la canela correcta»: ella ya confía en la canela, pero la de la tienda es la común y esta es la de Ceilán, la que se puede tomar a diario. No hablamos de azúcar ni de diabetes porque no se puede prometer, y la página va sin testimonios, sin cifras de la etiqueta y sin registros. Empujamos el paquete de 3 bolsas porque el cambio se nota entre las 4 y las 8 semanas, y cerramos con el pago al recibir."
+    },
+    {
+      "id": "diseno",
+      "nombre": "Antonia",
+      "rol": "Diseñadora visual",
+      "estado": "listo",
+      "resumen": "Elegí el color canela de la franja y del título del empaque para los botones, los sellos, los resaltados y el pie. Así la página se ve igual que la bolsa y se reconoce al instante. El fondo es un blanco cálido muy suave, que combina con el empaque blanco sin que se vea frío. Las estrellas van en dorado para que resalten junto al color canela."
+    },
+    {
+      "id": "copy",
+      "nombre": "Valeria",
+      "rol": "Copywriter",
+      "estado": "listo",
+      "resumen": "Escribí la página alrededor de la idea «no era la canela correcta»: esta es canela de Ceilán, en cápsula blanda, y se toma con la comida, sin preparar nada. Como no nos diste marca ni correo, usé «Canela de Ceilán» como nombre y marca, «bolsa» como unidad y dejé el correo vacío. La insignia del combo de 3 dice «LA CANELA VERDADERA» porque responde a la duda principal de quien ya probó el agua de canela. No hablamos de azúcar ni de enfermedades, no prometemos plazos y la página va sin reseñas ni registros."
+    },
+    {
+      "id": "imagenes",
+      "nombre": "Mateo",
+      "rol": "Director de imágenes",
+      "estado": "trabajando",
+      "resumen": null
+    },
+    {
+      "id": "revision",
+      "nombre": "Renata",
+      "rol": "Revisión",
+      "estado": "esperando",
+      "resumen": null
+    },
+    {
+      "id": "visual",
+      "nombre": "Renata",
+      "rol": "Revisión visual",
+      "estado": "esperando",
+      "resumen": null
+    }
+  ]
+}
