@@ -294,11 +294,12 @@ ${conocimiento(c, brief, carpeta)}
 ## Las imágenes de este chat
 ${resumenImagenes(c, brief, carpeta)}
 ${charla ? `\n## Lo último de la conversación\n${charla}\n` : ''}
-## El mensaje del usuario
+${(mensaje.seleccion || []).length ? `## Las imágenes que eligió el usuario: ${mensaje.seleccion.join(', ')}\nAplica el pedido a CADA una (un cambio por imagen en "cambios", con su pieza V##_1x1), salvo que pida imágenes nuevas a partir de ellas.\n\n` : ''}## El mensaje del usuario
 ${limpio(mensaje.texto, 4000) || '(sin texto)'}${adj.length ? `\nAdjuntó: ${adj.join(', ')}` : ''}
 
 Escribe \`temp/${lote}/${relRespuesta(n)}\` con EXACTAMENTE este JSON:
 { "respuesta": "lo que le dices, en español simple y corto (qué hiciste y por qué vende; máximo ~900 caracteres)", "nuevas": [{ "v": "${libres[0]}", "aspecto": "${preferido.formato || '1:1 | 9:16 | 4:5'}" }], "cambios": [{ "pieza": "V01_1x1", "instruccion_en": "…", "textos": false }] }
+(Para CAMBIAR EL TAMAÑO de una imagen, su cambio lleva "aspecto": "9:16" | "4:5" | "1:1" y no necesita instruccion_en.)
 ("nuevas" y "cambios" pueden ir vacíos.) No escribas ningún otro archivo.`;
 }
 
@@ -320,7 +321,8 @@ function verificarTurno(c, carpeta, n) {
   const est = leerEstado(carpeta);
   (Array.isArray(d.cambios) ? d.cambios : []).forEach((x, i) => {
     if (!est?.piezas?.[x?.pieza]) errores.push(`cambios[${i}].pieza: «${x?.pieza}» no está en este chat`);
-    if (!String(x?.instruccion_en || '').trim()) errores.push(`cambios[${i}].instruccion_en: falta la instrucción en inglés`);
+    if (x?.aspecto !== undefined && !FORMATOS.includes(x.aspecto)) errores.push(`cambios[${i}].aspecto: 1:1, 9:16 o 4:5`);
+    if (!x?.aspecto && !String(x?.instruccion_en || '').trim()) errores.push(`cambios[${i}].instruccion_en: falta la instrucción en inglés`);
   });
   return { ok: errores.length === 0, errores: errores.slice(0, 12) };
 }
@@ -353,7 +355,9 @@ function aplicarTurno(c, carpeta, d, mensajeUsuario) {
   let cambios = 0;
   for (const x of Array.isArray(d.cambios) ? d.cambios : []) {
     try {
-      lotes.agregarPedido(c.lote, { pieza: x.pieza, instruccion: limpio(mensajeUsuario, 600) || 'Cambio pedido en el chat', instruccion_en: limpio(x.instruccion_en, 800), textos: x.textos === true });
+      // (2026-11-27c) cambiar el tamaño: versión nueva de la misma imagen en ese tamaño
+      if (FORMATOS.includes(x.aspecto)) lotes.agregarTamano(c.lote, { pieza: x.pieza, formato: x.aspecto });
+      else lotes.agregarPedido(c.lote, { pieza: x.pieza, instruccion: limpio(mensajeUsuario, 600) || 'Cambio pedido en el chat', instruccion_en: limpio(x.instruccion_en, 800), textos: x.textos === true });
       cambios++;
     } catch (e) {
       avisos.push(`${x.pieza}: ${e.message}`);
@@ -426,10 +430,16 @@ async function responder(id, mensaje, preferido) {
 }
 
 /** POST …/mensajes { texto, adjuntos, formato, cantidad }: guarda tu mensaje y la IA contesta de fondo. */
-export async function enviar(id, { texto = '', adjuntos = [], formato = null, cantidad = null } = {}) {
+export async function enviar(id, { texto = '', adjuntos = [], formato = null, cantidad = null, seleccion = [] } = {}) {
   const c = leerChat(id);
   const t = limpio(texto, 4000);
   const lista = (Array.isArray(adjuntos) ? adjuntos : []).map(String).filter((a) => rutaAdjunto(id, a)).slice(0, 6);
+  // (2026-11-27c) las imágenes que elegiste para cambiarlas juntas
+  const ids = idsDelLote(Number(lotes.leerBrief(carpetaDe(c.lote))?.cantidad) || 0);
+  const elegidas = [...new Set((Array.isArray(seleccion) ? seleccion : []).map((v) => String(v).toUpperCase()))];
+  if (elegidas.length > 12) throw new ErrorApp(400, 'Elige hasta 12 imágenes a la vez.');
+  if (elegidas.some((v) => !ids.includes(v))) throw new ErrorApp(400, 'Una de las imágenes que elegiste no está en este chat.');
+  if (elegidas.length && !t) throw new ErrorApp(400, '¿Qué les cambio? Escríbelo.');
   if (!t && !lista.length) throw new ErrorApp(400, 'Escribe tu mensaje.');
   if (pensando.has(id)) throw new ErrorApp(409, 'Todavía te estoy contestando. Espera un momento.');
   const k = await costoDelChat(c);
@@ -437,12 +447,12 @@ export async function enviar(id, { texto = '', adjuntos = [], formato = null, ca
   if (!k.autorizado) throw new ErrorApp(428, 'Antes de crear, confirma el costo por imagen.');
   // (2026-11-27b) chat libre: sin tamaño ni cantidad salvo que los elijas
   const preferido = { formato: FORMATOS.includes(formato) ? formato : null, cantidad: Number(cantidad) >= 1 ? Math.min(MAX_NUEVAS, Math.round(Number(cantidad))) : null };
-  const mensaje = { id: crypto.randomBytes(4).toString('hex'), de: 'tu', texto: t, adjuntos: lista, fecha: ahora() };
+  const mensaje = { id: crypto.randomBytes(4).toString('hex'), de: 'tu', texto: t, adjuntos: lista, ...(elegidas.length ? { seleccion: elegidas } : {}), fecha: ahora() };
   c.mensajes.push(mensaje);
   if (c.mensajes.filter((m) => m.de === 'tu').length === 1 && t) c.titulo = `${limpio(t, 48)}${t.length > 48 ? '…' : ''}`;
   guardarChat(c);
   // (2026-11-27b) un cambio chico sobre una imagen: directo al editor de imagen, sin pasar por la IA (rápido)
-  const atajo = cambioSimple(c, t, lista);
+  const atajo = cambioSimple(c, t, lista, elegidas);
   if (atajo) {
     const r = await hacerCambioSimple(c, atajo, t);
     if (r) return vistaChat(id);
@@ -462,56 +472,92 @@ const RE_CAMBIO = /\b(borra|b[oó]rra(le|lo|la)|quita|qu[ií]ta(le|lo|la)|elimin
 const RE_NUEVAS = /\b(im[aá]genes|anuncios|hazme|haz\s+(otra|otras|\d|una|dos|tres|cuatro)|crea|cr[eé]ame|genera|gen[eé]rame|nuevas?|otra imagen|otras im[aá]genes|m[aá]s im[aá]genes|variante|versiones|como (esta|la)\b.*(pero|otra))/i;
 const RE_TAMANO_IMAGEN = /\b(vertical|cuadrad|horizontal|retrato|9:16|4:5|1:1|historias|stories|reels?|formato)\b/i;
 
-/** ¿Es un cambio chico sobre UNA imagen del chat? -> { pieza, v } | null */
-export function cambioSimple(c, texto, adjuntos = []) {
+const RE_OTRO_CAMBIO = /\b(color|tipograf|letra|fuente|persona|modelo|mujer|fondo|texto|t[ií]tulo|titular|borra|quita|elimina|logo|precio|bot[oó]n)/i;
+const formatoDelTexto = (t) => (/\b(9:16|vertical|historias?|stories|reels?)\b/i.test(t) ? '9:16' : /\b(4:5|retrato)\b/i.test(t) ? '4:5' : /\b(1:1|cuadrad[ao]s?)\b/i.test(t) ? '1:1' : null);
+const listaDeVs = (vs) => (vs.length <= 1 ? vs.join('') : `${vs.slice(0, -1).join(', ')} y ${vs[vs.length - 1]}`);
+
+/**
+ * ¿Es un cambio chico sobre imágenes del chat? Las imágenes: las que ELEGISTE (2026-11-27c), o la que nombras, o
+ * «la última». -> { tipo: 'editar' | 'tamano', formato?, vs: ['V01', …] } | null (entonces lo ve la IA)
+ */
+export function cambioSimple(c, texto, adjuntos = [], seleccion = []) {
   const t = String(texto || '').trim();
-  if (!t || t.length > 220 || (adjuntos || []).length) return null;
-  if (!RE_CAMBIO.test(t) || RE_NUEVAS.test(t) || RE_TAMANO_IMAGEN.test(t)) return null;
+  if (!t || t.length > 220 || (adjuntos || []).length || RE_NUEVAS.test(t)) return null;
+  // cambiar el TAMAÑO («pásalas a vertical», «en 4:5»): solo si el mensaje no pide otra cosa
+  const formato = RE_TAMANO_IMAGEN.test(t) ? formatoDelTexto(t) : null;
+  let tipo = null;
+  if (formato && t.length <= 90 && !RE_OTRO_CAMBIO.test(t)) tipo = 'tamano';
+  else if (!RE_TAMANO_IMAGEN.test(t) && RE_CAMBIO.test(t)) tipo = 'editar';
+  if (!tipo) return null;
   const carpeta = carpetaDe(c.lote);
   const brief = lotes.leerBrief(carpeta);
   const ids = idsDelLote(Number(brief?.cantidad) || 0);
   if (!ids.length) return null;
-  const nombradas = [...new Set((t.match(/\bV\d{2,3}\b/gi) || []).map((x) => x.toUpperCase()))];
-  let v = null;
-  if (nombradas.length === 1) v = nombradas[0];
-  else if (!nombradas.length && /\b(la [uú]ltima|esta|esa|la anterior|la de arriba)\b/i.test(t)) {
-    // la última imagen que salió en el chat
-    for (const m of [...c.mensajes].reverse()) if (m.de === 'chat' && (m.imagenes || []).length) { v = m.imagenes[m.imagenes.length - 1]; break; }
-    v ||= ids[ids.length - 1];
+  let vs = (seleccion || []).filter((v) => ids.includes(v));
+  if (!vs.length) {
+    const nombradas = [...new Set((t.match(/\bV\d{2,3}\b/gi) || []).map((x) => x.toUpperCase()))].filter((v) => ids.includes(v));
+    if (nombradas.length) vs = nombradas;
+    else if (/\b(la [uú]ltima|esta|esa|la anterior|la de arriba)\b/i.test(t)) {
+      // la última imagen que salió en el chat
+      let v = null;
+      for (const m of [...c.mensajes].reverse()) if (m.de === 'chat' && (m.imagenes || []).length) { v = m.imagenes[m.imagenes.length - 1]; break; }
+      vs = [v || ids[ids.length - 1]];
+    }
   }
-  if (!v || !ids.includes(v)) return null;
-  const est = leerEstado(carpeta);
-  const p = est?.piezas?.[piezaId(v, '1:1')];
-  if (!p || p.fase !== 'final' || !existe(R.img(carpeta, piezaId(v, '1:1')))) return null;
-  return { v, pieza: piezaId(v, '1:1') };
+  if (!vs.length) return null;
+  return { tipo, ...(tipo === 'tamano' ? { formato } : {}), vs };
 }
 
-async function hacerCambioSimple(c, { v, pieza }, texto) {
+/** Pide los cambios al instante (uno por imagen) y contesta. -> false si ninguno se pudo pedir (que lo vea la IA). */
+async function hacerCambioSimple(c, atajo, texto) {
+  const carpeta = carpetaDe(c.lote);
+  const est = leerEstado(carpeta);
   const pedido = texto.replace(/^\s*cambia en V\d{2,3}\s*:\s*/i, '').trim() || texto;
-  try {
-    lotes.agregarPedido(c.lote, {
-      pieza,
-      instruccion: limpio(texto, 600),
-      instruccion_en: `The user asked, in Spanish: «${limpio(pedido, 500)}». Apply ONLY this change to the image; keep everything else exactly identical (layout, all other texts, colors, people, product, lighting).`,
-      textos: false,
-    });
-  } catch {
-    return false; // (ocupada o algo raro: que lo vea la IA)
-  }
+  const hechas = [];
   const avisos = [];
+  for (const v of atajo.vs) {
+    const pieza = piezaId(v, '1:1');
+    const p = est?.piezas?.[pieza];
+    if (!p || p.fase !== 'final' || !existe(R.img(carpeta, pieza))) {
+      avisos.push(`${v} todavía se está haciendo: pídemelo cuando termine.`);
+      continue;
+    }
+    try {
+      if (atajo.tipo === 'tamano') {
+        if ((p.aspecto || p.formato || '1:1') === atajo.formato) {
+          avisos.push(`${v} ya está en ${atajo.formato}.`);
+          continue;
+        }
+        lotes.agregarTamano(c.lote, { pieza, formato: atajo.formato });
+      } else {
+        lotes.agregarPedido(c.lote, {
+          pieza,
+          instruccion: limpio(texto, 600),
+          instruccion_en: `The user asked, in Spanish: «${limpio(pedido, 500)}». Apply ONLY this change to the image; keep everything else exactly identical (layout, all other texts, colors, people, product, lighting).`,
+          textos: false,
+        });
+      }
+      hechas.push(v);
+    } catch (e) {
+      avisos.push(`${v}: ${e.message}`);
+    }
+  }
+  if (!hechas.length && !avisos.some((a) => /ya está en/.test(a))) return false;
   try {
-    if (!leerConductor(c.lote)) iniciarProduccion(c.lote);
-    else if (!enMarcha(c.lote)) reabrir(c.lote, 'anuncios', { tambienPausado: true });
+    if (hechas.length && !leerConductor(c.lote)) iniciarProduccion(c.lote);
+    else if (hechas.length && !enMarcha(c.lote)) reabrir(c.lote, 'anuncios', { tambienPausado: true });
   } catch (e) {
     avisos.push(`No pude poner a trabajar el lote: ${e.message}`);
   }
   const k = await costoDelChat(c);
+  const n = hechas.length;
+  const que = atajo.tipo === 'tamano' ? `la paso a ${atajo.formato} (la de antes queda en «Versiones anteriores»)` : limpio(pedido, 200);
   const c2 = leerChat(c.id);
   c2.mensajes.push({
     id: crypto.randomBytes(4).toString('hex'),
     de: 'chat',
-    texto: `Listo, lo hago en ${v}: ${limpio(pedido, 200)}.${!k.conChatGPT && k.dolaresPorImagen ? `\n\n(1 imagen · ~US$ ${k.dolaresPorImagen.toFixed(2)})` : ''}${avisos.length ? `\n\n${avisos.join('\n')}` : ''}`,
-    imagenes: [v],
+    texto: `${n ? `Listo, lo hago en ${listaDeVs(hechas)}: ${que}.` : 'No hay nada que cambiar.'}${n && !k.conChatGPT && k.dolaresPorImagen ? `\n\n(${n} ${n === 1 ? 'imagen' : 'imágenes'} · ~US$ ${(n * k.dolaresPorImagen).toFixed(2)})` : ''}${avisos.length ? `\n\n${avisos.join('\n')}` : ''}`,
+    imagenes: atajo.vs.filter((v) => hechas.includes(v) || avisos.some((a) => a.startsWith(`${v} ya está`))),
     rapido: true,
     fecha: ahora(),
   });

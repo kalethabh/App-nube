@@ -154,10 +154,13 @@ export function claveDelEnv(nombre) {
 const CLASES = [
   // la clave esta mal: reintentar no sirve, hay que ir a Ajustes
   ['clave', /rechazo la clave|You do not have access permissions|invalid[_ ]api[_ ]key|Falta (KIE_API_KEY|ELEVENLABS_API_KEY)|\(401\)/i],
+  // (2026-11-27c) ElevenLabs pide un pago (HTTP 402): p. ej. una voz de la biblioteca con un plan gratis, o un pago
+  // pendiente. Antes se leía como «saldo de kie» (el 402 casaba con la regla de abajo): no tiene nada que ver con kie.
+  ['voz-pago', /ElevenLabs[^\r\n]*\b402\b|paid_plan_required|payment_required|library voices|upgrade your subscription to use/i],
+  // la cuota de caracteres de ElevenLabs se termino (antes que el saldo de kie: nunca se confunden)
+  ['cuota-voz', /quota_exceeded|exceeds? your (character )?quota|character limit|cuota de caracteres/i],
   // sin saldo en kie (el aviso de --solo-plan, el de generar-musica y el de kie al crear la tarea)
   ['saldo', /no te alcanza|saldo insuficiente|insufficient (credits?|balance)|not enough (credits?|balance)|credits? (is |are )?(insufficient|not enough)|\bcode=402\b|\bHTTP 402\b/i],
-  // la cuota de caracteres de ElevenLabs se termino
-  ['cuota-voz', /quota_exceeded|exceeds? your (character )?quota|character limit|cuota de caracteres/i],
   // se fue internet (o el host no se encuentra)
   ['red', /fetch failed|ECONNRESET|ENOTFOUND|ETIMEDOUT|EAI_AGAIN|ECONNREFUSED|ENETUNREACH|EHOSTUNREACH|getaddrinfo|socket hang up|network ?error|UND_ERR|other side closed|Connect Timeout/i],
   // el servidor de kie (o de ElevenLabs) fallo, o hay tareas que siguen en kie: se espera y se vuelve a correr
@@ -174,7 +177,7 @@ const CLASES = [
 // sirve: hay que mover la carpeta.
 export const RUTA_LARGA = /chrome-headless-shell[^\r\n]*ENOENT|ENOENT[^\r\n]*chrome-headless-shell/i;
 
-/** 'ruta-larga' | 'clave' | 'saldo' | 'cuota-voz' | 'red' | 'servidor' | 'contenido' | 'otro' */
+/** 'ruta-larga' | 'clave' | 'voz-pago' | 'cuota-voz' | 'saldo' | 'red' | 'servidor' | 'contenido' | 'otro' */
 export function clasificarFallo(texto) {
   const t = String(texto || '');
   if (process.platform === 'win32' && RUTA_LARGA.test(t)) return 'ruta-larga';
@@ -211,6 +214,8 @@ export function causaDeFallo(texto) {
     return c(`kie.ai todavía está generando ${quedan ? `${quedan} clip${quedan === '1' ? '' : 's'}` : 'algunos clips'}: hoy van más lentos de lo normal.`, ['No hagas nada: la app los recoge apenas estén y no se vuelven a pagar.', 'Si tienes prisa, toca «Continuar» para mirar de nuevo ahora.']);
   if (/\b429\b|Too Many Requests|demasiadas solicitudes|rate.?limit/i.test(t))
     return c('kie.ai está frenando pedidos porque llegaron muchos a la vez (límite de velocidad).', ['Espera unos minutos: si se detuvo, toca «Continuar».', 'Evita producir varios anuncios al mismo tiempo.']);
+  if (/ElevenLabs[^\r\n]*\b402\b|paid_plan_required|payment_required|library voices/i.test(t))
+    return c('ElevenLabs no deja usar esa voz con tu plan (o tiene un pago pendiente). No es tu saldo de kie.', ['Elige otra voz (una «premade» o una tuya) en el anuncio y toca «Continuar».', 'O activa un plan pago en elevenlabs.io: las voces de la biblioteca lo necesitan para usarse por la API.']);
   if (/insufficient|not enough (credits?|balance)|saldo insuficiente|no te alcanza|\b402\b/i.test(t))
     return c('No te alcanza el saldo de kie.ai.', ['Recarga en kie.ai/billing y toca «Continuar»: lo ya hecho no se vuelve a pagar.']);
   if (/rechazo la clave|invalid[_ ]api[_ ]key|You do not have access|\(401\)|\b401\b/i.test(t)) return c('kie.ai no aceptó tu clave.', ['Revisa tu clave de kie.ai en Ajustes → Conexiones y toca «Continuar».']);
@@ -236,6 +241,8 @@ export function mensajeDeFallo(clase, { que = 'este paso' } = {}) {
       return 'Una de tus claves no funciona (kie o ElevenLabs). Revísala en Ajustes y toca “Continuar”.';
     case 'saldo':
       return 'Tu saldo de kie no alcanza: recarga para seguir';
+    case 'voz-pago':
+      return 'ElevenLabs no dejó grabar la voz: tu plan de ElevenLabs no permite esa voz por la API (las voces de la biblioteca piden un plan pago) o tiene un pago pendiente. Elige otra voz (una «premade» o una tuya) o activa un plan pago en ElevenLabs, y toca “Continuar”. No tiene que ver con tu saldo de kie.';
     case 'cuota-voz':
       return 'Se terminaron los caracteres de tu plan de ElevenLabs. Amplíalo y toca “Continuar”.';
     case 'red':
