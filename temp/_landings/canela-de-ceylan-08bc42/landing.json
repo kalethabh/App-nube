@@ -19,8 +19,6 @@
   "creado": "2026-11-27T19:04:39.744Z",
   "estado": "trabajando",
   "progreso": [
-    "Imagen 6 de 31 lista (galeria-06).",
-    "Imagen 7 de 31 lista (galeria-07).",
     "Imagen 8 de 31 lista (galeria-08).",
     "Imagen 9 de 31 lista (galeria-09).",
     "Imagen 10 de 31 lista (galeria-10).",
@@ -32,12 +30,14 @@
     "Imagen 16 de 31 lista (ingredientes).",
     "Imagen 17 de 31 lista (historia-1).",
     "Imagen 18 de 31 lista (historia-2).",
-    "Imagen 19 de 31 lista (historia-3)."
+    "Imagen 19 de 31 lista (historia-3).",
+    "Imagen 20 de 31 lista (historia-4).",
+    "Imagen 21 de 31 lista (historia-5)."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-27T19:28:17.479Z",
+  "actualizado": "2026-11-27T19:31:56.004Z",
   "agentes": [
     {
       "id": "estratega",
