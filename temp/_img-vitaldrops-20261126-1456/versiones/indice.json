@@ -58,6 +58,15 @@
         "reemplazadaPor": "tamano",
         "motivo": "tamano",
         "fecha": "2026-11-27T02:02:48.773Z"
+      },
+      {
+        "n": 5,
+        "archivo": "versiones/V01_1x1.v5.png",
+        "prompt": "versiones/V01_1x1.v5.txt",
+        "reemplazadaPor": "U0036",
+        "motivo": null,
+        "aspecto": "4:5",
+        "fecha": "2026-11-27T02:21:32.584Z"
       }
     ],
     "V03_1x1": [
@@ -185,6 +194,15 @@
         "motivo": null,
         "aspecto": "4:5",
         "fecha": "2026-11-27T02:18:56.849Z"
+      },
+      {
+        "n": 6,
+        "archivo": "versiones/V06_1x1.v6.png",
+        "prompt": "versiones/V06_1x1.v6.txt",
+        "reemplazadaPor": "U0035",
+        "motivo": null,
+        "aspecto": "4:5",
+        "fecha": "2026-11-27T02:21:24.359Z"
       }
     ],
     "V04_1x1": [
