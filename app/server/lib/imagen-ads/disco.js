@@ -33,7 +33,8 @@ export const NOMBRE_POSICION = {
   'abajo-derecha': 'Abajo a la derecha',
 };
 export const MAXIMO_VARIACIONES = 100;
-export const MAXIMO_REFERENCIAS = 10;
+// (2026-11-27c) «que me deje colocar la cantidad de referencias que quiera»: hasta 99 (R01…R99)
+export const MAXIMO_REFERENCIAS = 99;
 
 export const piezaId = (v, formato) => `${v}_${SUFIJO[formato] || '9x16'}`;
 export const numeroDeV = (v) => Number(String(v).slice(1));

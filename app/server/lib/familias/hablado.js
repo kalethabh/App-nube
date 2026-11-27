@@ -115,7 +115,7 @@ function fallo(r, { que = 'este paso', mensaje = null } = {}) {
   return {
     ok: false,
     error: {
-      mensaje: mensaje && !['ruta-larga', 'clave', 'cuota-voz', 'red', 'servidor', 'contenido'].includes(r.clase) ? mensaje : mensajeDeFallo(r.clase, { que }),
+      mensaje: mensaje && !['ruta-larga', 'clave', 'cuota-voz', 'voz-pago', 'red', 'servidor', 'contenido'].includes(r.clase) ? mensaje : mensajeDeFallo(r.clase, { que }),
       motivo: r.clase || 'otro',
       detalle: ultimasLineas(r.texto),
     },
@@ -275,7 +275,7 @@ async function medir(ctx, ns) {
     const medidas = lista.slice();
     r = await ctx.correr('lineas-habladas.js', [ctx.carpetaArg, '--tomas', medidas.join(',')], { que: ['scribe'], clipsDe: () => medidas.map((n) => `toma-${n}.mp4`) });
     if (r.cancelado || ctx.senal?.aborted) return { cancelado: true };
-    if (r.codigo !== 0 && ['clave', 'cuota-voz', 'saldo', 'red', 'servidor'].includes(r.clase)) {
+    if (r.codigo !== 0 && ['clave', 'cuota-voz', 'voz-pago', 'saldo', 'red', 'servidor'].includes(r.clase)) {
       return { ok: false, resultado: fallo(r, { que: 'la revisión de lo que dice cada clip' }) };
     }
     const actuales = leerMedidas(ctx);

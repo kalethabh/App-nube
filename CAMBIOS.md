@@ -2,6 +2,17 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27c · Elegir varias imágenes en el chat, referencias sin límite y el error de «saldo» con la voz
+
+- **Chat de imágenes, elegir varias:** marca el círculo arriba a la izquierda de cada imagen (o «Elegir estas N») y escribe qué les cambias.
+  - Los cambios sencillos van a todas al instante: «borra el texto de abajo», «pon el fondo blanco».
+  - «Pásalas a vertical» (o 4:5, o cuadradas) cambia el tamaño de todas; la de antes queda en «Versiones anteriores».
+  - Lo más complejo lo hace la IA, imagen por imagen.
+- **Crear anuncios de imagen:** ahora puedes subir hasta 99 referencias (antes eran 10).
+- **Corregido: «Tu saldo de kie no alcanza» en el paso de la voz, aunque hubiera saldo.**
+  - En realidad era ElevenLabs (la voz), que pedía un pago: casi siempre una voz de la biblioteca usada con un plan gratis, o un pago pendiente.
+  - Ahora la app lo dice así y explica qué hacer: elegir otra voz (una «premade» o una propia) o activar un plan pago en ElevenLabs.
+
 ## 2026-11-27b · Chat de imágenes: libre, rápido y siempre con tu ChatGPT
 
 - **Las imágenes de anuncios y del chat se hacen siempre con tu ChatGPT (gratis), nunca con kie.** Cada prompt pide la mayor calidad posible: nitidez, textos perfectos, piel y telas realistas.

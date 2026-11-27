@@ -111,7 +111,7 @@ function fallo(r, { que = 'este paso', mensaje = null } = {}) {
   return {
     ok: false,
     error: {
-      mensaje: mensaje && !['ruta-larga', 'clave', 'cuota-voz', 'red', 'servidor', 'contenido'].includes(r.clase) ? mensaje : mensajeDeFallo(r.clase, { que }),
+      mensaje: mensaje && !['ruta-larga', 'clave', 'cuota-voz', 'voz-pago', 'red', 'servidor', 'contenido'].includes(r.clase) ? mensaje : mensajeDeFallo(r.clase, { que }),
       motivo: r.clase || 'otro',
       detalle: ultimasLineas(r.texto),
     },
@@ -964,7 +964,7 @@ async function escucharClips(ctx, numeros) {
     });
     if (r.cancelado || ctx.senal?.aborted) return { cancelado: true };
     // una clave de ElevenLabs que no anda frena (los subtitulos tambien la necesitan); lo demas no frena el anuncio
-    if (r.codigo !== 0 && ['clave', 'cuota-voz'].includes(r.clase)) return fallo(r, { que: 'la revisión de lo que dice cada clip' });
+    if (r.codigo !== 0 && ['clave', 'cuota-voz', 'voz-pago'].includes(r.clase)) return fallo(r, { que: 'la revisión de lo que dice cada clip' });
     // los que Scribe no pudo escuchar se prueban otra vez despues de una espera (lo ya escuchado no se vuelve a pedir)
     const oidos = leerJSON(rutaHabla(ctx.carpeta))?.tomas || {};
     faltan = faltan.filter((n) => !oidos[String(n)] || oidos[String(n)].error);

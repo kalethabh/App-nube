@@ -130,7 +130,7 @@ export function opcionesDeEjemplo() {
     ],
     posiciones: null,
     maximo: 100,
-    maxReferencias: 10,
+    maxReferencias: 99,
     idiomaPorDefecto: 'es',
     costo: { creditosPorImagen: 10, dolaresPorImagen: 0.05, dolaresPorCredito: 0.005, margen: 0.2, modelo: 'GPT Image 2.5' },
   };
