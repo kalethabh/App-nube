@@ -19,7 +19,7 @@ const CORREGIR = 'Corrige lo que notó la revisión:';
 /** Lo que notó la revisión, después de los dos puntos (la primera letra en minúscula, salvo una sigla). */
 const textoCorregir = (problemas) => `${CORREGIR} ${problemas.map((t) => t.replace(/^\p{Lu}(?!\p{Lu})/u, (c) => c.toLowerCase())).join(' ')}`.slice(0, MAXIMO);
 
-export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConfirmar, lote = null, productoId = null, formatosHechos = [], onTamano = null, onMasComoEsta = null }) {
+export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConfirmar, lote = null, productoId = null, onTamano = null, onMasComoEsta = null }) {
   const [texto, setTexto] = useState('');
   // { id, archivo?: File, pieza?: id de Mis piezas, url }
   const [adjuntos, setAdjuntos] = useState([]);
@@ -251,7 +251,7 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
         {onTamano ? (
           <div className="lote-regenerar__tamanos">
             <span className="t-chico">
-              <strong>Otro tamaño de este anuncio</strong> · sale de su cuadrado, con los mismos textos (1 imagen). Lo que ya tienes no cambia.
+              <strong>Cambiar el tamaño de esta imagen</strong> · se rehace en ese tamaño con los mismos textos (1 imagen). La de ahora queda en «Versiones anteriores».
             </span>
             <div className="fila">
               {[
@@ -259,10 +259,10 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
                 ['9:16', 'Vertical 9:16'],
                 ['4:5', 'Retrato 4:5'],
               ].map(([f, t]) => {
-                const ya = formatosHechos.includes(f);
+                const ahora = (p.formato || partesDePieza(p.pieza).formato) === f;
                 return (
-                  <Chip key={f} tamano="chico" onClick={() => onTamano(partesDePieza(p.pieza).v, f)} disabled={enviando || ya} title={ya ? 'Ya tiene este tamaño' : `Crear su ${t.toLowerCase()}`}>
-                    {ya ? `${t} ✓` : `+ ${t}`}
+                  <Chip key={f} tamano="chico" activo={ahora} onClick={() => onTamano(p.pieza, f)} disabled={enviando || ahora || !p.url} title={ahora ? 'Es el tamaño que tiene ahora' : `Cambiarla a ${t.toLowerCase()}`}>
+                    {ahora ? `${t} (ahora)` : t}
                   </Chip>
                 );
               })}

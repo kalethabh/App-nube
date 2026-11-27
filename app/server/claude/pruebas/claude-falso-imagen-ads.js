@@ -270,7 +270,7 @@ async function mas(texto) {
   const lote = texto.match(/Carpeta del lote: temp\/(\S+)/)[1];
   const C = `temp/${lote}`;
   const salida = (texto.match(/escribe SOLO `(temp\/\S+\/app\/imagen-ads\/mas\/M\d{2}\.json)`/) || [])[1];
-  const ids = idsDe((texto.match(/DISTINTOS de los que ya tiene: ([^.\n]+)\./) || [])[1] || '');
+  const ids = idsDe((texto.match(/DISTINTOS de los que ya tiene[^:]*: ([^.\n]+)\./) || [])[1] || '');
   const plan = leer(path.join(RAIZ, C, 'plan.json'));
   await usar('Read', { file_path: path.join(RAIZ, C, 'plan.json') });
   const { angulos, formatos } = catalogo();

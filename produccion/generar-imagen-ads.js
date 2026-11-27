@@ -69,6 +69,8 @@ import {
   construirPrompt,
   construirPromptVertical,
   construirPromptEdicion,
+  construirPromptCambioTamano,
+  notaDeLienzo,
   TOPE_CORRECCION,
   ajustarLargo,
   huellaPieza,
@@ -89,6 +91,7 @@ const CADA_MS = 1000;
 const ESTADOS_FINALES = new Set(['lista', 'sin-imagen']);
 const RE_ORDEN = /^T(\d{3,})\.json$/;
 const RE_ID_ORDEN = /^[A-Za-z0-9][A-Za-z0-9_-]{0,40}$/;
+const ASPECTOS = new Set(['1:1', '9:16', '4:5']);
 
 // ---------------------------------------------------------------- archivos
 
@@ -248,7 +251,10 @@ export function validarOrden(datos, id) {
     if (vistas.has(p.pieza)) throw new ErrorInvalido(`${donde}: ${p.pieza} esta dos veces en la misma orden.`);
     vistas.add(p.pieza);
     if (typeof p.orden !== 'string' || !RE_ID_ORDEN.test(p.orden)) throw new ErrorInvalido(`${donde} (${p.pieza}): "orden" ${JSON.stringify(p.orden)} no sirve.`);
-    if (p.modo !== 'generar' && p.modo !== 'editar') throw new ErrorInvalido(`${donde} (${p.pieza}): "modo" ${JSON.stringify(p.modo)} (vale generar o editar).`);
+    if (!['generar', 'editar', 'tamano'].includes(p.modo)) throw new ErrorInvalido(`${donde} (${p.pieza}): "modo" ${JSON.stringify(p.modo)} (vale generar, editar o tamano).`);
+    // (2026-11-26j) el tamaño de la imagen (si cambió) y, al cambiarlo, el de antes
+    for (const k of ['aspecto', 'aspectoAntes']) if (p[k] !== undefined && !ASPECTOS.has(p[k])) throw new ErrorInvalido(`${donde} (${p.pieza}): "${k}" ${JSON.stringify(p[k])} (vale 1:1, 9:16 o 4:5).`);
+    if (p.modo === 'tamano' && !p.aspecto) throw new ErrorInvalido(`${donde} (${p.pieza}): cambiar el tamaño sin "aspecto".`);
     if (!Number.isInteger(p.version) || p.version < 1) throw new ErrorInvalido(`${donde} (${p.pieza}): "version" ${JSON.stringify(p.version)}.`);
     if (p.orden === 'g' && p.modo !== 'generar') throw new ErrorInvalido(`${donde} (${p.pieza}): la orden "g" es la primera generacion (modo generar).`);
     if (p.modo === 'editar' && !(typeof p.instruccion_en === 'string' && p.instruccion_en.trim())) {
@@ -260,6 +266,8 @@ export function validarOrden(datos, id) {
       modo: p.modo,
       version: p.version,
       ...(p.motivo ? { motivo: String(p.motivo) } : {}),
+      ...(p.aspecto ? { aspecto: p.aspecto } : {}),
+      ...(p.aspectoAntes ? { aspectoAntes: p.aspectoAntes } : {}),
       ...(p.modo === 'editar' ? { instruccion_en: p.instruccion_en.trim(), textos: p.textos === true } : {}),
       // (2026-11-26h) las imágenes que adjuntó el usuario (dentro del lote; solo al editar)
       ...(p.modo === 'editar' && Array.isArray(p.adjuntos) ? { adjuntos: p.adjuntos.map(String).filter((a) => /^entrada\/adjuntos\/A\d{4}\.(png|jpg)$/.test(a)).slice(0, 3) } : {}),
@@ -569,6 +577,15 @@ class Motor {
   }
 
   /** (2026-11-26i) «Más como esta»: la imagen base de una variante (entrada/variantes/V03.png), o null. */
+  /** (2026-11-26j) «Como las que me funcionan»: la imagen que eligió el usuario para esta variación, o null. */
+  ganadoraDe(v) {
+    const plan = leerJSON(path.join(this.carpeta, 'plan.json'));
+    const rel = String((plan?.variaciones || []).find((y) => y?.id === v)?.ganadora || '');
+    if (!/^entrada\/mas\/M\d{2}-\d\.(jpg|png)$/.test(rel)) return null;
+    const abs = path.join(this.carpeta, ...rel.split('/'));
+    return existe(abs) ? abs : null;
+  }
+
   varianteDe(v) {
     const plan = leerJSON(path.join(this.carpeta, 'plan.json'));
     const base = (plan?.variaciones || []).find((y) => y?.id === v)?.variante_de;
@@ -580,6 +597,8 @@ class Motor {
   referenciaDe(v) {
     const variante = this.varianteDe(v);
     if (variante) return variante;
+    const ganadora = this.ganadoraDe(v);
+    if (ganadora) return ganadora;
     const estructura = this.estructuraDe(v);
     if (estructura) return estructura;
     // (2026-11-26a) «Vecinas»/«Conceptos»: el ganador va como referencia de estilo en todas (ver modoReferencia)
@@ -604,6 +623,7 @@ class Motor {
    */
   modoReferencia(v) {
     if (this.varianteDe(v)) return 'variante';
+    if (this.ganadoraDe(v)) return 'composicion'; // (copia su diseño para este producto)
     if (this.estructuraDe(v)) return 'estructura';
     if (!this.referenciaDe(v)) return null;
     if (!this.lote.ganador) return 'composicion';
@@ -613,17 +633,20 @@ class Motor {
   }
 
   armarPrompt(item, ad) {
-    const formato = formatoDePieza(item.pieza);
+    const base = formatoDePieza(item.pieza);
+    const formato = item.aspecto || base; // (2026-11-26j) el tamaño que tiene (o va a tener) la imagen
     const logo = this.lote.logo;
     let armar;
-    if (item.modo === 'editar') {
+    if (item.modo === 'tamano') {
+      armar = (a) => construirPromptCambioTamano(a, { de: item.aspectoAntes || base, a: formato, logo });
+    } else if (item.modo === 'editar') {
       const n = (item.adjuntos || []).length;
       const conAdjuntos = n ? ` The ${n === 1 ? 'THIRD attached image is a reference' : `attached images 3 to ${n + 2} are references`} the user attached: use ${n === 1 ? 'it' : 'them'} ONLY as this instruction says, and keep everything else of the current ad exactly as it is.` : '';
       armar = (a) => construirPromptEdicion(a, { instruccion: `${item.instruccion_en}${conAdjuntos}`, formato, textos: item.textos === true, logo });
-    } else if (formato === '1:1') {
+    } else if (base === '1:1') {
       const modo = this.modoReferencia(vDePieza(item.pieza));
       const referencia = modo === 'estilo' || modo === 'estructura' || modo === 'variante' ? modo : Boolean(modo);
-      armar = (a) => construirPrompt(a, { logo, correccion: item.correccion_en, referencia });
+      armar = (a) => construirPrompt(a, { logo, correccion: item.correccion_en, referencia }) + notaDeLienzo(formato);
     } else {
       armar = (a) => construirPromptVertical(a, { conProducto: true, logo, correccion: item.correccion_en, formato });
     }
@@ -672,6 +695,7 @@ class Motor {
     Object.assign(rec, {
       estado: 'lista',
       version: item.version,
+      aspecto: item.aspecto || formatoDePieza(item.pieza), // (2026-11-26j) el tamaño con el que quedó
       firma: firmaDeArchivo(this.rutasDe(item.pieza).img),
       motivo: null,
       mensaje: null,
@@ -776,6 +800,7 @@ class Motor {
       prompt: existe(r.prompt) ? `versiones/${pieza}.v${n}.txt` : null,
       reemplazadaPor: a.orden,
       motivo: a.motivo || null,
+      ...(a.aspectoAntes && a.aspectoAntes !== formatoDePieza(pieza) ? { aspecto: a.aspectoAntes } : {}),
       fecha: new Date().toISOString(),
     };
     indice.piezas[pieza] = [...lista, entrada];
@@ -847,7 +872,7 @@ class Motor {
     const rec = T.resultado.piezas[pieza];
     const r = this.rutasDe(pieza);
     const rehacer = orden !== 'g';
-    const formato = formatoDePieza(pieza);
+    const formato = item.aspecto || formatoDePieza(pieza); // (2026-11-26j) el tamaño que va a tener la imagen
 
     // 1) Lo que ya esta no se vuelve a pedir.
     const fin = this.finales.get(`${pieza}|${orden}`);
@@ -894,7 +919,11 @@ class Motor {
       // (2026-11-26h) después de la imagen actual y el producto, las que adjuntó el usuario (3.ª, 4.ª…)
       const adjuntos = (item.adjuntos || []).map((a) => path.join(this.carpeta, ...a.split('/'))).filter((a) => existe(a));
       archivos = [r.img, this.lote.rutaProducto, ...adjuntos];
-    } else if (formato !== '1:1') {
+    } else if (item.modo === 'tamano') {
+      // (2026-11-26j) cambiar el tamaño: sale de la imagen de ahora (y el producto, para que su etiqueta quede igual)
+      if (!existe(r.img)) return this.sinImagen(T, item, 'falta-imagen');
+      archivos = [r.img, this.lote.rutaProducto];
+    } else if (formatoDePieza(pieza) !== '1:1') {
       const cuadrado = this.rutasDe(`${vDePieza(pieza)}_1x1`).img;
       if (!existe(cuadrado)) return this.sinImagen(T, item, 'falta-cuadrado');
       archivos = [cuadrado, this.lote.rutaProducto];
@@ -1168,6 +1197,8 @@ class Motor {
       referencias,
       version: item.version,
       motivo: item.motivo || null,
+      // (2026-11-26j) el tamaño de la imagen que se reemplaza (para verla bien en «Versiones anteriores»)
+      aspectoAntes: item.aspectoAntes || item.aspecto || formatoDePieza(item.pieza),
     };
     escribirJSON(this.rutasDe(item.pieza).nuevaJson, a);
     this.cuenta.listas++;

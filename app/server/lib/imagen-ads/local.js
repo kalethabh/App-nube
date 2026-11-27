@@ -17,6 +17,10 @@ import { execFile } from 'node:child_process';
 import { RAIZ } from '../rutas.js';
 import { geometriaLogo } from '../../../../produccion/imagen-ads.js';
 import { R, firma, guardarJSON, sha1Archivo, formatoDe } from './disco.js';
+import { leerJSON as leerJSONLocal } from '../archivos.js';
+
+/** (2026-11-26j) El tamaño que tiene hoy la imagen (el de su nombre, salvo que se lo hayas cambiado). */
+const aspectoDe = (carpeta, pieza) => leerJSONLocal(R.estado(carpeta))?.piezas?.[pieza]?.aspecto || formatoDe(pieza);
 
 // ---------------------------------------------------------------- ffmpeg
 
@@ -261,7 +265,7 @@ export function componerLogo(carpeta, lote, pieza, brief, { senal = null } = {})
     const lienzo = medirPng(origen);
     const lg = medirPng(logo);
     if (!lienzo || !lg) throw new Error(`No pude medir la imagen o el logo de ${pieza}.`);
-    const g = geometriaLogo({ W: lienzo.ancho, H: lienzo.alto, formato: formatoDe(pieza), posicion, lw: lg.ancho, lh: lg.alto });
+    const g = geometriaLogo({ W: lienzo.ancho, H: lienzo.alto, formato: aspectoDe(carpeta, pieza), posicion, lw: lg.ancho, lh: lg.alto });
     fs.mkdirSync(R.dirFinal(carpeta), { recursive: true });
     const destino = R.final(carpeta, pieza);
     const tmp = tmpDe(destino);

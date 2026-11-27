@@ -60,7 +60,11 @@ const log = fs.createWriteStream(path.join(TMP, 'app.log'));
 const app = cp.spawn(process.execPath, ['server/index.js'], { cwd: APP, env, stdio: ['ignore', 'pipe', 'pipe'], detached: true });
 app.stdout.pipe(log);
 app.stderr.pipe(log);
-const creados = { producto: null, lotes: [] };
+const creados = { producto: null, lotes: [], funcionan: [] };
+// («Me funciona» es tuyo: se guarda como estaba y se deja igual al terminar)
+const LISTA_FUNCIONAN = path.join(RAIZ, 'temp', '_funcionan', 'lista.json');
+const listaAntes = fs.existsSync(LISTA_FUNCIONAN) ? fs.readFileSync(LISTA_FUNCIONAN) : null;
+const imgsAntes = new Set(fs.existsSync(path.join(RAIZ, 'temp', '_funcionan', 'img')) ? fs.readdirSync(path.join(RAIZ, 'temp', '_funcionan', 'img')) : []);
 
 async function unLote(id, porImagen, cuerpo) {
   const r = await pedir('/api/imagen-ads', { json: { productoId: id, fotoProducto: 1, datos: { nombre: 'Curvas Plus', pais: 'Colombia', idioma: 'es' }, formatos: ['1:1'], logo: null, usarInvestigacion: false, ...cuerpo } });
@@ -75,6 +79,7 @@ async function unLote(id, porImagen, cuerpo) {
 
 const leerJ = (a) => JSON.parse(fs.readFileSync(a, 'utf8'));
 const vistaDe = async (lote) => (await pedir(`/api/imagen-ads/${lote}`)).datos;
+const d0 = (d, v) => d?.variaciones?.find((x) => x.v === v)?.piezas?.['1:1'] || null;
 const quieto = (d) => ['listo', 'error'].includes(d?.conductor?.estado) || (d?.conductor?.estado === 'pausado' && d?.conductor?.motivo !== 'detenido');
 
 async function principal() {
@@ -100,35 +105,41 @@ async function principal() {
   const versiones = (d) => Object.fromEntries((d?.variaciones || []).flatMap((x) => Object.entries(x.piezas || {}).map(([f, p]) => [`${x.v}_${f}`, p?.version || 0])));
   const antes = versiones(vista);
 
-  console.log('\n  Crear otro tamaño');
+  console.log('\n  Cambiar el tamaño (como una edición: la de antes queda en versiones)');
   const brief0 = leerJ(path.join(carpeta, 'app', 'brief.json'));
-  check('El costo de un tamaño nuevo es 1 imagen', imagenesDeLaAccion(brief0, { accion: 'tamano' }) === 1);
-  r = await pedir(`/api/imagen-ads/${lote}/tamano`, { json: { v: 'V02', formato: '9:16' } });
+  const medir = (abs) => cp.execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', abs]).toString().trim().split(',').map(Number);
+  check('El costo de cambiar el tamaño es 1 imagen', imagenesDeLaAccion(brief0, { accion: 'tamano' }) === 1);
+  r = await pedir(`/api/imagen-ads/${lote}/tamano`, { json: { pieza: 'V02_1x1', formato: '9:16' } });
   check('Sin confirmar el costo, no se pide (428)', r.st === 428, r);
-  r = await pedir(`/api/imagen-ads/${lote}/tamano`, { json: { v: 'V02', formato: '1:1', costoMaximoConfirmado: 1 } });
-  check('Un tamaño que ya tiene no se vuelve a pedir (409)', r.st === 409 && /ya tiene/.test(r.datos?.error || ''), r);
-  r = await pedir(`/api/imagen-ads/${lote}/tamano`, { json: { v: 'V02', formato: '2:3', costoMaximoConfirmado: 1 } });
+  r = await pedir(`/api/imagen-ads/${lote}/tamano`, { json: { pieza: 'V02_1x1', formato: '1:1', costoMaximoConfirmado: 1 } });
+  check('El tamaño que ya tiene no se vuelve a pedir (409)', r.st === 409 && /ya es/.test(r.datos?.error || ''), r);
+  r = await pedir(`/api/imagen-ads/${lote}/tamano`, { json: { pieza: 'V02_1x1', formato: '2:3', costoMaximoConfirmado: 1 } });
   check('Un tamaño que no existe no se acepta (400)', r.st === 400, r);
-  r = await pedir(`/api/imagen-ads/${lote}/tamano`, { json: { v: 'V02', formato: '9:16', costoMaximoConfirmado: Math.max(1, porImagen) } });
-  check('«Crear el vertical 9:16 de V02» entra', r.st === 202 && r.datos?.pieza === 'V02_9x16', r);
-  let d = await esperar(4, () => vistaDe(lote), (x) => x?.variaciones?.find((y) => y.v === 'V02')?.piezas?.['9:16']?.url && quieto(x));
+  const vAntes = d0(vista, 'V02');
+  r = await pedir(`/api/imagen-ads/${lote}/tamano`, { json: { pieza: 'V02_1x1', formato: '9:16', costoMaximoConfirmado: Math.max(1, porImagen) } });
+  check('«Pasar V02 a vertical 9:16» entra', r.st === 202, r);
+  let d = await esperar(4, () => vistaDe(lote), (x) => d0(x, 'V02')?.formato === '9:16' && quieto(x));
   const v02 = d?.variaciones?.find((x) => x.v === 'V02');
-  check('…sale V02_9x16 y la pantalla lo muestra junto a su cuadrado', Boolean(v02?.piezas?.['9:16']?.url) && Object.keys(v02.piezas).join(',') === '1:1,9:16', v02?.piezas && Object.keys(v02.piezas));
-  check('…solo V02 tiene vertical (las demás siguen en cuadrado)', d.variaciones.filter((x) => x.piezas?.['9:16']).length === 1);
-  const pV = fs.readFileSync(path.join(carpeta, 'prompts', 'V02_9x16.txt'), 'utf8');
-  check('…sale de su cuadrado (prompt de vertical)', /9:16/.test(pV), pV.slice(0, 300));
-  r = await pedir(`/api/imagen-ads/${lote}/tamano`, { json: { v: 'V01', formato: '4:5', costoMaximoConfirmado: Math.max(1, porImagen) } });
-  check('«Crear el retrato 4:5 de V01» entra', r.st === 202 && r.datos?.pieza === 'V01_4x5', r);
-  d = await esperar(4, () => vistaDe(lote), (x) => x?.variaciones?.find((y) => y.v === 'V01')?.piezas?.['4:5']?.url && quieto(x));
-  const v01 = d?.variaciones?.find((x) => x.v === 'V01');
-  check('…sale V01_4x5', Boolean(v01?.piezas?.['4:5']?.url), v01?.piezas?.['4:5']);
-  const p45 = fs.existsSync(path.join(carpeta, 'prompts', 'V01_4x5.txt')) ? fs.readFileSync(path.join(carpeta, 'prompts', 'V01_4x5.txt'), 'utf8') : '';
-  check('…con su prompt de retrato 4:5 (sin la zona segura del 9:16)', /4:5/.test(p45) && !/9:16/.test(p45), p45.slice(0, 400));
-  check('…y su nombre de descarga termina en -4x5', /-4x5\.png$/.test(v01?.piezas?.['4:5']?.descarga || ''), v01?.piezas?.['4:5']?.descarga);
-  const dim = cp.execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', path.join(carpeta, 'img', 'V01_4x5.png')]).toString().trim().split(',').map(Number);
+  check('…V02 sigue con UNA sola imagen (no queda al lado)', v02 && Object.keys(v02.piezas).join(',') === '1:1', v02 && Object.keys(v02.piezas));
+  check('…que ahora es 9:16 y es una versión nueva', d0(d, 'V02')?.formato === '9:16' && d0(d, 'V02')?.version === vAntes.version + 1, { antes: vAntes.version, ahora: d0(d, 'V02')?.version });
+  const dimV02 = medir(path.join(carpeta, 'img', 'V02_1x1.png'));
+  check(`…la imagen mide 9:16 (${dimV02.join('x')})`, Math.abs(dimV02[0] / dimV02[1] - 9 / 16) < 0.02, dimV02);
+  const vers = d0(d, 'V02')?.versiones || [];
+  check('…y la de antes (cuadrada) quedó en «Versiones anteriores»', vers.some((o) => o.formato === '1:1' && o.motivo === 'tamano'), vers);
+  check('…su descarga se llama -9x16', /-9x16\.png$/.test(d0(d, 'V02')?.descarga || ''), d0(d, 'V02')?.descarga);
+  const pT = fs.readFileSync(path.join(carpeta, 'prompts', 'V02_1x1.txt'), 'utf8');
+  check('…con el prompt de cambio de tamaño (sale de la imagen de ahora)', /The ONLY change is the dimension: the first attached image is 1:1/.test(pT), pT.slice(0, 400));
+  r = await pedir(`/api/imagen-ads/${lote}/regenerar`, { json: { pieza: 'V02_1x1', costoMaximoConfirmado: Math.max(1, porImagen) } });
+  d = await esperar(4, () => vistaDe(lote), (x) => (d0(x, 'V02')?.version || 0) > vAntes.version + 1 && quieto(x));
+  const dimOtra = medir(path.join(carpeta, 'img', 'V02_1x1.png'));
+  check(`Regenerarla después la deja en 9:16 (${dimOtra.join('x')})`, r.st === 202 && d0(d, 'V02')?.formato === '9:16' && Math.abs(dimOtra[0] / dimOtra[1] - 9 / 16) < 0.02, { st: r.st, formato: d0(d, 'V02')?.formato, dimOtra });
+  r = await pedir(`/api/imagen-ads/${lote}/tamano`, { json: { pieza: 'V01_1x1', formato: '4:5', costoMaximoConfirmado: Math.max(1, porImagen) } });
+  check('«Pasar V01 a retrato 4:5» entra', r.st === 202, r);
+  d = await esperar(4, () => vistaDe(lote), (x) => d0(x, 'V01')?.formato === '4:5' && quieto(x));
+  const dim = medir(path.join(carpeta, 'img', 'V01_1x1.png'));
   check(`…y la imagen es 4:5 (${dim.join('x')})`, Math.abs(dim[0] / dim[1] - 0.8) < 0.02, dim);
   const ahora = versiones(d);
-  check('Lo que ya estaba no cambió de versión', Object.entries(antes).every(([k, v]) => ahora[k] === v), { antes, ahora });
+  check('V03 y V04 no cambiaron', ['V03_1:1', 'V04_1:1'].every((k) => ahora[k] === antes[k]), { antes, ahora });
 
   console.log('\n  Más imágenes: anuncios nuevos');
   check('El costo de 3 nuevos en un lote cuadrado es 3 imágenes', imagenesDeLaAccion(brief0, { accion: 'mas', cantidad: 3 }) === 3);
@@ -176,6 +187,28 @@ async function principal() {
   check('Las de antes siguen igual', Object.entries(ahora2).every(([k, v]) => ahora3[k] === v));
   r = await pedir(`/api/imagen-ads/${lote}/mas`, { json: { cantidad: 1, modo: 'variantes', base: 'V77', costoMaximoConfirmado: 100 } });
   check('Una imagen que no está en el lote no se acepta (404)', r.st === 404, r);
+  console.log('\n  Más imágenes: como las que me funcionan');
+  r = await pedir('/api/funcionan', { json: { tipo: 'imagen', lote, pieza: 'V03_1x1' } });
+  const gid = r.datos?.id;
+  creados.funcionan.push(gid);
+  check('Se marca V03 con «Me funciona»', Boolean(gid), r);
+  r = await pedir(`/api/imagen-ads/${lote}/mas`, { json: { cantidad: 2, modo: 'ganadoras', funcionan: [], costoMaximoConfirmado: 100 } });
+  check('Sin elegir ninguna, no se acepta (400)', r.st === 400, r);
+  r = await pedir(`/api/imagen-ads/${lote}/mas`, { json: { cantidad: 2, modo: 'ganadoras', funcionan: [gid], costoMaximoConfirmado: Math.max(1, porImagen * 2) } });
+  check('«2 como las que me funcionan» entra (V10 y V11)', r.st === 202 && r.datos?.ids?.join(',') === 'V10,V11', r);
+  d = await esperar(6, () => vistaDe(lote), (x) => x?.variaciones?.length === 11 && x.variaciones.every((y) => y.piezas?.['1:1']?.url) && quieto(x));
+  check('Salen y el lote termina', d?.conductor?.estado === 'listo' && d?.variaciones?.length === 11, { estado: d?.conductor, n: d?.variaciones?.length });
+  const plan3 = leerJ(path.join(carpeta, 'plan.json'));
+  const gs = plan3.variaciones.filter((x) => ['V10', 'V11'].includes(x.id));
+  check('…cada una con la imagen que te funciona como referencia (y sin estructura)', gs.length === 2 && gs.every((x) => /^entrada\/mas\/M03-1\.(jpg|png)$/.test(x.ganadora || '') && !x.formato_id && fs.existsSync(path.join(carpeta, x.ganadora))), gs);
+  // (las variantes copian el titular de su base en el plan: la IA lo reescribe con otras palabras en su anuncio)
+  const titulares = plan3.variaciones.filter((x) => !x.variante_de).map((x) => String(x.titular).toLowerCase());
+  check('Ningún titular del lote se repite (sin contar las variantes)', new Set(titulares).size === titulares.length, titulares);
+  const p10 = fs.readFileSync(path.join(carpeta, 'prompts', 'V10_1x1.txt'), 'utf8');
+  check('Al modelo le llega la imagen como referencia de diseño', /REFERENCE AD/.test(p10), p10.slice(0, 300));
+  check('La pantalla las marca «Como una que te funciona»', d.variaciones.filter((x) => x.comoGanadora).length === 2);
+  const spG = sesionPrompts({ carpeta, lote, brief: leerJ(path.join(carpeta, 'app', 'brief.json')), ids: ['V10'] });
+  check('La tarea de la IA le muestra la imagen que te funciona', spG.material.imagenes.some((x) => /entrada\/mas\/M03-1\./.test(x)) && /Como las que le funcionan/.test(spG.prompt));
   const zip = await fetch(`${BASE}/api/imagen-ads/${lote}/descargar`, { signal: AbortSignal.timeout(60000) });
   check('Descargar todo sigue funcionando con los tamaños y las nuevas', zip.status === 200 || zip.status === 202, zip.status);
 }
@@ -193,6 +226,9 @@ try {
     /* ya cerró */
   }
   for (const l of creados.lotes) if (l) fs.rmSync(path.join(RAIZ, 'temp', l), { recursive: true, force: true });
+  if (listaAntes) fs.writeFileSync(LISTA_FUNCIONAN, listaAntes);
+  const dirImgF = path.join(RAIZ, 'temp', '_funcionan', 'img');
+  if (fs.existsSync(dirImgF)) for (const n of fs.readdirSync(dirImgF)) if (!imgsAntes.has(n)) fs.rmSync(path.join(dirImgF, n), { force: true });
   if (creados.producto) fs.rmSync(path.join(RAIZ, 'temp', '_productos', creados.producto), { recursive: true, force: true });
   fs.rmSync(path.join(RAIZ, 'temp', `_modo-prueba-${PUERTO}`), { recursive: true, force: true });
   if (envPropio) fs.rmSync(ENV, { force: true });
