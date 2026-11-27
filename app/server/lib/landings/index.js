@@ -33,6 +33,7 @@ import { modoPrueba } from '../procesos.js';
 import { clonarLanding } from './clonar.js';
 import { puntaje } from './medir.js';
 import { motorElegido } from '../motor-ia.js';
+import { limpiarPrecios, limpiarResenas, conInter, ANTI_EFECTOS } from './plantilla.js';
 
 const DIR = path.join(TEMP, '_landings');
 const RE_ID = /^[a-z0-9-]{3,80}$/;
@@ -123,9 +124,13 @@ export function crear({ url, prompt = '', modo = null, motor = null, productoId 
  * (2026-11-25f) CREAR desde la plantilla, con el equipo de agentes (plantilla.js): { productoId, prompt?, motor? }.
  * Sin URL: la landing nace de la plantilla y la investigación de mercado del producto.
  */
-export function crearDesdePlantilla({ productoId, prompt = '', motor = null, precios = null, registro = '' } = {}) {
+export function crearDesdePlantilla({ productoId, prompt = '', motor = null, precios = null, registro = '', resenas = [] } = {}) {
   const prod = listarProductos().find((p) => p.id === productoId);
   if (!prod) throw new ErrorApp(400, 'Elige el producto para el que creas la landing.');
+  // (2026-11-27d) sin precios la página quedaba con «Precio por definir»: ahora son obligatorios
+  const listos = limpiarPrecios(precios);
+  if (!listos) throw new ErrorApp(400, 'Pon los precios de 1, 2 y 3 unidades para crear la landing.');
+  const reales = limpiarResenas(resenas);
   if (!motor) {
     try {
       motor = motorElegido() || 'claude';
@@ -137,7 +142,7 @@ export function crearDesdePlantilla({ productoId, prompt = '', motor = null, pre
   const base = String(prod.nombre || productoId).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'landing';
   const id = `${base}-${crypto.randomBytes(3).toString('hex')}`;
   fs.mkdirSync(carpetaDe(id), { recursive: true });
-  guardar(id, { id, url: null, modo: 'crear', motor, prompt: String(prompt || '').trim().slice(0, 4000), precios: precios && typeof precios === 'object' ? precios : null, registro: String(registro || '').trim().slice(0, 60), productoId, analizar: false, titulo: prod.nombre, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, informe: null, puntajes: null });
+  guardar(id, { id, url: null, modo: 'crear', motor, prompt: String(prompt || '').trim().slice(0, 4000), precios: listos, resenas: reales, registro: String(registro || '').trim().slice(0, 60), productoId, analizar: false, titulo: prod.nombre, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, informe: null, puntajes: null });
   crearConElEquipo(id);
   return leer(id);
 }
@@ -147,7 +152,7 @@ async function crearConElEquipo(id) {
   try {
     const l = leer(id);
     const { crearConEquipo } = await import('./plantilla.js');
-    const r = await crearConEquipo({ carpeta: carpetaDe(id), productoId: l.productoId, pedido: l.prompt, precios: l.precios, registro: l.registro, motor: l.motor, guardar: (c) => guardar(id, c), avanzar: (t) => avanzar(id, t) });
+    const r = await crearConEquipo({ carpeta: carpetaDe(id), productoId: l.productoId, pedido: l.prompt, precios: l.precios, registro: l.registro, resenas: l.resenas || [], motor: l.motor, guardar: (c) => guardar(id, c), avanzar: (t) => avanzar(id, t) });
     guardar(id, { titulo: r.titulo, creada: { textos: r.cambiados, imagenes: r.imagenes.hechas, pedidas: r.imagenes.pedidas } });
     guardar(id, { estado: 'midiendo' });
     await medir(id);
@@ -437,7 +442,7 @@ Tu respuesta final: solo LISTO.`;
             break;
           }
           const { generarConChatGPT } = await import('../../../../produccion/chatgpt-imagen.js');
-          await generarConChatGPT({ prompt: String(p.prompt).slice(0, 3000), referencias: foto ? [foto] : [], aspecto: ['1:1', '4:5', '9:16', '16:9'].includes(p.aspecto) ? p.aspecto : '1:1', rutaDestino: destino, codex });
+          await generarConChatGPT({ prompt: `${String(p.prompt).slice(0, 3000)}\n\n${ANTI_EFECTOS}`, referencias: foto ? [foto] : [], aspecto: ['1:1', '4:5', '9:16', '16:9'].includes(p.aspecto) ? p.aspecto : '1:1', rutaDestino: destino, codex });
         }
         const img = imgs[Number(p.id)];
         img.setAttribute('src', `assets/${path.basename(destino)}`);
@@ -449,6 +454,7 @@ Tu respuesta final: solo LISTO.`;
       }
     }
   }
+  conInter(raiz); // (2026-11-27d) «La tipografía siempre INTER», también en las adaptadas
   fs.writeFileSync(path.join(carpeta, 'index.html'), `<!doctype html>\n${raiz.querySelector('html')?.outerHTML || raiz.toString()}`);
   guardar(id, { adaptada: { textos: cambiados, imagenes: hechas, pedidas: pedidas.length } });
 }
