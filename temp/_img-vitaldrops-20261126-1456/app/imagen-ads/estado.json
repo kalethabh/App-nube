@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 27,
-    "T": 31
+    "A": 28,
+    "T": 32
   },
   "tandas": {
     "E001": {
@@ -266,6 +266,15 @@
         "U0033"
       ],
       "empezada": true
+    },
+    "A027": {
+      "tipo": "ajuste",
+      "uuid": "93098900-9e80-45eb-b43c-bf294f0d1c31",
+      "estado": "hecha",
+      "pedidos": [
+        "U0034"
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -411,11 +420,19 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "listo",
       "version": 5,
       "firma": "1838192-1795736529050",
-      "orden": null,
+      "orden": {
+        "id": "U0034",
+        "modo": "editar",
+        "version": 6,
+        "instruccion_en": "In all four day panels, make the body change clearly about hips, glutes and legs. Same woman, shown in side profile or three-quarter view with her face visible, framed from head to mid-calf so the waist-hip-thigh-leg silhouette fills most of each panel; tops tucked in or short. DÍA 1: loose baggy light jeans hanging flat, straight hip line, thin legs, no curve. DÍA 7: light blue jeans, a first slight hip curve. DÍA 14: black leggings, hips and legs clearly more shapely and toned. DÍA 21: dark high-waist jeans, the most defined hip curve and most toned legs, still natural. Keep each panel's setting, lighting and top color. Do not change any text, the headline, day labels, product, offer box, logo, layout, fonts or palette. No back views, no close-ups or crops on body parts, no arched or sexualized poses.",
+        "textos": false,
+        "aspecto": "4:5",
+        "trabajo": "T031"
+      },
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
@@ -423,7 +440,7 @@
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T21:02:18.614Z",
-      "pedido": null,
+      "pedido": "U0034",
       "ultimaOrden": "U0021",
       "fallo": null,
       "aspecto": "4:5"
@@ -470,27 +487,20 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "listo",
-      "version": 3,
-      "firma": "2004243-1795745546623",
-      "orden": {
-        "id": "U0033",
-        "modo": "editar",
-        "version": 4,
-        "instruccion_en": "Apply a light blur (about 20%) only to the small word «amua» at the top of the yellow bottle label, so it looks soft and slightly out of focus but its shape is still faintly visible. Do not change anything else: keep «VITALDROPS», the rest of the label, the bottle, the women, the headline, the notes, the seal, the icons, the colors and the layout exactly the same.",
-        "textos": false,
-        "trabajo": "T030"
-      },
+      "version": 4,
+      "firma": "1920887-1795745846354",
+      "orden": null,
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-27T02:12:28.117Z",
-      "pedido": "U0033",
-      "ultimaOrden": "U0030",
+      "desde": "2026-11-27T02:17:27.133Z",
+      "pedido": null,
+      "ultimaOrden": "U0033",
       "fallo": null
     },
     "V10_1x1": {
@@ -1180,7 +1190,7 @@
       "pieza": "V09_1x1",
       "instruccion": "un 20% difuminado para lo que dice amua",
       "fecha": "2026-11-27T02:16:23.584Z",
-      "estado": "generando",
+      "estado": "listo",
       "ajuste": "A026",
       "instruccion_en": "Apply a light blur (about 20%) only to the small word «amua» at the top of the yellow bottle label, so it looks soft and slightly out of focus but its shape is still faintly visible. Do not change anything else: keep «VITALDROPS», the rest of the label, the bottle, the women, the headline, the notes, the seal, the icons, the colors and the layout exactly the same.",
       "cambiaTextos": false,
@@ -1191,6 +1201,27 @@
           "orden": "U0033",
           "modo": "editar",
           "instruccion_en": "Apply a light blur (about 20%) only to the small word «amua» at the top of the yellow bottle label, so it looks soft and slightly out of focus but its shape is still faintly visible. Do not change anything else: keep «VITALDROPS», the rest of the label, the bottle, the women, the headline, the notes, the seal, the icons, the colors and the layout exactly the same.",
+          "textos": false
+        }
+      ],
+      "paso": 0
+    },
+    "U0034": {
+      "id": "U0034",
+      "pieza": "V06_1x1",
+      "instruccion": "Que las 4 imagen se vea que es enfocado en gluteos piernas y caderas",
+      "fecha": "2026-11-27T02:17:14.137Z",
+      "estado": "generando",
+      "ajuste": "A027",
+      "instruccion_en": "In all four day panels, make the body change clearly about hips, glutes and legs. Same woman, shown in side profile or three-quarter view with her face visible, framed from head to mid-calf so the waist-hip-thigh-leg silhouette fills most of each panel; tops tucked in or short. DÍA 1: loose baggy light jeans hanging flat, straight hip line, thin legs, no curve. DÍA 7: light blue jeans, a first slight hip curve. DÍA 14: black leggings, hips and legs clearly more shapely and toned. DÍA 21: dark high-waist jeans, the most defined hip curve and most toned legs, still natural. Keep each panel's setting, lighting and top color. Do not change any text, the headline, day labels, product, offer box, logo, layout, fonts or palette. No back views, no close-ups or crops on body parts, no arched or sexualized poses.",
+      "cambiaTextos": false,
+      "resumen": "En los 4 recuadros la mujer se ve de lado y de cuerpo casi entero, con jean o leggins, para que el cambio se note en caderas, glúteos y piernas. Los textos no cambian.",
+      "pasos": [
+        {
+          "pieza": "V06_1x1",
+          "orden": "U0034",
+          "modo": "editar",
+          "instruccion_en": "In all four day panels, make the body change clearly about hips, glutes and legs. Same woman, shown in side profile or three-quarter view with her face visible, framed from head to mid-calf so the waist-hip-thigh-leg silhouette fills most of each panel; tops tucked in or short. DÍA 1: loose baggy light jeans hanging flat, straight hip line, thin legs, no curve. DÍA 7: light blue jeans, a first slight hip curve. DÍA 14: black leggings, hips and legs clearly more shapely and toned. DÍA 21: dark high-waist jeans, the most defined hip curve and most toned legs, still natural. Keep each panel's setting, lighting and top color. Do not change any text, the headline, day labels, product, offer box, logo, layout, fonts or palette. No back views, no close-ups or crops on body parts, no arched or sexualized poses.",
           "textos": false
         }
       ],

@@ -290,6 +290,14 @@
         "reemplazadaPor": "U0030",
         "motivo": null,
         "fecha": "2026-11-27T02:12:26.636Z"
+      },
+      {
+        "n": 3,
+        "archivo": "versiones/V09_1x1.v3.png",
+        "prompt": "versiones/V09_1x1.v3.txt",
+        "reemplazadaPor": "U0033",
+        "motivo": null,
+        "fecha": "2026-11-27T02:17:26.358Z"
       }
     ]
   }
