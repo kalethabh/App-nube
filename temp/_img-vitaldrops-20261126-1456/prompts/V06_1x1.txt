@@ -1,22 +1,3 @@
-Recreate this exact advertisement (the FIRST attached image) without changing anything in its design. Keep absolutely everything the same: the same texts word for word with exactly the same spelling and accents, the same typography, the same colors, the same photographic style and lighting, the same person (same face, hair, clothes, pose and expression), the same background and the same product. Specifically preserve: the same colors (exactly the same as the reference: Titular negro #111111; etiquetas de días dorado #C9A24A; textos de la oferta negro #1A1A1A; fondo general crema #F6F0E4; recuadros de los días casi blanco #FAF6EE con borde beige #E6DCC8; recuadro de oferta dorado #D4B26A a #B8913E; caja y etiqueta del producto amarillo #F2C84B; logo gris oscuro #333333), the same typography (exactly the same as the reference: Titular: sans serif muy gruesa, todo en mayúsculas, sin efectos. Etiquetas de días: sans serif gruesa en mayúsculas, color dorado. Oferta: sans serif gruesa en mayúsculas, la línea del descuento más grande; logo: serif delgada en mayúsculas con letras espaciadas), the same visual blocks: the real product from the attached product photo, where the reference has its bottle; a different woman: a 47 years old woman, tall and slender, light olive skin, afro hair, ordinary and believable (not a fashion model), natural makeup.
-
-CRITICAL - colors must not change: the background keeps exactly the same color as in the first attached image, and every text, graphic element and highlight keeps exactly the color it already has there. Never turn a colored background into white or into a lighter tone. Never swap, invert or reassign colors between the background, the texts and the graphic elements. If the original background is a flat solid color, the vertical version must use that same flat solid color edge to edge.
-
-The ONLY change is the dimension: convert it to a 4:5 portrait layout for the Facebook and Instagram feed. Re-arrange the same elements so they fit naturally in the slightly taller canvas: give the headline a bit more air at the top and the person and the product a bit more vertical room. Do not simply add empty bands, borders, blurred strips or solid color bars above and below the original square. Do not crop or cut off any element. Keep the same visual hierarchy.
-
-The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
-
-Exact visible texts (each appears exactly once, correctly spelled, nothing else added):
-- main headline: "TU FIGURA MÁS LLENA EN 21 DÍAS"
-- etiqueta recuadro 1: "DÍA 1"
-- etiqueta recuadro 2: "DÍA 7"
-- etiqueta recuadro 3: "DÍA 14"
-- etiqueta recuadro 4: "DÍA 21"
-- oferta título: "OFERTA ESPECIAL"
-- oferta descuento: "60% DE DESCUENTO + REGALO GRATIS"
-- oferta plazo: "SOLO ESTA SEMANA"
-- logo: "VITALDROPS"
+Edit this advertising image (the FIRST attached image) following this instruction: "In all four day panels, make the body change clearly about hips, glutes and legs. Same woman, shown in side profile or three-quarter view with her face visible, framed from head to mid-calf so the waist-hip-thigh-leg silhouette fills most of each panel; tops tucked in or short. DÍA 1: loose baggy light jeans hanging flat, straight hip line, thin legs, no curve. DÍA 7: light blue jeans, a first slight hip curve. DÍA 14: black leggings, hips and legs clearly more shapely and toned. DÍA 21: dark high-waist jeans, the most defined hip curve and most toned legs, still natural. Keep each panel's setting, lighting and top color. Do not change any text, the headline, day labels, product, offer box, logo, layout, fonts or palette. No back views, no close-ups or crops on body parts, no arched or sexualized poses.". Keep everything else exactly as it is (layout, texts, colors, typography, person, product) unless the instruction says otherwise. The SECOND attached image is the real product photo: the product must stay identical to it. Do not add new elements.
 
 All visible text in Spanish.
-
-Do not add, remove or rewrite any text, price, badge, seal, icon or visual block. Do not change the design, the palette, the typography, the person or the product.

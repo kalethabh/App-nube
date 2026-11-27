@@ -176,6 +176,15 @@
         "reemplazadaPor": "tamano",
         "motivo": "tamano",
         "fecha": "2026-11-27T02:02:48.784Z"
+      },
+      {
+        "n": 5,
+        "archivo": "versiones/V06_1x1.v5.png",
+        "prompt": "versiones/V06_1x1.v5.txt",
+        "reemplazadaPor": "U0034",
+        "motivo": null,
+        "aspecto": "4:5",
+        "fecha": "2026-11-27T02:18:56.849Z"
       }
     ],
     "V04_1x1": [

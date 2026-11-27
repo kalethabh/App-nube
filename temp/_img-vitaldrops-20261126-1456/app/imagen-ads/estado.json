@@ -3,8 +3,8 @@
   "siguiente": {
     "E": 2,
     "R": 1,
-    "A": 28,
-    "T": 32
+    "A": 30,
+    "T": 34
   },
   "tandas": {
     "E001": {
@@ -275,6 +275,24 @@
         "U0034"
       ],
       "empezada": true
+    },
+    "A028": {
+      "tipo": "ajuste",
+      "uuid": "156db8a9-c5b1-471b-be6c-e54be37f2992",
+      "estado": "hecha",
+      "pedidos": [
+        "U0035"
+      ],
+      "empezada": true
+    },
+    "A029": {
+      "tipo": "ajuste",
+      "uuid": "29d99d13-1a87-4280-a46c-cdf4826159cf",
+      "estado": "hecha",
+      "pedidos": [
+        "U0036"
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -323,11 +341,19 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "listo",
       "version": 5,
       "firma": "1960765-1795734771877",
-      "orden": null,
+      "orden": {
+        "id": "U0036",
+        "modo": "editar",
+        "version": 6,
+        "instruccion_en": "Apply a light blur (about 20%) only to the small word \"amua\" printed on the yellow box and on the bottle label, so it is softened but still faintly visible. Keep everything else exactly the same: headline, the four day panels, the woman, the box and bottle shape, colors and all other label text (VITALDROPS, ingredients), the gold offer box, its texts and the VITALDROPS logo.",
+        "textos": false,
+        "aspecto": "4:5",
+        "trabajo": "T033"
+      },
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
@@ -335,7 +361,7 @@
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-26T21:01:25.166Z",
-      "pedido": null,
+      "pedido": "U0036",
       "ultimaOrden": "U0018",
       "fallo": null,
       "aspecto": "4:5"
@@ -422,16 +448,16 @@
       "formato": "1:1",
       "fase": "pedida",
       "resultado": "listo",
-      "version": 5,
-      "firma": "1838192-1795736529050",
+      "version": 6,
+      "firma": "1838730-1795745936841",
       "orden": {
-        "id": "U0034",
+        "id": "U0035",
         "modo": "editar",
-        "version": 6,
-        "instruccion_en": "In all four day panels, make the body change clearly about hips, glutes and legs. Same woman, shown in side profile or three-quarter view with her face visible, framed from head to mid-calf so the waist-hip-thigh-leg silhouette fills most of each panel; tops tucked in or short. DÍA 1: loose baggy light jeans hanging flat, straight hip line, thin legs, no curve. DÍA 7: light blue jeans, a first slight hip curve. DÍA 14: black leggings, hips and legs clearly more shapely and toned. DÍA 21: dark high-waist jeans, the most defined hip curve and most toned legs, still natural. Keep each panel's setting, lighting and top color. Do not change any text, the headline, day labels, product, offer box, logo, layout, fonts or palette. No back views, no close-ups or crops on body parts, no arched or sexualized poses.",
+        "version": 7,
+        "instruccion_en": "Apply a light blur (about 20% strength) only to the small word \"amua\" printed on the product: the one at the top of the yellow box and the one at the top of the bottle label. It should look softly out of focus but still be faintly visible, not erased. Keep everything else exactly the same: the \"VITALDROPS\" name and all other label text sharp, the bottle, box, headline, the four day panels, the woman, the gold offer box, the logo, layout, colors and fonts unchanged.",
         "textos": false,
         "aspecto": "4:5",
-        "trabajo": "T031"
+        "trabajo": "T032"
       },
       "intentosApi": 1,
       "ronda": "u",
@@ -439,9 +465,9 @@
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": "2026-11-26T21:02:18.614Z",
-      "pedido": "U0034",
-      "ultimaOrden": "U0021",
+      "desde": "2026-11-27T02:18:58.250Z",
+      "pedido": "U0035",
+      "ultimaOrden": "U0034",
       "fallo": null,
       "aspecto": "4:5"
     },
@@ -1211,7 +1237,7 @@
       "pieza": "V06_1x1",
       "instruccion": "Que las 4 imagen se vea que es enfocado en gluteos piernas y caderas",
       "fecha": "2026-11-27T02:17:14.137Z",
-      "estado": "generando",
+      "estado": "listo",
       "ajuste": "A027",
       "instruccion_en": "In all four day panels, make the body change clearly about hips, glutes and legs. Same woman, shown in side profile or three-quarter view with her face visible, framed from head to mid-calf so the waist-hip-thigh-leg silhouette fills most of each panel; tops tucked in or short. DÍA 1: loose baggy light jeans hanging flat, straight hip line, thin legs, no curve. DÍA 7: light blue jeans, a first slight hip curve. DÍA 14: black leggings, hips and legs clearly more shapely and toned. DÍA 21: dark high-waist jeans, the most defined hip curve and most toned legs, still natural. Keep each panel's setting, lighting and top color. Do not change any text, the headline, day labels, product, offer box, logo, layout, fonts or palette. No back views, no close-ups or crops on body parts, no arched or sexualized poses.",
       "cambiaTextos": false,
@@ -1222,6 +1248,48 @@
           "orden": "U0034",
           "modo": "editar",
           "instruccion_en": "In all four day panels, make the body change clearly about hips, glutes and legs. Same woman, shown in side profile or three-quarter view with her face visible, framed from head to mid-calf so the waist-hip-thigh-leg silhouette fills most of each panel; tops tucked in or short. DÍA 1: loose baggy light jeans hanging flat, straight hip line, thin legs, no curve. DÍA 7: light blue jeans, a first slight hip curve. DÍA 14: black leggings, hips and legs clearly more shapely and toned. DÍA 21: dark high-waist jeans, the most defined hip curve and most toned legs, still natural. Keep each panel's setting, lighting and top color. Do not change any text, the headline, day labels, product, offer box, logo, layout, fonts or palette. No back views, no close-ups or crops on body parts, no arched or sexualized poses.",
+          "textos": false
+        }
+      ],
+      "paso": 0
+    },
+    "U0035": {
+      "id": "U0035",
+      "pieza": "V06_1x1",
+      "instruccion": "un 20% difuminado para lo que dice amua",
+      "fecha": "2026-11-27T02:20:16.679Z",
+      "estado": "generando",
+      "ajuste": "A028",
+      "instruccion_en": "Apply a light blur (about 20% strength) only to the small word \"amua\" printed on the product: the one at the top of the yellow box and the one at the top of the bottle label. It should look softly out of focus but still be faintly visible, not erased. Keep everything else exactly the same: the \"VITALDROPS\" name and all other label text sharp, the bottle, box, headline, the four day panels, the woman, the gold offer box, the logo, layout, colors and fonts unchanged.",
+      "cambiaTextos": false,
+      "resumen": "Difuminamos un poco (cerca de un 20 %) la palabra «amua» de la caja y del frasco. Todo lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V06_1x1",
+          "orden": "U0035",
+          "modo": "editar",
+          "instruccion_en": "Apply a light blur (about 20% strength) only to the small word \"amua\" printed on the product: the one at the top of the yellow box and the one at the top of the bottle label. It should look softly out of focus but still be faintly visible, not erased. Keep everything else exactly the same: the \"VITALDROPS\" name and all other label text sharp, the bottle, box, headline, the four day panels, the woman, the gold offer box, the logo, layout, colors and fonts unchanged.",
+          "textos": false
+        }
+      ],
+      "paso": 0
+    },
+    "U0036": {
+      "id": "U0036",
+      "pieza": "V01_1x1",
+      "instruccion": "un 20% difuminado para lo que dice amua",
+      "fecha": "2026-11-27T02:20:23.824Z",
+      "estado": "generando",
+      "ajuste": "A029",
+      "instruccion_en": "Apply a light blur (about 20%) only to the small word \"amua\" printed on the yellow box and on the bottle label, so it is softened but still faintly visible. Keep everything else exactly the same: headline, the four day panels, the woman, the box and bottle shape, colors and all other label text (VITALDROPS, ingredients), the gold offer box, its texts and the VITALDROPS logo.",
+      "cambiaTextos": false,
+      "resumen": "Difuminamos un poco la palabra «amua» en la caja y en el frasco. Todo lo demás queda igual.",
+      "pasos": [
+        {
+          "pieza": "V01_1x1",
+          "orden": "U0036",
+          "modo": "editar",
+          "instruccion_en": "Apply a light blur (about 20%) only to the small word \"amua\" printed on the yellow box and on the bottle label, so it is softened but still faintly visible. Keep everything else exactly the same: headline, the four day panels, the woman, the box and bottle shape, colors and all other label text (VITALDROPS, ingredients), the gold offer box, its texts and the VITALDROPS logo.",
           "textos": false
         }
       ],
