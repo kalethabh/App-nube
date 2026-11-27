@@ -93,6 +93,29 @@ export const CALIDAD =
   'correct spelling, realistic skin, hair and fabric textures, clean edges and professional color grading. No blur, no noise, ' +
   'no compression artifacts, no warped or melted letters, no extra fingers or distorted faces.';
 
+// (2026-11-27d) «hay mucho texto pequeño y hay cosas que no se ven tan claras… un diseño limpio, simple»: el texto
+// SIEMPRE se lee (va en todos los prompts con texto, también cuando se copia una referencia).
+export const LEGIBLE =
+  'LEGIBILITY: keep every text, badge and the product at least 7% away from every edge of the canvas; never cut, crop or let a ' +
+  'headline touch the top or the sides. No small print: every text must be readable at a glance on a phone (the smallest text at ' +
+  'least about 3.5% of the canvas height, the headline far bigger). No paragraphs, no long lists, no tiny footnotes or disclaimers.';
+
+// (2026-11-27d) La dirección de diseño limpio de la referencia del usuario (letra negra muy gruesa, la frase clave en una
+// barra de color con letra blanca en cursiva, fondo claro y limpio, el INVIMA grande, los resultados grandes). Va cuando
+// el diseño no se copia de una referencia (en «Más de lo mismo», «Me funciona» y las variantes manda la referencia).
+export const DIRECCION_LIMPIA =
+  'DESIGN DIRECTION (clean, simple, trustworthy): ' +
+  'few text blocks (ideally 3, never more than 4) plus the seals; lots of clean space. ' +
+  'Typography: one heavy geometric sans serif (like Montserrat Black or Poppins ExtraBold), the headline very large in near-black ' +
+  '(#111111), tight line spacing; the key phrase of the headline inside a solid brand-color rounded pill bar with white bold italic ' +
+  'text. No outlines, no glow, no drop shadows on letters, no 3D or metallic letters, no gradients inside letters, no script fonts. ' +
+  'Background: one clean light background (white or a very soft tint of the brand color, as given in the brand identity), flat or ' +
+  'with a very subtle soft gradient; never dark, never purple or neon, no busy patterns, no sparkles, bokeh or random shapes. ' +
+  'Results: the before and after (or the result) is the hero, big and clearly visible, taking at least half of the canvas, with at ' +
+  'most 3 moments, each with a short big label. ' +
+  'Sanitary registration: if the texts include an INVIMA or sanitary registration, show it large in a white rounded badge with a ' +
+  'thin brand-color border, the word INVIMA bold and the number clearly legible.';
+
 export const CIERRE =
   'Do not add, remove or rewrite any text, price, badge, seal, icon or visual block. ' +
   'Do not change the design, the palette, the typography, the person or the product.';
@@ -489,6 +512,12 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
   const fix = bloqueCorreccion(correccion);
   if (fix) partes.push(fix);
   if (pos) partes.push(bloqueLogo('1:1', pos));
+  if (!vacioPy(capas)) {
+    // (2026-11-27d) el diseño limpio, salvo cuando el diseño sale de copiar una referencia
+    const copia = referencia === 'variante' || (referencia === true && !desde0 && rapido !== 'inspirar' && rapido !== 'plantilla');
+    if (!copia) partes.push(DIRECCION_LIMPIA);
+    partes.push(LEGIBLE);
+  }
   partes.push(CALIDAD);
   partes.push(referencia ? PRODUCTO_SEGUNDA : FIDELIDAD_PRODUCTO);
   return partes.join('\n\n');
@@ -537,6 +566,7 @@ export function construirPromptVertical(ad, { conProducto = true, logo = null, c
   const fix = bloqueCorreccion(correccion);
   if (fix) bloques.push(fix);
   if (pos) bloques.push(bloqueLogo(retrato ? '1:1' : '9:16', pos));
+  if (textos) bloques.push(LEGIBLE);
   bloques.push(CALIDAD);
   bloques.push(CIERRE);
   return bloques.join('\n\n');
@@ -565,6 +595,7 @@ export function construirPromptCambioTamano(ad, { de = '1:1', a = '9:16', logo =
   const regla = getPy(oPy(ad, {}), 'language_rule', undefined);
   if (!vacioPy(regla)) bloques.push(strPy(regla));
   if (pos) bloques.push(bloqueLogo(a === '9:16' ? '9:16' : '1:1', pos));
+  if (textos) bloques.push(LEGIBLE);
   bloques.push(CALIDAD);
   bloques.push(CIERRE);
   return bloques.join('\n\n');

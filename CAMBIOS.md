@@ -2,6 +2,17 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27d · Anuncios de imagen más limpios: menos texto, letra grande y fondo claro
+
+- **Menos texto y más grande:** cada imagen lleva pocos bloques de texto (lo ideal son 3) y nada de letra pequeña, párrafos ni franjas con texto diminuto. La propuesta de valor es más corta (de 8 a 16 palabras).
+- **Nada cortado:** los títulos y los sellos quedan siempre lejos de los bordes, también en vertical y al cambiar el tamaño.
+- **La tipografía de tu referencia:** letra negra muy gruesa y la frase clave en una barra del color de tu marca con letra blanca en cursiva. Sin contornos, brillos ni letras 3D.
+- **Un mismo fondo claro y limpio en todo el lote:** blanco o un tono suave de tu marca, nunca oscuro ni morado.
+- **Los resultados se ven grandes:** el antes y después ocupa la mitad de la imagen o más.
+- **El INVIMA destacado:** grande, en una placa blanca redondeada con el número legible.
+- **La revisión** rechaza las imágenes con texto cortado o pequeño, fondos oscuros o distintos al resto, o un INVIMA que no se lee.
+- Cuando pides copiar una referencia, una variante o «Como las que funcionan», se respeta el diseño de esa imagen, pero igual con márgenes y letra que se lea.
+
 ## 2026-11-27c · Elegir varias imágenes en el chat, referencias sin límite y el error de «saldo» con la voz
 
 - **Chat de imágenes, elegir varias:** marca el círculo arriba a la izquierda de cada imagen (o «Elegir estas N») y escribe qué les cambias.
