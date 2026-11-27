@@ -44,6 +44,15 @@
       "destino": "#/landings?proyecto=cayenne-pepper-016ac7",
       "fecha": "2026-11-25T21:26:15.147Z",
       "leida": "2026-11-26T01:06:36.803Z"
+    },
+    {
+      "id": "n-19a8d3071788f297c95f6c3a",
+      "tipo": "landing-lista",
+      "titulo": "Landing lista",
+      "texto": "«Canela de Ceilán · Pide y paga al recibir» está clonada y lista para revisar.",
+      "destino": "#/landings?proyecto=canela-de-ceylan-08bc42",
+      "fecha": "2026-11-27T19:41:41.796Z",
+      "leida": "2026-11-27T19:41:55.756Z"
     }
   ]
 }

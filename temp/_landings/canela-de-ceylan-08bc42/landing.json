@@ -15,15 +15,10 @@
   "registro": "",
   "productoId": "canela-de-ceylan-5a93",
   "analizar": false,
-  "titulo": "CANELA DE CEYLAN",
+  "titulo": "Canela de Ceilán · Pide y paga al recibir",
   "creado": "2026-11-27T19:04:39.744Z",
-  "estado": "trabajando",
+  "estado": "lista",
   "progreso": [
-    "Imagen 17 de 31 lista (historia-1).",
-    "Imagen 18 de 31 lista (historia-2).",
-    "Imagen 19 de 31 lista (historia-3).",
-    "Imagen 20 de 31 lista (historia-4).",
-    "Imagen 21 de 31 lista (historia-5).",
     "Imagen 22 de 31 lista (historia-6).",
     "Imagen 23 de 31 lista (ugc-1).",
     "Imagen 24 de 31 lista (ugc-2).",
@@ -32,12 +27,28 @@
     "Imagen 27 de 31 lista (ugc-5).",
     "Imagen 28 de 31 lista (paso-1).",
     "Imagen 29 de 31 lista (paso-2).",
-    "Imagen 30 de 31 lista (paso-3)."
+    "Imagen 30 de 31 lista (paso-3).",
+    "Imagen 31 de 31 lista (cuidado).",
+    "Renata (revisión visual) está trabajando…",
+    "Renata corrigió 4 texto(s) al ver la página terminada.",
+    "Midiendo la velocidad (Lighthouse en celular)…",
+    "Lista."
   ],
   "error": null,
   "informe": null,
-  "puntajes": null,
-  "actualizado": "2026-11-27T19:39:44.623Z",
+  "puntajes": {
+    "original": null,
+    "copia": {
+      "puntaje": 75,
+      "fcp": "1.5 s",
+      "lcp": "15.2 s",
+      "tbt": "0 ms",
+      "cls": "0",
+      "peso": 7405
+    },
+    "fecha": "2026-11-27T19:41:41.795Z"
+  },
+  "actualizado": "2026-11-27T19:41:41.796Z",
   "agentes": [
     {
       "id": "estratega",
@@ -86,8 +97,21 @@
       "id": "visual",
       "nombre": "Renata",
       "rol": "Revisión visual",
-      "estado": "esperando",
-      "resumen": null
+      "estado": "listo",
+      "resumen": "La página se lee bien, los precios están correctos y no aparecen reseñas, registros ni variables. Acorté el nombre del combo de 3 porque se cortaba en la barra de abajo y no se parecía a los otros dos. También cambié «Atención por correo», porque la página no tiene correo. Lo más urgente son las cinco estrellas de la barra fija y la imagen que promete resultados en «4 a 8 semanas»: las dos contradicen lo que prometimos no decir.",
+      "pendientes": [
+        "La barra fija de abajo muestra cinco estrellas. La página no tiene reseñas, así que esa calificación es inventada: hay que quitar las estrellas.",
+        "La imagen de beneficios (debajo del aviso «Revisa bien tu pedido») promete un plazo: «ya no mande en 4 a 8 semanas». También dice «Más liviana» y «Menos antojo» como resultados. Eso contradice el resto de la página, que no promete plazos ni resultados. Hay que rehacerla sin plazo y sin resultados pr",
+        "La imagen «La canela verdadera en una cápsula diaria» tiene arriba un texto cortado (se ve la mitad de la palabra «Metabolae»). Hay que recortarla o rehacerla.",
+        "Las fotos de «Tu ritual con Canela de Ceilán» son selfies en el espejo con ropa deportiva y abdomen a la vista. Parecen fotos de antes y después de bajar de peso, cosa que la página no puede prometer. Mejor cambiarlas por fotos de la cápsula con la comida.",
+        "En la tabla de comparación, «Otras opciones» lleva una X en todo, también en «Canela de Ceilán» y «Información en el empaque». Eso da a entender que las demás marcas no informan nada, y no tenemos cómo probarlo. Cambié la última fila; vale la pena revisar si la tabla debe quedarse.",
+        "No llegaron las capturas de la plantilla original, así que no pude compararlas sección por sección. Revisé la estructura de venta, la lectura y el contenido de la página terminada."
+      ]
     }
-  ]
+  ],
+  "creada": {
+    "textos": 7,
+    "imagenes": 31,
+    "pedidas": 31
+  }
 }

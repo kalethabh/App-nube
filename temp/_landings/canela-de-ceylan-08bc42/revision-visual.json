@@ -1,0 +1,17 @@
+{
+  "cambios": {
+    "oferta.combos.tres.nombre": "Tratamiento completo - 3 Meses",
+    "comparacion.nuestraSub": "Metabolae",
+    "comparacion.filas.5": "Pago al recibir en casa",
+    "compraClara.garantias.2": "Ayuda con tu pedido"
+  },
+  "problemas": [
+    "La barra fija de abajo muestra cinco estrellas. La página no tiene reseñas, así que esa calificación es inventada: hay que quitar las estrellas.",
+    "La imagen de beneficios (debajo del aviso «Revisa bien tu pedido») promete un plazo: «ya no mande en 4 a 8 semanas». También dice «Más liviana» y «Menos antojo» como resultados. Eso contradice el resto de la página, que no promete plazos ni resultados. Hay que rehacerla sin plazo y sin resultados prometidos.",
+    "La imagen «La canela verdadera en una cápsula diaria» tiene arriba un texto cortado (se ve la mitad de la palabra «Metabolae»). Hay que recortarla o rehacerla.",
+    "Las fotos de «Tu ritual con Canela de Ceilán» son selfies en el espejo con ropa deportiva y abdomen a la vista. Parecen fotos de antes y después de bajar de peso, cosa que la página no puede prometer. Mejor cambiarlas por fotos de la cápsula con la comida.",
+    "En la tabla de comparación, «Otras opciones» lleva una X en todo, también en «Canela de Ceilán» y «Información en el empaque». Eso da a entender que las demás marcas no informan nada, y no tenemos cómo probarlo. Cambié la última fila; vale la pena revisar si la tabla debe quedarse.",
+    "No llegaron las capturas de la plantilla original, así que no pude compararlas sección por sección. Revisé la estructura de venta, la lectura y el contenido de la página terminada."
+  ],
+  "resumen": "La página se lee bien, los precios están correctos y no aparecen reseñas, registros ni variables. Acorté el nombre del combo de 3 porque se cortaba en la barra de abajo y no se parecía a los otros dos. También cambié «Atención por correo», porque la página no tiene correo. Lo más urgente son las cinco estrellas de la barra fija y la imagen que promete resultados en «4 a 8 semanas»: las dos contradicen lo que prometimos no decir."
+}
