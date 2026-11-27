@@ -1,0 +1,88 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "library format G17 (Lifestyle con columna de beneficios y producto en primer plano), same format as the winner",
+    "reference_style": "Warm Christmas lifestyle ad: a happy woman facing the camera with the bottle in her hand by the Christmas tree, a two-tone headline, a column of ringed line-icon benefits on the left, a mini before/after card, the bottle large in the lower-right foreground and a gold rounded band at the bottom",
+    "angle_used": "Promesa emocional",
+    "ad_format": "Lifestyle Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (highlighted headline word, icon rings), deep magenta #B0105E, dark plum #2B1226 (text on the gold band, badge center), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (value proposition), white #FFFFFF (headline and benefits), seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: pine green #1F5C3A (her sweater, the tree, the gift wrapping) and Christmas gold #C9A54C (bokeh lights, dividers and the bottom band).",
+    "visual_style": "Real warm lifestyle photo with soft cinematic bokeh, real skin texture, the real bottle studio-sharp in the foreground.",
+    "visual_atmosphere": "Warm, joyful and intimate December evening at home: a gift she gave herself.",
+    "graphic_language": "Two-tone headline, thin gold-ringed circles with white line icons, thin gold dividers, a small two-photo card with a white border, a wide rounded gold satin band with a plum text and a gold-bordered round badge.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; value proposition, benefits and band in Poppins SemiBold / Bold look."
+  },
+  "creative_objective": "Keep the winner's idea (give yourself your curves this Christmas) with a new model facing the camera, a new pose and a new scene: she sees in one second the curvy figure next to the real bottle, the 3-month plan and the zero-risk payment.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Headline with 'CURVAS' in fuchsia; 2) the happy woman with her curvy figure and the bottle in her hand; 3) the large bottle in the lower-right foreground; 4) the three benefit rows and the mini before/after card; 5) the gold band with the offer, 'Pagas al recibir' and the badge.",
+    "composition_style": "Layered asymmetric composition: text column on the left third, woman in the center-right middle ground, bottle in the right foreground, gold band anchoring the bottom left up to the bottle.",
+    "spacing_and_structure": "Headline 3-20% of the height on the left 3-62% of the width; value proposition 21-27%; benefit rows 29-55% separated by thin gold dividers; mini before/after card 57-80% on the left 3-34%; band 82-97% from 3% to 74% of the width; bottle 78-98% of the width and 38-96% of the height.",
+    "lighting_and_depth": "Warm golden practical light from the tree and string lights behind her (strong bokeh), a soft warm key light from the front-left on her face, a darker calm left third for the texts, crisp studio highlights on the foreground bottle sitting on a glossy surface.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Full-bleed warm Christmas living-room photo with heavy bokeh. Top left: two-line bold uppercase headline (line 1 white, line 2 white with the word 'CURVAS' in fuchsia) and one line of value proposition under it. Left column: three benefits with thin gold-ringed line-icon circles separated by thin gold dividers, and under them a small white-bordered card with two mini photos (before and after of the same woman on different days). Center-right: the woman standing three-quarters facing the camera, from head to knee, holding the bottle at chest height. Lower-right foreground: the bottle large. Bottom left: a wide rounded gold satin band with a ringed gift-box icon, a thin divider, the offer line and a white pill 'Pagas al recibir', and at its right end the round gold-bordered registration badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "lifestyle photo with person", "position": "full canvas, woman in the center-right", "visual_function": "Shows the result (curvy hips and legs in jeans) and the emotion of the gift to herself", "adaptation_rule": "Christmas living room, woman facing the camera three-quarters with the bottle in her hand, never from behind", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "headline + value proposition", "position": "top left", "visual_function": "Christmas gift hook and desire + time + deep desire", "adaptation_rule": "'CURVAS' in fuchsia", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "benefit icon column (3) with dividers", "position": "left column", "visual_function": "Scannable benefits", "adaptation_rule": "Gold rings, white line icons: hips curve, legs, calendar", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "mini before/after card", "position": "left, under the benefits", "visual_function": "Proof of the change, as in the winner", "adaptation_rule": "Same woman on two different days, each moment with other pose, clothes, hair, place and light", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product", "position": "lower-right foreground", "visual_function": "The real bottle, recognizable at purchase", "adaptation_rule": "The attached bottle large and sharp, label front-facing", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "offer and payment band + badge", "position": "bottom left to the bottle", "visual_function": "Offer, zero-risk payment and trust", "adaptation_rule": "Exact batch offer, 'Pagas al recibir' pill, gold-bordered registration badge", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Prices, discounts, percentages, 'gratis' or urgency badges",
+      "Free shipping or guarantee claims",
+      "Rating stars, reviews, customer counts or names",
+      "More than three benefit rows or numbers on the benefit rows",
+      "Logos outside the bottle label",
+      "Santa hats on the bottle, loose capsules, pills or an open bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 warm Christmas lifestyle ad, full-bleed real photo. BACKGROUND: a cozy Colombian living room at night, a tall green Christmas tree on the right side behind her with warm Christmas gold #C9A54C string lights turned into big soft round bokeh, gifts wrapped in pine green #1F5C3A paper with gold ribbons at her feet, the left third of the frame darker and calm (a blurred dark wall with a few distant gold lights) so the texts read clearly. PERSON (center-right, from about 32% to 78% of the width, top of the head at about 9% of the height, cropped at the knees by the band and the bottom edge): an adult Afro-Colombian woman, 25 years old, deep dark skin with real visible pores and natural glow, long box braids half tied up, a wide genuine smile with teeth, looking straight at the camera; she stands three-quarters facing the camera, weight on one leg, one hand on her hip and the other hand holding the real bottle at chest height with the label facing the camera; she wears a pine green #1F5C3A turtleneck Christmas sweater tucked in and white high-waist skinny jeans; a curvy hourglass figure: small waist, hips clearly wider than her waist and rounded, toned thicker thighs filling the jeans, the change obvious at first glance but natural, never a back view. Camera: head-to-knee shot at chest height, 35 mm lens, shallow depth of field. TOP LEFT (3-20% of the height, 3-62% of the width): the headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase, left-aligned, two lines: line 1 'TU REGALO DE NAVIDAD:' in white #FFFFFF; line 2 'TUS CURVAS' with 'TUS' in white and the highlighted word 'CURVAS' in hot fuchsia #E6177F, larger. Under it (21-27%), one line in Poppins SemiBold, pale blush #FBE3EE: 'Caderas y piernas con más curva en tu tratamiento de 3 meses, para empezar el año segura de ti.' LEFT COLUMN (29-55% of the height, 3-34% of the width): three benefit rows separated by thin Christmas gold dividers; each row has a circle about 9% of the canvas with a thin gold #C9A54C ring and a white line icon (a curved hip silhouette, a leg with a small sparkle, a calendar), and white Poppins SemiBold text: 'Caderas con más curva', 'Piernas firmes que llenan tu jean', 'Tu plan de 3 meses, sin quirófano'. MINI BEFORE/AFTER CARD (57-80% of the height, 3-34% of the width): a white-bordered card with a slight shadow holding two small real photos side by side of the SAME woman on two DIFFERENT DAYS, with tiny white labels 'Antes' and 'Mes 3'. BEFORE photo: her bedroom in cool flat morning light, braids in a low bun, a grey hoodie and loose light-blue jeans one size too big; she stands side-on with her face to the camera and a frustrated look, her hand pulls the back waistband a full fist away from her lower back so the empty gap is clearly visible, baggy fold of denim below the seat, flat straight silhouette, thin straight thighs. AFTER photo: a sunny balcony in warm late-afternoon light, braids loose down her back, a camel knit top and dark-blue fitted jeans, three-quarter pose facing the camera, smiling, small waist, wider rounded hips and toned legs filling the jeans. PRODUCT (lower-right foreground, about 78-98% of the width and 38-96% of the height, about 55% of the canvas height, base near the bottom edge): the attached product, upright, front view, studio-sharp on a glossy dark surface with a soft gold reflection, slightly overlapping her leg. Use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN' and three boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; the bottle in her hand is the same bottle, smaller; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. BOTTOM BAND (82-97% of the height, 3-74% of the width): a wide rounded rectangle in a satin Christmas gold #C9A54C gradient with a lighter thin border and a soft shadow; on its left a thin-ringed circle with a dark plum gift-box line icon, a thin vertical divider, then dark plum #2B1226 Poppins Bold text 'Tratamiento completo: 3 frascos para 3 meses' and, next to it, a white pill with plum Poppins Bold text 'Pagas al recibir'; at the right end of the band, overlapping its edge, a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top left, line 1", "text_style": "Montserrat Black look, uppercase, white #FFFFFF, left-aligned", "text": "TU REGALO DE NAVIDAD:" },
+    { "block_id": "text_block_02", "reference_function": "main headline (highlighted line)", "reference_position": "top left, line 2", "text_style": "Montserrat Black look, uppercase, larger; 'TUS' in white and the highlighted word 'CURVAS' in hot fuchsia #E6177F", "text": "TUS CURVAS" },
+    { "block_id": "text_block_03", "reference_function": "value proposition", "reference_position": "top left, under the headline", "text_style": "Poppins SemiBold, pale blush #FBE3EE, left-aligned, one or two lines", "text": "Caderas y piernas con más curva en tu tratamiento de 3 meses, para empezar el año segura de ti." },
+    { "block_id": "text_block_04", "reference_function": "benefit", "reference_position": "left column, row 1", "text_style": "Poppins SemiBold, white, left-aligned", "text": "Caderas con más curva" },
+    { "block_id": "text_block_05", "reference_function": "benefit", "reference_position": "left column, row 2", "text_style": "Poppins SemiBold, white, left-aligned", "text": "Piernas firmes que llenan tu jean" },
+    { "block_id": "text_block_06", "reference_function": "benefit", "reference_position": "left column, row 3", "text_style": "Poppins SemiBold, white, left-aligned", "text": "Tu plan de 3 meses, sin quirófano" },
+    { "block_id": "text_block_07", "reference_function": "other (before/after label)", "reference_position": "mini card, left photo", "text_style": "Poppins Bold, small, white on a dark plum tag", "text": "Antes" },
+    { "block_id": "text_block_08", "reference_function": "other (before/after label)", "reference_position": "mini card, right photo", "text_style": "Poppins Bold, small, white on a hot fuchsia tag", "text": "Mes 3" },
+    { "block_id": "text_block_09", "reference_function": "offer", "reference_position": "bottom gold band, after the divider", "text_style": "Poppins Bold, dark plum #2B1226 on the gold band", "text": "Tratamiento completo: 3 frascos para 3 meses" },
+    { "block_id": "text_block_10", "reference_function": "trust item", "reference_position": "bottom gold band, white pill", "text_style": "Poppins Bold, dark plum #2B1226 on a white pill", "text": "Pagas al recibir" },
+    { "block_id": "text_block_11", "reference_function": "badge", "reference_position": "right end of the bottom band, round badge", "text_style": "Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Warm Christmas living room with tree, gold bokeh and green gifts",
+    "The woman facing the camera three-quarters, head to knee, holding the bottle, curvy hips and legs in white jeans",
+    "Left column of three ringed line-icon benefits with gold dividers",
+    "Mini before/after card of the same woman on two different days (other pose, clothes, hair, place and light), the before with the visible gap in the loose waistband",
+    "The real bottle large in the lower-right foreground, label readable",
+    "Gold rounded band with the offer, the 'Pagas al recibir' pill and the gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear",
+    "The two mini photos never share the same outfit, pose, hairstyle, place or light",
+    "No prices, discounts, percentages, 'gratis', guarantee or free shipping claims",
+    "No stars, reviews, customer counts or names",
+    "No logos outside the bottle label",
+    "No loose capsules, no pills, no open bottle",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra buttons, badges, seals or strips beyond the ones described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

@@ -37,7 +37,7 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-27T13:44:52.845Z",
-      "detalle": "Creando 4 imágenes · Claude está escribiendo 6 anuncios: repasando cada anuncio · 0 de 10 listas"
+      "detalle": "Creando 1 imagen · Claude está escribiendo 6 anuncios: escribiendo cada anuncio · 0 de 10 listas"
     },
     {
       "id": "informe",
@@ -50,5 +50,5 @@
   "modoPrueba": false,
   "creado": "2026-11-27T13:34:28.605Z",
   "aprobado": "2026-11-27T13:34:28.605Z",
-  "actualizado": "2026-11-27T13:45:44.913Z"
+  "actualizado": "2026-11-27T13:47:09.517Z"
 }

@@ -79,68 +79,56 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "por-revisar",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "version": 1,
+      "firma": "2321784-1795787227932",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-27T13:47:09.516Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "por-revisar",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "version": 1,
+      "firma": "2117416-1795787219829",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-27T13:47:01.295Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "por-revisar",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "version": 1,
+      "firma": "2653633-1795787212740",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-27T13:46:52.964Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V04_1x1": {
       "v": "V04",
@@ -155,7 +143,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,

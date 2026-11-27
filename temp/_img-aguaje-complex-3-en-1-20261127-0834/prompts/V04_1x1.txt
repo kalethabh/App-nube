@@ -1,0 +1,49 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 premium still-life comparison ad. BACKGROUND: a deep plum #2B1226 seamless backdrop with a soft vignette, and a champagne gold #E8D3A2 polished stone tabletop across the lower half of the middle zone. TOP ZONE (0-20%): a centered headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase, two short lines: 'UN FRASCO EMPIEZA.' in white #FFFFFF and 'TRES TRANSFORMAN.' where 'TRES' is white and the highlighted word 'TRANSFORMAN.' is hot fuchsia #E6177F. Under it one centered line in Poppins SemiBold, pale blush #FBE3EE: 'Caderas y piernas con más forma al terminar tus 3 meses, para que esta vez sí veas tu cambio.' At the top right corner a round hot fuchsia #E6177F seal, slightly tilted, with white Poppins ExtraBold text '2 CÁPSULAS AL DÍA'. MIDDLE ZONE (20-85%) split by a thin vertical champagne line into a left column (45%) and a right column (55%). LEFT COLUMN, slightly desaturated: standing behind on the table, a printed photo card with a champagne border and a thin charcoal #1C1C1C frame, about 34% of the canvas height, showing a real unretouched phone photo of an adult Colombian woman, 28 years old, fair skin with visible pores, light-brown chin-length bob, in a narrow hallway in flat cold daylight, wearing a basic white t-shirt and loose light-blue jeans; she stands side-on at hip height with a frustrated look over her shoulder toward the camera, never with her back to the camera, and her hand pulls the jeans waistband a full fist away from her lower back so the empty gap is clearly visible; baggy fold of extra denim below the seat, drooping back pockets, flat straight silhouette, thin straight thighs. In front of the card, ONE product bottle standing on the stone, about 24% of the canvas height, with a bold offer red #E0242F X drawn over it; under it two caption lines in Poppins Bold: 'SOLO 1 FRASCO' in white and 'Te quedas a mitad de camino' in pale blush. RIGHT COLUMN, warmer light: THREE product bottles grouped together in the center of the column (the middle one slightly forward), each about 28% of the canvas height, none touching the edge, labels front-facing; above-right of them a smaller printed photo card with a champagne border, about 20% of the canvas height, of the SAME woman on another day: a sunny café terrace in warm afternoon light, her bob now tucked behind one ear, a long-sleeve black bodysuit and fitted medium-blue high-waist jeans, three-quarter pose facing the camera with a confident smile; a curvy hourglass figure: small waist, hips clearly wider than her waist, toned thicker legs filling the jeans, the change obvious at first glance but natural. Next to the bottles, a huge 'Montserrat Black' white '3 MESES' with the caption 'PLAN COMPLETO' in fuchsia Poppins Bold under it. Every bottle is the attached product; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN' and three boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. Soft studio key light from the left, soft contact shadows on the stone. BOTTOM STRIP (85-100%): a full-width hot fuchsia #E6177F strip with, from left to right: white Poppins Bold text 'Tratamiento completo: 3 frascos para 3 meses', a white pill with plum Poppins Bold text 'Pagas al recibir', and a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top center, line 1): "UN FRASCO EMPIEZA." — Montserrat Black look, uppercase, white #FFFFFF
+- main headline (highlighted line) (top center, line 2): "TRES TRANSFORMAN." — Montserrat Black look, uppercase; 'TRES' in white and the highlighted word 'TRANSFORMAN.' in hot fuchsia #E6177F
+- value proposition (top center under the headline): "Caderas y piernas con más forma al terminar tus 3 meses, para que esta vez sí veas tu cambio." — Poppins SemiBold, pale blush #FBE3EE, centered
+- badge (top right round seal): "2 CÁPSULAS AL DÍA" — Poppins ExtraBold, white on a hot fuchsia #E6177F round seal, slightly tilted
+- other (comparison caption) (left column under the crossed bottle, line 1): "SOLO 1 FRASCO" — Poppins Bold, white
+- other (comparison caption) (left column under the crossed bottle, line 2): "Te quedas a mitad de camino" — Poppins SemiBold, pale blush #FBE3EE
+- other (big number) (right column next to the three bottles): "3 MESES" — Montserrat Black look, white, very large
+- other (comparison caption) (right column under '3 MESES'): "PLAN COMPLETO" — Poppins Bold, hot fuchsia #E6177F
+- offer (bottom strip, left): "Tratamiento completo: 3 frascos para 3 meses" — Poppins Bold, white on the fuchsia strip
+- trust item (bottom strip, middle pill): "Pagas al recibir" — Poppins Bold, dark plum #2B1226 on a white pill
+- badge (bottom strip, right round badge): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (highlighted headline word, top seal), deep magenta #B0105E, dark plum #2B1226 (background), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (captions), white #FFFFFF (headline), offer red #E0242F only for the X over the single bottle, seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: champagne gold #E8D3A2 (stone table, card borders) and charcoal black #1C1C1C (shadows, card frames).
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; captions, value proposition and strip in Poppins SemiBold / Bold look.
+
+MANDATORY ELEMENTS:
+- Left column: a photo card of the woman in the pain moment (hand pulling the loose waistband, gap visible) and one bottle with a red X
+- Right column: three bottles grouped in the center of the column and a smaller photo card of the same woman's result on another day, facing the camera or three-quarters
+- Round fuchsia seal at the top right
+- Full-width bottom strip with the offer, the 'Pagas al recibir' pill and the gold-bordered registration badge
+
+STRICT EXCLUSIONS:
+- sin poses de espaldas ni enfoque en zonas del cuerpo
+- No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear
+- The two photo cards never share the same outfit, pose, hairstyle, place or light
+- No loose capsules, no pills, no open bottle
+- No prices, crossed-out prices, percentages, savings, 'gratis', guarantee or free shipping claims
+- No stars, customer counts, reviews or names
+- No logos outside the bottle label
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add extra buttons, badges, seals or strips beyond the ones described here.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Prices, crossed-out prices, percentages, savings amounts or 'gratis'
+- Do not add: Guarantee or free shipping claims
+- Do not add: Star ratings, customer counts, reviews or names
+- Do not add: Logos outside the bottle label
+- Do not add: Loose capsules, pills or an open bottle
+
+IMAGE QUALITY: the highest quality possible. Ultra sharp, high resolution detail, crisp and perfectly legible text with correct spelling, realistic skin, hair and fabric textures, clean edges and professional color grading. No blur, no noise, no compression artifacts, no warped or melted letters, no extra fingers or distorted faces.
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
