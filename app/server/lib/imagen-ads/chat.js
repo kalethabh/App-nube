@@ -24,7 +24,7 @@ import { leerConductor, iniciarProduccion, reabrir, estadoDeLaFila } from '../co
 import * as funcionan from '../funcionan.js';
 import { R, RE_V, idsDelLote, piezaId, guardarJSON, fotoDelLote, carpetaDe, MAXIMO_VARIACIONES } from './disco.js';
 import { leerEstado } from './estado.js';
-import { permisos, textoManualMayaverra, textoVenta, REGLAS_CONVERSION, DETALLE_VISUAL } from './sesiones.js';
+import { permisos, textoManualMayaverra, textoVenta, REGLAS_CONVERSION, DETALLE_VISUAL, DISENO_LIMPIO } from './sesiones.js';
 import { textoReglasImagen } from './supervisor.js';
 import { textoTitulosMayaverra } from './titulares.js';
 import { textoCuerpo, textoMomentos } from './cuerpo.js';
@@ -225,6 +225,7 @@ ${existe(R.ficha(carpeta)) ? `- Lo que la app ya sabe del producto: \`temp/${lot
     textoMomentos(),
     REGLAS_CONVERSION,
     `\n${DETALLE_VISUAL}\n`,
+    DISENO_LIMPIO,
     textoReglasImagen(),
     (() => {
       try {

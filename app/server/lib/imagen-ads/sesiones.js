@@ -173,7 +173,7 @@ export const REGLAS_CONVERSION = `## Reglas de conversión (todas las variacione
 - UN solo mensaje por imagen. GANCHO afirmativo de máximo 7 palabras, sin preguntas (sin «¿?»), y debajo la PROPUESTA DE VALOR con el resultado y el tiempo (ver «Títulos como Mayaverra»).
 - El producto IDÉNTICO a la foto (forma, etiqueta, colores) y legible; nunca rediseñado.
 - Prueba visual del beneficio (se ve, no solo se dice). Antes/después y progreso (días, semanas, meses): la misma persona, pero CADA MOMENTO con otra pose, ropa, peinado, escenario e iluminación, para que se note que pasó el tiempo; natural, con una diferencia que se note; nunca el mismo cuadro retocado.
-- Jerarquía: titular → prueba o producto → beneficios (máximo 4) → oferta → confianza (sellos).
+- Jerarquía: titular → prueba o producto → oferta → confianza (sellos). Pocos textos y grandes (ver «Diseño limpio»).
 - Políticas de Meta: sin promesas médicas, sin señalar defectos del cuerpo de quien mira («¿tienes…?», «tu grasa»), sin antes/después exagerados ni cifras inventadas. La promesa es directa y con tiempo (decisión del usuario), sin cifras inventadas, enfermedades ni «garantizado» sin garantía real.`;
 
 /** «Vecinas» o «Conceptos nuevos»: el ganador como estilo, el análisis y las reglas duras del plan. */
@@ -365,7 +365,7 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
   return {
     tipo: 'estrategia',
     ids,
-    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoEstructuras(brief, lote, refsEstructuras) + (usaEstructuras(brief) ? textoManualMayaverra() : '') + (usaEstructuras(brief) || esVariado(brief) ? textoCuerpo(brief) + textoMomentos() + textoTitulosMayaverra(brief) : '') + textoVenta(brief) + `\n${DETALLE_VISUAL}\n` + textoReglasImagen() + textoAprendizajesGenerales() + textoValidados(lote, validados) + textoTitulosElegidos(brief),
+    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoModo(brief) + (esDelAgente(brief) ? textoAgenteEstrategia(lote, brief) : '') + textoVariado(lote, brief) + textoEstructuras(brief, lote, refsEstructuras) + (usaEstructuras(brief) ? textoManualMayaverra() : '') + (usaEstructuras(brief) || esVariado(brief) ? textoCuerpo(brief) + textoMomentos() + textoTitulosMayaverra(brief) : '') + textoVenta(brief) + `\n${DETALLE_VISUAL}\n\n${DISENO_LIMPIO}\n` + textoReglasImagen() + textoAprendizajesGenerales() + textoValidados(lote, validados) + textoTitulosElegidos(brief),
     escribe: ['producto.json', 'estrategia.json', 'plan.json', ...ids.map((v) => `${v}.json`), 'app/imagen-ads/bloqueo.json', ...(esDelAgente(brief) ? ['analisis-ganador.json'] : [])],
     maxTurnos: 80 + 2 * k + 2 * validados.length,
     timeoutMin: Math.min(120, 25 + 0.4 * n),
@@ -439,7 +439,7 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
       textoClaude('tarea-imagen-ads-prompts', { lote, ids: listaDeIds(ids), variaciones: JSON.stringify(variaciones, null, 2), logo: textoLogo(brief) }) +
       textoTitulosElegidos(brief) +
       textoVariadoPrompts(lote, brief) +
-      `\n${DETALLE_VISUAL}\n` +
+      `\n${DETALLE_VISUAL}\n\n${DISENO_LIMPIO}\n` +
       textoReglasImagen() +
       textoEstructurasPrompts(lote, ids, conEstructura, formatos) +
       (ids.some((v) => conEstructura[v]) ? textoManualMayaverra() + textoCuerpo(brief) : '') +
@@ -534,6 +534,7 @@ export function sesionRevision({ carpeta, lote, brief, tanda, t }) {
       (brief?.desde0 || brief?.replicar
         ? `\n## Reglas de estos anuncios (${brief?.desde0 ? 'modo «Desde 0»: 6 zonas' : 'modo «Replicar validado»'})\nAdemás de lo de siempre, una pieza NO pasa si: el nombre de la marca o la etiqueta del frasco no son EXACTOS a la foto del producto (revísalos letra por letra); algún texto queda a menos del 5 % del borde; hay una promesa médica, una garantía o una cifra que no está en su V##.json; un texto tiene faltas o no se lee en el celular a media pantalla.${brief?.desde0 ? ' Y en «Desde 0»: faltan alguna de las 6 zonas (gancho arriba en mayúsculas, el visual principal de 45-55 %, 2 o 3 beneficios con check, el frasco de al menos el 15 % con su sello, la oferta con «Pagas al recibir», un solo CTA) o no respeta la estructura de su formato.' : ' Y en «Replicar validado»: se movió un bloque, cambiaron las letras o los colores de la referencia, o cambió el ángulo.'} En su motivo di cuál regla falla y qué corregir.\n`
         : '') +
+      `\n## Diseño limpio (2026-11-27d)\nUna pieza NO pasa (\`ok\`: false, con su \`correccion_en\`) si: un titular o un texto queda cortado o pegado a un borde; hay texto pequeño que no se lee en el celular a media pantalla (letra pequeña, párrafos, franjas con texto diminuto); el fondo es oscuro, morado, neón o recargado, o no es el mismo color claro de las demás del lote; las letras tienen contornos, brillos, sombras o efecto 3D; el resultado o el antes/después se ve pequeño; el INVIMA (si lo lleva) no se lee.\n` +
       textoRevisionVenta(lote, brief) +
       textoRevisionEstructuras(lote, piezas, estructurasDelLote(carpeta)),
     escribe: [`revision/${tanda}.json`],
@@ -684,8 +685,18 @@ Pasa solo con ${NOTA_MINIMA} o más en los 7. Si alguno queda bajo ${NOTA_MINIMA
 `;
 }
 
+// (2026-11-27d) «mucho texto pequeño… un diseño limpio, simple… un mismo color de fondo limpio, que dé confianza; que se
+// noten los resultados». La app además pone DIRECCION_LIMPIA y LEGIBLE (produccion/imagen-ads.js) en cada prompt de imagen.
+export const DISENO_LIMPIO = `## Diseño limpio (2026-11-27d, lo pidió el usuario: obligatorio)
+- Pocos bloques de texto: lo ideal son 3 y nunca más de 4 (el título con su gancho y su propuesta cuenta como uno; luego un beneficio corto o la prueba, y la oferta), más los sellos. Nada de párrafos, listas largas, letra pequeña, notas al pie ni franjas con texto diminuto. Todo se lee en el celular de un vistazo; si un texto no cabe grande, se quita.
+- Márgenes: todo texto, sello y el frasco a 7 % o más de cada borde; el titular NUNCA queda cortado ni pegado arriba.
+- Tipografía: una sola sans muy gruesa (tipo Montserrat Black), el titular grande en casi negro (#111111); la frase clave del titular dentro de una barra redondeada del color de la marca con letra blanca en negrita cursiva. Sin contornos, brillos, sombras, letras 3D, metálicas ni con degradado.
+- Fondo: UN solo color claro y limpio para TODO el lote (blanco o un tono muy suave del color de la marca, en hex). Escríbelo igual en \`global_identity.color_palette\` de cada V##.json («background #F7F1F4 …»). Nunca oscuro, morado, neón, con patrones, destellos ni formas sueltas.
+- Resultados: el antes/después (o el resultado) es lo protagonista, grande (la mitad del lienzo o más), máximo 3 momentos, cada uno con su etiqueta corta y grande.
+- Registro sanitario: si hay INVIMA, va grande en una placa blanca redondeada con borde fino del color de la marca, «INVIMA» en negrita y el número legible (nunca un sello diminuto).`;
+
 export const DETALLE_VISUAL = `## Detalle del visual_prompt (2026-11-26c: «más detalle en las generaciones»)
-Cada \`visual_prompt\` describe, zona por zona (arriba / centro / abajo con su % del lienzo): la composición y qué ocupa cada zona; la luz (dirección, dureza, color) y la cámara (plano, lente, altura); los materiales y la textura realista (piel con poros, tela, vidrio, reflejos); cada texto con su tipografía (familia, peso, mayúsculas, color hex, contorno o fondo) y dónde va; el frasco (posición, % del alto, ángulo, la etiqueta de frente y legible); y en un antes/después, la ropa, la pose y el lugar de cada momento y la diferencia que se nota. Nada genérico («premium», «bonito»): cosas que se ven.`;
+Cada \`visual_prompt\` describe, zona por zona (arriba / centro / abajo con su % del lienzo): la composición y qué ocupa cada zona; la luz (dirección, dureza, color) y la cámara (plano, lente, altura); los materiales y la textura realista (piel con poros, tela, vidrio, reflejos); cada texto con su tipografía (familia, peso, mayúsculas, color hex, la barra de color si la lleva; sin contornos ni efectos), su tamaño (% del alto del lienzo) y dónde va; el frasco (posición, % del alto, ángulo, la etiqueta de frente y legible); y en un antes/después, la ropa, la pose y el lugar de cada momento y la diferencia que se nota. Nada genérico («premium», «bonito»): cosas que se ven.`;
 
 /** Las preferencias del usuario y las reglas generales (las de todos los anuncios), si hay. */
 function textoAprendizajesGenerales() {

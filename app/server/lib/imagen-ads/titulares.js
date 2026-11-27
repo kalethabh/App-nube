@@ -18,7 +18,7 @@ export function textoTitulosMayaverra(brief) {
 ## Títulos como Mayaverra (manda sobre cualquier regla de titular más vieja)
 Cada imagen (salvo la carta de texto y las fotos caseras) lleva 2 o 3 niveles de texto, como los anuncios de Mayaverra:
 1. GANCHO (2 a 7 palabras, gigante, en mayúsculas, con UNA palabra o línea resaltada en color): orden, reencuadre, alivio en primera persona o el segmento.
-2. PROPUESTA DE VALOR (10 a 20 palabras, en su propia capa de \`text_layers\` con \`"reference_function": "value proposition"\`), SIEMPRE con esta fórmula del usuario: DESEO PRINCIPAL (el resultado concreto en la zona del producto) + TIEMPO DE TRANSFORMACIÓN + DESEO CENTRAL (lo que de verdad quiere sentir o lograr con ese resultado). Ej.: «Glúteos más redondos y firmes» + «en solo 4 semanas» + «para volver a lucir tus jeans con seguridad».
+2. PROPUESTA DE VALOR (8 a 16 palabras, corta y grande, en su propia capa de \`text_layers\` con \`"reference_function": "value proposition"\`), SIEMPRE con esta fórmula del usuario: DESEO PRINCIPAL (el resultado concreto en la zona del producto) + TIEMPO DE TRANSFORMACIÓN + DESEO CENTRAL (lo que de verdad quiere sentir o lograr con ese resultado). Ej.: «Glúteos más redondos y firmes» + «en solo 4 semanas» + «para volver a lucir tus jeans con seguridad».
 3. (Opcional, si la estructura lo trae) la línea de tiempo o los beneficios con su tiempo: «Semana 1 · Semana 4 · Mes 3».
 El TIEMPO de transformación: ${tiempo ? `el del producto (lo dio el usuario): «${tiempo}». Usa esos plazos.` : 'deduce el tratamiento de la oferta y de la dosis del producto (p. ej. «x3» con 1 frasco por mes = tratamiento de 3 meses; marcas creíbles: semana 2, semana 4, 30 días, 90 días).'} En plan.json escribe \`"tiempo": "<el tratamiento y cuándo se empieza a notar>"\`, \`"deseo_principal": "<el resultado concreto que se ve>"\` y \`"deseo_central": "<lo que de verdad quiere sentir o lograr>"\` (de la investigación si la hay), y en CADA variación (salvo fotos caseras y cartas de texto) \`"propuesta_valor"\` con la fórmula completa: deseo principal + tiempo + deseo central (puedes variar las palabras y el deseo central entre variaciones).
 PROMESA AGRESIVA (decisión del usuario), directa y con tiempo. Fórmulas de Mayaverra, con su versión para glúteos y piernas:
@@ -64,8 +64,8 @@ export function erroresPropuestaAnuncio(ad, { sinPropuesta = false, venta = null
   if (!sinPropuesta) {
     const c = capaPropuesta(ad);
     const n = palabras(c?.text);
-    if (!c) errores.push('text_layers: falta la PROPUESTA DE VALOR debajo del gancho (en su propia capa, "reference_function": "value proposition"): deseo principal + tiempo de transformación + deseo central, de 10 a 20 palabras');
-    else if (n < 8 || n > 22) errores.push(`text_layers: la propuesta de valor «${c.text}» tiene ${n} palabras: de 10 a 20 (deseo principal + tiempo + deseo central)`);
+    if (!c) errores.push('text_layers: falta la PROPUESTA DE VALOR debajo del gancho (en su propia capa, "reference_function": "value proposition"): deseo principal + tiempo de transformación + deseo central, de 8 a 16 palabras');
+    else if (n < 7 || n > 18) errores.push(`text_layers: la propuesta de valor «${c.text}» tiene ${n} palabras: de 8 a 16, corta y grande (deseo principal + tiempo + deseo central)`);
     else if (!TIEMPO.test(String(c.text))) errores.push(`text_layers: la propuesta de valor «${c.text}» no dice el TIEMPO de transformación (deseo principal + tiempo + deseo central)`);
   }
   const todo = (Array.isArray(ad?.text_layers) ? ad.text_layers : []).map((t) => String(t?.text || '')).join(' ');
