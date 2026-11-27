@@ -187,6 +187,26 @@ async function aMedida(origen, destino, w, h, { pieza = false, fondo = '#ffffff'
   fs.renameSync(tmp, destino);
 }
 
+/**
+ * (2026-11-27i) ¿Algo de la pieza toca el borde de arriba o de abajo (un titular cortado)? Mira las filas de los bordes
+ * contra el color del fondo pedido: si más del 12 % de una fila es otra cosa, está cortada.
+ */
+export async function tocaElBorde(ruta, fondo) {
+  const N = 48;
+  const px = await (await import('../imagen-ads/local.js')).pixeles(ruta, N, N);
+  if (!px) return false;
+  const bg = aRgb(fondo);
+  const fila = (y) => {
+    let otros = 0;
+    for (let x = 0; x < N; x++) {
+      const i = (y * N + x) * 4;
+      if ([0, 1, 2].some((c) => Math.abs(px[i + c] - bg[c]) > 45)) otros++;
+    }
+    return otros / N;
+  };
+  return fila(0) > 0.12 || fila(1) > 0.12 || fila(N - 1) > 0.12;
+}
+
 /** El prompt final de una imagen: el de Mateo + las reglas fijas (producto, referencia, fondo, sin efectos, medida). */
 export function promptDeImagen(slot, base, { bg, accent, conFoto, persona = null }) {
   const pieza = slot.tipo === 'pieza';
@@ -202,7 +222,7 @@ export function promptDeImagen(slot, base, { bg, accent, conFoto, persona = null
       : `HOMEMADE PHOTO: a real, casual phone photo taken at home or in daily life (not a studio, not a professional shoot, no retouching), natural light only, real skin texture and small everyday imperfections, a real lived-in background. ${persona ? `The person and place: ${persona}. ` : ''}Every photo of this page shows a DIFFERENT woman in a DIFFERENT place. No text, no logos, no watermark, no user interface, no phone screen. Any woman is Colombian, like the target customer; never a doctor, lab coat or clinic.`,
     ANTI_EFECTOS,
     pieza
-      ? `Final size ${slot.w}×${slot.h} px. Keep every text, the product and any person fully inside the canvas with at least 6% margin on every side: nothing may touch or be cut by an edge.`
+      ? `CANVAS: this image is generated as ${aspectoGpt(slot.w, slot.h)} (${aspectoGpt(slot.w, slot.h) === '2:3' ? '1024×1536' : aspectoGpt(slot.w, slot.h) === '3:2' ? '1536×1024' : '1024×1024'} px). Compose the WHOLE design for THIS canvas: the layout reference may be taller or wider, so shrink and rearrange its blocks until everything fits. Leave at least 8% EMPTY background at the top and at the bottom and 6% on each side: the headline must start well below the top edge and the last line must end well above the bottom edge. Nothing may touch or be cut by any edge.`
       : `Final size ${slot.w}×${slot.h} px: only ${visible} will be shown, so keep the person's whole head, the hands and the product inside that central area, never near the edges.`,
   ].join('\n\n');
 }
@@ -448,6 +468,11 @@ Escribe ${rel(carpeta, Q('revision').archivo)}:
       } else {
         const { generarConChatGPT } = await import('../../../../produccion/chatgpt-imagen.js');
         await generarConChatGPT({ prompt, referencias, aspecto: aspectoGpt(s.w, s.h), rutaDestino: crudo, codex });
+        // (2026-11-27i) una pieza con algo pegado al borde (un titular cortado): se rehace una vez, más chica
+        if (s.tipo === 'pieza' && (await tocaElBorde(crudo, tema.fondo))) {
+          avanzar(`La imagen ${s.id} salió cortada en el borde: la rehago con más margen.`);
+          await generarConChatGPT({ prompt: `${prompt}\n\nIMPORTANT: a previous attempt had the headline or the last line cut off by the edge of the canvas. Make every block about 15% smaller and keep a clearly empty background band at the top and at the bottom.`, referencias, aspecto: aspectoGpt(s.w, s.h), rutaDestino: crudo, codex });
+        }
       }
       await aMedida(crudo, path.join(carpeta, archivo), s.w, s.h, { pieza: s.tipo === 'pieza', fondo: tema.fondo });
       imagenes[s.id] = archivo;
