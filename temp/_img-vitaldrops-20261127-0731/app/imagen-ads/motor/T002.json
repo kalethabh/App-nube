@@ -1,0 +1,15 @@
+{
+  "id": "T002",
+  "creado": "2026-11-27T12:36:26.936Z",
+  "piezas": [
+    {
+      "pieza": "V01_1x1",
+      "orden": "U0001",
+      "modo": "editar",
+      "version": 2,
+      "instruccion_en": "On the bottle label, change only the brand word 'amuna' to 'amua' (lowercase, exactly four letters: a-m-u-a), same font, same bold weight, same black color, same size and same centered position above 'VITALDROPS'. Keep everything else identical: the woman, all other texts, colors, layout, bottle shape and the exact same image dimensions and aspect ratio.",
+      "textos": true,
+      "aspecto": "9:16"
+    }
+  ]
+}

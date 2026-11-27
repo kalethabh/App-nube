@@ -1,0 +1,25 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-27T12:35:40.167Z",
+  "variaciones": 1,
+  "archivos": 1,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 0,
+    "rehechasPorTi": [
+      "V01_1x1"
+    ],
+    "arregladas": [],
+    "conDetalles": [],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

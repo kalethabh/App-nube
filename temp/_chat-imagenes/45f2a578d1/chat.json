@@ -5,7 +5,7 @@
   "producto": "VITALDROPS",
   "lote": "_img-vitaldrops-20261127-0731",
   "uuid": "f620b3cd-f529-4220-99bb-b3fb7b4f56b2",
-  "turnos": 1,
+  "turnos": 2,
   "mensajes": [
     {
       "id": "847d69a5",
@@ -24,9 +24,25 @@
         "V01"
       ],
       "fecha": "2026-11-27T12:33:52.588Z"
+    },
+    {
+      "id": "90c45107",
+      "de": "tu",
+      "texto": "Cambia amuna por \"amua\" con las mismas dimensiones",
+      "adjuntos": [],
+      "fecha": "2026-11-27T12:36:20.494Z"
+    },
+    {
+      "id": "f3b7f84e",
+      "de": "chat",
+      "texto": "Listo. En V01 cambio la palabra del frasco: donde dice «amuna», ahora dirá «amua», como en tu frasco real. Va con la misma letra, el mismo color y en el mismo lugar de la etiqueta. Lo demás no cambia: el tamaño de la imagen, la modelo, los textos y los colores. Así el frasco del anuncio es igual al que le llega a tu cliente, y eso da confianza a la hora de comprar.",
+      "imagenes": [
+        "V01"
+      ],
+      "fecha": "2026-11-27T12:36:26.937Z"
     }
   ],
   "autorizado": null,
   "fecha": "2026-11-27T12:31:42.572Z",
-  "actualizado": "2026-11-27T12:33:52.588Z"
+  "actualizado": "2026-11-27T12:36:26.937Z"
 }

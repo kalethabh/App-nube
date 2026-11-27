@@ -1,0 +1,25 @@
+Edit this advertising image (the FIRST attached image) following this instruction: "On the bottle label, change only the brand word 'amuna' to 'amua' (lowercase, exactly four letters: a-m-u-a), same font, same bold weight, same black color, same size and same centered position above 'VITALDROPS'. Keep everything else identical: the woman, all other texts, colors, layout, bottle shape and the exact same image dimensions and aspect ratio.". Keep everything else exactly as it is (layout, texts, colors, typography, person, product) unless the instruction says otherwise. The SECOND attached image is the real product photo: the product must stay identical to it. Do not add new elements.
+
+Exact visible texts (each appears exactly once, correctly spelled, nothing else added):
+- main headline: "ENFOCADO EN"
+- main headline: "CADERAS, GLÚTEOS"
+- main headline: "Y PIERNAS."
+- value proposition: "Centraliza la grasa mal ubicada y la lleva a caderas, glúteos y piernas tonificadas."
+- badge: "GLUTEN FREE"
+- badge: "SUGAR FREE"
+- benefit: "ABDOMEN Apariencia más plana y estilizada."
+- benefit: "CINTURA Mayor definición visual."
+- benefit: "CADERAS Apariencia más pronunciada."
+- benefit: "GLÚTEOS Mayor volumen visual y realce."
+- other: "ABDOMEN"
+- other: "CINTURA"
+- other: "CADERAS"
+- other: "GLÚTEOS"
+- other: "¡EN 4 SEMANAS!"
+- trust item: "GARANTÍA 90 DÍAS"
+- trust item: "DEVOLUCIÓN DE DINERO"
+- other: "amuna"
+
+Keep the top 15% and the bottom 15% of the vertical canvas free of important text and free of the product label, because Instagram, Facebook and TikTok cover those areas with their own interface. All headlines, texts and the product label must stay inside the central safe zone and remain perfectly legible.
+
+All visible text inside the generated image must be written in Spanish, except the product label texts and the 'GLUTEN FREE' / 'SUGAR FREE' badges, which stay as in the reference.
