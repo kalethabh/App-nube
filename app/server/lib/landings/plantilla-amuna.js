@@ -23,12 +23,10 @@ import { RAIZ } from '../rutas.js';
 import { leerJSON } from '../archivos.js';
 import { escribirJSON, leerFicha, listarProductos, rutaFoto } from '../productos.js';
 import { modoPrueba } from '../procesos.js';
-import { TIEMPO } from '../imagen-ads/titulares.js';
 import { agente, disenoFinal, limpiarPrecios, limpiarResenas, RE_VARIABLE, RE_CIFRA_CLIENTES, ANTI_EFECTOS, colorDeBorde, contraste, mezclar, leible, esHex, lum, aHex, aRgb, cop } from './plantilla.js';
 import { AMUNA } from './plantillas/amuna/datos.js';
 import { GUIA, SLOTS, VARIEDAD } from './plantillas/amuna/guia.js';
 import { htmlDeLanding } from './plantillas/amuna/render.js';
-import { auditarLanding } from './plantillas/amuna/auditor.js';
 
 const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), 'plantillas', 'amuna');
 export const PLANTILLA_AMUNA = 'amuna';
@@ -58,7 +56,6 @@ export function moldeDeTextos() {
     descripcion: 'Gotas con ingredientes de origen vegetal para tu rutina diaria. Elige tu combo y paga al recibir.',
     titulo: A.titulo,
     oferta: { titulo: A.oferta.titulo, combos: { tres: { nombre: A.oferta.combos[0].nombre, insignia: A.oferta.combos[0].insignia }, dos: { nombre: A.oferta.combos[1].nombre }, uno: { nombre: A.oferta.combos[2].nombre } }, envio: A.oferta.envio, boton: A.oferta.boton, subBoton: A.oferta.subBoton },
-    dolor: A.dolor,
     dudas: A.dudas,
     aviso: A.aviso,
     ellas: { titulo: A.ellas.titulo, sub: A.ellas.sub },
@@ -79,7 +76,7 @@ export function moldeDeTextos() {
 
 // lo que no puede faltar (ruta en el JSON -> cuántos, si es una lista)
 const REQUERIDOS = [
-  ['producto.nombre'], ['producto.unidad'], ['producto.unidades'], ['titulo.titular'], ['titulo.subtitulo'], ['titulo.boton'], ['dolor.titulo'], ['dolor.frases', 3], ['dolor.cierre'], ['titulo.lede'], ['titulo.checks', 4], ['oferta.titulo'], ['oferta.combos.tres.nombre'], ['oferta.combos.tres.insignia'], ['oferta.combos.dos.nombre'], ['oferta.combos.uno.nombre'], ['oferta.envio.texto'], ['oferta.boton'],
+  ['producto.nombre'], ['producto.unidad'], ['producto.unidades'], ['titulo.lede'], ['titulo.checks', 4], ['oferta.titulo'], ['oferta.combos.tres.nombre'], ['oferta.combos.tres.insignia'], ['oferta.combos.dos.nombre'], ['oferta.combos.uno.nombre'], ['oferta.envio.texto'], ['oferta.boton'],
   ['dudas', 4], ['aviso.titulo'], ['aviso.texto'], ['historias.titulo'], ['historias.texto'], ['historias.boton'], ['ruta.titulo'], ['ruta.pasos', 4], ['ugc.titulo'], ['pasos.titulo'], ['pasos.items', 3], ['franja', 3],
   ['comparacion.titulo'], ['comparacion.nuestra'], ['comparacion.filas', 6], ['compraClara.titulo'], ['compraClara.texto'], ['compraClara.boton'], ['compraClara.garantias', 3], ['cuidado.titulo'], ['cuidado.parrafos', 3], ['faq.titulo'], ['faq.items', 11], ['pie.legal', 2],
 ];
@@ -121,9 +118,7 @@ export function erroresTextos(d, { nombre = '' } = {}) {
     } else if (Array.isArray(x)) x.forEach((y, i) => ver(y, `${ruta}.${i}`));
     else if (x && typeof x === 'object') for (const [k, y] of Object.entries(x)) ver(y, ruta ? `${ruta}.${k}` : k);
   };
-  // (2026-11-27j) la clase de Joaquín: titular de resultado CON TIEMPO, subtítulo «Para …», bienestar sin curas
-  if (T(d.titulo?.titular) && !TIEMPO.test(d.titulo.titular) && !/\b(primer[ao]? (d[ií]a|semana|mes)|desde (hoy|la primera|el primer))\b/i.test(d.titulo.titular)) e.push(`«titulo.titular» debe decir el tiempo (beneficio + tiempo + deseo): «${d.titulo.titular}»`);
-  if (T(d.titulo?.subtitulo) && !/^para\b/i.test(d.titulo.subtitulo.trim())) e.push(`«titulo.subtitulo» empieza con «Para …» (para quién es y qué situación resuelve): «${d.titulo.subtitulo}»`);
+  // (2026-11-27j) bienestar, nunca curas
   const curas = [];
   const verCuras = (x, ruta) => {
     if (typeof x === 'string') {
@@ -204,6 +199,14 @@ async function aMedida(origen, destino, w, h, { pieza = false, fondo = '#ffffff'
   fs.renameSync(tmp, destino);
 }
 
+// (2026-11-27k) la imagen de «cuidado» sin profesional real: una consulta médica ILUSTRATIVA, sin el producto, sin nombre
+// ni escarapela; la página pone debajo «Imagen ilustrativa. No representa una recomendación médica del producto».
+export const CONSULTA =
+  'Realistic, natural photo of a medical consultation in Colombia: a friendly, trustworthy Colombian doctor (a woman or a man, about 40) in a clean white coat, ' +
+  'sitting at a desk and talking with a female patient in a bright, modern consulting room with soft window light. The doctor faces the camera at three quarters ' +
+  'with a warm smile; the patient is seen from the side. Calm and professional mood. NO product, no bottles, no pills, no supplements anywhere, ' +
+  'no name tag or readable badge, no text, no logos, no watermark. Keep the lower part of the photo simple and light (the web page fades it to white).';
+
 /**
  * (2026-11-27i) ¿Algo de la pieza toca el borde de arriba o de abajo (un titular cortado)? Mira las filas de los bordes
  * contra el color del fondo pedido: si más del 12 % de una fila es otra cosa, está cortada.
@@ -227,6 +230,7 @@ export async function tocaElBorde(ruta, fondo) {
 /** El prompt final de una imagen: el de Mateo + las reglas fijas (producto, referencia, fondo, sin efectos, medida). */
 export function promptDeImagen(slot, base, { bg, accent, conFoto, persona = null }) {
   const pieza = slot.tipo === 'pieza';
+  if (slot.tipo === 'consulta') return [base, ANTI_EFECTOS, `Final size ${slot.w}×${slot.h} px: keep both faces inside the central area, never near the edges.`].join('\n\n');
   const g = RATIO_GPT[aspectoGpt(slot.w, slot.h)];
   const r = slot.w / slot.h;
   // lo que se ve de la foto después de llevarla a su medida (de lado o de alto)
@@ -278,7 +282,7 @@ export function pruebaSocialReal(reales, marca, fotoProducto = null) {
 }
 
 /** Los datos de la página: los textos + precios + imágenes + reseñas reales + colores. */
-export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas = [] }) {
+export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas = [], profesional = null }) {
   const t = sinVariables(textos);
   const P = { ...t.producto };
   const img = (id) => imagenes[id] || (() => {
@@ -309,7 +313,6 @@ export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, ca
     ellas: { titulo: t.ellas?.titulo, sub: t.ellas?.sub, items: social.ellasItems || [] },
     ingredientes: img('ingredientes'),
     historias: { ...t.historias, usuario: /^@[\w.]{2,30}$/.test(String(t.historias?.usuario || '')) ? t.historias.usuario : `@${String(P.marca || P.corto || P.nombre || 'tienda').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '').slice(0, 24)}`, fotos: [1, 2, 3, 4, 5, 6].map((k) => img(`historia-${k}`)) },
-    dolor: t.dolor,
     ruta: t.ruta,
     experiencias: { pill: t.experiencias?.pill, titulo: t.experiencias?.titulo, fotoProducto: fotoProducto || img('combo-1'), precioDesde: p.uno, items: social.experienciasItems || [] },
     // (2026-11-27g) con capturas reales de clientas: ellas, tal cual y enteras («Experiencias con …»); sin: fotos caseras
@@ -318,7 +321,8 @@ export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, ca
     franja: t.franja,
     comparacion: t.comparacion,
     compraClara: t.compraClara,
-    cuidado: { titulo: t.cuidado?.titulo, parrafos: t.cuidado?.parrafos, foto: img('cuidado'), ...(social.pieCuidado ? { pie: social.pieCuidado } : {}) },
+    // (2026-11-27k) el profesional real (con su placa) o la consulta ilustrativa con su nota
+    cuidado: { titulo: t.cuidado?.titulo, parrafos: t.cuidado?.parrafos, ...(profesional ? { foto: profesional.foto, profesional: { nombre: profesional.nombre, especialidad: profesional.especialidad } } : { foto: img('cuidado'), nota: 'Imagen ilustrativa. No representa una recomendación médica del producto.' }), ...(social.pieCuidado ? { pie: social.pieCuidado } : {}) },
     ...(social.resenas ? { resenas: { titulo: T(t.resenas?.titulo) || social.resenas.tituloPorDefecto, ...social.resenas } } : {}),
     faq: t.faq,
     pie: t.pie,
@@ -329,10 +333,12 @@ export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, ca
 // ---------------------------------------------------------------- el equipo
 
 /** -> { titulo, agentes, cambiados, diseno, fondo, resenas, imagenes } (como crearConEquipo). */
-export async function crearConAmuna({ carpeta, productoId, pedido = '', motor, guardar, avanzar, precios = null, registro = '', resenas = [], capturasReales = [] }) {
+export async function crearConAmuna({ carpeta, productoId, pedido = '', motor, guardar, avanzar, precios = null, registro = '', resenas = [], capturasReales = [], profesional = null }) {
+  // (2026-11-27k) el profesional de la salud REAL que autorizó al dueño (su foto ya está en assets/): va en «cuidado»
+  const pro = profesional && /^assets\/profesional\.(jpg|png)$/.test(String(profesional.foto || '')) && T(profesional.nombre) && T(profesional.especialidad) ? { foto: profesional.foto, nombre: T(profesional.nombre, 60), especialidad: T(profesional.especialidad, 60) } : null;
   // (2026-11-27g) las capturas REALES de clientas (chats, mensajes) que subió el dueño: van tal cual en el carrusel
   const reales2 = (Array.isArray(capturasReales) ? capturasReales : []).filter((c) => /^assets\/[\w.-]+\.(jpg|jpeg|png|webp)$/i.test(String(c))).slice(0, 9);
-  const slots = SLOTS.filter((s) => !(reales2.length && s.id.startsWith('ugc-')));
+  const slots = SLOTS.filter((s) => !(reales2.length && s.id.startsWith('ugc-')) && !(pro && s.id === 'cuidado'));
   const persona = Object.fromEntries(slots.filter((s) => s.tipo === 'foto' && !s.id.startsWith('combo-')).map((s, k) => [s.id, VARIEDAD[k % VARIEDAD.length]]));
   const p = limpiarPrecios(precios);
   if (!p) throw Object.assign(new Error('precios'), { publico: 'Pon los precios de tus combos (1, 2 y 3 unidades) para crear la landing.' });
@@ -381,8 +387,8 @@ Nunca inventes testimonios, opiniones, nombres de clientas o de médicos, cifras
     valida: (d) => d && T(d.resumen) && T(d.angulo) && T(d.promesa),
     prompt: `${producto}\n${investigacion ? `Su investigación de mercado:\n${investigacion.slice(0, 16000)}\n` : 'Este producto NO tiene investigación de mercado todavía: trabaja con la ficha y dilo en el resumen.\n'}${datosTxt}
 Lee la investigación como un estratega de respuesta directa y decide la estrategia de la landing. Escribe ${rel(carpeta, Q('estratega').archivo)}:
-{ "avatar": "quién compra (edad, momento de vida, situación)", "dolor_principal": "", "deseo": "", "angulo": "", "mecanismo": "por qué funciona, simple y verdadero", "promesa": "la promesa principal con su tiempo, sin exagerar", "tiempo": "el tiempo de transformación del tratamiento", "objeciones": [""], "palabras_del_cliente": [""], "titular": "beneficio + tiempo + deseo, 10 a 16 palabras, continuando la promesa de los anuncios", "subtitulo": "Para quién es y qué situación resuelve (empieza con «Para»)", "dolor_frases": ["3 frases en primera persona, en sus palabras (de la investigación si las hay)"], "tono": "", "resumen": "" }
-La clase que sigue esta landing (Joaquín Buelvas): el titular promete un RESULTADO (beneficio + tiempo + deseo) y continúa la promesa del anuncio; el subtítulo dice para quién es; el dolor va con las palabras textuales de la clienta; el cuerpo es problema-agitación-solución; en suplementos, bienestar y nunca cura.${anuncios ? `\nLa promesa de los anuncios de este producto (sus ajustes): ${anuncios}` : ''}`,
+{ "avatar": "quién compra (edad, momento de vida, situación)", "dolor_principal": "", "deseo": "", "angulo": "", "mecanismo": "por qué funciona, simple y verdadero", "promesa": "la promesa principal con su tiempo, sin exagerar", "tiempo": "el tiempo de transformación del tratamiento", "objeciones": [""], "palabras_del_cliente": [""], "tono": "", "resumen": "" }
+En suplementos, bienestar y nunca cura.${anuncios ? `\nLa promesa de los anuncios de este producto (sus ajustes): ${anuncios}` : ''}`,
   });
   marcar('estratega', { estado: 'listo', resumen: T(estrategia.resumen, 800) });
 
@@ -432,14 +438,14 @@ EJEMPLO>>>`,
     }),
     agente({
       carpeta, motor, quien: Q('imagenes'), avanzar, maxTurnos: 30, leer: [...Object.values(refs), ...(foto ? [foto] : [])],
-      valida: (d) => d && T(d.resumen) && slots.every((s) => lista(d.imagenes).some((x) => x?.slot === s.id && T(x.prompt))),
-      errores: (d) => slots.filter((s) => !lista(d?.imagenes).some((x) => x?.slot === s.id && T(x.prompt))).map((s) => `Falta el prompt de «${s.id}».`),
+      valida: (d) => d && T(d.resumen) && slots.filter((s) => s.tipo !== 'consulta').every((s) => lista(d.imagenes).some((x) => x?.slot === s.id && T(x.prompt))),
+      errores: (d) => slots.filter((s) => s.tipo !== 'consulta' && !lista(d?.imagenes).some((x) => x?.slot === s.id && T(x.prompt))).map((s) => `Falta el prompt de «${s.id}».`),
       prompt: `${comun}
 Colores: el de la marca ${tema.amarillo}, el fondo de la página ${tema.fondo}, texto casi negro.
 ${foto ? `La foto del producto: ${delRepo(foto)} (ábrela con Read).` : ''}
 Escribe el prompt de CADA imagen de la landing. Cada una tiene su referencia de AMUNA (ábrela con Read: mira su composición, sus bloques, sus textos, la persona y con qué intención sale) y su medida exacta. La de este producto es una TRADUCCIÓN de esa imagen: la misma composición e intención, con el producto real, su avatar (mujeres colombianas), su promesa y su tiempo, y sus textos en español (los de las piezas, escritos completos entre comillas, cortos y grandes). Nunca copies la marca, el frasco, las personas ni los textos de AMUNA.
 Las fotos son CASERAS (de celular, luz natural, sin estudio) y cada una con una mujer y un lugar distintos: usa la persona y la escena que trae cada una.
-${slots.map((s) => `SLOT ${s.id} · ${s.w}×${s.h} px · ${s.tipo === 'pieza' ? 'pieza gráfica con textos' : 'foto casera sin textos'} · referencia ${delRepo(refs[s.id])}\n  ${s.que}${persona[s.id] ? `\n  Persona y escena: ${persona[s.id]}` : ''}`).join('\n')}
+${slots.filter((s) => s.tipo !== 'consulta').map((s) => `SLOT ${s.id} · ${s.w}×${s.h} px · ${s.tipo === 'pieza' ? 'pieza gráfica con textos' : 'foto casera sin textos'} · referencia ${delRepo(refs[s.id])}\n  ${s.que}${persona[s.id] ? `\n  Persona y escena: ${persona[s.id]}` : ''}`).join('\n')}
 Escribe ${rel(carpeta, Q('imagenes').archivo)}: { "imagenes": [ { "slot": "<id>", "prompt": "<en inglés, detallado; los textos que van dentro, en español y entre comillas>" } ], "resumen": "" }`,
     }).then((d) => {
       marcar('imagenes', { estado: 'listo', resumen: T(d.resumen, 800) });
@@ -481,10 +487,11 @@ Escribe ${rel(carpeta, Q('revision').archivo)}:
   const codex = modoPrueba() ? null : motorDeImagenes() === 'chatgpt' ? codexParaImagenes() : null;
   if (!modoPrueba() && !codex) avanzar('Las imágenes se hacen con tu ChatGPT: conéctalo en Ajustes › Conexiones (quedaron los recuadros grises con su medida).');
   const hacer = async (s) => {
-    const base = prompts.get(s.id);
+    const base = s.tipo === 'consulta' ? CONSULTA : prompts.get(s.id);
     if (!base || (!modoPrueba() && !codex)) return;
-    const prompt = promptDeImagen(s, base, { bg: tema.fondo, accent: tema.fuerte, conFoto: Boolean(foto), persona: persona[s.id] || null });
-    const referencias = [...(foto ? [foto] : []), refs[s.id]].filter((r) => r && fs.existsSync(r));
+    const prompt = promptDeImagen(s, base, { bg: tema.fondo, accent: tema.fuerte, conFoto: Boolean(foto) && s.tipo !== 'consulta', persona: persona[s.id] || null });
+    // (la consulta médica: sin el producto ni referencia: nada que la vuelva un aval)
+    const referencias = s.tipo === 'consulta' ? [] : [...(foto ? [foto] : []), refs[s.id]].filter((r) => r && fs.existsSync(r));
     const archivo = `assets/${s.id}-${crypto.randomBytes(3).toString('hex')}.jpg`;
     const crudo = path.join(carpeta, '_crudo', `${s.id}.png`);
     try {
@@ -533,7 +540,7 @@ Escribe ${rel(carpeta, Q('revision').archivo)}:
   }
 
   // armar la página
-  let D = armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas: reales2 });
+  let D = armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas: reales2, profesional: pro });
   const escribir = () => fs.writeFileSync(path.join(carpeta, 'index.html'), htmlDeLanding(D));
   escribirJSON(path.join(carpeta, 'datos-landing.json'), D);
   escribir();
@@ -566,7 +573,7 @@ Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<ruta en el JSON>"
       let n2 = 0;
       for (const [r, v] of Object.entries(visual.cambios || {})) if (typeof v === 'string' && ponerRuta(textos, r, v.trim())) n2++;
       if (n2) {
-        D = armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas: reales2 });
+        D = armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas: reales2, profesional: pro });
         escribirJSON(path.join(carpeta, 'datos-landing.json'), D);
         escribir();
         avanzar(`Renata corrigió ${n2} texto(s) al ver la página terminada.`);
@@ -583,8 +590,5 @@ Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<ruta en el JSON>"
   }
   const faltan = slots.length - hechas;
   if (faltan) avanzar(`${faltan} imagen(es) quedaron como recuadro gris con su medida: vuelve a crear la landing cuando ChatGPT esté conectado.`);
-  // (2026-11-27j) el auditor de la clase de Joaquín Buelvas
-  const auditoria = auditarLanding(D);
-  escribirJSON(path.join(carpeta, 'auditoria.json'), auditoria);
-  return { titulo: D.tituloPagina, auditoria, agentes, cambiados, diseno, fondo, resenas: reales.length, imagenes: { hechas, pedidas: slots.length, quitadas: 0 }, capturas: reales2.length };
+  return { titulo: D.tituloPagina, agentes, cambiados, diseno, fondo, resenas: reales.length, imagenes: { hechas, pedidas: slots.length, quitadas: 0 }, capturas: reales2.length };
 }

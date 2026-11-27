@@ -179,26 +179,6 @@ function Equipo({ agentes }) {
   );
 }
 
-/** (2026-11-27j) El auditor de la clase «Cada página es una landing» (Joaquín Buelvas): 6 pilares y por dónde empezar. */
-function Auditor({ a }) {
-  if (!a?.pilares?.length) return null;
-  return (
-    <details className="ld-equipo ld-auditor">
-      <summary>{`Auditor de la clase: ${a.porcentaje} %${a.empezarPor ? ` · Empieza por: ${a.empezarPor}` : ' · Funciona como una landing'}`}</summary>
-      <ol>
-        {a.pilares.map((p) => (
-          <li key={p.nombre} className="ld-equipo__agente">
-            <strong>{`${p.cumple === p.total ? '✓' : '·'} ${p.nombre} (${p.cumple} de ${p.total})`}</strong>
-            {p.puntos.filter((x) => !x.ok && x.falta).length ? (
-              <ul className="ld-equipo__pendientes">{p.puntos.filter((x) => !x.ok && x.falta).map((x) => <li key={x.texto}>{x.falta}</li>)}</ul>
-            ) : null}
-          </li>
-        ))}
-      </ol>
-    </details>
-  );
-}
-
 function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
   const { aviso } = useAvisos();
   const [subiendo, setSubiendo] = useState(false);
@@ -256,7 +236,6 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
         </div>
       ) : null}
       <Equipo agentes={l.agentes} />
-      <Auditor a={l.auditoria} />
       {l.analisis ? <Analisis a={l.analisis} /> : null}
       {!l.analisis && l.analisisError && !ocupado ? <p className="ld-ayuda"><CircleAlert size={13} aria-hidden="true" /> {l.analisisError}</p> : null}
       {l.informe?.avisos?.length ? (
@@ -299,7 +278,21 @@ export default function Landings({ consulta }) {
   const [plantilla, setPlantilla] = useState('amuna'); // (2026-11-27f) la estructura de la landing de AMUNA o la de CEN
   const [subiendo, setSubiendo] = useState(null);
   const [pegadas, setPegadas] = useState('');
-  const [capturas, setCapturas] = useState([]); // (2026-11-27g) capturas reales de clientas: [{ id, vista }]
+  const [capturas, setCapturas] = useState([]);
+  // (2026-11-27k) el profesional de la salud REAL (con su autorización) para «Tu rutina merece cuidado»
+  const [pro, setPro] = useState({ foto: '', vista: '', nombre: '', especialidad: '', autorizado: false });
+  const subirPro = async (archivo) => {
+    if (!archivo) return;
+    setSubiendo('pro');
+    try {
+      const r = await pedirNuevo('/api/landings/fotos', { metodo: 'POST', binario: archivo });
+      setPro((x) => ({ ...x, foto: r.id, vista: URL.createObjectURL(archivo) }));
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude subir la foto', texto: e.message });
+    } finally {
+      setSubiendo(null);
+    }
+  }; // (2026-11-27g) capturas reales de clientas: [{ id, vista }]
   const subirCapturas = async (archivos) => {
     setSubiendo('capturas');
     try {
@@ -339,7 +332,7 @@ export default function Landings({ consulta }) {
   const crearConEquipo = async () => {
     setOcupado(true);
     try {
-      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, plantilla, capturas: capturas.map((c) => c.id), prompt: prompt.trim(), precios, registro: registro.trim(), resenas: resenas.filter((r) => r.nombre.trim() && r.texto.trim()).map(({ vista, ...r }) => r) } });
+      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, plantilla, capturas: capturas.map((c) => c.id), profesional: pro.foto && pro.autorizado ? { foto: pro.foto, nombre: pro.nombre.trim(), especialidad: pro.especialidad.trim(), autorizado: true } : null, prompt: prompt.trim(), precios, registro: registro.trim(), resenas: resenas.filter((r) => r.nombre.trim() && r.texto.trim()).map(({ vista, ...r }) => r) } });
       setPrompt('');
       await recargar?.();
       ir(`/landings?proyecto=${encodeURIComponent(creada.id)}`);
@@ -436,6 +429,25 @@ export default function Landings({ consulta }) {
               {plantilla === 'amuna' ? <small className="ld-ayuda"><strong>{`Para que quede igual a AMUNA: 11 reseñas (5 con foto) y 9 capturas. Llevas ${resenas.filter((r) => r.nombre.trim() && r.texto.trim()).length} reseñas (${resenas.filter((r) => r.foto).length} con foto) y ${capturas.length} capturas.`}</strong></small> : null}
               <small className="ld-ayuda">Salen tal cual en la página. Sin reseñas reales, la landing no lleva reseñas ni opiniones de médicos: inventarlas engaña al comprador y la SIC o Meta lo castigan.</small>
             </div>
+            {plantilla === 'amuna' ? (
+              <div className="ld-resenas">
+                <span className="ld-grupo__etiqueta">Profesional de la salud real (opcional)</span>
+                <div className="ld-resenas__fila">
+                  <input placeholder="Nombre (ej.: Dra. Laura Gómez)" value={pro.nombre} maxLength={60} onChange={(e) => setPro((x) => ({ ...x, nombre: e.target.value }))} />
+                  <input placeholder="Especialidad" value={pro.especialidad} maxLength={60} onChange={(e) => setPro((x) => ({ ...x, especialidad: e.target.value }))} />
+                  <label className="ld-resenas__foto">
+                    {pro.vista ? <img src={pro.vista} alt="" /> : null}
+                    <span>{subiendo === 'pro' ? 'Subiendo…' : pro.foto ? 'Cambiar foto' : 'Subir su foto'}</span>
+                    <input type="file" accept="image/png,image/jpeg,image/webp" hidden onChange={(e) => subirPro(e.target.files?.[0])} />
+                  </label>
+                  <label className="ld-pro__ok">
+                    <input type="checkbox" checked={pro.autorizado} onChange={(e) => setPro((x) => ({ ...x, autorizado: e.target.checked }))} />
+                    <span>Me autorizó a usar su foto y su nombre en mi tienda</span>
+                  </label>
+                </div>
+                <small className="ld-ayuda">Sale en «Tu rutina merece cuidado» con su nombre. Si no pones uno real, va una imagen ilustrativa de una consulta médica (sin tu producto y sin nombre) con la nota «Imagen ilustrativa. No representa una recomendación médica del producto».</small>
+              </div>
+            ) : null}
             {plantilla === 'amuna' ? (
               <div className="ld-resenas">
                 <span className="ld-grupo__etiqueta">Capturas reales de tus clientas (opcional, hasta 9)</span>

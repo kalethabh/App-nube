@@ -292,3 +292,7 @@ dialog::backdrop{background:rgba(17,17,17,.5)}
 .dolor-frases{display:grid;gap:10px;margin-top:18px}
 .dolor blockquote{margin:0;background:#fff;border:1px solid var(--linea);border-radius:14px 14px 14px 4px;padding:12px 14px;text-align:left;color:var(--negro);font-size:15.5px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
 .dolor-cierre{margin-top:16px;font-weight:700;color:var(--negro);font-size:16px}
+
+/* (2026-11-27k) el profesional de «cuidado»: su placa (real) o la nota de imagen ilustrativa */
+.cuidado .care-badge{position:absolute;left:max(16px,env(safe-area-inset-left,0px));bottom:14px;z-index:1;background:#fff;color:var(--negro);font-weight:700;font-size:13px;border-radius:999px;padding:6px 12px;box-shadow:0 4px 14px rgba(0,0,0,.14)}
+.cuidado .nota-img{font-weight:400 !important;font-size:12.5px !important;color:var(--gris) !important}

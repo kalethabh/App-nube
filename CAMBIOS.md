@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27k · Landings AMUNA tal cual y el profesional de la salud en «cuidado»
+
+- **Las landings vuelven al orden y el título de tu página de AMUNA**, como en el artefacto: los combos arriba, justo después del nombre del producto. Se quitaron el titular de resultado, el bloque de dolor y el auditor de la versión anterior.
+- **«Tu rutina merece cuidado» lleva un profesional de la salud:**
+  - **Si tienes uno real que te autorizó:** subes su foto, nombre y especialidad (y marcas «Me autorizó…»), y sale él con su placa.
+  - **Si no:** ChatGPT hace una imagen de una consulta médica (doctora o doctor con su paciente, sin tu producto y sin nombre), con la nota «Imagen ilustrativa. No representa una recomendación médica del producto», como en tu página de AMUNA.
+
 ## 2026-11-27j · Landings con la clase «Cada página es una landing»
 
 - **Primera pantalla nueva:**
