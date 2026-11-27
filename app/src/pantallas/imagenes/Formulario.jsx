@@ -160,7 +160,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
   const productos = ejemplo ? ejemplo.productos : pr.datos?.productos;
   const cargandoProductos = !simulando && pr.cargando && !pr.datos;
   const maximo = Number(opciones?.maximo) || 100;
-  const maxRefs = Number(opciones?.maxReferencias) || 10;
+  const maxRefs = Number(opciones?.maxReferencias) || 99;
 
   const [f, setF] = useState(() => ({ ...VACIO, ...(simulando ? {} : leerBorrador()) }));
   const [fotoNueva, setFotoNueva] = useState([]);

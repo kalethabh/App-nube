@@ -161,8 +161,8 @@ async function principal() {
   const { cambioSimple } = await import('../server/lib/imagen-ads/chat.js');
   const chatJ = leerJ(path.join(RAIZ, 'temp', '_chat-imagenes', id, 'chat.json'));
   check('«Hazme otra como V01» no es un cambio simple (va a la IA)', cambioSimple(chatJ, 'Hazme otra como V01') === null);
-  check('«Pon V01 en vertical» tampoco (cambiar el tamaño lo hace la IA)', cambioSimple(chatJ, 'Pon V01 en vertical') === null);
-  check('«Quita el texto de arriba de la última» sí (la última imagen del chat)', cambioSimple(chatJ, 'Quita el texto de arriba de la última')?.v === 'V02');
+  check('«Pon V01 en vertical» va directo como cambio de tamaño (2026-11-27c)', cambioSimple(chatJ, 'Pon V01 en vertical')?.tipo === 'tamano' && cambioSimple(chatJ, 'Pon V01 en vertical').vs.join() === 'V01');
+  check('«Quita el texto de arriba de la última» sí (la última imagen del chat)', cambioSimple(chatJ, 'Quita el texto de arriba de la última')?.vs?.join() === 'V02');
 
   console.log('\n  Conversar sin crear y adjuntar');
   r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: '¿Qué tamaño conviene para historias?' } });
@@ -190,6 +190,43 @@ async function principal() {
   d = await esperar(5, () => chatDe(id), (x) => !x?.pensando && respuestas(x).length === 7 && ['listo', 'error'].includes(x?.conductor?.estado));
   const f6 = leerJ(path.join(carpeta, 'app', 'chat', 'falso-5.json'));
   check('Volver a enviar un mensaje corregido, con su misma imagen adjunta', r.st === 200 && f6.conAdjunto === true, { st: r.st, f6 });
+  console.log('\n  Elegir varias imágenes y cambiarlas juntas');
+  const vers = async () => Object.fromEntries(((await pedir(`/api/imagen-ads/${lote}`)).datos?.variaciones || []).map((x) => [x.v, { version: x.piezas['1:1'].version, formato: x.piezas['1:1'].formato }]));
+  const quieto = (x) => !x?.pensando && ['listo', 'error'].includes(x?.conductor?.estado);
+  r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: 'Borra el texto', seleccion: ['V99'] } });
+  check('Una imagen que no es del chat no se acepta (400)', r.st === 400, r);
+  r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: '', seleccion: ['V01'] } });
+  check('Elegir sin decir qué cambiar no vale (400)', r.st === 400, r);
+  let antesV = await vers();
+  const nR = respuestas(await chatDe(id)).length;
+  r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: 'Borra el texto de abajo', seleccion: ['V01', 'V02'] } });
+  d = await chatDe(id);
+  const rv = respuestas(d)[nR];
+  check('V01 y V02 elegidas + «borra el texto de abajo»: al instante, sin la IA, las dos', r.st === 200 && rv?.rapido && rv.imagenes?.map((x) => x.v).join(',') === 'V01,V02', rv);
+  check('…tu mensaje dice para cuáles era', d.mensajes.filter((m) => m.de === 'tu').pop()?.seleccion?.join(',') === 'V01,V02');
+  d = await esperar(5, () => chatDe(id), quieto);
+  let ahoraV = await vers();
+  check('…y las dos suben de versión', ahoraV.V01.version === antesV.V01.version + 1 && ahoraV.V02.version === antesV.V02.version + 1, { antesV, ahoraV });
+  antesV = ahoraV;
+  r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: 'Pásalas a vertical', seleccion: ['V01', 'V04'] } });
+  d = await chatDe(id);
+  const rt = respuestas(d)[nR + 1];
+  check('«Pásalas a vertical» va directo: V04 cambia y V01 (ya era 9:16) se salta', rt?.rapido && /V04/.test(rt.texto) && /V01 ya está en 9:16/.test(rt.texto), rt?.texto);
+  d = await esperar(5, () => chatDe(id), quieto);
+  ahoraV = await vers();
+  check('…V04 queda en 9:16 como versión nueva', ahoraV.V04.formato === '9:16' && ahoraV.V04.version === antesV.V04.version + 1 && ahoraV.V01.version === antesV.V01.version, { antesV, ahoraV });
+  antesV = ahoraV;
+  const turnosAntes = leerJ(path.join(RAIZ, 'temp', '_chat-imagenes', id, 'chat.json')).turnos;
+  r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: 'Hazlas más vendedoras', seleccion: ['V03', 'V05'] } });
+  d = await esperar(5, () => chatDe(id), (x) => quieto(x) && respuestas(x).length === nR + 3);
+  ahoraV = await vers();
+  const tarea = fs.readFileSync(path.join(carpeta, 'app', 'chat', `preferido-${turnosAntes + 1}.txt`), 'utf8');
+  check('Un cambio que no es simple va a la IA con las elegidas, y les cambia a las dos', fs.existsSync(path.join(carpeta, 'app', 'chat', `falso-${turnosAntes + 1}.json`)) && ahoraV.V03.version === antesV.V03.version + 1 && ahoraV.V05.version === antesV.V05.version + 1, { tarea: tarea.slice(0, 80), antesV, ahoraV, texto: respuestas(d)[nR + 2]?.texto });
+  const { cambioSimple: cs } = await import('../server/lib/imagen-ads/chat.js');
+  const cj = leerJ(path.join(RAIZ, 'temp', '_chat-imagenes', id, 'chat.json'));
+  check('«Pon V02 en 4:5» es un cambio de tamaño directo', cs(cj, 'Pon V02 en 4:5')?.tipo === 'tamano' && cs(cj, 'Pon V02 en 4:5').formato === '4:5');
+  check('«Pon el fondo vertical a rayas en V02» no es un cambio de tamaño (pide otra cosa)', cs(cj, 'Pon el fondo a rayas verticales en V02')?.tipo !== 'tamano');
+
   const vl = (await pedir(`/api/imagen-ads/${lote}`)).datos;
   check('Las imágenes están en el lote del producto (Anuncios de imagen)', vl?.variaciones?.length >= 4, vl?.variaciones?.length);
 

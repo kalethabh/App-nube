@@ -314,6 +314,12 @@ async function chatImagenes(texto) {
   // lo que vio (para la prueba): si retomó la sesión y si trae el conocimiento
   fs.mkdirSync(path.join(RAIZ, C, 'app', 'chat'), { recursive: true });
   fs.writeFileSync(path.join(RAIZ, C, 'app', 'chat', `falso-${(salida.match(/respuesta-(\d+)/) || [])[1]}.json`), JSON.stringify({ resume: Boolean(val('--resume')), primera: !/sigue la misma conversación/.test(texto), conocimiento: ['Cómo trabaja Mayaverra', 'Reglas de conversión', 'Detalle del visual_prompt', 'El producto'].filter((k) => texto.includes(k)), conAdjunto: /Adjuntó: /.test(texto) }));
+  // (2026-11-27c) las imágenes que eligió el usuario: un cambio por cada una
+  const elegidas = idsDe((texto.match(/## Las imágenes que eligió el usuario: ([^\n]+)/) || [])[1] || '');
+  if (elegidas.length) {
+    await escribir(salida, { respuesta: `Les hago el cambio a ${elegidas.join(', ')} (prueba).`, nuevas: [], cambios: elegidas.map((v) => ({ pieza: `${v}_1x1`, instruccion_en: 'Make it more persuasive: bigger headline, brighter product; keep everything else identical.', textos: false })) });
+    return 'LISTO';
+  }
   const pieza = (msg.match(/V\d{2,3}/) || [])[0];
   if (/cambia|cambiar/i.test(msg) && pieza) {
     await escribir(salida, { respuesta: `Listo: le cambio el fondo a ${pieza} y dejo todo lo demás igual.`, nuevas: [], cambios: [{ pieza: `${pieza}_1x1`, instruccion_en: 'Change only the background to a warm beige studio wall; keep everything else identical.', textos: false }] });

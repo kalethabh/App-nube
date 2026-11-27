@@ -115,7 +115,7 @@ function fallo(r, { que = 'este paso', mensaje = null } = {}) {
   return {
     ok: false,
     error: {
-      mensaje: mensaje && !['ruta-larga', 'clave', 'cuota-voz', 'red', 'servidor', 'contenido'].includes(r.clase) ? mensaje : mensajeDeFallo(r.clase, { que }),
+      mensaje: mensaje && !['ruta-larga', 'clave', 'cuota-voz', 'voz-pago', 'red', 'servidor', 'contenido'].includes(r.clase) ? mensaje : mensajeDeFallo(r.clase, { que }),
       motivo: r.clase || 'otro',
       detalle: ultimasLineas(r.texto),
     },

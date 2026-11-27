@@ -4,7 +4,7 @@
 // lote del producto: sus imágenes quedan en Anuncios de imagen → la carpeta del producto.
 // Servidor: /api/chat-imagenes (lib/imagen-ads/chat.js).
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Download, FolderOpen, ImagePlus, MessageSquarePlus, Paperclip, Pencil, Send, Sparkles, Trash2, X } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Download, FolderOpen, ImagePlus, MessageSquarePlus, Paperclip, Pencil, Send, Sparkles, Trash2, X } from 'lucide-react';
 import { Boton, CabeceraPagina, Chip, EstadoVacio, Modal, useAvisos } from '../../componentes/index.js';
 import { pedirNuevo, useDatos, refrescar } from '../../datos/api.js';
 import { apiImagenes, copiarDesde, useProductosImagen } from '../../datos/imagenes.js';
@@ -116,6 +116,9 @@ function Conversacion({ id }) {
   const [cantidad, setCantidad] = useState(null);
   const [ver, setVer] = useState(null); // { lista: [url], i } la imagen adjunta en grande
   const [editando, setEditando] = useState(null); // { id, texto } tu mensaje que estás corrigiendo
+  // (2026-11-27c) las imágenes que elegiste para cambiarlas juntas
+  const [elegidas, setElegidas] = useState([]);
+  const alternar = (v) => setElegidas((l) => (l.includes(v) ? l.filter((x) => x !== v) : [...l, v].slice(0, 12)));
   const [adjuntos, setAdjuntos] = useState([]); // [{ archivo, url }]
   const [enviando, setEnviando] = useState(false);
   const [falla, setFalla] = useState('');
@@ -170,18 +173,20 @@ function Conversacion({ id }) {
     return () => window.removeEventListener('keydown', tecla);
   }, [ver]);
 
-  const enviar = async (t = texto, { adj = null } = {}) => {
+  const enviar = async (t = texto, { adj = null, sel = null } = {}) => {
     const m = String(t || '').trim();
     const lista = adj || adjuntos.map((a) => a.archivo);
+    const seleccion = sel || elegidas;
     if ((!m && !lista.length) || enviando || pensando) return;
     setEnviando(true);
     setFalla('');
     try {
-      await pedirNuevo(`${BASE}/${id}/mensajes`, { metodo: 'POST', cuerpo: { texto: m, adjuntos: lista, formato, cantidad } });
+      await pedirNuevo(`${BASE}/${id}/mensajes`, { metodo: 'POST', cuerpo: { texto: m, adjuntos: lista, formato, cantidad, seleccion } });
       if (adj) setEditando(null);
       else {
         setTexto('');
         setAdjuntos([]);
+        setElegidas([]);
       }
       refrescar(clave);
       refrescar('chat-imagenes:lista');
@@ -257,7 +262,7 @@ function Conversacion({ id }) {
                       <Boton variante="fantasma" tamano="chico" onClick={() => setEditando(null)}>
                         Cancelar
                       </Boton>
-                      <Boton variante="secundario" tamano="chico" icono={Send} cargando={enviando} disabled={pensando || !editando.texto.trim()} onClick={() => enviar(editando.texto, { adj: (m.adjuntos || []).map((a) => a.archivo) })}>
+                      <Boton variante="secundario" tamano="chico" icono={Send} cargando={enviando} disabled={pensando || !editando.texto.trim()} onClick={() => enviar(editando.texto, { adj: (m.adjuntos || []).map((a) => a.archivo), sel: m.seleccion || [] })}>
                         Volver a enviar
                       </Boton>
                     </div>
@@ -265,6 +270,7 @@ function Conversacion({ id }) {
                 ) : m.texto ? (
                   <p>{m.texto}</p>
                 ) : null}
+                {(m.seleccion || []).length ? <span className="chat-img__para t-mini">Para {m.seleccion.join(', ')}</span> : null}
                 {(m.adjuntos || []).length ? (
                   <div className="chat-img__adjuntos">
                     {m.adjuntos.map((a, i) => (
@@ -277,7 +283,10 @@ function Conversacion({ id }) {
                 {(m.imagenes || []).length ? (
                   <div className="chat-img__imagenes">
                     {m.imagenes.map((x) => (
-                      <div key={x.v} className="chat-img__imagen">
+                      <div key={x.v} className={`chat-img__imagen${elegidas.includes(x.v) ? ' chat-img__imagen--elegida' : ''}`}>
+                        <button type="button" className="chat-img__elegir" aria-pressed={elegidas.includes(x.v)} aria-label={`Elegir ${x.v} para cambiarla`} title={elegidas.includes(x.v) ? 'Quitar de la elección' : 'Elegir para cambiarla (puedes elegir varias)'} onClick={() => alternar(x.v)}>
+                          {elegidas.includes(x.v) ? <Check size={13} strokeWidth={3} aria-hidden="true" /> : null}
+                        </button>
                         <span className="chat-img__v t-num">{x.v}</span>
                         <TarjetaPieza p={x.piezas['1:1']} formato="1:1" onAbrir={() => setVisor({ v: x.v, formato: '1:1' })} onRegenerar={pedirCambio} onCopiar={copiar} />
                       </div>
@@ -286,6 +295,11 @@ function Conversacion({ id }) {
                 ) : null}
                 <small className="chat-img__pie">
                   {fechaRelativa(m.fecha)}
+                  {(m.imagenes || []).length > 1 ? (
+                    <button type="button" className="chat-img__editar-btn" onClick={() => setElegidas((l) => [...new Set([...l, ...m.imagenes.map((x) => x.v)])].slice(0, 12))}>
+                      <Check size={11} aria-hidden="true" /> Elegir estas {m.imagenes.length}
+                    </button>
+                  ) : null}
                   {m.de === 'tu' && editando?.id !== m.id ? (
                     <button type="button" className="chat-img__editar-btn" onClick={() => setEditando({ id: m.id, texto: m.texto || '' })} disabled={pensando}>
                       <Pencil size={11} aria-hidden="true" /> Editar y volver a enviar
@@ -323,6 +337,21 @@ function Conversacion({ id }) {
             adjuntar(e.dataTransfer?.files);
           }}
         >
+          {elegidas.length ? (
+            <div className="chat-img__elegidas" role="group" aria-label="Las imágenes que vas a cambiar">
+              <span className="t-chico">
+                <strong>Vas a cambiar:</strong>
+              </span>
+              {elegidas.map((v) => (
+                <Chip key={v} tamano="chico" activo onClick={() => alternar(v)} title={`Quitar ${v}`}>
+                  {v} ✕
+                </Chip>
+              ))}
+              <button type="button" className="chat-img__editar-btn" onClick={() => setElegidas([])}>
+                Quitar todas
+              </button>
+            </div>
+          ) : null}
           {adjuntos.length ? (
             <div className="chat-img__adjuntos chat-img__adjuntos--caja">
               {adjuntos.map((a) => (
@@ -340,7 +369,7 @@ function Conversacion({ id }) {
           <textarea
             ref={caja}
             rows={2}
-            placeholder="Ej.: hazme 3 anuncios de antes y después de glúteos, en vertical, con promesa de 4 semanas…"
+            placeholder={elegidas.length ? `¿Qué les cambio a ${elegidas.join(', ')}? Ej.: borra el texto de abajo, pon el fondo blanco, pásalas a vertical…` : 'Ej.: hazme 3 anuncios de antes y después de glúteos, en vertical, con promesa de 4 semanas…'}
             value={texto}
             onChange={(e) => setTexto(e.target.value)}
             onKeyDown={(e) => {
