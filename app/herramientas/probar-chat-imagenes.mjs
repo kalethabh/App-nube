@@ -1,0 +1,200 @@
+// Prueba del CHAT DE IMÁGENES (2026-11-27a), SIN GASTAR NADA (modo prueba: kie simulado y el Claude falso). Revisa:
+//   crear el chat (su lote del producto), el costo («genera directo» con una autorización), crear imágenes en el tamaño
+//   pedido, cambiar una (versión nueva, sin tanda de ajuste), la memoria entre turnos, conversar sin crear, adjuntar y borrar.
+//   node app/herramientas/probar-chat-imagenes.mjs        (PUERTO=<n>, por defecto 4498)
+import fs from 'node:fs';
+import path from 'node:path';
+import cp from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+
+const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const RAIZ = path.resolve(APP, '..');
+const PUERTO = Number(process.env.PUERTO) || 4498;
+process.env.PUERTO = String(PUERTO); // (los módulos que se importan abajo usan los aprendizajes de esta prueba)
+const BASE = `http://127.0.0.1:${PUERTO}`;
+const dormir = (ms) => new Promise((ok) => setTimeout(ok, ms));
+let fallas = 0;
+let pasan = 0;
+const check = (que, ok, detalle) => {
+  if (ok) pasan++;
+  else fallas++;
+  console.log(`${ok ? '  ok ' : '  MAL'}  ${que}${ok || detalle === undefined ? '' : `\n        ${JSON.stringify(detalle).slice(0, 900)}`}`);
+  return Boolean(ok);
+};
+const t0 = Date.now();
+async function pedir(ruta, o = {}) {
+  const cuerpo = o.json !== undefined ? JSON.stringify(o.json) : o.cuerpo;
+  const headers = { Accept: 'application/json', ...(o.json !== undefined ? { 'Content-Type': 'application/json' } : {}), ...(o.headers || {}) };
+  const r = await fetch(BASE + ruta, { method: o.metodo || (cuerpo !== undefined ? 'POST' : 'GET'), headers, body: cuerpo, signal: AbortSignal.timeout(60000) });
+  const tipo = r.headers.get('content-type') || '';
+  return { st: r.status, datos: tipo.includes('json') ? await r.json().catch(() => null) : await r.arrayBuffer() };
+}
+async function esperar(minutos, leer, listo) {
+  const hasta = Date.now() + minutos * 60000;
+  let ultimo = null;
+  while (Date.now() < hasta) {
+    try {
+      ultimo = await leer();
+      if (listo(ultimo)) return ultimo;
+    } catch (e) {
+      ultimo = { error: e.message };
+    }
+    await dormir(1200);
+  }
+  return { ...ultimo, _seAcaboElTiempo: true };
+}
+
+const TMP = fs.mkdtempSync(path.join(RAIZ, 'temp', '_probar-chat-'));
+const ffmpeg = (args) => cp.execFileSync('ffmpeg', ['-v', 'error', '-y', ...args]);
+const FOTO = path.join(TMP, 'producto.png');
+ffmpeg(['-f', 'lavfi', '-i', 'color=c=0xcc3355:s=640x640', '-frames:v', '1', FOTO]);
+const ENV = path.join(RAIZ, '.env');
+const envPropio = !fs.existsSync(ENV);
+if (envPropio) fs.writeFileSync(ENV, '# Lo escribió probar-chat-imagenes.mjs: claves falsas.\nKIE_API_KEY=simulada\nELEVENLABS_API_KEY=simulada\n');
+const env = { ...process.env };
+for (const k of Object.keys(env)) if (/^(ANTHROPIC_|CLAUDE_CODE_OAUTH|KIE_|ELEVENLABS_|OPENAI_|CODEX_|FALSO_)/i.test(k)) delete env[k];
+Object.assign(env, { PUERTO: String(PUERTO), ANUNCIOS_MODO_PRUEBA: '1', ANUNCIOS_PRUEBA_LIMPIO: '1', ANUNCIOS_SIN_GUARDADO: '1', ANUNCIOS_CLAUDE_BIN: path.join(APP, 'server', 'claude', 'pruebas', 'claude-falso.js'), AIA_MOTOR: 'claude' });
+const log = fs.createWriteStream(path.join(TMP, 'app.log'));
+const app = cp.spawn(process.execPath, ['server/index.js'], { cwd: APP, env, stdio: ['ignore', 'pipe', 'pipe'], detached: true });
+app.stdout.pipe(log);
+app.stderr.pipe(log);
+const creados = { producto: null, lotes: [], funcionan: [], chats: [] };
+// («Me funciona» es tuyo: se guarda como estaba y se deja igual al terminar)
+const LISTA_FUNCIONAN = path.join(RAIZ, 'temp', '_funcionan', 'lista.json');
+const listaAntes = fs.existsSync(LISTA_FUNCIONAN) ? fs.readFileSync(LISTA_FUNCIONAN) : null;
+const imgsAntes = new Set(fs.existsSync(path.join(RAIZ, 'temp', '_funcionan', 'img')) ? fs.readdirSync(path.join(RAIZ, 'temp', '_funcionan', 'img')) : []);
+
+async function unLote(id, porImagen, cuerpo) {
+  const r = await pedir('/api/imagen-ads', { json: { productoId: id, fotoProducto: 1, datos: { nombre: 'Curvas Plus', pais: 'Colombia', idioma: 'es' }, formatos: ['1:1'], logo: null, usarInvestigacion: false, ...cuerpo } });
+  const lote = r.datos?.lote;
+  if (!lote) return { r };
+  creados.lotes.push(lote);
+  await pedir(`/api/imagen-ads/${lote}/generar`, { json: { costoMaximoConfirmado: Math.round(porImagen * cuerpo.cantidad * 100) / 100 } });
+  const vista = await esperar(8, async () => (await pedir(`/api/imagen-ads/${lote}`)).datos, (d) => ['listo', 'error'].includes(d?.conductor?.estado));
+  return { r, lote, vista };
+}
+
+
+
+const leerJ = (a) => JSON.parse(fs.readFileSync(a, 'utf8'));
+const chatDe = async (id) => (await pedir(`/api/chat-imagenes/${id}`)).datos;
+const respuestas = (d) => (d?.mensajes || []).filter((m) => m.de === 'chat');
+
+async function principal() {
+  let arriba = false;
+  for (let i = 0; i < 120 && !arriba; i++) {
+    try {
+      arriba = (await pedir('/api/estilos')).st === 200;
+    } catch {
+      await dormir(500);
+    }
+  }
+  if (!check('La app de prueba arranca', arriba)) return;
+  let r = await pedir('/api/productos', { json: { nombre: 'Curvas Plus', tipo: 'fisico', descripcion: 'Gotas para glúteos y curvas.' } });
+  const pid = r.datos?.id;
+  creados.producto = pid;
+  await pedir(`/api/productos/${pid}/fotos/1`, { metodo: 'PUT', cuerpo: fs.readFileSync(FOTO), headers: { 'Content-Type': 'image/png' } });
+
+  console.log('\n  Crear el chat');
+  r = await pedir('/api/chat-imagenes', { json: { productoId: pid } });
+  const id = r.datos?.id;
+  const lote = r.datos?.lote;
+  if (id) creados.chats.push(id);
+  if (lote) creados.lotes.push(lote);
+  check('Se crea el chat con su lote del producto', r.st === 200 && /^[a-f0-9]{10}$/.test(id || '') && /^_img-/.test(lote || ''), r);
+  const carpeta = path.join(RAIZ, 'temp', lote);
+  const b0 = leerJ(path.join(carpeta, 'app', 'brief.json'));
+  check('…el lote es del producto, de chat y empieza sin imágenes (sale en su carpeta)', b0.productoId === pid && b0.chat?.id === id && b0.cantidad === 0, { productoId: b0.productoId, chat: b0.chat, cantidad: b0.cantidad });
+  check('…con la foto del producto ya en el lote', fs.readdirSync(path.join(carpeta, 'entrada')).some((n) => /^producto\./.test(n)));
+  const lista = (await pedir('/api/chat-imagenes')).datos?.chats || [];
+  check('La lista de chats lo trae', lista.some((c) => c.id === id && c.productoId === pid));
+
+  console.log('\n  El costo (genera directo)');
+  r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: 'Hazme 2 en 9:16 de glúteos', formato: '1:1', cantidad: 1 } });
+  check('Sin autorizar el costo, no crea nada (428)', r.st === 428, r);
+  let d = await chatDe(id);
+  check('El chat dice cuánto cuesta cada imagen', d?.costo?.dolaresPorImagen > 0 && d.costo.autorizado === false, d?.costo);
+  r = await pedir(`/api/chat-imagenes/${id}/autorizar`, { json: { dolaresPorImagen: 0.001 } });
+  check('Autorizar con un precio menor al real no vale (428)', r.st === 428, r);
+  r = await pedir(`/api/chat-imagenes/${id}/autorizar`, { json: { dolaresPorImagen: d.costo.dolaresPorImagen } });
+  check('«Sí, crear directo» queda guardado', r.st === 200 && r.datos?.autorizado?.dolaresPorImagen === d.costo.dolaresPorImagen, r);
+
+  console.log('\n  Crear imágenes');
+  r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: 'Hazme 2 en 9:16 de glúteos', formato: '1:1', cantidad: 1 } });
+  check('El mensaje entra y la IA contesta de fondo', r.st === 200 && r.datos?.pensando === true, r);
+  r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: 'otra cosa' } });
+  check('Mientras contesta, no acepta otro mensaje (409)', r.st === 409, r);
+  d = await esperar(5, () => chatDe(id), (x) => !x?.pensando && respuestas(x).length === 1 && (respuestas(x)[0].imagenes || []).length === 2 && respuestas(x)[0].imagenes.every((v) => v.piezas?.['1:1']?.url) && ['listo', 'error'].includes(x?.conductor?.estado));
+  const r1 = respuestas(d)[0];
+  check('Contesta y crea V01 y V02', r1?.imagenes?.map((x) => x.v).join(',') === 'V01,V02', { texto: r1?.texto, imagenes: r1?.imagenes?.map((x) => x.v), conductor: d?.conductor });
+  check('…las dos en 9:16 (lo que pidió el mensaje)', r1?.imagenes?.every((x) => x.piezas['1:1'].formato === '9:16'), r1?.imagenes?.map((x) => x.piezas['1:1'].formato));
+  const dim = cp.execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', path.join(carpeta, 'img', 'V01_1x1.png')]).toString().trim().split(',').map(Number);
+  check(`…y la imagen mide 9:16 (${dim.join('x')})`, Math.abs(dim[0] / dim[1] - 9 / 16) < 0.02, dim);
+  check('…listas sin revisión (genera directo)', r1?.imagenes?.every((x) => x.piezas['1:1'].estado === 'listo'), r1?.imagenes?.map((x) => x.piezas['1:1'].estado));
+  check('…y la respuesta dice cuánto costaron', /2 imágenes · ~US\$/.test(r1?.texto || ''), r1?.texto);
+  const f1 = leerJ(path.join(carpeta, 'app', 'chat', 'falso-1.json'));
+  check('El primer turno lleva todo el conocimiento (producto, Mayaverra, reglas de conversión, detalle)', f1.primera && f1.conocimiento.length === 4 && !f1.resume, f1);
+  const est1 = leerJ(path.join(carpeta, 'app', 'imagen-ads', 'estado.json'));
+  check('No hubo estrategia ni revisión de la IA del lote', !Object.values(est1.tandas).some((t) => ['revision', 'prompts'].includes(t.tipo) && !t.simulada), Object.values(est1.tandas).map((t) => t.tipo));
+
+  console.log('\n  Cambiar una imagen');
+  r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: 'Cambia el fondo de V01' } });
+  d = await esperar(5, () => chatDe(id), (x) => !x?.pensando && respuestas(x).length === 2 && (x.mensajes.findLast((m) => m.de === 'chat')?.imagenes?.[0]?.piezas?.['1:1']?.version || 0) >= 2 && ['listo', 'error'].includes(x?.conductor?.estado));
+  const r2 = respuestas(d)[1];
+  const p1 = r2?.imagenes?.[0]?.piezas?.['1:1'];
+  check('V01 queda en versión 2 y sigue en 9:16', p1?.version === 2 && p1?.formato === '9:16', { texto: r2?.texto, version: p1?.version, formato: p1?.formato });
+  check('…con la anterior en «Versiones anteriores»', (p1?.versiones || []).length === 1, p1?.versiones);
+  const est2 = leerJ(path.join(carpeta, 'app', 'imagen-ads', 'estado.json'));
+  check('…sin tanda de ajuste (el chat ya mandó el cambio traducido)', !Object.values(est2.tandas).some((t) => t.tipo === 'ajuste'), Object.values(est2.tandas).map((t) => t.tipo));
+  const f2 = leerJ(path.join(carpeta, 'app', 'chat', 'falso-2.json'));
+  check('El segundo turno retoma la misma conversación', f2.resume === true && !f2.primera, f2);
+  const prompts = fs.readdirSync(path.join(carpeta, 'prompts')).filter((n) => n.startsWith('V01_1x1')).map((n) => fs.readFileSync(path.join(carpeta, 'prompts', n), 'utf8'));
+  check('Al modelo le llega la instrucción del cambio', prompts.some((t) => /warm beige studio wall/.test(t)), prompts.map((t) => t.slice(0, 120)));
+
+  console.log('\n  Conversar sin crear y adjuntar');
+  r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: '¿Qué tamaño conviene para historias?' } });
+  d = await esperar(3, () => chatDe(id), (x) => !x?.pensando && respuestas(x).length === 3);
+  check('Una pregunta se contesta sin crear imágenes', respuestas(d)[2] && !(respuestas(d)[2].imagenes || []).length && leerJ(path.join(carpeta, 'app', 'brief.json')).cantidad === 2, respuestas(d)[2]);
+  r = await pedir(`/api/chat-imagenes/${id}/adjuntos`, { metodo: 'POST', cuerpo: fs.readFileSync(FOTO), headers: { 'Content-Type': 'image/png' } });
+  const adj = r.datos?.archivo;
+  check('Se adjunta una imagen al chat', r.st === 200 && adj === 'A0001.png', r);
+  r = await pedir(`/api/chat-imagenes/${id}/mensajes`, { json: { texto: 'Hazme 1 como esta', adjuntos: [adj], formato: '4:5' } });
+  d = await esperar(5, () => chatDe(id), (x) => !x?.pensando && respuestas(x).length === 4 && (respuestas(x)[3].imagenes || []).every((v) => v.piezas?.['1:1']?.url) && ['listo', 'error'].includes(x?.conductor?.estado));
+  const r4 = respuestas(d)[3];
+  const f4 = leerJ(path.join(carpeta, 'app', 'chat', 'falso-4.json'));
+  check('La IA recibe el adjunto y crea V03 en el tamaño elegido (4:5)', f4.conAdjunto && r4?.imagenes?.[0]?.v === 'V03' && r4.imagenes[0].piezas['1:1'].formato === '4:5', { f4, img: r4?.imagenes?.map((x) => [x.v, x.piezas['1:1'].formato]) });
+  const tuyos = d.mensajes.filter((m) => m.de === 'tu');
+  check('Tu mensaje muestra su adjunto', tuyos[tuyos.length - 1]?.adjuntos?.[0]?.url?.includes('/archivos/chat-imagenes/'), tuyos[tuyos.length - 1]);
+  const vl = (await pedir(`/api/imagen-ads/${lote}`)).datos;
+  check('Las imágenes están en el lote del producto (Anuncios de imagen)', vl?.variaciones?.length === 3, vl?.variaciones?.length);
+
+  console.log('\n  Borrar el chat');
+  r = await pedir(`/api/chat-imagenes/${id}`, { metodo: 'DELETE' });
+  check('Se borra la conversación; las imágenes siguen en la carpeta del producto', r.st === 200 && !fs.existsSync(path.join(RAIZ, 'temp', '_chat-imagenes', id)) && fs.existsSync(path.join(carpeta, 'img', 'V01_1x1.png')), r);
+}
+
+try {
+  await principal();
+} catch (e) {
+  check('La prueba no se cae', false, String(e?.stack || e));
+} finally {
+  try {
+    process.kill(-app.pid, 'SIGTERM');
+    await dormir(1500);
+    process.kill(-app.pid, 'SIGKILL');
+  } catch {
+    /* ya cerró */
+  }
+  for (const l of creados.lotes) if (l) fs.rmSync(path.join(RAIZ, 'temp', l), { recursive: true, force: true });
+  for (const c of creados.chats) fs.rmSync(path.join(RAIZ, 'temp', '_chat-imagenes', c), { recursive: true, force: true });
+  if (listaAntes) fs.writeFileSync(LISTA_FUNCIONAN, listaAntes);
+  const dirImgF = path.join(RAIZ, 'temp', '_funcionan', 'img');
+  if (fs.existsSync(dirImgF)) for (const n of fs.readdirSync(dirImgF)) if (!imgsAntes.has(n)) fs.rmSync(path.join(dirImgF, n), { force: true });
+  if (creados.producto) fs.rmSync(path.join(RAIZ, 'temp', '_productos', creados.producto), { recursive: true, force: true });
+  fs.rmSync(path.join(RAIZ, 'temp', `_modo-prueba-${PUERTO}`), { recursive: true, force: true });
+  if (envPropio) fs.rmSync(ENV, { force: true });
+  if (fallas) console.log(`\n  Registro de la app: ${path.join(TMP, 'app.log')}`);
+  else fs.rmSync(TMP, { recursive: true, force: true });
+  console.log(`\n  ${pasan} bien, ${fallas} mal · ${Math.round((Date.now() - t0) / 1000)} s\n`);
+  process.exit(fallas ? 1 : 0);
+}

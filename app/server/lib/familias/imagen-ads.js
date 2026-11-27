@@ -36,7 +36,7 @@ import * as turnoClaude from '../imagen-ads/turno-claude.js';
 import * as plan from '../imagen-ads/planificador.js';
 import * as local from '../imagen-ads/local.js';
 import { R, firma, guardarJSON, conCeros, siguienteEnDisco, fotoDelLote, formatoDe, vDe } from '../imagen-ads/disco.js';
-import { cargarYNormalizar, guardar, leerEstado } from '../imagen-ads/estado.js';
+import { cargarYNormalizar, guardar, leerEstado, alDiaConElChat } from '../imagen-ads/estado.js';
 import { sesionEstrategia, sesionPrompts, sesionRevision, sesionAjuste, permisos } from '../imagen-ads/sesiones.js';
 import { esVariado, conAnalisis } from '../imagen-ads/variedad.js';
 import { copiarEstructuras, armarComparacion, estructurasDelLote } from '../imagen-ads/comparacion.js';
@@ -228,6 +228,8 @@ function recordarCuerpo(carpeta, brief) {
 async function estrategia(ctx) {
   const c = ctx.carpeta;
   const b = ctx.brief;
+  // (2026-11-27a) el chat de imágenes: los anuncios los escribe el chat (no hay estrategia)
+  if (b?.chat) return { ok: true };
   // (2026-11-26b) las imágenes de las estructuras ganadoras, en tu biblioteca (la primera vez se bajan solas)
   if (!plantillas.esLoteDePlantillas(b)) await asegurarReferencias(Array.isArray(b.estructuras) && b.estructuras.length ? b.estructuras : listaEstructuras().map((x) => x.id));
   // PLANTILLAS (2026-11-17p): la app arma los textos sola (de los ganchos, la ficha y la investigación) y dibuja la
@@ -835,7 +837,7 @@ async function anuncios(ctx) {
   const corte = new AbortController();
   const senal = AbortSignal.any([ctx.senal, corte.signal]);
   // (modo rápido: sin la revisión de la IA; las imágenes quedan listas apenas salen)
-  const run = { fallosMotor: 0, fallosLocal: 0, intentos: new Map(), limite: null, sinRevision: ctx.brief?.rapido ? 'rapido' : null, duro: null, frase: null, tanda: null, cache: new Map(), senal, cerrado: false };
+  const run = { fallosMotor: 0, fallosLocal: 0, intentos: new Map(), limite: null, sinRevision: ctx.brief?.rapido || ctx.brief?.chat ? 'rapido' : null, duro: null, frase: null, tanda: null, cache: new Map(), senal, cerrado: false };
   // plantillas: el dibujo de las imágenes (vista previa al instante y otra vez cuando llega cada escena)
   const conPlantillas = plantillas.esLoteDePlantillas(ctx.brief);
   const dibujo = { corriendo: null, ultimo: null, fallasSeguidas: 0 };
@@ -861,6 +863,8 @@ async function anuncios(ctx) {
     for (;;) {
       if (ctx.senal.aborted) break;
       const brief = leerJSON(R.brief(c)) || ctx.brief; // el logo puede cambiar mientras corre
+      // (2026-11-27a) el chat de imágenes: las que pidió mientras corre entran en esta misma vuelta
+      if (brief?.chat) alDiaConElChat(est, c, brief);
       // (2026-11-26i) «Crear otro tamaño» mientras corre: su pieza entra en esta misma vuelta
       if (brief?.extras && !conPlantillas) plan.asegurarPiezas(est, { cantidad: Object.keys(est.variaciones).length, formatos: brief.formatos?.length ? brief.formatos : ['1:1'], extras: brief.extras });
       absorber(est, c, run);
@@ -1020,8 +1024,11 @@ async function informe(ctx) {
   }
   // (2026-11-26c) EL SUPERVISOR: lo pedido contra lo que salió; si algo falló, reglas para que no se repita
   try {
-    ctx.avance?.('El supervisor revisa lo que salió');
-    await supervisarLote(c, ctx.brief, leerEstado(c), { lote: ctx.slug });
+    // (el chat de imágenes no lleva supervisor: cada mensaje es un pedido suelto)
+    if (!ctx.brief?.chat) {
+      ctx.avance?.('El supervisor revisa lo que salió');
+      await supervisarLote(c, ctx.brief, leerEstado(c), { lote: ctx.slug });
+    }
   } catch (e) {
     console.error(`[imagen-ads] ${ctx.slug}: el supervisor no pudo revisar: ${e?.message || e}`);
   }

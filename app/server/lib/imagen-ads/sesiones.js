@@ -169,7 +169,7 @@ export function textoVenta(brief) {
   return `\n## Lo de venta del formulario (manda sobre la skill)\n${l.join('\n')}\n`;
 }
 
-const REGLAS_CONVERSION = `## Reglas de conversión (todas las variaciones)
+export const REGLAS_CONVERSION = `## Reglas de conversión (todas las variaciones)
 - UN solo mensaje por imagen. GANCHO afirmativo de máximo 7 palabras, sin preguntas (sin «¿?»), y debajo la PROPUESTA DE VALOR con el resultado y el tiempo (ver «Títulos como Mayaverra»).
 - El producto IDÉNTICO a la foto (forma, etiqueta, colores) y legible; nunca rediseñado.
 - Prueba visual del beneficio (se ve, no solo se dice). Antes/después y progreso (días, semanas, meses): la misma persona, pero CADA MOMENTO con otra pose, ropa, peinado, escenario e iluminación, para que se note que pasó el tiempo; natural, con una diferencia que se note; nunca el mismo cuadro retocado.
@@ -684,7 +684,7 @@ Pasa solo con ${NOTA_MINIMA} o más en los 7. Si alguno queda bajo ${NOTA_MINIMA
 `;
 }
 
-const DETALLE_VISUAL = `## Detalle del visual_prompt (2026-11-26c: «más detalle en las generaciones»)
+export const DETALLE_VISUAL = `## Detalle del visual_prompt (2026-11-26c: «más detalle en las generaciones»)
 Cada \`visual_prompt\` describe, zona por zona (arriba / centro / abajo con su % del lienzo): la composición y qué ocupa cada zona; la luz (dirección, dureza, color) y la cámara (plano, lente, altura); los materiales y la textura realista (piel con poros, tela, vidrio, reflejos); cada texto con su tipografía (familia, peso, mayúsculas, color hex, contorno o fondo) y dónde va; el frasco (posición, % del alto, ángulo, la etiqueta de frente y legible); y en un antes/después, la ropa, la pose y el lugar de cada momento y la diferencia que se nota. Nada genérico («premium», «bonito»): cosas que se ven.`;
 
 /** Las preferencias del usuario y las reglas generales (las de todos los anuncios), si hay. */

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Building2, CirclePause, Clapperboard, House, LayoutTemplate, MessageCircle, Package, Rocket, Scissors, GraduationCap, Images, LayoutGrid, Library, Palette, Wallet, LogOut, PanelLeftClose, PanelLeftOpen, Plus, Settings, Users, ShoppingBag, Telescope, FolderOpen } from 'lucide-react';
+import { Building2, MessagesSquare, CirclePause, Clapperboard, House, LayoutTemplate, MessageCircle, Package, Rocket, Scissors, GraduationCap, Images, LayoutGrid, Library, Palette, Wallet, LogOut, PanelLeftClose, PanelLeftOpen, Plus, Settings, Users, ShoppingBag, Telescope, FolderOpen } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -29,6 +29,8 @@ const GRUPOS = [
     items: [
       // (Inspiración, oculta a pedido del usuario el 2026-11-18: la pantalla sigue en #/inspiracion)
       { id: 'imagenes', texto: 'Anuncios de imagen', icono: Images, href: enlace.imagenes() },
+      // (2026-11-27a) conversas con tu IA y crea imágenes con todo lo que sabe de cómo las quieres
+      { id: 'chat-imagenes', texto: 'Chat de imágenes', icono: MessagesSquare, href: enlace.chatImagenes() },
       { id: 'investigacion', texto: 'Investigación de mercado', icono: Telescope, href: enlace.investigacion() },
       { id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() },
       // (Cambiar el producto vive en Estilos, como un especial: 2026-11-18z)

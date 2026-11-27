@@ -298,6 +298,39 @@ async function mas(texto) {
   return 'LISTO';
 }
 
+/** (2026-11-27a) EL CHAT DE IMÁGENES: crea las que pide (cantidad y tamaño del mensaje o los de por defecto) o anota el cambio. */
+async function chatImagenes(texto) {
+  const lote = texto.match(/Carpeta del lote: temp\/(\S+)/)?.[1] || (texto.match(/`temp\/(_img-[^/`]+)\//) || [])[1];
+  const C = `temp/${lote}`;
+  const brief = leer(path.join(RAIZ, C, 'app', 'brief.json'));
+  const salida = (texto.match(/Escribe `(temp\/\S+\/app\/chat\/respuesta-\d+\.json)`/) || [])[1];
+  const libres = idsDe((texto.match(/Usa estos ids, en orden: ([^.\n]+)\./) || [])[1] || '');
+  const msg = (texto.split('## El mensaje del usuario\n')[1] || '').split('\n\nEscribe `')[0];
+  const [, cantDef, formDef] = texto.match(/Por defecto (\d) en (1:1|9:16|4:5)/) || [null, '1', '1:1'];
+  // lo que vio (para la prueba): si retomó la sesión y si trae el conocimiento
+  fs.mkdirSync(path.join(RAIZ, C, 'app', 'chat'), { recursive: true });
+  fs.writeFileSync(path.join(RAIZ, C, 'app', 'chat', `falso-${(salida.match(/respuesta-(\d+)/) || [])[1]}.json`), JSON.stringify({ resume: Boolean(val('--resume')), primera: !/sigue la misma conversación/.test(texto), conocimiento: ['Cómo trabaja Mayaverra', 'Reglas de conversión', 'Detalle del visual_prompt', 'El producto'].filter((k) => texto.includes(k)), conAdjunto: /Adjuntó: /.test(texto) }));
+  const pieza = (msg.match(/V\d{2,3}/) || [])[0];
+  if (/cambia|cambiar/i.test(msg) && pieza) {
+    await escribir(salida, { respuesta: `Listo: le cambio el fondo a ${pieza} y dejo todo lo demás igual.`, nuevas: [], cambios: [{ pieza: `${pieza}_1x1`, instruccion_en: 'Change only the background to a warm beige studio wall; keep everything else identical.', textos: false }] });
+    return 'LISTO';
+  }
+  if (/\?\s*$/.test(msg.trim()) && !/haz|crea|hazme|genera/i.test(msg)) {
+    await escribir(salida, { respuesta: 'Te respondo sin crear nada (prueba).', nuevas: [], cambios: [] });
+    return 'LISTO';
+  }
+  const n = Math.min(4, Number((msg.match(/\b([1-4])\b/) || [])[1]) || Number(cantDef) || 1);
+  const asp = (msg.match(/\b(9:16|4:5|1:1)\b/) || [])[1] || formDef;
+  const nuevas = libres.slice(0, n).map((v) => ({ v, aspecto: asp }));
+  for (const x of nuevas) {
+    const ad = anuncio(x.v, { angulo: 'Chat', titular: `Titular del chat ${x.v}` }, brief, Number(x.v.slice(1)));
+    ad.text_layers[0].text = `Titular del chat ${x.v}`;
+    await escribir(`${C}/${x.v}.json`, ad);
+  }
+  await escribir(salida, { respuesta: `Te hice ${n} en ${asp} (prueba).`, nuevas, cambios: [] });
+  return 'LISTO';
+}
+
 async function revision(texto) {
   const lote = texto.match(/Carpeta del lote: temp\/(\S+)/)[1];
   const archivo = texto.match(/Escribe `(temp\/\S+\/revision\/R\d{3}\.json)`/)[1];
@@ -381,6 +414,7 @@ async function alMensaje(texto) {
     else if (tarea === 'imagen-ads-prompts') r = await prompts(textoTarea, intento);
     else if (tarea === 'imagen-ads-revision') r = await revision(textoTarea);
     else if (tarea === 'imagen-ads-mas') r = await mas(textoTarea);
+    else if (tarea === 'imagen-ads-chat') r = await chatImagenes(texto);
     else if (tarea === 'imagen-ads-ajuste') r = await ajuste(textoTarea);
   } catch (e) {
     anotar(`fin ${tarea} ${sesion} error ${e.message}`);

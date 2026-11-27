@@ -10,7 +10,7 @@ import { AnalisisGanador } from './AnalisisGanador.jsx';
 import { ComparacionLote } from './ComparacionLote.jsx';
 import { SupervisorLote } from './SupervisorLote.jsx';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, ImageOff, ImagePlus, Play, RotateCcw, SearchX, Sparkles, Trash2, Unplug } from 'lucide-react';
+import { ArrowLeft, ImageOff, ImagePlus, MessagesSquare, Play, RotateCcw, SearchX, Sparkles, Trash2, Unplug } from 'lucide-react';
 import { Boton, CabeceraPagina, Esqueleto, EsqueletoMiniaturas, EstadoVacio, Modal, VistaPrevia, useAvisos, useBarraSuperior } from '../../componentes/index.js';
 import { invalidar } from '../../datos/api.js';
 import { CLAVE_LOTES, apiImagenes, claveLote, copiarDesde, loteActivo, partesDePieza, porNumero, useLote, useOpcionesImagen, costoDelLote } from '../../datos/imagenes.js';
@@ -300,7 +300,7 @@ export default function PantallaLote({ params, consulta }) {
           ) : null
         }
         acciones={
-          conLogoEditable || vista.estrategia ? (
+          conLogoEditable || vista.estrategia || brief.chat ? (
             <div className="fila fila--envolver" style={{ '--hueco': '8px' }}>
               {/* el logo de un lote ya empezado: cambiar el archivo o quitarlo (la posición quedó fija al crear las imágenes) */}
               {conLogoEditable ? (
@@ -316,6 +316,11 @@ export default function PantallaLote({ params, consulta }) {
                   <input ref={entradaLogo} type="file" accept="image/png,image/jpeg,image/webp" hidden onChange={(e) => cambiarLogo(e.target.files?.[0])} />
                 </>
               ) : null}
+              {brief.chat ? (
+                <Boton variante="fantasma" icono={MessagesSquare} href={enlace.chatImagenes(brief.chat)}>
+                  Abrir el chat
+                </Boton>
+              ) : null}
               {vista.estrategia ? (
                 <Boton variante="fantasma" icono={Sparkles} onClick={() => setVerEstrategia(true)}>
                   Ver estrategia
@@ -330,6 +335,15 @@ export default function PantallaLote({ params, consulta }) {
 
   // un borrador: se creó pero no arrancó (algo falló al subir las imágenes). Nada se pagó. (El servidor lo manda
   // como conductor { estado: 'borrador' }; sin conductor, también.)
+  // (2026-11-27a) el lote de un chat de imágenes que todavía no tiene imágenes: se pide desde el chat
+  if (brief.chat && (!c || c.estado === 'borrador')) {
+    return (
+      <div className="pagina lote">
+        {cabecera}
+        <EstadoVacio icono={MessagesSquare} titulo="Las imágenes de este chat aparecen aquí" descripcion="Pídelas en el chat: se crean solas y quedan en esta carpeta." acciones={<Boton variante="primario" icono={MessagesSquare} href={enlace.chatImagenes(brief.chat)}>Abrir el chat</Boton>} />
+      </div>
+    );
+  }
   if (!c || c.estado === 'borrador') {
     return (
       <div className="pagina lote">

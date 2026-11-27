@@ -56,6 +56,22 @@ export function guardar(carpeta, est) {
   return true;
 }
 
+/**
+ * (2026-11-27a) EL CHAT DE IMÁGENES: las imágenes que pidió el chat (su V##.json ya está escrito: no esperan a la IA del
+ * lote) y su tamaño (brief.chat.aspectos), como si se hubieran pedido así desde el principio.
+ */
+export function alDiaConElChat(est, carpeta, brief) {
+  const cantidad = Number(brief?.cantidad) || 0;
+  asegurarPiezas(est, { cantidad, formatos: ['1:1'] });
+  for (const v of idsDelLote(cantidad)) {
+    if (est.variaciones[v]?.prompt === 'falta' && existe(R.v(carpeta, v))) est.variaciones[v] = { prompt: 'listo', tanda: 'E001' };
+    const asp = brief?.chat?.aspectos?.[v];
+    const p = est.piezas[piezaId(v, '1:1')];
+    if (p && asp && asp !== '1:1' && !p.version && !p.aspecto) p.aspecto = asp;
+  }
+  return est;
+}
+
 /** Los numeros de las tandas y las ordenes: nunca uno que ya este en disco. */
 function ponerAlDiaNumeros(carpeta, est) {
   const s = (est.siguiente ||= { E: 1, R: 1, A: 1, T: 1 });
@@ -108,6 +124,7 @@ export function cargarYNormalizar(carpeta, brief, { uuidEstrategia = null, motor
     for (const v of completarVariacionesFieles(carpeta, brief, { normalizarIniciales: true })) est.variaciones[v] = { prompt: 'listo', tanda: 'E001' };
   }
   ponerAlDiaNumeros(carpeta, est);
+  if (brief?.chat) alDiaConElChat(est, carpeta, brief);
 
   for (const [id, t] of Object.entries(est.tandas)) {
     if (t.estado !== 'en-curso' || t.tipo !== 'revision') continue;
@@ -424,6 +441,8 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
       formatos,
       idioma: brief?.datos?.idioma || 'es',
       logo: brief?.logo?.posicion ? { posicion: brief.logo.posicion, url: conLogo ? `${base}/entrada/logo.png?v=${firma(R.logo(carpeta))}` : null, transparente: logoInfo ? Boolean(logoInfo.transparente) : null } : null,
+      // (2026-11-27a) el lote de un chat de imágenes: la pantalla del lote lleva a su chat
+      ...(brief?.chat?.id ? { chat: brief.chat.id } : {}),
     },
     producto: { id: brief?.productoId || null, nombre: brief?.datos?.nombre || brief?.titulo || '', foto: fotoDelLote(carpeta) ? `${base}/${fotoDelLote(carpeta)}` : null },
     conductor: conductor
