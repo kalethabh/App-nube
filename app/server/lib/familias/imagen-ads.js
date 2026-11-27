@@ -49,6 +49,7 @@ import { nombreIA, datosIA, alPreguntarLotesOcupados } from '../motor-ia.js';
 import { motorDeImagenes, entornoParaImagenes, codexParaImagenes } from '../motor-imagenes.js';
 import { prepararRapido } from '../imagen-ads/rapido.js';
 import { pendientesMas, prepararVariantes, verificarMas, unirMas, sesionMas } from '../imagen-ads/mas.js';
+import { fusionarTamanosViejos } from '../imagen-ads/tamanos-viejos.js';
 import * as plantillas from '../imagen-ads/plantillas.js';
 import { calentar as calentarPlantillas } from '../plantillas/render.js';
 
@@ -810,6 +811,14 @@ async function anuncios(ctx) {
   const pasoEstrategia = ctx.conductor?.pasos?.find((p) => p.id === 'estrategia');
   const uuidEstrategia = pasoEstrategia?.uuid || null;
   const motorEstrategia = pasoEstrategia?.motor || null; // la IA que hizo la estrategia (estado.json la guarda en E001)
+  // (2026-11-26k) los tamaños hechos «al lado» en 26i: una versión de la misma imagen
+  if ((leerJSON(R.brief(c)) || ctx.brief)?.extras) {
+    try {
+      fusionarTamanosViejos(c);
+    } catch (e) {
+      console.error(`[imagen-ads] ${ctx.slug}: no pude juntar los tamaños de antes: ${e?.message || e}`);
+    }
+  }
   // (2026-11-26i) «Más imágenes»: antes de todo, las entradas del plan de las V que se sumaron
   if (pendientesMas(c, leerJSON(R.brief(c)) || ctx.brief).length) {
     const r = await prepararMas(ctx);

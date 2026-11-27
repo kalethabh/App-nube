@@ -209,6 +209,30 @@ async function principal() {
   check('La pantalla las marca «Como una que te funciona»', d.variaciones.filter((x) => x.comoGanadora).length === 2);
   const spG = sesionPrompts({ carpeta, lote, brief: leerJ(path.join(carpeta, 'app', 'brief.json')), ids: ['V10'] });
   check('La tarea de la IA le muestra la imagen que te funciona', spG.material.imagenes.some((x) => /entrada\/mas\/M03-1\./.test(x)) && /Como las que le funcionan/.test(spG.prompt));
+  console.log('\n  Un lote con un tamaño «al lado» (hecho en 26i) queda como una versión de la misma imagen');
+  {
+    const est = leerJ(path.join(carpeta, 'app', 'imagen-ads', 'estado.json'));
+    const vAntes3 = est.piezas.V03_1x1.version;
+    cp.execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', path.join(carpeta, 'img', 'V03_1x1.png'), '-vf', 'scale=1024:1280', path.join(carpeta, 'img', 'V03_4x5.png')]);
+    fs.writeFileSync(path.join(carpeta, 'prompts', 'V03_4x5.txt'), 'prompt del retrato de 26i');
+    est.piezas.V03_4x5 = { ...est.piezas.V03_1x1, formato: '4:5', version: 1 };
+    fs.writeFileSync(path.join(carpeta, 'app', 'imagen-ads', 'estado.json'), JSON.stringify(est, null, 2));
+    const b = leerJ(path.join(carpeta, 'app', 'brief.json'));
+    fs.writeFileSync(path.join(carpeta, 'app', 'brief.json'), JSON.stringify({ ...b, extras: { V03: ['4:5'] } }, null, 2));
+    const otras = versiones(await vistaDe(lote));
+    const dv = await vistaDe(lote);
+    const v03 = dv?.variaciones?.find((x) => x.v === 'V03');
+    check('Al abrirlo, V03 queda con UNA sola imagen', v03 && Object.keys(v03.piezas).join(',') === '1:1', v03 && Object.keys(v03.piezas));
+    check('…la de 4:5, como versión nueva', v03?.piezas?.['1:1']?.formato === '4:5' && v03.piezas['1:1'].version === vAntes3 + 1, { formato: v03?.piezas?.['1:1']?.formato, version: v03?.piezas?.['1:1']?.version, vAntes3 });
+    const dimF = cp.execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', path.join(carpeta, 'img', 'V03_1x1.png')]).toString().trim();
+    check(`…la imagen de V03 es la 4:5 (${dimF})`, dimF === '1024,1280', dimF);
+    check('…y la cuadrada quedó en «Versiones anteriores»', (v03?.piezas?.['1:1']?.versiones || []).some((o) => o.formato === '1:1' && o.motivo === 'tamano'), v03?.piezas?.['1:1']?.versiones);
+    check('Ya no quedan la pieza aparte ni brief.extras', !fs.existsSync(path.join(carpeta, 'img', 'V03_4x5.png')) && !leerJ(path.join(carpeta, 'app', 'brief.json')).extras && !leerJ(path.join(carpeta, 'app', 'imagen-ads', 'estado.json')).piezas.V03_4x5);
+    const ahoraJ = versiones(dv);
+    check('Las otras variaciones no cambian', Object.entries(ahoraJ).filter(([k]) => !k.startsWith('V03')).every(([k, v]) => otras[k] === v));
+    const otraVez = versiones(await vistaDe(lote));
+    check('Abrirlo otra vez no cambia nada', JSON.stringify(otraVez) === JSON.stringify(ahoraJ));
+  }
   const zip = await fetch(`${BASE}/api/imagen-ads/${lote}/descargar`, { signal: AbortSignal.timeout(60000) });
   check('Descargar todo sigue funcionando con los tamaños y las nuevas', zip.status === 200 || zip.status === 202, zip.status);
 }

@@ -64,6 +64,7 @@ import { idValido } from '../lib/productos.js';
 import * as videoImagenes from '../lib/imagen-ads/video-imagenes.js';
 import { rutaDeReferencia } from './referencias.js';
 import { nombreDeDescarga } from '../lib/imagen-ads/variedad.js';
+import { fusionarTamanosViejos } from '../lib/imagen-ads/tamanos-viejos.js';
 import { leerSkill } from '../lib/imagen-ads/verificar.js';
 
 // ---------------------------------------------------------------- utilidades
@@ -533,7 +534,15 @@ export default function rutasImagenAds(app) {
 
   // ------------------------------------------------------------ la vista
   app.get('/api/imagen-ads/:lote', conErrores(async (req, res) => {
-    const { lote, carpeta, brief } = elLote(req);
+    let { lote, carpeta, brief } = elLote(req);
+    // (2026-11-26k) los tamaños hechos «al lado» en 26i pasan a ser una versión de la misma imagen (una sola vez)
+    if (brief?.extras && leerConductor(lote) && !enMarcha(lote)) {
+      try {
+        if (fusionarTamanosViejos(carpeta)) brief = lotes.leerBrief(carpeta);
+      } catch (e) {
+        console.error(`[imagen-ads] ${lote}: no pude juntar los tamaños de antes: ${e?.message || e}`);
+      }
+    }
     await lotes.asegurarPedidos(lote);
     const etag = etagDe(lote, carpeta);
     res.set('Cache-Control', 'no-cache');

@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-26k · Anuncios de imagen: la imagen de antes ya no queda al lado
+
+- **Los lotes donde creaste «otro tamaño» con la versión anterior** mostraban las dos imágenes lado a lado (por ejemplo, la 1:1 y la 4:5).
+  - Al abrirlos, ahora queda una sola: la del tamaño nuevo.
+  - La de antes pasa a «Versiones anteriores»: ábrela en grande y pasa a ella con las flechas.
+- Desde la versión 2026-11-26j, cambiar el tamaño ya reemplaza la imagen así, como una edición.
+
 ## 2026-11-26j · Anuncios de imagen: cambiar el tamaño como una edición y anuncios como los que te funcionan
 
 - **Cambiar el tamaño ya no pone otra imagen al lado:** en «¿Regenerar esta imagen?» toca «Vertical 9:16», «Retrato 4:5» o «Cuadrado 1:1».
