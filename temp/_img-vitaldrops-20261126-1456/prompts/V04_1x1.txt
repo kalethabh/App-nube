@@ -1,3 +1,16 @@
-Edit this advertising image (the FIRST attached image) following this instruction: "Set the blur on the word "amua" on the product bottle label to exactly 28% (a light, soft Gaussian blur, still faintly readable), replacing any previous blur level. Only that word changes. Keep everything else exactly the same: the before and after halves, the woman, the headline, the handwritten notes, the guarantee badge, the bottom icons, colors and the rest of the label. Do not add, remove or move anything.". Keep everything else exactly as it is (layout, texts, colors, typography, person, product) unless the instruction says otherwise. The SECOND attached image is the real product photo: the product must stay identical to it. Do not add new elements.
+Edit this advertising image (the FIRST attached image) following this instruction: "Remove the two label pills «ANTES» and «DESPUÉS» at the top of the two photos, and fill that area with the same background (dark purple on the left, pink on the right). Keep everything else exactly the same: the headline «ANTES: NADIE LA VEÍA. HOY: TODOS LA MIRAN.», the subtitle, the handwritten notes, the woman, the arrow, the bottle, the seal, the icons, colors and layout.". Keep everything else exactly as it is (layout, texts, colors, typography, person, product) unless the instruction says otherwise. The SECOND attached image is the real product photo: the product must stay identical to it. Do not add new elements.
+
+Exact visible texts (each appears exactly once, correctly spelled, nothing else added):
+- main headline: "ANTES: NADIE LA VEÍA. HOY: TODOS LA MIRAN."
+- subtítulo: "El cambio que hizo que todos empezaran a mirarla diferente."
+- nota antes 1: "Sin curvas"
+- nota antes 2: "Sin confianza"
+- nota antes 3: "La que nadie nota"
+- nota después 1: "Curvas naturales"
+- nota después 2: "Más confianza"
+- nota después 3: "Todos la notan"
+- etiqueta del frasco: "VITALDROPS"
+- sello: "90 DÍAS DE GARANTÍA"
+- ícono 1: "Ingredientes de origen vegetal"
 
 All visible text in Spanish.
