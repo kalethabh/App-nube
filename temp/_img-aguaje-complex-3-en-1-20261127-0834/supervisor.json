@@ -1,0 +1,92 @@
+{
+  "fecha": "2026-11-27T13:58:44.543Z",
+  "firma": "a5f24df14ae4be8e",
+  "pedido": {
+    "producto": "AGUAJE COMPLEX 3 EN 1",
+    "modo": "Variantes · vecinas",
+    "oferta": "",
+    "sellos": [
+      "REGISTRO INVIMA RSA-0030271-2024"
+    ],
+    "cantidad": 10
+  },
+  "total": 10,
+  "fallas": [
+    {
+      "criterio": "texto_limpio",
+      "nombre": "Texto limpio",
+      "cuantas": 1,
+      "piezas": [
+        "V02_1x1"
+      ],
+      "ejemplos": [
+        "En la etiqueta del frasco del medio dice «MACA MEDIA» en vez de «MACA NEGRA» (Texto limpio).",
+        "Los frascos de los lados quedan tapados por el del medio y se pierde parte de su etiqueta, y se ven brillantes en vez de mate (Frasco fiel)."
+      ]
+    },
+    {
+      "criterio": "frasco_fiel",
+      "nombre": "Frasco fiel",
+      "cuantas": 1,
+      "piezas": [
+        "V02_1x1"
+      ],
+      "ejemplos": [
+        "En la etiqueta del frasco del medio dice «MACA MEDIA» en vez de «MACA NEGRA» (Texto limpio).",
+        "Los frascos de los lados quedan tapados por el del medio y se pierde parte de su etiqueta, y se ven brillantes en vez de mate (Frasco fiel)."
+      ]
+    },
+    {
+      "criterio": "oferta_confianza",
+      "nombre": "Oferta y confianza",
+      "cuantas": 1,
+      "piezas": [
+        "V03_1x1"
+      ],
+      "ejemplos": [
+        "No aparece la oferta «Tratamiento completo: 3 frascos para 3 meses»: la franja de abajo solo tiene «Pagas al recibir» y el registro (Oferta y confianza)."
+      ]
+    }
+  ],
+  "problemas": [
+    {
+      "pieza": "V02_1x1",
+      "problema": "En la etiqueta del frasco del medio dice «MACA MEDIA» en vez de «MACA NEGRA» (Texto limpio)."
+    },
+    {
+      "pieza": "V02_1x1",
+      "problema": "Los frascos de los lados quedan tapados por el del medio y se pierde parte de su etiqueta, y se ven brillantes en vez de mate (Frasco fiel)."
+    },
+    {
+      "pieza": "V03_1x1",
+      "problema": "No aparece la oferta «Tratamiento completo: 3 frascos para 3 meses»: la franja de abajo solo tiene «Pagas al recibir» y el registro (Oferta y confianza)."
+    },
+    {
+      "pieza": "V09_1x1",
+      "problema": "En la foto «Semana 4» la mujer sale de espaldas y la imagen se centra en la cola. El anuncio pedía que mirara a la cámara o de tres cuartos, sin poses de espaldas. Meta puede rechazar el anuncio por esto."
+    }
+  ],
+  "sinImagen": 0,
+  "rechazos": 0,
+  "reglas": [
+    {
+      "regla": "Cuando la imagen lleva dos o más frascos, van en fila, del mismo tamaño y a la misma altura, con un espacio visible entre uno y otro (al menos el 4 % del ancho): ninguno delante de otro ni tapando su etiqueta. Cada frasco mide al menos el 22 % del alto del lienzo; si no cabe así, se pone uno solo grande con la etiqueta de frente. El visual_prompt dice «sin frascos superpuestos, cada etiqueta compl",
+      "nueva": true,
+      "veces": 1,
+      "por_que": "Evita frascos tapados unos con otros, con brillo en vez de acabado mate, y textos pequeños de la etiqueta cambiados (por ejemplo una palabra del ingrediente mal escrita)."
+    },
+    {
+      "regla": "Si el producto se vende como tratamiento (varias unidades por varios meses), el bloque de oferta de abajo lleva además, como text_layer propio, esa oferta con números exactos (por ejemplo «Tratamiento completo: 3 frascos para 3 meses»), al lado de «Pagas al recibir». No basta con nombrarla solo en una viñeta o en otra parte de la imagen.",
+      "nueva": false,
+      "veces": 2,
+      "por_que": "Evita franjas de abajo que solo traen «Pagas al recibir» y el registro, sin la oferta del tratamiento, incluso en formatos nativos o de fotos reales."
+    },
+    {
+      "regla": "En el después, el cambio del cuerpo se muestra con la persona de frente o de tres cuartos y ropa de diario, nunca de espaldas ni con la toma centrada en glúteos o caderas; el visual_prompt no usa palabras como «glúteos levantados», «redondos» o «más llenos» y en final_generation_exclusions dice «sin poses de espaldas ni enfoque en zonas del cuerpo».",
+      "nueva": false,
+      "veces": 2,
+      "por_que": "Evita fotos de resultado donde la persona sale de espaldas y la imagen se centra en la cola, algo que Meta puede rechazar."
+    }
+  ],
+  "resumen": "1 de 10 fallan «Texto limpio» (V02) · 1 de 10 fallan «Frasco fiel» (V02) · 1 de 10 fallan «Oferta y confianza» (V03)"
+}

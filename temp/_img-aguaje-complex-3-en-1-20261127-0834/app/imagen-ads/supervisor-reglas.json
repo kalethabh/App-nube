@@ -1,0 +1,16 @@
+{
+  "reglas": [
+    {
+      "regla": "Cuando la imagen lleva dos o más frascos, van en fila, del mismo tamaño y a la misma altura, con un espacio visible entre uno y otro (al menos el 4 % del ancho): ninguno delante de otro ni tapando su etiqueta. Cada frasco mide al menos el 22 % del alto del lienzo; si no cabe así, se pone uno solo grande con la etiqueta de frente. El visual_prompt dice «sin frascos superpuestos, cada etiqueta completa y mate, sin brillos», y pide copiar letra por letra los textos pequeños de la etiqueta (dosis e ingredientes) tal como están en la foto del producto.",
+      "por_que": "Evita frascos tapados unos con otros, con brillo en vez de acabado mate, y textos pequeños de la etiqueta cambiados (por ejemplo una palabra del ingrediente mal escrita)."
+    },
+    {
+      "regla": "Si el producto se vende como tratamiento (varias unidades por varios meses), el bloque de oferta de abajo lleva además, como text_layer propio, esa oferta con números exactos (por ejemplo «Tratamiento completo: 3 frascos para 3 meses»), al lado de «Pagas al recibir». No basta con nombrarla solo en una viñeta o en otra parte de la imagen.",
+      "por_que": "Evita franjas de abajo que solo traen «Pagas al recibir» y el registro, sin la oferta del tratamiento, incluso en formatos nativos o de fotos reales."
+    },
+    {
+      "regla": "En el después, el cambio del cuerpo se muestra con la persona de frente o de tres cuartos y ropa de diario, nunca de espaldas ni con la toma centrada en glúteos o caderas; el visual_prompt no usa palabras como «glúteos levantados», «redondos» o «más llenos» y en final_generation_exclusions dice «sin poses de espaldas ni enfoque en zonas del cuerpo».",
+      "por_que": "Evita fotos de resultado donde la persona sale de espaldas y la imagen se centra en la cola, algo que Meta puede rechazar."
+    }
+  ]
+}

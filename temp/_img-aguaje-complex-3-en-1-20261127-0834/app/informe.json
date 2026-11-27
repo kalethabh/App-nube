@@ -1,0 +1,45 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-27T13:58:43.691Z",
+  "variaciones": 10,
+  "archivos": 10,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 7,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "En la etiqueta del frasco del medio dice «MACA MEDIA» en vez de «MACA NEGRA» (Texto limpio).",
+          "Los frascos de los lados quedan tapados por el del medio y se pierde parte de su etiqueta, y se ven brillantes en vez de mate (Frasco fiel).",
+          "No llega a 8 en: Texto limpio (7), Frasco fiel (7)."
+        ]
+      },
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "No aparece la oferta «Tratamiento completo: 3 frascos para 3 meses»: la franja de abajo solo tiene «Pagas al recibir» y el registro (Oferta y confianza).",
+          "No llega a 8 en: Oferta y confianza (7)."
+        ]
+      },
+      {
+        "pieza": "V09_1x1",
+        "problemas": [
+          "En la foto «Semana 4» la mujer sale de espaldas y la imagen se centra en la cola. El anuncio pedía que mirara a la cámara o de tres cuartos, sin poses de espaldas. Meta puede rechazar el anuncio por esto."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 6,
+    "R": 8,
     "A": 1,
     "T": 3
   },
@@ -107,7 +107,7 @@
     "R005": {
       "tipo": "revision",
       "uuid": "d59c2bb8-15cf-425b-b86b-b35e4349aff4",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -115,7 +115,36 @@
           "firma": "2177056-1795787873296",
           "ronda": 1
         }
-      ]
+      ],
+      "empezada": true
+    },
+    "R006": {
+      "tipo": "revision",
+      "uuid": "8f8d7b8d-6096-40d7-91b9-ac646a4fe2cc",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V09_1x1",
+          "firma": "2351498-1795787886125",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R007": {
+      "tipo": "revision",
+      "uuid": "46582996-649b-4b19-918d-f0c83a948d5d",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "2370672-1795787899430",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -309,24 +338,27 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2370672-1795787899430",
+      "orden": null,
       "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R007",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2370672-1795787899430",
+        "nota": 8
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-27T13:58:21.011Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V06_1x1": {
       "v": "V06",
@@ -433,43 +465,73 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2351498-1795787886125",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R006",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "En la foto «Semana 4» la mujer sale de espaldas y la imagen se centra en la cola. El anuncio pedía que mirara a la cámara o de tres cuartos, sin poses de espaldas. Meta puede rechazar el anuncio por esto."
+        ],
+        "firma": "2351498-1795787886125",
+        "correccion_en": "In the 'Semana 4' photo only: show the same woman standing three-quarters FACING the camera (front of her body visible, not her back), proud smile, mint sports top and steel-grey leggings, framed head to mid-thigh; her wider rounded hips and toned thighs are visible from the front-side angle. No back view, no focus on the buttocks. Keep everything else exactly the same.",
+        "nota": 5,
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 9,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-27T13:58:06.954Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2177056-1795787873296",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2177056-1795787873296",
+        "nota": 7,
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-27T13:57:54.628Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R005"
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}
