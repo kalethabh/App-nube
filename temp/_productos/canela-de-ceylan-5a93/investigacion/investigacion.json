@@ -223,6 +223,394 @@
           ["Duración de los estudios clínicos", "8 a 12 semanas de uso constante", "Metaanálisis de ensayos con canela"]
         ], "nota": "Por eso la oferta de 3 bolsas (90 días si es 1 cápsula diaria) tiene sentido: coincide con la duración de los estudios.", "estilo": "normal" }
       ]
+    },
+    {
+      "titulo": "Avatar principal",
+      "bloques": [
+        { "tipo": "caja", "estilo": "avatar", "titulo": "Luz Marina, la del antojo de dulce a las tres de la tarde", "texto": "Se cuida en el almuerzo, pero a las tres ya está buscando el pan o la galleta. Vio a su mamá con la diabetes y le da miedo ser la siguiente.", "items": [], "pie": "" },
+        { "tipo": "tabla", "columnas": ["Dato", "Luz Marina (usa el producto)", "Carolina (la hija que a veces compra)"], "filas": [
+          ["Edad", "40 a 58 años", "25 a 35 años"],
+          ["Sexo", "Mujer", "Mujer"],
+          ["Ciudades", "Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Pereira", "Las mismas; a veces vive en otra ciudad que la mamá"],
+          ["Estrato", "2 a 4", "3 a 4"],
+          ["Estado civil", "Casada o separada", "Soltera o en pareja"],
+          ["Hijos", "2 o 3, adolescentes o adultos", "Sin hijos o uno pequeño"],
+          ["Ocupación", "Empleada administrativa, docente, comerciante o ama de casa con negocio", "Profesional o empleada"],
+          ["Ingresos", "1,5 a 4 salarios mínimos en el hogar", "2 a 4 salarios mínimos"],
+          ["Educación", "Bachiller o técnica", "Universitaria"],
+          ["Momento de vida", "Premenopausia o menopausia; siente que el cuerpo cambió", "Empieza a cuidar a sus papás"],
+          ["Historial", "Mamá o papá con diabetes; examen con el azúcar «un poquito alta»; probó agua de canela y dietas", "Ve a la mamá comiendo dulce y se preocupa"],
+          ["Medios", "Facebook, WhatsApp, Instagram, YouTube de recetas y salud", "Instagram, TikTok, WhatsApp"],
+          ["Cómo compra", "Por WhatsApp, pagando al recibir; pregunta mucho antes de decidir", "Por WhatsApp o en línea, para enviar a la casa de la mamá"]
+        ], "nota": "", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "El dolor que no la deja dormir" },
+        { "tipo": "cita", "estilo": "dolor", "texto": "Me da miedo que un día el médico me diga lo mismo que a mi mamá, y yo sigo sin poder dejar el dulce." },
+        { "tipo": "subtitulo", "texto": "Puntos de dolor" },
+        { "tipo": "vinetas", "items": [
+          "El antojo de pan y postre en la tarde y en la noche.",
+          "El sueño y el bajón después del almuerzo.",
+          "Sentirse pesada e inflada después de comer.",
+          "El miedo al examen de laboratorio.",
+          "La culpa de «comer a escondidas»."
+        ] },
+        { "tipo": "subtitulo", "texto": "Puntos débiles y objeciones" },
+        { "tipo": "vinetas", "items": [
+          "«Eso es la misma canela de la tienda, la tomo en agua.»",
+          "«¿Y si me cae mal con lo que me mandó el médico?»",
+          "«Ya probé de todo y nada funciona.»",
+          "«¿Y si pago y no me llega?»",
+          "«Está caro para ser canela.»"
+        ] },
+        { "tipo": "subtitulo", "texto": "Motivaciones" },
+        { "tipo": "vinetas", "items": [
+          "Cuidarse para no repetir la historia de su mamá.",
+          "Recuperar el control frente al dulce.",
+          "Tener energía para el trabajo, la casa y los nietos o hijos.",
+          "Verse y sentirse bien en diciembre y en las fotos."
+        ] },
+        { "tipo": "subtitulo", "texto": "Resultado deseado en sus palabras" },
+        { "tipo": "cita", "estilo": "deseo", "texto": "Quiero terminar de almorzar y seguir con mi día, sin estar pensando en qué dulce me voy a comer." },
+        { "tipo": "subtitulo", "texto": "Lenguaje que usa" },
+        { "tipo": "vinetas", "items": [
+          "«Tengo el azúcar un poquito alta», «me salió la glucosa alta».",
+          "«Me da el bajón», «me da un sueño después de almorzar».",
+          "«Me provoca algo dulce», «el antojo me mata».",
+          "«Me siento inflada», «me siento pesada».",
+          "«Algo natural», «que no me haga daño», «¿eso sí sirve?»."
+        ] },
+        { "tipo": "subtitulo", "texto": "Avatares secundarios" },
+        { "tipo": "ficha", "filas": [
+          ["Don Jairo, el del azúcar «un poquito alta»", "55 a 65 años, pensionado o comerciante. El médico le dijo que se cuide; no toma medicamento todavía. Lo compra la esposa o la hija. Cuidado: nunca sugerir que reemplaza lo que indique el médico."],
+          ["Daniela, la del bajón después del corrientazo", "28 a 40 años, oficinista en Bogotá o Medellín. Vio el agua de canela en TikTok; quiere controlar antojos y sentirse liviana. Compra sola, por impulso, por Instagram."],
+          ["Carolina, la hija que cuida a la mamá", "25 a 35 años. Le preocupa la mamá que no deja el postre; compra para regalar, sobre todo en diciembre y en el Día de la Madre."]
+        ], "nota": "" }
+      ]
+    },
+    {
+      "titulo": "Recomendaciones estratégicas",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "Posicionamiento" },
+        { "tipo": "ficha", "filas": [
+          ["Promesa", "Tu rutina de canela verdadera para sentir menos antojo de dulce y una energía más pareja después de comer."],
+          ["Mecanismo único", "«No es cualquier canela»: la de Ceilán es la canela verdadera, con solo trazas de cumarina, para tomar todos los días; en cápsula blanda con aceite MCT, sin preparar nada."],
+          ["Diferenciador", "Canela sola de Ceilán (no mezcla de berberina), cápsula blanda fácil de tragar, entrega rápida en Colombia y pago al recibir."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "Oferta escalonada (estimación en pesos)" },
+        { "tipo": "tabla", "columnas": ["Oferta", "Precio sugerido", "Para qué"], "filas": [
+          ["1 bolsa (30 cápsulas)", "$89.900", "Probar; ancla de precio"],
+          ["2 bolsas", "$149.900", "Comparación"],
+          ["3 bolsas (tratamiento de 90 días)", "$189.900, envío gratis", "La oferta principal: coincide con los 8 a 12 semanas de los estudios"]
+        ], "nota": "Estimación: se ajusta al costo real, al flete y a la tasa de devolución. Referencia: los importados con berberina y canela cuestan entre $151.740 y $188.730.", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "Plan de entrada de 30 días" },
+        { "tipo": "ficha", "filas": [
+          ["Días 1 a 3", "Confirmar registro INVIMA, etiqueta trasera y dosis. Armar landing y guion de WhatsApp con preguntas de seguridad."],
+          ["Días 4 a 10", "Lanzar 6 a 8 conceptos de la matriz en un solo conjunto amplio (mujeres y hombres de 35 a 65, Colombia)."],
+          ["Días 11 a 17", "Leer a qué concepto le invierte Meta; crear 3 conceptos vecinos al ganador. Exportar los primeros chats cerrados."],
+          ["Días 18 a 24", "Campaña de diciembre (novenas, natilla) y concepto para Carolina como regalo."],
+          ["Días 25 a 30", "Preparar los conceptos de enero (propósitos) y escalar el conjunto que funciona."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "Canales" },
+        { "tipo": "ficha", "filas": [
+          ["Meta Ads", "Canal principal. Videos UGC, historias narradas e imágenes estáticas hacia WhatsApp."],
+          ["WhatsApp", "Cierre de venta con pago al recibir, preguntas de seguridad y seguimiento a las 2 y 4 semanas."],
+          ["TikTok", "Daniela: el ángulo de la canela verdadera vs. el agua de canela viral."],
+          ["Mercado Libre", "Presencia secundaria: la categoría de canela de Ceilán sola está poco ocupada."],
+          ["Alianzas", "Nutricionistas o tiendas naturistas de barrio; nunca médicos prometiendo resultados en glucosa."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "5 hooks" },
+        { "tipo": "numerada", "items": [
+          "«Son las tres de la tarde y ya estoy buscando algo dulce… otra vez.»",
+          "«Llevo años tomando agua de canela y nadie me dijo que era la canela equivocada.»",
+          "«Vi a mi mamá con el azúcar y me prometí que yo me iba a cuidar distinto.»",
+          "«Si después del almuerzo te da sueño y antojo, mira esto.»",
+          "«Este diciembre, que la natilla no sea la que mande.»"
+        ] },
+        { "tipo": "subtitulo", "texto": "Cumplimiento" },
+        { "tipo": "tabla", "columnas": ["Evita", "Usa en su lugar"], "filas": [
+          ["Controla la diabetes, baja el azúcar", "Apoya tu bienestar con una rutina natural"],
+          ["Cura, trata, previene la diabetes", "Muchas personas sienten menos antojo de dulce"],
+          ["Reemplaza tu medicamento", "Complementa tus hábitos; sigue las indicaciones de tu médico"],
+          ["Quema grasa, adelgaza", "Te ayuda a sentirte más liviana después de comer"],
+          ["Suplemento alimenticio", "Suplemento dietario"],
+          ["Probado en laboratorio (sin certificado)", "Canela de Ceilán de Sri Lanka"],
+          ["Resultados garantizados", "Los resultados varían de persona a persona"],
+          ["7200 mg (sin aclarar)", "Canela de Ceilán con aceite MCT"]
+        ], "nota": "", "estilo": "evita" },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Preguntas de seguridad para WhatsApp", "texto": "Antes de cerrar la venta, pregunta:", "items": [
+          "¿Tomas algún medicamento para el azúcar (metformina, insulina u otro)? Si sí: consulta a tu médico antes; puede sumarse al efecto del medicamento.",
+          "¿Tomas anticoagulantes o tienes alguna enfermedad del hígado?",
+          "¿Estás embarazada o lactando? Si sí: no se recomienda.",
+          "¿Tienes una cirugía programada?",
+          "Nunca digas que puede reemplazar un medicamento ni que deje su tratamiento."
+        ], "pie": "No reemplaza tratamiento médico. No apto para menores de edad." }
+      ]
+    },
+    {
+      "titulo": "Deseo central, propuestas de valor y copy para la landing",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "14.1 Deseo central" },
+        { "tipo": "cita", "estilo": "central", "texto": "Dejar de vivir pendiente del dulce y sentirme liviana y con energía todo el día, sin miedo a terminar como mi mamá con el azúcar." },
+        { "tipo": "parrafo", "texto": "El deseo de superficie es el síntoma: el antojo de la tarde y el bajón después de comer. El deseo profundo es el miedo y la identidad: no repetir la historia de su mamá y sentir que todavía tiene el control de su cuerpo. Cuando compra la hija, el deseo es tranquilidad: «sentir que estoy haciendo algo por mi mamá»." },
+        { "tipo": "subtitulo", "texto": "14.2 Seis propuestas de valor" },
+        { "tipo": "propuesta", "titulo": "1. El antojo de la tarde", "dolor": "«A las tres de la tarde ya estoy buscando algo dulce, todos los días.»", "propuesta": "«Una cápsula de canela de Ceilán con tu almuerzo: muchas personas cuentan que el antojo de la tarde se calma y ya no van al cajón del dulce.»", "tiempo": "Muchas personas notan menos antojo desde la primera o segunda semana." },
+        { "tipo": "propuesta", "titulo": "2. El bajón después de comer", "dolor": "«Después del almuerzo me da un sueño que no me deja trabajar.»", "propuesta": "«Tomar tu canela de Ceilán con la comida apoya una energía más pareja en la tarde, sin el bajón que te pide azúcar.»", "tiempo": "Muchas personas lo notan entre la segunda y la tercera semana." },
+        { "tipo": "propuesta", "titulo": "3. La hija que se preocupa", "dolor": "«Mi mamá no deja el postre y me da miedo que le suba el azúcar.»", "propuesta": "«Regálale una rutina natural y segura: canela verdadera de Ceilán, fácil de tomar, para acompañar sus cuidados y lo que le diga su médico.»", "tiempo": "Muchas personas notan cómo cambia su relación con el dulce en las primeras semanas." },
+        { "tipo": "propuesta", "titulo": "4. La culpa con el dulce", "dolor": "«Me cuido todo el día y por la noche me como el pan a escondidas.»", "propuesta": "«No es falta de voluntad: tu cuerpo te pide dulce después de comer. Una rutina de canela de Ceilán te acompaña para que el antojo no mande.»", "tiempo": "Muchas personas notan menos picoteo nocturno entre la segunda y la cuarta semana." },
+        { "tipo": "propuesta", "titulo": "5. La pesadez de todos los días", "dolor": "«Me siento pesada e inflada después de comer y no rindo.»", "propuesta": "«Una cápsula blanda con la comida, sin preparar aguas ni tés: te ayuda a sentirte más liviana para seguir con tu día.»", "tiempo": "Muchas personas notan la diferencia entre la segunda y la cuarta semana." },
+        { "tipo": "propuesta", "titulo": "6. La desconfianza", "dolor": "«Ya probé agua de canela y de todo, y además no sé si me llega.»", "propuesta": "«No era la canela correcta: esta es canela de Ceilán, la verdadera. Y pagas cuando la recibes en tu casa.»", "tiempo": "Dale de 8 a 12 semanas de constancia, como en los estudios." },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Cómo usarlas", "texto": "", "items": [
+          "Ángulos de prueba en Meta Ads: la 1 (el antojo de la tarde, mujeres de 40 a 58), la 2 (el bajón después de comer, oficinistas de 28 a 45) y la 3 (la hija que se preocupa, mujeres de 25 a 40 con compra para regalo).",
+          "La 6 (desconfianza) va como cierre de todos los anuncios y de los mensajes de WhatsApp: canela verdadera y pago al recibir.",
+          "Aviso legal: Suplemento dietario. No es un medicamento. No reemplaza tratamiento médico. Los resultados varían."
+        ], "pie": "" },
+        { "tipo": "subtitulo", "texto": "14.3 Propuesta de valor encapsulada" },
+        { "tipo": "caja", "estilo": "encapsulada", "titulo": "", "texto": "Canela de Ceilán es tu ritual de canela verdadera para calmar el antojo de dulce, tener energía pareja después de comer y sentirte liviana, mientras te cuidas para no repetir la historia del azúcar en tu familia. Y pagas cuando la recibes.", "items": [], "pie": "" },
+        { "tipo": "vinetas", "items": [
+          "**Calmar el antojo de dulce:** propuestas 1 y 4.",
+          "**Energía pareja después de comer:** propuesta 2.",
+          "**Sentirte liviana:** propuesta 5.",
+          "**No repetir la historia de tu familia:** propuesta 3.",
+          "**Canela verdadera y pagas al recibir:** propuesta 6."
+        ] },
+        { "tipo": "subtitulo", "texto": "14.4 Títulos para el hero" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Menos antojo de dulce desde la segunda semana y energía todo el día", "subtitulo": "Canela de Ceilán, la canela verdadera, para cuidarte sin vivir a dieta" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2 (más emocional)", "titulo": "Que el dulce deje de mandar en tu vida desde las primeras semanas", "subtitulo": "Una cápsula de canela de Ceilán con tu almuerzo, para cuidarte desde hoy" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3 (para la hija que compra)", "titulo": "Regálale a tu mamá menos antojos en 2 semanas y una rutina que sí puede seguir", "subtitulo": "Canela verdadera de Ceilán, fácil de tomar y segura para todos los días" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 4 (corta, para celular)", "titulo": "Chao antojo de la tarde en 2 semanas", "subtitulo": "Canela de Ceilán en cápsula blanda" },
+        { "tipo": "nota", "texto": "Texto legal bajo el hero: Muchas personas notan cambios desde la primera o segunda semana. Los resultados varían. No reemplaza tratamiento médico." },
+        { "tipo": "subtitulo", "texto": "14.5 Títulos para la sección de dolor (sección 2 de la landing)" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 1 (recomendada, identificación directa)", "titulo": "¿Son las tres de la tarde y ya estás buscando algo dulce, otra vez?", "subtitulo": "No es falta de voluntad: tu cuerpo te lo pide después de comer" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 2 (la sensación física)", "titulo": "¿Te da un sueño y un bajón después del almuerzo que no te deja seguir?", "subtitulo": "Esa pesadez tiene que ver con lo que pasa después de comer" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 3 (quien compra)", "titulo": "¿Tu mamá no deja el postre y a ti te da miedo que le suba el azúcar?", "subtitulo": "Hay una forma natural de acompañar sus cuidados" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 4 (la culpa o el hábito)", "titulo": "¿Te cuidas todo el día y por la noche el pan te gana?", "subtitulo": "Sentir culpa no ayuda; una rutina sí" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 5 (la limitación diaria)", "titulo": "¿Sientes que el dulce decide por ti en cada comida?", "subtitulo": "Recupera el control sin vivir a dieta" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 6 (el entorno)", "titulo": "¿Corrientazo, tinto con pan y en diciembre natilla y buñuelos?", "subtitulo": "Así come Colombia; tu cuerpo necesita una ayuda" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 7 (lo que ya probó)", "titulo": "¿Llevas meses con agua de canela y no notas nada?", "subtitulo": "Puede que no fuera la canela correcta" },
+        { "tipo": "nota", "texto": "Cómo armar la sección: usa la opción 1 como título principal; debajo, el bloque «¿Te pasa esto?», la frase puente y la caja de cuidado." },
+        { "tipo": "caja", "estilo": "te-pasa", "titulo": "¿Te pasa esto?", "texto": "", "items": [
+          "A media tarde te provoca algo dulce, sí o sí",
+          "Después de almorzar te da sueño",
+          "Te sientes pesada o inflada después de comer",
+          "Por la noche terminas picando pan o galletas",
+          "En tu familia hay historia de azúcar alta",
+          "Ya probaste agua de canela y no notaste nada"
+        ], "pie": "Si marcaste 2 o más, tu cuerpo te está pidiendo una ayuda después de comer. Y la respuesta puede estar en la canela verdadera." },
+        { "tipo": "caja", "estilo": "cuidado", "titulo": "Cuidado", "texto": "No nombres enfermedades (diabetes, resistencia a la insulina, prediabetes, hígado graso) ni daños en órganos. Habla solo de lo que la persona siente: antojo, sueño, pesadez, cansancio.", "items": [], "pie": "" },
+        { "tipo": "subtitulo", "texto": "14.6 Sección de beneficios (texto corto para la imagen)" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Que el dulce deje de mandar desde la segunda semana", "subtitulo": "Canela verdadera de Ceilán para tus tardes, tus comidas y tu tranquilidad" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2", "titulo": "Tus tardes con energía y sin antojo", "subtitulo": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3", "titulo": "Cuídate sin vivir a dieta", "subtitulo": "" },
+        { "tipo": "tabla", "columnas": ["Beneficio", "Frase (máximo 8 palabras)"], "filas": [
+          ["Menos antojo de dulce", "La tarde sin ir al cajón del dulce"],
+          ["Energía pareja", "Sin el bajón después del almuerzo"],
+          ["Más liviana", "Termina de comer y sigue con tu día"],
+          ["Noches tranquilas", "Menos picoteo de pan por la noche"],
+          ["Canela verdadera", "De Ceilán, sin gluten y sin OGM"]
+        ], "nota": "", "estilo": "normal" },
+        { "tipo": "franja", "etiqueta": "Franja inferior:", "texto": "Canela de Ceilán de Sri Lanka · Sin gluten · Sin OGM · Pagas al recibir", "nota": "" },
+        { "tipo": "nota", "texto": "Nota de diseño: título del beneficio grande y frase mediana; si la imagen queda cargada, deja solo los 5 títulos con íconos; fondo claro y limpio, sin follaje." },
+        { "tipo": "subtitulo", "texto": "14.7 Modo de uso" },
+        { "tipo": "caja", "estilo": "pendiente", "titulo": "Pendiente: la dosis", "texto": "La etiqueta frontal no dice cuántas cápsulas al día. El modo de uso se arma con una toma diaria con la comida principal (como en los estudios con canela) y la cantidad queda como [X] hasta confirmar con la etiqueta trasera.", "items": [], "pie": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Solo [X] cápsula con tu almuerzo para una tarde sin antojo", "subtitulo": "Tu rutina de canela verdadera en 5 segundos" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2", "titulo": "Una vez al día, con tu comida, y listo", "subtitulo": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3", "titulo": "Sin preparar aguas ni tés: [X] cápsula y sigue tu día", "subtitulo": "" },
+        { "tipo": "tabla", "columnas": ["Momento", "Cómo tomarlo", "Valor de cada toma"], "filas": [
+          ["Con el almuerzo (la comida principal)", "[X] cápsula blanda con un vaso de agua, mientras comes", "Te acompaña justo cuando llega el bajón y el antojo de la tarde"],
+          ["Todos los días, sin falta", "A la misma hora, por 8 a 12 semanas", "La constancia es la que hace la diferencia: muchas personas notan cambios desde la segunda semana"]
+        ], "nota": "Suplemento dietario. No es un medicamento. No reemplaza tratamiento médico. No apto para menores de edad, embarazadas ni lactantes. Si tomas medicamentos para el azúcar o anticoagulantes, consulta a tu médico.", "estilo": "normal" },
+        { "tipo": "franja", "etiqueta": "Franja inferior:", "texto": "Cápsula blanda · Fácil de llevar · Menos de 1 minuto · Sin sabor a canela", "nota": "Confirma con el producto que la cápsula no deja sabor; si no, quita «Sin sabor a canela»." },
+        { "tipo": "nota", "texto": "Variante: si la etiqueta indica 2 cápsulas al día, agrega una toma con el desayuno («arranca el día sin el antojo del pan con tinto») y cambia el título a «Solo 2 cápsulas al día, con tus comidas»." },
+        { "tipo": "subtitulo", "texto": "14.8 Guía visual de la estructura de 4 mensajes" },
+        { "tipo": "tabla", "columnas": ["Mensaje", "Objetivo", "Título"], "filas": [
+          ["1 · Hero", "Qué es, para quién y su valor", "Menos antojo de dulce desde la segunda semana y energía todo el día"],
+          ["2 · Punto de dolor", "Conectar y mostrar la solución", "¿Son las tres de la tarde y ya estás buscando algo dulce, otra vez?"],
+          ["3 · Beneficios", "Mostrar el valor para su vida", "Que el dulce deje de mandar desde la segunda semana"],
+          ["4 · Modo de uso", "Explicar cómo usarlo, sin dudas", "Solo [X] cápsula con tu almuerzo para una tarde sin antojo"]
+        ], "nota": "", "estilo": "azul" },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Antes de diseñar", "texto": "", "items": [
+          "Confirma la dosis para reemplazar [X].",
+          "La calificación y el número de clientes van como [calificación real] y [N] hasta tener reseñas reales.",
+          "Los ingredientes son solo dos (canela de Ceilán y aceite MCT): confírmalos con la ficha técnica; no inventes otros.",
+          "No uses «Probado en laboratorio» como sello sin el certificado.",
+          "Fondo claro y limpio, sin follaje, con el texto grande y legible en celular."
+        ], "pie": "" },
+        { "tipo": "guia-visual" }
+      ]
+    },
+    {
+      "titulo": "Conceptos para Meta (Andromeda)",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "15.1 Lo que cambió" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Lo que cambió", "texto": "", "items": [
+          "**El creativo es la segmentación.** Segmentación amplia (Colombia, 28 a 65 años) y que el anuncio filtre: quién aparece, qué dice y qué problema muestra le dice a Meta a quién mostrarlo.",
+          "**Diversidad real de conceptos.** De 6 a 10 conceptos por conjunto, distintos en faceta, problema, momento y formato; no variaciones de un ganador.",
+          "**La señal de compra real.** En contra entrega, reporta a Meta la compra confirmada y la entrega, no solo el mensaje."
+        ], "pie": "" },
+        { "tipo": "subtitulo", "texto": "15.2 Facetas del cliente" },
+        { "tipo": "tabla", "columnas": ["Persona base", "Faceta", "Dolor en sus palabras", "Escenario visual"], "filas": [
+          ["Luz Marina", "La oficinista del antojo", "A las tres ya estoy buscando el pan o la galleta", "Escritorio de oficina en Bogotá, cajón con galletas"],
+          ["Luz Marina", "La hija de una mamá con azúcar", "No quiero terminar como mi mamá, pinchándome el dedo", "Visita del domingo, la mamá con el glucómetro en la mesa"],
+          ["Luz Marina", "La que ya probó todo", "Llevo meses con agua de canela y nada", "Cocina de noche, olla con astillas de canela"],
+          ["Luz Marina", "La que quiere verse bien en diciembre", "Me pruebo la ropa y me siento inflada", "Frente al espejo con el vestido de la novena"],
+          ["Don Jairo", "El del examen con el azúcar alta", "El médico me dijo que me cuide y no sé por dónde empezar", "Sala de espera de la EPS con el sobre del laboratorio"],
+          ["Daniela", "La del bajón después del corrientazo", "Después de almorzar soy un zombi en la reunión", "Reunión de las 2 p.m., bostezando con el tinto"],
+          ["Daniela", "La que vio el agua de canela en TikTok", "Quiero quitarme el antojo pero no tengo tiempo de preparar nada", "TransMilenio a las 6 a.m., cartera abierta"],
+          ["Carolina", "La hija que cuida a la mamá", "Mi mamá no deja el postre y me preocupa", "Almuerzo familiar del domingo, la mamá sirviéndose arroz con leche"]
+        ], "nota": "Las facetas reales se confirman con los chats de WhatsApp de las asesoras: exporta 100 chats cerrados como venta y clasifica para quién compraba, qué frase usó y qué objeción puso. Salen de 4 a 7 facetas.", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "15.3 Momentos y contexto" },
+        { "tipo": "tabla", "columnas": ["Momento", "Cómo está la persona", "Mensaje que conecta", "Formato"], "filas": [
+          ["Madrugada antes de salir (5 a 7 a.m.)", "Afán, sin tiempo", "Tu rutina en 5 segundos, sin preparar aguas", "Demostración o UGC selfie"],
+          ["Después del almuerzo (1 a 3 p.m.)", "Con sueño y antojo", "¿Ya te dio el bajón? Mira esto", "UGC selfie, sketch de comedia"],
+          ["Noche (8 a 11 p.m.)", "Scroll largo, culpa por el picoteo", "Historias emocionales: la mamá, el miedo, la culpa", "Historia narrada, testimonio"],
+          ["Quincena (15 y 30)", "Con plata", "Llévate el tratamiento de 90 días", "Imagen estática con la oferta x3"],
+          ["Mitad de mes", "Plata apretada", "Pagas cuando te llegue a la casa", "Testimonio con cierre de pago al recibir"],
+          ["Diciembre (novenas, natilla, buñuelos)", "Comiendo más dulce, pensando en fotos y regalos", "Que la natilla no mande; regálale a tu mamá", "Imagen estática, sketch, historia"],
+          ["Enero (propósitos)", "Con ganas de empezar a cuidarse", "Empieza el año con una rutina que sí puedes seguir", "Realista con narrador, antes y después de hábitos"]
+        ], "nota": "", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "15.4 Matriz de conceptos" },
+        { "tipo": "tabla", "columnas": ["#", "Faceta", "Problema", "Contexto", "Formato", "Hook"], "filas": [
+          ["1", "Luz Marina, oficinista del antojo", "Síntoma visible: antojo de dulce", "Oficina, 3 p.m.", "UGC selfie", "Son las tres de la tarde y ya estoy buscando algo dulce… otra vez"],
+          ["2", "Luz Marina, hija de mamá con azúcar", "Miedo a futuro", "Visita del domingo a la mamá", "Historia narrada", "Vi a mi mamá pincharse el dedo todos los días y dije: yo me voy a cuidar distinto"],
+          ["3", "Luz Marina, la que ya probó todo", "Frustración con lo que ya probó", "Cocina de noche", "Imagen estática (nosotros vs. ellos)", "Llevo años con agua de canela y nadie me dijo que era la canela equivocada"],
+          ["4", "Daniela, la del bajón", "Consecuencia social: no rinde en el trabajo", "Reunión de las 2 p.m.", "Sketch de comedia", "Yo después del corrientazo: presente en la reunión, ausente en el alma"],
+          ["5", "Don Jairo, el del examen", "Miedo a futuro", "Sala de espera de la EPS", "Realista con narrador", "El médico me dijo que me cuide y yo no sabía ni por dónde empezar"],
+          ["6", "Carolina, la hija que cuida", "Consecuencia familiar", "Almuerzo familiar del domingo", "Testimonio", "Mi mamá no deja el postre, así que le busqué una ayuda natural"],
+          ["7", "Luz Marina, la de diciembre", "Consecuencia social: fiestas y fotos", "Novena de diciembre", "Imagen estática (pregunta y revelación)", "¿Otra vez la natilla y los buñuelos te van a ganar este diciembre?"],
+          ["8", "Daniela, sin tiempo", "No tiene tiempo", "TransMilenio a las 6 a.m.", "Demostración", "No tengo tiempo de hacer agua de canela: esto me toma cinco segundos"]
+        ], "nota": "Prueba primero el 1, el 3 y el 6: el 1 nombra el dolor más contado (el antojo) en un momento que todos viven; el 3 trae el mecanismo («no es cualquier canela») que vence la objeción principal; y el 6 abre a quien compra para otro, clave en diciembre.", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "15.5 Estructura y señal" },
+        { "tipo": "ficha", "filas": [
+          ["Estructura", "Una campaña, uno o dos conjuntos, segmentación amplia por país y edad (28 a 65), de 6 a 10 conceptos por conjunto. Escala el conjunto que funciona en vez de duplicarlo."],
+          ["Leer el gasto", "Si Meta no le invierte a un anuncio es un veredicto: no apagues el que gasta ni saques el olvidado a otro conjunto. Mira a qué faceta y situación le habla el que se lleva más del 50 % del gasto y crea conceptos vecinos."],
+          ["Señal", "Envía a Meta la compra cuando el pedido se confirma en WhatsApp, con la API de Conversiones, y si puedes marca los entregados. En la landing, píxel más la API de Conversiones con el pedido confirmado."],
+          ["Qué medir por anuncio", "Porcentaje de confirmación y porcentaje de entrega, no solo el costo por mensaje."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "15.6 Prompt con contexto para la IA" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Prompt con contexto", "texto": "Eres un copywriter de respuesta directa para Colombia. Vendes por Meta Ads con cierre por WhatsApp y pago contra entrega. Producto: Canela de Ceilán Metabolae, 30 cápsulas blandas de canela de Ceilán de Sri Lanka con aceite MCT, suplemento dietario. Faceta: [elige una de la tabla 15.2, por ejemplo Luz Marina, la oficinista del antojo]. Frases reales de clientes: «a las tres ya estoy buscando algo dulce»; «después de almorzar me da un sueño que no puedo»; «no quiero terminar como mi mamá con el azúcar»; «llevo meses con agua de canela y nada»; «me siento pesada después de comer»; «¿eso no me hace daño con lo que tomo?»; «¿y si pago y no me llega?». Contexto: [el momento, por ejemplo la oficina a las 3 p.m.]. Objeción principal: «es la misma canela de la tienda». Formato: [UGC selfie, historia narrada, imagen estática…]. Reglas: lenguaje natural de Colombia, sin prometer curar ni bajar el azúcar, beneficios como experiencia («muchas personas notan»), menciona que pagas al recibir y cierra con un llamado a escribir por WhatsApp. Entrega: 3 hooks, un guion de 30 segundos y el texto principal del anuncio.", "items": [], "pie": "Las frases de clientes están parafraseadas de lo investigado: reemplázalas por las de tus chats." },
+        { "tipo": "caja", "estilo": "cuidado", "titulo": "Cuidado", "texto": "Los conceptos hablan de bienestar, rutina y experiencia, nunca de curar o controlar la diabetes, bajar el azúcar ni resultados garantizados. Además del riesgo legal con el INVIMA, Meta rechaza o limita esos anuncios.", "items": [], "pie": "" }
+      ]
     }
-  ]
+  ],
+  "guia": {
+    "mensajes": [
+      {
+        "seccion": "Hero · Producto e ingredientes",
+        "titulo": "Menos antojo de dulce desde la segunda semana y energía todo el día",
+        "subtitulo": "Canela de Ceilán, la canela verdadera, para cuidarte sin vivir a dieta",
+        "franja": { "beneficio": "Menos antojo de dulce", "tiempo": "Desde la segunda semana", "deseo": "Energía todo el día" },
+        "objetivo": "Mostrar qué es, para quién es y por qué esta canela es distinta.",
+        "elementos": [
+          { "titulo": "Título principal", "texto": "Menos antojo de dulce desde la segunda semana y energía todo el día" },
+          { "titulo": "Subtítulo", "texto": "Canela de Ceilán, la canela verdadera, para cuidarte sin vivir a dieta" },
+          { "titulo": "Avatar", "texto": "Mujer colombiana de 48 años, sonriente, en su cocina después del almuerzo, sin dulce en la mano" },
+          { "titulo": "Producto y validación", "texto": "[calificación real] · [N] clientes, sobre la bolsa de Canela de Ceilán" },
+          { "titulo": "Ingredientes", "texto": "Canela de Ceilán de Sri Lanka: la canela verdadera, con muy poca cumarina · Aceite MCT: el aceite que acompaña a la canela en la cápsula blanda (confirmar origen)" },
+          { "titulo": "Sellos", "texto": "Sin gluten · Sin OGM · Canela de Ceilán · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "foto": "Mujer colombiana de 48 años, sonriente, en su cocina después del almuerzo",
+          "validacion": "[calificación real] · [N] clientes",
+          "ingredientes": ["Canela de Ceilán de Sri Lanka", "Aceite MCT"],
+          "sellos": ["Sin gluten", "Sin OGM", "Canela de Ceilán", "Pagas al recibir"],
+          "oferta": "Tratamiento completo x3 $[precio]"
+        }
+      },
+      {
+        "seccion": "Punto de dolor",
+        "titulo": "¿Son las tres de la tarde y ya estás buscando algo dulce, otra vez?",
+        "subtitulo": "Muchas personas sienten menos antojo desde la segunda semana",
+        "franja": { "beneficio": "Calmar el antojo", "tiempo": "Desde la segunda semana", "deseo": "Que el dulce no mande" },
+        "objetivo": "Que se reconozca en el antojo de la tarde y vea que hay una salida natural.",
+        "elementos": [
+          { "titulo": "Título", "texto": "¿Son las tres de la tarde y ya estás buscando algo dulce, otra vez?" },
+          { "titulo": "Subtítulo", "texto": "Muchas personas sienten menos antojo desde la segunda semana" },
+          { "titulo": "Imagen del dolor", "texto": "Mujer de 45 años en su escritorio abriendo el cajón de las galletas, con el reloj marcando las 3:00" },
+          { "titulo": "Título secundario", "texto": "No es falta de voluntad: no era la canela correcta" },
+          { "titulo": "Mensaje descriptivo", "texto": "La canela de Ceilán es la canela verdadera, la que se puede tomar a diario. Una cápsula con tu almuerzo te acompaña cuando llega el antojo." },
+          { "titulo": "Producto", "texto": "Bolsa de Canela de Ceilán grande y visible" },
+          { "titulo": "Sellos", "texto": "Sin gluten · Sin OGM · Canela de Ceilán · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "foto": "Mujer de 45 años en su escritorio abriendo el cajón de las galletas a las 3 de la tarde",
+          "titulo2": "No es falta de voluntad: no era la canela correcta",
+          "descripcion": "La canela de Ceilán es la canela verdadera, la que se puede tomar a diario. Una cápsula con tu almuerzo te acompaña cuando llega el antojo.",
+          "sellos": ["Sin gluten", "Sin OGM", "Canela de Ceilán", "Pagas al recibir"]
+        }
+      },
+      {
+        "seccion": "Beneficios",
+        "titulo": "Que el dulce deje de mandar desde la segunda semana",
+        "subtitulo": "Canela verdadera de Ceilán para tus tardes, tus comidas y tu tranquilidad",
+        "franja": { "beneficio": "Tardes sin antojo y con energía", "tiempo": "Desde la segunda semana", "deseo": "Cuidarte sin vivir a dieta" },
+        "objetivo": "Mostrar cómo cambia su día: tardes, comidas y noches.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Que el dulce deje de mandar desde la segunda semana" },
+          { "titulo": "Subtítulo", "texto": "Canela verdadera de Ceilán para tus tardes, tus comidas y tu tranquilidad" },
+          { "titulo": "Cinco beneficios", "texto": "Menos antojo de dulce · Energía pareja · Más liviana · Noches tranquilas · Canela verdadera" },
+          { "titulo": "Imágenes de beneficios", "texto": "Escritorio sin galletas; mujer activa a las 4 p.m.; mujer levantándose ligera de la mesa; noche en el sofá sin pan; astillas de canela de Ceilán" },
+          { "titulo": "Producto central", "texto": "La bolsa de Canela de Ceilán al centro, uniendo los cinco beneficios" },
+          { "titulo": "Sellos", "texto": "Sin gluten · Sin OGM · Canela de Ceilán · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "beneficios": [
+            { "titulo": "Menos antojo de dulce", "frase": "La tarde sin ir al cajón del dulce" },
+            { "titulo": "Energía pareja", "frase": "Sin el bajón después del almuerzo" },
+            { "titulo": "Más liviana", "frase": "Termina de comer y sigue con tu día" },
+            { "titulo": "Noches tranquilas", "frase": "Menos picoteo de pan por la noche" },
+            { "titulo": "Canela verdadera", "frase": "De Ceilán, sin gluten y sin OGM" }
+          ],
+          "sellos": ["Sin gluten", "Sin OGM", "Canela de Ceilán", "Pagas al recibir"]
+        }
+      },
+      {
+        "seccion": "Modo de uso",
+        "titulo": "Solo [X] cápsula con tu almuerzo para una tarde sin antojo",
+        "subtitulo": "Tu rutina de canela verdadera en 5 segundos",
+        "franja": { "beneficio": "Fácil y sin preparar nada", "tiempo": "Una vez al día", "deseo": "Una rutina que sí puedes seguir" },
+        "objetivo": "Que no le quede ninguna duda de cómo tomarla.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Solo [X] cápsula con tu almuerzo para una tarde sin antojo" },
+          { "titulo": "Subtítulo", "texto": "Tu rutina de canela verdadera en 5 segundos" },
+          { "titulo": "Mensaje descriptivo", "texto": "Sin preparar aguas ni tés. Tómala con tu comida principal y repítelo todos los días: la constancia hace la diferencia." },
+          { "titulo": "Tres pasos", "texto": "1. Almuerza · 2. Toma [X] cápsula blanda con agua · 3. Repite a diario por 8 a 12 semanas" },
+          { "titulo": "Producto", "texto": "Bolsa de Canela de Ceilán grande, con una cápsula blanda al lado" },
+          { "titulo": "Sellos", "texto": "Cápsula blanda · Fácil de llevar · Menos de 1 minuto · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "descripcion": "Sin preparar aguas ni tés. Tómala con tu comida principal y repítelo todos los días.",
+          "pasos": ["Almuerza", "Toma [X] cápsula blanda", "Repite a diario"],
+          "sellos": ["Cápsula blanda", "Fácil de llevar", "Menos de 1 minuto", "Pagas al recibir"]
+        }
+      }
+    ]
+  },
+  "embudo": {
+    "hero": [
+      { "titulo": "Menos antojo de dulce desde la segunda semana y energía todo el día", "subtitulo": "Canela de Ceilán, la canela verdadera, para cuidarte sin vivir a dieta", "elementos": ["Canela de Ceilán de Sri Lanka", "Con aceite MCT", "30 cápsulas blandas", "Sin gluten", "Sin OGM", "Pagas al recibir"], "etiqueta": "Opción 1" },
+      { "titulo": "Que el dulce deje de mandar en tu vida desde las primeras semanas", "subtitulo": "Una cápsula de canela de Ceilán con tu almuerzo, para cuidarte desde hoy", "elementos": ["La canela verdadera", "Cápsula blanda", "Sin gluten", "Sin OGM", "Pagas al recibir"], "etiqueta": "Opción 2" },
+      { "titulo": "Regálale a tu mamá menos antojos en 2 semanas y una rutina que sí puede seguir", "subtitulo": "Canela verdadera de Ceilán, fácil de tomar y segura para todos los días", "elementos": ["Canela de Ceilán de Sri Lanka", "Muy poca cumarina", "Cápsula blanda", "Pagas al recibir"], "etiqueta": "Opción 3" },
+      { "titulo": "Chao antojo de la tarde en 2 semanas", "subtitulo": "Canela de Ceilán en cápsula blanda", "elementos": ["Canela verdadera", "Sin gluten", "Sin OGM"], "etiqueta": "Opción 4" }
+    ],
+    "dolor": [
+      { "titulo": "¿Son las tres de la tarde y ya estás buscando algo dulce, otra vez?", "subtitulo": "No es falta de voluntad: tu cuerpo te lo pide después de comer", "elementos": ["A media tarde te provoca algo dulce", "Después de almorzar te da sueño", "Te sientes pesada después de comer", "Por la noche terminas picando pan", "En tu familia hay historia de azúcar alta", "Ya probaste agua de canela y nada"], "etiqueta": "Opción 1" },
+      { "titulo": "¿Te da un sueño y un bajón después del almuerzo que no te deja seguir?", "subtitulo": "Esa pesadez tiene que ver con lo que pasa después de comer", "elementos": ["Sueño después de almorzar", "Antojo de algo dulce para levantarte", "Pesadez en la tarde"], "etiqueta": "Opción 2" },
+      { "titulo": "¿Tu mamá no deja el postre y a ti te da miedo que le suba el azúcar?", "subtitulo": "Hay una forma natural de acompañar sus cuidados", "elementos": ["Postre en cada comida", "Historia de azúcar en la familia", "Una rutina fácil de seguir"], "etiqueta": "Opción 3" },
+      { "titulo": "¿Te cuidas todo el día y por la noche el pan te gana?", "subtitulo": "Sentir culpa no ayuda; una rutina sí", "elementos": ["Picoteo nocturno", "Culpa después de comer", "Dietas que no duran"], "etiqueta": "Opción 4" },
+      { "titulo": "¿Sientes que el dulce decide por ti en cada comida?", "subtitulo": "Recupera el control sin vivir a dieta", "elementos": ["Antojo después de cada comida", "Sentir que no tienes control"], "etiqueta": "Opción 5" },
+      { "titulo": "¿Corrientazo, tinto con pan y en diciembre natilla y buñuelos?", "subtitulo": "Así come Colombia; tu cuerpo necesita una ayuda", "elementos": ["Corrientazo", "Tinto con pan", "Natilla y buñuelos"], "etiqueta": "Opción 6" },
+      { "titulo": "¿Llevas meses con agua de canela y no notas nada?", "subtitulo": "Puede que no fuera la canela correcta", "elementos": ["La canela común es casi siempre cassia", "La de Ceilán es la canela verdadera"], "etiqueta": "Opción 7" }
+    ],
+    "beneficios": [
+      { "titulo": "Que el dulce deje de mandar desde la segunda semana", "subtitulo": "Canela verdadera de Ceilán para tus tardes, tus comidas y tu tranquilidad", "elementos": ["Menos antojo de dulce: la tarde sin ir al cajón del dulce", "Energía pareja: sin el bajón después del almuerzo", "Más liviana: termina de comer y sigue con tu día", "Noches tranquilas: menos picoteo de pan por la noche", "Canela verdadera: de Ceilán, sin gluten y sin OGM"], "etiqueta": "Opción 1" },
+      { "titulo": "Tus tardes con energía y sin antojo", "subtitulo": "Una cápsula de canela de Ceilán con tu almuerzo", "elementos": ["Menos antojo de dulce", "Energía pareja", "Más liviana", "Noches tranquilas", "Canela verdadera"], "etiqueta": "Opción 2" },
+      { "titulo": "Cuídate sin vivir a dieta", "subtitulo": "La canela verdadera que se puede tomar todos los días", "elementos": ["Menos antojo de dulce", "Energía pareja", "Más liviana", "Noches tranquilas", "Canela verdadera"], "etiqueta": "Opción 3" }
+    ],
+    "ingredientes": [
+      { "titulo": "No es cualquier canela: es canela de Ceilán", "subtitulo": "La canela verdadera de Sri Lanka, con solo trazas de cumarina, para tomar todos los días", "elementos": ["Canela de Ceilán de Sri Lanka", "Aceite MCT en cápsula blanda", "Sin gluten", "Sin OGM"], "etiqueta": "Opción 1" },
+      { "titulo": "Canela de Ceilán con aceite MCT", "subtitulo": "Dos ingredientes, en una cápsula blanda fácil de tragar", "elementos": ["Canela de Ceilán: la canela verdadera", "Aceite MCT: el aceite de la cápsula", "Sin gluten", "Sin OGM"], "etiqueta": "Opción 2" }
+    ],
+    "uso": []
+  },
+  "anuncios_imagen": [],
+  "fuentes": []
 }
