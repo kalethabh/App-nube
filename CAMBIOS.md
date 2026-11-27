@@ -2,6 +2,18 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27f · Landings con la estructura de tu página de AMUNA
+
+- **Plantilla nueva en «Landings → Crear con el equipo»: «AMUNA: combos y ritual».** Ahora es la que sale por defecto; la de CEN sigue disponible. Hace la landing con la misma estructura de tu página de AMUNA:
+  - galería de 11 imágenes, combos 1, 2 y 3 con insignia, tachado y «Ahorras», y pago al recibir;
+  - dudas rápidas, aviso de pedido, creativo, ingredientes, historias, ruta de 3 meses, pasos y franja;
+  - comparación, compra clara, cuidado, preguntas frecuentes, pie y barra fija.
+- **Los textos siguen lo que hace cada parte de la de AMUNA**: el mismo largo, la misma intención y el mismo tono, para tu producto.
+- **ChatGPT hace sus 31 imágenes, cada una con la medida exacta de la original** (por ejemplo, la primera de la galería, 942×1670). Para cada una mira la imagen de AMUNA que le corresponde y usa la foto de tu producto. Si alguna no sale, queda un recuadro gris con su medida.
+- **Reseñas reales con foto y estrellas.** Con ellas salen el testimonio destacado, «Ellas cuentan» (las que tienen foto) y las reseñas con su nota y sus barras, calculadas de tus reseñas. Sin reseñas, esas partes no salen: la app no inventa testimonios, cifras de clientas ni calificaciones.
+- **Las historias y las capturas son fotos de estilo de vida**, con títulos que no dicen que son clientas.
+- **Los colores salen de tu empaque.** La letra es Inter y el fondo de la página es el mismo de las imágenes.
+
 ## 2026-11-27e · Landings terminadas: sin variables, letra Inter y el fondo de tus imágenes
 
 - **Ya no queda nada para completar:** sin «Nombre Apellido», «XX», «Aquí va…» ni «Precio por definir». Lo que no se puede sostener se quita solo.
