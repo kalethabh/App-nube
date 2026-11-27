@@ -1,0 +1,90 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V09",
+    "structure_source": "library format F50 (Frasco al centro con 4 beneficios con íconos alrededor y fondo botánico), winning structure mv-20",
+    "reference_style": "Premium botanical still life: headline and paragraph centered on top, the bottle in the center with a round seal, four icon circles with labels around it, real ingredients on a wooden table and a blurred forest background",
+    "angle_used": "Mecanismo único",
+    "ad_format": "Product Hero Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (highlighted headline line, round seal), deep magenta #B0105E, dark plum #2B1226 (headline text, bottom strip), bottle black #0E0E10, white #FFFFFF (icon strokes, strip text), seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: mint green #7ED6B5 (icon circles) and steel grey #4A5560 (value proposition and icon labels).",
+    "visual_style": "Real photographic still life with soft natural light, the bottle studio-sharp in the center over a blurred Amazon forest, plus a small real photo card.",
+    "visual_atmosphere": "Natural, fresh and convincing: the three ingredients are the missing support for her routine.",
+    "graphic_language": "Mint circles with thin white line icons, short steel-grey labels, a fuchsia scalloped round seal, a rounded white-bordered photo card, a slim plum strip with a white pill and a gold-bordered badge.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; value proposition and labels in Poppins SemiBold / Bold look."
+  },
+  "creative_objective": "Explain why this time it works: her gym routine lacked the support of three ingredients. Show the real ingredients around the bottle, her frustration with loose jeans after the gym and her result on another day.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The headline with 'TRIPLE ACCIÓN' in fuchsia; 2) the bottle in the center; 3) the before/after card; 4) the four ingredient icons; 5) the ingredients on the wood; 6) the bottom strip.",
+    "composition_style": "Like the structure: centered headline and paragraph on top, bottle in the center with a round seal near its cap, icons two on the right side and two on the left; on the left the upper icon position is taken by the before/after photo card and the two left icons sit stacked below it; ingredients on the wooden table at the bottom; slim strip at the very bottom.",
+    "spacing_and_structure": "Top 0-24% headline and value proposition; middle 24-76% card (left 3-33%, 25-52%), left icons (3-33%, 54-76%), bottle (35-65%), right icons (68-97%); 76-88% ingredients on the wood; 88-100% strip.",
+    "lighting_and_depth": "Soft warm natural sunlight from the upper left through the forest, gentle rim light on the bottle, soft contact shadows on the wood, background in strong bokeh.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Blurred green Amazon forest background. Top (0-24%): one centered two-line headline in dark plum with the second line in fuchsia, and a centered value proposition paragraph in steel grey. Middle: the real bottle in the center, a round fuchsia scalloped seal near its cap; four mint icon circles with labels around it (two on the right stacked, two on the left stacked lower), and on the upper left a rounded photo card with the before and after of the same woman. Bottom: a light wooden table with aguaje fruits, fenugreek seeds and black maca roots at the base of the bottle; then a slim plum strip with the offer, 'Pagas al recibir' and the gold-bordered badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline + paragraph", "position": "top center", "visual_function": "Mechanism hook and value proposition", "adaptation_rule": "Affirmative, 'TRIPLE ACCIÓN' in fuchsia", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "product", "position": "center", "visual_function": "The real bottle", "adaptation_rule": "Attached bottle, label front-facing", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "round seal", "position": "next to the cap, upper right", "visual_function": "Ease of use", "adaptation_rule": "'2 CÁPSULAS AL DÍA' in fuchsia", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "four icon circles with labels", "position": "around the bottle", "visual_function": "The three ingredients and the vitamins", "adaptation_rule": "Exact doses from the label, no health claims", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "ingredients on wood + forest background", "position": "bottom and background", "visual_function": "Natural origin", "adaptation_rule": "Aguaje fruits, fenugreek seeds, black maca roots", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "before/after photo card", "position": "upper left of the middle zone", "visual_function": "The pain scene and the result (supervisor rule)", "adaptation_rule": "Same woman on two different days", "present_in_reference": false },
+      { "block_id": "block_07", "block_type": "bottom strip", "position": "bottom full width", "visual_function": "Offer and trust (batch rule)", "adaptation_rule": "Exact batch offer, 'Pagas al recibir', registration badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Health or medical claims next to the icons",
+      "Prices, percentages, 'gratis', guarantee or free shipping claims",
+      "Stars, reviews, customer counts or names",
+      "Logos outside the bottle label",
+      "Loose capsules, pills, powder or an open bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium botanical still-life ad. BACKGROUND: a lush Amazon rainforest in strong soft bokeh, deep greens and warm sunlit patches, slightly lighter at the top so dark text reads clearly. TOP ZONE (0-24%): a centered headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase, two lines: 'TU RUTINA PEDÍA' in dark plum #2B1226 and the highlighted line 'TRIPLE ACCIÓN' in hot fuchsia #E6177F. Under it (17-24%), a centered two-line paragraph in Poppins SemiBold, steel grey #4A5560: 'Cola con forma y piernas torneadas desde la semana 4 de tu plan, para que por fin se note tu esfuerzo.' MIDDLE ZONE (24-76%): CENTER (35-65% of the width, 26-82% of the height): the attached product standing upright on the table, front view, about 50% of the canvas height, camera slightly high (15 degrees), 50 mm lens; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN' and three boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; the label front-facing and readable; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. Near the upper right of the cap, a round hot fuchsia #E6177F scalloped seal with a thin white inner ring and white Poppins Bold text '2 CÁPSULAS AL DÍA'. RIGHT SIDE (68-97% of the width): two mint green #7ED6B5 circles stacked at 30-48% and 54-72% of the height, each with a thin white line icon (a scaly round palm fruit; small seeds with a leaf) and under each a short centered label in Poppins Bold steel grey #4A5560: 'Aguaje 200 mg' and 'Fenogreco 400 mg'. LEFT SIDE: upper part (3-33% of the width, 25-52% of the height): a rounded photo card with a white border and soft shadow, split in two side-by-side real unretouched photos of the SAME adult Colombian woman, 24 years old, light wheat skin with visible pores, thick eyebrows, black hair, framed head to mid-thigh, on two DIFFERENT DAYS, with tiny tags 'Antes' and 'Semana 4'. BEFORE photo: a gym locker room under cold fluorescent light, black hair in a low messy bun, a grey gym t-shirt and loose light-blue jeans pulled on after training; side-on at hip height with her face to the camera and a frustrated sigh, her hand pulls the back waistband a full fist away from her lower back so the empty gap is clearly visible; flat straight hips, glutes flat with no curve, thin straight thighs. AFTER photo: an outdoor park path in golden early-morning sun, black hair in a high ponytail, a mint #7ED6B5 sports top and steel-grey #4A5560 leggings, three-quarter pose facing the camera with a proud smile; small waist, hips clearly wider and rounded, toned fuller thighs; clear change, natural. Lower part (3-33% of the width, 54-76%): two mint circles side by side, each with a thin white line icon (a twisted dark root; a small droplet with a leaf) and short labels in Poppins Bold steel grey: 'Maca negra 200 mg' and 'Vitaminas A y E'. BOTTOM ZONE (76-88%): a light natural wooden table with real ingredients around the base of the bottle: three reddish-brown scaly aguaje fruits (one cut showing orange flesh) on the left, a small wooden bowl and a scatter of golden fenugreek seeds in front, and dark knobby black maca roots on the right, soft contact shadows. BOTTOM STRIP (88-100%): a slim full-width dark plum #2B1226 strip with, left to right: white Poppins Bold 'Tratamiento completo: 3 frascos para 3 meses', a white pill with plum Poppins Bold 'Pagas al recibir', and a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top center, line 1", "text_style": "Montserrat Black look, uppercase, dark plum #2B1226, centered", "text": "TU RUTINA PEDÍA" },
+    { "block_id": "text_block_02", "reference_function": "main headline (highlighted line)", "reference_position": "top center, line 2", "text_style": "Montserrat Black look, uppercase; the highlighted line 'TRIPLE ACCIÓN' in hot fuchsia #E6177F", "text": "TRIPLE ACCIÓN" },
+    { "block_id": "text_block_03", "reference_function": "value proposition", "reference_position": "top center under the headline", "text_style": "Poppins SemiBold, steel grey #4A5560, centered, two lines", "text": "Cola con forma y piernas torneadas desde la semana 4 de tu plan, para que por fin se note tu esfuerzo." },
+    { "block_id": "text_block_04", "reference_function": "badge", "reference_position": "round seal next to the cap", "text_style": "Poppins Bold, white on a hot fuchsia #E6177F scalloped seal", "text": "2 CÁPSULAS AL DÍA" },
+    { "block_id": "text_block_05", "reference_function": "benefit", "reference_position": "right side, upper icon", "text_style": "Poppins Bold, steel grey #4A5560, centered under the mint circle", "text": "Aguaje 200 mg" },
+    { "block_id": "text_block_06", "reference_function": "benefit", "reference_position": "right side, lower icon", "text_style": "Poppins Bold, steel grey #4A5560, centered under the mint circle", "text": "Fenogreco 400 mg" },
+    { "block_id": "text_block_07", "reference_function": "benefit", "reference_position": "left side, lower icons, left", "text_style": "Poppins Bold, steel grey #4A5560, centered under the mint circle", "text": "Maca negra 200 mg" },
+    { "block_id": "text_block_08", "reference_function": "benefit", "reference_position": "left side, lower icons, right", "text_style": "Poppins Bold, steel grey #4A5560, centered under the mint circle", "text": "Vitaminas A y E" },
+    { "block_id": "text_block_09", "reference_function": "other (before/after label)", "reference_position": "photo card, left photo", "text_style": "Poppins Bold, small, white on a dark plum tag", "text": "Antes" },
+    { "block_id": "text_block_10", "reference_function": "other (before/after label)", "reference_position": "photo card, right photo", "text_style": "Poppins Bold, small, white on a hot fuchsia tag", "text": "Semana 4" },
+    { "block_id": "text_block_11", "reference_function": "offer", "reference_position": "bottom strip, left", "text_style": "Poppins Bold, white on the plum strip", "text": "Tratamiento completo: 3 frascos para 3 meses" },
+    { "block_id": "text_block_12", "reference_function": "trust item", "reference_position": "bottom strip, middle pill", "text_style": "Poppins Bold, dark plum #2B1226 on a white pill", "text": "Pagas al recibir" },
+    { "block_id": "text_block_13", "reference_function": "badge", "reference_position": "bottom strip, right round badge", "text_style": "Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Blurred Amazon forest background and a light wooden table",
+    "The real bottle in the center, label readable, with the fuchsia round seal near its cap",
+    "Four mint icon circles with their labels around the bottle",
+    "Before/after photo card of the same woman on two different days: before with the visible gap in the loose jeans after the gym, after with curvy hips and toned legs in leggings, facing the camera or three-quarters",
+    "Aguaje fruits, fenugreek seeds and black maca roots at the base of the bottle",
+    "Slim plum strip with the offer, the 'Pagas al recibir' pill and the gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear",
+    "The two photos never share the same outfit, pose, hairstyle, place or light",
+    "No medical claims, no prices, percentages, 'gratis', guarantee or free shipping claims",
+    "No stars, reviews, customer counts or names",
+    "No logos outside the bottle label",
+    "No loose capsules, no pills, no powder, no open bottle",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra buttons, badges, seals or strips beyond the ones described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

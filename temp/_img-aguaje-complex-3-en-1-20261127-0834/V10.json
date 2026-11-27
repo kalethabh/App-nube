@@ -1,0 +1,84 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V10",
+    "structure_source": "library format F55 (Cuadrícula de 4 momentos en ilustración de línea), winning structure mv-25",
+    "reference_style": "Line-illustration 2x2 grid: the same woman in four moments, each panel framed with a dark rounded label at its top right, the small real bottle in the last panel",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Collage Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (highlighted headline word), dark plum #2B1226 (headline, panel labels, bottom strip), white #FFFFFF (label text), bottle black #0E0E10, seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: terracotta #C8643B (all drawing lines and panel frames) and light sand #F2E4CF (background).",
+    "visual_style": "Clean editorial line illustration with soft flat skin and clothing tints, the real bottle as a sharp photographic cut-out in the last panel.",
+    "visual_atmosphere": "Calm, warm and proud: the story of someone who finally finished her plan.",
+    "graphic_language": "Light sand background, thick terracotta cross dividers, square panel frames in terracotta, dark plum rounded labels overlapping each frame's top right corner, a slim plum strip with a white pill and a gold-bordered badge.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; value proposition, labels and strip in Poppins SemiBold / Bold look."
+  },
+  "creative_objective": "Speak to the woman who starts everything and never finishes: four moments of the same woman (Día 1, Semana 2, Semana 4, Mes 3) where her hips and legs gain curve as she keeps the plan, and how easy it is (2 capsules a day).",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The headline with 'TERMINÉ' in fuchsia; 2) the four panels read in order; 3) the bottle in the last panel; 4) the value proposition; 5) the bottom strip.",
+    "composition_style": "Like the structure: a 2x2 grid divided by a thick cross, each cell holding a framed square illustration with a dark rounded label at the top right; the headline band added on top and a slim strip at the bottom.",
+    "spacing_and_structure": "Top 0-17% headline and value proposition; 17-89% the 2x2 grid; 89-100% strip. Each panel frame leaves a margin inside its cell; labels overlap the top right corner of each frame.",
+    "lighting_and_depth": "Flat illustration; each panel suggests its own time of day with a light background tint and a few drawn details; the bottle has crisp studio highlights and a soft shadow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Light sand background divided into a 2x2 grid by a thick terracotta cross. Each cell holds a square line-illustration panel with a terracotta frame and a dark plum rounded label overlapping its top right corner ('Día 1', 'Semana 2', 'Semana 4', 'Mes 3'). The same woman, drawn from head to below the knees, facing or three-quarters, gains curve in hips and legs from panel to panel; each moment has another outfit, pose, hairstyle, place and light. In the last panel, the small real bottle stands at the lower right overlapping the frame. Added by batch rules: a headline band with the value proposition on top and a slim plum strip at the bottom with the offer, 'Pagas al recibir' and the gold-bordered badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline + value proposition", "position": "top band", "visual_function": "Result hook and desire + time + deep desire", "adaptation_rule": "'TERMINÉ' in fuchsia", "present_in_reference": false },
+      { "block_id": "block_02", "block_type": "four line-illustration panels", "position": "2x2 grid", "visual_function": "Progress over time", "adaptation_rule": "Hips and legs instead of belly; facing or three-quarters, never from behind; each moment on a different day", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "dark rounded labels", "position": "top right of each panel", "visual_function": "Time marks", "adaptation_rule": "Día 1 · Semana 2 · Semana 4 · Mes 3", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "product", "position": "lower right of the last panel", "visual_function": "The real bottle closes the story", "adaptation_rule": "Attached bottle, small, label front-facing", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "bottom strip", "position": "bottom full width", "visual_function": "Offer and trust (batch rule)", "adaptation_rule": "Exact batch offer, 'Pagas al recibir', registration badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Nude or underwear bodies; the woman is always dressed with jeans",
+      "Brand names inside the panel labels",
+      "Prices, percentages, 'gratis', guarantee or free shipping claims",
+      "Stars, reviews, customer counts or names",
+      "Logos outside the bottle label",
+      "Loose capsules, pills or an open bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 line-illustration progress ad. BACKGROUND: light sand #F2E4CF. TOP ZONE (0-17%): a centered headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase, one line: 'ESTA VEZ SÍ LO TERMINÉ' in dark plum #2B1226 with the highlighted word 'TERMINÉ' in hot fuchsia #E6177F. Under it, one centered line in Poppins SemiBold, dark plum: 'Caderas con curva y piernas firmes al mes 3, con solo 2 cápsulas al día, para sentirte orgullosa de ti.' GRID ZONE (17-89%): a 2x2 grid divided by a thick terracotta #C8643B cross; each cell holds a square panel with a thin terracotta frame and, overlapping its top right corner, a dark plum #2B1226 rounded label with white Poppins Bold text. All four panels are clean editorial line drawings in terracotta lines with soft flat tints, showing the SAME illustrated adult woman, 26 years old, warm light-brown skin, short pixie haircut, drawn from the head to below the knees, facing the viewer or three-quarters, never from behind, each panel a DIFFERENT DAY. PANEL 1 (top left, label 'Día 1'): her bedroom at night under a lamp (soft blue-grey tint), pixie hair messy and flat, a wide oversized t-shirt and baggy straight jeans; she stands side-on with her face to the viewer, a frustrated look in a mirror, one hand pulling the jeans waistband a full fist away from her lower back so the empty gap is visible; straight silhouette with hips the same width as her waist, glutes flat with no curve, thin straight legs. PANEL 2 (top right, label 'Semana 2'): a kitchen in cool morning light (pale mint tint), pixie hair with a thin headband, a short hoodie and medium-blue jeans, three-quarter pose holding a glass of water and smiling a little; the jeans fit a little better. PANEL 3 (bottom left, label 'Semana 4'): a city sidewalk in warm afternoon light (soft peach tint), pixie hair slicked to one side with a hair clip, a shirt knotted at the waist and high-waist jeans, walking pose facing the viewer with a hand in a pocket; hips visibly rounder, thighs fuller. PANEL 4 (bottom right, label 'Mes 3'): a terrace at golden sunset with string lights (warm golden tint), pixie hair tousled with small gold earrings, a wrap crop top and flared jeans, confident three-quarter pose facing the viewer with a hand on her hip and a proud smile; small waist, hips clearly wider and curved, toned fuller legs filling the jeans; the change from panel 1 is obvious at first glance but natural. At the lower right of panel 4, overlapping its frame, the attached product as a sharp photographic cut-out, upright, front view, about 22% of the canvas height; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, italic pink 'TRIPLE ACCIÓN' and three small boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; label readable; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. BOTTOM STRIP (89-100%): a slim full-width dark plum #2B1226 strip with, left to right: white Poppins Bold 'Tratamiento completo: 3 frascos para 3 meses', a white pill with plum Poppins Bold 'Pagas al recibir', and a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top center", "text_style": "Montserrat Black look, uppercase, dark plum #2B1226; the highlighted word 'TERMINÉ' in hot fuchsia #E6177F", "text": "ESTA VEZ SÍ LO TERMINÉ" },
+    { "block_id": "text_block_02", "reference_function": "value proposition", "reference_position": "top center under the headline", "text_style": "Poppins SemiBold, dark plum #2B1226, centered", "text": "Caderas con curva y piernas firmes al mes 3, con solo 2 cápsulas al día, para sentirte orgullosa de ti." },
+    { "block_id": "text_block_03", "reference_function": "time label", "reference_position": "panel 1, top right label", "text_style": "Poppins Bold, white on a dark plum rounded label", "text": "Día 1" },
+    { "block_id": "text_block_04", "reference_function": "time label", "reference_position": "panel 2, top right label", "text_style": "Poppins Bold, white on a dark plum rounded label", "text": "Semana 2" },
+    { "block_id": "text_block_05", "reference_function": "time label", "reference_position": "panel 3, top right label", "text_style": "Poppins Bold, white on a dark plum rounded label", "text": "Semana 4" },
+    { "block_id": "text_block_06", "reference_function": "time label", "reference_position": "panel 4, top right label", "text_style": "Poppins Bold, white on a dark plum rounded label", "text": "Mes 3" },
+    { "block_id": "text_block_07", "reference_function": "offer", "reference_position": "bottom strip, left", "text_style": "Poppins Bold, white on the plum strip", "text": "Tratamiento completo: 3 frascos para 3 meses" },
+    { "block_id": "text_block_08", "reference_function": "trust item", "reference_position": "bottom strip, middle pill", "text_style": "Poppins Bold, dark plum #2B1226 on a white pill", "text": "Pagas al recibir" },
+    { "block_id": "text_block_09", "reference_function": "badge", "reference_position": "bottom strip, right round badge", "text_style": "Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "2x2 grid of terracotta line-illustration panels on a light sand background with a thick terracotta cross",
+    "The same woman in four moments, each with another outfit, pose, hairstyle, place and light; panel 1 with the visible gap in the loose waistband, panel 4 with curvy hips and toned legs in jeans",
+    "Dark plum rounded labels at the top right of each panel",
+    "The real bottle small at the lower right of panel 4, label readable",
+    "Slim plum strip with the offer, the 'Pagas al recibir' pill and the gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No back views, no close-ups centered on the buttocks or crotch, no nudity, no lingerie or swimwear",
+    "Never the same outfit, pose, hairstyle, place or light in two panels",
+    "No prices, percentages, 'gratis', guarantee or free shipping claims",
+    "No stars, reviews, customer counts or names",
+    "No logos outside the bottle label",
+    "No loose capsules, no pills, no open bottle",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra buttons, badges, seals or strips beyond the ones described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

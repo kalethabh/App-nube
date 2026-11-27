@@ -1,0 +1,49 @@
+{
+  "id": "T002",
+  "piezas": {
+    "V05_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
+    },
+    "V06_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
+    },
+    "V07_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
+    },
+    "V08_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    },
+    "V09_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    },
+    "V10_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    }
+  },
+  "actualizado": "2026-11-27T13:51:29.155Z",
+  "terminado": false
+}

@@ -1,0 +1,43 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 native-looking ad: one real, unretouched smartphone photo taken horizontally at chest height with a slight wide-angle lens, light phone grain, real skin with visible pores. SCENE: a real Colombian warehouse. TOP ZONE (0-25%): a white metal ceiling with long cool fluorescent tubes, a big open roll-up loading door on the left letting in warm daylight with a blurred street and a tree outside, grey metal shelving on the right stacked with closed plain kraft #B48A5A boxes, a plain light wall with no logo or sign. MIDDLE ZONE (25-90%): LEFT (0-45% of the width): a tall wooden pallet stacked with plain kraft boxes wrapped in shiny stretch film, a few white shipping labels with unreadable small print; taped with clear tape on the front box at about chest height, an instant photo print about 22% of the canvas width and 24% of its height, slightly tilted, split in two side-by-side photos of the SAME customer on two DIFFERENT DAYS: left half, her living room in cool morning light, hair in a messy bun, a grey t-shirt and loose light-blue jeans, side-on with her face to the camera and a frustrated look, her hand pulling the waistband a fist away from her lower back so the empty gap is visible, flat straight hips, thin straight thighs; right half, a sunny street in warm afternoon light, hair loose in waves, a coral #F08A6E blouse and light-blue fitted jeans, three-quarter pose facing the camera and smiling, small waist, hips clearly wider and rounded, toned legs filling the jeans. CENTER-RIGHT (45-80% of the width, from the top of her head at about 18% down to her knees at the bottom edge): an adult Colombian woman, 33 years old, warm brown skin, black hair in a high top bun, small gold stud earrings, a wide real smile looking at the camera, standing facing the camera, one elbow leaning on the top of the pallet and the other hand holding the real bottle at chest height with the label facing the camera; she wears a plain hot fuchsia #E6177F polo shirt with no logo, dark-blue jeans and work gloves hanging from her back pocket. Behind her on the right, low pallets with more kraft boxes and a steel packing table with a tape dispenser. BOTTOM: polished concrete grey #9A9A96 floor with real scuffs. THE BOTTLE: the attached product, about 12% of the canvas height in her hand; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, italic pink 'TRIPLE ACCIÓN'; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. Lighting: cool fluorescent overhead light mixed with warm daylight from the loading door on the left, natural phone exposure. HEADLINE (floating at 4-14% of the height, centered over the ceiling): a white rounded pill with a heavy sans-serif uppercase headline (Montserrat ExtraBold look) 'LO RECIBES Y AHÍ PAGAS' in dark plum #2B1226 with the highlighted word 'PAGAS' in hot fuchsia #E6177F. BOTTOM STRIP (90-100%): a slim full-width dark plum #2B1226 strip with, on the left, a white pill with plum Poppins Bold text 'Pagas al recibir', and on the right a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top center, white pill over the ceiling): "LO RECIBES Y AHÍ PAGAS" — Montserrat ExtraBold look, uppercase, dark plum #2B1226 on a white pill; the highlighted word 'PAGAS' in hot fuchsia #E6177F
+- trust item (bottom strip, left): "Pagas al recibir" — Poppins Bold, dark plum on a white pill
+- badge (bottom strip, right): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (highlighted headline word, her polo), dark plum #2B1226 (headline text and bottom strip), white #FFFFFF (headline pill), seal gold #D4A437 only for the registration badge border; the photo keeps its real colors. Secondary support colors for this variation: kraft cardboard #B48A5A (boxes) and concrete grey #9A9A96 (floor and shelves).
+- text_typography: Headline in a heavy sans-serif (Montserrat ExtraBold look) uppercase inside a white pill; strip in Poppins Bold look.
+
+MANDATORY ELEMENTS:
+- Real warehouse with ceiling fluorescent tubes, an open loading door with daylight, shelves and a concrete floor, no wall logo
+- Smiling woman in a plain fuchsia polo and jeans holding the real bottle, leaning on a stretch-wrapped pallet of plain kraft boxes
+- Instant photo taped on the front box: the same customer before (loose waistband with visible gap) and after (curvy hips, toned legs in jeans) on two different days
+- White headline pill on top and the slim plum strip with 'Pagas al recibir' and the gold-bordered registration badge
+
+STRICT EXCLUSIONS:
+- sin poses de espaldas ni enfoque en zonas del cuerpo
+- No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear
+- The two halves of the instant photo never share the same outfit, pose, hairstyle, place or light
+- No logos, signs or brand names on walls, boxes or clothes; the brand only appears on the bottle label
+- No offer text, prices, percentages, 'gratis', stars, reviews, customer counts or names
+- No lab coats, name badges or medical look
+- No loose capsules, no pills, no open bottle
+- No studio look, no plastic skin, no heavy retouching
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add extra buttons, badges, seals or strips beyond the headline pill and the bottom strip described here.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Wall logo, brand signs or printed brand on the boxes
+- Do not add: Value proposition, offer text, prices, percentages or 'gratis'
+- Do not add: Stars, reviews, customer counts or names
+- Do not add: Name tags, lab coats, titles or any health-staff look
+- Do not add: Loose capsules, pills or an open bottle
+- Do not add: Studio lighting or retouched skin
+
+IMAGE QUALITY: the highest quality possible. Ultra sharp, high resolution detail, crisp and perfectly legible text with correct spelling, realistic skin, hair and fabric textures, clean edges and professional color grading. No blur, no noise, no compression artifacts, no warped or melted letters, no extra fingers or distorted faces.
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

@@ -1,0 +1,52 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 flat-illustration Christmas offer ad with soft paper grain. BACKGROUND: solid night blue #1D2A5A with a few soft darker organic blobs and small round dots, silver #C0C6D0 snowflakes of different sizes scattered lightly. TOP ZONE (0-28%): inside a darker navy organic blob, a centered hand-lettered brush headline, very heavy, uppercase, slightly rough edges, two lines: line 1 'EMPIEZA TU PLAN' in white #FFFFFF; line 2 'ANTES DE NAVIDAD' with 'ANTES DE' in white and the highlighted word 'NAVIDAD' in hot fuchsia #E6177F; short fuchsia burst strokes on both sides of the headline. In the top-left corner a cluster of silver snowflakes, in the top-right corner a red-and-white candy cane hanging from a short pine garland. Under the headline (22-28%), one centered line in Poppins SemiBold, pale blush #FBE3EE: 'Cola con forma y piernas firmes en 3 meses, para llegar a tus vacaciones de marzo con seguridad.' MIDDLE ZONE (28-80%): LEFT (3-32% of the width, 30-78% of the height): a rounded white-bordered flat-illustration card with a small pine garland on its top edge, split in two stacked panels of the SAME illustrated adult woman, 30 years old, light wheat skin, mahogany hair, on two DIFFERENT DAYS, each with a tiny label tag. Upper panel 'Antes': her bedroom at night under a warm lamp, mahogany hair in a messy low bun, a red-and-white plaid pajama top and baggy light-blue jeans; she stands side-on with her face to the viewer and a frustrated frown in front of a mirror, her hand pulls the back waistband a full fist away from her lower back so the empty gap is visible; flat straight silhouette, glutes flat with no curve, thin straight legs. Lower panel 'Mes 3': a bright beach-town street in sunny midday light with a palm tree, mahogany hair in a high ponytail, a silver #C0C6D0 sequined blouse and black fitted high-waist jeans, three-quarter pose facing the viewer with a big smile and a hand on her hip; small waist, hips clearly wider and rounded, toned fuller thighs filling the jeans; the difference is clear but natural. CENTER-LEFT (36-56% of the width, 32-78% of the height): the real product as a sharp photographic cut-out, upright, front view, about 44% of the canvas height, eye-level, soft contact shadow; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN' and three boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. RIGHT (58-97% of the width): on a big hot fuchsia #E6177F brush splash with a deep magenta #B0105E shadow and short burst strokes, the giant hand-lettered white '3 MESES' (about 18% of the canvas height, two stacked words allowed). Under it (62-78%), a flat silver #C0C6D0 hourglass icon with short silver burst lines and, to its right, two lines in Poppins Bold, sentence case: 'Empieza en diciembre,' in white and 'luce en marzo' in bubblegum pink #FF8CC0 underlined with a fuchsia brush stroke. BUTTON (81-89%): a centered hot fuchsia #E6177F pill with a soft shadow and white Poppins ExtraBold uppercase text 'QUIERO PROBARLO'. BOTTOM STRIP (90-100%): a slim full-width dark plum #2B1226 strip with, left to right: white Poppins Bold 'Tratamiento completo: 3 frascos para 3 meses', a white pill with plum Poppins Bold 'Pagas al recibir', and a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top center, line 1): "EMPIEZA TU PLAN" — Heavy hand-lettered brush sans, uppercase, white #FFFFFF
+- main headline (highlighted line) (top center, line 2): "ANTES DE NAVIDAD" — Heavy hand-lettered brush sans, uppercase; 'ANTES DE' in white and the highlighted word 'NAVIDAD' in hot fuchsia #E6177F
+- value proposition (top center under the headline): "Cola con forma y piernas firmes en 3 meses, para llegar a tus vacaciones de marzo con seguridad." — Poppins SemiBold, pale blush #FBE3EE, centered
+- other (before/after label) (left card, upper panel): "Antes" — Poppins Bold, small, white on a dark plum tag
+- other (before/after label) (left card, lower panel): "Mes 3" — Poppins Bold, small, white on a hot fuchsia tag
+- other (giant number) (right, on the fuchsia splash): "3 MESES" — Heavy hand-lettered brush sans, white, giant
+- other (date line) (right, next to the hourglass, line 1): "Empieza en diciembre," — Poppins Bold, white
+- other (date line) (right, next to the hourglass, line 2): "luce en marzo" — Poppins Bold, bubblegum pink #FF8CC0 with a fuchsia brush underline
+- CTA (bottom center pill button): "QUIERO PROBARLO" — Poppins ExtraBold, uppercase, white on a hot fuchsia #E6177F pill
+- offer (bottom strip, left): "Tratamiento completo: 3 frascos para 3 meses" — Poppins Bold, white on the plum strip
+- trust item (bottom strip, middle pill): "Pagas al recibir" — Poppins Bold, dark plum #2B1226 on a white pill
+- badge (bottom strip, right round badge): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (highlighted headline word, brush splash, button), deep magenta #B0105E (splash shadow), dark plum #2B1226 (bottom strip), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (value proposition), white #FFFFFF (headline, big number), seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: night blue #1D2A5A (background) and silver #C0C6D0 (snowflakes, hourglass, garlands).
+- text_typography: Headline in a heavy hand-lettered brush sans (Montserrat Black feel, slightly rough edges), uppercase; value proposition, date line, button and strip in Poppins SemiBold / Bold look.
+
+MANDATORY ELEMENTS:
+- Night-blue flat background with silver snowflakes, a candy cane and a pine garland in the corners
+- The real bottle on the center-left, label readable
+- Giant '3 MESES' on a fuchsia brush splash with a silver hourglass under it
+- Illustrated before/after card of the same woman on two different days (other pose, clothes, hair, place and light), the before with the visible gap in the loose waistband
+- Fuchsia pill button and the slim plum strip with the offer, the 'Pagas al recibir' pill and the gold-bordered registration badge
+
+STRICT EXCLUSIONS:
+- sin poses de espaldas ni enfoque en zonas del cuerpo
+- No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear
+- The two illustrated moments never share the same outfit, pose, hairstyle, place or light
+- No percentages, prices, 'gratis', countdowns, 'última oportunidad' or scarcity claims
+- No stars, reviews, customer counts or names
+- No logos outside the bottle label
+- No loose capsules, no pills, no open bottle
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add extra buttons, badges, seals or strips beyond the ones described here.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Percentages, prices, crossed-out prices, 'gratis' or savings
+- Do not add: 'Última oportunidad', countdowns, 'quedan N' or any false scarcity
+- Do not add: Free shipping or guarantee claims
+- Do not add: Stars, reviews, customer counts or names
+- Do not add: Logos outside the bottle label
+- Do not add: Loose capsules, pills or an open bottle
+
+IMAGE QUALITY: the highest quality possible. Ultra sharp, high resolution detail, crisp and perfectly legible text with correct spelling, realistic skin, hair and fabric textures, clean edges and professional color grading. No blur, no noise, no compression artifacts, no warped or melted letters, no extra fingers or distorted faces.
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
