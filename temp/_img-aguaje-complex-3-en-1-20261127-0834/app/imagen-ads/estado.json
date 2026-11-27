@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 2,
+    "R": 4,
     "A": 1,
     "T": 3
   },
@@ -36,7 +36,7 @@
     "R001": {
       "tipo": "revision",
       "uuid": "16a9e027-42ae-487d-89dc-4b0b595b9e16",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -57,6 +57,34 @@
         {
           "pieza": "V04_1x1",
           "firma": "2215228-1795787342138",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "a559c9a1-ad79-405a-9dee-5c5a61fee88a",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V07_1x1",
+          "firma": "2548713-1795787615134",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "7090ca81-99c1-4d67-8ecb-83d101e6afac",
+      "estado": "en-curso",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V06_1x1",
+          "firma": "2212383-1795787625157",
           "ronda": 1
         }
       ]
@@ -108,78 +136,147 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2321784-1795787227932",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2321784-1795787227932",
+        "nota": 8,
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 9,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-27T13:47:09.516Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2117416-1795787219829",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "En la etiqueta del frasco del medio dice «MACA MEDIA» en vez de «MACA NEGRA» (Texto limpio).",
+          "Los frascos de los lados quedan tapados por el del medio y se pierde parte de su etiqueta, y se ven brillantes en vez de mate (Frasco fiel).",
+          "No llega a 8 en: Texto limpio (7), Frasco fiel (7)."
+        ],
+        "firma": "2117416-1795787219829",
+        "correccion_en": "Keep the layout. Fix the three bottles: copy the attached product photo exactly; the third ingredient box on every label must read '200mg MACA NEGRA' (never 'MACA MEDIA'). Space the three bottles slightly apart so each full label is visible and readable, matte finish, no glossy highlights.",
+        "nota": 5,
+        "puntajes": {
+          "estructura": 8,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 7,
+          "frasco_fiel": 7,
+          "oferta_confianza": 8,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-27T13:47:01.295Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2653633-1795787212740",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "No aparece la oferta «Tratamiento completo: 3 frascos para 3 meses»: la franja de abajo solo tiene «Pagas al recibir» y el registro (Oferta y confianza).",
+          "No llega a 8 en: Oferta y confianza (7)."
+        ],
+        "firma": "2653633-1795787212740",
+        "correccion_en": "Keep everything the same. In the bottom plum strip add, between the 'Pagas al recibir' pill and the registration badge, a hot fuchsia #E6177F pill with white bold text exactly 'Tratamiento completo: 3 frascos para 3 meses'. Make the strip slightly taller if needed; do not cover the photos' jeans area.",
+        "nota": 5,
+        "puntajes": {
+          "estructura": 8,
+          "dolor_visual": 9,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 8,
+          "oferta_confianza": 7,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-27T13:46:52.964Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2215228-1795787342138",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2215228-1795787342138",
+        "nota": 8,
+        "puntajes": {
+          "estructura": 8,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 8,
+          "oferta_confianza": 9,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-27T13:49:03.838Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V05_1x1": {
       "v": "V05",
@@ -206,46 +303,55 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "revisando",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "version": 1,
+      "firma": "2212383-1795787625157",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-27T13:53:46.210Z",
+      "pedido": null,
+      "ultimaOrden": "g",
+      "tandaRevision": "R003"
     },
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2548713-1795787615134",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2548713-1795787615134",
+        "nota": 8,
+        "puntajes": {
+          "estructura": 9,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 8,
+          "diferencia_real": 9
+        }
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-27T13:53:35.921Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V08_1x1": {
       "v": "V08",
@@ -260,7 +366,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -282,7 +388,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,

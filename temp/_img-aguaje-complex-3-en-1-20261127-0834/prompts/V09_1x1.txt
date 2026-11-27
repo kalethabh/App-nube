@@ -1,0 +1,53 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 premium botanical still-life ad. BACKGROUND: a lush Amazon rainforest in strong soft bokeh, deep greens and warm sunlit patches, slightly lighter at the top so dark text reads clearly. TOP ZONE (0-24%): a centered headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase, two lines: 'TU RUTINA PEDÍA' in dark plum #2B1226 and the highlighted line 'TRIPLE ACCIÓN' in hot fuchsia #E6177F. Under it (17-24%), a centered two-line paragraph in Poppins SemiBold, steel grey #4A5560: 'Cola con forma y piernas torneadas desde la semana 4 de tu plan, para que por fin se note tu esfuerzo.' MIDDLE ZONE (24-76%): CENTER (35-65% of the width, 26-82% of the height): the attached product standing upright on the table, front view, about 50% of the canvas height, camera slightly high (15 degrees), 50 mm lens; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN' and three boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; the label front-facing and readable; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. Near the upper right of the cap, a round hot fuchsia #E6177F scalloped seal with a thin white inner ring and white Poppins Bold text '2 CÁPSULAS AL DÍA'. RIGHT SIDE (68-97% of the width): two mint green #7ED6B5 circles stacked at 30-48% and 54-72% of the height, each with a thin white line icon (a scaly round palm fruit; small seeds with a leaf) and under each a short centered label in Poppins Bold steel grey #4A5560: 'Aguaje 200 mg' and 'Fenogreco 400 mg'. LEFT SIDE: upper part (3-33% of the width, 25-52% of the height): a rounded photo card with a white border and soft shadow, split in two side-by-side real unretouched photos of the SAME adult Colombian woman, 24 years old, light wheat skin with visible pores, thick eyebrows, black hair, framed head to mid-thigh, on two DIFFERENT DAYS, with tiny tags 'Antes' and 'Semana 4'. BEFORE photo: a gym locker room under cold fluorescent light, black hair in a low messy bun, a grey gym t-shirt and loose light-blue jeans pulled on after training; side-on at hip height with her face to the camera and a frustrated sigh, her hand pulls the back waistband a full fist away from her lower back so the empty gap is clearly visible; flat straight hips, glutes flat with no curve, thin straight thighs. AFTER photo: an outdoor park path in golden early-morning sun, black hair in a high ponytail, a mint #7ED6B5 sports top and steel-grey #4A5560 leggings, three-quarter pose facing the camera with a proud smile; small waist, hips clearly wider and rounded, toned fuller thighs; clear change, natural. Lower part (3-33% of the width, 54-76%): two mint circles side by side, each with a thin white line icon (a twisted dark root; a small droplet with a leaf) and short labels in Poppins Bold steel grey: 'Maca negra 200 mg' and 'Vitaminas A y E'. BOTTOM ZONE (76-88%): a light natural wooden table with real ingredients around the base of the bottle: three reddish-brown scaly aguaje fruits (one cut showing orange flesh) on the left, a small wooden bowl and a scatter of golden fenugreek seeds in front, and dark knobby black maca roots on the right, soft contact shadows. BOTTOM STRIP (88-100%): a slim full-width dark plum #2B1226 strip with, left to right: white Poppins Bold 'Tratamiento completo: 3 frascos para 3 meses', a white pill with plum Poppins Bold 'Pagas al recibir', and a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top center, line 1): "TU RUTINA PEDÍA" — Montserrat Black look, uppercase, dark plum #2B1226, centered
+- main headline (highlighted line) (top center, line 2): "TRIPLE ACCIÓN" — Montserrat Black look, uppercase; the highlighted line 'TRIPLE ACCIÓN' in hot fuchsia #E6177F
+- value proposition (top center under the headline): "Cola con forma y piernas torneadas desde la semana 4 de tu plan, para que por fin se note tu esfuerzo." — Poppins SemiBold, steel grey #4A5560, centered, two lines
+- badge (round seal next to the cap): "2 CÁPSULAS AL DÍA" — Poppins Bold, white on a hot fuchsia #E6177F scalloped seal
+- benefit (right side, upper icon): "Aguaje 200 mg" — Poppins Bold, steel grey #4A5560, centered under the mint circle
+- benefit (right side, lower icon): "Fenogreco 400 mg" — Poppins Bold, steel grey #4A5560, centered under the mint circle
+- benefit (left side, lower icons, left): "Maca negra 200 mg" — Poppins Bold, steel grey #4A5560, centered under the mint circle
+- benefit (left side, lower icons, right): "Vitaminas A y E" — Poppins Bold, steel grey #4A5560, centered under the mint circle
+- other (before/after label) (photo card, left photo): "Antes" — Poppins Bold, small, white on a dark plum tag
+- other (before/after label) (photo card, right photo): "Semana 4" — Poppins Bold, small, white on a hot fuchsia tag
+- offer (bottom strip, left): "Tratamiento completo: 3 frascos para 3 meses" — Poppins Bold, white on the plum strip
+- trust item (bottom strip, middle pill): "Pagas al recibir" — Poppins Bold, dark plum #2B1226 on a white pill
+- badge (bottom strip, right round badge): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border
+
+BRAND IDENTITY:
+- color_palette: Hot fuchsia #E6177F (highlighted headline line, round seal), deep magenta #B0105E, dark plum #2B1226 (headline text, bottom strip), bottle black #0E0E10, white #FFFFFF (icon strokes, strip text), seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: mint green #7ED6B5 (icon circles) and steel grey #4A5560 (value proposition and icon labels).
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; value proposition and labels in Poppins SemiBold / Bold look.
+
+MANDATORY ELEMENTS:
+- Blurred Amazon forest background and a light wooden table
+- The real bottle in the center, label readable, with the fuchsia round seal near its cap
+- Four mint icon circles with their labels around the bottle
+- Before/after photo card of the same woman on two different days: before with the visible gap in the loose jeans after the gym, after with curvy hips and toned legs in leggings, facing the camera or three-quarters
+- Aguaje fruits, fenugreek seeds and black maca roots at the base of the bottle
+- Slim plum strip with the offer, the 'Pagas al recibir' pill and the gold-bordered registration badge
+
+STRICT EXCLUSIONS:
+- sin poses de espaldas ni enfoque en zonas del cuerpo
+- No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear
+- The two photos never share the same outfit, pose, hairstyle, place or light
+- No medical claims, no prices, percentages, 'gratis', guarantee or free shipping claims
+- No stars, reviews, customer counts or names
+- No logos outside the bottle label
+- No loose capsules, no pills, no powder, no open bottle
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add extra buttons, badges, seals or strips beyond the ones described here.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Health or medical claims next to the icons
+- Do not add: Prices, percentages, 'gratis', guarantee or free shipping claims
+- Do not add: Stars, reviews, customer counts or names
+- Do not add: Logos outside the bottle label
+- Do not add: Loose capsules, pills, powder or an open bottle
+
+IMAGE QUALITY: the highest quality possible. Ultra sharp, high resolution detail, crisp and perfectly legible text with correct spelling, realistic skin, hair and fabric textures, clean edges and professional color grading. No blur, no noise, no compression artifacts, no warped or melted letters, no extra fingers or distorted faces.
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

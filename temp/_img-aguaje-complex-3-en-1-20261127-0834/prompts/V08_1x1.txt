@@ -1,0 +1,53 @@
+The FIRST attached image is a STRUCTURE REFERENCE from another brand. Copy only its structure: the same zones in the same order, with similar proportions of the canvas, the same visual style (photo, 3D, flat illustration, still life or text letter), the same kind of headline block, benefit layout, offer block and trust strip. Never copy its brand name, logo, product, bottle, label, wording, numbers, prices or claims, and never copy its people: the model, the scene and the clothes are new. Every visible text is ONLY the one listed below. If the reference has a block this ad does not list, leave that area as clean background.
+
+WHAT TO MAKE:
+Square 1:1 text-letter ad. BACKGROUND: solid dark plum #2B1226 with a very subtle paper fiber texture. TOP LEFT (4-20% of the height, 4-62% of the width): a very heavy geometric sans-serif headline (Montserrat Black look), uppercase, left-aligned, two lines: 'PARA LA QUE' in white #FFFFFF and 'NO SE OPERA' with 'NO SE' in white and the highlighted word 'OPERA' in hot fuchsia #E6177F. LETTER (23-76% of the height, 4-60% of the width): four short left-aligned paragraphs in Poppins Regular, white, with clear gaps between them and bold phrases in Poppins Bold bubblegum pink #FF8CC0: paragraph 1 'Sabemos que quieres más curvas, pero no quieres agujas ni quirófano.'; paragraph 2 'Por eso existe AGUAJE COMPLEX 3 EN 1: aguaje, fenogreco y maca negra en 2 cápsulas al día.' with 'AGUAJE COMPLEX 3 EN 1' and '2 cápsulas al día' in bold pink; paragraph 3 'Un plan de 3 meses para acompañar tus caderas, tu cola y tus piernas, a tu ritmo y sin arriesgar tu salud.' with 'plan de 3 meses' in bold pink; paragraph 4 'Lo pides hoy y lo pagas cuando llega a tu casa.' SIGNATURE (78-84%, left): a small paper cream #F3E9D2 tag with the handwritten italic script 'Tu equipo Aguaje Complex' in ink blue #2E4A7D. RIGHT SIDE: the attached product as a sharp photographic cut-out, tilted about 12 degrees clockwise, about 52% of the canvas height, occupying 60-100% of the width and 10-62% of the height, its right side cut by the canvas edge, with a soft drop shadow; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN' and three boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; the label front-facing and readable; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. INSTANT PHOTOS (54-86% of the height, 56-96% of the width), overlapping the lower part of the bottle, each with a cream #F3E9D2 frame and a piece of clear tape, slightly tilted in opposite directions, both real unretouched phone photos of the SAME adult Colombian woman, 29 years old, light wheat skin with visible pores, ash-blonde hair with dark roots, framed head to knee, on two DIFFERENT DAYS, with tiny handwritten captions on the frame. BACK PHOTO (left, caption 'Antes'): her bathroom in cold bluish morning light, hair in a messy top knot, an oversized grey hoodie and loose faded light-blue jeans one size too big; side-on at hip height with her face to the camera and a disappointed look, her hand pulls the waistband a full fist away from her lower back so the empty gap is clearly visible; flat straight hips, thin straight thighs, baggy denim. FRONT PHOTO (right, caption 'Mes 3'): her sunny living room in warm afternoon light, hair loose, long and straight, a light denim shirt open over a white top and black leggings, three-quarter pose facing the camera with a confident smile and a hand on her hip; small waist, hips clearly wider and rounded, toned fuller thighs; the change is clear at first glance but natural. BOTTOM STRIP (88-100%): a slim full-width deep magenta #B0105E strip with, left to right: white Poppins Bold 'Tratamiento completo: 3 frascos para 3 meses', a white pill with plum Poppins Bold 'Pagas al recibir', and a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top left, line 1): "PARA LA QUE" — Montserrat Black look, uppercase, white #FFFFFF, left-aligned
+- main headline (highlighted line) (top left, line 2): "NO SE OPERA" — Montserrat Black look, uppercase; 'NO SE' in white and the highlighted word 'OPERA' in hot fuchsia #E6177F
+- other (letter paragraph 1) (left, letter): "Sabemos que quieres más curvas, pero no quieres agujas ni quirófano." — Poppins Regular, white, left-aligned
+- other (letter paragraph 2) (left, letter): "Por eso existe AGUAJE COMPLEX 3 EN 1: aguaje, fenogreco y maca negra en 2 cápsulas al día." — Poppins Regular, white; 'AGUAJE COMPLEX 3 EN 1' and '2 cápsulas al día' in Poppins Bold bubblegum pink #FF8CC0
+- other (letter paragraph 3) (left, letter): "Un plan de 3 meses para acompañar tus caderas, tu cola y tus piernas, a tu ritmo y sin arriesgar tu salud." — Poppins Regular, white; 'plan de 3 meses' in Poppins Bold bubblegum pink #FF8CC0
+- other (letter paragraph 4) (left, letter): "Lo pides hoy y lo pagas cuando llega a tu casa." — Poppins Regular, white
+- other (signature) (under the letter, cream tag): "Tu equipo Aguaje Complex" — Handwritten italic script, ink blue #2E4A7D on cream #F3E9D2
+- other (photo caption) (back instant photo frame): "Antes" — Small handwritten marker, dark plum on cream
+- other (photo caption) (front instant photo frame): "Mes 3" — Small handwritten marker, hot fuchsia on cream
+- offer (bottom strip, left): "Tratamiento completo: 3 frascos para 3 meses" — Poppins Bold, white on the magenta strip
+- trust item (bottom strip, middle pill): "Pagas al recibir" — Poppins Bold, dark plum #2B1226 on a white pill
+- badge (bottom strip, right round badge): "REGISTRO INVIMA RSA-0030271-2024" — Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border
+
+BRAND IDENTITY:
+- color_palette: Dark plum #2B1226 (background), hot fuchsia #E6177F (highlighted headline word, strip pill accents), white #FFFFFF (headline and letter), bubblegum pink #FF8CC0 (bold phrases), bottle black #0E0E10, seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: paper cream #F3E9D2 (instant photo frames) and ink blue #2E4A7D (signature).
+- text_typography: Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; letter in Poppins Regular with Poppins Bold phrases; signature in a handwritten italic script.
+
+MANDATORY ELEMENTS:
+- Dark plum paper-textured background with the white letter on the left
+- The real bottle tilted and cut by the right edge, label readable
+- Two taped instant photos of the same woman on two different days: before with the visible gap in the loose waistband, after with curvy hips and toned legs, facing the camera or three-quarters
+- Ink-blue signature on a cream tag
+- Slim strip with the offer, the 'Pagas al recibir' pill and the gold-bordered registration badge
+
+STRICT EXCLUSIONS:
+- sin poses de espaldas ni enfoque en zonas del cuerpo
+- No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear
+- The two instant photos never share the same outfit, pose, hairstyle, place or light
+- No needles, syringes, hospital or surgery imagery
+- No prices, percentages, 'gratis', guarantee, free shipping or urgency claims
+- No stars, reviews, customer counts or names
+- No logos outside the bottle label
+- No loose capsules, no pills, no open bottle
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add extra buttons, badges, seals or strips beyond the ones described here.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: 'La oferta se acaba', countdowns or any false urgency
+- Do not add: Prices, percentages, 'gratis', guarantee or free shipping claims
+- Do not add: Stars, reviews, customer counts or customer names
+- Do not add: Logos outside the bottle label
+- Do not add: Needles, syringes, scalpels, hospital images or any medical imagery
+- Do not add: Loose capsules, pills or an open bottle
+
+IMAGE QUALITY: the highest quality possible. Ultra sharp, high resolution detail, crisp and perfectly legible text with correct spelling, realistic skin, hair and fabric textures, clean edges and professional color grading. No blur, no noise, no compression artifacts, no warped or melted letters, no extra fingers or distorted faces.
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
