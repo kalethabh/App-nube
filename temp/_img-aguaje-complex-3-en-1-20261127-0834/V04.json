@@ -1,0 +1,85 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F77 (Comparación: un frasco tachado contra el plan completo, con franja abajo)",
+    "reference_style": "Premium still-life comparison ad: one crossed-out bottle versus the three-bottle plan, with photo cards of the same woman",
+    "angle_used": "Comparación con la alternativa",
+    "ad_format": "Product Hero Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (highlighted headline word, top seal), deep magenta #B0105E, dark plum #2B1226 (background), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (captions), white #FFFFFF (headline), offer red #E0242F only for the X over the single bottle, seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: champagne gold #E8D3A2 (stone table, card borders) and charcoal black #1C1C1C (shadows, card frames).",
+    "visual_style": "Premium still life with real photographic bottles on a champagne stone table over a deep plum backdrop, plus two printed photo cards of the same woman.",
+    "visual_atmosphere": "Elegant, clear and decisive: half the plan versus the whole plan.",
+    "graphic_language": "Left/right split, a bold red X, a round fuchsia seal, photo cards with champagne borders, a solid bottom strip with pills and a gold-bordered badge.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; captions, value proposition and strip in Poppins SemiBold / Bold look."
+  },
+  "creative_objective": "Answer the objection 'I already tried and saw nothing': one bottle alone leaves you halfway, the complete three-month plan is what shows the change. Show her pain with the single bottle and her result with the three.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Headline with 'TRANSFORMAN' in fuchsia; 2) the left/right comparison (one crossed bottle and her before card vs three bottles and her after card); 3) the big '3 MESES'; 4) value proposition; 5) bottom strip with offer, 'Pagas al recibir' and badge.",
+    "composition_style": "Headline band on top with a round seal at the top right, a two-column comparison in the middle, a full-width strip at the bottom.",
+    "spacing_and_structure": "The right column slightly wider (55%) than the left (45%), a thin vertical champagne line divides them, generous padding.",
+    "lighting_and_depth": "Soft studio key light from the left, gentle rim light on the bottles, soft contact shadows on the stone; the left side slightly desaturated, the right side warmer.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top 20%: the two-part headline centered in white and fuchsia with the value proposition below, and a round fuchsia seal at the top right. Middle 65%: left column with a photo card of the woman in the pain moment and, in front of it, one bottle with a red X and the captions 'SOLO 1 FRASCO' / 'Te quedas a mitad de camino'; right column with three bottles together, a small photo card of the same woman's result on another day, the big '3 MESES' and the caption 'PLAN COMPLETO'. Bottom 15%: full-width strip with the treatment offer, 'Pagas al recibir' and the gold-bordered registration badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top center", "visual_function": "Reframe: one bottle starts, three transform", "adaptation_rule": "No price: the comparison is about the plan, not money", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "value proposition", "position": "under the headline", "visual_function": "Desire + time + deep desire", "adaptation_rule": "One centered line", "present_in_reference": false },
+      { "block_id": "block_03", "block_type": "seal", "position": "top right", "visual_function": "Offer-style seal", "adaptation_rule": "Replaces '2+1 gratis' with the true dose '2 CÁPSULAS AL DÍA'", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "single crossed bottle + before photo card", "position": "middle left", "visual_function": "The half-way option and the pain scene", "adaptation_rule": "Red X over one bottle, no price; photo card of the woman with loose jeans", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "three bottles + after photo card", "position": "middle right", "visual_function": "The complete plan and its result", "adaptation_rule": "'3 MESES' replaces the price per bottle; small photo card of her result", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "bottom strip", "position": "bottom full width", "visual_function": "Offer and trust", "adaptation_rule": "Exact batch offer, 'Pagas al recibir', registration badge (no savings, no free shipping, no guarantee)", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Prices, crossed-out prices, percentages, savings amounts or 'gratis'",
+      "Guarantee or free shipping claims",
+      "Star ratings, customer counts, reviews or names",
+      "Logos outside the bottle label",
+      "Loose capsules, pills or an open bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium still-life comparison ad. BACKGROUND: a deep plum #2B1226 seamless backdrop with a soft vignette, and a champagne gold #E8D3A2 polished stone tabletop across the lower half of the middle zone. TOP ZONE (0-20%): a centered headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase, two short lines: 'UN FRASCO EMPIEZA.' in white #FFFFFF and 'TRES TRANSFORMAN.' where 'TRES' is white and the highlighted word 'TRANSFORMAN.' is hot fuchsia #E6177F. Under it one centered line in Poppins SemiBold, pale blush #FBE3EE: 'Caderas y piernas con más forma al terminar tus 3 meses, para que esta vez sí veas tu cambio.' At the top right corner a round hot fuchsia #E6177F seal, slightly tilted, with white Poppins ExtraBold text '2 CÁPSULAS AL DÍA'. MIDDLE ZONE (20-85%) split by a thin vertical champagne line into a left column (45%) and a right column (55%). LEFT COLUMN, slightly desaturated: standing behind on the table, a printed photo card with a champagne border and a thin charcoal #1C1C1C frame, about 34% of the canvas height, showing a real unretouched phone photo of an adult Colombian woman, 28 years old, fair skin with visible pores, light-brown chin-length bob, in a narrow hallway in flat cold daylight, wearing a basic white t-shirt and loose light-blue jeans; she stands side-on at hip height with a frustrated look over her shoulder toward the camera, never with her back to the camera, and her hand pulls the jeans waistband a full fist away from her lower back so the empty gap is clearly visible; baggy fold of extra denim below the seat, drooping back pockets, flat straight silhouette, thin straight thighs. In front of the card, ONE product bottle standing on the stone, about 24% of the canvas height, with a bold offer red #E0242F X drawn over it; under it two caption lines in Poppins Bold: 'SOLO 1 FRASCO' in white and 'Te quedas a mitad de camino' in pale blush. RIGHT COLUMN, warmer light: THREE product bottles grouped together in the center of the column (the middle one slightly forward), each about 28% of the canvas height, none touching the edge, labels front-facing; above-right of them a smaller printed photo card with a champagne border, about 20% of the canvas height, of the SAME woman on another day: a sunny café terrace in warm afternoon light, her bob now tucked behind one ear, a long-sleeve black bodysuit and fitted medium-blue high-waist jeans, three-quarter pose facing the camera with a confident smile; a curvy hourglass figure: small waist, hips clearly wider than her waist, toned thicker legs filling the jeans, the change obvious at first glance but natural. Next to the bottles, a huge 'Montserrat Black' white '3 MESES' with the caption 'PLAN COMPLETO' in fuchsia Poppins Bold under it. Every bottle is the attached product; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN' and three boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. Soft studio key light from the left, soft contact shadows on the stone. BOTTOM STRIP (85-100%): a full-width hot fuchsia #E6177F strip with, from left to right: white Poppins Bold text 'Tratamiento completo: 3 frascos para 3 meses', a white pill with plum Poppins Bold text 'Pagas al recibir', and a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top center, line 1", "text_style": "Montserrat Black look, uppercase, white #FFFFFF", "text": "UN FRASCO EMPIEZA." },
+    { "block_id": "text_block_02", "reference_function": "main headline (highlighted line)", "reference_position": "top center, line 2", "text_style": "Montserrat Black look, uppercase; 'TRES' in white and the highlighted word 'TRANSFORMAN.' in hot fuchsia #E6177F", "text": "TRES TRANSFORMAN." },
+    { "block_id": "text_block_03", "reference_function": "value proposition", "reference_position": "top center under the headline", "text_style": "Poppins SemiBold, pale blush #FBE3EE, centered", "text": "Caderas y piernas con más forma al terminar tus 3 meses, para que esta vez sí veas tu cambio." },
+    { "block_id": "text_block_04", "reference_function": "badge", "reference_position": "top right round seal", "text_style": "Poppins ExtraBold, white on a hot fuchsia #E6177F round seal, slightly tilted", "text": "2 CÁPSULAS AL DÍA" },
+    { "block_id": "text_block_05", "reference_function": "other (comparison caption)", "reference_position": "left column under the crossed bottle, line 1", "text_style": "Poppins Bold, white", "text": "SOLO 1 FRASCO" },
+    { "block_id": "text_block_06", "reference_function": "other (comparison caption)", "reference_position": "left column under the crossed bottle, line 2", "text_style": "Poppins SemiBold, pale blush #FBE3EE", "text": "Te quedas a mitad de camino" },
+    { "block_id": "text_block_07", "reference_function": "other (big number)", "reference_position": "right column next to the three bottles", "text_style": "Montserrat Black look, white, very large", "text": "3 MESES" },
+    { "block_id": "text_block_08", "reference_function": "other (comparison caption)", "reference_position": "right column under '3 MESES'", "text_style": "Poppins Bold, hot fuchsia #E6177F", "text": "PLAN COMPLETO" },
+    { "block_id": "text_block_09", "reference_function": "offer", "reference_position": "bottom strip, left", "text_style": "Poppins Bold, white on the fuchsia strip", "text": "Tratamiento completo: 3 frascos para 3 meses" },
+    { "block_id": "text_block_10", "reference_function": "trust item", "reference_position": "bottom strip, middle pill", "text_style": "Poppins Bold, dark plum #2B1226 on a white pill", "text": "Pagas al recibir" },
+    { "block_id": "text_block_11", "reference_function": "badge", "reference_position": "bottom strip, right round badge", "text_style": "Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Left column: a photo card of the woman in the pain moment (hand pulling the loose waistband, gap visible) and one bottle with a red X",
+    "Right column: three bottles grouped in the center of the column and a smaller photo card of the same woman's result on another day, facing the camera or three-quarters",
+    "Round fuchsia seal at the top right",
+    "Full-width bottom strip with the offer, the 'Pagas al recibir' pill and the gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear",
+    "The two photo cards never share the same outfit, pose, hairstyle, place or light",
+    "No loose capsules, no pills, no open bottle",
+    "No prices, crossed-out prices, percentages, savings, 'gratis', guarantee or free shipping claims",
+    "No stars, customer counts, reviews or names",
+    "No logos outside the bottle label",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra buttons, badges, seals or strips beyond the ones described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

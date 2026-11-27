@@ -1,0 +1,80 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format F53 (Tres fotos reales de la misma zona en progreso)",
+    "reference_style": "Native UGC-style triptych: three real phone photos of the same woman on three different days",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Collage Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion native-looking image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (highlighted headline word), dark plum #2B1226 (headline text and bottom strip), white #FFFFFF (headline pill), seal gold #D4A437 only for the registration badge border; the photos keep their own real colors. Secondary support colors for this variation: sand beige #D9C3A5 and warm grey #8C847A (the photo stickers and the outfits).",
+    "visual_style": "Native, unpolished smartphone photos that look like a real customer's progress pictures; only a short headline pill on top and a slim trust strip at the bottom.",
+    "visual_atmosphere": "Real, intimate, homey and believable.",
+    "graphic_language": "Three vertical photos edge to edge separated by thin white lines, small story-style white stickers with the day, one white rounded headline pill, a slim plum strip.",
+    "text_typography": "Headline in a heavy sans-serif (Montserrat ExtraBold look) uppercase inside a white pill; stickers in a plain rounded sans like a phone story (Poppins SemiBold look)."
+  },
+  "creative_objective": "Look like a real mom's progress photos (Día 1, Semana 4, Mes 3) where her jeans go from loose at the back to fitting her new curves, and hit the strongest fear: getting there without surgery.",
+  "art_direction": {
+    "design_quality": "Native and authentic, but sharp and readable",
+    "visual_hierarchy": "1) The three photos and the visible change; 2) the headline pill with 'QUIRÓFANO' in fuchsia; 3) the day stickers; 4) the trust strip.",
+    "composition_style": "Three equal vertical photos filling the canvas edge to edge, headline pill floating at the top center over the photos, slim strip at the bottom.",
+    "spacing_and_structure": "4 px white dividers between photos, the pill with comfortable padding, the strip about 9% of the height.",
+    "lighting_and_depth": "Each photo has its own real light: warm lamp at night, cool kitchen morning daylight, warm afternoon sun outside.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible and real"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Three vertical phone photos side by side filling the canvas (the same woman on three different days, framed from head to mid-thigh). On top, over the photos, a white rounded pill with the short headline (app rule for native images). Each photo carries a small white story sticker with the day. At the bottom, a slim dark plum strip with 'Pagas al recibir' and the gold-bordered registration badge, without the offer.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "person (three progress photos)", "position": "full canvas, three vertical thirds", "visual_function": "Proof of change; photo 1 is the pain moment", "adaptation_rule": "Same woman, glutes, hips and legs in jeans, facing camera or three-quarters, each photo a different day", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "headline pill", "position": "top center over the photos", "visual_function": "Short native headline", "adaptation_rule": "App rule for native images: max 8 words, one word in fuchsia", "present_in_reference": false },
+      { "block_id": "block_03", "block_type": "day stickers", "position": "upper part of each photo", "visual_function": "Marks the time", "adaptation_rule": "Día 1 · Semana 4 · Mes 3", "present_in_reference": false },
+      { "block_id": "block_04", "block_type": "product", "position": "on the kitchen counter in photo 2", "visual_function": "Shows the bottle in her real life", "adaptation_rule": "The real closed bottle, small, label facing camera", "present_in_reference": false },
+      { "block_id": "block_05", "block_type": "trust strip", "position": "bottom full width", "visual_function": "Cash on delivery and sanitary registration", "adaptation_rule": "Mandatory batch kit without the offer", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Value proposition, offer text, prices, percentages or 'gratis'",
+      "Star ratings, customer counts, reviews or names",
+      "Logos outside the bottle label",
+      "Loose capsules, pills or an open bottle",
+      "Studio lighting or retouched skin"
+    ]
+  },
+  "visual_prompt": "Square 1:1 native-looking ad made of THREE real, unretouched vertical smartphone photos placed side by side edge to edge, each one third of the width and the full height above the bottom strip, separated by thin 4 px white lines, with light phone grain, slightly imperfect framing and real skin texture with pores. All three show the SAME adult Colombian mom, 36 years old, warm cinnamon (canela) skin, soft freckles, shoulder-length black curly hair, no studio makeup, framed from the top of her head to mid-thigh at hip height, facing the camera or standing three-quarters with her face to the camera, never with her back to the camera. Each photo is a DIFFERENT DAY: PHOTO 1 (left): her bedroom at night under a warm yellow bedside lamp, a few kids' toys on the floor, hair held up in a claw clip, wearing a grey hooded sweatshirt and faded light-blue jeans one size too big; she stands side-on at hip height looking down with a tired, frustrated face, and her hand pulls the back waistband a full fist away from her lower back so the empty gap and her skin inside it are clearly visible; a baggy fold of extra denim below the seat, drooping back pockets, flat straight silhouette with no curve, glutes flat, thin straight thighs. PHOTO 2 (center): a bright kitchen in cool morning daylight from a window, hair in a low bun, a sand-beige #D9C3A5 ribbed t-shirt and dark-blue jeans, three-quarter pose holding a coffee mug, a small smile; on the counter beside her the real product bottle from the attached product photo, about as tall as her hand and slightly shorter than her mug, label facing the camera and readable; her jeans already fit better at the hips. PHOTO 3 (right): an outdoor patio in warm golden afternoon sun with plants behind, curly hair loose and a little longer, a sand-beige blouse tucked into black high-waist jeans, three-quarter pose facing the camera with a proud confident smile and one hand on her hip; a curvy hourglass figure: small waist, hips clearly wider than her waist, toned glutes and legs that fill the back and the legs of the jeans with no loose fabric, thighs fuller and toned; the difference from photo 1 is obvious at first glance but natural. Ordinary everyday clothes in every photo, no lingerie. Small white story-style stickers with dark plum text near the top of each photo, under the headline: 'Día 1', 'Semana 4', 'Mes 3'. TOP CENTER, floating over the photos (6-16% of the height): a white rounded pill with a heavy sans-serif uppercase headline (Montserrat ExtraBold look) 'MIS 3 MESES SIN QUIRÓFANO' in dark plum #2B1226 with the highlighted word 'QUIRÓFANO' in hot fuchsia #E6177F. BOTTOM STRIP (91-100%): a slim full-width dark plum #2B1226 strip with, on the left, a white pill with plum Poppins Bold text 'Pagas al recibir', and on the right a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'. The bottle, wherever it appears, is the attached product: a matte black cylinder about 1.6 times taller than wide with straight sides and a wide mouth, a glossy hot-pink cap almost as wide as the body with a small white 'VITALABH' pattern, a hot-pink band at the bottom, black label with huge white 'AGUAJE', 'COMPLEX 3 EN 1' and pink 'TRIPLE ACCIÓN'; closed, not mirrored, not a slim bottle and not a squat jar; matte, no rainbow, no prism light, no lens flare; no capsules anywhere.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top center, white pill over the photos", "text_style": "Montserrat ExtraBold look, uppercase, dark plum #2B1226 on a white pill; the highlighted word 'QUIRÓFANO' in hot fuchsia #E6177F", "text": "MIS 3 MESES SIN QUIRÓFANO" },
+    { "block_id": "text_block_02", "reference_function": "time label", "reference_position": "sticker on photo 1", "text_style": "Poppins SemiBold, dark plum on a white story sticker", "text": "Día 1" },
+    { "block_id": "text_block_03", "reference_function": "time label", "reference_position": "sticker on photo 2", "text_style": "Poppins SemiBold, dark plum on a white story sticker", "text": "Semana 4" },
+    { "block_id": "text_block_04", "reference_function": "time label", "reference_position": "sticker on photo 3", "text_style": "Poppins SemiBold, dark plum on a white story sticker", "text": "Mes 3" },
+    { "block_id": "text_block_05", "reference_function": "trust item", "reference_position": "bottom strip, left", "text_style": "Poppins Bold, dark plum on a white pill", "text": "Pagas al recibir" },
+    { "block_id": "text_block_06", "reference_function": "badge", "reference_position": "bottom strip, right", "text_style": "Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Three real phone photos of the same adult woman on three different days, each with a different pose, outfit, hairstyle, place and light",
+    "Photo 1 shows the pain moment: hand pulling the loose back waistband a fist away with the gap visible, flat silhouette",
+    "Photo 3 shows the clear result: curvy hips, toned glutes and legs filling the jeans, facing the camera or three-quarters",
+    "The real closed bottle on the kitchen counter in photo 2, label readable",
+    "White headline pill on top and the slim plum strip with 'Pagas al recibir' and the gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear",
+    "Never the same outfit, pose, hairstyle, place or light in two photos",
+    "No loose capsules, no pills, no open bottle",
+    "No offer text, prices, percentages, 'gratis', stars, customer counts, reviews or names",
+    "No logos outside the bottle label",
+    "No studio look, no plastic skin, no heavy retouching",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra buttons, badges, seals or strips beyond the headline pill, the stickers and the bottom strip described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

@@ -1,0 +1,85 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format F42 (Línea de tiempo de 3 meses ilustrada con oferta de tratamiento)",
+    "reference_style": "Flat vector illustration timeline ad (three monthly panels of the same woman) with the real bottles and an offer block",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (highlighted headline word, accents), deep magenta #B0105E, dark plum #2B1226 (headline and offer text), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: lavender #B9A6E0 (background) and butter yellow #FFE08A (month tags and the December sweater).",
+    "visual_style": "Flat vector illustration with clean outlines for the woman and the decor; the three bottles are the real photographic bottle, sharp and identical to the product photo.",
+    "visual_atmosphere": "Friendly, hopeful, December holiday mood, light and modern.",
+    "graphic_language": "Flat shapes, thin dark outlines, small flat holiday stars, rounded month tags, a pink ribbon swirl behind the bottles, a white offer card and a round gold-bordered badge.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; small colloquial line, value proposition and offer in Poppins SemiBold / Bold look."
+  },
+  "creative_objective": "Turn the three bottles into a real three-month plan: the same woman illustrated in December, January and February, her legs going from thin and lost in loose jeans to toned and filling them, with the three real bottles and the treatment offer underneath.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Headline with 'CURVAS' in fuchsia; 2) the three monthly illustrations; 3) the three real bottles and the offer card; 4) value proposition and trust items.",
+    "composition_style": "Top text band, a middle row of three equal illustrated panels, a bottom band split into bottles on the left and the offer card on the right, with a slim trust strip at the very bottom.",
+    "spacing_and_structure": "Three panels with equal 20 px gutters, generous padding around text, offer card aligned with the bottles.",
+    "lighting_and_depth": "Flat illustration lighting for the panels; soft studio light with a contact shadow for the real bottles.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Top 24%: a small colloquial line above a big two-line headline and the value proposition. Middle 40%: three equal flat illustrations of the same woman, one per month (DICIEMBRE, ENERO, FEBRERO), from the problem to the result, each with its month tag on top. Bottom 36%: on the left three real bottles in a row with a pink ribbon swirl behind; on the right the offer block in a white rounded card; under them a slim plum strip with 'Pagas al recibir' and the gold-bordered registration badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "small colloquial line", "position": "top center", "visual_function": "Conversational opener", "adaptation_rule": "Short first-person line about starting the plan in December", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "headline", "position": "top center, 2 lines", "visual_function": "Result promise", "adaptation_rule": "'3 MESES PARA TUS CURVAS' with 'CURVAS' in fuchsia", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "value proposition", "position": "under the headline", "visual_function": "Desire + time + deep desire", "adaptation_rule": "One centered line", "present_in_reference": false },
+      { "block_id": "block_04", "block_type": "illustration timeline (person)", "position": "middle, three panels", "visual_function": "Shows month-by-month progress; panel 1 is the pain moment", "adaptation_rule": "Same woman, legs and hips in jeans, different outfit, hair and setting each month", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product (three bottles)", "position": "bottom left", "visual_function": "The full treatment", "adaptation_rule": "Three real closed bottles with a pink ribbon swirl instead of a water splash", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "offer block", "position": "bottom right", "visual_function": "Treatment offer", "adaptation_rule": "Exact batch offer text, no free month and no price", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "trust strip", "position": "very bottom", "visual_function": "Cash on delivery and sanitary registration", "adaptation_rule": "Mandatory batch kit", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Prices, percentages, discounts, 'gratis' or '1 mes gratis'",
+      "Star ratings, customer counts, reviews or names",
+      "Logos outside the bottle label",
+      "Loose capsules, pills or an open bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 image ad on a soft lavender #B9A6E0 background with tiny flat white and butter-yellow holiday stars scattered near the edges. TOP ZONE (0-24%): a small centered line in Poppins SemiBold, dark plum #2B1226: 'Mi plan empieza este diciembre'. Below it the big centered two-line headline in a very heavy geometric sans-serif (Montserrat Black look), all caps: line 1 '3 MESES PARA' in dark plum #2B1226, line 2 'TUS CURVAS' where the word 'TUS' is dark plum and the highlighted word 'CURVAS' is hot fuchsia #E6177F. Under it one centered line in Poppins SemiBold, dark plum: 'Piernas torneadas que llenan el jean en tu tratamiento de 3 meses, para lucir tu ropa favorita con seguridad.' MIDDLE ZONE (24-64%): three equal rounded panels side by side with pale blush #FBE3EE fill, each with a butter-yellow #FFE08A rounded tag on top reading 'DICIEMBRE', 'ENERO', 'FEBRERO' in plum Poppins Bold. Inside each panel a flat vector illustration with clean dark outlines of the SAME adult woman, about 22 years old with adult features, light brown (morena clara) skin, long straight black hair, shown full body from head to shoes, facing the viewer or three-quarters, never from behind. Each month is a different day: PANEL DICIEMBRE: in her messy bedroom at night under a small lamp, hair in a high messy bun, an oversized butter-yellow sweatshirt and baggy light-blue jeans that sag, side-on at hip height, one hand pulling the jeans waistband a full fist away from her hip so the empty gap is obvious; thin straight legs lost inside the wide jean legs, flat straight silhouette, sad face. PANEL ENERO: in a kitchen in cool morning light, hair in a low ponytail, a lavender t-shirt and straight-leg medium-blue jeans, facing the viewer with one hand on her waist, a small first change in her legs, calm smile. PANEL FEBRERO: outdoors in a sunny park in warm afternoon light, hair loose and a bit longer, a white strappy top and dark-blue skinny jeans, three-quarter pose with a hand on her hip, big happy smile; a curvy figure: small waist, wider curved hips, toned thicker legs filling the jean legs, the change obvious at a glance without caricature. BOTTOM ZONE (64-92%): on the left half, three real product bottles from the attached product photo standing in a row, the middle one slightly forward, together about 26% of the canvas height, centered in their half with space on both sides so none is cut by the edge, with a flowing pale-pink #FF8CC0 ribbon swirl behind them; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN' and three boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; not a slim bottle, not a squat jar; closed, labels front-facing and never mirrored; matte, no rainbow, no prism light, no lens flare. On the right half, a white rounded card with plum Montserrat ExtraBold text, left-aligned: 'Tratamiento completo: 3 frascos para 3 meses', and below it a hot fuchsia #E6177F pill button with white Poppins Bold uppercase text 'QUIERO PROBARLO'. VERY BOTTOM STRIP (92-100%): a full-width dark plum #2B1226 strip with a white pill reading 'Pagas al recibir' in plum Poppins Bold on the left and, on the right, a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "subtitle (colloquial opener)", "reference_position": "top center, above the headline", "text_style": "Poppins SemiBold, small, dark plum #2B1226", "text": "Mi plan empieza este diciembre" },
+    { "block_id": "text_block_02", "reference_function": "main headline", "reference_position": "top center, line 1", "text_style": "Montserrat Black look, uppercase, dark plum #2B1226, largest text", "text": "3 MESES PARA" },
+    { "block_id": "text_block_03", "reference_function": "main headline (highlighted line)", "reference_position": "top center, line 2", "text_style": "Montserrat Black look, uppercase; 'TUS' in dark plum #2B1226 and the highlighted word 'CURVAS' in hot fuchsia #E6177F", "text": "TUS CURVAS" },
+    { "block_id": "text_block_04", "reference_function": "value proposition", "reference_position": "top center under the headline", "text_style": "Poppins SemiBold, dark plum #2B1226, centered, about one third of the headline size", "text": "Piernas torneadas que llenan el jean en tu tratamiento de 3 meses, para lucir tu ropa favorita con seguridad." },
+    { "block_id": "text_block_05", "reference_function": "time label", "reference_position": "tag on panel 1", "text_style": "Poppins Bold, plum on butter-yellow #FFE08A tag", "text": "DICIEMBRE" },
+    { "block_id": "text_block_06", "reference_function": "time label", "reference_position": "tag on panel 2", "text_style": "Poppins Bold, plum on butter-yellow #FFE08A tag", "text": "ENERO" },
+    { "block_id": "text_block_07", "reference_function": "time label", "reference_position": "tag on panel 3", "text_style": "Poppins Bold, plum on butter-yellow #FFE08A tag", "text": "FEBRERO" },
+    { "block_id": "text_block_08", "reference_function": "offer", "reference_position": "bottom right, white card", "text_style": "Montserrat ExtraBold, dark plum #2B1226, left-aligned", "text": "Tratamiento completo: 3 frascos para 3 meses" },
+    { "block_id": "text_block_09", "reference_function": "CTA", "reference_position": "bottom right, under the offer", "text_style": "Poppins Bold uppercase, white on hot fuchsia #E6177F pill button", "text": "QUIERO PROBARLO" },
+    { "block_id": "text_block_10", "reference_function": "trust item", "reference_position": "very bottom strip, left", "text_style": "Poppins Bold, dark plum on a white pill", "text": "Pagas al recibir" },
+    { "block_id": "text_block_11", "reference_function": "badge", "reference_position": "very bottom strip, right", "text_style": "Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Three flat illustrated panels of the same adult woman in December, January and February, each with a different outfit, hairstyle, place and light",
+    "December panel shows the pain moment: hand pulling the loose waistband away from the hip with the gap visible",
+    "February panel shows the clear result: curvy hips and toned legs filling the jeans, facing the viewer or three-quarters",
+    "Three real closed bottles centered in the left half, none cut by the edge",
+    "Offer card with the fuchsia pill button, and the plum strip with 'Pagas al recibir' and the gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No back views, no close-ups of the buttocks, no lingerie or swimwear",
+    "Never the same outfit, pose, hairstyle or setting in two panels",
+    "No loose capsules, no pills, no open bottle, no water splash with drops on the label",
+    "No prices, percentages, discounts, 'gratis', stars, customer counts, reviews or names",
+    "No logos outside the bottle label",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra buttons, badges, seals or strips beyond the ones described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
