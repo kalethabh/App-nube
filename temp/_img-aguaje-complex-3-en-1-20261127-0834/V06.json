@@ -1,0 +1,90 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V06",
+    "structure_source": "library format F71 (Oferta de temporada con número gigante, reloj de arena y botón), winning structure mv-41",
+    "reference_style": "Flat-illustration seasonal offer ad: two-line hand-lettered headline with seasonal decorations, the real bottle on the left, a giant number on a brush splash on the right with an hourglass and a date line, a pill button at the bottom and seasonal elements in the corners",
+    "angle_used": "Oferta / promoción",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (highlighted headline word, brush splash, button), deep magenta #B0105E (splash shadow), dark plum #2B1226 (bottom strip), bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE (value proposition), white #FFFFFF (headline, big number), seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: night blue #1D2A5A (background) and silver #C0C6D0 (snowflakes, hourglass, garlands).",
+    "visual_style": "Flat vector illustration with soft grain, hand-lettered brush headline, the real bottle as a sharp photographic cut-out.",
+    "visual_atmosphere": "Festive Christmas night, energetic and clear: start before Christmas, show it in March.",
+    "graphic_language": "Night-blue flat background with soft darker blobs and dots, silver snowflakes, a garland with candy canes in the corners, a fuchsia brush splash behind the big number with short burst strokes, a flat silver hourglass, a fuchsia pill button, an illustrated before/after card with rounded corners, a slim plum strip with a gold-bordered badge.",
+    "text_typography": "Headline in a heavy hand-lettered brush sans (Montserrat Black feel, slightly rough edges), uppercase; value proposition, date line, button and strip in Poppins SemiBold / Bold look."
+  },
+  "creative_objective": "Turn the Christmas date into honest urgency (no invented discounts): start the 3-month plan before Christmas so the change shows in March, with the whole plan readable in one second and the zero-risk payment.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The headline with 'NAVIDAD' in fuchsia; 2) the giant '3 MESES' on the fuchsia splash; 3) the real bottle; 4) the illustrated before/after card; 5) the hourglass line and the button; 6) the bottom strip.",
+    "composition_style": "Like the structure: headline band on top, bottle on the center-left and the giant number on the right with the hourglass under it, button centered low, seasonal elements in the corners; the reference's lower-left corner decoration becomes the illustrated before/after card.",
+    "spacing_and_structure": "Top 0-28% headline and value proposition; middle 28-80% card (left 3-32%), bottle (36-56%) and big number with hourglass (58-97%); 81-89% button; 90-100% strip.",
+    "lighting_and_depth": "Flat illustration lighting with soft long shadows; the bottle has crisp studio highlights and a soft contact shadow on a subtle darker floor blob.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Night-blue flat background. Top (0-28%): a two-line hand-lettered headline centered inside a darker blob ('EMPIEZA TU PLAN' white, 'ANTES DE NAVIDAD' with 'NAVIDAD' fuchsia) with burst strokes, a silver snowflake cluster in the top-left corner (in place of the cobweb) and a candy cane with a garland piece at the top right (in place of the bat), and one value proposition line under it. Middle (28-80%): left, an illustrated before/after card of the same woman (in place of the pumpkin corner); center-left, the real bottle standing; right, the giant '3 MESES' on a fuchsia brush splash, and under it a flat silver hourglass with the two-line date text. Bottom: a fuchsia pill button 'QUIERO PROBARLO' centered, then a slim plum strip with the offer, 'Pagas al recibir' and the gold-bordered badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top center", "visual_function": "Season urgency", "adaptation_rule": "Christmas instead of Halloween, 'NAVIDAD' in fuchsia", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "value proposition", "position": "under the headline", "visual_function": "Desire + time + deep desire", "adaptation_rule": "One or two centered lines", "present_in_reference": false },
+      { "block_id": "block_03", "block_type": "product", "position": "center-left", "visual_function": "The real bottle", "adaptation_rule": "Attached bottle, label front-facing", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "giant number on splash", "position": "right", "visual_function": "The star of the offer", "adaptation_rule": "'3 MESES' replaces the percentage (no invented discount)", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "hourglass + date line", "position": "right, under the number", "visual_function": "Time frame", "adaptation_rule": "'Empieza en diciembre, luce en marzo'", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "seasonal corner element", "position": "lower left (the pumpkin)", "visual_function": "Season + proof", "adaptation_rule": "Becomes an illustrated before/after card with a candy cane and garland touch", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "button", "position": "bottom center", "visual_function": "CTA", "adaptation_rule": "Batch button 'QUIERO PROBARLO' in fuchsia", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "bottom strip", "position": "bottom full width", "visual_function": "Offer and trust (app rule)", "adaptation_rule": "Exact batch offer, 'Pagas al recibir', registration badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Percentages, prices, crossed-out prices, 'gratis' or savings",
+      "'Última oportunidad', countdowns, 'quedan N' or any false scarcity",
+      "Free shipping or guarantee claims",
+      "Stars, reviews, customer counts or names",
+      "Logos outside the bottle label",
+      "Loose capsules, pills or an open bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 flat-illustration Christmas offer ad with soft paper grain. BACKGROUND: solid night blue #1D2A5A with a few soft darker organic blobs and small round dots, silver #C0C6D0 snowflakes of different sizes scattered lightly. TOP ZONE (0-28%): inside a darker navy organic blob, a centered hand-lettered brush headline, very heavy, uppercase, slightly rough edges, two lines: line 1 'EMPIEZA TU PLAN' in white #FFFFFF; line 2 'ANTES DE NAVIDAD' with 'ANTES DE' in white and the highlighted word 'NAVIDAD' in hot fuchsia #E6177F; short fuchsia burst strokes on both sides of the headline. In the top-left corner a cluster of silver snowflakes, in the top-right corner a red-and-white candy cane hanging from a short pine garland. Under the headline (22-28%), one centered line in Poppins SemiBold, pale blush #FBE3EE: 'Cola con forma y piernas firmes en 3 meses, para llegar a tus vacaciones de marzo con seguridad.' MIDDLE ZONE (28-80%): LEFT (3-32% of the width, 30-78% of the height): a rounded white-bordered flat-illustration card with a small pine garland on its top edge, split in two stacked panels of the SAME illustrated adult woman, 30 years old, light wheat skin, mahogany hair, on two DIFFERENT DAYS, each with a tiny label tag. Upper panel 'Antes': her bedroom at night under a warm lamp, mahogany hair in a messy low bun, a red-and-white plaid pajama top and baggy light-blue jeans; she stands side-on with her face to the viewer and a frustrated frown in front of a mirror, her hand pulls the back waistband a full fist away from her lower back so the empty gap is visible; flat straight silhouette, glutes flat with no curve, thin straight legs. Lower panel 'Mes 3': a bright beach-town street in sunny midday light with a palm tree, mahogany hair in a high ponytail, a silver #C0C6D0 sequined blouse and black fitted high-waist jeans, three-quarter pose facing the viewer with a big smile and a hand on her hip; small waist, hips clearly wider and rounded, toned fuller thighs filling the jeans; the difference is clear but natural. CENTER-LEFT (36-56% of the width, 32-78% of the height): the real product as a sharp photographic cut-out, upright, front view, about 44% of the canvas height, eye-level, soft contact shadow; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN' and three boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. RIGHT (58-97% of the width): on a big hot fuchsia #E6177F brush splash with a deep magenta #B0105E shadow and short burst strokes, the giant hand-lettered white '3 MESES' (about 18% of the canvas height, two stacked words allowed). Under it (62-78%), a flat silver #C0C6D0 hourglass icon with short silver burst lines and, to its right, two lines in heavy uppercase-free Poppins Bold: 'Empieza en diciembre,' in white and 'luce en marzo' in bubblegum pink #FF8CC0 underlined with a fuchsia brush stroke. BUTTON (81-89%): a centered hot fuchsia #E6177F pill with a soft shadow and white Poppins ExtraBold uppercase text 'QUIERO PROBARLO'. BOTTOM STRIP (90-100%): a slim full-width dark plum #2B1226 strip with, left to right: white Poppins Bold 'Tratamiento completo: 3 frascos para 3 meses', a white pill with plum Poppins Bold 'Pagas al recibir', and a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top center, line 1", "text_style": "Heavy hand-lettered brush sans, uppercase, white #FFFFFF", "text": "EMPIEZA TU PLAN" },
+    { "block_id": "text_block_02", "reference_function": "main headline (highlighted line)", "reference_position": "top center, line 2", "text_style": "Heavy hand-lettered brush sans, uppercase; 'ANTES DE' in white and the highlighted word 'NAVIDAD' in hot fuchsia #E6177F", "text": "ANTES DE NAVIDAD" },
+    { "block_id": "text_block_03", "reference_function": "value proposition", "reference_position": "top center under the headline", "text_style": "Poppins SemiBold, pale blush #FBE3EE, centered", "text": "Cola con forma y piernas firmes en 3 meses, para llegar a tus vacaciones de marzo con seguridad." },
+    { "block_id": "text_block_04", "reference_function": "other (before/after label)", "reference_position": "left card, upper panel", "text_style": "Poppins Bold, small, white on a dark plum tag", "text": "Antes" },
+    { "block_id": "text_block_05", "reference_function": "other (before/after label)", "reference_position": "left card, lower panel", "text_style": "Poppins Bold, small, white on a hot fuchsia tag", "text": "Mes 3" },
+    { "block_id": "text_block_06", "reference_function": "other (giant number)", "reference_position": "right, on the fuchsia splash", "text_style": "Heavy hand-lettered brush sans, white, giant", "text": "3 MESES" },
+    { "block_id": "text_block_07", "reference_function": "other (date line)", "reference_position": "right, next to the hourglass, line 1", "text_style": "Poppins Bold, white", "text": "Empieza en diciembre," },
+    { "block_id": "text_block_08", "reference_function": "other (date line)", "reference_position": "right, next to the hourglass, line 2", "text_style": "Poppins Bold, bubblegum pink #FF8CC0 with a fuchsia brush underline", "text": "luce en marzo" },
+    { "block_id": "text_block_09", "reference_function": "CTA", "reference_position": "bottom center pill button", "text_style": "Poppins ExtraBold, uppercase, white on a hot fuchsia #E6177F pill", "text": "QUIERO PROBARLO" },
+    { "block_id": "text_block_10", "reference_function": "offer", "reference_position": "bottom strip, left", "text_style": "Poppins Bold, white on the plum strip", "text": "Tratamiento completo: 3 frascos para 3 meses" },
+    { "block_id": "text_block_11", "reference_function": "trust item", "reference_position": "bottom strip, middle pill", "text_style": "Poppins Bold, dark plum #2B1226 on a white pill", "text": "Pagas al recibir" },
+    { "block_id": "text_block_12", "reference_function": "badge", "reference_position": "bottom strip, right round badge", "text_style": "Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Night-blue flat background with silver snowflakes, a candy cane and a pine garland in the corners",
+    "The real bottle on the center-left, label readable",
+    "Giant '3 MESES' on a fuchsia brush splash with a silver hourglass under it",
+    "Illustrated before/after card of the same woman on two different days (other pose, clothes, hair, place and light), the before with the visible gap in the loose waistband",
+    "Fuchsia pill button and the slim plum strip with the offer, the 'Pagas al recibir' pill and the gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear",
+    "The two illustrated moments never share the same outfit, pose, hairstyle, place or light",
+    "No percentages, prices, 'gratis', countdowns, 'última oportunidad' or scarcity claims",
+    "No stars, reviews, customer counts or names",
+    "No logos outside the bottle label",
+    "No loose capsules, no pills, no open bottle",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra buttons, badges, seals or strips beyond the ones described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

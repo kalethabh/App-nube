@@ -1,0 +1,89 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V08",
+    "structure_source": "library format F40 (Carta de texto), winning structure mv-08",
+    "reference_style": "Text-letter ad: a bold two-line headline at the top left, a short letter in white with bold phrases on the left, the bottle cut out and tilted on the right edge, a signature in italic",
+    "angle_used": "Identidad / aspiración",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion native-looking image ad"
+  },
+  "global_identity": {
+    "color_palette": "Dark plum #2B1226 (background), hot fuchsia #E6177F (highlighted headline word, strip pill accents), white #FFFFFF (headline and letter), bubblegum pink #FF8CC0 (bold phrases), bottle black #0E0E10, seal gold #D4A437 only for the registration badge border. Secondary support colors for this variation: paper cream #F3E9D2 (instant photo frames) and ink blue #2E4A7D (signature).",
+    "visual_style": "Plain text letter on a deep plum paper-textured background, the real bottle as a sharp cut-out, two taped instant photos.",
+    "visual_atmosphere": "Intimate, honest and personal, like a note written for her.",
+    "graphic_language": "Flat plum background with subtle paper texture, generous white text, bold pink phrases, clear tape pieces on the photos, a slim full-width strip with a white pill and a gold-bordered badge.",
+    "text_typography": "Headline in a very heavy geometric sans-serif (Montserrat Black look), uppercase; letter in Poppins Regular with Poppins Bold phrases; signature in a handwritten italic script."
+  },
+  "creative_objective": "Speak directly to the woman who wants curves but has already decided never to go under the knife: make her feel understood, offer the 3-month plan as her way, and show her own before/after on two different days, without looking like an ad.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The headline with 'OPERA' in fuchsia; 2) the first lines of the letter; 3) the tilted bottle; 4) the two instant photos; 5) the signature; 6) the bottom strip.",
+    "composition_style": "Like the structure: headline top left, letter on the left 60%, bottle tilted and cut by the right edge, signature under the letter; the two taped instant photos overlap the lower part of the bottle on the right; slim strip at the bottom.",
+    "spacing_and_structure": "Headline 4-20% of the height on the left 4-62%; letter 23-76% on 4-60% of the width with clear gaps between paragraphs; signature 78-84%; bottle 60-100% of the width and 10-62% of the height, cut by the right edge; instant photos 54-86% of the height and 56-96% of the width; strip 88-100%.",
+    "lighting_and_depth": "Flat even light on the background; the bottle has crisp studio highlights and a soft drop shadow; the instant photos cast a soft drop shadow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Solid deep background (plum instead of green). Top left: a heavy two-line uppercase headline in white with the word 'OPERA' in fuchsia. Left 60%: a short letter of four paragraphs in white with bold phrases in pink. Right: the real bottle cut out, tilted about 12 degrees, cut by the right edge. Under the letter: the signature in an ink-blue handwritten script on a small cream paper tag. Added (batch rules): two taped instant photos at the lower right overlapping the bottle (her before and her after on two different days) and a slim plum-magenta strip at the bottom with the offer, 'Pagas al recibir' and the gold-bordered badge.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "headline", "position": "top left", "visual_function": "Segment hook", "adaptation_rule": "'OPERA' in fuchsia", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "letter", "position": "left 60%", "visual_function": "Understands her and explains the plan", "adaptation_rule": "Four short paragraphs with bold phrases", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "product", "position": "right, tilted, cut by the edge", "visual_function": "The real bottle", "adaptation_rule": "Attached bottle, label readable", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "signature", "position": "under the letter", "visual_function": "Personal tone", "adaptation_rule": "Ink-blue script on a cream tag", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "two taped instant photos", "position": "lower right", "visual_function": "Before/after proof on different days", "adaptation_rule": "Same woman; legs and hips; loose jeans before, fitted after", "present_in_reference": false },
+      { "block_id": "block_06", "block_type": "bottom strip", "position": "bottom full width", "visual_function": "Offer and trust (batch rule)", "adaptation_rule": "Exact batch offer, 'Pagas al recibir', registration badge", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "'La oferta se acaba', countdowns or any false urgency",
+      "Prices, percentages, 'gratis', guarantee or free shipping claims",
+      "Stars, reviews, customer counts or customer names",
+      "Logos outside the bottle label",
+      "Needles, syringes, scalpels, hospital images or any medical imagery",
+      "Loose capsules, pills or an open bottle"
+    ]
+  },
+  "visual_prompt": "Square 1:1 text-letter ad. BACKGROUND: solid dark plum #2B1226 with a very subtle paper fiber texture. TOP LEFT (4-20% of the height, 4-62% of the width): a very heavy geometric sans-serif headline (Montserrat Black look), uppercase, left-aligned, two lines: 'PARA LA QUE' in white #FFFFFF and 'NO SE OPERA' with 'NO SE' in white and the highlighted word 'OPERA' in hot fuchsia #E6177F. LETTER (23-76% of the height, 4-60% of the width): four short left-aligned paragraphs in Poppins Regular, white, with clear gaps between them and bold phrases in Poppins Bold bubblegum pink #FF8CC0: paragraph 1 'Sabemos que quieres más curvas, pero no quieres agujas ni quirófano.'; paragraph 2 'Por eso existe AGUAJE COMPLEX 3 EN 1: aguaje, fenogreco y maca negra en 2 cápsulas al día.' with 'AGUAJE COMPLEX 3 EN 1' and '2 cápsulas al día' in bold pink; paragraph 3 'Un plan de 3 meses para acompañar tus caderas, tu cola y tus piernas, a tu ritmo y sin arriesgar tu salud.' with 'plan de 3 meses' in bold pink; paragraph 4 'Lo pides hoy y lo pagas cuando llega a tu casa.' SIGNATURE (78-84%, left): a small paper cream #F3E9D2 tag with the handwritten italic script 'Tu equipo Aguaje Complex' in ink blue #2E4A7D. RIGHT SIDE: the attached product as a sharp photographic cut-out, tilted about 12 degrees clockwise, about 52% of the canvas height, occupying 60-100% of the width and 10-62% of the height, its right side cut by the canvas edge, with a soft drop shadow; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN' and three boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA'; the label front-facing and readable; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. INSTANT PHOTOS (54-86% of the height, 56-96% of the width), overlapping the lower part of the bottle, each with a cream #F3E9D2 frame and a piece of clear tape, slightly tilted in opposite directions, both real unretouched phone photos of the SAME adult Colombian woman, 29 years old, light wheat skin with visible pores, ash-blonde hair with dark roots, framed head to knee, on two DIFFERENT DAYS, with tiny handwritten captions on the frame. BACK PHOTO (left, caption 'Antes'): her bathroom in cold bluish morning light, hair in a messy top knot, an oversized grey hoodie and loose faded light-blue jeans one size too big; side-on at hip height with her face to the camera and a disappointed look, her hand pulls the waistband a full fist away from her lower back so the empty gap is clearly visible; flat straight hips, thin straight thighs, baggy denim. FRONT PHOTO (right, caption 'Mes 3'): her sunny living room in warm afternoon light, hair loose, long and straight, a light denim shirt open over a white top and black leggings, three-quarter pose facing the camera with a confident smile and a hand on her hip; small waist, hips clearly wider and rounded, toned fuller thighs; the change is clear at first glance but natural. BOTTOM STRIP (88-100%): a slim full-width deep magenta #B0105E strip with, left to right: white Poppins Bold 'Tratamiento completo: 3 frascos para 3 meses', a white pill with plum Poppins Bold 'Pagas al recibir', and a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top left, line 1", "text_style": "Montserrat Black look, uppercase, white #FFFFFF, left-aligned", "text": "PARA LA QUE" },
+    { "block_id": "text_block_02", "reference_function": "main headline (highlighted line)", "reference_position": "top left, line 2", "text_style": "Montserrat Black look, uppercase; 'NO SE' in white and the highlighted word 'OPERA' in hot fuchsia #E6177F", "text": "NO SE OPERA" },
+    { "block_id": "text_block_03", "reference_function": "other (letter paragraph 1)", "reference_position": "left, letter", "text_style": "Poppins Regular, white, left-aligned", "text": "Sabemos que quieres más curvas, pero no quieres agujas ni quirófano." },
+    { "block_id": "text_block_04", "reference_function": "other (letter paragraph 2)", "reference_position": "left, letter", "text_style": "Poppins Regular, white; 'AGUAJE COMPLEX 3 EN 1' and '2 cápsulas al día' in Poppins Bold bubblegum pink #FF8CC0", "text": "Por eso existe AGUAJE COMPLEX 3 EN 1: aguaje, fenogreco y maca negra en 2 cápsulas al día." },
+    { "block_id": "text_block_05", "reference_function": "other (letter paragraph 3)", "reference_position": "left, letter", "text_style": "Poppins Regular, white; 'plan de 3 meses' in Poppins Bold bubblegum pink #FF8CC0", "text": "Un plan de 3 meses para acompañar tus caderas, tu cola y tus piernas, a tu ritmo y sin arriesgar tu salud." },
+    { "block_id": "text_block_06", "reference_function": "other (letter paragraph 4)", "reference_position": "left, letter", "text_style": "Poppins Regular, white", "text": "Lo pides hoy y lo pagas cuando llega a tu casa." },
+    { "block_id": "text_block_07", "reference_function": "other (signature)", "reference_position": "under the letter, cream tag", "text_style": "Handwritten italic script, ink blue #2E4A7D on cream #F3E9D2", "text": "Tu equipo Aguaje Complex" },
+    { "block_id": "text_block_08", "reference_function": "other (photo caption)", "reference_position": "back instant photo frame", "text_style": "Small handwritten marker, dark plum on cream", "text": "Antes" },
+    { "block_id": "text_block_09", "reference_function": "other (photo caption)", "reference_position": "front instant photo frame", "text_style": "Small handwritten marker, hot fuchsia on cream", "text": "Mes 3" },
+    { "block_id": "text_block_10", "reference_function": "offer", "reference_position": "bottom strip, left", "text_style": "Poppins Bold, white on the magenta strip", "text": "Tratamiento completo: 3 frascos para 3 meses" },
+    { "block_id": "text_block_11", "reference_function": "trust item", "reference_position": "bottom strip, middle pill", "text_style": "Poppins Bold, dark plum #2B1226 on a white pill", "text": "Pagas al recibir" },
+    { "block_id": "text_block_12", "reference_function": "badge", "reference_position": "bottom strip, right round badge", "text_style": "Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Dark plum paper-textured background with the white letter on the left",
+    "The real bottle tilted and cut by the right edge, label readable",
+    "Two taped instant photos of the same woman on two different days: before with the visible gap in the loose waistband, after with curvy hips and toned legs, facing the camera or three-quarters",
+    "Ink-blue signature on a cream tag",
+    "Slim strip with the offer, the 'Pagas al recibir' pill and the gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear",
+    "The two instant photos never share the same outfit, pose, hairstyle, place or light",
+    "No needles, syringes, hospital or surgery imagery",
+    "No prices, percentages, 'gratis', guarantee, free shipping or urgency claims",
+    "No stars, reviews, customer counts or names",
+    "No logos outside the bottle label",
+    "No loose capsules, no pills, no open bottle",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra buttons, badges, seals or strips beyond the ones described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

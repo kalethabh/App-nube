@@ -1,0 +1,79 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V07",
+    "structure_source": "library format F60 (Mujer del equipo en la bodega con cajas y el frasco en la mano), winning structure mv-30",
+    "reference_style": "Native UGC-style phone photo: a smiling team member in a real warehouse, leaning on a pallet of shipping boxes with the bottle in her hand",
+    "angle_used": "Objeción de confianza",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion native-looking image ad"
+  },
+  "global_identity": {
+    "color_palette": "Hot fuchsia #E6177F (highlighted headline word, her polo), dark plum #2B1226 (headline text and bottom strip), white #FFFFFF (headline pill), seal gold #D4A437 only for the registration badge border; the photo keeps its real colors. Secondary support colors for this variation: kraft cardboard #B48A5A (boxes) and concrete grey #9A9A96 (floor and shelves).",
+    "visual_style": "Native, unpolished smartphone photo of a real warehouse, like a team member's own picture; only a short headline pill on top and a slim trust strip at the bottom.",
+    "visual_atmosphere": "Real, busy and trustworthy: a real face and real boxes ready to ship.",
+    "graphic_language": "One white rounded headline pill, a taped instant photo on a box, a slim plum strip with a white pill and a gold-bordered round badge.",
+    "text_typography": "Headline in a heavy sans-serif (Montserrat ExtraBold look) uppercase inside a white pill; strip in Poppins Bold look."
+  },
+  "creative_objective": "Remove the fear of being scammed online: a real smiling person with the real bottle among boxes ready to ship, a customer's before/after photo taped on a box, and the message that you pay only when it arrives.",
+  "art_direction": {
+    "design_quality": "Native and authentic, but sharp and readable",
+    "visual_hierarchy": "1) The headline pill with 'PAGAS' in fuchsia; 2) the smiling woman with the bottle; 3) the pallet of boxes and the taped customer photo; 4) the trust strip.",
+    "composition_style": "Like the structure: open loading door and warehouse ceiling at the top, the woman standing center-right leaning on the wrapped pallet of boxes on the left, shelves behind her on the right, concrete floor at the bottom.",
+    "spacing_and_structure": "Top 0-25% ceiling, open door and shelves (the headline pill floats at 4-14%); middle 25-90% the woman and the pallet; bottom 90-100% slim strip.",
+    "lighting_and_depth": "Mixed real light: cool fluorescent tubes from the ceiling and warm daylight entering from the open loading door on the left, natural phone exposure, slight grain.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible and real"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "A real phone photo of a warehouse: at the top the ceiling with fluorescent tubes, an open loading door on the left with daylight and metal shelves on the right; in the middle a smiling woman standing center-right, one elbow leaning on a tall pallet of stretch-wrapped kraft boxes on the left, the bottle in her hand at chest height; more boxes on low pallets and shelves behind her; concrete floor at the bottom. The wall logo of the reference is removed (plain wall). App rule for native images: a short headline in a white pill floating on top and a slim plum strip at the bottom with 'Pagas al recibir' and the registration badge, without the offer. A customer's instant photo (before and after) is taped on the front box of the pallet.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "warehouse background", "position": "full canvas", "visual_function": "Real place behind the brand", "adaptation_rule": "Plain kraft boxes without any printed brand, shelves with closed boxes, no wall logo", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "person with product", "position": "center-right", "visual_function": "A real face behind the order", "adaptation_rule": "Team member (no title, never 'founder' or health staff), fuchsia plain polo, jeans, bottle in hand", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "pallet of boxes", "position": "left", "visual_function": "Real volume of orders", "adaptation_rule": "Stretch-wrapped kraft boxes on a wooden pallet", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "taped customer photo", "position": "front box of the pallet", "visual_function": "Before/after proof", "adaptation_rule": "Same customer on two different days, hips and legs in jeans", "present_in_reference": false },
+      { "block_id": "block_05", "block_type": "headline pill", "position": "top center", "visual_function": "Short native headline", "adaptation_rule": "App rule for native images, 'PAGAS' in fuchsia", "present_in_reference": false },
+      { "block_id": "block_06", "block_type": "trust strip", "position": "bottom full width", "visual_function": "Cash on delivery and sanitary registration", "adaptation_rule": "Mandatory batch kit without the offer", "present_in_reference": false }
+    ],
+    "forbidden_additions": [
+      "Wall logo, brand signs or printed brand on the boxes",
+      "Value proposition, offer text, prices, percentages or 'gratis'",
+      "Stars, reviews, customer counts or names",
+      "Name tags, lab coats, titles or any health-staff look",
+      "Loose capsules, pills or an open bottle",
+      "Studio lighting or retouched skin"
+    ]
+  },
+  "visual_prompt": "Square 1:1 native-looking ad: one real, unretouched smartphone photo taken horizontally at chest height with a slight wide-angle lens, light phone grain, real skin with visible pores. SCENE: a real Colombian warehouse. TOP ZONE (0-25%): a white metal ceiling with long cool fluorescent tubes, a big open roll-up loading door on the left letting in warm daylight with a blurred street and a tree outside, grey metal shelving on the right stacked with closed plain kraft #B48A5A boxes, a plain light wall with no logo or sign. MIDDLE ZONE (25-90%): LEFT (0-45% of the width): a tall wooden pallet stacked with plain kraft boxes wrapped in shiny stretch film, a few white shipping labels with unreadable small print; taped with clear tape on the front box at about chest height, an instant photo print about 22% of the canvas width and 24% of its height, slightly tilted, split in two side-by-side photos of the SAME customer on two DIFFERENT DAYS: left half, her living room in cool morning light, hair in a messy bun, a grey t-shirt and loose light-blue jeans, side-on with her face to the camera and a frustrated look, her hand pulling the waistband a fist away from her lower back so the empty gap is visible, flat straight hips, thin straight thighs; right half, a sunny street in warm afternoon light, hair loose in waves, a coral #F08A6E blouse and light-blue fitted jeans, three-quarter pose facing the camera and smiling, small waist, hips clearly wider and rounded, toned legs filling the jeans. CENTER-RIGHT (45-80% of the width, from the top of her head at about 18% down to her knees at the bottom edge): an adult Colombian woman, 33 years old, warm brown skin, black hair in a high top bun, small gold stud earrings, a wide real smile looking at the camera, standing facing the camera, one elbow leaning on the top of the pallet and the other hand holding the real bottle at chest height with the label facing the camera; she wears a plain hot fuchsia #E6177F polo shirt with no logo, dark-blue jeans and work gloves hanging from her back pocket. Behind her on the right, low pallets with more kraft boxes and a steel packing table with a tape dispenser. BOTTOM: polished concrete grey #9A9A96 floor with real scuffs. THE BOTTLE: the attached product, about 12% of the canvas height in her hand; use the attached product image as the only source of truth and do not redesign it: a matte black cylindrical bottle about 1.6 times taller than wide with straight sides, wide mouth and no neck, a glossy hot-pink screw cap almost as wide as the body (about 90%) and one fifth of its height with a small white 'VITALABH' pattern, a hot-pink band around the bottom fifth, black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, italic pink 'TRIPLE ACCIÓN'; not a slim bottle, not a squat jar; closed, never mirrored; matte, no rainbow, no prism light, no lens flare; no capsules anywhere. Lighting: cool fluorescent overhead light mixed with warm daylight from the loading door on the left, natural phone exposure. HEADLINE (floating at 4-14% of the height, centered over the ceiling): a white rounded pill with a heavy sans-serif uppercase headline (Montserrat ExtraBold look) 'LO RECIBES Y AHÍ PAGAS' in dark plum #2B1226 with the highlighted word 'PAGAS' in hot fuchsia #E6177F. BOTTOM STRIP (90-100%): a slim full-width dark plum #2B1226 strip with, on the left, a white pill with plum Poppins Bold text 'Pagas al recibir', and on the right a round badge with a solid gold #D4A437 border, plum center and white text 'REGISTRO INVIMA RSA-0030271-2024'.",
+  "text_layers": [
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top center, white pill over the ceiling", "text_style": "Montserrat ExtraBold look, uppercase, dark plum #2B1226 on a white pill; the highlighted word 'PAGAS' in hot fuchsia #E6177F", "text": "LO RECIBES Y AHÍ PAGAS" },
+    { "block_id": "text_block_02", "reference_function": "trust item", "reference_position": "bottom strip, left", "text_style": "Poppins Bold, dark plum on a white pill", "text": "Pagas al recibir" },
+    { "block_id": "text_block_03", "reference_function": "badge", "reference_position": "bottom strip, right", "text_style": "Poppins Bold small caps, white on plum inside a round badge with a solid gold #D4A437 border", "text": "REGISTRO INVIMA RSA-0030271-2024" }
+  ],
+  "mandatory_visual_elements": [
+    "Real warehouse with ceiling fluorescent tubes, an open loading door with daylight, shelves and a concrete floor, no wall logo",
+    "Smiling woman in a plain fuchsia polo and jeans holding the real bottle, leaning on a stretch-wrapped pallet of plain kraft boxes",
+    "Instant photo taped on the front box: the same customer before (loose waistband with visible gap) and after (curvy hips, toned legs in jeans) on two different days",
+    "White headline pill on top and the slim plum strip with 'Pagas al recibir' and the gold-bordered registration badge"
+  ],
+  "final_generation_exclusions": [
+    "sin poses de espaldas ni enfoque en zonas del cuerpo",
+    "No back views, no close-ups centered on the buttocks or crotch, no lingerie or swimwear",
+    "The two halves of the instant photo never share the same outfit, pose, hairstyle, place or light",
+    "No logos, signs or brand names on walls, boxes or clothes; the brand only appears on the bottle label",
+    "No offer text, prices, percentages, 'gratis', stars, reviews, customer counts or names",
+    "No lab coats, name badges or medical look",
+    "No loose capsules, no pills, no open bottle",
+    "No studio look, no plastic skin, no heavy retouching",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add extra buttons, badges, seals or strips beyond the headline pill and the bottom strip described here.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
