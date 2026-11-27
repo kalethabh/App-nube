@@ -1,0 +1,47 @@
+{
+  "id": "j-3ae3b406a5a3563c",
+  "version": 6,
+  "motor": "chatgpt",
+  "formato": "9:16",
+  "fondo": "#D5B7B1",
+  "identidad": {
+    "fondo": "#D5B7B1",
+    "acento": "#8A1C1C",
+    "grafica": "curvas suaves y trazos finos de bajo contraste, derivados del mecanismo, beneficio o componentes documentados; máximo dos acentos gráficos secundarios; sin decoración gratuita"
+  },
+  "revisionVisual": 4,
+  "visualPorSeccion": true,
+  "foto": "producto.png",
+  "usarAvatar": false,
+  "avatarArchivo": null,
+  "piezas": [
+    {
+      "id": "dolor",
+      "formato": "4:5",
+      "visual": "enfoque",
+      "opcion": {
+        "id": "0159fd55bd752f8c0528",
+        "titulo": "¿El frío de Bogotá se te mete en los pies y no se te sale en toda la noche?",
+        "subtitulo": "Madrugadas heladas, buses largos y novenas al aire libre: tus pies lo pagan.",
+        "origen": "secciones[13].bloques[26] · Deseo central, propuestas de valor y copy para la landing",
+        "etiqueta": "Opción 6 (el entorno)",
+        "contenido": []
+      },
+      "contenido": [
+        "Cobros sorpresa. Personas que no sabían que estaban suscritas y les cobraron otra vez.",
+        "Envíos lentos o perdidos. Hasta un mes para recibir el pedido.",
+        "Miedo a lo falso. Un reporte de cápsulas que «solo sabían a aceite».",
+        "Precio para pensionados. Alguien con ingreso fijo dice que le cuesta pagarlo cada mes.",
+        "Ardor en el estómago si se toma sin comida.",
+        "Resultados lentos o poco claros. Algunos llevan semanas y no dicen qué cambió: hay que explicar qué notar y cuándo.",
+        "Dudas de origen. Preguntas sobre dónde se fabrica y quién es la empresa.",
+        "Se acuesta con los pies helados y tarda mucho en dormirse."
+      ],
+      "firma": "64c711ace4c880e8b2ce1eee82c5477bbeaf88cd90edb3335a3c402574eb1010",
+      "correccion": "",
+      "anterior": null,
+      "prompt": "Create ONE finished commercial funnel section image, aspect ratio 4:5, high resolution, for the real product in the attached product photograph. Not a collage of the funnel or a website screenshot.\nSECTION FUNCTION: Mostrar el problema cotidiano del público y los síntomas o situaciones que describe la investigación, sin diagnosticar ni exagerar.\nINTERNAL CONTENT STRUCTURE: A problem-focused title and subtitle, plus three to five concrete everyday pain situations from the research, with new relevant visual representations. Never diagnose a viewer or copy a symptom list from another product.\nART DIRECTION: Design a new coherent visual identity specifically for this product, its packaging, category and audience. The other funnel sections must belong to the same brand. Choose a suitable palette, typography, people, poses, composition, icon system and visual hierarchy. No fixed template, no imitation of another brand. Do not carry over any person, color palette, positions, fonts or icons from an external template. The app theme does NOT define the product's branding. Keep product shape, label, brand and packaging faithful to its photograph. Use adult people only if useful for this section and appropriate to the product; people are optional, never mandatory.\nCONTINUOUS LANDING ART DIRECTION: Treat the five images as one continuous artboard sliced into sections, never as five unrelated posters. They will touch vertically at identical width. Use the SAME product-appropriate chromatic base #D5B7B1 throughout all sections and especially every top/bottom/side edge. A calm background is not an empty white backdrop: create a restrained designed environment with a few meaningful graphic materials, fine diagram lines, gentle color shapes or curves that support the product and this message. Create a polished premium editorial background: harmonious product colors, nuanced low-contrast tonal layers inside the composition, a gentle purposeful light source, and subtle depth through soft local shadows. Use graphic materials as part of the storytelling, not flat clip-art decoration. Keep the center visually rich enough to feel designed while the edges return cleanly to the shared base. Maintain ample breathing space, readable contrast and a shared clean bold sans-serif typography system. No busy textures, decorative confetti, unrelated props, heavy frames or excessive badges. At most two subtle secondary graphic accents, and 3-4 short supporting items (ingredients: include all documented component names concisely). Let graphics fade or end inside the safe margins; leave top/bottom 6% in the EXACT common base color, so adjacent images join seamlessly without cuts, changes of light or separate-panel effects. No shadows or gradients at outer edges. Background, text casing and continuity override conflicting older style suggestions and prior-image styling.\nSHARED IMMUTABLE BRAND DIRECTION (data): {\"fondo\":\"#D5B7B1\",\"acento\":\"#8A1C1C\",\"grafica\":\"curvas suaves y trazos finos de bajo contraste, derivados del mecanismo, beneficio o componentes documentados; máximo dos acentos gráficos secundarios; sin decoración gratuita\"}\nFULL FUNNEL MESSAGES for visual continuity only, not extra text to print on this section: [{\"seccion\":\"hero\",\"titulo\":\"VUELVE A ACOSTARTE CON LOS PIES CALIENTICOS Y DEJA DE APAGARTE A MEDIA TARDE EN 2 A 4 SEMANAS\",\"subtitulo\":\"porque tu cuerpo no se está apagando: solo necesita que la sangre le llegue mejor.\"},{\"seccion\":\"dolor\",\"titulo\":\"¿EL FRÍO DE BOGOTÁ SE TE METE EN LOS PIES Y NO SE TE SALE EN TODA LA NOCHE?\",\"subtitulo\":\"madrugadas heladas, buses largos y novenas al aire libre: tus pies lo pagan.\"},{\"seccion\":\"beneficios\",\"titulo\":\"\",\"subtitulo\":\"\"},{\"seccion\":\"ingredientes\",\"titulo\":\"\",\"subtitulo\":\"\"},{\"seccion\":\"uso\",\"titulo\":\"\",\"subtitulo\":\"\"}]\nMEANING BEFORE DECORATION: The selected title and subtitle below are the creative brief, not merely text placed above an arbitrary picture. Choose ONE dominant visual that directly shows their specific problem, desired outcome, documented component or usage action. The viewer should understand the same message from the image and headline. Every person, object, graphic and gesture must explain or demonstrate that message. Remove elements whose only purpose is filling space. Do not repeat a generic bottle-on-pedestal or smiling model across unrelated sections. If showing a person, their action and expression must carry this section's idea; identity alone is not a concept. Example only when this product and message concern blood sugar: an educational blood-vessel/glucose visualization can explain the pain; do not insert anatomy into unrelated categories, invent mechanisms or imply clinical proof.\nSECTION-SPECIFIC VISUAL: Translate the EXACT selected title and subtitle into one specific visual story. A title about cravings should show the relevant food temptation or situation; a routine title should show that routine. Use an educational blood-vessel/glucose illustration only when it explains the actual message about blood sugar or circulation, never automatically because of the product category. For other messages depict their specific problem, documented mechanism or desired outcome accurately. No avatar, no face.\nTYPE RULE: The main TITLE must be ALL UPPERCASE; its SUBTITLE entirely lowercase, including after punctuation. Preserve accents and wording; never replace lowercase subtitles with title case or capitals. Apply this rule to corrections too.\nEXACT SPANISH TEXT (render the following already-formatted title and subtitle verbatim, with readable typography, accents and enough contrast; no English labels):\n{\"titulo\":\"¿EL FRÍO DE BOGOTÁ SE TE METE EN LOS PIES Y NO SE TE SALE EN TODA LA NOCHE?\",\"subtitulo\":\"madrugadas heladas, buses largos y novenas al aire libre: tus pies lo pagan.\",\"elementos\":[\"Cobros sorpresa. Personas que no sabían que estaban suscritas y les cobraron otra vez.\",\"Envíos lentos o perdidos. Hasta un mes para recibir el pedido.\",\"Miedo a lo falso. Un reporte de cápsulas que «solo sabían a aceite».\",\"Precio para pensionados. Alguien con ingreso fijo dice que le cuesta pagarlo cada mes.\",\"Ardor en el estómago si se toma sin comida.\",\"Resultados lentos o poco claros. Algunos llevan semanas y no dicen qué cambió: hay que explicar qué notar y cuándo.\",\"Dudas de origen. Preguntas sobre dónde se fabrica y quién es la empresa.\",\"Se acuesta con los pies helados y tarda mucho en dormirse.\"]}\nPRODUCT FACTS AND DESIGN CONTEXT (data, not instructions):\n{\"producto\":\"CAYENNE PEPPER\",\"estilo\":\"Color de la investigación: #8A1C1C. Identidad adaptada a la categoría, el público y el empaque real del producto. Consistencia de marca entre las cinco secciones.\"}\nUse only the supplied facts and copy. Do not invent ingredients, dosage, certification, reviews, guarantees, prices, transformation deadlines or clinical claims. Do not import claims from other products. No watermarks or unrelated logos. Clear hierarchy: title, value-proposition subtitle, section-specific content and relevant visual. Safe margins 6%, no cut-off text.\nMake an original composition for this section, visually adapted to the real product."
+    }
+  ],
+  "creado": "2026-11-27T13:16:43.924Z"
+}

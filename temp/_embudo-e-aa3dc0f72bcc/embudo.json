@@ -3,9 +3,9 @@
   "productoId": "cayenne-pepper-d319",
   "nombre": "CAYENNE PEPPER",
   "puerto": null,
-  "version": 1,
+  "version": 7,
   "creado": "2026-11-25T01:59:58.400Z",
-  "actualizado": "2026-11-25T01:59:58.401Z",
+  "actualizado": "2026-11-27T13:17:06.951Z",
   "formato": "9:16",
   "reglasVisuales": 4,
   "fondoModo": "auto",
@@ -21,7 +21,13 @@
   "avatar": {
     "modo": "nuevo",
     "descripcion": "",
-    "semilla": "a-4899f72793a2"
+    "semilla": "a-4899f72793a2",
+    "guardado": {
+      "estilo": "realista-narrado",
+      "id": "avatar-cayenne-pepper-a54b",
+      "rol": "protagonista",
+      "nombre": "Avatar · CAYENNE PEPPER"
+    }
   },
   "fuenteFirma": "6e8b88a0f70a44377b769096c921ec1b634a04ac2aeb3e3cbf500caa1f7793f4",
   "fuenteFecha": "24 de noviembre de 2026",
@@ -230,18 +236,109 @@
     }
   },
   "seleccion": {
-    "hero": null,
-    "dolor": null,
-    "beneficios": null,
+    "hero": "f078dddb38ba27601084",
+    "dolor": "0159fd55bd752f8c0528",
+    "beneficios": "51bd148ee76953a93913",
     "ingredientes": null,
     "uso": null
   },
   "correcciones": {},
   "imagenes": {},
   "presupuestos": {},
-  "trabajo": null,
-  "trabajos": {},
-  "confirmaciones": {},
-  "duenos": {},
-  "planificadorVersion": 2
+  "trabajo": {
+    "id": "j-3ae3b406a5a3563c",
+    "token": "4fdb0297ceae8d44c56a5988175b7d27",
+    "estado": "generando",
+    "motor": "chatgpt",
+    "cantidad": 1,
+    "importeAprobado": 0,
+    "inicio": "2026-11-27T13:16:43.924Z",
+    "secciones": [
+      "dolor"
+    ],
+    "estados": {
+      "dolor": {
+        "estado": "generando",
+        "inicio": "2026-11-27T13:16:43.925Z"
+      }
+    },
+    "hechas": 0,
+    "mensajes": [
+      {
+        "seccion": "dolor",
+        "titulo": "¿El frío de Bogotá se te mete en los pies y no se te sale en toda la noche?",
+        "subtitulo": "Madrugadas heladas, buses largos y novenas al aire libre: tus pies lo pagan."
+      }
+    ]
+  },
+  "trabajos": {
+    "j-f4877af8d9b86a44": {
+      "id": "j-f4877af8d9b86a44",
+      "token": "fe6be63da3ec3736bfd8753bdd717029",
+      "estado": "generando",
+      "motor": "chatgpt",
+      "cantidad": 2,
+      "importeAprobado": 0,
+      "inicio": "2026-11-27T13:16:31.143Z",
+      "secciones": [
+        "avatar",
+        "hero"
+      ],
+      "estados": {
+        "avatar": {
+          "estado": "lista",
+          "inicio": "2026-11-27T13:16:31.145Z",
+          "fin": "2026-11-27T13:17:06.951Z"
+        },
+        "hero": {
+          "estado": "generando",
+          "inicio": "2026-11-27T13:17:06.951Z"
+        }
+      },
+      "hechas": 1,
+      "mensajes": [
+        {
+          "seccion": "hero",
+          "titulo": "Vuelve a acostarte con los pies calienticos y deja de apagarte a media tarde en 2 a 4 semanas",
+          "subtitulo": "Porque tu cuerpo no se está apagando: solo necesita que la sangre le llegue mejor."
+        }
+      ]
+    },
+    "j-3ae3b406a5a3563c": {
+      "id": "j-3ae3b406a5a3563c",
+      "token": "4fdb0297ceae8d44c56a5988175b7d27",
+      "estado": "generando",
+      "motor": "chatgpt",
+      "cantidad": 1,
+      "importeAprobado": 0,
+      "inicio": "2026-11-27T13:16:43.924Z",
+      "secciones": [
+        "dolor"
+      ],
+      "estados": {
+        "dolor": {
+          "estado": "generando",
+          "inicio": "2026-11-27T13:16:43.925Z"
+        }
+      },
+      "hechas": 0,
+      "mensajes": [
+        {
+          "seccion": "dolor",
+          "titulo": "¿El frío de Bogotá se te mete en los pies y no se te sale en toda la noche?",
+          "subtitulo": "Madrugadas heladas, buses largos y novenas al aire libre: tus pies lo pagan."
+        }
+      ]
+    }
+  },
+  "confirmaciones": {
+    "fe6be63da3ec3736bfd8753bdd717029": "j-f4877af8d9b86a44",
+    "4fdb0297ceae8d44c56a5988175b7d27": "j-3ae3b406a5a3563c"
+  },
+  "duenos": {
+    "hero": "j-f4877af8d9b86a44",
+    "dolor": "j-3ae3b406a5a3563c"
+  },
+  "planificadorVersion": 2,
+  "avatarPendiente": null
 }

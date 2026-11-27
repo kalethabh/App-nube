@@ -1,0 +1,12 @@
+{
+  "pid": 4761,
+  "paso": "embudo-j-3ae3b406a5a3563c-dolor",
+  "script": "generar-embudo.js",
+  "args": [
+    "temp/_embudo-e-aa3dc0f72bcc/trabajos/j-3ae3b406a5a3563c",
+    "dolor"
+  ],
+  "comando": "node produccion/generar-embudo.js temp/_embudo-e-aa3dc0f72bcc/trabajos/j-3ae3b406a5a3563c dolor",
+  "inicio": "2026-11-27T13:16:43.926Z",
+  "app": 4527
+}
