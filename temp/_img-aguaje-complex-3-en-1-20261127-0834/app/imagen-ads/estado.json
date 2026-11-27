@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 5,
+    "R": 6,
     "A": 1,
     "T": 3
   },
@@ -93,12 +93,26 @@
     "R004": {
       "tipo": "revision",
       "uuid": "561e6e53-1b91-438e-bdff-b5be07818152",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
           "pieza": "V08_1x1",
           "firma": "2325969-1795787747558",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R005": {
+      "tipo": "revision",
+      "uuid": "d59c2bb8-15cf-425b-b86b-b35e4349aff4",
+      "estado": "en-curso",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V10_1x1",
+          "firma": "2177056-1795787873296",
           "ronda": 1
         }
       ]
@@ -305,7 +319,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -385,21 +399,36 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2325969-1795787747558",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2325969-1795787747558",
+        "nota": 8,
+        "puntajes": {
+          "estructura": 8,
+          "dolor_visual": 8,
+          "titular": 9,
+          "texto_limpio": 9,
+          "frasco_fiel": 9,
+          "oferta_confianza": 9,
+          "diferencia_real": 8
+        }
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-27T13:55:48.839Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R004"
+      "ultimaOrden": "g"
     },
     "V09_1x1": {
       "v": "V09",
@@ -426,24 +455,21 @@
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "revisando",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "version": 1,
+      "firma": "2177056-1795787873296",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-27T13:57:54.628Z",
+      "pedido": null,
+      "ultimaOrden": "g",
+      "tandaRevision": "R005"
     }
   },
   "pedidos": {}
