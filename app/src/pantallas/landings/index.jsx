@@ -274,6 +274,21 @@ export default function Landings({ consulta }) {
   const [precios, setPrecios] = useState({ uno: '', dos: '', tres: '', antes: '' });
   const [registro, setRegistro] = useState('');
   const [resenas, setResenas] = useState([]); // (2026-11-27d) solo reseñas reales de sus clientas
+  const [plantilla, setPlantilla] = useState('amuna'); // (2026-11-27f) la estructura de la landing de AMUNA o la de CEN
+  const [subiendo, setSubiendo] = useState(null);
+  const cambiarResena = (k, cambios) => setResenas((l) => l.map((x, i) => (i === k ? { ...x, ...cambios } : x)));
+  const subirFoto = async (k, archivo) => {
+    if (!archivo) return;
+    setSubiendo(k);
+    try {
+      const r = await pedirNuevo('/api/landings/fotos', { metodo: 'POST', binario: archivo });
+      cambiarResena(k, { foto: r.id, vista: URL.createObjectURL(archivo) });
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude subir la foto', texto: e.message });
+    } finally {
+      setSubiendo(null);
+    }
+  };
   const [analizar, setAnalizar] = useState(true);
   const [ocupado, setOcupado] = useState(false);
   const [abierta, setAbierta] = useState(null);
@@ -287,7 +302,7 @@ export default function Landings({ consulta }) {
   const crearConEquipo = async () => {
     setOcupado(true);
     try {
-      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, prompt: prompt.trim(), precios, registro: registro.trim(), resenas: resenas.filter((r) => r.nombre.trim() && r.texto.trim()) } });
+      const creada = await pedirNuevo('/api/landings/crear', { metodo: 'POST', cuerpo: { productoId, plantilla, prompt: prompt.trim(), precios, registro: registro.trim(), resenas: resenas.filter((r) => r.nombre.trim() && r.texto.trim()).map(({ vista, ...r }) => r) } });
       setPrompt('');
       await recargar?.();
       ir(`/landings?proyecto=${encodeURIComponent(creada.id)}`);
@@ -328,6 +343,14 @@ export default function Landings({ consulta }) {
                 {productos.map((p) => <option key={p.id} value={p.id}>{p.nombre}</option>)}
               </select>
             </label>
+            <div className="ld-grupo">
+              <span className="ld-grupo__etiqueta">Plantilla</span>
+              <div className="ld-segmento" role="group" aria-label="Plantilla">
+                <button type="button" className={plantilla === 'amuna' ? 'activo' : ''} aria-pressed={plantilla === 'amuna'} onClick={() => setPlantilla('amuna')}>AMUNA: combos y ritual</button>
+                <button type="button" className={plantilla === 'cen' ? 'activo' : ''} aria-pressed={plantilla === 'cen'} onClick={() => setPlantilla('cen')}>CEN</button>
+              </div>
+              <small className="ld-ayuda">{plantilla === 'amuna' ? 'La estructura de tu landing de AMUNA tal cual: galería, combos, ruta, pasos, comparación, cuidado y preguntas. ChatGPT hace sus 31 imágenes con la medida de cada una. Con tus reseñas reales salen también el testimonio, «Ellas cuentan» (las que tengan foto) y las reseñas con su nota.' : 'La plantilla anterior (CEN): galería, combos, creativos, cómo funciona, cuidado y preguntas.'}</small>
+            </div>
             <div className="ld-precios">
               <span className="ld-grupo__etiqueta">Tus precios en pesos (los combos de la página)</span>
               <div className="ld-precios__campos">
@@ -349,10 +372,20 @@ export default function Landings({ consulta }) {
                   <input placeholder="Ciudad" value={r.ciudad} maxLength={40} onChange={(e) => setResenas((l) => l.map((x, i) => (i === k ? { ...x, ciudad: e.target.value } : x)))} />
                   <textarea placeholder="Lo que escribió tu clienta, tal cual" value={r.texto} maxLength={700} rows={2} onChange={(e) => setResenas((l) => l.map((x, i) => (i === k ? { ...x, texto: e.target.value } : x)))} />
                   <Boton variante="fantasma" tamano="chico" onClick={() => setResenas((l) => l.filter((_, i) => i !== k))}>Quitar</Boton>
+                  <div className="ld-resenas__extra">
+                    <select aria-label="Estrellas" value={r.estrellas || 5} onChange={(e) => cambiarResena(k, { estrellas: Number(e.target.value) })}>
+                      {[5, 4, 3, 2, 1].map((n) => <option key={n} value={n}>{'★'.repeat(n)}</option>)}
+                    </select>
+                    <label className="ld-resenas__foto">
+                      {r.vista ? <img src={r.vista} alt="" /> : null}
+                      <span>{subiendo === k ? 'Subiendo…' : r.foto ? 'Cambiar foto' : 'Subir su foto (opcional)'}</span>
+                      <input type="file" accept="image/png,image/jpeg,image/webp" hidden onChange={(e) => subirFoto(k, e.target.files?.[0])} />
+                    </label>
+                  </div>
                 </div>
               ))}
               {resenas.length < 12 ? (
-                <Boton variante="secundario" tamano="chico" onClick={() => setResenas((l) => [...l, { nombre: '', ciudad: '', texto: '' }])}>
+                <Boton variante="secundario" tamano="chico" onClick={() => setResenas((l) => [...l, { nombre: '', ciudad: '', texto: '', estrellas: 5 }])}>
                   Agregar una reseña real
                 </Boton>
               ) : null}

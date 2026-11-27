@@ -252,7 +252,7 @@ async function principal() {
   // (2026-11-25f) CREAR desde la plantilla, con el equipo de agentes
   r = await pedir('/api/landings/crear', { json: {} });
   check('Crear sin producto: lo pide', r.st === 400, r);
-  r = await pedir('/api/landings/crear', { json: { productoId: prod, prompt: 'tono cercano', precios: { uno: '89.900', dos: '152900', tres: '199900', antes: '89900' }, registro: 'RSA-PRUEBA-123', resenas: [{ nombre: 'Luz Marina R.', ciudad: 'Medellín', texto: 'Desde la segunda semana duermo de corrido, y eso que no creía.' }, { nombre: 'Sin texto', texto: '' }] } });
+  r = await pedir('/api/landings/crear', { json: { productoId: prod, plantilla: 'cen', prompt: 'tono cercano', precios: { uno: '89.900', dos: '152900', tres: '199900', antes: '89900' }, registro: 'RSA-PRUEBA-123', resenas: [{ nombre: 'Luz Marina R.', ciudad: 'Medellín', texto: 'Desde la segunda semana duermo de corrido, y eso que no creía.' }, { nombre: 'Sin texto', texto: '' }] } });
   const id4 = r.datos?.id;
   if (id4) creados.landings.push(id4);
   const l4 = await esperar(300, () => leerLanding(id4), terminada);
@@ -274,7 +274,7 @@ async function principal() {
   check('La imagen principal sale con el aspecto de la plantilla (9:16) y su guía de composición', env.some((e) => e.imagen === 'img0' && e.aspecto === '9:16' && e.guia), env);
   r = await pedir('/api/landings/crear', { json: { productoId: prod } });
   check('(2026-11-27d) Crear sin precios: los pide (ya no queda «Precio por definir»)', r.st === 400 && /precios/i.test(r.datos?.error || ''), r);
-  r = await pedir('/api/landings/crear', { json: { productoId: prod, precios: { uno: '89900', dos: '152900', tres: '199900' } } });
+  r = await pedir('/api/landings/crear', { json: { productoId: prod, plantilla: 'cen', precios: { uno: '89900', dos: '152900', tres: '199900' } } });
   const id5 = r.datos?.id;
   if (id5) creados.landings.push(id5);
   const l5 = await esperar(300, () => leerLanding(id5), terminada);
@@ -329,6 +329,69 @@ async function principal() {
     check('Lo que no aplica se quita: una fila de costo y un profesional con su filtro y el contador', n === 2 && r.querySelectorAll('.cmp-row').length === 7 && r.querySelectorAll('.doc').length === 4 && !r.querySelector('#docChips button[data-f="huesos"]') && r.querySelector('#docChips button[data-f="all"] small').text === '4', n);
   }
   check('Mide solo la landing (no hay original)', l4?.puntajes?.copia && !l4.puntajes.original, l4?.puntajes);
+
+  // (2026-11-27f) LA PLANTILLA AMUNA: la estructura de la landing de AMUNA, imágenes de GPT a la medida exacta, reseñas solo reales
+  {
+    r = await pedir('/api/landings/fotos', { cuerpo: fs.readFileSync(path.join(TMP, 'producto.png')), headers: { 'Content-Type': 'image/png' } });
+    const fotoId = r.datos?.id;
+    check('(AMUNA) Se sube la foto de una reseña real', r.st === 200 && /^[a-f0-9]{12}\.(png|jpg)$/.test(fotoId || ''), r);
+    r = await pedir('/api/landings/fotos', { cuerpo: Buffer.from('no es una foto'), headers: { 'Content-Type': 'text/plain' } });
+    check('(AMUNA) Lo que no es una foto se rechaza', r.st === 400, r);
+    r = await pedir('/api/landings/crear', { json: { productoId: prod, plantilla: 'amuna', precios: { uno: '89900', dos: '152900', tres: '199900', antes: '89900' }, resenas: [{ nombre: 'Luz Marina R.', ciudad: 'Medellín', texto: 'Desde la segunda semana duermo de corrido, y eso que no creía.', estrellas: 5, foto: fotoId }, { nombre: 'Paola G.', ciudad: 'Cali', texto: 'Me gusta que es fácil de tomar y me ayuda a descansar mejor.', estrellas: 4 }] } });
+    const idA = r.datos?.id;
+    if (idA) creados.landings.push(idA);
+    const lA = await esperar(300, () => leerLanding(idA), terminada);
+    check('(AMUNA) Crear con la plantilla AMUNA (la de por defecto): termina lista, con sus 6 pasos del equipo', lA?.estado === 'lista' && lA.plantilla === 'amuna' && lA.agentes?.length === 6 && lA.agentes.every((a) => a.estado === 'listo' && a.resumen), lA && { estado: lA.estado, error: lA.error, agentes: lA.agentes });
+    const hA = idA && fs.existsSync(path.join(RAIZ, 'temp', '_landings', idA, 'index.html')) ? html(idA) : '';
+    const visibleA = hA.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>/g, '');
+    const secsA = [...hA.matchAll(/data-seccion="([^"]+)"/g)].map((m) => m[1]);
+    const esperadas = ['galeria', 'prueba-social', 'titulo-y-beneficios', 'oferta', 'testimonio-destacado', 'dudas-rapidas', 'aviso-pedido', 'creativo', 'ellas-cuentan', 'ingredientes', 'historias', 'ruta', 'experiencias-fotos', 'pasos', 'franja', 'comparacion', 'compra-clara', 'cuidado', 'resenas', 'preguntas-frecuentes', 'pie'];
+    check('(AMUNA) Las secciones de AMUNA, en su orden', JSON.stringify(secsA.filter((x) => esperadas.includes(x))) === JSON.stringify(esperadas), secsA);
+    const envA = idA ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', '_landings', idA, 'prueba-imagenes.json'), 'utf8')) : [];
+    const { medidas } = await import(path.join(APP, 'server', 'lib', 'landings', 'clonar.js'));
+    const malas = envA.filter((e) => {
+      const m = medidas(fs.readFileSync(path.join(RAIZ, 'temp', '_landings', idA, e.archivo)));
+      return !m || m.w !== e.w || m.h !== e.h;
+    });
+    check('(AMUNA) Las 31 imágenes, cada una con la medida exacta de la de AMUNA (p. ej. la primera de la galería 942×1670)', envA.length === 31 && !malas.length && envA.some((e) => e.slot === 'galeria-01' && e.w === 942 && e.h === 1670) && envA.every((e) => hA.includes(e.archivo)), { n: envA.length, malas: malas.map((e) => e.slot) });
+    check('(AMUNA) Cada imagen va a ChatGPT con la foto del producto y su referencia de AMUNA; las piezas con el fondo liso de la página y sin efectos; las fotos, sin médicos', envA.length && envA.every((e) => e.referencias.length === 2 && e.referencias[1] === `app/server/lib/landings/plantillas/amuna/referencias/${e.slot}.jpg` && /Reference image 2 is ONLY a LAYOUT/.test(e.prompt) && /No typical AI-image effects/.test(e.prompt)) && envA.filter((e) => /^galeria-0[1-4]$|^creativo$|^ingredientes$/.test(e.slot)).every((e) => /BACKGROUND: flat solid #/.test(e.prompt)) && envA.filter((e) => /^historia|^ugc|^cuidado/.test(e.slot)).every((e) => /never a doctor/.test(e.prompt)), envA.slice(0, 2).map((e) => e.prompt.slice(0, 300)));
+    check('(AMUNA) Sin variables, sin la marca del ejemplo y sin cifras de clientas inventadas', !/Nombre Apellido|\bXX\b|Aquí va|Por definir|Producto X|TU MARCA|AMUNA|AMUA|Vital ?Drops|\+\s?\d{1,3}\.\d{3}/i.test(visibleA) && /Sueño Profundo/.test(visibleA), (visibleA.match(/[^<>]{0,40}(Producto X|TU MARCA|AMUNA|AMUA|Vital ?Drops|\+\d{1,3}\.\d{3})[^<>]{0,40}/gi) || []).slice(0, 5));
+    const trioA = (hA.match(/<button type="button" class="combo"[^>]*data-combo="tres"[\s\S]*?<\/button>/) || [''])[0];
+    check('(AMUNA) Los precios del dueño en los combos (tachado y «Ahorras» calculados) y en la barra fija', /<strong>\$199\.900<\/strong>/.test(trioA) && /<s>\$269\.700<\/s>/.test(trioA) && /Ahorras \$69\.800/.test(trioA) && /id="fPrecio">\$199\.900 COP/.test(hA), trioA.slice(0, 500));
+    check('(AMUNA) Las reseñas reales tal cual: testimonio, «Ellas cuentan» (la que tiene foto), la nota y las barras calculadas', /data-seccion="testimonio-destacado"[\s\S]{0,400}Luz Marina R\./.test(hA) && /data-seccion="ellas-cuentan"[\s\S]*?Luz Marina R\.[\s\S]*?Desde la segunda semana duermo de corrido, y eso que no creía\./.test(hA) && !/data-seccion="ellas-cuentan"[\s\S]*?Paola G\.[\s\S]*?data-seccion="ingredientes"/.test(hA) && /<span class="nota">4,5<\/span>/.test(hA) && /2 opiniones de clientas/.test(hA) && (hA.match(/<article class="res"/g) || []).length === 2 && /assets\/resena-1\.(png|jpg)/.test(hA), (hA.match(/<section class="sec resenas"[\s\S]{0,600}/) || [''])[0]);
+    check('(AMUNA) Las fotos de estilo de vida no dicen que son clientas', !/clientas/i.test((hA.match(/data-seccion="historias"[\s\S]*?<\/section>/) || [''])[0] + (hA.match(/data-seccion="experiencias-fotos"[\s\S]*?<\/section>/) || [''])[0]));
+    check('(AMUNA) Inter, los colores del producto y la corrección de Renata aplicada', /family=Inter:/.test(hA) && /--amarillo:#A62737/i.test(hA) && /--tinta-btn:#FFFFFF/i.test(hA) && /Prueba: Sueño Profundo, a tu ritmo/.test(hA), (hA.match(/:root\{--amarillo[^}]*\}/) || [''])[0]);
+    // y funciona en un navegador: el combo cambia el precio de la barra; el botón abre la ventana de pedido
+    let vivo = null;
+    try {
+      const { chromium } = (await import('node:module')).createRequire(import.meta.url)(process.env.PLAYWRIGHT_PACKAGE_PATH || 'playwright');
+      const nav = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_CHROME ? { executablePath: process.env.PLAYWRIGHT_CHROME } : {}) });
+      try {
+        const pag = await nav.newPage({ viewport: { width: 390, height: 844 } });
+        const errores = [];
+        pag.on('pageerror', (e) => errores.push(String(e)));
+        await pag.goto(`${BASE}/landing/${idA}/index.html`, { waitUntil: 'load' });
+        await pag.click('#oferta [data-combo="dos"]');
+        const precio = await pag.textContent('#fPrecio');
+        await pag.click('#ctaOferta');
+        const abierta = await pag.evaluate(() => document.getElementById('modal').open);
+        const ancho = await pag.evaluate(() => document.documentElement.scrollWidth);
+        vivo = { precio, abierta, ancho, errores };
+      } finally {
+        await nav.close();
+      }
+    } catch (e) {
+      vivo = { sinNavegador: String(e?.message || e).slice(0, 120) };
+    }
+    check('(AMUNA) En el navegador: el combo cambia el precio de la barra, el botón abre la ventana de pedido, sin errores ni scroll de lado', vivo?.sinNavegador || (vivo?.precio === '$152.900 COP' && vivo.abierta && vivo.ancho <= 390 && !vivo.errores.length), vivo);
+    // sin reseñas reales: sin testimonio, «Ellas cuentan», reseñas, prueba social ni «N testimonios»
+    r = await pedir('/api/landings/crear', { json: { productoId: prod, precios: { uno: '89900', dos: '152900', tres: '199900' } } });
+    const idB = r.datos?.id;
+    if (idB) creados.landings.push(idB);
+    const lB = await esperar(300, () => leerLanding(idB), terminada);
+    const hB = idB && fs.existsSync(path.join(RAIZ, 'temp', '_landings', idB, 'index.html')) ? html(idB) : '';
+    check('(AMUNA) Sin reseñas reales: no salen testimonio, «Ellas cuentan», experiencias, reseñas, prueba social ni «N testimonios»', lB?.estado === 'lista' && lB.plantilla === 'amuna' && !/data-seccion="(testimonio-destacado|ellas-cuentan|experiencias|resenas|prueba-social)"/.test(hB) && !/testimonios? compartidos?/.test(hB) && /data-seccion="historias"/.test(hB) && /data-seccion="pasos"/.test(hB), [lB?.estado, lB?.error, [...hB.matchAll(/data-seccion="([^"]+)"/g)].map((m) => m[1])]);
+  }
 
   // medir y borrar
   r = await pedir(`/api/landings/${id1}/medir`, { json: {} });

@@ -90,7 +90,8 @@ const rel = (carpeta, f) => path.relative(RAIZ, path.join(carpeta, f)).replace(/
 const T = (x, n = 600) => (typeof x === 'string' ? x.trim().slice(0, n) : '');
 
 /** Una sesión de un agente: escribe SU archivo; vuelve lo que escribió (o null). */
-async function agente({ carpeta, motor, quien, prompt, valida, avanzar, timeoutMs = 15 * 60000, leer = [] }) {
+// (2026-11-27f) también lo usa la plantilla AMUNA (plantilla-amuna.js): maxTurnos y errores (la lista de lo que falta) opcionales
+export async function agente({ carpeta, motor, quien, prompt, valida, avanzar, timeoutMs = 15 * 60000, leer = [], maxTurnos = 10, errores = null }) {
   const archivo = path.join(carpeta, quien.archivo);
   fs.rmSync(archivo, { force: true });
   avanzar(`${quien.nombre} (${quien.rol.toLowerCase()}) está trabajando…`);
@@ -105,8 +106,13 @@ async function agente({ carpeta, motor, quien, prompt, valida, avanzar, timeoutM
     prohibidas: prohibidasComunes({ terminal: false }),
     registro: path.join(carpeta, `registro-${quien.id}.log`),
     timeoutMs,
-    maxTurnos: 10,
-    verificar: async () => (valida(leerJSON(archivo)) ? { ok: true } : { ok: false, errores: [`Escribe ${rel(carpeta, quien.archivo)} con el JSON pedido (con "resumen").`] }),
+    maxTurnos,
+    verificar: async () => {
+      const d = leerJSON(archivo);
+      if (valida(d)) return { ok: true };
+      const lista = errores ? errores(d) : [];
+      return { ok: false, errores: lista.length ? lista.slice(0, 20) : [`Escribe ${rel(carpeta, quien.archivo)} con el JSON pedido (con "resumen").`] };
+    },
   });
   const d = leerJSON(archivo);
   if (!valida(d)) {
@@ -220,7 +226,8 @@ const esc = (x) => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 /** Las reseñas reales que dio el dueño: [{ nombre, ciudad, titulo, texto, estrellas }] (máximo 12). */
 export function limpiarResenas(x) {
   return (Array.isArray(x) ? x : [])
-    .map((r) => ({ nombre: T(r?.nombre, 60), ciudad: T(r?.ciudad, 40), titulo: T(r?.titulo, 90), texto: T(r?.texto, 700), estrellas: Math.min(5, Math.max(1, Math.round(Number(r?.estrellas) || 5))) }))
+    // (2026-11-27f) con su foto (la que subió el dueño, ya copiada a la landing: assets/…)
+    .map((r) => ({ nombre: T(r?.nombre, 60), ciudad: T(r?.ciudad, 40), titulo: T(r?.titulo, 90), texto: T(r?.texto, 700), estrellas: Math.min(5, Math.max(1, Math.round(Number(r?.estrellas) || 5))), ...(/^assets\/[\w.-]+\.(jpg|jpeg|png|webp)$/i.test(String(r?.foto || '')) ? { foto: String(r.foto) } : {}) }))
     .filter((r) => r.nombre && r.texto.length >= 8)
     .slice(0, 12);
 }
@@ -390,10 +397,10 @@ export const FUENTES_DISPLAY = ['Anton', 'Bebas Neue', 'Archivo Black', 'Oswald'
 export const FUENTES_CUERPO = ['Inter', 'Nunito Sans', 'Lato', 'Work Sans', 'Poppins', 'Source Sans 3', 'DM Sans', 'Manrope'];
 export const RE_PLANTILLA = /\b(be ?well|cen|colbewell(\.com)?)\b/i;
 export const sinPlantilla = (t, nombre) => String(t).replace(/colbewell\.com/gi, '').replace(/\bBe ?Well\s+CEN\b/gi, nombre).replace(/\bBe ?Well\b/gi, nombre).replace(/\bCEN\b/g, nombre).replace(/\s{2,}/g, ' ').trim();
-const esHex = (x) => /^#[0-9a-f]{6}$/i.test(String(x || ''));
-const aRgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
-const aHex = (rgb) => `#${rgb.map((v) => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, '0')).join('')}`;
-const lum = (h) => {
+export const esHex = (x) => /^#[0-9a-f]{6}$/i.test(String(x || ''));
+export const aRgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+export const aHex = (rgb) => `#${rgb.map((v) => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, '0')).join('')}`;
+export const lum = (h) => {
   const [r, g, b] = aRgb(h).map((v) => {
     const c = v / 255;
     return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
@@ -404,9 +411,9 @@ export const contraste = (a, b) => {
   const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m);
   return (x + 0.05) / (y + 0.05);
 };
-const mezclar = (a, b, t) => aHex(aRgb(a).map((v, i) => v + (aRgb(b)[i] - v) * t));
+export const mezclar = (a, b, t) => aHex(aRgb(a).map((v, i) => v + (aRgb(b)[i] - v) * t));
 /** Oscurece (hacia negro) hasta que `sobre` se lea encima con contraste >= min. */
-const leible = (color, sobre, min = 4.5) => {
+export const leible = (color, sobre, min = 4.5) => {
   let c = color;
   for (let i = 0; i < 20 && contraste(c, sobre) < min; i++) c = mezclar(c, lum(sobre) > 0.5 ? '#000000' : '#ffffff', 0.12);
   return c;
