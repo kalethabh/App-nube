@@ -29,12 +29,14 @@
     "Imagen 2 de 31 lista (galeria-02).",
     "Imagen 3 de 31 lista (galeria-03).",
     "Imagen 4 de 31 lista (galeria-04).",
-    "Imagen 5 de 31 lista (galeria-05)."
+    "Imagen 5 de 31 lista (galeria-05).",
+    "Imagen 6 de 31 lista (galeria-06).",
+    "Imagen 7 de 31 lista (galeria-07)."
   ],
   "error": null,
   "informe": null,
   "puntajes": null,
-  "actualizado": "2026-11-27T19:13:38.389Z",
+  "actualizado": "2026-11-27T19:15:50.504Z",
   "agentes": [
     {
       "id": "estratega",
