@@ -20,17 +20,16 @@ export const MOTORES_IMAGEN = Object.freeze({
   kie: Object.freeze({ id: 'kie', nombre: 'kie.ai', texto: 'GPT Image 2.5 a 2K en kie.ai: se cobra cada imagen de tu saldo.' }),
 });
 
+// (2026-11-27b) decisión del usuario: «gpt, que salgan gratis» → las imágenes de anuncios (y del chat) se hacen SIEMPRE
+// con su ChatGPT, nunca con kie (aunque config.json diga 'kie'). Si ChatGPT no está conectado, la app pide conectarlo.
 export function motorDeImagenes() {
   if (modoPrueba()) return 'kie';
-  try {
-    return leerConfig().motorImagenes === 'kie' ? 'kie' : 'chatgpt';
-  } catch {
-    return 'chatgpt';
-  }
+  return 'chatgpt';
 }
 
 export function elegirMotorDeImagenes(id) {
   if (!Object.hasOwn(MOTORES_IMAGEN, id)) throw new ErrorApp(400, 'Elige ChatGPT o kie.ai.');
+  if (id === 'kie') throw new ErrorApp(400, 'Las imágenes de anuncios se hacen siempre con tu ChatGPT (gratis).');
   guardarConfig({ motorImagenes: id });
   return id;
 }
