@@ -372,7 +372,7 @@ async function principal() {
       check('(2026-11-27h) La misma cantidad de AMUNA: 11 preguntas exactas y cada texto con su largo (± 30 %)', !bien.length && mal.some((e) => /faq\.items.*exactamente 11/.test(e)) && mal.some((e) => /titulo\.lede.*3 palabras/.test(e)), { bien, mal });
     }
     check('(AMUNA) Las historias son 9:16 (1080×1920) con el marco de Instagram de la marca (@ y sticker); los pasos con la medida de su caja', envA.filter((e) => e.slot.startsWith('historia-')).every((e) => e.w === 1080 && e.h === 1920) && envA.filter((e) => e.slot.startsWith('paso-')).every((e) => e.w === 786 && e.h === 1074) && (hA.match(/<figure class="ig">/g) || []).length === 6 && /class="ig-quien"><span class="ig-ava">[^<]+<\/span><b>@/.test(hA) && /class="ig-sticker">/.test(hA), (hA.match(/<figure class="ig">[\s\S]{0,400}/) || [''])[0]);
-    check('(AMUNA) A ChatGPT solo sus tamaños (1:1 o 2:3) y en el prompt cuánto se ve; las piezas sin recorte', envA.every((e) => (e.w / e.h < 0.85 ? e.aspecto === '2:3' : e.aspecto === '1:1')) && envA.filter((e) => e.slot.startsWith('historia-')).every((e) => /only the central \d+% of the width will be shown/.test(e.prompt)) && envA.filter((e) => /^galeria-0[1-4]$|^creativo$/.test(e.slot)).every((e) => /nothing may touch or be cut by an edge/.test(e.prompt)), envA.slice(0, 3).map((e) => [e.slot, e.aspecto]));
+    check('(AMUNA) A ChatGPT solo sus tamaños (1:1 o 2:3) y en el prompt cuánto se ve; las piezas sin recorte', envA.every((e) => (e.w / e.h < 0.85 ? e.aspecto === '2:3' : e.aspecto === '1:1')) && envA.filter((e) => e.slot.startsWith('historia-')).every((e) => /only the central \d+% of the width will be shown/.test(e.prompt)) && envA.filter((e) => /^galeria-0[1-4]$|^creativo$/.test(e.slot)).every((e) => /Leave at least 8% EMPTY background at the top and at the bottom/.test(e.prompt) && /Nothing may touch or be cut by any edge/.test(e.prompt)), envA.slice(0, 3).map((e) => [e.slot, e.aspecto]));
     {
       // la primera de la galería (alta) viene de una foto cuadrada en la prueba: queda ENTERA, con el fondo de la página arriba y abajo
       const g1 = envA.find((e) => e.slot === 'galeria-01');
@@ -380,7 +380,21 @@ async function principal() {
       const fondoA = (/--fondo:(#[0-9a-f]{6})/i.exec(hA) || [])[1] || '#ffffff';
       const rgb = [1, 3, 5].map((i) => parseInt(fondoA.slice(i, i + 2), 16));
       const filaArriba = px ? [0, 6, 12, 18, 23].every((x) => [0, 1, 2].every((c) => Math.abs(px[x * 4 + c] - rgb[c]) <= 12)) : false;
-      check('(AMUNA) Una pieza alta no se recorta: entra entera y se rellena con el color del fondo de la página', filaArriba, { fondoA, primeros: px && [...px.slice(0, 12)] });
+      {
+      // (2026-11-27i) una pieza con el titular pegado al borde de arriba se detecta (y se rehace)
+      const { tocaElBorde } = await import(path.join(APP, 'server', 'lib', 'landings', 'plantilla-amuna.js'));
+      const bin2 = (await (await import(path.join(APP, 'server', 'lib', 'imagen-ads', 'local.js'))).comprobarFfmpeg())?.bin;
+      const [c1, c2] = ['cortada', 'bien'].map((n) => path.join(os.tmpdir(), `kads-${n}-${process.pid}.png`));
+      if (bin2) {
+        cp.execFileSync(bin2, ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'color=c=0xF7EFE6:s=400x600', '-vf', 'drawbox=x=40:y=0:w=320:h=60:color=0x8A4A1E:t=fill', '-frames:v', '1', c1]);
+        cp.execFileSync(bin2, ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'color=c=0xF7EFE6:s=400x600', '-vf', 'drawbox=x=40:y=60:w=320:h=60:color=0x8A4A1E:t=fill', '-frames:v', '1', c2]);
+      }
+      const r1 = bin2 ? await tocaElBorde(c1, '#F7EFE6') : true;
+      const r2 = bin2 ? await tocaElBorde(c2, '#F7EFE6') : false;
+      for (const f of [c1, c2]) fs.rmSync(f, { force: true });
+      check('(2026-11-27i) Un titular pegado al borde de arriba se detecta (la app la rehace con más margen); uno con margen, no', r1 === true && r2 === false, { r1, r2 });
+    }
+    check('(AMUNA) Una pieza alta no se recorta: entra entera y se rellena con el color del fondo de la página', filaArriba, { fondoA, primeros: px && [...px.slice(0, 12)] });
     }
     {
       const personas = envA.filter((e) => /^historia|^paso|^cuidado|^galeria-05/.test(e.slot)).map((e) => (/The person and place: ([^.]+)/.exec(e.prompt) || [])[1]);

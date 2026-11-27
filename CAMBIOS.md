@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27i · Plantilla AMUNA: titulares que no se cortan
+
+- **Arreglado: el titular de la imagen principal salía cortado arriba y la última línea abajo.** ChatGPT solo hace imágenes 2:3 y copiaba la composición alta de AMUNA (9:16), así que se le salía el texto. Ahora le decimos el lienzo real que tiene, con márgenes de 8 % arriba y abajo.
+- **Si aun así sale algo pegado al borde, la app la rehace una vez**, con todo más chico.
+
 ## 2026-11-27h · Plantilla AMUNA: la misma estructura y la misma cantidad de información
 
 - **La misma cantidad que tu página de AMUNA:** 4 checks, 4 dudas, 4 momentos de la ruta, 3 pasos, 6 filas de comparación, 11 preguntas frecuentes y 2 avisos legales. Cada texto tiene el largo del de AMUNA; si sale más corto o más largo, el equipo lo rehace.
