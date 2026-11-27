@@ -28,6 +28,12 @@ export const GUIA = `
 21. PIE en el color de la marca: Contáctanos, Enlaces útiles, Información de la tienda, el correo, la marca y el país, y 2 avisos legales del tipo de producto.
 22. BARRA FIJA abajo (aparece al pasar el botón de la oferta): foto, estrellas, el combo elegido y su precio, y «PEDIR Y PAGAR AL RECIBIR».
 
+## El orden y los titulares (la clase «Cada página es una landing», Joaquín Buelvas)
+- El scroll va en 8 pasos: 1 ENGANCHO (galería, prueba social, titular de resultado + subtítulo «para quién» + botón «Pedir ahora · pago al recibir») · 2 IDENTIFICO (bloque de dolor: «¿Te pasa esto?», 3 frases en primera persona con las palabras textuales de la clienta, «¿Te suena? No eres la única.») · 3 PROMETO (creativo y ruta) · 4 PRUEBO (testimonios, historias, experiencias, capturas y reseñas: la prueba social va EN MEDIO) · 5 EXPLICO (ingredientes, pasos, comparación) · 6 OFREZCO (los combos, después de beneficios y pruebas) · 7 TRANQUILIZO (compra clara, pago al recibir, dudas, cuidado, preguntas) · 8 CIERRO.
+- titulo.titular: el RESULTADO (beneficio + tiempo + deseo, 10 a 16 palabras), que continúa la promesa del anuncio; nunca el nombre del producto. titulo.subtitulo: «Para <quién> que <su situación>…» (14 a 22 palabras). titulo.boton: «Pedir ahora · pago al recibir».
+- dolor: las frases son de la clienta (de la investigación, tal cual o casi), concretas y en primera persona («Me pongo un jean y me queda suelto atrás»). Después la página agita y resuelve (problema-agitación-solución).
+- Suplementos: el resultado soñado como bienestar y experiencia, nunca como cura de una enfermedad.
+
 ## Cómo está escrito
 - Español de Colombia, cercano y tranquilo («sin tantas vueltas», «sin hacer malabares», «aquí las carreras no ayudan»), tuteando.
 - Promesa con responsabilidad: los resultados y los tiempos van en las imágenes y los nombres de los combos; los textos de ayuda (dudas, ruta, cuidado, FAQ) nunca garantizan cambios ni plazos y siempre dicen cuándo consultar a un profesional.
