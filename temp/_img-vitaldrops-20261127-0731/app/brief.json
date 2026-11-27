@@ -1,0 +1,118 @@
+{
+  "slug": "_img-vitaldrops-20261127-0731",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "Chat · VITALDROPS",
+  "productoId": "vitaldrops-d183",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "VITALDROPS",
+    "publico": "",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "CO",
+    "idioma": "es",
+    "adicional": "",
+    "angulo": null
+  },
+  "cantidad": 0,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [],
+  "modo": "nuevos",
+  "referenciasPropias": [],
+  "conceptosReferencias": [],
+  "fiel": true,
+  "elegirTitulos": false,
+  "rapido": true,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-27T12:31:42.547Z",
+  "venta": {
+    "oferta": "",
+    "sellos": [],
+    "pais": "CO",
+    "prohibido": [],
+    "cuerpo": {
+      "zonas": [
+        "glúteos",
+        "piernas",
+        "caderas"
+      ]
+    },
+    "tiempo": "Tratamiento de 3 meses (3 frascos, uno por mes, una toma diaria de 2 ml). El apetito y la energía se empiezan a notar en las primeras 2 sema"
+  },
+  "investigacionDelProducto": true,
+  "validados": [
+    {
+      "archivo": "entrada/validados/A01.png",
+      "origen": "me-funciona",
+      "mismoProducto": true,
+      "producto": "VITALDROPS",
+      "titulo": "CURVAS MÁS LLENAS EN 21 DÍAS",
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "entrada/validados/A02.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A03.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A04.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A05.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p22",
+      "nombre": "No solo X: también Y",
+      "familia": "dolor",
+      "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]», con «Tu mejor versión» a mano",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A06.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p30",
+      "nombre": "Día 0 · 7 · 21",
+      "familia": "tiempo",
+      "titular": "Los días (Día 0 · 7 · 21) + el nombre del producto + 2 resultados concretos en sus palabras («Empiezas a [resultado visible]»)",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A07.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p23",
+      "nombre": "Producto héroe",
+      "familia": "beneficios",
+      "titular": "«Descubre el poder de [producto]» + el resultado principal en 3 a 5 palabras + íconos de ingredientes",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A08.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p36",
+      "nombre": "Pierna partida con deslizador",
+      "familia": "antes-despues",
+      "titular": "«[Tipo de solución] que va más allá de [lo que ya probó]», con la zona partida en antes / después por un deslizador",
+      "relacionada": true
+    }
+  ],
+  "ganchos": "entrada/ganchos.json",
+  "chat": {
+    "id": "45f2a578d1",
+    "aspectos": {}
+  }
+}
