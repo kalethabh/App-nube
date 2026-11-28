@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-28 (adaptación 2026-11-28b en revisión)
+Última actualización: 2026-11-28 (2026-11-28c; preparación de nube, todavía sin desplegar)
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -13,11 +13,13 @@ cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponib
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
 
-## Adaptación solicitada: Vercel + Supabase, con respaldo Contabo (2026-11-27; versión 2026-11-28b)
+## Adaptación solicitada: Vercel + Supabase, con respaldo Contabo (2026-11-27; versión 2026-11-28c)
 
-Implementación en revisión: [PR #248](https://github.com/kalethabh/App-nube/pull/248).
+Implementación integrada: [PR #248](https://github.com/kalethabh/App-nube/pull/248), commit `d271b518fe0cffb3bf498fc77f93bfc65c66f3f1`.
+Distribución preparada publicada: [v2026-11-28c](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-28c),
+ZIP de 443 MB con estado uploaded verificado. Es una actualización de código; Kads todavía NO está desplegado en nube.
 
-Pedido: «adapta Kads para desplegarlo con Vercel y Supabase, sin dominio y manteniendo todas las funciones y la misma calidad; respaldo por si quiero Contabo». La versión sigue después de la 2026-11-28a ya existente; no se retrocede el número para las apps instaladas.
+Pedido: «adapta Kads para desplegarlo con Vercel y Supabase, sin dominio y manteniendo todas las funciones y la misma calidad; respaldo por si quiero Contabo». La publicación automática ya había ocupado 2026-11-28b con el código anterior (`ULTIMA.json`: 2e0ce1f3). Se reserva 2026-11-28c para esta adaptación; no reemplazar el paquete b ni retroceder el número para las apps instaladas.
 
 - `vercel.json`: frontend + función Node `api/puerta.mjs` + un Daemon Linux de 8 GiB/4 vCPU, sin ingreso público.
   El motor Express y los scripts existentes se conservan; no se cambiaron prompts, modelos ni resolución.
@@ -33,12 +35,19 @@ Pedido: «adapta Kads para desplegarlo con Vercel y Supabase, sin dominio y mant
 - Actualizar en nube pasa al Deploy Hook de Vercel, validando owner y trabajos activos. ZIP local sigue en Mac/Contabo.
   Cierre supervisado con drenaje consultando estado interno de procesos; gracia de hasta 1 h al redeploy.
 - `Dockerfile`, compose de Contabo, `respaldo.mjs` y guía `deploy/VERCEL-SUPABASE.md`. El instalador Ubuntu anterior sigue.
+  Sketch reutiliza el Python ya instalado. La extensión de Chrome admite HTTPS remoto con permiso solo para el origen
+  elegido. La raíz de la web pasa por acceso; el build desactiva helpers de Vercel para conservar los cuerpos HTTP.
 - Respaldo REAL de esta copia: `outputs/respaldo-contabo/kads-codigo-original-completo.tar.gz` fuera del repo (código de 2e0ce1f3),
   datos cifrados en `datos-verificados`, SHA256 y LEEME. Llave aparte, nunca en GitHub. Restauración real probada en carpeta
   temporal y eliminada después. NO es un respaldo de la instalación personal en ~/Anuncios con IA, que no se tocó.
 - Validación local: once pruebas de nube con PostgreSQL real aislado, prueba de subida en Chrome con progreso, acceso
   58/58 y build de la interfaz. Esquema oficial Vercel validado omitiendo su declaración draft-04 incompatible con algunos
-  campos modernos. CI Linux/Docker construye el contenedor; verificaciones de motor/MP4 y ciclo del supervisor en curso.
+  campos modernos. [CI Linux/Docker correcto](https://github.com/kalethabh/App-nube/actions/runs/46099699182), sobre `2abb14cd`:
+  construcción con Node 24/Python 3.11, FFmpeg con WebP, Codex 0.167.0, Claude y Chrome. Humo **148/148** en 184 s:
+  anuncio completo con MP4 H.264 1080×1920/AAC y versión cantada, con proveedores simulados. Ciclo REAL del supervisor
+  contra Supabase simulado: API por cola, cierre limpio, disco borrado, restauración cifrada y segundo arranque.
+  No se probaron proveedores reales ni consumo/capacidad en Vercel. El humo de CI omitió lotes de imagen, regeneración
+  y modo B (banderas del workflow); no equivale a probar cada función de la app en producción.
 - Vercel y Supabase YA conectados y el acceso al equipo de Vercel ya fue autorizado. Equipo de Vercel:
   `team_nUEpzGKbbdlNPJLRYAHbbhVc` (`kalethabhs-projects`). Supabase: organización `Control EFFI`,
   `giwfscxnkdyoelgesaby`. El usuario autorizó consultar el costo de un proyecto separado de Kads allí.
@@ -48,7 +57,10 @@ Pedido: «adapta Kads para desplegarlo con Vercel y Supabase, sin dominio y mant
   usa producción de `centro-control-klickshoppe.vercel.app`, verificado SOLO mediante su URL pública de Supabase,
   sin leer claves. El otro proyecto es `effi-dashboard` (`hcbbagfabxrjtjjtoxid`), con tres tablas públicas:
   `effi_registros`, `effi_sync_estado`, `effi_webhook_events`; también existe una app Vercel `effi-dashboard`.
-  NO se ha confirmado si el proyecto adicional está en desuso; no eliminarlo ni pausarlo sin autorización.
+  Los alias públicos resuelven a publicaciones READY de repositorios separados: `kalethabh/centro-de-control`
+  y `kalethabh/effi-dashboard`. La URL de Supabase de Effi no fue expuesta por el conector; no afirmar una asociación
+  adicional no verificada. NO se ha confirmado si Effi está en desuso o si hay dependencias; no eliminarlo ni pausarlo
+  sin autorización. El usuario solo pidió identificar los dos proyectos.
 - Pendiente de producción: resolver el límite Free y elegir presupuesto antes de crear/activar servicios de pago;
   configurar variables privadas, migración, retorno de Google y datos reales. Vercel Pro necesario para 8 GiB; Storage Free limita objetos
   a 50 MB, insuficiente para todos los videos. El consumo de memoria del Daemon se cobra aun estando en espera.
