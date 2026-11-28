@@ -439,8 +439,229 @@
       ]
     },
     {
-      "titulo": "__SIGUE__",
-      "bloques": []
+      "titulo": "Conceptos para Meta (Andromeda)",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "15.1 Lo que cambió" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Lo que cambió", "texto": "", "items": [
+          "**El creativo es la segmentación.** Usa segmentación amplia (Colombia, mujeres de 25 a 60) y deja que el anuncio filtre: quién aparece, qué dice y qué hinchazón muestra le dice a Meta a quién mostrarlo.",
+          "**Diversidad real de conceptos.** De 6 a 10 conceptos por conjunto, con distinta persona, problema y momento. Cambiar el color, el texto o el hook es el mismo anuncio.",
+          "**La señal de compra real.** En contra entrega, reporta a Meta la compra confirmada en WhatsApp y, si puedes, la entregada; no solo el mensaje."
+        ], "pie": "" },
+        { "tipo": "subtitulo", "texto": "15.2 Facetas del cliente" },
+        { "tipo": "tabla", "columnas": ["Persona base", "Faceta", "Dolor en sus palabras", "Escenario visual"], "filas": [
+          ["Diana Marcela", "La trabajadora de pie", "Llego con los pies como tamales después de 10 horas parada", "Cajera de supermercado quitándose los zapatos al final del turno"],
+          ["Diana Marcela", "La mamá que madruga", "Amanezco con cara de luna y no tengo tiempo de nada", "Baño a las 5:30 a.m., agua fría en la cara, lonchera a medio hacer"],
+          ["Diana Marcela", "La que no tiene tiempo para ella", "No tengo plata ni tiempo para masajes", "Domingo en la noche organizando la semana en la cocina"],
+          ["Laura", "La oficinista inflada", "En la mañana el jean me cierra y a las 3 ya no", "Escritorio después del corrientazo, botón del jean suelto"],
+          ["Laura", "La que quiere verse bien en diciembre", "No quiero salir hinchada en las fotos de la fiesta", "Novena o fiesta de la empresa, haciendo zoom a la foto del grupo"],
+          ["Doña Gloria", "La de las piernas pesadas", "Mi mamá terminó con las piernas así y yo no quiero lo mismo", "Sofá en la noche, piernas arriba sobre un cojín, la novela de fondo"],
+          ["Doña Gloria (compra la hija)", "La hija que cuida a su mamá", "Mi mamá vive quejándose de las piernas", "Visita de diciembre, la hija le entrega el frasco"],
+          ["Paola", "La que ya probó de todo", "Gasté en masajes y a los dos días estaba igual", "Saliendo del spa mirando el recibo; faja y té en la mesa"]
+        ], "nota": "Las facetas reales se confirman con los chats de WhatsApp de las asesoras: exporta 100 chats cerrados como venta y clasifica para quién compraba, qué frase usó y qué objeción puso. Salen de 4 a 7 facetas.", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "15.3 Momentos y contexto" },
+        { "tipo": "tabla", "columnas": ["Momento", "Cómo está la persona", "Mensaje que conecta", "Formato"], "filas": [
+          ["Madrugada antes de salir (5 a 6:30 a.m.)", "Se ve hinchada en el espejo, de afán", "«¿Amaneciste con la cara hinchada otra vez?»", "Antes y después de la cara, UGC selfie"],
+          ["Almuerzo y media tarde (1 a 3 p.m.)", "Inflada después del corrientazo, incómoda en el puesto", "«El jean me cierra en la mañana y a las 3 ya no»", "Pregunta y revelación, estado contra estado"],
+          ["Fin del turno y bus de regreso (5 a 7 p.m.)", "Pies adoloridos, cansada", "«Así me quedan los pies después de 10 horas parada»", "UGC selfie, testimonio"],
+          ["Noche (8 a 11 p.m.)", "Scroll largo, piernas arriba, más emocional", "«No quiero terminar con las piernas de mi mamá»", "Historia narrada, realista con narrador"],
+          ["Quincena (15 y 30) y prima de diciembre", "Tiene plata, compra combos", "«Tu rutina completa de 90 días»", "Imagen estática con el combo x3"],
+          ["Mitad de mes", "Plata apretada", "«Pides hoy y pagas cuando te llegue»", "Imagen estática, testimonio"],
+          ["Diciembre (temporada)", "Novenas, fiestas, fotos, regalos", "«Este diciembre sí sales en la foto», «Mamá, no son los zapatos»", "Historia, sketch de comedia, antes y después"],
+          ["Enero (próxima temporada)", "Propósitos y «después de las fiestas me siento inflada»", "«Después de diciembre, vuelve a sentirte liviana»", "Línea de tiempo, demostración"]
+        ], "nota": "", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "15.4 Matriz de conceptos" },
+        { "tipo": "tabla", "columnas": ["#", "Faceta", "Problema", "Contexto", "Formato", "Hook"], "filas": [
+          ["1", "Diana Marcela · trabajadora de pie", "Síntoma visible: tobillos hinchados", "Fin del turno, 5 p.m.", "UGC selfie", "«Así me quedan los pies después de 10 horas parada»"],
+          ["2", "Diana Marcela · mamá que madruga", "Síntoma visible: cara hinchada", "5:30 a.m. frente al espejo", "Imagen estática antes y después", "«¿Amaneciste con la cara como si hubieras llorado toda la noche?»"],
+          ["3", "Laura · la de diciembre", "Consecuencia social: las fotos", "Fiesta de fin de año y novenas", "Historia narrada", "«No quería salir en las fotos de la fiesta»"],
+          ["4", "Laura · oficinista inflada", "Síntoma visible: barriga inflada", "3 p.m. en la oficina, después del corrientazo", "Imagen estática pregunta y revelación", "«El jean me cierra en la mañana y a las 3 ya no»"],
+          ["5", "Doña Gloria · piernas pesadas", "Miedo a futuro", "Noche en el sofá", "Testimonio realista con narrador", "«Mi mamá terminó con las piernas así y yo no quiero lo mismo»"],
+          ["6", "Paola · ya probó de todo", "Frustración con lo que ya probó", "Mitad de mes, plata apretada", "Imagen estática solo X vs. X + producto", "«Gasté una fortuna en masajes y a los dos días estaba igual»"],
+          ["7", "Diana Marcela · sin tiempo", "No tiene tiempo", "Domingo en la noche", "Demostración (gotero en el vaso)", "«No tengo tiempo para masajes, pero sí para 1 gotero en agua»"],
+          ["8", "La hija que cuida a su mamá", "Dolor de quien compra", "Visita de diciembre, regalo", "Sketch de comedia", "«Mamá, no son los zapatos»"]
+        ], "nota": "Prueba primero el 1, el 2 y el 4: son los síntomas más visibles y cotidianos (tobillos, cara y barriga), le hablan a tres facetas distintas en tres momentos del día y no dependen de la temporada. El 3 y el 8 entran en la primera semana de diciembre.", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "15.5 Estructura y señal" },
+        { "tipo": "ficha", "filas": [
+          ["Estructura", "Menos campañas y conjuntos; segmentación amplia por país (Colombia) y edad (25 a 60); de 6 a 10 conceptos por conjunto; escala el conjunto que funciona en vez de duplicarlo."],
+          ["Leer el gasto", "Si Meta no le invierte a un anuncio, es un veredicto: no apagues el que gasta ni saques el olvidado a otro conjunto. Mira a qué faceta y momento le habla el que se lleva más del 50 % del gasto y crea conceptos vecinos."],
+          ["Señal", "Envía a Meta la compra cuando el pedido se confirma en WhatsApp, con la API de Conversiones, e idealmente marca los entregados. En la landing, píxel + API de Conversiones con el pedido confirmado."],
+          ["Qué medir por anuncio", "% de confirmación y % de entrega, no solo el costo por mensaje. Un anuncio barato que trae pedidos que se devuelven es caro."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "15.6 Prompt con contexto para la IA" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Plantilla llena para este producto", "texto": "Eres un copywriter de respuesta directa para Colombia. Vendemos con pago contra entrega y cerramos por WhatsApp. Producto: Drenaje Linfático de Nature's Sunshine, gotas de 59 ml con 4 plantas de uso tradicional (galio, trébol rojo, raíz roja y fresno espinoso); 1 gotero en agua, mañana y noche; un frasco dura 30 días. Faceta: [Diana Marcela, la trabajadora de pie de 32 a 50 años]. Frases reales de clientas: «llego con los pies como tamales»; «amanezco con cara de luna»; «en la mañana el jean me cierra y a las 3 ya no»; «siento las piernas pesadas, como si cargara arena»; «gasté en masajes y a los dos días estaba igual»; «los anillos no me salen en la noche»; «¿eso no es una pastilla para orinar?». Momento: [fin del turno, 5 p.m., en el bus de regreso]. Objeción principal: [«seguro es otra moda de TikTok y me roban la plata»]. Formato: [UGC selfie de 30 segundos]. Reglas: lenguaje natural colombiano; sin promesas de curar ni de adelgazar; los beneficios como experiencia («muchas personas notan…»); no nombres enfermedades; menciona el pago contra entrega; llamado a escribir por WhatsApp. Entrega: 3 hooks + guion + texto principal.", "items": [], "pie": "Las frases están parafraseadas de reseñas y foros: reemplázalas por las de tus chats de WhatsApp." },
+        { "tipo": "caja", "estilo": "cuidado", "titulo": "Cuidado", "texto": "Los conceptos hablan de bienestar, rutina y experiencia: sentirse liviana, la cara de la mañana, los pies de la tarde. Nunca de curar enfermedades (linfedema, várices, retención por el corazón o el riñón), de adelgazar ni de resultados garantizados. Además del riesgo legal, Meta rechaza o limita esos anuncios.", "items": [], "pie": "" }
+      ]
     }
-  ]
+  ],
+  "guia": {
+    "mensajes": [
+      {
+        "seccion": "Hero · Producto e ingredientes",
+        "titulo": "Siéntete más liviana en 2 semanas y vuelve a reconocer tu cuerpo",
+        "subtitulo": "1 gotero en la mañana y otro en la noche: menos sensación de hinchazón en cara, barriga y piernas.",
+        "franja": { "beneficio": "Menos sensación de hinchazón", "tiempo": "2 semanas", "deseo": "Reconocer tu cuerpo" },
+        "objetivo": "Mostrar qué es, para quién es y su valor: un ritual de gotas para sentirse liviana.",
+        "elementos": [
+          { "titulo": "Título principal", "texto": "Siéntete más liviana en 2 semanas y vuelve a reconocer tu cuerpo" },
+          { "titulo": "Subtítulo", "texto": "1 gotero en la mañana y otro en la noche: menos sensación de hinchazón en cara, barriga y piernas." },
+          { "titulo": "Avatar del producto", "texto": "Mujer colombiana de 38 años, sonriente, con jean y blusa, sosteniendo el gotero junto a la cara, a un costado" },
+          { "titulo": "Producto + validación", "texto": "[calificación] · [N] clientes, arriba del frasco" },
+          { "titulo": "Ingredientes", "texto": "Galio (cleavers) · Trébol rojo · Raíz roja (confirmar especie) · Fresno espinoso" },
+          { "titulo": "4 sellos", "texto": "Pagas al recibir · 4 extractos de plantas · Marca desde 1972 · Envío a toda Colombia" }
+        ],
+        "maqueta": {
+          "foto": "Mujer colombiana de 38 años, sonriente, sosteniendo el gotero junto a la cara, fondo crema limpio",
+          "validacion": "[calificación] · [N] clientes",
+          "ingredientes": ["Galio", "Trébol rojo", "Raíz roja", "Fresno espinoso"],
+          "sellos": ["Pagas al recibir", "4 plantas", "Desde 1972", "Envío a toda Colombia"],
+          "oferta": "Tratamiento completo x3 $219.900"
+        }
+      },
+      {
+        "seccion": "Punto de dolor",
+        "titulo": "¿Amaneces con la cara hinchada y a las 5 de la tarde ya no aguantas los zapatos?",
+        "subtitulo": "Muchas personas se sienten más livianas desde la segunda semana.",
+        "franja": { "beneficio": "Menos hinchazón", "tiempo": "2 semanas", "deseo": "Sentirte liviana" },
+        "objetivo": "Conectar con la hinchazón de todos los días y mostrar la solución.",
+        "elementos": [
+          { "titulo": "Título", "texto": "¿Amaneces con la cara hinchada y a las 5 de la tarde ya no aguantas los zapatos?" },
+          { "titulo": "Subtítulo", "texto": "Muchas personas se sienten más livianas desde la segunda semana." },
+          { "titulo": "Imagen del dolor", "texto": "Mujer sentada al final del turno quitándose el zapato, con la marca de la media en el tobillo" },
+          { "titulo": "Título secundario", "texto": "No es que estés «gorda»: muchas veces es líquido que tu cuerpo retiene" },
+          { "titulo": "Mensaje descriptivo", "texto": "Drenaje Linfático reúne 4 plantas de uso tradicional que apoyan la eliminación natural de líquidos. 1 gotero en agua, mañana y noche." },
+          { "titulo": "Producto", "texto": "Frasco grande y visible" },
+          { "titulo": "4 sellos", "texto": "Pagas al recibir · 4 extractos de plantas · Marca desde 1972 · Envío a toda Colombia" }
+        ],
+        "maqueta": {
+          "foto": "Mujer de 40 años quitándose el zapato al final del turno, tobillo marcado por la media",
+          "titulo2": "No es que estés «gorda»: muchas veces es líquido retenido",
+          "descripcion": "4 plantas de uso tradicional que apoyan la eliminación natural de líquidos. 1 gotero en agua, mañana y noche.",
+          "sellos": ["Pagas al recibir", "4 plantas", "Desde 1972", "Envío a toda Colombia"]
+        }
+      },
+      {
+        "seccion": "Beneficios",
+        "titulo": "Siéntete liviana de la mañana a la noche",
+        "subtitulo": "4 plantas de uso tradicional para tu cara, tu barriga y tus piernas",
+        "franja": { "beneficio": "Piernas y cara más livianas", "tiempo": "2 semanas", "deseo": "Volver a gustarte" },
+        "objetivo": "Mostrar el valor para su vida en cinco ventajas distintas.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Siéntete liviana de la mañana a la noche" },
+          { "titulo": "Subtítulo", "texto": "4 plantas de uso tradicional para tu cara, tu barriga y tus piernas" },
+          { "titulo": "Cinco beneficios", "texto": "1. Menos hinchazón · 2. Piernas más livianas · 3. Rostro descansado · 4. Ropa más cómoda · 5. 4 plantas tradicionales" },
+          { "titulo": "Imágenes de beneficios", "texto": "Barriga plana con jean cerrado, tobillos sin marca, cara fresca al despertar, jean abotonado en la tarde, las 4 plantas" },
+          { "titulo": "Producto central", "texto": "Frasco en el centro conectando los cinco beneficios" },
+          { "titulo": "4 sellos", "texto": "Pagas al recibir · 4 extractos de plantas · Marca desde 1972 · Envío a toda Colombia" }
+        ],
+        "maqueta": {
+          "beneficios": [
+            { "titulo": "Menos hinchazón", "frase": "Te sientes menos inflada durante el día" },
+            { "titulo": "Piernas más livianas", "frase": "Llegas a la noche con los pies descansados" },
+            { "titulo": "Rostro descansado", "frase": "Despiertas con la cara menos hinchada" },
+            { "titulo": "Ropa más cómoda", "frase": "El jean te queda igual en la tarde" },
+            { "titulo": "4 plantas tradicionales", "frase": "Galio, trébol rojo, raíz roja y fresno" }
+          ],
+          "sellos": ["Pagas al recibir", "4 plantas", "Desde 1972", "Envío a toda Colombia"]
+        }
+      },
+      {
+        "seccion": "Modo de uso",
+        "titulo": "Solo 2 goteros al día para sentirte liviana de la mañana a la noche",
+        "subtitulo": "Tu ritual de drenaje en menos de 1 minuto",
+        "franja": { "beneficio": "Fácil y rápido", "tiempo": "30 días por frasco", "deseo": "Sentirte liviana" },
+        "objetivo": "Explicar cómo se toma, sin dudas.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Solo 2 goteros al día para sentirte liviana de la mañana a la noche" },
+          { "titulo": "Subtítulo", "texto": "Tu ritual de drenaje en menos de 1 minuto" },
+          { "titulo": "Mensaje descriptivo", "texto": "1 ml (1 gotero) en un vaso de agua en la mañana y otro en la noche. Hazlo todos los días: la constancia es la que se nota." },
+          { "titulo": "Paso 1", "texto": "☀️ En la mañana: 1 gotero en tu vaso de agua con el desayuno" },
+          { "titulo": "Paso 2", "texto": "🌙 En la noche: 1 gotero en agua después de comer" },
+          { "titulo": "Paso 3", "texto": "📅 Repite todos los días por lo menos 30 días" },
+          { "titulo": "Producto y sellos", "texto": "Frasco grande · Pagas al recibir · 4 extractos de plantas · Marca desde 1972 · Envío a toda Colombia" }
+        ],
+        "maqueta": {
+          "descripcion": "1 gotero en agua en la mañana y otro en la noche. La constancia es la que se nota.",
+          "pasos": ["Mañana: 1 gotero en agua", "Noche: 1 gotero en agua", "Repite a diario 30 días"],
+          "sellos": ["Pagas al recibir", "4 plantas", "Desde 1972", "Envío a toda Colombia"]
+        }
+      }
+    ]
+  },
+  "embudo": {
+    "hero": [
+      { "titulo": "Siéntete más liviana en 2 semanas y vuelve a reconocer tu cuerpo", "subtitulo": "1 gotero en la mañana y otro en la noche: menos sensación de hinchazón en cara, barriga y piernas.", "elementos": ["4 extractos de plantas", "Mañana y noche", "Marca desde 1972", "Pagas al recibir"], "etiqueta": "Opción 1" },
+      { "titulo": "Vuelve a mirarte al espejo y reconocerte: menos hinchazón desde la segunda semana", "subtitulo": "4 plantas de uso tradicional para que dejes de sentirte inflada todo el día.", "elementos": ["Cara, barriga y piernas", "1 gotero en agua", "Pagas al recibir"], "etiqueta": "Opción 2" },
+      { "titulo": "Que tu mamá vuelva a caminar con las piernas livianas en 2 semanas", "subtitulo": "Un ritual sencillo de mañana y noche. Si toma medicamentos, que lo consulte antes.", "elementos": ["Regalo de diciembre", "1 gotero en agua", "Pagas al recibir"], "etiqueta": "Opción 3" },
+      { "titulo": "Deshínchate en 2 semanas. Siéntete liviana.", "subtitulo": "1 gotero, mañana y noche.", "elementos": ["4 plantas", "Desde 1972", "Pagas al recibir"], "etiqueta": "Opción 4" }
+    ],
+    "dolor": [
+      { "titulo": "¿Amaneces con la cara hinchada y a las 5 de la tarde ya no aguantas los zapatos?", "subtitulo": "No es que estés «gorda»: muchas veces es líquido que tu cuerpo retiene.", "elementos": ["Amaneces con los ojos y la cara hinchados", "Los anillos no te salen al final del día", "La media te deja marca en los tobillos", "El pantalón te aprieta más en la tarde", "Piernas pesadas en el bus de regreso", "Pena de salir en las fotos"], "etiqueta": "Opción 1" },
+      { "titulo": "¿Sientes las piernas pesadas, como si cargaras arena?", "subtitulo": "Esa pesadez del final del día no tiene por qué ser tu normalidad.", "elementos": [], "etiqueta": "Opción 2" },
+      { "titulo": "¿Tu mamá vive quejándose de las piernas hinchadas?", "subtitulo": "Un ritual sencillo de mañana y noche que puedes regalarle (con el visto bueno de su médico si toma medicamentos).", "elementos": [], "etiqueta": "Opción 3" },
+      { "titulo": "¿Comiste salado, tomaste poca agua y hoy amaneciste inflada otra vez?", "subtitulo": "No tienes que cambiar todo de un día para otro para sentirte más liviana.", "elementos": [], "etiqueta": "Opción 4" },
+      { "titulo": "¿El jean te cierra en la mañana y a las 3 de la tarde ya no?", "subtitulo": "Trabajar incómoda todo el día cansa más que el trabajo.", "elementos": [], "etiqueta": "Opción 5" },
+      { "titulo": "¿10 horas de pie, el bus lleno y el calor te dejan los tobillos como bombas?", "subtitulo": "Tu trabajo no va a cambiar, pero tu rutina sí.", "elementos": [], "etiqueta": "Opción 6" },
+      { "titulo": "¿Pagaste masajes y tés y a los dos días estabas igual?", "subtitulo": "Lo que se nota es lo que haces todos los días.", "elementos": [], "etiqueta": "Opción 7" }
+    ],
+    "beneficios": [
+      { "titulo": "Siéntete liviana de la mañana a la noche", "subtitulo": "4 plantas de uso tradicional para tu cara, tu barriga y tus piernas", "elementos": ["Menos hinchazón: te sientes menos inflada durante el día", "Piernas más livianas: llegas a la noche con los pies descansados", "Rostro descansado: despiertas con la cara menos hinchada", "Ropa más cómoda: el jean te queda igual en la tarde", "4 plantas tradicionales: galio, trébol rojo, raíz roja y fresno"], "etiqueta": "Opción 1" },
+      { "titulo": "Vuelve a reconocer tu cuerpo en 2 semanas", "subtitulo": "Menos sensación de hinchazón en cara, barriga y piernas", "elementos": ["Menos hinchazón", "Piernas más livianas", "Rostro descansado", "Ropa más cómoda", "4 plantas tradicionales"], "etiqueta": "Opción 2" },
+      { "titulo": "Menos hinchazón, más tú", "subtitulo": "Un ritual de mañana y noche para sentirte liviana", "elementos": ["Menos hinchazón", "Piernas más livianas", "Rostro descansado", "Ropa más cómoda", "4 plantas tradicionales"], "etiqueta": "Opción 3" }
+    ],
+    "ingredientes": [
+      { "titulo": "4 plantas de uso tradicional, en gotas", "subtitulo": "Apoyan la eliminación natural de líquidos para que te sientas más liviana", "elementos": ["Galio (cleavers): planta tradicional del sistema linfático", "Trébol rojo: flor de uso tradicional", "Raíz roja: uso tradicional (especie por confirmar)", "Fresno espinoso: corteza tradicional para la circulación", "Base de glicerina vegetal y agua"], "etiqueta": "Opción 1" }
+    ],
+    "uso": [
+      { "titulo": "Solo 2 goteros al día para sentirte liviana de la mañana a la noche", "subtitulo": "Tu ritual de drenaje en menos de 1 minuto", "elementos": ["Mañana: 1 ml (1 gotero) en un vaso de agua", "Noche: 1 ml (1 gotero) en un vaso de agua", "Todos los días, por lo menos 30 días", "1 frasco = 30 días"], "etiqueta": "Opción 1" },
+      { "titulo": "Mañana y noche, en tu vaso de agua: así de fácil", "subtitulo": "15 a 20 gotas en agua, dos veces al día", "elementos": ["Con el desayuno", "Después de comer", "Repite a diario"], "etiqueta": "Opción 2" },
+      { "titulo": "2 tomas al día, 30 días, un frasco", "subtitulo": "La constancia es la que se nota", "elementos": ["1 gotero en la mañana", "1 gotero en la noche", "30 días por frasco"], "etiqueta": "Opción 3" }
+    ]
+  },
+  "anuncios_imagen": [
+    { "plantilla": "antes-despues-plazo", "concepto": 1, "faceta": "Trabajadora de pie", "angulo": "beneficio", "contexto": "Fin del turno, 5 p.m.", "textos": { "titular": "PIERNAS MÁS LIVIANAS", "plazo": "EN 2 SEMANAS", "marca": "Drenaje Linfático", "antes": "ANTES", "despues": "2 SEMANAS DESPUÉS", "legal": "Experiencias reportadas. Los resultados varían. Suplemento dietario, no es un medicamento." } },
+    { "plantilla": "pregunta-revelacion", "concepto": 2, "faceta": "Mamá que madruga", "angulo": "dolor", "contexto": "5:30 a.m. frente al espejo", "textos": { "pregunta": "¿Amaneces con la cara hinchada aunque dormiste bien?", "revelacion": "Puede ser líquido que tu cuerpo retiene", "cierre": "1 gotero en la noche para despertar más fresca", "legal": "Los resultados varían. Suplemento dietario, no es un medicamento." } },
+    { "plantilla": "estado-vs-estado", "concepto": 4, "faceta": "Oficinista inflada", "angulo": "dolor", "contexto": "3 p.m. en la oficina", "textos": { "zona": "BARRIGA", "mal": "INFLADA", "bien": "LIVIANA", "sub_mal": "El jean ya no cierra a las 3 p.m.", "sub_bien": "Cómoda hasta la noche", "legal": "Los resultados varían. Suplemento dietario, no es un medicamento." } },
+    { "plantilla": "historia", "concepto": 3, "faceta": "La que quiere verse bien en diciembre", "angulo": "deseo", "contexto": "Fiesta de fin de año", "textos": { "antes": "Noviembre", "despues": "Diciembre", "frase": "Me escondía en las fotos por la cara hinchada. Hasta que probé estas gotas.", "remate": "Este diciembre sí salgo en la foto", "iconos": ["4 extractos de plantas", "Mañana y noche", "Marca desde 1972"], "legal": "Experiencia personal. Los resultados varían. Suplemento dietario, no es un medicamento." } },
+    { "plantilla": "solo-vs-con", "concepto": 6, "faceta": "La que ya probó de todo", "angulo": "beneficio", "contexto": "Mitad de mes, plata apretada", "textos": { "sin": "Solo masajes", "con": "Masajes + Drenaje Linfático", "titular": "Que la ligereza no dure solo dos días", "subtitulo": "Muchas personas notan menos sensación de hinchazón en 2 semanas con 1 gotero mañana y noche.", "boton": "Quiero probarlo", "legal": "Los resultados varían. No reemplaza tratamiento médico." } },
+    { "plantilla": "zonas-semanas", "concepto": 7, "faceta": "La que no tiene tiempo", "angulo": "mecanismo", "contexto": "Domingo en la noche", "textos": { "titular": "Lo que muchas notan semana a semana", "pasos": [ { "ingrediente": "Primeros días", "beneficio": "Vas más al baño" }, { "ingrediente": "Semana 1 a 2", "beneficio": "Cara y tobillos menos hinchados" }, { "ingrediente": "Día 30", "beneficio": "Te sientes más liviana" } ], "legal": "Experiencias reportadas, no garantías. Suplemento dietario, no es un medicamento." } },
+    { "plantilla": "silueta-zonas", "concepto": 5, "faceta": "La de las piernas pesadas", "angulo": "dolor", "contexto": "Noche en el sofá", "textos": { "arriba": "para la noche del sofá", "titular": "Bye bye *piernas pesadas*", "izquierda": ["Rostro menos hinchado", "Barriga más liviana", "Anillos que sí salen"], "derecha": ["Piernas más livianas", "Tobillos sin marca"], "legal": "Los resultados varían. Si tomas medicamentos, consulta a tu médico." } },
+    { "plantilla": "no-compres", "concepto": 6, "faceta": "La que ya probó de todo", "angulo": "objeción", "contexto": "Quincena", "textos": { "titular": "No compres estas gotas si…", "texto": "…esperas bajar 10 kilos en una semana. Son 4 plantas para tu rutina de mañana y noche: muchas personas notan menos sensación de hinchazón en 2 semanas.", "legal": "No es para bajar de peso. Los resultados varían. Suplemento dietario, no es un medicamento." } },
+    { "plantilla": "dos-mitades", "concepto": 8, "faceta": "La hija que cuida a su mamá", "angulo": "deseo", "contexto": "Visita de diciembre", "textos": { "titular": "Mamá, no son *los zapatos*", "pildora": "Muchas lo notan en 2 semanas", "boton": "Regálaselo", "marca": "Drenaje Linfático", "legal": "Si toma medicamentos, que consulte a su médico. Los resultados varían." } },
+    { "plantilla": "cuadricula-tiempo", "concepto": 1, "faceta": "Trabajadora de pie", "angulo": "deseo", "contexto": "Bus de regreso a casa", "textos": { "titular": "Llega a casa con los pies *livianos*", "etapas": ["Antes", "Semana 1", "Semana 2", "Día 30"], "legal": "Experiencias reportadas. Los resultados varían. Suplemento dietario, no es un medicamento." } },
+    { "plantilla": "beneficios-lados", "concepto": 3, "faceta": "La que quiere verse bien en diciembre", "angulo": "beneficio", "contexto": "Antes de la novena", "textos": { "titular": "Siéntete más liviana", "subtitulo": "para las fiestas de fin de año", "antes": "ANTES", "despues": "DESPUÉS", "males": ["Cara hinchada al despertar", "Barriga inflada en la tarde", "Tobillos marcados por la media", "Sensación de pesadez"], "bienes": ["Rostro más fresco en la mañana", "Barriga más cómoda", "Tobillos más livianos", "Te sientes más liviana"], "sello": "Muchas lo notan en 2 semanas", "atributos": ["4 extractos de plantas", "Mañana y noche", "Marca desde 1972"], "legal": "Experiencias reportadas. Los resultados varían." } },
+    { "plantilla": "foto-iconos", "concepto": 5, "faceta": "La de las piernas pesadas", "angulo": "deseo", "contexto": "Caminata del domingo", "textos": { "titular": "No solo tus tobillos, también *tus piernas*", "iconos": ["Piernas más livianas", "Tobillos sin marca de media", "Ganas de salir a caminar"], "nota": "¡de nuevo a caminar!", "legal": "Si tomas medicamentos, consulta a tu médico. Los resultados varían." } },
+    { "plantilla": "rotulos-anatomia", "concepto": 4, "faceta": "Oficinista inflada", "angulo": "mecanismo", "contexto": "Después del corrientazo", "textos": { "titular": "¿Tu barriga todavía se ve así a las 3 p.m.?", "subtitulo": "No siempre es grasa: muchas veces es líquido retenido. 4 plantas tradicionales apoyan la eliminación natural de líquidos.", "ahora": "Así a las 3 p.m.", "despues": "Después de 2 semanas", "izquierda": ["Pantalón que aprieta", "Sensación de globo"], "derecha": ["Pantalón más cómodo", "Te sientes liviana"], "iconos": ["Galio", "Trébol rojo", "Fresno espinoso"], "legal": "Los resultados varían. Suplemento dietario, no es un medicamento." } },
+    { "plantilla": "dias-producto", "concepto": 7, "faceta": "La que no tiene tiempo", "angulo": "deseo", "contexto": "Rutina de la noche", "textos": { "marca": "Drenaje Linfático", "etapas": ["Día 1", "Día 14", "Día 30"], "legal": "Experiencias reportadas. Los resultados varían." } },
+    { "plantilla": "etapas-neon", "concepto": 2, "faceta": "Mamá que madruga", "angulo": "deseo", "contexto": "Foto del día a día", "textos": { "arriba": "del espejo a la foto", "titular": "Bye bye *cara hinchada*", "etapas": ["Día 1", "Semana 1", "Semana 2"], "caja": "Vuelve a reconocerte en el espejo", "legal": "Experiencias reportadas. Los resultados varían." } }
+  ],
+  "fuentes": [
+    { "titulo": "Nature's Sunshine · ficha oficial de Lymphatic Drainage (ingredientes, uso, precio)", "url": "https://www.naturessunshine.com/product/lymphatic-drainage" },
+    { "titulo": "Natural Medicines · etiqueta del producto (mezcla de 300 mg, stillingia)", "url": "https://naturalmedicines.therapeuticresearch.com/databases/commercial-products/commercial-product.aspx?cpid=82672" },
+    { "titulo": "Healthy.co.nz · ficha del producto (ingredientes)", "url": "https://healthy.co.nz/products/lymphatic-drainage" },
+    { "titulo": "Nullfake · análisis de 5.807 reseñas de Amazon", "url": "https://www.nullfake.com/amazon/us/B000WQFIJA/natures-sunshine-lymphatic-drainage-2-fl-oz-lymphatic" },
+    { "titulo": "EatProteins · reseña editorial del producto (tiempos, efectos)", "url": "https://eatproteins.com/nature-sunshine-lymphatic-drainage-review/" },
+    { "titulo": "Ibisik · reseña del producto", "url": "https://www.ibisik.com/natures-sunshine-lymphatic-drainage-review/" },
+    { "titulo": "Trustpilot · reseñas de Lymphoria (gotas parecidas)", "url": "https://ie.trustpilot.com/review/lymphoria.co?page=7" },
+    { "titulo": "Mumsnet · foro «¿funcionan las gotas de drenaje linfático?»", "url": "https://www.mumsnet.com/talk/_chat/5529011-lymphatic-drainage-drops-do-they-work" },
+    { "titulo": "Superpower · ¿funcionan los suplementos de drenaje linfático?", "url": "https://superpower.com/supplement-guides/lymphatic-drainage-supplements" },
+    { "titulo": "The Blueprint · tendencia de búsqueda de gotas linfáticas", "url": "https://theblueprint.ru/beauty/wellness/lymphatic-drainage-drops" },
+    { "titulo": "La Prensa · drenaje linfático en redes sociales", "url": "https://www.laprensa.hn/guiamedica/drenaje-linfatico-verdad-funciona-puro-marketing-redes-sociales-OC32650718" },
+    { "titulo": "MedlinePlus · trébol rojo (precauciones)", "url": "https://medlineplus.gov/spanish/druginfo/natural/19.html" },
+    { "titulo": "Breastcancer.org · trébol rojo e interacciones", "url": "https://www.breastcancer.org/es/organizar-la-vida/dieta-nutricion/suplementos-alimentarios/conocidos/trebol-rojo" },
+    { "titulo": "WebMD · Queen's delight (stillingia), seguridad", "url": "https://www.webmd.com/vitamins/ai/ingredientmono-660/queens-delight" },
+    { "titulo": "Memorial Sloan Kettering · stillingia", "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/stillingia" },
+    { "titulo": "EBSCO · usos del galio (cleavers)", "url": "https://www.ebsco.com/research-starters/complementary-and-alternative-medicine/cleaverss-therapeutic-uses" },
+    { "titulo": "INVIMA · Decreto 3249 de 2006, suplementos dietarios", "url": "https://normograma.invima.gov.co/compilacion/docs/decreto_3249_2006.htm" },
+    { "titulo": "INVIMA · concepto sobre publicidad de suplementos dietarios", "url": "https://normograma.invima.gov.co/compilacion/docs/concepto_invima_2005036_2018.htm" },
+    { "titulo": "ICBF · ENSIN 2015, situación nutricional", "url": "https://www.icbf.gov.co/ensin-encuesta-nacional-de-situacion-nutricional-0?page=4" },
+    { "titulo": "Revista Facultad Nacional de Salud Pública · várices en Antioquia", "url": "https://revistas.udea.edu.co/index.php/fnsp/article/download/329708/20793758/173310" },
+    { "titulo": "Portafolio · ISAPS 2024, procedimientos estéticos en Colombia", "url": "https://www.portafolio.co/negocios/industrias/colombia-registro-casi-medio-millon-de-procedimientos-esteticos-en-2024-segun-isaps-633973" },
+    { "titulo": "CCCE · informe de cierre 2025 del comercio electrónico", "url": "https://ccce.org.co/wp-content/uploads/2017/06/V2-1-PUBLICO-INFORME-DE-CIERRE-2025.pdf" },
+    { "titulo": "MinTIC · observatorio de e-commerce (medios de pago)", "url": "https://observatorioecommerce.mintic.gov.co/797/articles-428123_Article.pdf" },
+    { "titulo": "Doctoralia · precios de drenaje linfático manual en Bogotá", "url": "https://www.doctoralia.co/tratamientos-servicios/drenaje-linfatico-manual/bogota" },
+    { "titulo": "CuántoMeCuesta · precios de cirugía estética y drenaje posquirúrgico", "url": "https://cuantomecuesta.com/co/cirugia-estetica/" },
+    { "titulo": "Mercado Libre Colombia · gotas de drenaje linfático (Nature's Sunshine)", "url": "https://www.mercadolibre.com.co/shorts/clips/NYPhqS/gotas-drenaje-linfatico-eliminar-liquidos-e-hinchazon-sin" },
+    { "titulo": "Mercado Libre Colombia · Linfovit cápsulas", "url": "https://www.mercadolibre.com.co/shorts/clips/ijgSdH/linfovit-drenaje-linfatico-30-capsulas-sin-sabor" }
+  ],
+  "nota_fuentes": "Reddit no devolvió hilos útiles; Mercado Libre, Walmart y una base de interacciones bloquearon la lectura. Los precios de la competencia y la especie de la raíz roja quedan pendientes."
 }
