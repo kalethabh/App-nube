@@ -15,7 +15,7 @@
         <input id="codigo" name="codigo" type="password" placeholder="ABCDEF-GHJKLM-NPQRST-UVWXYZ" spellcheck="false" />
         <label for="direccion">Dirección de la app</label>
         <input id="direccion" name="direccion" type="text" placeholder="http://127.0.0.1:4455" spellcheck="false" />
-        <p class="nota">Déjala así salvo que tu app se abra en otro puerto. Solo puede ser de este computador.</p>
+        <p class="nota">Para Kads en internet, pega su dirección HTTPS. Chrome pedirá permiso solo para esa dirección. Para la app de tu computador, conserva la dirección local.</p>
         <div class="botones">
           <button type="submit" class="primario">Guardar</button>
           <button type="button" id="probar">Probar conexión</button>
@@ -32,6 +32,7 @@
         <p class="nota">La extensión solo lee el anuncio que tocas. No hace clic por ti, no se desplaza sola y no guarda nada de Facebook por su cuenta.</p>
       </section>
     </main>
+    <script src="direccion.js"></script>
     <script src="opciones.js"></script>
   </body>
 </html>

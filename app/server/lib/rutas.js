@@ -14,7 +14,7 @@ export const CONFIG_PRINCIPAL = path.join(APP, 'config.json'); // ajustes de la 
 export const DIST = path.join(APP, 'dist');
 export const RUTAS_API = path.join(APP, 'server', 'rutas');
 
-export const HOST = '127.0.0.1';
+export const HOST = process.env.KADS_BIND_HOST === '0.0.0.0' ? '0.0.0.0' : '127.0.0.1';
 // 4455 siempre. PUERTO=<n> en el entorno es solo para las pruebas (cada probador levanta su propia app en otro
 // puerto, en modo prueba). El 4321 es de Landing Studio: nunca se usa.
 const PUERTO_PEDIDO = Number(process.env.PUERTO);

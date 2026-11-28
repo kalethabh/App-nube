@@ -12,6 +12,7 @@ const AUTOR = 'by Kalethabh';
 
 /** Sube el zip tal cual, con su avance (fetch no lo da). Devuelve la respuesta de la app o tira un Error con su mensaje. */
 function subirPaquete(archivo, alAvanzar) {
+  if(window.kadsNube) return window.kadsNube.enviar('/api/actualizar?solo=revisar',{method:'POST',headers:{'Content-Type':'application/zip',Accept:'application/json'},body:archivo,onprogress:alAvanzar}).then(async r=>{const d=await r.json();if(!r.ok)throw new Error(d.error || 'No se pudo revisar el paquete.');return d;});
   return new Promise((resolver, rechazar) => {
     const x = new XMLHttpRequest();
     x.open('POST', '/api/actualizar?solo=revisar');

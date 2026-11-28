@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-28 (2026-11-28a)
+Última actualización: 2026-11-27 (Contabo elegido; código 2026-11-28c; todavía sin desplegar)
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -12,6 +12,112 @@ Al terminar cada cambio de desarrollo o decisión relevante, actualizar este arc
 cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponibles, las pruebas y sus límites,
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
+
+## Decisión vigente: desplegar en Contabo y migrar los datos reales (2026-11-27, Colombia)
+
+El usuario eligió: «Vamos con Contabo. Dime qué plan contratar y ayúdame a dejar Kads funcionando completo,
+sin comprar dominio y sin perder mis datos». Sustituye Vercel como destino principal; conservar su adaptación.
+Después preguntó por el SSD gratis: se recomendó y dejó preparado **300 GB SSD**, con más espacio y sin el extra NVMe.
+
+- Configurador real preparado en el navegador: Cloud VPS 8, 8 vCPU/24 GB RAM, Unión Europea, Ubuntu 24.04,
+  **un mes**, 300 GB SSD incluido, una IPv4, sin paneles ni otros extras. Base 14 €/mes; Auto Backup 5 €/mes:
+  resumen **19 €/mes y 19 € a pagar ahora**, antes de los impuestos que correspondan. No comprado, no hay IP
+  ni servidor creado/acceso SSH. El usuario debe completar contraseña del servidor, cuenta y pago en Contabo.
+  No pedir contraseñas, tarjetas ni tokens por chat. Fuente: https://contabo.com/en/vps/cloud-vps-core-8.
+- Instalación REAL identificada por el proceso que escucha 4455: `~/Anuncios con IA`, versión 2026-11-28a.
+  Sigue funcionando; no se detuvo, actualizó ni modificaron sus archivos. No ejecutar Git en la biblioteca.
+- Nuevo respaldo REAL, distinto al de desarrollo: `outputs/respaldo-real-contabo-2026-11-27`, fuera del repo.
+  Datos cifrados con llave aparte `outputs/llave-respaldo-real-contabo-2026-11-27.txt` (0600; nunca en Git).
+  **11.304 archivos / 7.775.489.073 bytes lógicos**, 9.645 bloques únicos, cero pendientes. Se autenticó/descifró
+  y verificó SHA-256 de TODOS los bloques sin imprimir contenido. Restauración de muestra: 10 archivos / 15.216 bytes,
+  comparados byte a byte en carpeta temporal privada, eliminada después. Informe privado `VERIFICACION.json`.
+  Se conservó también `codigo-instalado.tar.gz.kads` (470.118.428 bytes): código real instalado, cifrado y
+  descifrado/verificado como tar.gz, sin extraerlo. Formato compatible con `descifrar(bytes,key,'codigo-contabo-v1')`:
+  IV 12 bytes + tag 16 bytes + ciphertext. Es una copia inicial; falta corte final y cambios posteriores.
+- Drive configurado para el archivo: unos 7,3 GB lógicos / 3.340 archivos, casi todos solo en nube (unos 123 MiB
+  residentes). Quince marcas `en-la-nube.json`: **1.613 referencias**, todas resolvieron mediante metadatos de archivo;
+  todas requieren recuperar el medio desde el archivo, y **225 apuntan a otras ubicaciones de Drive**, no a la carpeta
+  actualmente seleccionada. Se incluyen rutas antiguas en un inventario PRIVADO, fuera del repo:
+  `outputs/inventario-migracion-contabo.json`. No se verificó todavía el contenido ni se copiaron esos medios.
+- No descargar todo Drive a la Mac: queda poco espacio (unos 9 GB tras el respaldo). Al tener el servidor, copiar
+  allí los medios de TODAS las ubicaciones referenciadas y la carpeta Kads de Drive, verificando SHA-256 registrados.
+  Reubicar rutas Mac→Linux solamente en la copia del servidor, conservando registros/originales para volver atrás.
+- Plan de instalación: motor Docker ya validado en Linux (PR #248, 148/148 y MP4 1080×1920), volumen persistente,
+  Caddy/HTTPS con `<IP-con-guiones>.sslip.io`. No comprar dominio; la versión local se conserva hasta validar todo.
+  `deploy/instalar.sh` es anterior (Node 22 y preparación parcial de Python); preferir el contenedor probado con
+  Node 24/Python completo. Preparar protección de acceso antes de exponer la app y reautorizar IA/GitHub según haga falta.
+- Autenticación: revisar qué usa realmente la instalación antes de migrarla. Google/permisos necesitan su backend
+  de cuentas configurado. Los dos proyectos administrados existentes siguen intactos y el cupo Free sigue ocupado.
+  Elegir Contabo no autoriza borrar/pausar Effi ni contratar Supabase Pro. No anunciar Kads completo hasta comprobar
+  acceso, carpetas/productos/investigación, biblioteca/avatares, imágenes/video/audio/Sketch, Embudo, edición,
+  landings/publicación Shopify, archivo/restauración, reinicio y respaldo. La IA de pago requiere presupuesto y sí.
+
+## Adaptación solicitada: Vercel + Supabase, con respaldo Contabo (2026-11-27; versión 2026-11-28c)
+
+Implementación integrada: [PR #248](https://github.com/kalethabh/App-nube/pull/248), commit `d271b518fe0cffb3bf498fc77f93bfc65c66f3f1`.
+Distribución preparada publicada: [v2026-11-28c](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-28c),
+ZIP de 443 MB con estado uploaded verificado. Es una actualización de código; Kads todavía NO está desplegado en nube.
+
+Pedido: «adapta Kads para desplegarlo con Vercel y Supabase, sin dominio y manteniendo todas las funciones y la misma calidad; respaldo por si quiero Contabo». La publicación automática ya había ocupado 2026-11-28b con el código anterior (`ULTIMA.json`: 2e0ce1f3). Se reserva 2026-11-28c para esta adaptación; no reemplazar el paquete b ni retroceder el número para las apps instaladas.
+
+- `vercel.json`: frontend + función Node `api/puerta.mjs` + un Daemon Linux de 8 GiB/4 vCPU, sin ingreso público.
+  El motor Express y los scripts existentes se conservan; no se cambiaron prompts, modelos ni resolución.
+- `deploy/nube/`: cola HTTP mediante Supabase, solicitudes/respuestas/cookies cifradas AES-GCM; PostgreSQL con
+  arrendamiento y fencing. Al perder una ejecución se marca incierta, sin repetir ciegamente acciones cobrables.
+  Transporta cookies, redirects, eventos y archivos grandes en streaming/Range. Las subidas grandes van directo al bucket
+  privado con ticket de un uso vinculado a usuario/ruta/método y permiso de sección antes de firmar.
+- Estado cifrado por bloques de 8 MiB y manifiestos. Copia cada 5 s y antes de respuestas de escritura; conservar la llave
+  fuera del proyecto. Un cierre forzoso puede perder cambios aún no confirmados. Hay que vigilar el historial/espacio.
+  El supervisor conserva secretos de administración y el servidor/CLI ejecuta como UID 10001, sin esos secretos en su entorno.
+- `supabase-motor.sql` es aditivo y solo para el Supabase de Kads. RLS/tablas/RPC del motor sin acceso anon/authenticated.
+  Mantiene Google y permisos existentes. No aplicado al proyecto real en esta sesión.
+- Actualizar en nube pasa al Deploy Hook de Vercel, validando owner y trabajos activos. ZIP local sigue en Mac/Contabo.
+  Cierre supervisado con drenaje consultando estado interno de procesos; gracia de hasta 1 h al redeploy.
+- `Dockerfile`, compose de Contabo, `respaldo.mjs` y guía `deploy/VERCEL-SUPABASE.md`. El instalador Ubuntu anterior sigue.
+  Sketch reutiliza el Python ya instalado. La extensión de Chrome admite HTTPS remoto con permiso solo para el origen
+  elegido. La raíz de la web pasa por acceso; el build desactiva helpers de Vercel para conservar los cuerpos HTTP.
+- Respaldo REAL de esta copia: `outputs/respaldo-contabo/kads-codigo-original-completo.tar.gz` fuera del repo (código de 2e0ce1f3),
+  datos cifrados en `datos-verificados`, SHA256 y LEEME. Llave aparte, nunca en GitHub. Restauración real probada en carpeta
+  temporal y eliminada después. NO es un respaldo de la instalación personal en ~/Anuncios con IA, que no se tocó.
+- Validación local: once pruebas de nube con PostgreSQL real aislado, prueba de subida en Chrome con progreso, acceso
+  58/58 y build de la interfaz. Esquema oficial Vercel validado omitiendo su declaración draft-04 incompatible con algunos
+  campos modernos. [CI Linux/Docker correcto](https://github.com/kalethabh/App-nube/actions/runs/46099699182), sobre `2abb14cd`:
+  construcción con Node 24/Python 3.11, FFmpeg con WebP, Codex 0.167.0, Claude y Chrome. Humo **148/148** en 184 s:
+  anuncio completo con MP4 H.264 1080×1920/AAC y versión cantada, con proveedores simulados. Ciclo REAL del supervisor
+  contra Supabase simulado: API por cola, cierre limpio, disco borrado, restauración cifrada y segundo arranque.
+  No se probaron proveedores reales ni consumo/capacidad en Vercel. El humo de CI omitió lotes de imagen, regeneración
+  y modo B (banderas del workflow); no equivale a probar cada función de la app en producción.
+- Vercel y Supabase YA conectados y el acceso al equipo de Vercel ya fue autorizado. Equipo de Vercel:
+  `team_nUEpzGKbbdlNPJLRYAHbbhVc` (`kalethabhs-projects`). Supabase: organización `Control EFFI`,
+  `giwfscxnkdyoelgesaby`. El usuario autorizó consultar el costo de un proyecto separado de Kads allí.
+  get_cost cotizó 0; se intentó crear `kads-studio`, pero Supabase lo rechazó por el máximo de dos proyectos Free.
+  No se creó ningún proyecto, ni se pagó, pausó, eliminó o modificó uno existente.
+- Comprobación separada solicitada por el usuario: Supabase `centro-de-control` (`uicsvderlsqqqgtrqvar`) es el que
+  usa producción de `centro-control-klickshoppe.vercel.app`, verificado SOLO mediante su URL pública de Supabase,
+  sin leer claves. El otro proyecto es `effi-dashboard` (`hcbbagfabxrjtjjtoxid`), con tres tablas públicas:
+  `effi_registros`, `effi_sync_estado`, `effi_webhook_events`; también existe una app Vercel `effi-dashboard`.
+  Los alias públicos resuelven a publicaciones READY de repositorios separados: `kalethabh/centro-de-control`
+  y `kalethabh/effi-dashboard`. La URL de Supabase de Effi no fue expuesta por el conector; no afirmar una asociación
+  adicional no verificada. NO se ha confirmado si Effi está en desuso o si hay dependencias; no eliminarlo ni pausarlo
+  sin autorización. El usuario solo pidió identificar los dos proyectos.
+- Pendiente de producción: resolver el límite Free y elegir presupuesto antes de crear/activar servicios de pago;
+  configurar variables privadas, migración, retorno de Google y datos reales. Vercel Pro necesario para 8 GiB; Storage Free limita objetos
+  a 50 MB, insuficiente para todos los videos. El consumo de memoria del Daemon se cobra aun estando en espera.
+  Tarifa inicial de memoria consultada: US$0,0212/GB-hora; 8 GiB durante 730 h ≈ US$123,81 antes de créditos,
+  CPU, plan y otros consumos. No es una tarifa plana ni cotización para la cuenta. No se autorizó activar pagos.
+- Revisión tras conectar/actualizar el plugin Vercel (27-11, hora Colombia): documentación actual permite
+  contenedores como Functions, con escalado a cero tras 5 minutos sin tráfico y cierre SIGTERM con 30 s de gracia.
+  Las Functions siguen limitadas a 4 GB en Pro/Enterprise y hasta 30 minutos en la beta extendida. Esto no es un
+  reemplazo directo comprobado del proceso actual: Kads continúa generaciones después de responder al navegador.
+  Una alternativa por consumo requeriría adaptar/persistir los trabajos y verificar memoria, recuperación y calidad;
+  no afirmar que los nuevos contenedores eliminan por sí solos el costo del Daemon. Se conserva la implementación
+  validada; no se modificó código, proyectos, planes ni datos. El conector de equipos tampoco expuso el plan de
+  facturación, así que no se confirmó cuál tiene contratado el usuario. Changelog de Supabase revisado; no se
+  hicieron migraciones ni nuevas solicitudes de creación. Siguen pendientes cupo y presupuesto.
+  Fuentes: https://vercel.com/docs/functions/runtimes/container y https://vercel.com/docs/functions/limitations.
+- Antes de decir que está desplegado y conserva calidad: probar generación real de imagen/video, estilos/Sketch/audio,
+  Embudo, edición, biblioteca, landings, clonación/publicación Shopify y restauración. Costos de IA requieren aprobación.
+  La adaptación local NO certifica por sí sola funcionamiento, capacidad, costo ni acabado en producción.
 
 ## Candidato económico verificado en configurador (2026-11-27)
 
