@@ -2,6 +2,18 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-28a · La oficina virtual con el diseño de la app
+
+- **La oficina 3D ahora se ve como el resto de Kads.** Se quitó el verde lima de la marca vieja: los neones, el logo, las líneas de producción, los estados y los muebles toman los colores del tema que tengas.
+  - **Juego:** noche violeta con neón rosa y turquesa.
+  - **Claro:** día de papel lila con rosa (antes salía en lima).
+  - **Oscuro:** la noche de siempre con el acento del tema.
+- **El logo del centro y el de la sala de reuniones son el ícono de la app.** Los letreros de cada sala usan la letra de los títulos (Bricolage) con el estilo «Ciudad creativa»: placa de tinta, borde de color y sombra corrida.
+- **Los paneles siguen el tema**, ya no van forzados a oscuro: en Claro el chat, el equipo y la planta se leen sobre papel claro. Tarjetas, globos de los agentes, etiquetas de las salas, avisos y la tarjeta de «Presentar» usan la tinta, la sombra corrida y los colores de estado de la app (listo, revisando, devuelve, error).
+- **La barra de arriba usa los botones y el logo de la app.** «Hablar con…» va en el botón rosa de la app. El aviso de «IA caída» va dentro de la tarjeta de arriba (antes la tapaba).
+- **La coordinación y la sala de estar pasan del lima al dorado.** También cambian las que tenías guardadas en lima.
+- La distribución, los personajes, sus animaciones, el chat y los datos no cambian.
+
 ## 2026-11-27l · Personas en landings, Google y permisos por sección
 
 - Las imágenes de personas se adaptan al público de la investigación, con dirección de fotografía natural, variación de rostros y entornos, anatomía y empaque coherentes. Los combos muestran solo el producto.

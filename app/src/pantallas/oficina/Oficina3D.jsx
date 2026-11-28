@@ -30,6 +30,7 @@ import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { clone as clonarConEsqueleto } from 'three/examples/jsm/utils/SkeletonUtils.js';
+import { paletaDeEscena } from './paleta3d.js';
 
 // (2026-11-20o) LOS PERSONAJES DE VERDAD: humanos con esqueleto y animaciones (Ultimate Animated Character Pack de
 // Quaternius, CC0, en public/oficina/personajes/). Se sientan con su animación «SitDown» y encima la oficina les mueve
@@ -119,8 +120,10 @@ function posturaDeHuesos(gesto, cab, t, fase) {
 
 const numeroDe = (id) => [...String(id)].reduce((s, c) => (s * 31 + c.charCodeAt(0)) % 9973, 7);
 
-// (2026-11-23) LIMA y MARCA.lima cambian con el tema: en «Juego» los neones son rosa (usarPaleta, al armar la escena)
-let LIMA = '#a3e635';
+// (2026-11-28a) P es la paleta de la escena, sacada del tema de la app (paleta3d.js) al armarla. LIMA es el nombre
+// histórico del color de neón: hoy es el acento del tema (rosa en «Juego» y «Claro»), ya no el lima de la marca vieja.
+let P = paletaDeEscena('juego');
+let LIMA = P.neon;
 // cómo se arma cada tipo de sala (las que crea el usuario usan el mobiliario de una de siempre)
 const ARMADO = { escritorios: 'calidad', creativos: 'arte', estudio: 'video', reuniones: 'coordinacion', datos: 'investigacion', biblioteca: 'guion', vidrio: 'edicion' };
 const PIELES = ['#f1c7a3', '#d9a17a', '#a8714a', '#7a4b2c', '#f5d5b8', '#c68b5e', '#e3b08a'];
@@ -172,57 +175,77 @@ function texturaMadera() {
   return t;
 }
 
-/** El logo K de Kads: cuadrado oscuro redondeado, la K y el punto en verde lima. */
-function texturaLogo({ fondo = '#0d0f0c' } = {}) {
-  return lienzo(512, 512, (g, w, h) => {
-    g.fillStyle = fondo;
+/** El logo de Kads (el mismo ícono de la app, public/kads-icono.svg) con un filo de neón del acento del tema. */
+let iconoApp = null;
+function texturaLogo() {
+  const t = lienzo(512, 512, (g, w, h) => {
+    g.fillStyle = P.negro;
     g.beginPath();
     g.roundRect(0, 0, w, h, 96);
     g.fill();
-    g.strokeStyle = LIMA;
-    g.lineWidth = 14;
-    g.shadowColor = LIMA;
-    g.shadowBlur = 30;
-    g.beginPath();
-    g.roundRect(18, 18, w - 36, h - 36, 80);
-    g.stroke();
-    g.fillStyle = LIMA;
-    g.font = '900 330px Inter, Arial Black, system-ui, sans-serif';
+    g.fillStyle = P.neon;
+    g.font = `800 330px ${P.fuente}`;
     g.textAlign = 'center';
     g.textBaseline = 'middle';
-    g.fillText('K', w / 2 - 24, h / 2 + 20);
-    g.beginPath();
-    g.arc(w / 2 + 118, h / 2 - 118, 30, 0, Math.PI * 2);
-    g.fill();
+    g.fillText('K', w / 2, h / 2 + 18);
   });
+  const dibujarIcono = (img) => {
+    const g = t.image.getContext('2d');
+    const { width: w, height: h } = t.image;
+    g.clearRect(0, 0, w, h);
+    g.drawImage(img, 0, 0, w, h);
+    g.strokeStyle = P.neon;
+    g.lineWidth = 10;
+    g.shadowColor = P.neon;
+    g.shadowBlur = 24;
+    g.beginPath();
+    g.roundRect(10, 10, w - 20, h - 20, 92);
+    g.stroke();
+    t.needsUpdate = true;
+  };
+  try {
+    if (iconoApp?.complete && iconoApp.naturalWidth) dibujarIcono(iconoApp);
+    else {
+      iconoApp = iconoApp || Object.assign(new Image(), { src: '/kads-icono.svg?v=ciudad-2' });
+      iconoApp.addEventListener('load', () => dibujarIcono(iconoApp), { once: true });
+    }
+  } catch {
+    /* sin el ícono queda la K dibujada */
+  }
+  return t;
 }
 
 /** Un letrero pequeño del departamento (en la pared). */
 function texturaLetrero(texto, color) {
   return lienzo(512, 112, (g, w, h) => {
-    g.fillStyle = 'rgba(16,18,16,0.94)';
+    // (2026-11-28a) como los carteles de «Ciudad creativa»: placa de tinta, borde del color y sombra corrida
+    g.fillStyle = 'rgba(0,0,0,0.45)';
     g.beginPath();
-    g.roundRect(4, 4, w - 8, h - 8, 22);
+    g.roundRect(12, 12, w - 16, h - 16, 8);
+    g.fill();
+    g.fillStyle = P.negro;
+    g.beginPath();
+    g.roundRect(4, 4, w - 16, h - 16, 8);
     g.fill();
     g.strokeStyle = color;
     g.lineWidth = 5;
     g.stroke();
     g.fillStyle = color;
     let tam = 50;
-    g.font = `800 ${tam}px Inter, system-ui, sans-serif`;
-    while (tam > 20 && g.measureText(texto.toUpperCase()).width > w - 50) g.font = `800 ${(tam -= 2)}px Inter, system-ui, sans-serif`;
+    g.font = `800 ${tam}px ${P.fuente}`;
+    while (tam > 20 && g.measureText(texto.toUpperCase()).width > w - 60) g.font = `800 ${(tam -= 2)}px ${P.fuente}`;
     g.textAlign = 'center';
     g.textBaseline = 'middle';
     g.shadowColor = color;
     g.shadowBlur = 16;
-    g.fillText(texto.toUpperCase(), w / 2, h / 2 + 2);
+    g.fillText(texto.toUpperCase(), (w - 12) / 2, (h - 12) / 2 + 2);
   });
 }
 
-/** El globo de chat de la zona de revisión (un ícono propio: globo verde con un visto). */
+/** El globo de chat de la zona de revisión (un ícono propio: globo del color «listo» del tema con un visto). */
 function texturaChat() {
   return lienzo(256, 256, (g) => {
-    g.fillStyle = '#16a34a';
+    g.fillStyle = P.ok;
     g.beginPath();
     g.roundRect(8, 8, 240, 240, 54);
     g.fill();
@@ -235,7 +258,7 @@ function texturaChat() {
     g.lineTo(56, 206);
     g.lineTo(104, 176);
     g.fill();
-    g.strokeStyle = '#16a34a';
+    g.strokeStyle = P.ok;
     g.lineWidth = 18;
     g.lineCap = 'round';
     g.lineJoin = 'round';
@@ -407,8 +430,8 @@ function mat(color, { emisivo = null, intensidad = 1, rugoso = 0.75, metal = 0.0
 }
 const neon = () => mat(LIMA, { emisivo: LIMA, intensidad: 2.2, rugoso: 0.4 });
 const MADERA = () => mat('#a8703f', { rugoso: 0.6 });
-const OSCURO = () => mat('#2b2d2f', { rugoso: 0.85 });
-const NEGRO = () => mat('#141516', { rugoso: 0.5, metal: 0.3 });
+const OSCURO = () => mat(P.tema === 'claro' ? '#3a2a42' : '#2b2d2f', { rugoso: 0.85 });
+const NEGRO = () => mat(P.negro, { rugoso: 0.5, metal: 0.3 });
 
 function caja(w, h, d, material, x = 0, y = 0, z = 0, { redondo = 0, sombra = true } = {}) {
   const geo = redondo ? new RoundedBoxGeometry(w, h, d, 3, redondo) : new THREE.BoxGeometry(w, h, d);
@@ -580,7 +603,7 @@ function impresora(x, z) {
   g.add(caja(0.9, 0.7, 0.6, mat('#2a2c2f'), 0, 0.35, 0, { redondo: 0.03 }));
   g.add(caja(0.7, 0.32, 0.5, mat('#e5e7eb', { rugoso: 0.4 }), 0, 0.86, 0, { redondo: 0.04 }));
   g.add(caja(0.5, 0.02, 0.3, mat('#ffffff'), 0, 1.03, 0.08, { sombra: false }));
-  const led = new THREE.Mesh(new THREE.SphereGeometry(0.02), new THREE.MeshBasicMaterial({ color: '#22c55e' }));
+  const led = new THREE.Mesh(new THREE.SphereGeometry(0.02), new THREE.MeshBasicMaterial({ color: P.ok }));
   led.position.set(0.28, 0.95, 0.25);
   g.add(led);
   g.position.set(x, 0, z);
@@ -723,7 +746,7 @@ function detallesDe(tipo, g, W, D, color) {
     g.add(papelera(2.4, 0.4));
     // un sillón de lectura
     const s = new THREE.Group();
-    const tela = mat('#7a9a1f', { rugoso: 0.9 });
+    const tela = mat(P.tapiz, { rugoso: 0.9 });
     s.add(caja(0.9, 0.42, 0.85, tela, 0, 0.28, 0, { redondo: 0.12 }));
     s.add(caja(0.9, 0.65, 0.22, tela, 0, 0.65, -0.35, { redondo: 0.1 }));
     s.position.set(-2.6, 0, 1.6);
@@ -1037,7 +1060,7 @@ function agente(datos, i) {
   g.add(anillo);
   partes.anillo = anillo;
   // el signo de alerta (cuando te necesita)
-  const alerta = new THREE.Mesh(new THREE.OctahedronGeometry(0.16), new THREE.MeshBasicMaterial({ color: '#ef4444' }));
+  const alerta = new THREE.Mesh(new THREE.OctahedronGeometry(0.16), new THREE.MeshBasicMaterial({ color: P.error }));
   alerta.position.y = 2.55;
   alerta.visible = false;
   g.add(alerta);
@@ -1240,7 +1263,7 @@ function armarZona(id, tipoSala, z, color, nombre, ctx) {
     const lente = cilindro(0.12, 0.15, 0.3, NEGRO(), 0, 0, -0.42, 18);
     lente.rotation.x = Math.PI / 2;
     camara.add(lente);
-    const rec = new THREE.Mesh(new THREE.SphereGeometry(0.035), new THREE.MeshBasicMaterial({ color: '#ef4444' }));
+    const rec = new THREE.Mesh(new THREE.SphereGeometry(0.035), new THREE.MeshBasicMaterial({ color: P.error }));
     rec.position.set(0.15, 0.2, 0.1);
     rec.userData.parpadea = true;
     camara.add(rec);
@@ -1348,7 +1371,7 @@ function armarZona(id, tipoSala, z, color, nombre, ctx) {
     escalera.position.set(W - 1.6, 0, -D + 0.6);
     escalera.rotation.x = -0.25;
     g.add(escalera);
-    const cartel = new THREE.Mesh(new THREE.PlaneGeometry(3.6, 0.8), new THREE.MeshBasicMaterial({ map: texturaLetrero('Próximamente', '#facc15'), transparent: true, toneMapped: false }));
+    const cartel = new THREE.Mesh(new THREE.PlaneGeometry(3.6, 0.8), new THREE.MeshBasicMaterial({ map: texturaLetrero('Próximamente', P.dorado), transparent: true, toneMapped: false }));
     cartel.position.set(0, 0.95, -D + 0.6);
     cartel.rotation.x = -0.35;
     g.add(cartel);
@@ -1415,8 +1438,8 @@ function armarSala(z, animados) {
   g.add(caja(5.2, 0.75, 0.32, tela, 0, 0.75, -2.15, { redondo: 0.1 }));
   g.add(caja(1.1, 0.45, 2.2, tela, -2.05, 0.32, -0.6, { redondo: 0.12 }));
   g.add(caja(0.32, 0.75, 2.6, tela, -2.55, 0.75, -0.8, { redondo: 0.1 }));
-  for (const [x, c] of [[-1.4, LIMA], [-0.3, '#4b5563'], [0.8, LIMA], [1.9, '#4b5563']]) {
-    const cojin = caja(0.62, 0.55, 0.18, mat(c === LIMA ? '#8fbf2a' : c, { rugoso: 0.95 }), x, 0.85, -1.9, { redondo: 0.08 });
+  for (const [x, c] of [[-1.4, P.cojin], [-0.3, P.cojinB], [0.8, P.cojin], [1.9, P.cojinB]]) {
+    const cojin = caja(0.62, 0.55, 0.18, mat(c, { rugoso: 0.95 }), x, 0.85, -1.9, { redondo: 0.08 });
     cojin.rotation.x = -0.2;
     g.add(cojin);
   }
@@ -1427,7 +1450,7 @@ function armarSala(z, animados) {
   pm.position.y = 0.52;
   g.add(pm);
   animados.push(pm);
-  const verde = mat('#7a9a1f', { rugoso: 0.9 });
+  const verde = mat(P.tapiz, { rugoso: 0.9 });
   for (const [x, rot] of [[-1.6, 0.5], [2.0, -0.5]]) {
     const s = new THREE.Group();
     s.add(caja(1.1, 0.45, 1.0, verde, 0, 0.3, 0, { redondo: 0.15 }));
@@ -1499,11 +1522,12 @@ function armarCentro(animados) {
 // (2026-11-20) LA EMPRESA DIGITAL: la planta de la imagen de referencia. Seis departamentos alrededor del logo K (dos
 // columnas, tres filas), la coordinación de vidrio arriba al medio y la sala de estar abajo. Cada departamento es una
 // fila de estaciones (un escritorio y su agente por cada parte del trabajo) unidas por las LÍNEAS DE PRODUCCIÓN: gris
-// en reposo, verde lima cuando una parte pasa a la siguiente, naranja cuando la revisión devuelve algo y roja si se
+// en reposo, turquesa (el «cian» del tema) cuando una parte pasa a la siguiente, naranja cuando la revisión devuelve algo y roja si se
 // frena. Todo responde a lo que registra la app (lib/oficina-produccion.js): nada se anima si no pasó.
 // =====================================================================================================================
 
-export const MARCA = { lima: '#A3FF12', negro: '#0B0B0B', verdeOscuro: '#263D0D', grafito: '#24272A', blanco: '#F2F5E8', madera: '#A87548' };
+// (2026-11-28a) los colores de la marca en la escena salen de la paleta del tema (usarPaleta); estos son los de «Juego»
+export const MARCA = { lima: P.neon, negro: P.negro, verdeOscuro: P.losa, grafito: P.losa, blanco: '#F2F5E8', madera: '#A87548' };
 const GRAFITO = () => mat(MARCA.grafito, { rugoso: 0.8 });
 const MADERA_K = () => mat(MARCA.madera, { rugoso: 0.55 });
 const BLANCO_K = () => mat('#e9ecdf', { rugoso: 0.6 });
@@ -1680,7 +1704,7 @@ function lineaDeProduccion(de, a) {
   const g = new THREE.Group();
   const dir = a.clone().sub(de);
   const largo = dir.length();
-  const mat1 = new THREE.MeshStandardMaterial({ color: '#9aa0a6', emissive: '#000000', roughness: 0.5, transparent: true, opacity: 0.8 });
+  const mat1 = new THREE.MeshStandardMaterial({ color: P.neutro, emissive: '#000000', roughness: 0.5, transparent: true, opacity: 0.8 });
   const tubo = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, Math.max(0.05, largo - 0.16), 10), mat1);
   tubo.rotation.z = Math.PI / 2;
   tubo.position.x = -0.08;
@@ -1769,7 +1793,7 @@ function armarDepartamento(dep, z, color, ctx) {
     s.position.set(x, 0, zEsc + 0.92);
     g.add(s);
     // el anillo de la estación (en el piso, bajo la silla): se enciende con su estado
-    const anillo = new THREE.Mesh(new THREE.RingGeometry(0.5, 0.6, 40), new THREE.MeshBasicMaterial({ color: '#9aa0a6', transparent: true, opacity: 0.0, side: THREE.DoubleSide, toneMapped: false }));
+    const anillo = new THREE.Mesh(new THREE.RingGeometry(0.5, 0.6, 40), new THREE.MeshBasicMaterial({ color: P.neutro, transparent: true, opacity: 0.0, side: THREE.DoubleSide, toneMapped: false }));
     anillo.rotation.x = -Math.PI / 2;
     anillo.position.set(x, 0.03, zEsc + 0.92);
     anillo.userData.vivo = true;
@@ -1907,14 +1931,14 @@ function armarSalaK(z, animados) {
   const tela = mat('#d6d0c4', { rugoso: 0.95 });
   g.add(caja(4.6, 0.42, 1.0, tela, 0, 0.3, -1.7, { redondo: 0.12 }));
   g.add(caja(4.6, 0.7, 0.3, tela, 0, 0.72, -2.12, { redondo: 0.1 }));
-  for (const [x, c] of [[-1.3, '#A3FF12'], [0, '#9ca3af'], [1.3, '#A3FF12']]) {
-    const cojin = caja(0.6, 0.5, 0.16, mat(c === '#A3FF12' ? '#9ccc2a' : c, { rugoso: 0.95 }), x, 0.82, -1.86, { redondo: 0.08 });
+  for (const [x, c] of [[-1.3, P.cojin], [0, P.cojinB], [1.3, P.cojin]]) {
+    const cojin = caja(0.6, 0.5, 0.16, mat(c, { rugoso: 0.95 }), x, 0.82, -1.86, { redondo: 0.08 });
     cojin.rotation.x = -0.2;
     g.add(cojin);
   }
   g.add(cilindro(0.85, 0.85, 0.07, MADERA_K(), 0, 0.45, 0.2, 40));
   g.add(cilindro(0.12, 0.25, 0.42, GRAFITO(), 0, 0.21, 0.2, 16));
-  const verde = mat('#8fbf1f', { rugoso: 0.9 });
+  const verde = mat(P.tapiz, { rugoso: 0.9 });
   for (const [x, rot] of [[-1.7, 0.5], [1.7, -0.5]]) {
     const s = new THREE.Group();
     s.add(caja(1.0, 0.42, 0.95, verde, 0, 0.28, 0, { redondo: 0.15 }));
@@ -2041,16 +2065,17 @@ function iconoDeAgente(onElegir, a, estacion) {
 
 const i0 = (id) => [...String(id)].reduce((s, c) => (s * 31 + c.charCodeAt(0)) % 9973, 7);
 const ICONO_ESTADO = { revisando: 'check', corrigiendo: 'vuelta', error: 'alerta', esperando: 'reloj', pronto: 'reloj' };
-const COLOR_EVENTO = { pasa: MARCA.lima, devuelve: '#fb923c', error: '#ef4444' };
+const COLOR_EVENTO = { ...P.evento };
 
-/** (2026-11-23) Los neones de la oficina: lima (la marca) o, con el tema «Juego», rosa de atardecer. */
-function usarPaleta(juego) {
-  MARCA.lima = juego ? '#FF4FA3' : '#A3FF12';
-  LIMA = juego ? '#ff5fb0' : '#a3e635';
-  COLOR_EVENTO.pasa = juego ? '#29f0dc' : MARCA.lima;
+/** (2026-11-28a) La paleta de la escena sale del tema de la app que se ve ahora (paleta3d.js): neón, estados, piso y luz. */
+function usarPaleta(tema) {
+  P = paletaDeEscena(tema);
+  LIMA = P.neon;
+  Object.assign(MARCA, { lima: P.neon, negro: P.negro, verdeOscuro: P.losa, grafito: P.losa });
+  Object.assign(COLOR_EVENTO, P.evento);
 }
 
-export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onElegir, onDepartamento = null, onLinea = null, foco = null, vista = 'general', modo = 'dia', onPosiciones = null, onEvento = null, resaltar = null, desplazar = 0, onEscena = null, onFinPresentacion = null }) {
+export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onElegir, onDepartamento = null, onLinea = null, foco = null, vista = 'general', modo = 'dia', tema = 'juego', onPosiciones = null, onEvento = null, resaltar = null, desplazar = 0, onEscena = null, onFinPresentacion = null }) {
   const caja3d = useRef(null);
   const estado = useRef({ agentes: [], elegido: null });
   const avisos = useRef({});
@@ -2062,7 +2087,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
   useEffect(() => {
     const raiz = caja3d.current;
     if (!raiz) return undefined;
-    usarPaleta(estado.current.modo === 'neon');
+    usarPaleta(tema);
     let renderer;
     try {
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
@@ -2082,7 +2107,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
     raiz.appendChild(etiquetas.domElement);
 
     const escena = new THREE.Scene();
-    escena.background = new THREE.Color('#e7e4dc');
+    escena.background = new THREE.Color(P.cielo.dia);
     escena.fog = new THREE.Fog(escena.background, 95, 170);
 
     const zonas = (estado.current.zonas?.length ? estado.current.zonas : ZONAS_DE_SIEMPRE).filter((z) => LUGAR[z.lugar]);
@@ -2227,7 +2252,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
       // una estantería abierta: costados, repisas y libros (se ve desde arriba y de lado)
       for (const px of [-1.1, 1.1]) est.add(caja(0.06, 1.7, 0.45, MADERA_K(), px, 0.85, 0));
       for (let k = 0; k < 4; k++) est.add(caja(2.26, 0.05, 0.45, MADERA_K(), 0, 0.05 + k * 0.55, 0));
-      for (let f = 0; f < 3; f++) for (let k = 0; k < 9; k++) if ((k + f) % 4 !== 3) est.add(caja(0.12, 0.3 + ((k * 7 + f) % 3) * 0.05, 0.3, mat(['#263D0D', '#24272A', '#A87548', '#e9ecdf', '#6b7280'][(k + f) % 5], { rugoso: 0.8 }), -0.95 + k * 0.23, 0.25 + f * 0.55, 0.02));
+      for (let f = 0; f < 3; f++) for (let k = 0; k < 9; k++) if ((k + f) % 4 !== 3) est.add(caja(0.12, 0.3 + ((k * 7 + f) % 3) * 0.05, 0.3, mat([P.tapiz, MARCA.grafito, '#A87548', '#e9ecdf', P.neutro][(k + f) % 5], { rugoso: 0.8 }), -0.95 + k * 0.23, 0.25 + f * 0.55, 0.02));
       const p = planta(0.75, 0, 0.4);
       p.position.y = 1.7;
       est.add(p);
@@ -2454,7 +2479,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
       if (tipo === 'pasa') chispas(a.monitor, [MARCA.lima, '#ffffff'], 18, { fuerza: 2.2, dura: 1.1 });
       if (tipo === 'error') {
         onda(a.silla, color, { escala: 4.5, dura: 1.6 });
-        chispas(a.monitor, ['#ef4444', '#fca5a5'], 14, { fuerza: 1.6 });
+        chispas(a.monitor, [P.error, '#ffffff'], 14, { fuerza: 1.6 });
       }
       // el monitor del que recibe se ilumina
       for (const pz of pantallas) if (pz.id === a.agente) pz.viva.dibujar(true);
@@ -2463,9 +2488,9 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
       const e = estaciones.get(estId);
       if (!e) return;
       const sobre = e.monitor.clone().setY(2.6);
-      chispas(sobre, [MARCA.lima, '#ffffff', '#facc15', MARCA.lima], 70, { fuerza: 4, dura: 2.2 });
+      chispas(sobre, [MARCA.lima, '#ffffff', P.dorado, P.cian], 70, { fuerza: 4, dura: 2.2 });
       onda(e.silla, MARCA.lima, { escala: 7, dura: 1.8 });
-      onda(e.silla, '#facc15', { escala: 4.5, dura: 1.4 });
+      onda(e.silla, P.dorado, { escala: 4.5, dura: 1.4 });
       destello(e, MARCA.lima, 2.6);
       brilloLogo = 1;
       avisos.current.onEvento?.({ tipo: 'listo', de: estId, a: estId, detalle: `¡Terminado: ${titulo}!`, t: Date.now() });
@@ -2719,12 +2744,13 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
       const dia = m === 'dia';
       // (2026-11-23) «neon» (tema Juego): noche violeta de ciudad costera, piso oscuro y más brillo en los neones
       const neonOn = m === 'neon';
-      escena.background.set(dia ? '#dfe6ec' : neonOn ? '#160a26' : '#0d1117');
-      escena.fog.color.set(dia ? '#dfe6ec' : neonOn ? '#160a26' : '#0d1117');
-      laCiudad.fachada.color.set(dia ? '#9eabb8' : neonOn ? '#3a2052' : '#2a3038');
+      // (2026-11-28a) el cielo, la ciudad, el piso y la luz salen de la paleta del tema (paleta3d.js)
+      escena.background.set(P.cielo[m]);
+      escena.fog.color.set(P.cielo[m]);
+      laCiudad.fachada.color.set(P.fachada[m]);
       laCiudad.fachada.emissiveIntensity = dia ? 0 : neonOn ? 1.15 : 0.9;
-      sueloMat.color.set(neonOn ? '#6d5f80' : '#ffffff');
-      cielo.color.set(neonOn ? '#ffb0dc' : '#fff6e8');
+      sueloMat.color.set(P.suelo[m]);
+      cielo.color.set(P.luzCielo[m]);
       cielo.intensity = dia ? 1.25 : 0.45;
       sol.intensity = dia ? 2.3 : 0.6;
       relleno.intensity = dia ? 0.5 : 0.25;
@@ -2789,7 +2815,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
     let marco = 0;
     let enfocado = null;
     const objetivoCam = new THREE.Vector3(0, 0, MIRA);
-    const COLOR_ESTACION = { trabajando: MARCA.lima, revisando: '#38bdf8', corrigiendo: '#fb923c', error: '#ef4444', esperando: '#f59e0b' };
+    const COLOR_ESTACION = { trabajando: P.estado.trabajando, revisando: P.estado.revisando, corrigiendo: P.estado.corrigiendo, error: P.estado.error, esperando: P.estado.esperando };
 
     const actualizarIconos = () => {
       const res = estado.current.resaltar;
@@ -2808,8 +2834,8 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
         p.el.querySelector('.o3-icono__nombre').textContent = `${a.nombre} · ${p.desc?.nombre || a.rol}`;
         p.el.setAttribute('aria-label', `${a.nombre}, ${p.desc?.nombre || a.rol}: ${enEst}`);
         // el anillo de la estación, del color de lo que hace (apagado si está libre)
-        const color = COLOR_ESTACION[enEst] || (enTrabajo === 'hecho' ? MARCA.lima : null);
-        p.est.anillo.material.color.set(color || '#9aa0a6');
+        const color = COLOR_ESTACION[enEst] || (enTrabajo === 'hecho' ? P.estado.hecho : null);
+        p.est.anillo.material.color.set(color || P.neutro);
         p.est.anillo.material.opacity = color ? 0.85 : 0;
         p.g.userData.partes.alerta.visible = a.estado === 'te-necesita' || enEst === 'error';
       }
@@ -2878,7 +2904,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
           const cada = enEst === 'corrigiendo' ? 0.55 : 0.85;
           if (t - (tarjetaCada.get(a.id) || 0) > cada + (fase % 1) * 0.3) {
             tarjetaCada.set(a.id, t);
-            tarjeta(p.est.monitor, enEst === 'revisando' ? '#38bdf8' : enEst === 'corrigiendo' ? '#fb923c' : p.desc?.color || a.color || MARCA.lima);
+            tarjeta(p.est.monitor, enEst === 'revisando' ? P.estado.revisando : enEst === 'corrigiendo' ? P.estado.corrigiendo : p.desc?.color || a.color || MARCA.lima);
           }
         }
         if (enEst === 'trabajando' || enEst === 'corrigiendo') {
@@ -3030,7 +3056,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
         }
       }
 
-      // las líneas fijas: grises en reposo, verdes un rato después de una transferencia real
+      // las líneas fijas: grises en reposo, del color «pasa» un rato después de una transferencia real
       const res = estado.current.resaltar;
       const trabajo = res ? (estado.current.produccion?.departamentos || []).flatMap((d) => d.trabajos.map((x) => ({ ...x, dep: d.id }))).find((x) => x.id === res) : null;
       for (const l of lineas) {
@@ -3038,7 +3064,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
         u.brillo = Math.max(0, u.brillo - dt * 0.35);
         const enTarea = trabajo && trabajo.dep === l.dep && trabajo.estaciones?.[l.de] === 'hecho' && trabajo.estaciones?.[l.a] && trabajo.estaciones[l.a] !== 'pendiente';
         const b = enTarea ? 1 : u.brillo;
-        u.material.color.set(b > 0.02 ? COLOR_EVENTO.pasa : '#9aa0a6');
+        u.material.color.set(b > 0.02 ? COLOR_EVENTO.pasa : P.neutro);
         u.material.emissive.set(b > 0.02 ? MARCA.lima : '#000000');
         u.material.emissiveIntensity = 0.4 + b * 1.6;
         u.material.opacity = 0.8 + b * 0.2;
@@ -3125,7 +3151,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
         robot.rotation.y = Math.atan2(nx - robot.position.x, nz - robot.position.z) || robot.rotation.y;
         robot.position.set(nx, 0, nz);
         cepillo.rotation.y = t * 12;
-        ojoRobot.material.color.set(Math.sin(t * 3) > 0 ? LIMA : '#3f6212');
+        ojoRobot.material.color.set(Math.sin(t * 3) > 0 ? LIMA : P.negro);
       }
       brilloLogo = Math.max(0, brilloLogo - dt * 0.6);
       for (const o of animados) {
@@ -3189,7 +3215,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
     };
     // (la escena se arma una vez con los agentes y las salas; los estados se leen en cada cuadro)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [(agentes || []).map((a) => `${a.id}:${a.genero}`).join(','), (zonas || []).map((z) => `${z.id}:${z.lugar}:${z.tipo}:${z.color}:${z.nombre}`).join('|'), Boolean(produccion)]);
+  }, [tema, (agentes || []).map((a) => `${a.id}:${a.genero}`).join(','), (zonas || []).map((z) => `${z.id}:${z.lugar}:${z.tipo}:${z.color}:${z.nombre}`).join('|'), Boolean(produccion)]);
 
   return <div className="o3" ref={caja3d} />;
 }

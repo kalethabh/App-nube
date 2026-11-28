@@ -25,10 +25,13 @@ import crypto from 'node:crypto';
 import { OUTPUT } from './rutas.js';
 
 // Los agentes y su trabajo. `pasos`: los pasos de producción que hace (por su id: lib/familias/*.js PASOS).
-const COLOR_DEP = { video: '#60a5fa', imagen: '#f472b6', investigacion: '#fb923c', landing: '#38bdf8', whatsapp: '#22c55e', analisis: '#c084fc', coordinacion: '#a3e635' };
+// (2026-11-28a) la coordinación y la sala de estar ya no van en el lima de la marca vieja: el dorado de «Ciudad creativa»
+const DORADO = '#ffc774';
+const sinLima = (c) => (/^#(a3e635|a3ff12)$/i.test(String(c || '')) ? DORADO : c);
+const COLOR_DEP = { video: '#60a5fa', imagen: '#f472b6', investigacion: '#fb923c', landing: '#38bdf8', whatsapp: '#22c55e', analisis: '#c084fc', coordinacion: DORADO };
 export const NOMBRE_DEP = { video: 'Anuncios de video', imagen: 'Anuncios de imagen', investigacion: 'Investigación de mercado', landing: 'Landing pages', whatsapp: 'Embudos de WhatsApp', analisis: 'Análisis y optimización', coordinacion: 'Coordinación' };
 export const AGENTES = [
-  { id: 'coordinacion', dep: 'coordinacion', genero: 'mujer', rol: 'Coordinadora', depto: 'Dirección', nombre: 'Valentina', avatar: '👩‍💼', color: '#a3e635', hace: 'Reparte el trabajo, revisa el costo y te avisa lo que espera tu decisión.' },
+  { id: 'coordinacion', dep: 'coordinacion', genero: 'mujer', rol: 'Coordinadora', depto: 'Dirección', nombre: 'Valentina', avatar: '👩‍💼', color: DORADO, hace: 'Reparte el trabajo, revisa el costo y te avisa lo que espera tu decisión.' },
   { id: 'guion', dep: 'video', estacion: 'v-guion', genero: 'hombre', rol: 'Guionista', depto: 'Guiones', nombre: 'Mateo', avatar: '✍️', color: '#fbbf24', hace: 'Escribe los guiones de cada estilo con tu investigación y tus aprendizajes.' },
   { id: 'arte', dep: 'video', estacion: 'v-imagenes', genero: 'mujer', rol: 'Directora de arte', depto: 'Arte', nombre: 'Lucía', avatar: '🎨', color: '#f472b6', hace: 'Crea las personas, los lugares y la imagen de cada escena, y los anuncios de imagen.' },
   { id: 'video', dep: 'video', estacion: 'v-produccion', genero: 'hombre', rol: 'Productor de video', depto: 'Producción', nombre: 'Andrés', avatar: '🎬', color: '#60a5fa', hace: 'Genera los clips, las voces y la música de cada anuncio.' },
@@ -95,7 +98,7 @@ const FIJAS = [
   { id: 'whatsapp', tipo: 'whatsapp', lugar: 4, dep: true, pronto: true, href: '#/embudo-whatsapp' },
   { id: 'analisis', tipo: 'analisis', lugar: 5, dep: true, pronto: true, href: '#/sep' },
   { id: 'coordinacion', tipo: 'coordinacion', lugar: 6, dep: true },
-  { id: 'sala', tipo: 'sala', lugar: 7, nombre: 'Sala de estar', color: '#a3e635' },
+  { id: 'sala', tipo: 'sala', lugar: 7, nombre: 'Sala de estar', color: DORADO },
 ];
 // los tipos de sala para las oficinas que crea el usuario
 export const TIPOS = {
@@ -118,9 +121,9 @@ function zonasDe(cfg, porId = {}) {
   const fijas = FIJAS.map((z) => {
     const g = guardadas[z.id] || {};
     const gente = AGENTES.filter((a) => (a.dep || 'coordinacion') === z.id).length;
-    return { ...z, nombre: (vale && g.nombre) || z.nombre || NOMBRE_DEP[z.id] || z.id, color: (vale && g.color) || z.color || COLOR_DEP[z.id] || '#a3e635', lugar: vale && Number.isInteger(g.lugar) ? g.lugar : z.lugar, agente: false, ...(gente ? { de: `${gente} ${gente === 1 ? 'agente' : 'agentes'}` } : {}), ...(z.id === 'coordinacion' ? { de: porId.coordinacion?.nombre || 'Valentina' } : {}) };
+    return { ...z, nombre: (vale && g.nombre) || z.nombre || NOMBRE_DEP[z.id] || z.id, color: sinLima((vale && g.color) || z.color || COLOR_DEP[z.id] || DORADO), lugar: vale && Number.isInteger(g.lugar) ? g.lugar : z.lugar, agente: false, ...(gente ? { de: `${gente} ${gente === 1 ? 'agente' : 'agentes'}` } : {}), ...(z.id === 'coordinacion' ? { de: porId.coordinacion?.nombre || 'Valentina' } : {}) };
   });
-  const propias = (Array.isArray(cfg.propias) ? cfg.propias : []).map((z) => ({ id: z.id, tipo: TIPOS[z.tipo] ? z.tipo : 'escritorios', nombre: z.nombre, color: z.color, lugar: vale ? z.lugar : -1, propia: true }));
+  const propias = (Array.isArray(cfg.propias) ? cfg.propias : []).map((z) => ({ id: z.id, tipo: TIPOS[z.tipo] ? z.tipo : 'escritorios', nombre: z.nombre, color: sinLima(z.color), lugar: vale ? z.lugar : -1, propia: true }));
   // si dos quedaron en el mismo lugar (o fuera de la planta), la segunda va al primer lugar libre
   const usados = new Set();
   return [...fijas, ...propias].map((z) => {
@@ -152,7 +155,7 @@ export function guardarZonas(cuerpo = {}) {
       zonas[z.id] = { lugar, ...(nombre ? { nombre } : {}), ...(color ? { color } : {}) };
     } else if (z.nueva || viejas.has(z.id)) {
       if (!nombre) throw Object.assign(new Error('Ponle un nombre a tu oficina.'), { status: 400 });
-      propias.push({ id: viejas.has(z.id) ? z.id : `propia-${crypto.randomBytes(3).toString('hex')}`, nombre, color: color || '#a3e635', tipo: TIPOS[z.tipo] ? z.tipo : 'escritorios', lugar });
+      propias.push({ id: viejas.has(z.id) ? z.id : `propia-${crypto.randomBytes(3).toString('hex')}`, nombre, color: color || DORADO, tipo: TIPOS[z.tipo] ? z.tipo : 'escritorios', lugar });
     }
   }
   // las de siempre que no vinieron conservan su lugar si está libre
