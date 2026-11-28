@@ -18,7 +18,15 @@ jobs:
       - run: node --test app/herramientas/probar-nube.mjs
         env:
           PGLITE_PACKAGE_PATH: /tmp/kads-sql/node_modules/@electric-sql/pglite
-      - run: docker build -f deploy/nube/Dockerfile -t kads-prueba .
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: deploy/nube/Dockerfile
+          tags: kads-prueba
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       - name: Motor completo en Linux sin proveedores de pago
         run: |
           docker run -d --name kads-prueba -p 127.0.0.1:4499:4455 -e KADS_MODO=contabo -e ANUNCIOS_MODO_PRUEBA=1 -e KADS_SUPABASE_URL=https://example.invalid -e KADS_SUPABASE_ANON=falsa kads-prueba
@@ -32,5 +40,8 @@ jobs:
           docker exec kads-prueba /opt/kads/app/inicio/codex/node_modules/.bin/codex --version
           docker exec kads-prueba claude --version
           docker exec kads-prueba sh -c 'find /srv/kads/remotion/node_modules/.remotion -name chrome-headless-shell -type f | head -n 1 | xargs -r -I{} {} --no-sandbox --version'
+      - name: Anuncio completo hasta MP4 con proveedores simulados
+        run: |
+          docker exec -e KADS_SUPABASE_URL= -e KADS_SUPABASE_ANON= -e HUMO_SIN_IMAGEN_ADS=1 -e HUMO_SIN_REGENERAR=1 -e HUMO_SIN_MODO_B=1 kads-prueba node app/herramientas/prueba-humo.mjs
       - if: always()
         run: docker logs kads-prueba || true
