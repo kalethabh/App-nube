@@ -1,0 +1,187 @@
+{
+  "formato": "documento",
+  "producto": "Drenaje Linfático",
+  "pais": "Colombia",
+  "fecha": "28 de noviembre de 2026",
+  "color": "#1F4D3A",
+  "portada": {
+    "titulo": "Drenaje Linfático en gotas",
+    "subtitulo": "Nature's Sunshine · gotero de 59 ml · 4 extractos de plantas, mañana y noche",
+    "avatar": "Diana Marcela, la de los pies hinchados a las 5 de la tarde",
+    "quien_compra": "Ella misma (a veces la hija que se lo regala a su mamá)",
+    "canal": "Meta Ads + WhatsApp · pago contra entrega · oferta x3"
+  },
+  "claves": {
+    "deseo_central": "Volver a sentirme liviana, despertar con mi cara de siempre y llegar a la noche sin los pies como tamales.",
+    "beneficio_principal": "Menos sensación de hinchazón en cara, barriga, piernas y tobillos",
+    "puntos_dolor": [
+      "Amanezco con la cara hinchada, como si hubiera llorado toda la noche",
+      "A las 5 de la tarde los zapatos me aprietan y la media me deja marca",
+      "El jean me cierra en la mañana y a las 3 de la tarde ya no",
+      "Siento las piernas pesadas, como si cargara arena",
+      "Me da pena salir en las fotos porque me veo inflada",
+      "Ya gasté plata en masajes y tés y a los dos días estaba igual",
+      "Los anillos ya no me salen al final del día"
+    ]
+  },
+  "secciones": [
+    {
+      "titulo": "Resumen ejecutivo",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "El producto de la foto es **Lymphatic Drainage de Nature's Sunshine**: un gotero de 59 ml con 4 extractos de plantas (galio o «cleavers», trébol rojo, raíz roja y corteza de fresno espinoso) en glicerina vegetal y agua. La marca indica 1 ml en agua dos veces al día, así que un frasco dura unos 30 días. En Estados Unidos cuesta 37,95 dólares." },
+        { "tipo": "parrafo", "texto": "La demanda está viva: la búsqueda de «gotas de drenaje linfático» creció más de siete veces en un año y en septiembre de 2026 pasaba las 90.000 búsquedas al mes en el mundo. En Colombia ya hay varias gotas y cápsulas de «drenaje linfático» en Mercado Libre, incluidas reventas de esta misma marca. El dolor es masivo: más de la mitad de los adultos tiene exceso de peso, la obesidad pega más a las mujeres (22,4 %) y la cultura del cuerpo es fuerte (Colombia hizo casi 491.000 procedimientos estéticos en 2024, con la lipo de primera)." },
+        { "tipo": "parrafo", "texto": "Lo que la gente cuenta en reseñas es sencillo: va más al baño, la cara amanece menos hinchada y las piernas se sienten más livianas, casi siempre entre la primera y la tercera semana. Las quejas también se repiten: frasco pequeño para el precio, «a mí no me hizo nada» y que la sensación vuelve si lo deja. No hay estudios de esta fórmula: su uso es tradicional." },
+        { "tipo": "caja", "estilo": "recomendacion", "titulo": "Recomendación central", "texto": "Véndelo como un **ritual de mañana y noche para sentirte liviana**, no como algo para bajar de peso. El ángulo ganador es la hinchazón que se ve y se siente en momentos concretos del día: la cara al despertar, el jean a las 3 p.m. y los tobillos a las 5 p.m. Aprovecha diciembre (fotos, novenas, fiestas, prima) y vende el tratamiento x3 como «90 días de rutina», porque la gente nota más con constancia y se queja cuando lo deja.", "items": [], "pie": "" },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Alertas antes de pautar", "texto": "", "items": [
+          "**Registro sanitario INVIMA.** Para venderlo en Colombia como suplemento dietario necesitas el registro y una etiqueta o sticker en español con la leyenda obligatoria. Si es reventa importada sin registro, el riesgo es alto (decomiso y sanción).",
+          "**Uno de los ingredientes hay que confirmarlo.** La página de la marca dice «red root» (raíz roja) y una base de datos de farmacia lo registra como stillingia. La stillingia tiene advertencias de seguridad cuando se toma. Pide la ficha técnica con el nombre en latín de cada planta antes de pautar.",
+          "**La foto parece retocada.** Los íconos del frasco («Support Energy», «Boosts Clarity», «Reduce Swelling», «Promotes Vitality») no aparecen en la ficha oficial. Usa una foto real del frasco que vas a entregar.",
+          "**Sellos que hay que poder demostrar.** «Garantía de satisfacción» (¿cuántos días y cómo se cobra?), «Envío gratis» y «Sin aditivos artificiales». Si no los puedes cumplir, quítalos.",
+          "**No es para bajar de peso ni para posoperatorios.** Nada de «adelgaza», «elimina toxinas», «quema grasa», «linfedema», «várices» ni «después de la lipo». Quien está en posoperatorio sigue lo que dice su cirujano.",
+          "**Precios de la competencia pendientes.** Mercado Libre Colombia no se dejó abrir; revisa a mano 5 publicaciones antes de fijar el precio."
+        ], "pie": "" }
+      ]
+    },
+    {
+      "titulo": "Ficha del producto",
+      "bloques": [
+        { "tipo": "ficha", "filas": [
+          ["Nombre", "Lymphatic Drainage (Drenaje Linfático) · «Traditional Lymphatic Blend»"],
+          ["Marca", "Nature's Sunshine (en la etiqueta: «Herbal Experts since 1972», expertos en plantas desde 1972)"],
+          ["Presentación", "Gotero de vidrio ámbar, 2 fl oz (59 ml), extractos líquidos de plantas"],
+          ["Ingredientes", "Galio o «cleavers» (partes aéreas), flor de trébol rojo, raíz roja («red root»: confirmar si es stillingia) y corteza de fresno espinoso. Base: glicerina vegetal y agua"],
+          ["Cantidad por toma", "Mezcla de 300 mg por porción, según una base de datos de farmacia (confirmar con la etiqueta)"],
+          ["Modo de uso (marca)", "1 ml (unas 15 a 20 gotas, ¼ de cucharadita) en agua, dos veces al día. En el anuncio: «1 gotero, mañana y noche»"],
+          ["Duración", "59 porciones: unos 30 días por frasco. Tratamiento x3: unos 90 días"],
+          ["Precio de referencia", "37,95 dólares en la tienda de la marca en EE. UU. (28,45 con suscripción)"],
+          ["Nivel de evidencia", "Bajo. Uso tradicional; no hay estudios en personas con esta fórmula. El galio tiene algo de evidencia de laboratorio y animal como diurético suave"],
+          ["Lo que la gente nota", "Ir más al baño, cara menos hinchada, piernas más livianas. A algunos no les hace nada"],
+          ["Registro sanitario", "Pendiente: confirmar registro INVIMA como suplemento dietario"]
+        ], "nota": "Lo que dice la imagen del anuncio actual: «Deshínchate. Siéntete más ligera. Vuelve a reconocer tu cuerpo», «4 extractos botánicos», «1 gotero, mañana y noche», «100 % natural», «Envío gratis disponible», «Garantía de satisfacción», «Sin aditivos artificiales»." },
+        { "tipo": "subtitulo", "texto": "Seguridad de cada ingrediente" },
+        { "tipo": "tabla", "columnas": ["Ingrediente", "Qué se le atribuye (uso tradicional)", "Precauciones"], "filas": [
+          ["Galio (cleavers)", "Diurético suave, «planta del sistema linfático» en herbolaria", "Puede aumentar la orina: cuidado con litio y con diuréticos recetados"],
+          ["Trébol rojo (flor)", "Planta tradicional «depurativa»; tiene isoflavonas (fitoestrógenos)", "Puede aumentar el sangrado con anticoagulantes; puede interferir con terapia hormonal o anticonceptivos; no en cáncer de mama sensible a hormonas; evitar en embarazo"],
+          ["Raíz roja (confirmar especie)", "Uso tradicional para ganglios y «limpieza»", "Si es stillingia: considerada posiblemente insegura por boca, puede irritar el estómago; no en embarazo ni lactancia ni con gastritis"],
+          ["Fresno espinoso (corteza)", "Estimulante de la circulación en herbolaria", "Molestias de estómago; consultar si toma anticoagulantes"],
+          ["La mezcla", "Sensación de menos hinchazón", "Más ganas de orinar, malestar si se toma en ayunas, rara vez alergia (familia de la ambrosía). Enfermedad del riñón o del corazón: solo con el médico"]
+        ], "nota": "La marca pide consultar al médico en embarazo, lactancia, enfermedades o si se toman medicamentos.", "estilo": "normal" }
+      ]
+    },
+    {
+      "titulo": "Panorama del mercado en Colombia",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "Tamaño del dolor" },
+        { "tipo": "tabla", "columnas": ["Indicador", "Dato", "Fuente"], "filas": [
+          ["Adultos con exceso de peso (18 a 64 años)", "56,4 %", "ENSIN 2015 · ICBF"],
+          ["Obesidad en mujeres frente a hombres", "22,4 % vs. 14,4 %", "ENSIN 2015 · ICBF"],
+          ["Adultos que cumplen la actividad física recomendada", "Cerca de la mitad", "ENSIN 2015"],
+          ["Várices en un estudio de población en Antioquia", "27,5 %", "Revista Facultad Nacional de Salud Pública (UdeA)"],
+          ["Pacientes de una clínica de venas en Medellín que son mujeres", "79,8 % (edad media 53 años)", "Serie de 1.136 pacientes"],
+          ["Procedimientos estéticos en Colombia (2024)", "490.944 (liposucción: 41.280, la más hecha)", "ISAPS vía Portafolio"],
+          ["Sesión de drenaje linfático manual", "Entre 45.000 y 150.000 pesos (posquirúrgico: 80.000 a 150.000)", "Doctoralia, Fresha, CuántoMeCuesta"],
+          ["Interés mundial por «gotas de drenaje linfático»", "Más de 90.000 búsquedas al mes (×7 en un año, sept. 2026)", "The Blueprint (Rising Trends)"]
+        ], "nota": "No hay cifra oficial de «retención de líquidos» en Colombia; los datos de peso, várices y estética muestran el tamaño del público.", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "Contexto cultural" },
+        { "tipo": "vinetas", "items": [
+          "**Cultura del cuerpo.** Colombia está en el top 10 mundial de cirugías estéticas; el drenaje linfático es una palabra conocida por la lipo y los spas, así que «drenaje» suena a algo bueno y cercano.",
+          "**Jornadas largas de pie o sentada.** Cajeras, asesoras, enfermeras, docentes y call center: la hinchazón de tobillos al final del día es cotidiana.",
+          "**Calor y costa.** En Barranquilla, Cartagena, Cali o Cúcuta el calor hace que pies y manos se sientan más hinchados.",
+          "**Comida salada y harinas.** Corrientazo, embutidos, paquetes y gaseosa: «me siento inflada después de almorzar».",
+          "**Diciembre.** Novenas, fiestas de empresa, fotos y estrenos: es el mes en que más se quiere «verse bien en la foto». La prima ayuda a comprar combos.",
+          "**Tendencia en TikTok.** El drenaje linfático se vende como un «reset» del cuerpo; la prensa ya publica notas escépticas. Promete poco y concreto para ganar confianza."
+        ] },
+        { "tipo": "subtitulo", "texto": "E-commerce y contra entrega" },
+        { "tipo": "vinetas", "items": [
+          "Las ventas en línea en Colombia llegaron a 145,4 billones de pesos en 2025, con más de 684 millones de transacciones (CCCE).",
+          "En el comercio electrónico formal, el efectivo y el pago contra entrega bajaron al 2,7 % en el segundo trimestre de 2025; PSE domina. Pero en la venta por redes y WhatsApp el pago al recibir sigue siendo el que quita el miedo a la estafa.",
+          "Ofrece las dos opciones: contra entrega para quien desconfía y pago anticipado (PSE, Nequi) con un detalle extra."
+        ] },
+        { "tipo": "subtitulo", "texto": "Competencia" },
+        { "tipo": "tabla", "columnas": ["Competidor", "Formato", "Precio", "Cómo se vende"], "filas": [
+          ["Reventas de Nature's Sunshine en Mercado Libre", "Gotero 59 ml", "[pendiente]", "«Para eliminar líquidos e hinchazón»"],
+          ["Drenaje Linfático gotas con extractos herbales", "Gotero 59 ml", "[pendiente]", "«Práctico formato líquido», natural"],
+          ["Gotas drenaje linfático «tradicional» x2", "2 goteros", "[pendiente]", "Combo de dos"],
+          ["Linfovit", "Cápsulas (30 y 60)", "[pendiente]", "«Sin sabor»"],
+          ["Linfobit", "60 cápsulas vegetales", "[pendiente]", "«Sin sabor»"],
+          ["Cápsulas de drenaje linfático 20 en 1", "Cápsulas", "[pendiente]", "Fórmula de muchas plantas"],
+          ["Masaje de drenaje linfático manual", "Sesión de 1 hora", "45.000 a 150.000 pesos por sesión", "Spa, fisioterapeuta, posoperatorio"]
+        ], "nota": "Mercado Libre no permitió leer los precios. Revisa a mano 5 publicaciones y anota precio, ventas y calificación. El masaje es tu comparación más fuerte: un frasco de un mes cuesta lo que una o dos sesiones.", "estilo": "normal" }
+      ]
+    },
+    {
+      "titulo": "Problemas que resuelve",
+      "bloques": [
+        { "tipo": "ficha", "filas": [
+          ["Sensación física", "Pesadez en las piernas, tobillos hinchados al final del día, manos hinchadas (anillos que no salen), sensación de «globo» en la barriga"],
+          ["Estético", "Cara hinchada al despertar, ojeras y párpados abultados, papada que se marca en fotos, jean que aprieta en la tarde"],
+          ["Hormonal o ciclo de vida", "Hinchazón antes de la menstruación, cambios después de los 40 (consultar si toma terapia hormonal)"],
+          ["Hábitos", "Comida salada, poca agua, mucho tiempo sentada o de pie, poco ejercicio"],
+          ["Ambiente", "Calor de la costa y de los valles, trancones y buses largos sin moverse"],
+          ["Emocional y familiar", "«No me reconozco en el espejo», pena de salir en las fotos, la ropa no le queda igual, miedo a terminar con las piernas de la mamá"],
+          ["Económico", "Los masajes son caros y el efecto dura pocos días; ya gastó en tés y fajas"]
+        ], "nota": "" }
+      ]
+    },
+    {
+      "titulo": "Problema y solución, con el sentimiento de las comunidades",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Problema", "Cómo lo dicen (parafraseado)", "Sentimiento", "Solución del producto"], "filas": [
+          ["Cara hinchada al despertar", "Me levanto con «cara de luna», los ojos hinchados como si hubiera llorado", "Frustración, vergüenza", "Toma de la noche: muchas personas cuentan que amanecen con la cara menos hinchada"],
+          ["Piernas y tobillos hinchados", "Estoy de pie 10 o 12 horas y termino con los pies como bombas", "Cansancio, resignación", "Apoya la eliminación natural de líquidos; piernas que se sienten más livianas"],
+          ["Barriga inflada en la tarde", "En la mañana el pantalón me cierra y en la tarde ya no", "Incomodidad, culpa", "Rutina de mañana y noche para sentirse menos inflada"],
+          ["Lo probado no dura", "Los masajes me sirven dos días y vuelvo a lo mismo", "Desconfianza, gasto", "Una rutina diaria y barata comparada con una sesión de masaje"],
+          ["Miedo a que sea «puro mercadeo»", "¿Eso no es lo mismo que una pastilla para orinar? Seguro es otra moda de TikTok", "Escepticismo alto", "Honestidad: 4 plantas de uso tradicional, sin promesas de adelgazar, pagas al recibir"],
+          ["Precio frente a tamaño", "El frasco es chiquito para lo que cuesta", "Duda de valor", "Explicar que dura 30 días y el combo x3 rinde 90"]
+        ], "nota": "", "estilo": "normal" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Nota metodológica", "texto": "Reddit no devolvió hilos útiles en la búsqueda; se usaron foros abiertos (Mumsnet), un análisis de 5.807 reseñas de Amazon de este producto (Nullfake), Trustpilot de una marca parecida de gotas linfáticas (Lymphoria, 5.139 reseñas) y reseñas editoriales. Walmart, Mercado Libre y una base de interacciones no dejaron abrir sus páginas. TikTok se revisó por medio de notas de prensa. Las frases están parafraseadas: no son citas textuales.", "items": [], "pie": "" }
+      ]
+    },
+    {
+      "titulo": "Barrido por plataformas",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Plataforma", "Qué dicen", "Insight para la venta"], "filas": [
+          ["Amazon (este producto)", "5.807 reseñas. Elogian que orinan más, la cara menos hinchada y alguna baja de peso. Quejas: «no me funcionó», frasco pequeño y caro. Cerca del 10 % de reseñas podrían ser falsas", "Vende «menos hinchazón», no «bajar de peso». Justifica el tamaño con los 30 días"],
+          ["Trustpilot (Lymphoria, gotas parecidas)", "4,1 de 5 con 5.139 reseñas, pero 18 % de una estrella. Piernas «más livianas» a los pocos días en una reseña; quejas por cobros de suscripción, precio del anuncio distinto al del pago, gases y diarrea en un caso", "La desconfianza es por cobros: el pago al recibir y el precio claro son una ventaja"],
+          ["Mumsnet (foro)", "Escepticismo: «¿no son las mismas pastillas para orinar?», «cosas de TikTok». Recomiendan medias de compresión, subir las piernas y masaje", "No ataques esos hábitos: súmalos. «Tu rutina + 1 gotero»"],
+          ["Reseñas editoriales", "Mejoras en cara y piernas entre 1 y 2 semanas, a veces 2 a 3; mejor sabor que otras tinturas; la sensación vuelve si lo dejan", "Tiempos realistas y el combo x3 como rutina"],
+          ["TikTok y prensa", "El drenaje se vende como un «reset» del cuerpo; la prensa aclara que no quema grasa", "Promete algo pequeño y visible: la cara de la mañana, los tobillos de la tarde"],
+          ["Mercado Libre Colombia", "Varias gotas y cápsulas de «drenaje linfático», incluida esta marca revendida; se venden como «elimina líquidos e hinchazón»", "La categoría ya existe: diferénciate con la marca desde 1972, el ritual y la atención por WhatsApp"],
+          ["Directorios de spa y fisioterapia", "Sesión de drenaje manual de 45.000 a 150.000 pesos", "Comparación de precio: un mes de gotas cuesta lo de una o dos sesiones"]
+        ], "nota": "", "estilo": "normal" }
+      ]
+    },
+    {
+      "titulo": "Puntos de dolor en las reseñas",
+      "bloques": [
+        { "tipo": "numerada", "items": [
+          "**La cara de la mañana.** «Cara de luna», párpados hinchados, la papada que se marca.",
+          "**Los pies al final del turno.** Estar de pie 10 a 12 horas y llegar con los tobillos como bombas.",
+          "**Sentirse inflada.** La ropa que aprieta más en la tarde que en la mañana.",
+          "**Lo que no dura.** Masajes y tés que sirven pocos días.",
+          "**El precio por tamaño.** «Es un frasco muy chiquito para lo que vale».",
+          "**«A mí no me hizo nada».** Parte de la gente no nota cambios.",
+          "**Miedo a cobros escondidos.** Suscripciones que no pidió y precios del anuncio que cambian al pagar.",
+          "**El estómago.** Malestar si se toma en ayunas; gases en algún caso."
+        ] }
+      ]
+    },
+    {
+      "titulo": "Impulso de compra",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Detonante", "Momento real", "Cómo activarlo en el anuncio"], "filas": [
+          ["El espejo de la mañana", "5:30 a.m., se lava la cara y se ve hinchada", "Primer plano de la cara al despertar + «¿Amaneciste así otra vez?»"],
+          ["Los zapatos que aprietan", "5 p.m., al quitarse los zapatos o ver la marca de la media", "Toma de los tobillos marcados y el suspiro de alivio"],
+          ["El jean que no cierra", "3 p.m., después del almuerzo en la oficina", "La mano que desabotona el pantalón debajo del escritorio"],
+          ["La foto", "Fiesta de fin de año, novena, cumpleaños", "Ella mirando la foto del grupo y haciendo zoom a su cara"],
+          ["El regalo o la mamá", "Diciembre, visita a la mamá con las piernas pesadas", "La hija que dice «mamá, no son los zapatos»"],
+          ["La prima y la quincena", "15 y 30, y la prima de diciembre", "Combo x3 «para todo el trimestre» con pago al recibir"]
+        ], "nota": "", "estilo": "normal" }
+      ]
+    },
+    {
+      "titulo": "__SIGUE__",
+      "bloques": []
+    }
+  ]
+}
