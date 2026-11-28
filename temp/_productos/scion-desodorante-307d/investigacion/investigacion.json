@@ -1,0 +1,175 @@
+{
+  "formato": "documento",
+  "producto": "Scion Desodorante Aclarante",
+  "pais": "Colombia",
+  "fecha": "28 de noviembre de 2026",
+  "color": "#2C5A73",
+  "portada": {
+    "titulo": "Scion Brightening Roll-On",
+    "subtitulo": "Nu Skin · roll-on de 75 ml · desodorante y antitranspirante que ayuda a emparejar el tono de la axila",
+    "avatar": "Leidy Johana, la que levanta el brazo con pena",
+    "quien_compra": "",
+    "canal": "Meta Ads + WhatsApp · pago contra entrega · oferta x3"
+  },
+  "claves": {
+    "deseo_central": "Poder levantar los brazos sin pena, con las axilas parejitas y oliendo rico todo el día, sin tener que esconderme",
+    "beneficio_principal": "Ayuda a que la axila se vea de un tono más parejo mientras controla el olor y el sudor, en un solo paso",
+    "puntos_dolor": [
+      "Me da pena levantar el brazo en el bus o en una foto",
+      "Ya no me pongo blusas de tiras ni esqueletos",
+      "Me rasuro y al otro día se ve como sombra negra",
+      "Probé limón, bicarbonato y cremas y nada",
+      "Los desodorantes normales me arden después de depilarme",
+      "Con este calor sudo y huelo a mitad del día",
+      "En la piscina o la playa tengo que estar con los brazos pegados"
+    ]
+  },
+  "secciones": [
+    {
+      "titulo": "Resumen ejecutivo",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "Scion Brightening Roll-On es un desodorante antitranspirante de **Nu Skin** en roll-on de 75 ml, sin alcohol, que combina el control del olor y del sudor con componentes para emparejar el tono de la axila: **niacinamida, extracto de gayuba (bearberry), extracto de regaliz, ácido láctico y alantoína**. La marca dice que se ven resultados visibles desde 4 semanas de uso diario. No es un tratamiento: es un cosmético de uso diario." },
+        { "tipo": "parrafo", "texto": "El dolor es masivo y muy emocional. Las encuestas de Dove en la región dicen que 8 de cada 10 mujeres sienten que sus axilas no se ven como deberían, y en Uruguay el 78 % evita las blusas sin mangas por las manchas. La revisión científica más reciente describe las axilas oscuras como una pigmentación por irritación (rasurado, fricción, depilación, desodorantes), más común en pieles trigueñas y morenas: justo el tono de piel de la mayoría en Colombia." },
+        { "tipo": "parrafo", "texto": "En Colombia compite con desodorantes aclarantes de supermercado (Nivea, Dove, Rexona, Yanbal Effective) que cuestan entre $16.000 y $30.000. Scion no aparece en tiendas grandes colombianas: su ventaja es ser importado, de una marca reconocida, unisex, sin alcohol y con varios componentes aclarantes juntos. El precio tiene que justificarse con esa diferencia y con la promesa de rutina de 4 semanas." },
+        { "tipo": "caja", "estilo": "recomendacion", "titulo": "Recomendación central", "texto": "Véndelo como **el desodorante que te cuida la axila mientras te protege**: un solo paso después del baño que controla el olor y, con constancia, ayuda a que la axila se vea más pareja. El ángulo ganador es emocional (volver a levantar los brazos sin pena) y de temporada: diciembre, piscina, paseos y fotos de fin de año. Oferta x3 como «tratamiento de 3 meses», porque los cambios más notorios llegan entre la semana 4 y la 12.", "items": [
+          "Avatar principal: mujer de 22 a 40 años, piel trigueña, que se rasura con cuchilla y ya dejó de usar blusas sin mangas.",
+          "Primer conjunto de anuncios: identificación directa con el brazo levantado + frustración con remedios caseros + temporada de diciembre.",
+          "Cierre en WhatsApp: pagas al recibir, cómo usarlo y por qué se recomienda el combo de 3."
+        ], "pie": "" },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Alertas antes de pautar", "texto": "", "items": [
+          "**Notificación Sanitaria Obligatoria (NSO) del INVIMA: pendiente.** Todo cosmético que se vende en Colombia la necesita. En julio de 2026 el INVIMA declaró fraudulento un desodorante vendido por redes por no tenerla. Confírmala antes de pautar.",
+          "**La etiqueta está en inglés.** Para vender en Colombia el producto debe llevar rotulado en español (ingredientes, modo de uso, importador). Confírmalo con tu proveedor.",
+          "**No digas «blanquea» ni «elimina las manchas».** Usa «ayuda a emparejar el tono», «axila más pareja», «muchas personas notan».",
+          "**No es 100 % natural:** contiene clorhidrato de aluminio (el antitranspirante). No lo vendas como natural ni como «sin aluminio».",
+          "**Reseñas mixtas sobre manchas en la ropa:** la marca dice que no deja manchas amarillas, pero dos reseñas dicen lo contrario. No lo pongas como promesa.",
+          "**Precio en Colombia: pendiente.** No hay precio público local; la oferta de este documento es una estimación.",
+          "**Clínicamente probado e hipoalergénico** son frases de la marca: úsalas solo si tienes el documento que lo respalda."
+        ], "pie": "" }
+      ]
+    },
+    {
+      "titulo": "Ficha del producto",
+      "bloques": [
+        { "tipo": "ficha", "filas": [
+          ["Nombre", "Scion® Brightening Roll-On Deodorant (en algunos países: Scion Whitening Roll-On)"],
+          ["Marca", "Nu Skin (Estados Unidos), venta directa en Asia, Oceanía y América"],
+          ["Presentación", "Roll-on de 75 ml, frasco azul claro"],
+          ["Tipo", "Desodorante antitranspirante con acción aclarante. Cosmético. Unisex."],
+          ["Componentes clave", "**Niacinamida** (ayuda a emparejar el tono) · **Extracto de gayuba o bearberry** (aclarante de origen vegetal, fuente de arbutina) · **Extracto de regaliz** (ayuda a reducir la apariencia de las manchas) · **Ácido láctico** (exfoliante suave, ayuda con la textura y los poros) · **Alantoína** (calma la piel irritada) · **Clorhidrato de aluminio** (controla el sudor)"],
+          ["Otros ingredientes", "Agua, steareth-2, steareth-21, fragancia, palmitato de isopropilo, pentilenglicol, glicerina, butilenglicol, entre otros (lista de Australia; la fórmula puede variar por país o lote)"],
+          ["Modo de uso", "Aplicar en toda la axila limpia y seca, después del baño. Se puede usar después de rasurarse, mejor esperando unos minutos. Uso diario."],
+          ["Duración por unidad", "Pendiente. Una reseña habla de unos 6 meses; depende de cuánto se use."],
+          ["Atributos de la marca", "Sin alcohol · Probado dermatológicamente · Hipoalergénico · Para piel sensible · Unisex · No probado en animales · Secado rápido, no pegajoso"],
+          ["Precio de referencia", "Australia: A$16 · Indonesia: Rp 90.000 · Singapur: S$10,50 · eBay (Estados Unidos): US$36,49 por unidad (revendedor)"],
+          ["Promesa de tiempo (marca)", "Resultados visibles desde 4 semanas de uso diario"],
+          ["Nivel de evidencia", "Medio-bajo. La niacinamida al 4 % mostró mejor respuesta que el placebo en axilas oscuras en 9 semanas (estudio pequeño). Gayuba y regaliz tienen respaldo general como aclarantes, no estudios propios de este producto publicados. Las reseñas son mixtas: muchas notan cambio en 1 a 3 meses, otras no notan nada."],
+          ["Registro sanitario", "NSO del INVIMA: pendiente de confirmar"],
+          ["Seguridad", "Uso externo. No aplicar sobre heridas ni piel irritada. Suspender si arde, pica o enrojece. Mantener fuera del alcance de los niños. Cerrar bien la tapa."]
+        ], "nota": "Fuentes: página oficial de Nu Skin Australia y reseñas de Female Daily. Confirma la fórmula con la etiqueta del lote que vas a vender." }
+      ]
+    },
+    {
+      "titulo": "Panorama del mercado en Colombia",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "Tamaño del dolor" },
+        { "tipo": "tabla", "columnas": ["Indicador", "Dato", "Fuente"], "filas": [
+          ["Mujeres que sienten que sus axilas no son «ideales»", "8 de cada 10 (encuesta a 4.000 mujeres de 18 a 64 años, varios países)", "Dove, campaña Tomadas del brazo"],
+          ["Mujeres que sienten presión social por sus axilas", "88 %", "Dove"],
+          ["Mujeres con manchas en las axilas (México)", "Más de la mitad, con inseguridad y ansiedad", "Encuesta Dove citada por Milenio"],
+          ["Mujeres a las que las manchas les quitan seguridad (Uruguay)", "60 %; el 78 % evita blusas sin mangas", "El Observador, encuesta de marca"],
+          ["Pigmentación por irritación en la población", "Casi 15 % de las personas, más en mujeres", "Revisión sistemática 2025, PubMed Central"],
+          ["A quién afecta más", "Mujeres de piel trigueña a morena (fototipos III a V)", "Revisión sistemática 2025"],
+          ["Datos propios de Colombia", "No hay encuesta pública colombiana sobre axilas oscuras", "Pendiente"]
+        ], "nota": "Las encuestas de Dove son de marca y en línea: úsalas como referencia, no como dato oficial." },
+        { "tipo": "subtitulo", "texto": "Contexto cultural" },
+        { "tipo": "vinetas", "items": [
+          "**Clima caliente y húmedo** en la Costa, el Valle, el Eje Cafetero y los Llanos: más sudor, más fricción y más ropa sin mangas.",
+          "**Rasurado con cuchilla** es el método más común y barato; la revisión científica lo señala como una de las causas principales de la axila oscura.",
+          "**Remedios caseros** muy difundidos en TikTok y YouTube: limón, bicarbonato, papa, sábila. Mucha gente llega frustrada después de probarlos.",
+          "**Diciembre** es temporada de paseos a tierra caliente, piscina, playa, novenas y fotos de fin de año; la prima de diciembre da poder de compra.",
+          "**La cultura del arreglo personal** en Colombia es fuerte: blusas de tiras, tops y vestidos sin mangas son el uniforme de la ropa de salir.",
+          "Las grandes marcas ya educaron la categoría: Dove, Nivea y Rexona venden desodorantes «aclarantes» y «tono natural» en cualquier droguería."
+        ] },
+        { "tipo": "subtitulo", "texto": "E-commerce y pago contra entrega" },
+        { "tipo": "tabla", "columnas": ["Indicador", "Dato", "Fuente"], "filas": [
+          ["Ventas en línea en Colombia 2025", "$145,4 billones", "Cámara Colombiana de Comercio Electrónico (CCCE)"],
+          ["Ventas en línea segundo trimestre 2026", "$26,9 billones, 3 % más que el año anterior", "CCCE, citado por Tiendanube"],
+          ["Efectivo y contra entrega en transacciones formales", "2,7 % (2025), bajó desde 5,2 % en 2022", "MinTIC con datos de la CCCE"],
+          ["Categoría más vendida por emprendedores en tiendas virtuales", "Belleza y cuidado personal, 31,3 %", "Portafolio"],
+          ["Preferencia por contra entrega en tiendas de emprendedores", "La mayoría de usuarios de una plataforma la prefiere", "Portafolio (dato de empresa)"]
+        ], "nota": "El 2,7 % mide pagos registrados por grandes comercios; en venta por redes sociales y WhatsApp el pago contra entrega pesa mucho más, pero no hay cifra oficial verificable." },
+        { "tipo": "subtitulo", "texto": "Competencia" },
+        { "tipo": "tabla", "columnas": ["Competidor", "Presentación", "Precio de referencia", "Ángulo", "Dónde"], "filas": [
+          ["Dove Dermo Aclarant / Tono uniforme", "Roll-on o barra 45 g", "$20.960 (antes $27.950)", "Previene el oscurecimiento, con crema", "Rappi, droguerías"],
+          ["Nivea Aclarado Natural / Tono Natural", "Roll-on 50 ml", "$16.550 a $16.650", "Aclara y protege 48 h", "Falabella, Rappi, Farmatodo"],
+          ["Nivea Aclarado Natural spray", "Aerosol 150 ml", "$26.700", "Efecto satín, 48 h", "Farmatodo"],
+          ["Rexona Clinical Mujer", "Crema 48 g", "$27.250", "Protección extrema contra el sudor", "Rappi"],
+          ["Yanbal Effective Aclarante", "Roll-on 50 g", "$25.900 a $27.900 (antes $38.900)", "Aclarante, venta por catálogo", "Falabella, Mercado Libre"],
+          ["Cremas aclarantes (Kaba, niacinamida genéricas)", "Crema 50 a 60 g", "Variable", "Axilas, cuello, entrepierna", "Mercado Libre"],
+          ["Desodorantes de alumbre «naturales»", "Roll-on o piedra", "Variable", "Natural, sin aluminio, aclara tras rasurar", "Mercado Libre"]
+        ], "nota": "Precios tomados de tiendas en línea en fechas no verificadas; varían por promoción. Scion no aparece en tiendas grandes colombianas: su precio local está pendiente." }
+      ]
+    },
+    {
+      "titulo": "Problemas que resuelve",
+      "bloques": [
+        { "tipo": "ficha", "filas": [
+          ["Estético", "Axila oscura o grisácea, sombra después de rasurar, tono disparejo, textura áspera o con puntitos."],
+          ["Sensación física", "Olor a mitad del día, sudor, ardor o picazón al aplicar desodorantes con alcohol sobre la piel recién rasurada."],
+          ["Hábitos", "Rasurado diario con cuchilla, depilación con cera, ropa apretada que roza, desodorantes que irritan."],
+          ["Ambiente", "Calor y humedad (Costa, Cali, Medellín, Llanos), transporte lleno, trabajo de pie todo el día."],
+          ["Hormonal o ciclo de vida", "Cambios de tono que muchas mujeres notan con el embarazo, después del parto o con los cambios hormonales."],
+          ["Emocional y social", "Pena de levantar el brazo en el bus, en el gimnasio o en una foto; evitar la piscina; sentirse descuidada."],
+          ["Económico", "Plata perdida en cremas, remedios caseros y desodorantes «aclarantes» que no cambiaron nada; tratamientos de consultorio caros."],
+          ["Pareja e intimidad", "Inseguridad con la pareja al quitarse la ropa o al abrazar."]
+        ], "nota": "" }
+      ]
+    },
+    {
+      "titulo": "Problema y solución, con el sentimiento de las comunidades",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Problema", "Cómo lo dicen (parafraseado)", "Sentimiento", "Solución del producto"], "filas": [
+          ["Axila oscura", "Tengo las axilas negras y me da pena levantar el brazo", "Vergüenza, inseguridad", "Niacinamida, gayuba y regaliz ayudan a que se vea más pareja con el uso diario"],
+          ["Sombra después de rasurar", "Me rasuro y al otro día se ve como gris, como si no me hubiera rasurado", "Frustración", "Ácido láctico exfolia suave y ayuda con la textura y los poros"],
+          ["Ardor con desodorantes", "Los desodorantes me arden después de depilarme", "Molestia, miedo a irritarse", "Sin alcohol, con alantoína que calma; se puede usar tras rasurar esperando unos minutos"],
+          ["Olor a mitad del día", "Con este calor a las 2 de la tarde ya huelo", "Inseguridad social", "Controla el olor; reseñas dicen que dura todo el día"],
+          ["Remedios que no sirvieron", "Probé limón, bicarbonato, de todo, y sigo igual", "Desconfianza, cansancio", "Fórmula de una marca reconocida con varios componentes aclarantes juntos"],
+          ["Esconderse", "Ya no me pongo blusas de tiras ni voy a la piscina", "Tristeza, limitación", "Una rutina de un paso que, con constancia, ayuda a recuperar la confianza"],
+          ["Sudor", "Sudo mucho y se me marca la blusa", "Incomodidad", "Antitranspirante (clorhidrato de aluminio); ojo: varias reseñas dicen que con sudor fuerte se queda corto"]
+        ], "nota": "" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Nota metodológica", "texto": "Se revisaron la página oficial de Nu Skin Australia, la ficha y reseñas de Female Daily (Indonesia, 678 usuarios, 4,5 de 5), listados de Beauty Insider (Singapur), eBay, tiendas colombianas (Falabella, Farmatodo, Rappi, Mercado Libre en resultados de búsqueda), una revisión sistemática sobre axilas oscuras (PubMed Central), encuestas de Dove y prensa colombiana. No se encontraron hilos de Reddit, reseñas en Amazon ni videos de TikTok sobre este producto en particular, y Mercado Libre Colombia bloqueó la consulta directa. Las frases de las personas están parafraseadas, no copiadas.", "items": [], "pie": "" }
+      ]
+    },
+    {
+      "titulo": "Barrido por plataformas",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Plataforma", "Qué dicen", "Insight para la venta"], "filas": [
+          ["Female Daily (Indonesia)", "4,5 de 5 con 678 usuarios y 98 % lo recomienda. Elogian que controla el olor todo el día (una reseña dice que hasta 2 días), el olor suave y que rinde mucho. Algunas dicen que en un mes la axila dejó de verse oscura.", "La prueba social existe, pero en otro país: úsala como «miles de reseñas en Asia» solo si la puedes mostrar."],
+          ["Female Daily, quejas", "No frena mucho el sudor fuerte; dos personas vieron manchas amarillas en la ropa; algunas no notaron aclarado ni después de 6 meses; una sintió la axila húmeda.", "Promete olor y tono parejo, no «cero sudor». Pide constancia y no prometas resultados iguales para todos."],
+          ["Nu Skin oficial (Australia)", "Resultados visibles desde 4 semanas de uso diario; sin alcohol; probado dermatológicamente; para piel sensible; unisex.", "El plazo de 4 semanas es el de la marca: úsalo como «muchas personas notan desde la semana 4»."],
+          ["Beauty Insider (Singapur)", "Lo pone entre los mejores desodorantes aclarantes; dice que ayuda a aclarar en 3 semanas.", "Dato de un listado, no de la marca: no lo uses como plazo."],
+          ["eBay", "Se revende en Estados Unidos a US$36,49 la unidad, con descuentos por cantidad.", "El producto se percibe como importado y premium: justifica un precio mayor que Nivea o Dove."],
+          ["Mercado Libre Colombia", "Aparece «scion desodorante» como búsqueda relacionada; compiten Yanbal Effective, cremas con niacinamida, alumbre y cremas Kaba.", "Hay demanda de búsqueda por nombre: alguien ya lo conoce y lo busca."],
+          ["Droguerías y retail (Falabella, Farmatodo, Rappi)", "Nivea, Dove y Rexona con líneas «aclarado» y «tono natural» de $16.000 a $30.000. Una reseña en Farmatodo dice que con Nivea notó las axilas más oscuras.", "La gente ya probó el aclarante del súper y quedó decepcionada: ángulo «lo que ya probaste vs. esto»."],
+          ["TikTok, YouTube y Reddit", "No se encontraron reseñas de Scion. Abundan videos de remedios caseros y de rasurado.", "Espacio libre para contenido UGC propio: antes y después reales con fecha."]
+        ], "nota": "" }
+      ]
+    },
+    {
+      "titulo": "Puntos de dolor en las reseñas",
+      "bloques": [
+        { "tipo": "numerada", "items": [
+          "**Vergüenza al levantar el brazo:** en el bus, en el gimnasio, en fotos, al saludar.",
+          "**Ropa limitada:** dejar de usar blusas de tiras, esqueletos, vestidos de baño y tops.",
+          "**Sombra después de rasurar:** la axila nunca se ve limpia aunque esté recién rasurada.",
+          "**Ardor y picazón:** desodorantes con alcohol que arden en la piel recién rasurada.",
+          "**Olor a mitad del día:** sobre todo con calor y en trabajos de pie.",
+          "**Remedios que no funcionaron:** limón, bicarbonato, cremas, desodorantes «aclarantes» del súper.",
+          "**Manchas en la ropa:** miedo a las manchas amarillas o blancas en la blusa.",
+          "**Resultados lentos o nulos:** quien no notó nada después de meses se siente engañada."
+        ] }
+      ]
+    }
+  ],
+  "fuentes": []
+}
