@@ -37,7 +37,7 @@ export function AvisoCoordinadora({ oculto = false }) {
   const ultimoAvisado = useRef(null);
   const mensajes = datos?.mensajes || [];
   const pendientes = datos?.pendientes || [];
-  const quien = datos?.coordinadora || { nombre: 'Coordinadora', avatar: '👩‍💼', color: '#a3e635' };
+  const quien = datos?.coordinadora || { nombre: 'Coordinadora', avatar: '👩‍💼', color: '#ffc774' };
   const ultimo = mensajes.at(-1) || null;
 
   // sus mensajes que no leíste (después del último que viste)

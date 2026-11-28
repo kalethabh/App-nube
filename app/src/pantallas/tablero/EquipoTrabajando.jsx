@@ -35,7 +35,7 @@ export function EquipoTrabajando() {
           const estPaso = est ? t.estaciones?.[est.id] : null;
           return (
             <li key={`${t.dep.id}-${t.id}`}>
-              <a className={`tb-eq__item tb-eq__item--${t.estado}`} href={t.href} style={{ '--color': t.dep.color || '#a3e635' }}>
+              <a className={`tb-eq__item tb-eq__item--${t.estado}`} href={t.href} style={{ '--color': t.dep.color || '#ffc774' }}>
                 <span className="tb-eq__cabeza">
                   <span className="tb-eq__dep">{t.dep.nombre}</span>
                   <span className={`tb-eq__estado tb-eq__estado--${t.estado}`}>{ESTADO[t.estado]}</span>

@@ -5,7 +5,7 @@
 import { elegirTema, useTema } from '../../datos/tema.js';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AlertTriangle, Compass, GraduationCap, LayoutGrid, MessageCircle, PanelRightClose, PanelRightOpen, Pencil, Send, Sparkles, ThumbsDown, ThumbsUp, Users, X } from 'lucide-react';
-import { Boton, CampoTexto, Modal, useAvisos } from '../../componentes/index.js';
+import { Boton, CampoTexto, Logo, Modal, useAvisos } from '../../componentes/index.js';
 import { invalidar, pedirNuevo, useDatos } from '../../datos/api.js';
 import { enlace } from '../../datos/rutas.js';
 import { fechaRelativa } from '../../datos/formato.js';
@@ -336,14 +336,14 @@ export default function Oficina() {
     <div className={`pagina of of--pro${vista === 'presentar' ? ' of--presentando' : ''}`}>
       <div ref={escenario} className={`of-escenario${lateral ? '' : ' of-escenario--sin-lateral'}`}>
         <div className="of-mundo" role="region" aria-label="La oficina en 3D: arrastra para girarla, rueda para acercarte, toca un agente">
-          {agentes.length ? <Oficina3D key={modo === 'neon' ? 'neon' : 'lima'} agentes={agentes} zonas={datos?.zonas || []} produccion={prod} elegido={elegido} onElegir={elegirAgente} onDepartamento={elegirDepartamento} onLinea={(l) => { setElegido(null); setDepElegido(null); setChat(null); setLinea(l); setLateral(true); }} resaltar={resaltar} foco={foco} vista={vista} modo={modo} onPosiciones={setPosiciones} onEvento={alEvento} desplazar={lateral ? Math.round((anchoLado + 14) / 2) : 0} onEscena={setEscena} onFinPresentacion={() => setVista('general')} /> : null}
+          {agentes.length ? <Oficina3D key={temaApp} tema={temaApp} agentes={agentes} zonas={datos?.zonas || []} produccion={prod} elegido={elegido} onElegir={elegirAgente} onDepartamento={elegirDepartamento} onLinea={(l) => { setElegido(null); setDepElegido(null); setChat(null); setLinea(l); setLateral(true); }} resaltar={resaltar} foco={foco} vista={vista} modo={modo} onPosiciones={setPosiciones} onEvento={alEvento} desplazar={lateral ? Math.round((anchoLado + 14) / 2) : 0} onEscena={setEscena} onFinPresentacion={() => setVista('general')} /> : null}
           {vista === 'presentar' ? <TarjetaEscena escena={escena} onSalir={() => setVista('general')} /> : null}
         </div>
 
         {/* arriba: quién eres, cómo va todo y las acciones */}
         <header className="of-hud-arriba">
           <div className="of-marca of-vidrio">
-            <span className="of-marca__logo" aria-hidden="true">K</span>
+            <Logo tamano={44} className="of-marca__logo" />
             <div>
               <span className="of-cabeza__sobre">Oficina virtual</span>
               <h1 className="of-marca__titulo">{datos?.nombre || 'Tu oficina'}</h1>
@@ -359,38 +359,25 @@ export default function Oficina() {
               <a className="of-chip of-chip--enlace" href="#/aprendizajes">
                 <GraduationCap size={12} aria-hidden="true" /> {r.aprendizajes ?? 0}
               </a>
-              {ias.map((i) => (
-                <span key={i.id} className={`of-chip of-chip--ia of-chip--${i.estado}`} title={i.detalle || undefined}>
-                  <AlertTriangle size={12} aria-hidden="true" /> {i.nombre} {i.estado === 'caido' ? 'caído' : i.estado === 'lento' ? 'lento' : 'con fallas'}
-                </span>
-              ))}
             </div>
+            {ias.length ? (
+              <div className="of-mundo__aviso" role="status">
+                <AlertTriangle size={14} aria-hidden="true" />
+                {ias.map((i) => `${i.nombre} ${i.estado === 'caido' ? 'está caído' : i.estado === 'lento' ? 'va lento' : 'tiene fallas'}`).join(' · ')}: los agentes que lo usan esperan.
+              </div>
+            ) : null}
           </div>
           <div className="of-acciones of-vidrio">
-            <button type="button" className="of-boton of-boton--primario" onClick={() => { setChat({ inicial: '' }); setElegido('coordinacion'); setLateral(true); }}>
-              <MessageCircle size={15} aria-hidden="true" /> Hablar con {coordinadora?.nombre || 'la coordinadora'}
-            </button>
-            <button type="button" className="of-boton" onClick={() => setPaso(0)}>
-              <Compass size={15} aria-hidden="true" /> Cómo funciona
-            </button>
-            <button type="button" className="of-boton" onClick={() => setDisenar(true)}>
-              <LayoutGrid size={15} aria-hidden="true" /> Diseñar
-            </button>
-            <button type="button" className="of-boton" onClick={() => setNombres(true)}>
-              <Pencil size={15} aria-hidden="true" /> Personajes
-            </button>
-            <button type="button" className="of-boton of-boton--icono" onClick={() => setLateral((v) => !v)} aria-label={lateral ? 'Ocultar el panel' : 'Mostrar el panel'} title={lateral ? 'Ocultar el panel' : 'Mostrar el panel'}>
-              {lateral ? <PanelRightClose size={16} /> : <PanelRightOpen size={16} />}
-            </button>
+            <Boton variante="primario" tamano="chico" icono={MessageCircle} onClick={() => { setChat({ inicial: '' }); setElegido('coordinacion'); setLateral(true); }}>
+              Hablar con {coordinadora?.nombre || 'la coordinadora'}
+            </Boton>
+            <Boton variante="secundario" tamano="chico" icono={Compass} onClick={() => setPaso(0)}>Cómo funciona</Boton>
+            <Boton variante="secundario" tamano="chico" icono={LayoutGrid} onClick={() => setDisenar(true)}>Diseñar</Boton>
+            <Boton variante="secundario" tamano="chico" icono={Pencil} onClick={() => setNombres(true)}>Personajes</Boton>
+            <Boton variante="secundario" tamano="chico" soloIcono icono={lateral ? PanelRightClose : PanelRightOpen} etiqueta={lateral ? 'Ocultar el panel' : 'Mostrar el panel'} title={lateral ? 'Ocultar el panel' : 'Mostrar el panel'} onClick={() => setLateral((v) => !v)} />
           </div>
         </header>
 
-        {ias.length ? (
-          <div className="of-mundo__aviso" role="status">
-            <AlertTriangle size={14} aria-hidden="true" />
-            {ias.map((i) => `${i.nombre} ${i.estado === 'caido' ? 'está caído' : i.estado === 'lento' ? 'va lento' : 'tiene fallas'}`).join(' · ')}: los agentes que lo usan esperan.
-          </div>
-        ) : null}
 
         {aviso3d ? (
           <div key={aviso3d.n} className={`of-toast of-toast--${aviso3d.tipo}`} role="status">

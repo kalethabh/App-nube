@@ -41,7 +41,8 @@ const rutas = ['/inicio', '/oficina', '/nuevo', '/estilos', '/imagenes', '/image
       await p.reload();
       await p.waitForTimeout(400);
       assert.equal(await p.locator('html').getAttribute('data-tema'), tema);
-      assert.equal(await p.locator('.ciudad-portada').count(), tema === 'juego' ? 1 : 0);
+      // (2026-11-24l) la portada de la ciudad también va en el tema claro; el oscuro conserva su cabecera
+      assert.equal(await p.locator('.ciudad-portada').count(), tema === 'oscuro' ? 0 : 1);
       console.log(`OK cambio de tema ${tema}`);
     }
     await p.emulateMedia({ reducedMotion: 'reduce' });

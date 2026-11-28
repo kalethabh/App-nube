@@ -137,59 +137,6 @@
   }
 }
 
-/* ---------------------------------------------------------------- la oficina virtual con neón rosa (su lima de marca) */
-:is([data-tema='juego'], [data-tema='claro']) .of-boton--primario {
-  background: var(--acento-boton);
-  color: var(--texto-sobre-acento);
-  box-shadow: 0 6px 18px -6px rgba(255, 79, 163, 0.75);
-  font-style: italic;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-:is([data-tema='juego'], [data-tema='claro']) .of-boton--primario:hover {
-  background: var(--acento-boton-hover);
-}
-:is([data-tema='juego'], [data-tema='claro']) .of-vista--activa {
-  background: rgba(255, 79, 163, 0.18);
-  color: #ffd0e8;
-  box-shadow: inset 0 0 0 1px rgba(255, 79, 163, 0.5);
-}
-:is([data-tema='juego'], [data-tema='claro']) .of-cabeza__sobre,
-:is([data-tema='juego'], [data-tema='claro']) .of-recorrido__paso {
-  color: var(--cian);
-}
-:is([data-tema='juego'], [data-tema='claro']) .of-marca__logo,
-:is([data-tema='juego'], [data-tema='claro']) .of-plano__logo {
-  color: #ff4fa3;
-  box-shadow: 0 0 0 2px #ff4fa3, 0 0 22px rgba(255, 79, 163, 0.5);
-}
-:is([data-tema='juego'], [data-tema='claro']) .o3-icono__circulo,
-:is([data-tema='juego'], [data-tema='claro']) .of-ico {
-  border-color: #ff4fa3;
-  box-shadow: 0 0 0 3px rgba(255, 79, 163, 0.14), 0 6px 14px rgba(0, 0, 0, 0.35);
-}
-:is([data-tema='juego'], [data-tema='claro']) .o3-icono--recibiendo .o3-icono__circulo,
-:is([data-tema='juego'], [data-tema='claro']) .o3-icono--enviando .o3-icono__circulo,
-:is([data-tema='juego'], [data-tema='claro']) .o3-icono--completado .o3-icono__circulo {
-  box-shadow: 0 0 0 6px rgba(41, 240, 220, 0.25), 0 0 18px #29f0dc;
-}
-:is([data-tema='juego'], [data-tema='claro']) .of-trabajo--elegido {
-  border-color: #ff4fa3;
-  box-shadow: 0 0 0 2px rgba(255, 79, 163, 0.25);
-}
-:is([data-tema='juego'], [data-tema='claro']) .of-leyenda__verde,
-:is([data-tema='juego'], [data-tema='claro']) .of-dep__vivo {
-  background: #29f0dc;
-  box-shadow: 0 0 8px #29f0dc;
-}
-:is([data-tema='juego'], [data-tema='claro']) .of-toast {
-  color: #14051f;
-  background: var(--acento-boton);
-  box-shadow: 0 12px 34px -8px rgba(255, 79, 163, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.35) inset;
-}
-:is([data-tema='juego'], [data-tema='claro']) .of-minimapa__logo {
-  stroke: #ff4fa3;
-}
 
 /* CIUDAD CREATIVA · 23 noviembre. Cartel ilustrado, tinta, encuadres y menús de juego.
    Solo interfaz: no entra en la composición de Remotion ni cambia imágenes/anuncios exportados. */
@@ -313,12 +260,6 @@
 :is([data-tema='juego'], [data-tema='claro']) :is(.img-grupo__n, .paso__numero) { background: #ff73b824; color: var(--ciudad-rosa); border-color: #ff73b84d; border-radius: 3px; }
 :is([data-tema='juego'], [data-tema='claro']) :is(.img-producto__chip, .img-filtro__chip) { border-radius: 5px; }
 :is([data-tema='juego'], [data-tema='claro']) :is(.miniatura-video, .estilo-tarjeta, .anuncio-tarjeta) { border: 2px solid #090610; box-shadow: 4px 4px 0 #090610; }
-:is([data-tema='juego'], [data-tema='claro']) .of-cabeza__titulo { font-family: var(--fuente-titulo); font-weight: 800; text-transform: uppercase; letter-spacing: -.04em; text-shadow: 3px 3px 0 #090610; }
-:is([data-tema='juego'], [data-tema='claro']) .of-vidrio { border-radius: 5px; background: #1a1128e8; border: 1px solid #9a71b158; box-shadow: 3px 3px 0 #090610; }
-:is([data-tema='juego'], [data-tema='claro']) .of-boton { border-radius: 4px; }
-:is([data-tema='juego'], [data-tema='claro']) .of-boton--primario { background: var(--ciudad-rosa); box-shadow: 3px 3px 0 #090610; color: #1c0b1a; }
-:is([data-tema='juego'], [data-tema='claro']) .of-minimapa { border: 3px solid #090610; border-radius: 4px; box-shadow: 0 0 0 1px #69eadb66; }
-:is([data-tema='juego'], [data-tema='claro']) .of-equipo { background: #1a1128; border-radius: 5px; border: 1px solid #9a71b158; }
 
 @media (min-width: 1650px) { .ciudad-portada { min-height: 480px; } }
 @media (max-width: 1150px) {
@@ -370,11 +311,6 @@
 :is([data-tema='juego'], [data-tema='claro']) .miniatura__marco { border: 2px solid var(--ciudad-tinta); border-radius: 5px; box-shadow: 4px 4px 0 var(--ciudad-tinta); }
 :is([data-tema='juego'], [data-tema='claro']) .miniatura__titulo { font-family: var(--fuente-titulo); font-size: 17px; font-weight: 800; }
 :is([data-tema='juego'], [data-tema='claro']) .es2-insignia { background: #130c20e0; border-radius: 3px; border: 1px solid #ff73b84d; }
-:is([data-tema='juego'], [data-tema='claro']) .of-escenario { border-radius: 6px; border: 3px solid var(--ciudad-tinta); box-shadow: 5px 5px 0 var(--ciudad-tinta); }
-:is([data-tema='juego'], [data-tema='claro']) .of-escena { background: #1a1128eb; border-left-color: var(--ciudad-rosa); border-radius: 4px; }
-:is([data-tema='juego'], [data-tema='claro']) .of-escena__sobre { color: var(--ciudad-rosa); }
-:is([data-tema='juego'], [data-tema='claro']) .of-escena__etiqueta { color: #ffd2e9; border-color: #ff73b866; }
-:is([data-tema='juego'], [data-tema='claro']) .of-recorrido__puntos .activo { background: var(--ciudad-rosa); }
 
 /* La misma ciudad con luz de día: papel lila, tinta ciruela y acentos de atardecer. */
 [data-tema='claro'] { --ciudad-tinta: #3b2546; --ciudad-papel: #291930; --ciudad-rosa: #ff8ec6; --ciudad-dorado: #ffd496; --ciudad-turquesa: #087c79; }
@@ -414,9 +350,6 @@
 [data-tema='claro'] .ciudad-mision::before { border-left-color: #77538266; }
 [data-tema='claro'] .ciudad-mision p { color: #594460; }
 [data-tema='claro'] .ciudad-separador { color: #735c7a; border-color: #77538244; }
-[data-tema='claro'] :is(.of-vidrio, .of-equipo, .of-escena) { background: #fff9fdf5; border-color: #a07bac55; box-shadow: 3px 3px 0 #b79ac255; }
-[data-tema='claro'] .of-cabeza__titulo { text-shadow: none; }
-[data-tema='claro'] .of-escena__etiqueta, [data-tema='claro'] .of-escena__sobre { color: #ac2468; }
 [data-tema='claro'] :is(.avc__tarjeta, .img-agente) { background: #fff9fd; border-color: #a07bac; box-shadow: 4px 4px 0 #b79ac255; }
 [data-tema='claro'] .enc-intro { background: #fae3ef; border-color: #b82d7744; }
 [data-tema='claro'] .enc-intro svg, [data-tema='claro'] .enc-modos button.activo svg { color: var(--acento); }
