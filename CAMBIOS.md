@@ -2,6 +2,15 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-28b · Preparación para Vercel + Supabase y respaldo Contabo
+
+- Motor completo empaquetado con sus programas nativos para Vercel Daemons, conservando generadores, modelos y prompts.
+- Transporte de las rutas actuales con cola cifrada, control de una sola instancia y respuestas inciertas sin repetición automática tras caídas.
+- Estado persistente cifrado en Supabase; subidas directas de archivos grandes, progreso y reproducción por rangos.
+- Actualizar en Vercel solicita un redeploy administrado; Mac y Contabo conservan el actualizador local.
+- Respaldo cifrado portátil, restauración y despliegue alternativo en Contabo con volumen persistente.
+- Requiere configurar los proyectos reales, Vercel Pro y cuotas de Storage adecuadas. La validación local no sustituye las pruebas de generación y publicación en producción.
+
 ## 2026-11-28a · La oficina virtual con el diseño de la app
 
 - **La oficina 3D ahora se ve como el resto de Kads.** Se quitó el verde lima de la marca vieja: los neones, el logo, las líneas de producción, los estados y los muebles toman los colores del tema que tengas.

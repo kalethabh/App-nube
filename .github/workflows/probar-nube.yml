@@ -1,0 +1,50 @@
+name: Motor Vercel y respaldo Contabo
+on:
+  pull_request:
+    paths: ['deploy/**', 'api/**', 'vercel.json', '.dockerignore', 'app/herramientas/probar-nube.mjs', '.github/workflows/probar-nube.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  motor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --prefix /tmp/kads-sql @electric-sql/pglite@0.6.1 --no-audit --no-fund
+      - run: node --test app/herramientas/probar-nube.mjs
+        env:
+          PGLITE_PACKAGE_PATH: /tmp/kads-sql/node_modules/@electric-sql/pglite
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: deploy/nube/Dockerfile
+          tags: kads-prueba
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Motor completo en Linux sin proveedores de pago
+        run: |
+          docker run -d --name kads-prueba -p 127.0.0.1:4499:4455 -e KADS_MODO=contabo -e ANUNCIOS_MODO_PRUEBA=1 -e KADS_SUPABASE_URL=https://example.invalid -e KADS_SUPABASE_ANON=falsa kads-prueba
+          for i in $(seq 1 120); do
+            if curl -fsS -H 'Host: 127.0.0.1:4455' http://127.0.0.1:4499/entrar -o /tmp/entrada.html; then break; fi
+            sleep 2
+          done
+          grep -qi 'google' /tmp/entrada.html
+          docker exec kads-prueba /opt/python/bin/python -c 'import rembg, onnxruntime, PIL, numpy, faster_whisper'
+          docker exec -w /srv/kads kads-prueba node --input-type=module -e "import {entornoListo} from './produccion/sketch-entorno.js'; if(!entornoListo())process.exit(1)"
+          docker exec kads-prueba ffmpeg -hide_banner -encoders 2>&1 | grep libwebp
+          docker exec kads-prueba /opt/kads/app/inicio/codex/node_modules/.bin/codex --version
+          docker exec kads-prueba claude --version
+          docker exec kads-prueba sh -ec 'kads_chrome=$(find /srv/kads/remotion/node_modules/.remotion -name chrome-headless-shell -type f -print -quit); test -n "$kads_chrome"; "$kads_chrome" --no-sandbox --version'
+      - name: Anuncio completo hasta MP4 con proveedores simulados
+        run: |
+          docker exec -e KADS_SUPABASE_URL= -e KADS_SUPABASE_ANON= -e HUMO_SIN_IMAGEN_ADS=1 -e HUMO_SIN_REGENERAR=1 -e HUMO_SIN_MODO_B=1 kads-prueba node app/herramientas/prueba-humo.mjs
+      - name: Ciclo real del supervisor con Supabase simulado
+        run: docker run --rm --entrypoint node kads-prueba app/herramientas/probar-nube-motor.mjs
+      - if: always()
+        run: docker logs kads-prueba || true

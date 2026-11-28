@@ -20,6 +20,7 @@
 import http from 'node:http';
 import dns from 'node:dns';
 import net from 'node:net';
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -89,6 +90,13 @@ app.use((req, res, next) => {
 // misma (su origen o el dominio del servidor) o de este equipo sin navegador (sin Origin). Antes cada ruta lo revisaba
 // por su cuenta, con listas copiadas que olvidaban el dominio del servidor; ahora hay un solo filtro para todas.
 const ORIGENES = origenesPermitidos(PUERTO);
+// Solo estado operativo, por loopback y con un código efímero. No concede acceso a ninguna API de la app.
+app.get('/__kads_motor',async(req,res)=>{
+ const a=Buffer.from(String(req.headers['x-kads-control'] || '')),b=Buffer.from(process.env.KADS_CONTROL_MOTOR || '');
+ if(process.env.KADS_NUBE!=='1' || !['127.0.0.1','::1','::ffff:127.0.0.1'].includes(req.socket.remoteAddress) || b.length!==64 || a.length!==b.length || !crypto.timingSafeEqual(a,b))return res.status(404).end();
+ const {motivoParaNoReiniciar}=await import('./lib/version.js');const {estadoDeLaFila}=await import('./lib/conductor.js');const f=estadoDeLaFila();
+ res.set('Cache-Control','no-store').json({ocupado:Boolean(motivoParaNoReiniciar() || f.activos.length || f.fila.length || f.esperandoAClaude?.length || f.procesos?.corriendo?.length)});
+});
 // La ÚNICA excepción: el botón de Chrome (extension-chrome/) guarda anuncios con POST /api/inspiracion/importar desde
 // su propio origen (chrome-extension://…), con el código de emparejamiento, tope de tamaño y de pedidos por minuto
 // (lib/desde-chrome.js). Lo que pasa ese portero queda marcado y el filtro de abajo lo deja seguir.
