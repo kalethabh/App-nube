@@ -1,5 +1,6 @@
 {
  "$schema":"https://openapi.vercel.sh/vercel.json",
+ "build":{"env":{"NODEJS_HELPERS":"0"}},
  "buildCommand":"node deploy/nube/armar.mjs",
  "outputDirectory":"app/dist",
  "functions":{"api/puerta.mjs":{"maxDuration":800,"includeFiles":"deploy/nube/**"}},

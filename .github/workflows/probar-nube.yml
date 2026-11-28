@@ -40,7 +40,7 @@ jobs:
           docker exec kads-prueba ffmpeg -hide_banner -encoders 2>&1 | grep libwebp
           docker exec kads-prueba /opt/kads/app/inicio/codex/node_modules/.bin/codex --version
           docker exec kads-prueba claude --version
-          docker exec kads-prueba sh -c 'find /srv/kads/remotion/node_modules/.remotion -name chrome-headless-shell -type f | head -n 1 | xargs -r -I{} {} --no-sandbox --version'
+          docker exec kads-prueba sh -ec 'kads_chrome=$(find /srv/kads/remotion/node_modules/.remotion -name chrome-headless-shell -type f -print -quit); test -n "$kads_chrome"; "$kads_chrome" --no-sandbox --version'
       - name: Anuncio completo hasta MP4 con proveedores simulados
         run: |
           docker exec -e KADS_SUPABASE_URL= -e KADS_SUPABASE_ANON= -e HUMO_SIN_IMAGEN_ADS=1 -e HUMO_SIN_REGENERAR=1 -e HUMO_SIN_MODO_B=1 kads-prueba node app/herramientas/prueba-humo.mjs

@@ -25,6 +25,9 @@ Importar este repositorio en Vercel, directorio raíz del repositorio y Framewor
 paquetes de la interfaz y Remotion; el Daemon construye `deploy/nube/Dockerfile`. Una sola instancia del motor.
 No ejecutar a la vez un motor de Contabo conectado a la misma cola.
 
+`vercel.json` fija `NODEJS_HELPERS=0` durante el build: la puerta necesita recibir el cuerpo HTTP original,
+sin el preprocesado de helpers de Vercel. Conservarlo también si se sustituye la configuración del build.
+
 Configurar SOLO como variables privadas de producción, sin prefijo VITE ni NEXT_PUBLIC:
 
 | Variable | Uso |
