@@ -15,6 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Candidato económico verificado en configurador (2026-11-27)
 
+Documentación: [PR #247](https://github.com/kalethabh/App-nube/pull/247).
+
 El usuario pidió uno disponible para Kads completo. Candidato: Contabo Cloud VPS 8, 8 vCPU/24 GB RAM.
 En el configurador público, región Unión Europea, plazo de 1 mes, Ubuntu y 150 GB NVMe: 15,50 €/mes;
 con Auto Backup: 20,50 €/mes y primer pago del mismo importe, sin alta. IPv4 incluida.
