@@ -15,6 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Aclaración vigente: despliegue mínimo sin dominio propio (2026-11-27)
 
+Documentación: [PR #245](https://github.com/kalethabh/App-nube/pull/245).
+
 El usuario aclaró: «Solo quiero hacer lo mismo con los mismos o mejores resultados pero ya deployado,
 sin dominio, solo las herramientas necesarias para que funcione». Sustituye la propuesta previa que tomaba
 DigitalOcean de US$96 + Supabase Pro como punto de partida; no es un presupuesto aceptado ni un mínimo necesario.
