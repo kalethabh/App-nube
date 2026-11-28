@@ -2,7 +2,7 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
-## 2026-11-28b · Preparación para Vercel + Supabase y respaldo Contabo
+## 2026-11-28c · Preparación para Vercel + Supabase y respaldo Contabo
 
 - Motor completo empaquetado con sus programas nativos para Vercel Daemons, conservando generadores, modelos y prompts.
 - Transporte de las rutas actuales con cola cifrada, control de una sola instancia y respuestas inciertas sin repetición automática tras caídas.
