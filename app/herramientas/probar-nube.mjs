@@ -7,6 +7,7 @@ import path from 'node:path';
 import http from 'node:http';
 import {Readable} from 'node:stream';
 import {pathToFileURL} from 'node:url';
+import vm from 'node:vm';
 import {llave,cifrar,descifrar,sellar,abrir,rutaSegura,supabase,pedirLocal} from '../../deploy/nube/comun.mjs';
 import {crearEstado,almacenLocal} from '../../deploy/nube/estado.mjs';
 import {respaldoLocal,restaurarLocal} from '../../deploy/nube/respaldo.mjs';
@@ -19,6 +20,12 @@ test('sobres cifrados, manipulación y validación de rutas',()=>{
  assert(!b.includes(Buffer.from('credencial')));b[20]^=1;assert.throws(()=>descifrar(b,key));
  assert.throws(()=>llave('corta'));assert.throws(()=>rutaSegura('//externo'));assert.throws(()=>rutaSegura('/api/\nmal'));
  assert.deepEqual(abrir(sellar({a:3},key),key),{a:3});
+});
+test('la extensión admite Kads HTTPS sin conceder acceso global ni aceptar destinos inseguros',async()=>{
+ const contexto=vm.createContext({URL});vm.runInContext(await fs.readFile(new URL('../../extension-chrome/direccion.js',import.meta.url),'utf8'),contexto);
+ assert.equal(contexto.direccionKads('https://kads.vercel.app/'),'https://kads.vercel.app');assert.equal(contexto.direccionKads('http://localhost:4455'),'http://localhost:4455');
+ for(const d of ['http://remoto.invalid','javascript:alert(1)','https://usuario:clave@remoto.invalid','https://remoto.invalid/otra-ruta','https://remoto.invalid/?codigo=secreto'])assert.equal(contexto.direccionKads(d),null);
+ const m=JSON.parse(await fs.readFile(new URL('../../extension-chrome/manifest.json',import.meta.url),'utf8'));assert(!m.host_permissions.includes('https://*/*'));assert(m.optional_host_permissions.includes('https://*/*'));
 });
 test('estado cifrado: cambios, borrado, bloques y restauración independiente',async()=>{
  const tmp=await temporal();try{

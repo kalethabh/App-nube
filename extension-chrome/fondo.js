@@ -1,11 +1,11 @@
 // Guardar en Kads · el que habla con tu Kads Studio (el service worker de la extensión).
 //
 // Recibe UN anuncio de la pestaña (cuando tocas «Guardar en Kads») y lo manda a la app de tu computador con el código
-// de emparejamiento (Opciones). La dirección solo puede ser de este equipo (127.0.0.1 o localhost).
+// de emparejamiento (Opciones). Puede ser local o una dirección HTTPS autorizada por el usuario.
 'use strict';
+importScripts('direccion.js');
 
 const POR_DEFECTO = 'http://127.0.0.1:4455';
-const DIRECCION_VALIDA = /^http:\/\/(127\.0\.0\.1|localhost)(:\d{2,5})?$/;
 
 function leerOpciones() {
   return new Promise((r) => chrome.storage.local.get({ direccion: POR_DEFECTO, codigo: '' }, r));
@@ -13,7 +13,8 @@ function leerOpciones() {
 
 async function mandar(cuerpo) {
   const { direccion, codigo } = await leerOpciones();
-  const base = DIRECCION_VALIDA.test(direccion) ? direccion : POR_DEFECTO;
+  const base = direccionKads(direccion);
+  if(!base)return {ok:false,mensaje:'Revisa la dirección de Kads en las opciones de la extensión.'};
   if (!codigo) {
     chrome.runtime.openOptionsPage();
     return { ok: false, mensaje: 'Falta el código de emparejamiento: cópialo en Kads › Inspiración › Botón de Chrome y pégalo en las Opciones (se abrieron).' };

@@ -54,7 +54,13 @@ export function crearPuerta({sb=supabase(),key=llave(),origen=origenPublico(),fe
     actualizar=true;
    }
    const lider=(await sb.tabla('kads_motor_lider','id=eq.1&select=vence'))?.[0];
-   if(!lider || new Date(lider.vence).getTime()<ahora())return json(res,503,{error:'El motor está iniciando. Intenta de nuevo en unos segundos.'});
+   if(!lider || new Date(lider.vence).getTime()<ahora()){
+    if(metodo==='GET' && String(req.headers.accept || '').includes('text/html') && !ruta.startsWith('/api/')){
+     res.statusCode=503;res.setHeader('Cache-Control','no-store');res.setHeader('Content-Type','text/html; charset=utf-8');
+     res.end('<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="3"><title>Kads Studio</title></head><body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#110f20;color:#faf7ff;font-family:system-ui"><main style="padding:32px;text-align:center"><h1>Kads Studio</h1><p>Preparando Kads…</p><p>Esta página se actualizará automáticamente.</p></main></body></html>');return;
+    }
+    return json(res,503,{error:'El motor está iniciando. Intenta de nuevo en unos segundos.'});
+   }
    let body,objeto;
    if(req.headers['x-kads-cuerpo']) {
     const id=String(req.headers['x-kads-cuerpo']);if(!idSeguro(id))return json(res,400,{error:'Subida inválida.'});
@@ -97,6 +103,8 @@ export function crearPuerta({sb=supabase(),key=llave(),origen=origenPublico(),fe
     }
     await dormir(p?.respuesta?250:150);
    }
+   await sb.rpc('kads_motor_cancelar',{p_id:id}).catch(()=>{});
+   if(res.destroyed)return;
    if(!res.headersSent)json(res,504,{error:'El pedido sigue sin respuesta. Revisa su estado antes de repetirlo.'});else res.end();
   }catch(e){if(!res.headersSent)json(res,e.status===413?413:503,{error:e.status===413?e.message:'No se pudo conectar con el motor. Revisa el estado antes de repetir el pedido.'});else res.end();}
  };

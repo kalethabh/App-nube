@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-28 (2026-11-28a)
+Última actualización: 2026-11-28 (adaptación 2026-11-28b en revisión)
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -33,12 +33,12 @@ Pedido: «adapta Kads para desplegarlo con Vercel y Supabase, sin dominio y mant
 - Actualizar en nube pasa al Deploy Hook de Vercel, validando owner y trabajos activos. ZIP local sigue en Mac/Contabo.
   Cierre supervisado con drenaje consultando estado interno de procesos; gracia de hasta 1 h al redeploy.
 - `Dockerfile`, compose de Contabo, `respaldo.mjs` y guía `deploy/VERCEL-SUPABASE.md`. El instalador Ubuntu anterior sigue.
-- Respaldo REAL de esta copia: `outputs/respaldo-contabo/kads-antes-de-vercel.tar.gz` fuera del repo (código de 2e0ce1f3),
+- Respaldo REAL de esta copia: `outputs/respaldo-contabo/kads-codigo-original-completo.tar.gz` fuera del repo (código de 2e0ce1f3),
   datos cifrados en `datos-verificados`, SHA256 y LEEME. Llave aparte, nunca en GitHub. Restauración real probada en carpeta
   temporal y eliminada después. NO es un respaldo de la instalación personal en ~/Anuncios con IA, que no se tocó.
-- Validación local: diez pruebas de nube con PostgreSQL real aislado, prueba de subida en Chrome con progreso, acceso
+- Validación local: once pruebas de nube con PostgreSQL real aislado, prueba de subida en Chrome con progreso, acceso
   58/58 y build de la interfaz. Esquema oficial Vercel validado omitiendo su declaración draft-04 incompatible con algunos
-  campos modernos. CI Linux/Docker añadido; pendiente de su resultado al abrir el PR.
+  campos modernos. CI Linux/Docker construye el contenedor; verificaciones de motor/MP4 y ciclo del supervisor en curso.
 - Vercel y Supabase YA conectados y el acceso al equipo de Vercel ya fue autorizado. Equipo de Vercel:
   `team_nUEpzGKbbdlNPJLRYAHbbhVc` (`kalethabhs-projects`). Supabase: organización `Control EFFI`,
   `giwfscxnkdyoelgesaby`. El usuario autorizó consultar el costo de un proyecto separado de Kads allí.

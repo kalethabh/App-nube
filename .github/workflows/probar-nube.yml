@@ -34,7 +34,7 @@ jobs:
             if curl -fsS -H 'Host: 127.0.0.1:4455' http://127.0.0.1:4499/entrar -o /tmp/entrada.html; then break; fi
             sleep 2
           done
-          rg -i 'google' /tmp/entrada.html
+          grep -qi 'google' /tmp/entrada.html
           docker exec kads-prueba /opt/python/bin/python -c 'import rembg, onnxruntime, PIL, numpy, faster_whisper'
           docker exec kads-prueba ffmpeg -hide_banner -encoders 2>&1 | grep libwebp
           docker exec kads-prueba /opt/kads/app/inicio/codex/node_modules/.bin/codex --version
@@ -43,5 +43,7 @@ jobs:
       - name: Anuncio completo hasta MP4 con proveedores simulados
         run: |
           docker exec -e KADS_SUPABASE_URL= -e KADS_SUPABASE_ANON= -e HUMO_SIN_IMAGEN_ADS=1 -e HUMO_SIN_REGENERAR=1 -e HUMO_SIN_MODO_B=1 kads-prueba node app/herramientas/prueba-humo.mjs
+      - name: Ciclo real del supervisor con Supabase simulado
+        run: docker run --rm --entrypoint node kads-prueba app/herramientas/probar-nube-motor.mjs
       - if: always()
         run: docker logs kads-prueba || true

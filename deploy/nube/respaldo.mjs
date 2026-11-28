@@ -4,7 +4,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {crearEstado,almacenLocal} from './estado.mjs';
-import {llave,supabase} from './comun.mjs';
+import {llave,supabase,descifrar,esperar} from './comun.mjs';
 export async function respaldoLocal({raiz,hogar,destino,archivoLlave}) {
  const dest=path.resolve(destino),root=path.resolve(raiz);
  if(dest===root || dest.startsWith(root+path.sep))throw new Error('Guarda el respaldo fuera de la app.');
@@ -12,7 +12,13 @@ export async function respaldoLocal({raiz,hogar,destino,archivoLlave}) {
  await fs.mkdir(dest,{recursive:true,mode:0o700});
  const key=crypto.randomBytes(32);await fs.writeFile(archivoLlave,key.toString('hex'),{flag:'wx',mode:0o600});
  let objeto;const e=crearEstado({raiz,hogar,key,almacen:almacenLocal(dest),incluirGit:false,publicar:async n=>{objeto=n;}});
- await e.guardar();await fs.writeFile(path.join(dest,'respaldo.json'),JSON.stringify({formato:1,objeto,fecha:new Date().toISOString()}),{mode:0o600});
+ for(let intento=0;intento<3;intento++){
+  await e.guardar();const m=JSON.parse(descifrar(await almacenLocal(dest).get(objeto),key,'manifiesto'));
+  if(!m.pendientes?.length)break;
+  if(intento===2)throw new Error('Hay archivos cambiando. Detén las generaciones y crea el respaldo en una carpeta nueva.');
+  await esperar(200);
+ }
+ await fs.writeFile(path.join(dest,'respaldo.json'),JSON.stringify({formato:1,objeto,fecha:new Date().toISOString()}),{mode:0o600});
  return {objeto};
 }
 export async function restaurarLocal({destino,origen,archivoLlave,hogar}) {

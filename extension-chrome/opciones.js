@@ -1,8 +1,7 @@
-// Guardar en Kads · Opciones: el código de emparejamiento y la dirección de la app (solo de este computador).
+// Guardar en Kads · Opciones: emparejamiento local o con el Kads desplegado.
 'use strict';
 
 const POR_DEFECTO = 'http://127.0.0.1:4455';
-const DIRECCION_VALIDA = /^http:\/\/(127\.0\.0\.1|localhost)(:\d{2,5})?$/;
 const $ = (id) => document.getElementById(id);
 
 function estado(texto, tono) {
@@ -17,12 +16,13 @@ chrome.storage.local.get({ direccion: POR_DEFECTO, codigo: '' }, (o) => {
   if (!o.codigo) estado('Todavía no pegaste el código.', 'aviso');
 });
 
-$('form').addEventListener('submit', (e) => {
+$('form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const codigo = $('codigo').value.trim().toUpperCase();
-  const direccion = ($('direccion').value.trim() || POR_DEFECTO).replace(/\/+$/, '');
+  const direccion = direccionKads($('direccion').value.trim() || POR_DEFECTO);
   if (!/^[A-Z0-9-]{20,40}$/.test(codigo)) return estado('Ese código no se ve bien: cópialo de nuevo desde Kads.', 'error');
-  if (!DIRECCION_VALIDA.test(direccion)) return estado('La dirección tiene que ser de este computador, por ejemplo http://127.0.0.1:4455', 'error');
+  if (!direccion) return estado('Usa la dirección HTTPS de tu Kads, o http://127.0.0.1:4455 para la app local.', 'error');
+  if(direccion.startsWith('https:') && !await chrome.permissions.request({origins:[direccion+'/*']}))return estado('Chrome no autorizó esa dirección. No se guardó el cambio.', 'error');
   chrome.storage.local.set({ codigo, direccion }, () => estado('Guardado. Toca «Probar conexión» para revisar.', 'ok'));
 });
 

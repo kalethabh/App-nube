@@ -20,8 +20,9 @@ create table if not exists public.kads_motor_estado (
 );
 create table if not exists public.kads_motor_subidas (
  id uuid primary key, usuario uuid not null, ruta text not null, metodo text not null, objeto text not null,
- usado boolean not null default false, vence timestamptz not null default(now()+interval '10 minutes')
+ usado boolean not null default false, vence timestamptz not null default(now()+interval '2 hours')
 );
+alter table public.kads_motor_subidas alter column vence set default(now()+interval '2 hours');
 alter table public.kads_motor_lider enable row level security;
 alter table public.kads_motor_pedidos enable row level security;
 alter table public.kads_motor_tramos enable row level security;
@@ -46,7 +47,7 @@ begin
  if octet_length(p_sobre)>3000000 or length(p_cliente)>128 then raise exception 'pedido demasiado grande'; end if;
  perform pg_advisory_xact_lock(hashtextextended(p_cliente,0));
  if (select count(*) from kads_motor_pedidos where cliente=p_cliente and creado>now()-interval '1 minute')>=least(p_limite,600) then raise exception 'demasiados pedidos'; end if;
- insert into kads_motor_pedidos(id,cliente,sobre,vence) values(p_id,p_cliente,p_sobre,now()+interval '15 minutes');
+ insert into kads_motor_pedidos(id,cliente,sobre,vence) values(p_id,p_cliente,p_sobre,now()+interval '12 minutes');
  return p_id;
 end $$;
 create or replace function public.kads_motor_tomar(p_dueno uuid,p_cerca bigint) returns setof public.kads_motor_pedidos language plpgsql security definer set search_path=public as $$
@@ -86,9 +87,14 @@ end $$;
 create or replace function public.kads_motor_nueva_subida(p_id uuid,p_usuario uuid,p_ruta text,p_metodo text,p_objeto text) returns boolean language plpgsql security definer set search_path=public as $$
 begin
  perform pg_advisory_xact_lock(hashtextextended(p_usuario::text,1));
- if (select count(*) from kads_motor_subidas where usuario=p_usuario and vence>now()+interval '9 minutes')>=30 then raise exception 'demasiadas subidas'; end if;
+ if (select count(*) from kads_motor_subidas where usuario=p_usuario and vence>now()+interval '119 minutes')>=30 then raise exception 'demasiadas subidas'; end if;
  insert into kads_motor_subidas(id,usuario,ruta,metodo,objeto) values(p_id,p_usuario,p_ruta,p_metodo,p_objeto);
  return true;
+end $$;
+create or replace function public.kads_motor_cancelar(p_id uuid) returns boolean language plpgsql security definer set search_path=public as $$
+begin
+ update kads_motor_pedidos set estado='incierto' where id=p_id and estado='pendiente';
+ return found;
 end $$;
 revoke all on function public.kads_motor_arrendar(uuid),public.kads_motor_encolar(uuid,text,text,integer),public.kads_motor_tomar(uuid,bigint),public.kads_motor_contestar(uuid,bigint,uuid,text,boolean),public.kads_motor_tramo(uuid,bigint,uuid,integer,text),public.kads_motor_guardar(uuid,bigint,text),public.kads_motor_usar_subida(uuid,uuid,text,text) from public,anon,authenticated;
 grant execute on function public.kads_motor_arrendar(uuid),public.kads_motor_encolar(uuid,text,text,integer),public.kads_motor_tomar(uuid,bigint),public.kads_motor_contestar(uuid,bigint,uuid,text,boolean),public.kads_motor_tramo(uuid,bigint,uuid,integer,text),public.kads_motor_guardar(uuid,bigint,text),public.kads_motor_usar_subida(uuid,uuid,text,text) to service_role;
@@ -96,6 +102,8 @@ revoke all on function public.kads_motor_soltar(uuid,bigint) from public,anon,au
 grant execute on function public.kads_motor_soltar(uuid,bigint) to service_role;
 revoke all on function public.kads_motor_nueva_subida(uuid,uuid,text,text,text) from public,anon,authenticated;
 grant execute on function public.kads_motor_nueva_subida(uuid,uuid,text,text,text) to service_role;
+revoke all on function public.kads_motor_cancelar(uuid) from public,anon,authenticated;
+grant execute on function public.kads_motor_cancelar(uuid) to service_role;
 -- Privados: nadie obtiene una política de lectura pública; solo enlaces firmados de corta duración.
 insert into storage.buckets(id,name,public) values('kads-motor','kads-motor',false),('kads-transferencias','kads-transferencias',false) on conflict(id) do update set public=false;
 -- El límite global del proyecto también debe permitir este tamaño (Free admite hasta 50 MB por archivo).

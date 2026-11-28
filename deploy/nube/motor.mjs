@@ -84,7 +84,7 @@ export async function iniciarMotor() {
   for(const x of viejos)await sb.tabla('kads_motor_pedidos',`id=eq.${x.id}`,{method:'DELETE'});
   for(const x of subidas)await sb.tabla('kads_motor_subidas',`id=eq.${x.id}`,{method:'DELETE'});
  }catch{console.error('[nube] Limpieza temporal pendiente.');}},60000);
- const activos=new Set();
+ const activos=new Set(),escrituras=new Set();
  async function desplegar(){
   if(actualizando)return {ok:false,mensaje:'La actualización ya está en curso.'};
   const r=await pedirLocal(urlLocal+'/__kads_motor',{headers:{'x-kads-control':control},signal:AbortSignal.timeout(3000)});
@@ -99,7 +99,7 @@ export async function iniciarMotor() {
   if(saliendo)return;saliendo=true;const limite=Date.now()+3540000;
   while(Date.now()<limite){
    const r=await pedirLocal(urlLocal+'/__kads_motor',{headers:{'x-kads-control':control},signal:AbortSignal.timeout(3000)}).catch(()=>null);
-   if(r?.ok && !(await r.json()).ocupado && activos.size===0)break;
+   if(r?.ok && !(await r.json()).ocupado && escrituras.size===0)break;
    await esperar(1000);
   }
   clearInterval(respaldo);clearInterval(limpieza);await estado.guardar();matar();await sb.rpc('kads_motor_soltar',{p_dueno:dueno,p_cerca:cerca});clearInterval(latido);process.exit(0);
@@ -114,7 +114,8 @@ export async function iniciarMotor() {
   if(saliendo && ESCRITURA(abrir(p.sobre,key).metodo)){
    await sb.rpc('kads_motor_contestar',{p_dueno:dueno,p_cerca:cerca,p_id:p.id,p_sobre:sellar({status:503,headers:[['content-type','application/json']],body:Buffer.from(JSON.stringify({error:'Kads está actualizando el motor. Espera a que termine.'})).toString('base64')},key),p_final:true});continue;
   }
-  const trabajo=ejecutarPedido({pedido:p,sb,key,dueno,cerca,estado,urlLocal,origen,desplegar,estaActualizando:()=>actualizando}).finally(()=>activos.delete(trabajo));activos.add(trabajo);
+  const escritura=ESCRITURA(abrir(p.sobre,key).metodo);
+  const trabajo=ejecutarPedido({pedido:p,sb,key,dueno,cerca,estado,urlLocal,origen,desplegar,estaActualizando:()=>actualizando}).finally(()=>{activos.delete(trabajo);escrituras.delete(trabajo);});activos.add(trabajo);if(escritura)escrituras.add(trabajo);
  }
 }
 if(process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta.url))iniciarMotor().catch(()=>{console.error('[nube] No arrancó el motor. Revisa configuración, migración y respaldo.');process.exit(1);});

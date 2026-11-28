@@ -4,5 +4,5 @@
  "outputDirectory":"app/dist",
  "functions":{"api/puerta.mjs":{"maxDuration":800,"includeFiles":"deploy/nube/**"}},
  "daemons":{"motor":{"root":".","entrypoint":"deploy/nube/Dockerfile","instances":{"iad1":1},"resources":{"requests":{"memory":"8Gi"}},"terminationGracePeriodSeconds":3600}},
- "routes":[{"handle":"filesystem"},{"src":"/(.*)","dest":"/api/puerta"}]
+ "routes":[{"src":"/","dest":"/api/puerta"},{"src":"/index.html","dest":"/api/puerta"},{"handle":"filesystem"},{"src":"/(.*)","dest":"/api/puerta"}]
 }
