@@ -306,6 +306,244 @@
         "Hooks con «dermatólogos» o celebridades sin prueba no se deben copiar.",
         "Mencionar enfermedades (eccema, psoriasis, hiperhidrosis) es promesa de salud."
       ]
+    },
+    {
+      "titulo": "Mapa de saturación de ángulos",
+      "contexto": "Se contó cuántos anuncios activos hoy (28 nov 2026) combinan la palabra del producto con cada ángulo, en el texto escrito de los anuncios en inglés de todo el mundo. Ojo: la búsqueda lee el copy, no lo que se dice en el video.",
+      "bloques": [
+        { "tipo": "barras", "titulo": "Anuncios activos por ángulo (copy en inglés, todo el mundo)", "unidad": "anuncios", "items": [
+          { "etiqueta": "Desodorante + sin aluminio", "valor": 1867, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "Desodorante + hombres", "valor": 1032, "nota": "Conteo inflado: «men» aparece en textos de otros productos", "tono": "ambar" },
+          { "etiqueta": "Desodorante + piel sensible", "valor": 714, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "Axila + oscura", "valor": 643, "nota": "Saturado en el problema", "tono": "rojo" },
+          { "etiqueta": "Desodorante + vainilla", "valor": 564, "nota": "Saturado (efecto copia vainilla y pistacho)", "tono": "rojo" },
+          { "etiqueta": "Desodorante + manchas en la ropa", "valor": 270, "nota": "Medio", "tono": "ambar" },
+          { "etiqueta": "Desodorante + rasurado", "valor": 224, "nota": "Medio", "tono": "ambar" },
+          { "etiqueta": "Desodorante + whitening", "valor": 141, "nota": "Medio, sobre todo Asia y África", "tono": "ambar" },
+          { "etiqueta": "Desodorante + cúrcuma", "valor": 123, "nota": "Medio", "tono": "ambar" },
+          { "etiqueta": "Desodorante + ácido kójico", "valor": 119, "nota": "Medio en copy, alto en video", "tono": "ambar" },
+          { "etiqueta": "Desodorante + láser", "valor": 16, "nota": "Bajo (y con ruido de clínicas)", "tono": "verde" },
+          { "etiqueta": "Desodorante + coreano", "valor": 8, "nota": "Bajo en copy aunque se dice mucho en video", "tono": "verde" }
+        ] },
+        { "tipo": "parrafo", "texto": "Dato: con todos los estados, «dark underarms» aparece en unos 16.236 anuncios, «lightening deodorant» en 102 y «underarm whitening deodorant» en solo 7. **Inferencia:** el problema está muy anunciado; la categoría «desodorante que aclara» todavía es pequeña en texto, pero enorme en video (2.636 y 1.935 copias de dos videos)." },
+        { "tipo": "tabla", "columnas": ["Qué se identificó", "Detalle", "Saturación"], "filas": [
+          ["Ángulos sobreusados", "Sin aluminio; olor de lujo vainilla y pistacho; antes y después en 2 semanas; «se agotó»", "Alta"],
+          ["Ángulos frescos", "Prueba honesta de una sola axila; normalización («le pasa a todas»); después de rasurarte; roll-on que seca rápido", "Baja"],
+          ["Impulsores emocionales poco usados", "Alivio de culpa («no es falta de aseo»), orgullo tranquilo, comodidad en el calor", "Baja"],
+          ["Avatares sin explotar", "Hombre en tierra caliente; mujer que se rasura a diario; compradora fiel de marca de catálogo", "Baja"],
+          ["Claims sobreusados", "«El aluminio oscurece la axila», «24 horas», «sin químicos», «en 14 días»", "Alta"],
+          ["Posicionamiento débil que todos repiten", "«Marca coreana viral» sin nombre real; «la favorita de Kylie»; mismo producto con otra etiqueta", "Alta"],
+          ["Estilos visuales que se gastan", "Selfie de axila con brazo levantado, barra verde de pistacho, mini en llavero, letras grandes sobre la axila", "Alta"]
+        ] },
+        { "tipo": "subtitulo", "texto": "Oportunidades contrarias" },
+        { "tipo": "vinetas", "items": [
+          "Contra el «resultado en 14 días»: «No te voy a prometer milagros. Te muestro cómo se ve con constancia.»",
+          "Contra la barra que deja pasta: «Un roll-on que se seca rápido y no deja marca en la blusa negra.»",
+          "Contra «el aluminio es el culpable»: «Tu axila se oscurece por el roce y el rasurado. Lo que sí puedes cambiar es lo que te pones cada mañana.»",
+          "Contra la marca «coreana viral» sin nombre: «No es una moda de internet. Es un producto de una marca que lleva años en el mercado.»"
+        ] },
+        { "tipo": "caja", "estilo": "oportunidad", "titulo": "Posicionamiento de océano azul", "texto": "Inferencia: «El roll-on de todos los días que cuida tu axila sin drama». Sin vergüenza, sin promesa de blanqueo, con prueba visible y honesta. Nadie en el mercado ocupa la combinación de formato roll-on + marca reconocida + tono tranquilo." },
+        { "tipo": "caja", "estilo": "hipotesis", "titulo": "Mecanismos nuevos (hipótesis que hay que sustentar)", "items": [
+          "Hipótesis: «cuidado constante»: como el desodorante se usa a diario, el cuidado se acumula sin pasos extra. Hay que sustentarlo con la etiqueta de Scion.",
+          "Hipótesis: «se seca rápido = menos roce y menos irritación al rasurarte». Necesita prueba propia o estudio del fabricante.",
+          "Hipótesis: «control del olor + cuidado de la piel en un solo paso». Solo si la etiqueta lo dice."
+        ] },
+        { "tipo": "vinetas", "items": [
+          "**Estructuras narrativas nuevas:** diario de 4 semanas (día 1, 7, 14, 28) con una sola axila; conversación entre amigas que se preguntan «¿a ti también?»; prueba de blusa negra después de aplicar.",
+          "**Direcciones visuales nuevas:** luz natural sin filtro; tela negra pegada a la axila para mostrar que no deja marca; rutina en baño real colombiano; hombre en cancha o en moto.",
+          "**Arquetipos de creador nuevos:** distribuidora de catálogo que cuenta por qué lo vende; hombre joven costeño; esteticista que depila y habla de la axila después del rasurado; mamá e hija."
+        ] },
+        { "tipo": "caja", "estilo": "clave", "titulo": "Lectura crítica: las 2 o 3 mejores apuestas", "items": [
+          "1. **Prueba honesta en una sola axila** (alto potencial, riesgo bajo): fue el más longevo del mercado (190 días) y no se vio en Colombia.",
+          "2. **Roll-on que no mancha la ropa** (potencial medio, riesgo bajo): el formato es tuyo y nadie lo ataca.",
+          "3. **Normalización sin culpa** (potencial medio, riesgo muy bajo): empieza a aparecer en inglés (26 nov 2026)."
+        ], "texto": "Lo que no haría: copiar el guion «tu hombre / 30 años / Bora Bora», decir «blanquea» o afirmar que el aluminio oscurece la piel." }
+      ],
+      "limitaciones": [
+        "Conteos en copy en inglés; los ángulos dichos en video están subrepresentados (por ejemplo «coreano»: 8 en copy, cientos en video).",
+        "Palabras como «men» y «laser» traen anuncios que no son de desodorante; tómalos como orden de magnitud.",
+        "Los conteos son de anuncios activos hoy; el pico del mercado fue mayo–julio de 2026."
+      ],
+      "riesgos": [
+        "Los mecanismos marcados como hipótesis no se pueden decir en un anuncio sin respaldo de la etiqueta o de un estudio.",
+        "La comparación de antes y después puede ser rechazada si sugiere un resultado garantizado."
+      ]
+    },
+    {
+      "titulo": "Avatares",
+      "contexto": "TrendTrack no da datos de edad ni de quién ve los anuncios: los avatares se deducen del copy, de los ganchos y de las landings. Ordenados de más saturado a más libre.",
+      "bloques": [
+        { "tipo": "avatares", "items": [
+          { "nombre": "La que se esconde en las fotos", "frase": "En todas las fotos salgo con los brazos pegados al cuerpo.", "perfil": "Mujer de 20 a 40 años, usa ropa oscura o con mangas; dolor: vergüenza al levantar los brazos; deseo: ponerse lo que quiera sin pensar.", "angulo": "Antes y después + desodorante que aclara", "ganchos": ["I love you. But if you can't lift your arms…", "If you can't lift your arms without feeling self-conscious…", "Tired of hiding your underarms…"], "evidencia": "Verbelle 52 anuncios y 99 días; Polynae; The Sassy Co 104 anuncios y 464 días", "volumen": "643 anuncios activos con «underarm + dark»", "momento": "estable", "saturacion": "alta" },
+          { "nombre": "La que quiere gustarle a su pareja", "frase": "Quiero que me abrace sin que yo esté pendiente de cómo huelo.", "perfil": "Mujer de 22 a 35 años con pareja, va al gimnasio; dolor: inseguridad íntima; deseo: sentirse deseada.", "angulo": "Olor de lujo + aclarado", "ganchos": ["If your man can't do this to your armpits…", "Hombre no puede hacerle esto a tus axilas…"], "evidencia": "Flameday 2.636 anuncios y 67.670 de alcance (jun–jul 2026); Naturalumi en español 71 días", "volumen": "Miles de copias de un solo video", "momento": "desacelerando", "saturacion": "alta" },
+          { "nombre": "La fan del skincare coreano", "frase": "Si lo usan las coreanas, algo debe tener.", "perfil": "Mujer de 18 a 30 años, sigue rutinas de skincare; dolor: tono desigual; deseo: piel de vidrio en todo el cuerpo.", "angulo": "Ingrediente coreano dentro del desodorante", "ganchos": ["K-pop idols have some really beautiful armpits", "Korean skincare brand just dropped a deodorant…"], "evidencia": "Vibeourplus 867 anuncios (jun 2026); Polynae; Naturalumi «desodorante aclarante coreano»", "volumen": "Cientos de copias en video; 8 activos en copy", "momento": "desacelerando", "saturacion": "media" },
+          { "nombre": "La que pensó en el láser", "frase": "Averigüé el láser y es carísimo.", "perfil": "Mujer de 25 a 40 años con algo de presupuesto; dolor: precio y dolor del láser; deseo: resultado sin clínica.", "angulo": "Alternativa barata al láser", "ganchos": ["Please stop doing that to get rid of the dark spots…", "…and no, it's not laser"], "evidencia": "Tryourplus 109 anuncios (9 jun 2026); Heyisail", "volumen": "16 activos con «deodorant + laser» (con ruido)", "momento": "estable", "saturacion": "media" },
+          { "nombre": "La que suda y mancha la ropa", "frase": "Dejé de comprar ropa de color por el sudor.", "perfil": "Mujer de 25 a 40 años que trabaja en oficina o en calor; dolor: manchas y humedad; deseo: no esconderse.", "angulo": "Antitranspirante fuerte y ropa sin manchas", "ganchos": ["Hace dos años dejé de comprar ropa de color.", "Stressed about sweat stains or dark underarms…"], "evidencia": "DrOff Colombia 343 anuncios activos, 57–63 días; 270 activos con «deodorant + stains»", "volumen": "Medio", "momento": "creciendo", "saturacion": "media" },
+          { "nombre": "La que se rasura y le arde", "frase": "Cualquier desodorante me pica después de rasurarme.", "perfil": "Mujer de 18 a 40 años que se rasura seguido; dolor: ardor, puntitos y sombra; deseo: piel suave y pareja.", "angulo": "Suave después del rasurado + tono más parejo", "ganchos": ["Stock up on the deodorant made for sensitive skin…post shave", "No arde después de rasurarme (Verbelle)"], "evidencia": "224 activos con «deodorant + shaving»; 714 con «sensitive»; Wishhouse muestra puntitos en su prueba", "volumen": "Medio", "momento": "creciendo", "saturacion": "media" },
+          { "nombre": "La latina de los remedios caseros", "frase": "Ya probé limón, bicarbonato y hasta pasta de dientes.", "perfil": "Mujer latina de 20 a 45 años; dolor: probó todo en casa y le irritó; deseo: algo que sí sirva sin gastar mucho.", "angulo": "Deja los remedios caseros", "ganchos": ["Si tu mamá nunca te lo dijo, deja el limón, deja el bicarbonato…"], "evidencia": "Verbelle en español, 7.704 de alcance y +6.120 en 7 días, desde 16 nov 2026", "volumen": "Bajo: un solo anunciante", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "El hombre de tierra caliente", "frase": "Juego fútbol con este calor y no quiero oler mal ni que se me vea la axila.", "perfil": "Hombre de 18 a 35 años, deportista o de trabajo en calle; dolor: sudor, olor y vergüenza de la axila oscura; deseo: verse cuidado sin parecer vanidoso.", "angulo": "Rendimiento + cuidado discreto", "ganchos": ["No dejes que el sudor te frene en la cancha (Melano)", "Men's Underarm Whitening Deodorant Roll-On"], "evidencia": "Melano Pharma for Men (Egipto, activo desde 13 nov 2026); Organic Skin Japan Men's (Filipinas, oct 2026)", "volumen": "Muy bajo", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "La fiel de la marca de catálogo", "frase": "Yo le compro a mi distribuidora porque la marca es buena.", "perfil": "Mujer de 30 a 55 años que compra por catálogo o a una conocida; dolor: desconfía de lo de internet; deseo: calidad conocida.", "angulo": "Marca con trayectoria frente a copia viral", "ganchos": ["Nu Skin Scion Brightening: ideal si buscas un desodorante que también cuide la axila"], "evidencia": "Tienda filipina en EE. UU. con 1.211 visitas; Nu Skin recluta distribuidoras en Colombia (4 anuncios, ago 2026)", "volumen": "Casi sin anuncios", "momento": "estable", "saturacion": "baja" }
+        ] },
+        { "tipo": "barras", "titulo": "Volumen de evidencia por avatar (anuncios del creativo o conteo más fuerte)", "unidad": "anuncios", "items": [
+          { "etiqueta": "La que quiere gustarle a su pareja", "valor": 2636, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "La fan del skincare coreano", "valor": 867, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "La que se esconde en las fotos", "valor": 643, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "La que suda y mancha la ropa", "valor": 343, "nota": "Creciendo (DrOff Colombia)", "tono": "ambar" },
+          { "etiqueta": "La que se rasura y le arde", "valor": 224, "nota": "Creciendo", "tono": "ambar" },
+          { "etiqueta": "La que pensó en el láser", "valor": 109, "nota": "Estable", "tono": "ambar" },
+          { "etiqueta": "La latina de los remedios caseros", "valor": 11, "nota": "Emergente", "tono": "verde" },
+          { "etiqueta": "El hombre de tierra caliente", "valor": 2, "nota": "Virgen", "tono": "verde" },
+          { "etiqueta": "La fiel de la marca de catálogo", "valor": 1, "nota": "Virgen", "tono": "verde" }
+        ] },
+        { "tipo": "tabla", "columnas": ["Avatar", "Señal", "Saturación", "Momento"], "filas": [
+          ["La que quiere gustarle a su pareja", "2.636 copias, inactivo desde jul 2026", "Alta", "Desacelerando"],
+          ["La fan del skincare coreano", "867 copias en 3 días", "Alta", "Desacelerando"],
+          ["La que se esconde en las fotos", "643 activos; Verbelle 99 días", "Alta", "Estable"],
+          ["La que suda y mancha la ropa", "DrOff 343 activos en Colombia", "Media", "Creciendo"],
+          ["La que se rasura y le arde", "224 activos «shaving»", "Media", "Creciendo"],
+          ["La que pensó en el láser", "109 copias, jun 2026", "Media", "Estable"],
+          ["La latina de los remedios caseros", "+6.120 de alcance en 7 días", "Baja", "Emergente"],
+          ["El hombre de tierra caliente", "2 anunciantes fuera de Colombia", "Baja", "Emergente"],
+          ["La fiel de la marca de catálogo", "Sin pauta", "Baja", "Estable"]
+        ] },
+        { "tipo": "caja", "estilo": "oportunidad", "titulo": "Por dónde entraría", "texto": "Inferencia: con Scion, entraría por **«la que se rasura y le arde»** combinada con **«la que se esconde en las fotos»** (el dolor más grande, con un ángulo menos gastado), y probaría en paralelo a **«la latina de los remedios caseros»** y al **hombre de tierra caliente** con un creativo cada uno, porque están casi vacíos." }
+      ],
+      "limitaciones": [
+        "Sin datos de edad ni sexo de la audiencia: todo perfil es deducido.",
+        "El volumen mezcla copias de un video con conteos de copy: sirve para ordenar, no para medir tamaño real."
+      ],
+      "riesgos": [
+        "No segmentar ni hablar de tono de piel o raza: habla de «apariencia de la axila», nunca de «piel más blanca».",
+        "Con el avatar de sudor excesivo, no prometas tratar la hiperhidrosis (es una condición médica)."
+      ]
+    },
+    {
+      "titulo": "Validación en Colombia",
+      "contexto": "Se buscaron anuncios que llegan a Colombia, en español, con los términos que usa la gente: «axilas oscuras», «desodorante aclarante», «desodorante» + «kójico», «desodorante» + «axilas» con 30 días o más al aire, «roll on» + «axilas» y «Nu Skin».",
+      "bloques": [
+        { "tipo": "metricas", "items": [
+          { "etiqueta": "«Axilas oscuras» (todos los estados)", "valor": "550", "nota": "57 son imagen (10 %)", "tono": "rojo" },
+          { "etiqueta": "«Desodorante» + «kójico»", "valor": "253", "nota": "Muchos son de marcas que pautan en 100+ países", "tono": "ambar" },
+          { "etiqueta": "«Roll on» + «axilas»", "valor": "84", "nota": "Dominado por DrOff (antitranspirante)", "tono": "ambar" },
+          { "etiqueta": "«Desodorante aclarante»", "valor": "61", "nota": "Árvore, AndreFace, Vivendii", "tono": "ambar" },
+          { "etiqueta": "«Desodorante» + «axilas», 30+ días", "valor": "21", "nota": "Casi todos de Naturalumi", "tono": "verde" },
+          { "etiqueta": "«Nu Skin» en Colombia", "valor": "4", "nota": "Todos reclutan distribuidoras", "tono": "verde" }
+        ] },
+        { "tipo": "subtitulo", "texto": "1. Cruce completo" },
+        { "tipo": "tabla", "columnas": ["Elemento de las etapas 1 a 5", "En Colombia", "Quién y cómo"], "filas": [
+          ["G1 «Tu hombre»", "Ya existe", "Naturalumi, guion en español, 71 días"],
+          ["G2 «30 años, no es láser»", "Ya existe", "Naturalumi (92 días) y Verbelle en español (nov 2026)"],
+          ["G3 «Te amo, pero…»", "Ya existe", "Verbelle traducido al español, desde 16–26 nov 2026"],
+          ["G4 «Deja el limón y el bicarbonato»", "Ya existe", "Verbelle en español, 16 nov 2026"],
+          ["G5 Prueba en una sola axila", "Sin verificar", "No aparece en el copy; podría estar solo en video"],
+          ["G6 Naturalumi en español", "Ya existe", "Es el propio Naturalumi"],
+          ["G7 Gel exfoliante para zonas oscuras", "Parecido", "Parches Naturalumi; crema Bella Skin (alternativas)"],
+          ["G8 Jabón de kójico", "Ya existe", "Árvore, jabón de cúrcuma y kójico + desodorante (alternativa)"],
+          ["Hook «el aluminio mancha»", "Ya existe", "Naturalumi, Verbelle"],
+          ["Hook «coreano»", "Ya existe", "Naturalumi «desodorante aclarante coreano», Verbelle"],
+          ["Hook «deja el láser»", "Sin verificar", "No se vio en copy"],
+          ["Hook «le pasa a todas» (normalización)", "No existe", "Solo Ryvalia en inglés"],
+          ["Hook «¿tu desodorante te está ayudando?»", "Ya existe", "AndreFace, 16 días"],
+          ["Estilo listicle «7 razones»", "No existe", "No visto en Colombia"],
+          ["Estilo carta larga de clienta", "Parecido", "DrOff usa historia larga, pero para sudor"],
+          ["Ángulo roll-on que no mancha la ropa", "Parecido", "DrOff lo hace con sudor, no con aclarado"],
+          ["Ángulo después de rasurarte", "Parecido", "Verbelle lo menciona como beneficio, no como ángulo"],
+          ["Ángulo marca reconocida frente a copia", "No existe", "Nu Skin solo recluta distribuidoras"],
+          ["Avatar: se esconde en fotos", "Ya existe", "Verbelle, Naturalumi"],
+          ["Avatar: pareja", "Ya existe", "Naturalumi"],
+          ["Avatar: fan coreana", "Ya existe", "Naturalumi, Vivendii (Medicube)"],
+          ["Avatar: pensó en láser", "Sin verificar", "No visto en copy"],
+          ["Avatar: suda y mancha la ropa", "Ya existe", "DrOff (alternativa)"],
+          ["Avatar: se rasura y le arde", "Parecido", "Mencionado por Verbelle"],
+          ["Avatar: remedios caseros", "Ya existe", "Verbelle en español (prueba)"],
+          ["Avatar: hombre de tierra caliente", "No existe", "Nadie lo trabaja en Colombia"],
+          ["Avatar: fiel de marca de catálogo", "No existe", "Sin pauta de producto"],
+          ["Local nuevo: pago contra entrega y envío gratis", "Ya existe", "Vivendii, Árvore, DrOff, Bella Mujer"],
+          ["Local nuevo: «comenta FRESH y te mando el link»", "Ya existe", "Naturalumi (pedir comentario)"],
+          ["Local nuevo: dúo jabón + desodorante", "Ya existe", "Árvore, $92.500"],
+          ["Local nuevo: aplicar de noche (antitranspirante)", "Ya existe", "DrOff (alternativa)"]
+        ] },
+        { "tipo": "subtitulo", "texto": "2. Competencia directa frente a alternativas" },
+        { "tipo": "tabla", "columnas": ["Tipo", "Marca", "Producto", "Nota"], "filas": [
+          ["Directa", "Naturalumi", "Desodorante ácido kójico y cúrcuma (barra)", "Pauta en 70+ países, también Colombia"],
+          ["Directa", "Vivendii (página Paula Aprueba Online)", "Desodorante Medicube aclarante", "Solo Colombia, contra entrega"],
+          ["Directa", "Verbelle (página Cierra Mandy)", "Desodorante kójico, cúrcuma y niacinamida", "Pauta en 100+ países, incluye Colombia"],
+          ["Directa", "Árvore", "Desodorante aclarante natural", "Marca colombiana, solo Colombia"],
+          ["Directa", "AndreFace", "Desodorante aclarante kójico y cúrcuma", "Colombia, Chile y Perú"],
+          ["Alternativa", "DrOff", "Antitranspirante en spray de noche", "Sudor, no aclarado; 343 anuncios activos"],
+          ["Alternativa", "Bella Mujer", "Crema Bella Skin para manchas", "Página con 470.948 de alcance en 30 días"],
+          ["Alternativa", "Naturalumi", "Parches aclarantes", "72 días, 13 versiones"],
+          ["Alternativa", "Árvore", "Jabón de cúrcuma y kójico", "Kit con desodorante"]
+        ], "nota": "Solo la directa cuenta para decir que un ángulo «ya existe». Las alternativas muestran en qué gasta el público: cremas, jabones y antitranspirantes fuertes." },
+        { "tipo": "subtitulo", "texto": "3. Evidencia de cada caso que existe" },
+        { "tipo": "anuncios", "items": [
+          { "id": "facebook_1388332296602460", "marca": "Naturalumi", "nombre": "Desodorante kójico y cúrcuma — «tu hombre» en español", "formato": "video", "gancho": "Hombre no puede hacerle esto a tus axilas, necesitas un desodorante nuevo.", "traduccion": "", "angulo": "Pareja + aluminio culpable", "avatar": "Latina 18–65", "pasos": ["Gancho de pareja", "Antes y después", "El aluminio mancha", "Kójico y cúrcuma", "Olor", "24 horas", "Oferta"], "cifras": { "dias": 71, "anuncios": 3, "alcance": "2.496 (Europa)", "impresiones": "", "desde": "13 ago 2026", "hasta": "23 oct 2026" }, "por_que": "Permanencia: Sostenido (y otros guiones de la misma marca a 96 días: Consolidado). Vendedor: marca probable (tienda propia con varios productos propios).", "ganchos": ["Desodorantes manchan las axilas, pero si te digo que hay uno que te puede aclarar", "Me aclaré las axilas con un desodorante"], "url": "https://medias.trendtrack.io/facebook/video/46a53640aa8c113dabc90708010f8f23aa81233ef8966d9192b641972fff1122.mp4", "landing": "https://www.naturalumi.com/products/desodorante-con-acido-kojico-y-curcuma" },
+          { "id": "facebook_1098989559297854", "marca": "Naturalumi", "nombre": "«Dermatólogos están hablando de esto»", "formato": "video", "gancho": "Dermatólogos están hablando de esto: el «error» que oscurece tus axilas sin que lo notes.", "traduccion": "", "angulo": "Autoridad + 3 causas (roce, sudor, químicos)", "avatar": "Latina", "pasos": ["Autoridad", "No es la depilación", "Fricción + sudor + químicos", "Fórmula que ataca las 3 causas", "Comenta FRESH"], "cifras": { "dias": 96, "anuncios": 0, "alcance": "56 (Europa)", "impresiones": "", "desde": "20 ago 2026", "hasta": "24 nov 2026" }, "por_que": "Permanencia: Consolidado (más de 3 meses, varias versiones del mismo copy). Alcance europeo mínimo: en Europa casi no gasta; en Colombia no hay dato.", "ganchos": ["Sí, te vas a llevar todos estos desodorantes aclarantes de Naturalumi a un gran descuento"], "url": "https://medias.trendtrack.io/facebook/video/edb0fa7e1aee6ced0bb8246c339b314d1f7e51abd6a45f302d97b8b93bbd2de2.mp4", "landing": "https://www.naturalumi.com/products/desodorante-con-acido-kojico-y-curcuma" },
+          { "id": "facebook_1046969261635809", "marca": "Vivendii Store (página Paula Aprueba Online)", "nombre": "Desodorante Medicube aclarante", "formato": "video", "gancho": "¡Si tus axilas oscuras te incomodan, no te pierdas este producto!", "traduccion": "", "angulo": "Desodorante que además aclara, pago contra entrega", "avatar": "Colombiana", "pasos": ["Llamado al dolor", "Buscaba algo más que olor", "Ingredientes: kójico, cúrcuma, vitamina C, niacinamida", "Pagas al recibir"], "cifras": { "dias": 57, "anuncios": 13, "alcance": "", "impresiones": "", "desde": "23 ago 2026", "hasta": "19 oct 2026" }, "por_que": "Permanencia: Sostenido. Vendedor: dropshipping probable (página con nombre de persona, tienda genérica, producto de otra marca).", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/video/fc057ecceef495ce8964296cf58115ccd459105976a8f17cc14e4f1082822526.mp4", "landing": "https://vivendiistore.com/products/desodorante" },
+          { "id": "facebook_1463044245960279", "marca": "Verbelle (página Cierra Mandy)", "nombre": "«Deja el limón y el bicarbonato»", "formato": "video", "gancho": "Si tu mamá nunca te lo dijo, deja el limón, deja el bicarbonato…", "traduccion": "", "angulo": "Contra remedios caseros", "avatar": "Latina", "pasos": ["Consejo de mamá", "Semana 1, 2, mantenimiento", "Coreanos", "Olor", "Mini de regalo"], "cifras": { "dias": 5, "anuncios": 11, "alcance": "7.704 (Europa)", "impresiones": "+6.120 en 7 días", "desde": "16 nov 2026", "hasta": "21 nov 2026" }, "por_que": "Permanencia: Prueba (en español). Vendedor: dropshipping probable (página con nombre de persona, copy traducido de su anuncio en inglés).", "ganchos": ["Te amo. Pero si no puedes levantar los brazos… (copy)", "Fíjate bien antes de darle al botón de comprar…"], "url": "https://medias.trendtrack.io/facebook/video/2995e41eb7afe93268e88548cb21d2e0bee7374b720d7e63631ba516d6b506ca.mp4", "landing": "https://tryverbelle.com/products/kojic-acid-turmeric-deodorant-sp" },
+          { "id": "facebook_1105074535907337", "marca": "Verbelle (página Cierra Mandy)", "nombre": "Mini en llavero", "formato": "video", "gancho": "Fíjate bien antes de darle al botón de comprar…", "traduccion": "", "angulo": "Oferta de 2 unidades + regalo", "avatar": "Latina decidida", "pasos": ["Advertencia antes de comprar", "Lleva 2 y recibes un mini", "Olor", "El descuento no dura"], "cifras": { "dias": 8, "anuncios": 16, "alcance": "2.037 (Europa)", "impresiones": "+1.914 en 7 días", "desde": "20 nov 2026", "hasta": "activo" }, "por_que": "Permanencia: Prueba. Vendedor: dropshipping probable.", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/video/19e7ccaff7ebd15e43c06df42a76f15e83a0b4589e94202ed0245927ae2c8580.mp4", "landing": "https://tryverbelle.com/products/kojic-acid-turmeric-deodorant-sp" },
+          { "id": "facebook_1480217387337273", "marca": "Árvore", "nombre": "Desodorante aclarante natural para entrenar", "formato": "video", "gancho": "¡Muévete, entrena y evita el mal olor!", "traduccion": "", "angulo": "Natural + ejercicio + manchas", "avatar": "Colombiana activa", "pasos": ["Ejercicio", "Desodorante natural", "Protege y aclara", "Perfil de Instagram"], "cifras": { "dias": 28, "anuncios": 2, "alcance": "", "impresiones": "", "desde": "31 oct 2026", "hasta": "activo" }, "por_que": "Permanencia: Sostenido (recién al mes). Vendedor: marca probable (marca colombiana de cosmética natural con varios productos).", "ganchos": ["Axilas más parejas con el Dúo Aclarante: jabón + desodorante por $92.500"], "url": "https://medias.trendtrack.io/facebook/video/2c87b713f753bb65024aa259128b99dd617ff0944e3405dde5ce52b7e97be171.mp4", "landing": "Va al perfil de Instagram; el dúo va a arvore.store/products/aclararmanchasdelrostrocuerpoyaxilas" },
+          { "id": "facebook_1658658278963661", "marca": "AndreFace", "nombre": "«¿Tu desodorante te está ayudando o no?»", "formato": "video", "gancho": "AXILAS OSCURAS: ¿TU DESODORANTE TE ESTÁ AYUDANDO O NO?", "traduccion": "", "angulo": "Educación: roce, rasurado y alcohol; desodorante que cuida el tono", "avatar": "Latina 25–40", "pasos": ["Pregunta", "Causas", "Ingredientes y para qué sirve cada uno", "Sin aluminio ni alcohol", "Resultados varían"], "cifras": { "dias": 16, "anuncios": 1, "alcance": "", "impresiones": "", "desde": "20 oct 2026", "hasta": "5 nov 2026" }, "por_que": "Permanencia: Prueba. Vendedor: marca probable (tienda propia en 3 países). Es el copy más defendible del mercado.", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/video/d70326e2b1b9e9befc5af105240d33d8793ef4020465587a1b24d70b6a43b109.mp4", "landing": "https://andreface.com/" },
+          { "id": "facebook_957455543491390", "marca": "DrOff Colombia (alternativa)", "nombre": "«Dejé de comprar ropa de color»", "formato": "video", "gancho": "Hace dos años dejé de comprar ropa de color.", "traduccion": "", "angulo": "Sudor: el desodorante no sirve para dejar de sudar; aplicar de noche", "avatar": "Mujer que suda mucho", "pasos": ["Historia personal larga", "Trucos que no funcionaron", "El día que se rompió todo", "Descubrimiento: el desodorante es para el olor", "Mecanismo: de noche y con piel seca", "Diario día 1, 3, semana 2, mes 1", "Kit de 1 año con 4 regalos, pagas al recibir"], "cifras": { "dias": 57, "anuncios": 3, "alcance": "", "impresiones": "", "desde": "2 oct 2026", "hasta": "activo" }, "por_que": "Permanencia: Sostenido (otro guion a 63 días). Vendedor: marca probable (droff.co, 343 anuncios activos). Alternativa, no competencia directa.", "ganchos": ["Si tienes hiperhidrosis, debes probar esto", "Si te bañas dos veces al día y tus axilas siguen oliendo fuerte…"], "url": "https://medias.trendtrack.io/facebook/video/90fd14437f5929073d05ec6d07cd38fe219301d87b04afb8155f148d80710179.mp4", "landing": "https://droff.co/products/droff-juega-y-gana" },
+          { "id": "facebook_1521174287738525", "marca": "Bella Mujer (alternativa)", "nombre": "Bella Skin 2x1", "formato": "imagen", "gancho": "¿Cansada de las manchas y la piel opaca?", "traduccion": "", "angulo": "Crema aclarante 2x1, pago contra entrega", "avatar": "Colombiana", "pasos": ["Dolor", "Aclara, hidrata y unifica", "Compra 1 y lleva otro", "Envío a toda Colombia"], "cifras": { "dias": 3, "anuncios": 0, "alcance": "Página: 470.948 en 30 días", "impresiones": "", "desde": "25 nov 2026", "hasta": "activo" }, "por_que": "Permanencia: Prueba (este anuncio). Vendedor: no se puede saber. Muestra que la crema aclarante gasta fuerte en Colombia.", "ganchos": ["Llevaba años con las axilas oscuras. Probé de todo. Bella Skin fue lo único que funcionó."], "url": "https://medias.trendtrack.io/facebook/image/d0798c139db8c498bf71863d6b306bd74c5e0117a3ecc3648e87324904b94571.png", "landing": "https://bellamujer.co/products/p1-bella-skin-compra-uno-y-llevate-otro-gratis" },
+          { "id": "facebook_983259404728891", "marca": "En tu Alma Viajes (reclutamiento Nu Skin)", "nombre": "Cursos para vendedoras de Nu Skin", "formato": "video", "gancho": "Ella es Cami, empezó hace 2 meses con NuSkin y pasó de no tener ventas a vender 5 kits en 1 semana.", "traduccion": "", "angulo": "Negocio de distribuidora", "avatar": "Distribuidora de Nu Skin", "pasos": ["Caso de éxito", "Curso de contenido", "Bonos", "Cupos limitados"], "cifras": { "dias": 14, "anuncios": 3, "alcance": "", "impresiones": "", "desde": "23 ago 2026", "hasta": "6 sep 2026" }, "por_que": "No vende Scion. Prueba que Nu Skin en Colombia se mueve por distribuidoras, no por anuncios de producto.", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/video/589c6a96bbc3a83f2329fee312d148d2a95ec3461528fef447ee6c2c72ef166c.mp4", "landing": "https://emprendedorasnuskin.brendamelisah.com/" }
+        ] },
+        { "tipo": "subtitulo", "texto": "4 y 5. Permanencia y tipo de vendedor" },
+        { "tipo": "tabla", "columnas": ["Competidor directo", "Permanencia", "Tipo de vendedor", "¿Se queda?"], "filas": [
+          ["Naturalumi", "Consolidado", "Marca probable", "Sí: 71–96 días y varias versiones"],
+          ["Vivendii (Medicube)", "Sostenido", "Dropshipping probable", "Tal vez: 57 días y ya inactivo"],
+          ["Verbelle en español", "Prueba", "Dropshipping probable", "Por ver: entró el 16 nov 2026 y crece rápido"],
+          ["Árvore", "Sostenido", "Marca probable", "Probable: marca local con varios productos"],
+          ["AndreFace", "Prueba", "Marca probable", "No se sabe: 16 días"]
+        ], "nota": "Vendedor: «probable» según señales (nombre de la página, tienda, productos). No se pidieron fichas de tienda." },
+        { "tipo": "caja", "estilo": "veredicto", "titulo": "Viable con condiciones", "texto": "El desodorante que aclara ya existe en Colombia y una marca está consolidada con el guion ganador en barra, pero el roll-on de marca reconocida, la prueba honesta y los avatares de rasurado y de hombre siguen libres; la condición es no copiar el guion viral, no prometer blanqueo y justificar el precio." },
+        { "tipo": "tabla", "columnas": ["Sigue libre", "Ocupado por consolidados o sostenidos"], "filas": [
+          ["Formato roll-on que aclara (sin pasta blanca)", "Barra de kójico y cúrcuma con vainilla y pistacho (Naturalumi)"],
+          ["Prueba honesta en una sola axila", "«Tu hombre», «30 años», «el aluminio mancha» (Naturalumi)"],
+          ["Normalización sin culpa («le pasa a todas»)", "Desodorante Medicube contra entrega (Vivendii)"],
+          ["Después de rasurarte como ángulo principal", "Antitranspirante fuerte para sudor (DrOff)"],
+          ["Hombre de tierra caliente", "Crema aclarante 2x1 (Bella Mujer, alternativa)"],
+          ["Marca con trayectoria frente a copia viral", "Dúo jabón + desodorante natural (Árvore)"]
+        ] },
+        { "tipo": "escala", "titulo": "Sofisticación del mercado en Colombia frente al original", "items": [
+          { "nombre": "Desodorante aclarante (Colombia)", "nivel": 3, "nota": "Ya hay mecanismo copiado (kójico, aluminio); falta prueba y diferenciación." },
+          { "nombre": "Cremas y jabones aclarantes (Colombia)", "nivel": 4, "nota": "Muchas ofertas 2x1 y testimonios; compiten por precio." },
+          { "nombre": "Antitranspirante para sudor (Colombia)", "nivel": 3, "nota": "DrOff introduce mecanismo nuevo (de noche)." },
+          { "nombre": "Desodorante aclarante (mercado en inglés)", "nivel": 4, "nota": "Referencia original." }
+        ] },
+        { "tipo": "caja", "estilo": "hipotesis", "titulo": "Hipótesis de hueco", "items": [
+          "**H1 · Roll-on de marca reconocida que cuida la axila.** Evidencia: no apareció ningún roll-on aclarante sostenido en Colombia y Nu Skin solo recluta. Riesgo: el precio de Scion (US$36,49 en reventa) frente a barras de US$17,99 y 2x1 locales.",
+          "**H2 · Prueba honesta en una sola axila durante 4 semanas.** Evidencia: Wishhouse, 190 días al aire; no se vio en copy de Colombia. Riesgo: si el resultado de Scion es leve, la prueba lo deja en evidencia.",
+          "**H3 · Después de rasurarte.** Evidencia: 224 anuncios activos en inglés; en Colombia solo se menciona de pasada. Riesgo: si Scion arde en piel recién rasurada, el ángulo se cae; hay que probarlo antes.",
+          "**H4 · Hombre de tierra caliente.** Evidencia: solo Egipto y Filipinas lo prueban (nov y oct 2026). Riesgo: público pequeño y que compra menos cuidado de piel.",
+          "**Dónde NO entrar:** el guion «tu hombre / 30 años / vainilla y pistacho / el aluminio mancha». Naturalumi lo tiene consolidado y Verbelle lo está escalando en español desde el 16 nov 2026."
+        ] },
+        { "tipo": "caja", "estilo": "clave", "titulo": "Combinación recomendada para llegar primero", "items": [
+          "**Ángulo:** tu desodorante de todos los días también puede cuidar tu axila, sin drama ni promesas de milagro.",
+          "**Mecanismo:** roll-on que se usa a diario y se seca rápido; el cuidado se suma con la constancia (solo con lo que diga la etiqueta de Scion).",
+          "**Avatar:** mujer de 22 a 40 años que se rasura seguido y se esconde en las fotos.",
+          "**Gancho:** «Lo usé solo en una axila durante 4 semanas. Te muestro las dos.»",
+          "Un paso por delante, no dos: el mercado local está en «el aluminio mancha» (nivel 3); tú entras con prueba visible y honestidad (nivel 4 suave), no con un mecanismo científico nuevo que nadie entendería."
+        ] },
+        { "tipo": "caja", "estilo": "riesgo", "titulo": "Ventana de tiempo", "texto": "Inferencia: entre 4 y 8 semanas. Verbelle entró en español el 16 de noviembre de 2026 y suma +6.120 de alcance en 7 días; si escala, en enero de 2027 traerá a Colombia el resto de su biblioteca en inglés (incluida la prueba en vivo y la carta de clienta)." },
+        { "tipo": "plan", "titulo": "Secuencia de prueba de 3 semanas en Colombia", "items": [
+          { "cuando": "Semana 1", "que": "H2 (prueba en una axila) y H3 (después de rasurarte) en video vertical, 3 ganchos cada uno; pago contra entrega si tu operación lo permite." },
+          { "cuando": "Semana 2", "que": "Escalar el mejor; sumar H1 en estático (roll-on frente a barra, blusa negra sin marca) y un video para H4 (hombre en cancha o moto)." },
+          { "cuando": "Semana 3", "que": "Relanzar el ganador con 4 ganchos nuevos (normalización, remedios caseros, «¿tu desodorante te está ayudando?») y probar oferta de 2 unidades." }
+        ] }
+      ],
+      "limitaciones": [
+        "Fuera de Europa no hay alcance ni gasto: en Colombia se juzga por días al aire y número de versiones.",
+        "La búsqueda lee el copy, no el video: ganchos como la prueba en una axila o «deja el láser» pueden existir solo en video.",
+        "Los conteos con Colombia incluyen anuncios de marcas que apuntan a 100+ países a la vez (Naturalumi, Verbelle).",
+        "La clasificación de vendedores es probable, no confirmada."
+      ],
+      "riesgos": [
+        "«Blanquea» o «piel más blanca» es riesgoso: usa «mejora la apariencia» y «tono más parejo».",
+        "No afirmes que el aluminio oscurece la axila ni des plazos fijos.",
+        "No nombres ingredientes que no estén en la etiqueta de tu Scion.",
+        "Si usas antes y después, que sea real, sin retoques y con la aclaración «los resultados varían»."
+      ]
     }
   ]
 }
