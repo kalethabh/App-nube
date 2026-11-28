@@ -8,6 +8,9 @@ una función de Vercel entrega la web y comunica las solicitudes al motor median
 
 - Vercel Pro: el Daemon definido en `vercel.json` usa 8 GiB/4 vCPU. Memoria facturada también en espera,
   CPU activa, tráfico, funciones y almacenamiento se cobran según uso; Pro no es una tarifa plana del motor.
+  Referencia consultada el 27-11-2026: Daemons publica memoria desde US$0,0212/GB-hora. Ocho GiB encendidos
+  730 horas equivalen a unos US$123,81 de memoria antes de créditos, CPU, plan y otros consumos. Es un cálculo
+  orientativo con la tarifa inicial, no una cotización para la región/cuenta. No activar sin aprobar el presupuesto.
 - El Supabase **propio de Kads**, con las migraciones de acceso existentes y `supabase-motor.sql`.
   Las tablas del motor no tienen acceso para anon/authenticated; solo los servicios de backend.
 - Para videos/paquetes mayores de 50 MB, el plan y el límite global de Storage deben permitir archivos de hasta
