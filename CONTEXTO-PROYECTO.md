@@ -66,6 +66,16 @@ Pedido: «adapta Kads para desplegarlo con Vercel y Supabase, sin dominio y mant
   a 50 MB, insuficiente para todos los videos. El consumo de memoria del Daemon se cobra aun estando en espera.
   Tarifa inicial de memoria consultada: US$0,0212/GB-hora; 8 GiB durante 730 h ≈ US$123,81 antes de créditos,
   CPU, plan y otros consumos. No es una tarifa plana ni cotización para la cuenta. No se autorizó activar pagos.
+- Revisión tras conectar/actualizar el plugin Vercel (27-11, hora Colombia): documentación actual permite
+  contenedores como Functions, con escalado a cero tras 5 minutos sin tráfico y cierre SIGTERM con 30 s de gracia.
+  Las Functions siguen limitadas a 4 GB en Pro/Enterprise y hasta 30 minutos en la beta extendida. Esto no es un
+  reemplazo directo comprobado del proceso actual: Kads continúa generaciones después de responder al navegador.
+  Una alternativa por consumo requeriría adaptar/persistir los trabajos y verificar memoria, recuperación y calidad;
+  no afirmar que los nuevos contenedores eliminan por sí solos el costo del Daemon. Se conserva la implementación
+  validada; no se modificó código, proyectos, planes ni datos. El conector de equipos tampoco expuso el plan de
+  facturación, así que no se confirmó cuál tiene contratado el usuario. Changelog de Supabase revisado; no se
+  hicieron migraciones ni nuevas solicitudes de creación. Siguen pendientes cupo y presupuesto.
+  Fuentes: https://vercel.com/docs/functions/runtimes/container y https://vercel.com/docs/functions/limitations.
 - Antes de decir que está desplegado y conserva calidad: probar generación real de imagen/video, estilos/Sketch/audio,
   Embudo, edición, biblioteca, landings, clonación/publicación Shopify y restauración. Costos de IA requieren aprobación.
   La adaptación local NO certifica por sí sola funcionamiento, capacidad, costo ni acabado en producción.
