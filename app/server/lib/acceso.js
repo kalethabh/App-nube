@@ -15,6 +15,12 @@
 //   · quedan afuera del ingreso, con su propia llave: el conector de Claude (/mcp/<clave>) y el botón de Chrome
 //     (/api/inspiracion/importar, con su código de emparejamiento).
 import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
+import {RAIZ} from './rutas.js';
+import { SECCIONES, IDS_SECCIONES,normalizarSecciones } from '../../compartido/permisos.js';
+import { puedeSolicitud } from './permisos.js';
+import { registrarGoogle,volverSeguro,origenAcceso } from './acceso-google.js';
 
 const URL_SB = String(process.env.KADS_SUPABASE_URL || '').trim().replace(/\/+$/, '');
 const ANON = String(process.env.KADS_SUPABASE_ANON || '').trim();
@@ -27,7 +33,7 @@ const CON_ACCESO = new Set(['owner', 'socio', 'empleado']);
 // ajustes, claves, la IA conectada, actualizar, guardado, GitHub, el conector, Telegram y conectar o quitar tiendas
 const SOLO_DUENO_ESCRIBIR = [/^\/api\/(ajustes|actualizar|claves|claude|ia|github|guardado|conector|telegram|_nube|anuncios-github)(\/|$)/, /^\/api\/shopify\/(tiendas|conexiones)(\/|$)/];
 // lo que no pide ingreso: la página de entrar y sus pedidos
-const LIBRES = [/^\/entrar$/, /^\/api\/acceso\/(entrar|registro|salir)$/, /^\/favicon\.(ico|svg|png)$/];
+const LIBRES = [/^\/entrar$/, /^\/api\/acceso\/(entrar|registro|salir|google(?:\/callback)?)$/, /^\/favicon\.(ico|svg|png)$/];
 
 const C_SESION = 'kads_sesion';
 const C_REFRESCO = 'kads_refresco';
@@ -36,7 +42,7 @@ function cookies(req) {
   const out = {};
   for (const parte of String(req.headers.cookie || '').split(';')) {
     const i = parte.indexOf('=');
-    if (i > 0) out[parte.slice(0, i).trim()] = decodeURIComponent(parte.slice(i + 1).trim());
+    if (i > 0)try{out[parte.slice(0, i).trim()] = decodeURIComponent(parte.slice(i + 1).trim());}catch{}
   }
   return out;
 }
@@ -98,14 +104,16 @@ async function usuarioDe(token) {
 async function rolDe(usuario, token) {
   const c = rolesCache.get(usuario.id);
   if (c && c.hasta > Date.now()) return c;
-  const r = await sb('/rest/v1/rpc/kads_mi_rol', { metodo: 'POST', token, cuerpo: {} });
+  let r = await sb('/rest/v1/rpc/kads_mi_acceso', { metodo: 'POST', token, cuerpo: {} });
+  const permisosPreparados=r.status!==404;
+  if(!permisosPreparados)r=await sb('/rest/v1/rpc/kads_mi_rol',{metodo:'POST',token,cuerpo:{}});
   const fila = Array.isArray(r.datos) ? r.datos[0] : r.datos;
   if (!r.ok || !fila?.rol) {
     const e = new Error(r.status === 404 ? 'Falta preparar Supabase para Kads: corre deploy/supabase-kads.sql en el editor SQL de Supabase.' : 'No pude leer tu rol en Supabase.');
     e.status = 503;
     throw e;
   }
-  const v = { rol: fila.rol, nombre: fila.nombre || usuario.correo, hasta: Date.now() + 30000 };
+  const v = { rol: fila.rol, nombre: fila.nombre || usuario.correo, secciones:normalizarSecciones(fila.secciones),permisosPreparados,hasta: Date.now() + 30000 };
   rolesCache.set(usuario.id, v);
   return v;
 }
@@ -124,8 +132,8 @@ async function sesionDe(req, res) {
     }
   }
   if (!usuario) return null;
-  const { rol, nombre } = await rolDe(usuario, token);
-  return { usuario, rol, nombre, token };
+  const { rol, nombre,secciones,permisosPreparados } = await rolDe(usuario, token);
+  return { usuario, rol, nombre,secciones,permisosPreparados,token };
 }
 
 const esApi = (req) => req.path.startsWith('/api/') || req.path.startsWith('/archivos/');
@@ -158,6 +166,8 @@ export async function porteroAcceso(req, res, next) {
       return res.status(403).type('html').send(pagina('Solo el dueño', '<p>Esto solo lo puede hacer el dueño de la cuenta.</p><p><a href="/">Volver a la app</a></p>'));
     }
   }
+  if(!puedeSolicitud(s,req.path,req.method)){const error='No tienes permiso para esta sección. Pide acceso al administrador.';return esApi(req) || req.path.startsWith('/landing/')?res.status(403).json({error}):res.status(403).type('html').send(pagina('Acceso restringido',`<p>${error}</p><a href="/">Volver a mis secciones</a>`));}
+  res.set('Cache-Control','private, no-store');
   next();
 }
 
@@ -167,14 +177,14 @@ function pagina(titulo, cuerpo) {
   return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(titulo)} · Kads Studio</title>
 <style>:root{--bg:#f6f4fb;--fg:#1c1726;--suave:#6c6479;--linea:#e2dcec;--acento:#6b3fd1;--tarjeta:#fff;color-scheme:light}
 @media (prefers-color-scheme:dark){:root{--bg:#14111b;--fg:#eee9f6;--suave:#a69eb4;--linea:#2f2840;--acento:#a183ff;--tarjeta:#1d1828;color-scheme:dark}}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:24px max(16px,env(safe-area-inset-left))}
-main{width:100%;max-width:440px;background:var(--tarjeta);border:1px solid var(--linea);border-radius:14px;padding:28px}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr);place-items:center;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:24px max(16px,env(safe-area-inset-left))}
+main{min-width:0;overflow-wrap:anywhere;width:100%;max-width:440px;background:var(--tarjeta);border:1px solid var(--linea);border-radius:14px;padding:28px}
 h1{font-size:22px;margin:0 0 4px}.suave{color:var(--suave);font-size:13.5px}label{display:grid;gap:4px;margin-top:12px;font-size:13.5px;font-weight:600}
 input,select{font:inherit;padding:10px 12px;border:1px solid var(--linea);border-radius:9px;background:var(--bg);color:var(--fg)}
 button{font:inherit;font-weight:700;margin-top:16px;width:100%;padding:11px;border:0;border-radius:9px;background:var(--acento);color:#fff;cursor:pointer}
 button.sec{background:transparent;color:var(--acento);border:1px solid var(--linea);margin-top:8px}a{color:var(--acento)}
 .error{color:#c0392b;font-size:13.5px;min-height:1.2em;margin:10px 0 0}table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:14px}
-td,th{text-align:left;padding:8px 4px;border-bottom:1px solid var(--linea);vertical-align:middle}td select{padding:6px;width:100%}.ancho{max-width:720px}[hidden]{display:none!important}</style></head>
+td,th{text-align:left;padding:8px 4px;border-bottom:1px solid var(--linea);vertical-align:middle}td select{padding:6px;width:100%}.ancho{max-width:1000px}.google{display:block;text-align:center;padding:12px;border:1px solid var(--linea);border-radius:9px;text-decoration:none;font-weight:700;margin:18px 0 8px}.permisos{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px;max-height:300px;overflow:auto;padding:10px}.permisos label{display:flex;align-items:center;font-weight:400;margin:0}.permisos input{width:auto}.btn-guardar{min-width:100px}@media(max-width:640px){.ancho table,.ancho tbody,.ancho tr,.ancho td{display:block;width:100%}.ancho thead{display:none}.ancho tr{padding:14px 0;border-bottom:1px solid var(--linea)}.ancho td{border:0;padding:6px 0;overflow-wrap:break-word;word-break:normal}.ancho td:nth-child(2)::before{content:"Rol";display:block;color:var(--suave);font-size:13px;margin-bottom:4px}.ancho .permisos{grid-template-columns:minmax(0,1fr)}.ancho .btn-guardar{width:100%}}[hidden]{display:none!important}</style></head>
 <body><main${titulo === 'Usuarios' ? ' class="ancho"' : ''}><h1>${esc(titulo)}</h1>${cuerpo}</main></body></html>`;
 }
 
@@ -182,6 +192,7 @@ const PAGINA_ENTRAR = (volver) =>
   pagina(
     'Kads Studio',
     `<p class="suave">Entra con tu cuenta de Kads Studio.</p>
+<a class="google" href="/api/acceso/google?volver=${encodeURIComponent(volver)}">Continuar con Google</a><p class="suave">o entra con tu correo</p>
 <form id="f"><div id="soloRegistro" hidden><label>Nombre<input id="nombre" autocomplete="name"></label></div>
 <label>Correo<input id="correo" type="email" autocomplete="email" required></label>
 <label>Clave<input id="clave" type="password" autocomplete="current-password" required minlength="6"></label>
@@ -192,27 +203,26 @@ $('cambiar').onclick=()=>{registro=!registro;$('soloRegistro').hidden=!registro;
 $('f').onsubmit=async(e)=>{e.preventDefault();$('err').textContent='';$('b').disabled=true;
 try{const r=await fetch('/api/acceso/'+(registro?'registro':'entrar'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre:$('nombre').value,correo:$('correo').value,clave:$('clave').value})});
 const d=await r.json().catch(()=>({}));if(!r.ok){$('err').textContent=d.error||'No se pudo.';return;}
-if(d.aviso){$('err').textContent=d.aviso;return;}location.href=${JSON.stringify(volver)};}
+if(d.aviso){$('err').textContent=d.aviso;return;}location.href=${JSON.stringify(volver).replace(/</g,'\\u003c')};}
 catch{$('err').textContent='Sin conexión con la app.';}finally{$('b').disabled=false;}};
 </script>`,
   );
 
 const PAGINA_USUARIOS = pagina(
-  'Usuarios',
-  `<p class="suave">Quienes entran con su cuenta quedan «pendiente» hasta que les des un rol. <b>Socio</b> y <b>empleado</b> usan la app; solo tú ves Ajustes, claves, conexiones y tiendas.</p>
-<p class="error" id="err" role="alert"></p><div style="overflow-x:auto"><table><thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th></tr></thead><tbody id="t"><tr><td colspan="3" class="suave">Cargando…</td></tr></tbody></table></div>
-<p><a href="/">Volver a la app</a></p>
-<script>
-const NOM={owner:'Dueño',socio:'Socio',empleado:'Empleado',pendiente:'Pendiente',rechazado:'Rechazado'};
-const esc=(t)=>String(t??'').replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
-async function cargar(){const r=await fetch('/api/acceso/usuarios');const d=await r.json().catch(()=>({}));if(!r.ok){document.getElementById('err').textContent=d.error||'No pude cargar.';return;}
-document.getElementById('t').innerHTML=d.usuarios.map(u=>'<tr><td>'+esc(u.nombre)+'</td><td>'+esc(u.correo)+'</td><td>'+(u.rol==='owner'?'Dueño':'<select aria-label="Rol de '+esc(u.correo)+'" data-id="'+esc(u.id)+'">'+['socio','empleado','pendiente','rechazado'].map(x=>'<option value="'+x+'"'+(x===u.rol?' selected':'')+'>'+NOM[x]+'</option>').join('')+'</select>')+'</td></tr>').join('');}
-document.addEventListener('change',async(e)=>{const s=e.target.closest('select[data-id]');if(!s)return;document.getElementById('err').textContent='';
-const r=await fetch('/api/acceso/usuarios/'+encodeURIComponent(s.dataset.id),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({rol:s.value})});
-const d=await r.json().catch(()=>({}));if(!r.ok){document.getElementById('err').textContent=d.error||'No se pudo cambiar.';cargar();}});
-cargar();
-</script>`,
-);
+ 'Usuarios',
+ `<p class="suave">Aprueba cada cuenta y marca las secciones que puede usar. Google también deja las cuentas nuevas pendientes. Las claves, conexiones, actualizaciones y administración de usuarios siguen reservadas al administrador; Oficina virtual se comparte en modo consulta.</p>
+ <p class="error" id="err" role="alert"></p><p id="aviso" role="status"></p><div style="overflow-x:auto"><table><thead><tr><th>Persona</th><th>Rol</th><th>Secciones permitidas</th><th></th></tr></thead><tbody id="t"></tbody></table></div>
+ <details><summary>Preparar Google y permisos</summary><p>En el Supabase propio de Kads, ejecuta deploy/supabase-permisos-google.sql. Activa Google en Authentication → Providers y configura las credenciales de Google allí, nunca en el chat. Consulta deploy/GOOGLE-Y-PERMISOS.md.</p><p id="configGoogle"></p><a href="/api/acceso/permisos.sql" download="kads-permisos.sql">Descargar actualización de permisos</a><br><a href="https://supabase.com/docs/guides/auth/social-sign-in/auth-google" target="_blank" rel="noopener noreferrer">Guía oficial de Google en Supabase</a></details><p><a href="/">Volver a la app</a></p>
+ <script>
+ const MODULOS=${JSON.stringify(SECCIONES)},NOM={owner:'Administrador',socio:'Socio',empleado:'Empleado',pendiente:'Pendiente',rechazado:'Rechazado'};
+ const esc=(t)=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+ const mensaje=(t)=>document.getElementById('err').textContent=t;
+ async function cargar(){try{const r=await fetch('/api/acceso/usuarios'),d=await r.json();if(!r.ok){mensaje(d.error||'No pude cargar.');return;}
+ if(d.permisosPreparados===false)mensaje('Falta ejecutar la actualización de permisos en Supabase. Hasta aplicarla se conserva el acceso anterior de las cuentas aprobadas. Después debes asignar sus secciones.');
+ document.getElementById('t').innerHTML=d.usuarios.map(u=>'<tr data-usuario="'+esc(u.id)+'"><td><b>'+esc(u.nombre)+'</b><br>'+esc(u.correo)+'</td><td>'+(u.rol==='owner'?'Administrador':'<select aria-label="Rol de '+esc(u.correo)+'">'+['socio','empleado','pendiente','rechazado'].map(x=>'<option value="'+x+'"'+(x===u.rol?' selected':'')+'>'+NOM[x]+'</option>').join('')+'</select>')+'</td><td>'+(u.rol==='owner'?'Acceso completo':'<details><summary>Elegir secciones</summary><div class="permisos">'+MODULOS.map(m=>'<label><input type="checkbox" value="'+m.id+'"'+((u.secciones||[]).includes(m.id)?' checked':'')+'>'+m.nombre+'</label>').join('')+'</div></details>')+'</td><td>'+(u.rol==='owner'?'':'<button class="btn-guardar" data-guardar>Guardar acceso</button>')+'</td></tr>').join('');}catch{mensaje('Sin conexión con la app.');}}
+ document.addEventListener('click',async(e)=>{const boton=e.target.closest('[data-guardar]');if(!boton)return;const fila=boton.closest('[data-usuario]');boton.disabled=true;mensaje('');document.getElementById('aviso').textContent='';try{const r=await fetch('/api/acceso/usuarios/'+encodeURIComponent(fila.dataset.usuario),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({rol:fila.querySelector('select').value,secciones:[...fila.querySelectorAll('input:checked')].map(i=>i.value)})}),d=await r.json();if(!r.ok){mensaje(d.error||'No pude guardar.');return;}document.getElementById('aviso').textContent='Acceso guardado. La persona verá sus secciones al actualizar la pantalla.';}catch{mensaje('Sin conexión con la app.');}finally{boton.disabled=false;}});
+ cargar();fetch('/api/acceso/configuracion').then(r=>r.json()).then(d=>{document.getElementById('configGoogle').textContent='Dirección de retorno: '+(d.callback||'configura KADS_URL_PUBLICA')+'. Google: '+(d.googleHabilitado?'activado':'pendiente de activar en Supabase')+'.';}).catch(()=>{});
+ </script>`);
 
 /** Las rutas del ingreso (rutas/acceso.js). */
 export function rutasAcceso(app, json) {
@@ -220,9 +230,10 @@ export function rutasAcceso(app, json) {
     app.get('/api/acceso/yo', (req, res) => res.json({ activo: false }));
     return;
   }
+  registrarGoogle(app,{url:URL_SB,sb,ponerCookies,pagina});
   app.get('/entrar', (req, res) => {
-    const volver = String(req.query.volver || '/');
-    res.set('Cache-Control', 'no-store').type('html').send(PAGINA_ENTRAR(volver.startsWith('/') && !volver.startsWith('//') ? volver : '/'));
+    const volver = volverSeguro(req.query.volver);
+    res.set('Cache-Control', 'no-store').type('html').send(PAGINA_ENTRAR(volver));
   });
   app.post('/api/acceso/entrar', json, async (req, res) => {
     const correo = String(req.body?.correo || '').trim().toLowerCase();
@@ -253,22 +264,27 @@ export function rutasAcceso(app, json) {
   });
   app.get('/api/acceso/yo', (req, res) => {
     const s = req.cuenta;
-    res.json({ activo: true, correo: s?.usuario?.correo || null, nombre: s?.nombre || null, rol: s?.rol || null });
+    res.json({ activo: true, correo: s?.usuario?.correo || null, nombre: s?.nombre || null, rol: s?.rol || null,secciones:s?.secciones || [],permisosPreparados:s?.permisosPreparados });
   });
+  app.get('/api/acceso/permisos.sql',(req,res)=>res.type('application/sql').attachment('kads-permisos.sql').send(['supabase-kads.sql','supabase-permisos-google.sql'].map(f=>fs.readFileSync(path.join(RAIZ,'deploy',f),'utf8')).join('\n\n')));
+  app.get('/api/acceso/configuracion',async(req,res)=>{const r=await sb('/auth/v1/settings').catch(()=>({}));res.json({callback:`${origenAcceso(req)}/api/acceso/google/callback`,googleHabilitado:r.datos?.external?.google===true});});
   app.get('/usuarios', (req, res) => res.set('Cache-Control', 'no-store').type('html').send(PAGINA_USUARIOS));
   app.get('/api/acceso/usuarios', async (req, res) => {
-    const r = await sb('/rest/v1/rpc/kads_lista_usuarios', { metodo: 'POST', token: req.cuenta.token, cuerpo: {} });
+    let r = await sb('/rest/v1/rpc/kads_lista_accesos', { metodo: 'POST', token: req.cuenta.token, cuerpo: {} });
+    const permisosPreparados=r.status!==404;if(!permisosPreparados)r=await sb('/rest/v1/rpc/kads_lista_usuarios',{metodo:'POST',token:req.cuenta.token,cuerpo:{}});
     if (!r.ok) return res.status(r.status === 403 ? 403 : 502).json({ error: 'No pude leer los usuarios en Supabase.' });
-    res.json({ usuarios: r.datos || [] });
+    res.json({ usuarios: r.datos || [],permisosPreparados,secciones:SECCIONES });
   });
   app.put('/api/acceso/usuarios/:id', json, async (req, res) => {
     const rol = String(req.body?.rol || '');
     if (!['socio', 'empleado', 'pendiente', 'rechazado'].includes(rol)) return res.status(400).json({ error: 'Ese rol no existe.' });
-    const r = await sb('/rest/v1/rpc/kads_cambiar_rol', { metodo: 'POST', token: req.cuenta.token, cuerpo: { p_usuario: req.params.id, p_rol: rol } });
-    if (!r.ok) return res.status(400).json({ error: r.datos?.message || 'No se pudo cambiar el rol.' });
+    const secciones=req.body?.secciones;
+    if(secciones!==undefined && (!Array.isArray(secciones) || secciones.some(s=>!IDS_SECCIONES.includes(s))))return res.status(400).json({error:'Elige solo secciones válidas.'});
+    const r = await sb(`/rest/v1/rpc/${secciones===undefined?'kads_cambiar_rol':'kads_cambiar_acceso'}`, { metodo: 'POST', token: req.cuenta.token, cuerpo: { p_usuario: req.params.id, p_rol: rol,...(secciones===undefined?{}:{p_secciones:normalizarSecciones(secciones)}) } });
+    if (!r.ok) return res.status(r.status===404?503:400).json({ error:r.status===404?'Falta actualizar los permisos en Supabase: ejecuta deploy/supabase-permisos-google.sql.':r.datos?.message || 'No se pudo guardar el acceso.' });
     rolesCache.delete(req.params.id);
     res.json({ ok: true });
   });
 }
 
-export const _paraPruebas = { cookies, venceEn };
+export const _paraPruebas = { cookies, venceEn,PAGINA_ENTRAR };

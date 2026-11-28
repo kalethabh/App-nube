@@ -23,6 +23,7 @@ import { registrarOcupado } from '../version.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { publicoVisual, direccionPersona, consultaDe, tipoImagen, planAdaptacion, sustituirImagen, procesarImagenes, NOTA_RESENA_IA, REALISMO, IMAGEN_PENDIENTE } from './personas.js';
 import { capturarSecciones,vincularCapturas } from './capturas.js';
 import { notificarLandingLista } from '../notificaciones.js';
 import { parse } from 'node-html-parser';
@@ -201,12 +202,12 @@ async function crearConElEquipo(id) {
     const { crearConEquipo } = await import('./plantilla.js');
     const { crearConAmuna } = await import('./plantilla-amuna.js');
     const r = await (l.plantilla === 'cen' ? crearConEquipo : crearConAmuna)({ carpeta: carpetaDe(id), productoId: l.productoId, pedido: l.prompt, precios: l.precios, registro: l.registro, resenas, capturasReales, profesional, motor: l.motor, guardar: (c) => guardar(id, c), avanzar: (t) => avanzar(id, t) });
-    guardar(id, { titulo: r.titulo, creada: { textos: r.cambiados, imagenes: r.imagenes.hechas, pedidas: r.imagenes.pedidas } });
+    guardar(id, { titulo: r.titulo, creada: { textos: r.cambiados, imagenes: r.imagenes.hechas, pedidas: r.imagenes.pedidas, faltantes:r.imagenes.faltantes || [] } });
     guardar(id, { estado: 'midiendo' });
     await medir(id);
     guardar(id, { estado: 'lista' });
     avanzar(id, 'Lista.');
-    notificarLandingLista(leer(id));
+    const completa=leer(id);if(!(completa.creada?.faltantes?.length || completa.adaptada?.faltantes?.length))notificarLandingLista(completa);
   } catch (e) {
     console.error('[landings]', id, e);
     guardar(id, { estado: 'error', error: e?.publico || e?.message || 'No se pudo crear la landing.' });
@@ -237,7 +238,7 @@ async function trabajar(id) {
     await medir(id);
     guardar(id, { estado: 'lista' });
     avanzar(id, 'Lista.');
-    notificarLandingLista(leer(id));
+    const completa=leer(id);if(!(completa.creada?.faltantes?.length || completa.adaptada?.faltantes?.length))notificarLandingLista(completa);
   } catch (e) {
     console.error('[landings]', id, e);
     guardar(id, { estado: 'error', error: e?.publico || e?.message || 'No se pudo clonar.' });
@@ -427,7 +428,11 @@ async function adaptar(id) {
   avanzar(id, `${l.motor === 'codex' ? 'Codex' : 'Claude Code'} está ${prod ? `reescribiendo los textos para ${prod.nombre}` : 'aplicando lo que pediste'}…`);
   const { lanzarSesion, prohibidasComunes } = await import('../motor-ia.js');
   const lista = textos.map((t, k) => `${k}\t${t.texto.slice(0, 400)}`).join('\n');
-  const listaImgs = imgs.map((i, k) => `${k}\t${i.getAttribute('alt') || ''}\t${i.getAttribute('width') || '?'}x${i.getAttribute('height') || '?'}`).join('\n');
+  const inventario=imgs.map(i=>{const seccion=i.closest('[data-seccion],section,article')?.textContent?.replace(/\s+/g,' ').slice(0,500) || '';const dato={src:i.getAttribute('src'),alt:i.getAttribute('alt') || '',seccion};return {...dato,tipo:tipoImagen(dato)};});
+  const lecturas=[...new Set(inventario.map(i=>{const f=path.resolve(carpeta,i.src.split('?')[0]);return f.startsWith(carpeta+path.sep) && fs.existsSync(f) && /\.(png|jpg|jpeg|webp)$/i.test(f)?f:null;}).filter(Boolean))];
+  const publico=publicoVisual({estrategia:{avatar:investigacion.slice(0,2600)},ficha,producto:prod?.nombre || '',pedido});
+  const consulta=consultaDe(publico,ficha);
+  const listaImgs = inventario.map((i,k)=>`${k}\t${i.alt}\t${imgs[k].getAttribute('width') || '?'}x${imgs[k].getAttribute('height') || '?'}\t${i.tipo}\t${i.src}\t${i.seccion}`).join('\n');
   const prompt = `TAREA: landing adaptada. Te ejecuta la app Kads Studio, sin chat ni terminal: solo escribes dos archivos con Write.
 
 El usuario clonó una landing de referencia y quiere la MISMA landing (misma estructura, mismo diseño, mismo orden y mismo tono de venta)${prod ? ' para SU producto' : ''}${pedido ? ', con los cambios que pide' : ''}. Tú reescribes los TEXTOS; el diseño no se toca.
@@ -441,20 +446,25 @@ Las imágenes de la landing (índice<TAB>alt<TAB>tamaño):
 ${listaImgs}
 
 1. Escribe ${rel('nuevos-textos.json')} con { "<índice>": "<texto nuevo>" } solo para los textos que deben cambiar${prod ? ' (el nombre del producto o la marca, beneficios, ingredientes, preguntas frecuentes, reseñas, garantías…)' : ' según el pedido'} ({} si ninguno). Conserva el largo aproximado de cada texto (el diseño depende de eso), el idioma y el estilo. Precios y ofertas: déjalos como están salvo que la ficha diga otros. NUNCA inventes datos médicos, cifras, estudios ni testimonios que no estén en la ficha, la investigación o el pedido: si un texto de la original afirma algo que no puedes respaldar para este producto, reescríbelo de forma general y verdadera.
-2. Escribe ${rel('nuevas-imagenes.json')} con [{ "id": <índice de la imagen>, "prompt": "<la imagen nueva en inglés, misma composición que la original pero con el producto del usuario>", "aspecto": "1:1" | "4:5" | "9:16" | "16:9" }] para las imágenes donde se ve el producto o la marca de la original${pedido ? ' o las que el pedido dice cambiar' : ''} (máximo 8, las más importantes primero; [] si ninguna). Las de personas, fondos o íconos sin marca no se cambian${pedido ? ' salvo que el pedido lo diga' : ''}.
+2. Escribe ${rel('nuevas-imagenes.json')} con [{ "id": <índice de la imagen>, "tipo": "producto | persona | consulta | resena", "prompt": "<imagen nueva en inglés, acorde al mensaje de su sección y al público de este producto>", "aspecto": "1:1" | "4:5" | "9:16" | "16:9" }] para TODAS las imágenes donde se ve el producto, personas, profesionales, testimonios u opiniones. Sin límite artificial de ocho. Revisa también las fotos de perfil y los carruseles. ${prod ? 'Adapta todo el material humano al público de este producto; nunca conserves rostros de la marca de referencia.' : 'Si el pedido solo cambia textos, no cambies fotos que no pidió.'}
+Lee las imágenes locales para reconocer personas aunque no tengan alt descriptivo: ${lecturas.map(f=>path.relative(RAIZ,f).replace(/\\/g,'/')).join(', ')}.
+${publico}
+${REALISMO}
+Profesionales: una escena ilustrativa sin nombre, sin aval ni producto recomendado. Testimonios/opiniones: conserva solo textos respaldados para este producto; la nueva foto es una escena ilustrativa, nunca la identidad del autor. No inventes opiniones, nombres, chats ni resultados. Fondos coherentes y tranquilos; cada imagen cumple la intención de su título, no es relleno. Logos, íconos y sellos válidos no se regeneran.
 Tu respuesta final: solo LISTO.`;
   const r = await lanzarSesion({
     tipo: 'guion',
     motor: l.motor,
     uuid: crypto.randomUUID(),
     prompt,
-    herramientas: ['Write'],
-    permitidas: [`Write(./${rel('nuevos-textos.json')})`, `Write(./${rel('nuevas-imagenes.json')})`, `Edit(./${rel('nuevos-textos.json')})`, `Edit(./${rel('nuevas-imagenes.json')})`],
+    herramientas: ['Read','Write'],
+    material:{imagenes:lecturas.slice(0,10).map(f=>path.relative(RAIZ,f).replace(/\\/g,'/')),aPedido:lecturas.slice(10).map(f=>path.relative(RAIZ,f).replace(/\\/g,'/'))},
+    permitidas: [...lecturas.map(f=>`Read(./${path.relative(RAIZ,f).replace(/\\/g,'/')})`),`Write(./${rel('nuevos-textos.json')})`, `Write(./${rel('nuevas-imagenes.json')})`, `Edit(./${rel('nuevos-textos.json')})`, `Edit(./${rel('nuevas-imagenes.json')})`],
     prohibidas: prohibidasComunes({ terminal: false }),
     registro: path.join(carpeta, 'registro-ia.log'),
     timeoutMs: 15 * 60000,
     maxTurnos: 10,
-    verificar: async () => (leerJSON(path.join(carpeta, 'nuevos-textos.json')) ? { ok: true } : { ok: false, errores: [`Escribe ${rel('nuevos-textos.json')}.`] }),
+    verificar: async () => (leerJSON(path.join(carpeta, 'nuevos-textos.json')) && Array.isArray(leerJSON(path.join(carpeta,'nuevas-imagenes.json'))) ? { ok: true } : { ok: false, errores: [`Escribe ${rel('nuevos-textos.json')}.`] }),
   });
   const nuevos = leerJSON(path.join(carpeta, 'nuevos-textos.json'));
   if (!nuevos) throw Object.assign(new Error('ia'), { publico: r?.sinMotor ? 'Esa IA no está lista: conéctala en Ajustes › Conexiones.' : r?.limite ? 'Se acabó el uso de tu plan de IA por ahora. Vuelve a intentar cuando se renueve.' : 'La IA no devolvió los textos. Vuelve a intentar.' });
@@ -471,40 +481,35 @@ Tu respuesta final: solo LISTO.`;
   }
   avanzar(id, `Cambió ${cambiados} textos.`);
   // las imágenes nuevas (ChatGPT, con la foto del producto)
-  const pedidas = (leerJSON(path.join(carpeta, 'nuevas-imagenes.json')) || []).filter((x) => Number.isInteger(Number(x?.id)) && imgs[Number(x.id)] && String(x.prompt || '').trim()).slice(0, 8);
+  const cubrir=Boolean(prod) || /imagen|foto|person|profesional|testimon|opini/i.test(pedido);
+  const pedidas = planAdaptacion(leerJSON(path.join(carpeta,'nuevas-imagenes.json')),cubrir?inventario:inventario.map(i=>({...i,tipo:'producto'}))).map(p=>({...p,tipo:cubrir?p.tipo:inventario[p.id].tipo}));
   let hechas = 0;
   const foto = l.productoId ? rutaFoto(l.productoId, 1) : null;
-  if (pedidas.length) {
-    avanzar(id, `ChatGPT está haciendo ${pedidas.length} imágenes con tu producto…`);
-    const { motorDeImagenes, codexParaImagenes } = await import('../motor-imagenes.js');
-    for (const p of pedidas) {
-      const destino = path.join(carpeta, 'assets', `ia-${p.id}-${crypto.randomBytes(3).toString('hex')}.png`);
-      try {
-        if (modoPrueba()) {
-          if (!foto) continue;
-          fs.copyFileSync(foto, destino);
-        } else {
-          const codex = motorDeImagenes() === 'chatgpt' ? codexParaImagenes() : null;
-          if (!codex) {
-            avanzar(id, 'Las imágenes se hacen con tu ChatGPT: conéctalo en Ajustes › Conexiones (quedaron las de la original).');
-            break;
-          }
-          const { generarConChatGPT } = await import('../../../../produccion/chatgpt-imagen.js');
-          await generarConChatGPT({ prompt: `${String(p.prompt).slice(0, 3000)}\n\n${ANTI_EFECTOS}`, referencias: foto ? [foto] : [], aspecto: ['1:1', '4:5', '9:16', '16:9'].includes(p.aspecto) ? p.aspecto : '1:1', rutaDestino: destino, codex });
-        }
-        const img = imgs[Number(p.id)];
-        img.setAttribute('src', `assets/${path.basename(destino)}`);
-        img.removeAttribute('srcset');
-        img.removeAttribute('sizes');
-        hechas++;
-      } catch (e) {
-        avanzar(id, `Una imagen no salió (${String(e?.message || e).slice(0, 100)}).`);
-      }
+  const estados=pedidas.map(p=>({id:`adaptada-${p.id}`,estado:'en-cola',tipo:p.tipo}));
+  const actualizar=(id,c)=>{Object.assign(estados.find(s=>s.id===`adaptada-${id}`),c);guardar(idLanding,{imagenesEstado:estados.map(s=>({...s}))});};
+  const idLanding=id;
+  guardar(id,{imagenesEstado:estados});
+  const { motorDeImagenes,codexParaImagenes }=await import('../motor-imagenes.js');
+  const codex=modoPrueba()?null:motorDeImagenes()==='chatgpt'?codexParaImagenes():null;
+  await procesarImagenes(pedidas,async(p)=>{
+    const img=imgs[p.id],destino=path.join(carpeta,'assets',`ia-${p.id}-${crypto.randomBytes(3).toString('hex')}.png`);
+    actualizar(p.id,{estado:'generando'});
+    try {
+      const prompt=p.tipo==='consulta'?consulta.prompt:`${String(p.prompt).slice(0,3500)}\n\n${p.tipo==='persona' || p.tipo==='resena'?direccionPersona({publico,escena:inventario[p.id].seccion,indice:p.id}):`${publico}\n${REALISMO}`}\n\n${ANTI_EFECTOS}`;
+      if(modoPrueba()){if(!foto)throw new Error('Falta foto de producto para el simulador.');fs.copyFileSync(foto,destino);}
+      else {if(!codex)throw new Error('Conecta ChatGPT en Ajustes para generar las imágenes.');await (await import('../../../../produccion/chatgpt-imagen.js')).generarConChatGPT({prompt,referencias:p.tipo==='consulta'?[]:foto?[foto]:[],aspecto:['1:1','2:3','3:2','4:5','9:16','16:9'].includes(p.aspecto)?p.aspecto:'1:1',rutaDestino:destino,codex});}
+      sustituirImagen(raiz,img,`assets/${path.basename(destino)}`,{nota:p.tipo==='consulta'?consulta.nota:p.tipo==='resena'?NOTA_RESENA_IA:''});
+      hechas++;actualizar(p.id,{estado:'lista'});avanzar(id,`Imagen ${hechas} de ${pedidas.length} lista.`);
+    }catch(e){
+      actualizar(p.id,{estado:'error',error:String(e.message).slice(0,180)});
+      if(['persona','consulta','resena'].includes(p.tipo))sustituirImagen(raiz,img,IMAGEN_PENDIENTE);
+      avanzar(id,`Falta la imagen ${p.id+1}: ${String(e.message).slice(0,120)}.`);
     }
-  }
+  });
+  escribirJSON(path.join(carpeta,'imagenes-estado.json'),estados);
   conInter(raiz); // (2026-11-27d) «La tipografía siempre INTER», también en las adaptadas
   fs.writeFileSync(path.join(carpeta, 'index.html'), `<!doctype html>\n${raiz.querySelector('html')?.outerHTML || raiz.toString()}`);
-  guardar(id, { adaptada: { textos: cambiados, imagenes: hechas, pedidas: pedidas.length } });
+  guardar(id, { adaptada: { textos: cambiados, imagenes: hechas, pedidas: pedidas.length, faltantes:estados.filter(s=>s.estado!=='lista').map(s=>s.id) } });
 }
 
 export const _paraPruebas = { textosDe, DIR };

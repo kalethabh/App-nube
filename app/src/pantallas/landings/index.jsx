@@ -210,7 +210,7 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
         </div>
         <span className={`ld-estado ld-estado--${l.estado}`}>
           {ocupado ? <LoaderCircle size={13} className="girando" aria-hidden="true" /> : null}
-          {{ trabajando: l.modo === 'crear' ? 'Creando…' : 'Clonando…', midiendo: 'Midiendo…', analizando: 'Analizando…', lista: 'Lista', error: 'No salió' }[l.estado] || l.estado}
+          {{ trabajando: l.modo === 'crear' ? 'Creando…' : 'Clonando…', midiendo: 'Midiendo…', analizando: 'Analizando…', lista: (l.creada?.faltantes?.length || l.adaptada?.faltantes?.length)?(l.imagenesEstado || []).some(i=>i.estado==='revisar')?'Revisa las imágenes':'Faltan imágenes':'Lista', error: 'No salió' }[l.estado] || l.estado}
         </span>
       </header>
       {ocupado ? (
@@ -235,6 +235,7 @@ function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
           ) : null}
         </div>
       ) : null}
+      {l.imagenesEstado?.length?<details className="ld-imagenes" open={ocupado || l.imagenesEstado.some(i=>i.estado==='error' || i.estado==='revisar')}><summary>Imágenes: {l.imagenesEstado.filter(i=>i.estado==='lista').length} de {l.imagenesEstado.length} listas</summary><ul>{l.imagenesEstado.map((i,k)=><li key={i.id} data-estado={i.estado}><span>{i.estado==='generando'?<LoaderCircle size={14} className="girando"/>:i.estado==='error'?<CircleAlert size={14}/>:null}{i.id.startsWith('resena-')?'Escena para opinión':i.id==='cuidado'?'Profesional':i.id.startsWith('combo-')?'Combo':i.id.startsWith('historia-')?'Historia':i.id.startsWith('paso-')?'Modo de uso':`Imagen ${k+1}`}</span><small>{{'en-cola':'En cola',generando:'Generando…',lista:'Lista',revisar:i.error || 'Revisar',error:i.error || 'No salió'}[i.estado] || i.estado}</small></li>)}</ul>{l.imagenesEstado.some(i=>i.estado==='error' || i.estado==='revisar')?<p>Hay imágenes pendientes. Revisa tu conexión con ChatGPT antes de volver a generar; las fotos de otra marca no se usan para completarlas.</p>:null}</details>:null}
       <Equipo agentes={l.agentes} />
       {l.analisis ? <Analisis a={l.analisis} /> : null}
       {!l.analisis && l.analisisError && !ocupado ? <p className="ld-ayuda"><CircleAlert size={13} aria-hidden="true" /> {l.analisisError}</p> : null}

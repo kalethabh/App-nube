@@ -1,3 +1,4 @@
+import { useCuenta,tienePermiso,seccionesDePantalla } from '../datos/cuenta.js';
 import { useEffect, useState } from 'react';
 import { Building2, MessagesSquare, CirclePause, Clapperboard, House, LayoutTemplate, MessageCircle, Package, Rocket, Scissors, GraduationCap, Images, LayoutGrid, Library, Palette, Wallet, LogOut, PanelLeftClose, PanelLeftOpen, Plus, Settings, Users, ShoppingBag, Telescope, FolderOpen } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
@@ -203,21 +204,6 @@ function Conexion({ ok, nombre, para, falta = 'Falta', plegado }) {
 }
 
 /** (2026-11-25a) La cuenta, en la app en un servidor con ingreso (lib/acceso.js): { activo, correo, nombre, rol }. */
-function useCuenta() {
-  const [cuenta, setCuenta] = useState(null);
-  useEffect(() => {
-    let vivo = true;
-    fetch('/api/acceso/yo', { headers: { Accept: 'application/json' } })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => vivo && setCuenta(d?.activo ? d : null))
-      .catch(() => {});
-    return () => {
-      vivo = false;
-    };
-  }, []);
-  return cuenta;
-}
-
 function BloqueCuenta({ cuenta, plegado }) {
   const salir = async () => {
     try {
@@ -245,7 +231,7 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
   // lo mismo que cuentan la barra de arriba y el tablero (src/datos/produccion.js). Mientras algo se produce se
   // mira cada 5 s, como el tablero: el avance y la etapa no se quedan atrás de la pantalla de producción
   const [cadaMs, setCadaMs] = useState(15000);
-  const p = useEnProduccion({ cadaMs });
+  const p = useEnProduccion({ cadaMs,habilitado:tienePermiso(cuenta,'videos','anuncios','tablero') });
   useEffect(() => setCadaMs(p.cantidad ? 5000 : 15000), [p.cantidad]);
   const necesitan = [
     ...p.necesitan.map((n) => ({ a: n.anuncio, href: enlace.produccion(n.anuncio.slug), que: QUE_NECESITA[n.alto.tipo] || 'Te necesita' })),
@@ -264,7 +250,7 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
   // las imágenes de los anuncios de imagen: con tu ChatGPT (sin costo) o kie.ai
   const imagenesOk = imagenes.motor === 'kie' ? null : imagenes.revisando ? null : imagenes.conectado;
   // el saldo de las APIs (kie.ai en dólares, ElevenLabs en caracteres libres), cada minuto
-  const { datos: saldo } = useSaldo();
+  const { datos: saldo } = useSaldo({cadaMs:60000,habilitado:tienePermiso(cuenta,'saldo')});
   const totalAnuncios = p.cargando ? null : p.anuncios.length;
   // las claves y el saldo de kie viven en Ajustes > Conexiones; aca solo si estan o faltan
   const claveKie = estado ? Boolean(estado.claves?.kie) : null;
@@ -293,7 +279,7 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
       </div>
 
       <nav className="nav">
-        {GRUPOS.map((g) => (
+        {GRUPOS.map(g=>({...g,items:g.items.filter(i=>tienePermiso(cuenta,...seccionesDePantalla(i.href)))})).filter(g=>g.items.length).map((g) => (
           <div key={g.titulo || 'arriba'} className="nav__grupo">
             {g.titulo && !plegado ? <span className="nav__grupo-titulo">{g.titulo}</span> : null}
             {g.items.map((item) => (
@@ -313,7 +299,7 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
             ))}
           </div>
         ))}
-        {cuenta ? <BloqueCuenta cuenta={cuenta} plegado={plegado} /> : null}
+        {cuenta?.activo ? <BloqueCuenta cuenta={cuenta} plegado={plegado} /> : null}
       </nav>
 
       {necesitan.length ? (
@@ -364,14 +350,14 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
         <MedioCaminoMini lista={p.pausados} plegado={plegado} />
       ) : null}
 
-      <a href={enlace.saldo()} className="menu__pie" aria-label="Saldo y conexiones, ir a Saldo y costos">
+      {tienePermiso(cuenta,'saldo')?<a href={enlace.saldo()} className="menu__pie" aria-label="Saldo y conexiones, ir a Saldo y costos">
         <div className="menu__conexiones">
           <Conexion ok={claveKie} nombre="kie.ai" para={dolares(saldo?.kie) || 'Imágenes y videos'} plegado={plegado} />
           <Conexion ok={claveVoz} nombre="ElevenLabs" para={vozLibre(saldo?.elevenlabs) || 'Voz'} plegado={plegado} />
           <Conexion ok={claudeOk} nombre={mayuscula(motor.nombre) || 'Tu IA'} para="Guiones y textos" falta={motor.instalado ? 'Inicia sesión' : 'Falta'} plegado={plegado} />
           {imagenes.motor === 'chatgpt' ? <Conexion ok={imagenesOk} nombre="ChatGPT" para="Imágenes" falta={imagenes.chatgpt?.instalado ? 'Conecta' : 'Falta'} plegado={plegado} /> : null}
         </div>
-      </a>
+      </a>:null}
     </aside>
   );
 }

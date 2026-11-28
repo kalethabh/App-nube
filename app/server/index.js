@@ -30,6 +30,7 @@ import { migrarMotor, motorElegido } from './lib/motor-ia.js';
 import { vigilarInterfaz } from './lib/interfaz.js';
 import { porteroImportar } from './lib/desde-chrome.js';
 import { porteroAcceso } from './lib/acceso.js';
+import {porteroAcciones} from './lib/permisos.js';
 import { programarPortadas } from './lib/portadas-estilos.js';
 
 // IPv4 primero (2026-11-18): con una red con IPv6 a medias, Node intenta primero la dirección IPv6 de ElevenLabs o kie y
@@ -125,6 +126,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json({ limit: '2mb' }));
+app.use(porteroAcciones);
 
 // ---------------------------------------------------------------- rutas (server/rutas/*.js)
 const cargadas = [];

@@ -10,7 +10,7 @@ export async function leerSaldo({ fresco = false } = {}) {
   return d;
 }
 
-export const useSaldo = (opciones = { cadaMs: 60000 }) => useDatos('saldo', () => leerSaldo(), opciones);
+export const useSaldo = (opciones = { cadaMs: 60000 }) => useDatos(opciones?.habilitado===false?null:'saldo', () => leerSaldo(), opciones);
 
 /** "US$12,40" o null. */
 export const dolares = (kie) => (kie?.dolares != null ? `US$${Number(kie.dolares).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : null);

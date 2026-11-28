@@ -117,6 +117,7 @@ Environment=ANUNCIOS_DOMINIO=$KADS_DOMINIO
 ${KADS_SUPABASE_URL:+Environment=KADS_SUPABASE_URL=$KADS_SUPABASE_URL}
 ${KADS_SUPABASE_ANON:+Environment=KADS_SUPABASE_ANON=$KADS_SUPABASE_ANON}
 ${KADS_PUERTA:+Environment=KADS_PUERTA=$KADS_PUERTA}
+${KADS_URL_PUBLICA:+Environment=KADS_URL_PUBLICA=$KADS_URL_PUBLICA}
 Environment=PATH=$CASA/.local/bin:/usr/local/bin:/usr/bin:/bin
 ExecStart=/usr/bin/node app/server/index.js
 Restart=always
