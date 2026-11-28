@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-27 (2026-11-27k)
+Última actualización: 2026-11-27 (2026-11-27l)
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -12,6 +12,102 @@ Al terminar cada cambio de desarrollo o decisión relevante, actualizar este arc
 cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponibles, las pruebas y sus límites,
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
+
+## Aclaración vigente: despliegue mínimo sin dominio propio (2026-11-27)
+
+Documentación: [PR #245](https://github.com/kalethabh/App-nube/pull/245).
+
+El usuario aclaró: «Solo quiero hacer lo mismo con los mismos o mejores resultados pero ya deployado,
+sin dominio, solo las herramientas necesarias para que funcione». Sustituye la propuesta previa que tomaba
+DigitalOcean de US$96 + Supabase Pro como punto de partida; no es un presupuesto aceptado ni un mínimo necesario.
+
+- Conservar la app y el motor juntos en un servidor Ubuntu x86-64 persistente, el Supabase propio existente
+  y sus conexiones actuales de IA. No cambiar modelos, prompts ni datos para abaratar el alojamiento.
+- Sin compra de dominio: `deploy/instalar.sh` YA propone `<IP-con-guiones>.sslip.io` y Caddy para HTTPS.
+  Revisado el código y contrastado con la documentación oficial de sslip.io (certificados por HTTP-01).
+  No se ejecutó el instalador ni se emitió un certificado real. IP estable y puertos 80/443 necesarios.
+- Supabase Pro no es obligatorio para arrancar; Free tiene cuotas y pausa por inactividad.
+  No añadir Vercel, servicios ni suscripciones sin una necesidad comprobada. Dimensionar tras probar.
+- Los mismos resultados requieren trasladar investigación, referencias, biblioteca, avatares, medios y ajustes,
+  y reautorizar los proveedores. Más velocidad o mejor calidad no se pueden garantizar sin pruebas reales.
+- Se preguntó si ya tiene servidor o cuenta de hosting; pendiente de respuesta/acceso seguro. No se contrataron
+  servicios ni se solicitaron claves por chat. Guía actualizada: `deploy/PLAN-DEPLOY-COMPLETO.md`.
+- Solo documentación en esta aclaración: revisión de diferencias; no cambió código ni VERSION.
+
+## Landings con personas, Google y acceso por secciones (2026-11-27l)
+
+Implementación: [PR #243](https://github.com/kalethabh/App-nube/pull/243).
+Distribución publicada y verificada (ZIP de 443 MB subido): [v2026-11-27l](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-27l).
+
+Pedidos vigentes: generar también las imágenes de personas, profesionales, testimonios y opiniones de las landings,
+con realismo y coherencia; añadir Google y que el administrador elija secciones por persona. Después pidió recomendar
+un deploy que mantenga todas las funciones. No canceló las mejoras anteriores.
+
+### Generación de landings
+
+- `landings/personas.js` comparte dirección fotográfica, público de investigación/ficha, variación de adultos/entornos,
+  realismo de piel/manos/luz/empaque y escenas acordes al mensaje. No fija todos los productos a mujeres jóvenes.
+  Las fotos no reciben los rostros de la plantilla como referencia; las piezas gráficas sí conservan su guía de diseño.
+- AMUNA conserva el orden, dimensiones, Inter y datos de la versión k; los combos piden el número exacto de unidades,
+  sin personas. Los prompts reciben el copy aprobado de la sección. Añade una foto por reseña real sin foto (máximo 12).
+  Se reutiliza esa escena en sus apariciones, con nota visible «Escena ilustrativa generada con IA; no es la persona de la
+  reseña». No genera textos de reseñas, nombres, calificaciones ni resultados. Los avatares y tira de fotos de prueba
+  social solo incluyen fotos reales. Las fotos subidas se conservan.
+- CEN conserva también las fotos de opiniones y genera escenas si faltan; cuidado es una escena profesional ilustrativa
+  acorde a la categoría o la foto autorizada real. No inventa identidades ni avales. Garantiza un encargo para las imágenes
+  que omitió el director. CEN, AMUNA y adaptación comparten un máximo global de tres trabajos simultáneos, incluso entre varias landings.
+- Adaptar URL incluye personas/consultas/opiniones (inventario + lectura de imágenes por el agente + tipo de imagen),
+  sin máximo ocho. Agrupa fuentes repetidas. Sustituye img, picture/source, srcset y atributos perezosos; una persona que
+  no pudo regenerarse no se rellena con el rostro de otra marca. Tal cual continúa clonando sin alterar fotos.
+- Estado por imagen en la app y `imagenes-estado.json`. AMUNA/CEN: Renata puede señalar defectos visibles por ID como
+  «revisar»; no desencadena otra generación de pago. Se conservan los archivos y se pide revisión. No emite «landing lista»
+  si hay pendientes. El estado global lista sigue por compatibilidad, con un distintivo y detalle de pendientes en la UI.
+- Pruebas sin proveedores: público masculino/adulto, combos sin personas, reseñas/procedencia, más de ocho imágenes,
+  picture/lazy, deduplicación, tres concurrentes y defectos visuales. No se generaron fotos reales con IA en esta sesión;
+  el acabado del proveedor necesita una generación real aprobada.
+- Regresión de landings: 107/108 comprobaciones, incluido profesional autorizado en CEN y AMUNA. Único fallo:
+  el FFmpeg de esta Mac no tiene codificador libwebp; la app conserva PNG. Humo rápido: 85/86, solo Python del
+  sistema 3.9.6 fuera del rango exigido (3.10–3.13). Build de la interfaz correcto. Pruebas unitarias de personas,
+  permisos y SQL correctas. Panel de permisos revisado visualmente en escritorio y móvil, sin desborde.
+- No se ejecutaron proveedores de generación reales ni se desplegó un servidor; estas pruebas no certifican
+  rendimiento en nube ni el acabado de las fotografías finales.
+
+### Google y permisos
+
+- `acceso-google.js`: OAuth de Google por Supabase, PKCE S256, verificador solo en servidor, flujo de 10 minutos ligado
+  a cookie HttpOnly (prefijo __Host en HTTPS), callback de un solo uso y retorno interno. No guarda el secreto de Google.
+  El administrador lo configura en el proveedor de Supabase. Correo/clave siguen funcionando.
+- `app/compartido/permisos.js`: catálogo compartido. `lib/permisos.js`: control por solicitud, medios y borrado común;
+  deniega rutas desconocidas a no administradores. Las acciones de traslado o creación entre secciones exigen ambas (publicar una landing, pasar imagen a video, copiar a carpeta). Las entradas necesarias (productos/investigación/biblioteca) permiten
+  lectura para generadores, sin habilitar sus modificaciones. Oficina para no administradores es de consulta; chat/acciones
+  globales siguen reservados al dueño para no saltarse el alcance. Claves, conexiones y actualizaciones siguen del dueño.
+- El menú y las pantallas usan `/api/acceso/yo`; se ocultan secciones no permitidas, no se monta el formulario por enlace
+  directo y al entrar se elige la primera sección asignada. No muestra producción, saldo, avisos ni coordinadora sin acceso.
+- `deploy/supabase-permisos-google.sql`: secciones text[], funciones con security definer/RLS para leer acceso, listar
+  usuarios y guardar rol+secciones juntos. Solo owner concede permisos; no se cambia al administrador ni se asigna owner.
+  Revocación invalida caché de esa cuenta inmediatamente en el proceso; otras instancias hasta 30 s. UI refresca cada 15 s.
+- Antes de aplicar la migración se conserva el acceso anterior de los aprobados y se avisa al administrador. El panel no
+  permite afirmar un guardado si falta el SQL. Después, los no administradores parten sin secciones; los nuevos, pendientes.
+  Usuarios ofrece descargar el SQL completo y muestra la dirección de retorno y si Google está habilitado.
+- Los permisos son por sección, NO aislamiento de proyectos/tiendas por persona. Conectores con llave mantienen su acceso
+  separado. Google de Kads NO conecta por sí mismo ChatGPT/Claude; son autorizaciones distintas del motor.
+- Validado con Supabase/Google falsos y navegador: **58/58**, incluidos PKCE, cookie, replay, retorno externo, roles,
+  concesión/revocación, menús, enlace directo y móvil. SQL real ejecutado en PostgreSQL aislado (PGlite): migración
+  repetible, RLS, acceso inicial, prohibición de autoconceder/demover owner, concesión/revocación y secciones inválidas.
+- Pendiente real: activar Google y aplicar el SQL en el Supabase del usuario, elegir dominio y verificar login real.
+  No se han pedido ni leído secretos de Google, ni cambiado la base o cuentas reales.
+
+### Recomendación de despliegue (no contratado)
+
+El usuario no tiene dirección elegida y pidió recomendación. Ver `deploy/PLAN-DEPLOY-COMPLETO.md` y
+`deploy/GOOGLE-Y-PERMISOS.md`. Propuesta: VPS x86-64 Ubuntu, 8 vCPU/16 GB, disco persistente y respaldo, con Caddy;
+Supabase propio para Google/roles. Evaluar Hetzner CX43 para piloto económico si hay stock, CPX42 para trabajo diario;
+DigitalOcean equivalente como alternativa. Al cerrar la recomendación se eligió DigitalOcean 8 vCPU/16 GiB/320 GiB
+más Supabase Pro como propuesta concreta para producción (desde US$121/mes antes de extras); Hetzner queda
+como opción de ahorro sujeta a stock. No es una contratación ni una garantía de capacidad. Tarifas y disponibilidad contrastadas en fuentes oficiales el 2026-11-27;
+no comprar sin cotización final. No se ha desplegado ni migrado nada. Copiar GitHub solo no lleva medios, biblioteca,
+credenciales ni rutas del Mac. Antes de cambiar al equipo, probar imagen, video, Embudo, clonación, landing, edición,
+audio, Shopify y restauración reales en el servidor, con aprobación de costos cuando corresponda.
 
 ## Borrar carpetas y generaciones (2026-11-24s)
 

@@ -1,3 +1,4 @@
+import {useCuenta,tienePermiso,seccionesDePantalla,SECCIONES} from './datos/cuenta.js';
 // La app: menú lateral + barra superior + la pantalla de la ruta actual.
 //
 // LAS RUTAS (hash): cada pantalla vive en src/pantallas/<carpeta>/index.jsx con `export default`,
@@ -311,8 +312,12 @@ export default function App() {
     guardarPreferencia('menu-plegado', nuevo);
   };
 
+  const cuenta=useCuenta();
+  const autorizada=tienePermiso(cuenta,...seccionesDePantalla(camino));
+  const misSecciones=SECCIONES.filter(s=>tienePermiso(cuenta,s.id));
+  useEffect(()=>{if(cuenta?.activo && cuenta.rol!=='owner' && camino==='/inicio' && !tienePermiso(cuenta,'inicio') && misSecciones.length)ir(misSecciones[0].ruta,{reemplazar:true});},[cuenta,camino]);
   const Pantalla = actual?.ruta.Pantalla;
-  const pantalla = Pantalla ? (
+  const pantalla = !cuenta?<PantallaCargando/>:!autorizada?<div className="pagina"><h1>Mis secciones</h1><p>Esta sección no está habilitada para tu cuenta. El administrador puede cambiar tus accesos.</p>{misSecciones.length?<ul>{misSecciones.map(s=><li key={s.id}><a href={`#${s.ruta}`}>{s.nombre}</a></li>)}</ul>:<p>Todavía no tienes secciones asignadas.</p>}</div>:Pantalla ? (
     <AtajaErrores key={camino}>
       <Suspense fallback={<PantallaCargando completa={actual.ruta.completa} />}>
         <Pantalla key={camino} params={actual.params} consulta={consulta} />
@@ -325,7 +330,7 @@ export default function App() {
   if (actual?.ruta.completa) {
     return (
       <ContextoBarra.Provider value={fijarMigas}>
-        <div className="app app--completa">{pantalla}<Actualizaciones /><NotificacionesLanding completa /></div>
+        <div className="app app--completa">{pantalla}{tienePermiso(cuenta)?<Actualizaciones />:null}{tienePermiso(cuenta,'landings')?<NotificacionesLanding completa />:null}</div>
       </ContextoBarra.Provider>
     );
   }
@@ -340,15 +345,15 @@ export default function App() {
           {/* en el tablero el gran "Nuevo anuncio" ya está en la portada: no se repite arriba */}
           <BarraArriba migas={migas} ocultarNuevo={actual?.ruta.menu === 'nuevo' || actual?.ruta.patron === '/tablero' || actual?.ruta.patron === '/inicio' || actual?.ruta.patron === '/imagenes' || actual?.ruta.patron === '/imagenes/nuevo'} />
           <main className="principal__contenido" id="contenido">
-            <Actualizaciones />
-            <NotificacionesLanding />
+            {tienePermiso(cuenta)?<Actualizaciones />:null}
+            {tienePermiso(cuenta,'landings')?<NotificacionesLanding />:null}
             <BandaGlobalModoPrueba />
             {pantalla}
           </main>
           {/* la coordinadora flotante en todas las pantallas (en la oficina ya está su chat) */}
-          <AvisoCoordinadora oculto={actual?.ruta.patron === '/oficina' || String(actual?.ruta.patron || '').startsWith('/chat-imagenes')} />
+          {tienePermiso(cuenta)?<AvisoCoordinadora oculto={actual?.ruta.patron === '/oficina' || String(actual?.ruta.patron || '').startsWith('/chat-imagenes')} />:null}
           {/* en Ajustes la bienvenida se abre con su botón; en las demás pantallas, sola la primera vez */}
-          {actual?.ruta.menu !== 'ajustes' ? (
+          {tienePermiso(cuenta) && actual?.ruta.menu !== 'ajustes' ? (
             <Suspense fallback={null}>
               <BienvenidaPrimeraVez />
             </Suspense>

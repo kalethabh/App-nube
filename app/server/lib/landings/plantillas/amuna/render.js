@@ -14,6 +14,7 @@ export const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '
 const fmt = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em class="dest">$1</em>');
 export const cop = (v) => `$${Math.round(Number(v) || 0).toLocaleString('es-CO').replace(/,/g, '.')}`;
 const lista = (x) => (Array.isArray(x) ? x : []);
+const notaFoto=x=>x?.fotoNota?`<small class="nota-foto-ia">${esc(x.fotoNota)}</small>`:'';
 const est = (n = 5) => '★'.repeat(n) + '☆'.repeat(5 - n);
 
 /** La medida de una imagen «gris:942x1670:…» -> [942, 1670] (o null). */
@@ -124,12 +125,12 @@ export function cuerpoDeLanding(D) {
     <div class="linea">${lista(D.ruta?.pasos).map(([pill, t, p]) => `<div class="paso-ruta"><span class="pill">${esc(pill)}</span><h3>${esc(t)}</h3><p>${fmt(p)}</p></div>`).join('')}</div>
   </section>` : ''}`,
     'testimonio-destacado': `
-  ${D.testimonio ? `<article class="testi" data-seccion="testimonio-destacado">${D.testimonio.foto ? `<img src="${S(D.testimonio.foto)}" alt="">` : `<span class="ini" aria-hidden="true">${esc(String(D.testimonio.nombre || '').split(/\s+/).map((x) => x[0] || '').slice(0, 2).join('').toUpperCase())}</span>`}<div><b>${esc(D.testimonio.nombre)}</b> <span class="estrellas">${est(D.testimonio.estrellas || 5)}</span><p>${fmt(D.testimonio.texto)}</p></div></article>` : ''}`,
+  ${D.testimonio ? `<article class="testi" data-seccion="testimonio-destacado">${D.testimonio.foto ? `<img src="${S(D.testimonio.foto)}" alt="">` : `<span class="ini" aria-hidden="true">${esc(String(D.testimonio.nombre || '').split(/\s+/).map((x) => x[0] || '').slice(0, 2).join('').toUpperCase())}</span>`}<div><b>${esc(D.testimonio.nombre)}</b> <span class="estrellas">${est(D.testimonio.estrellas || 5)}</span><p>${fmt(D.testimonio.texto)}</p>${notaFoto(D.testimonio)}</div></article>` : ''}`,
     'ellas-cuentan': `
   ${ellas.length ? `<section class="sec ellas" data-seccion="ellas-cuentan">
     <h2 class="titulo-sec" style="font-size:26px">${fmt(D.ellas?.titulo)}</h2>
     <p class="sub-sec" style="font-weight:700;color:var(--negro)">${fmt(D.ellas?.sub)}</p>
-    <div class="carril" style="margin-top:22px">${ellas.map((x) => (x.tarjeta ? `<img src="${S(x.foto)}" alt="${esc([x.nombre, x.texto].filter(Boolean).join(': '))}" loading="lazy">` : `<article><div class="ph"><img src="${S(x.foto)}" alt="" loading="lazy"></div><div class="quien"><b>${esc(x.nombre)}</b>${x.ciudad ? `<span class="chip-ok">${esc(x.ciudad)}</span>` : ''}</div><div class="estrellas" aria-label="${x.estrellas || 5} de 5">${est(x.estrellas || 5)}</div><p>${fmt(x.texto)}</p></article>`)).join('')}</div>
+    <div class="carril" style="margin-top:22px">${ellas.map((x) => (x.tarjeta ? `<img src="${S(x.foto)}" alt="${esc([x.nombre, x.texto].filter(Boolean).join(': '))}" loading="lazy">` : `<article><div class="ph"><img src="${S(x.foto)}" alt="" loading="lazy"></div>${notaFoto(x)}<div class="quien"><b>${esc(x.nombre)}</b>${x.ciudad ? `<span class="chip-ok">${esc(x.ciudad)}</span>` : ''}</div><div class="estrellas" aria-label="${x.estrellas || 5} de 5">${est(x.estrellas || 5)}</div><p>${fmt(x.texto)}</p></article>`)).join('')}</div>
   </section>` : ''}`,
     'historias': `
   ${lista(D.historias?.fotos).length ? `<section class="sec historias" data-seccion="historias">
@@ -143,7 +144,7 @@ export function cuerpoDeLanding(D) {
   ${lista(D.experiencias?.items).length ? `<section class="sec experiencias" data-seccion="experiencias">
     <span class="pill-borde"><span class="estrellas">★★★★★</span>${esc(D.experiencias?.pill)}</span>
     <h2 class="titulo-sec">${fmt(D.experiencias?.titulo)}</h2>
-    <div class="carril">${lista(D.experiencias?.items).map((x) => `<article><img src="${S(x.foto)}" alt="" loading="lazy"><div class="cuerpo"><div class="quien"><span class="estrellas">${est(x.estrellas || 5)}</span><b>${esc(x.nombre)}</b></div><p>${fmt(x.texto)}</p><div class="mini-prod"><img src="${S(D.experiencias.fotoProducto)}" alt=""><div><b>${esc(P.nombre)}</b><span>${cop(D.experiencias.precioDesde)}</span></div></div></div></article>`).join('')}</div>
+    <div class="carril">${lista(D.experiencias?.items).map((x) => `<article><img src="${S(x.foto)}" alt="" loading="lazy">${notaFoto(x)}<div class="cuerpo"><div class="quien"><span class="estrellas">${est(x.estrellas || 5)}</span><b>${esc(x.nombre)}</b></div><p>${fmt(x.texto)}</p><div class="mini-prod"><img src="${S(D.experiencias.fotoProducto)}" alt=""><div><b>${esc(P.nombre)}</b><span>${cop(D.experiencias.precioDesde)}</span></div></div></div></article>`).join('')}</div>
   </section>` : ''}`,
     'experiencias-fotos': `
   ${lista(D.ugc?.fotos).length ? `<section class="sec ugc" data-seccion="experiencias-fotos">
@@ -159,7 +160,7 @@ export function cuerpoDeLanding(D) {
     <p class="chica">Calificaciones de las reseñas mostradas (${lista(R.items).length})</p>
     ${lista(R.fotos).length ? `<hr><div class="carril fotos-res">${lista(R.fotos).map((s) => `<img src="${S(s)}" alt="" loading="lazy">`).join('')}</div>` : ''}
     ${lista(R.items).length > 1 ? '<div class="ordenar"><select id="orden" aria-label="Ordenar reseñas"><option value="recientes">Más recientes primero</option><option value="mejores">Mejor calificadas</option><option value="peores">Peor calificadas</option></select></div>' : ''}
-    <div class="lista-res" id="listaRes">${lista(R.items).map((x) => `<article class="res" data-estrellas="${x.estrellas || 5}"><div class="top"><b>${esc(x.nombre)}</b><span>Opinión de cliente</span></div><div class="estrellas" aria-label="${x.estrellas || 5} de 5">${est(x.estrellas || 5)}</div><div class="cuerpo"><div>${x.titulo ? `<h3>${esc(x.titulo)}</h3>` : ''}<p>${fmt(x.texto)}</p></div>${x.foto ? `<img src="${S(x.foto)}" alt="" loading="lazy">` : ''}</div>${x.lugar ? `<p class="lugar">${esc(x.lugar)}</p>` : ''}</article>`).join('')}</div>
+    <div class="lista-res" id="listaRes">${lista(R.items).map((x) => `<article class="res" data-estrellas="${x.estrellas || 5}"><div class="top"><b>${esc(x.nombre)}</b><span>Opinión de cliente</span></div><div class="estrellas" aria-label="${x.estrellas || 5} de 5">${est(x.estrellas || 5)}</div><div class="cuerpo"><div>${x.titulo ? `<h3>${esc(x.titulo)}</h3>` : ''}<p>${fmt(x.texto)}</p></div>${x.foto ? `<img src="${S(x.foto)}" alt="" loading="lazy">` : ''}</div>${notaFoto(x)}${x.lugar ? `<p class="lugar">${esc(x.lugar)}</p>` : ''}</article>`).join('')}</div>
   </section>` : ''}`,
     'ingredientes': `
   ${D.ingredientes ? `<div class="imagen-full" data-seccion="ingredientes"><img src="${S(D.ingredientes)}" alt="Ingredientes de ${esc(P.nombre)}" loading="lazy"></div>` : ''}`,
