@@ -16,7 +16,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 ## Landings con personas, Google y acceso por secciones (2026-11-27l)
 
 Implementación: [PR #243](https://github.com/kalethabh/App-nube/pull/243).
-Distribución prevista al completar la publicación: [v2026-11-27l](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-27l).
+Distribución publicada y verificada (ZIP de 443 MB subido): [v2026-11-27l](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-27l).
 
 Pedidos vigentes: generar también las imágenes de personas, profesionales, testimonios y opiniones de las landings,
 con realismo y coherencia; añadir Google y que el administrador elija secciones por persona. Después pidió recomendar
@@ -81,7 +81,9 @@ un deploy que mantenga todas las funciones. No canceló las mejoras anteriores.
 El usuario no tiene dirección elegida y pidió recomendación. Ver `deploy/PLAN-DEPLOY-COMPLETO.md` y
 `deploy/GOOGLE-Y-PERMISOS.md`. Propuesta: VPS x86-64 Ubuntu, 8 vCPU/16 GB, disco persistente y respaldo, con Caddy;
 Supabase propio para Google/roles. Evaluar Hetzner CX43 para piloto económico si hay stock, CPX42 para trabajo diario;
-DigitalOcean equivalente como alternativa. Tarifas y disponibilidad contrastadas en fuentes oficiales el 2026-11-27;
+DigitalOcean equivalente como alternativa. Al cerrar la recomendación se eligió DigitalOcean 8 vCPU/16 GiB/320 GiB
+más Supabase Pro como propuesta concreta para producción (desde US$121/mes antes de extras); Hetzner queda
+como opción de ahorro sujeta a stock. No es una contratación ni una garantía de capacidad. Tarifas y disponibilidad contrastadas en fuentes oficiales el 2026-11-27;
 no comprar sin cotización final. No se ha desplegado ni migrado nada. Copiar GitHub solo no lleva medios, biblioteca,
 credenciales ni rutas del Mac. Antes de cambiar al equipo, probar imagen, video, Embudo, clonación, landing, edición,
 audio, Shopify y restauración reales en el servidor, con aprobación de costos cuando corresponda.

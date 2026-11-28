@@ -9,6 +9,11 @@ Recomendación técnica para el pedido del 2026-11-27. No se ha contratado ni de
 | Proyectos y medios | Disco persistente, con respaldo automático y copia fuera del servidor | temp, output, biblioteca, avatares, ajustes y restauración |
 | Dirección | Subdominio propio con HTTPS y Caddy | Acceso directo a Kads, sesiones y callback de Google |
 
+Para este caso, la recomendación concreta es DigitalOcean con 8 vCPU, 16 GiB de RAM y 320 GiB de disco,
+con Supabase Pro para las cuentas en producción. Las tarifas publicadas suman desde US$121/mes
+(US$96 + US$25), antes de respaldos, dominio, impuestos y consumo de IA. El tamaño es un punto de partida
+para probar el motor completo; no es una garantía de capacidad con varios usuarios. No se ha contratado.
+
 Para empezar con costo bajo se puede evaluar Hetzner CX43 (8 vCPU, 16 GB, 160 GB). Su página pública lo marca
 sin disponibilidad al revisar; no asumir stock. La tarifa publicada para Europa es €15,99/mes sin IPv4 ni IVA.
 Para trabajo diario, evaluar CPX42 (8 vCPU, 16 GB, 320 GB), con una tarifa publicada de €69,49/mes en Europa,
