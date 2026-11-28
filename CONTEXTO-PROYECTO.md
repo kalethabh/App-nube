@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-28 (2026-11-28c; preparación de nube, todavía sin desplegar)
+Última actualización: 2026-11-27 (Contabo elegido; código 2026-11-28c; todavía sin desplegar)
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -12,6 +12,45 @@ Al terminar cada cambio de desarrollo o decisión relevante, actualizar este arc
 cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponibles, las pruebas y sus límites,
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
+
+## Decisión vigente: desplegar en Contabo y migrar los datos reales (2026-11-27, Colombia)
+
+El usuario eligió: «Vamos con Contabo. Dime qué plan contratar y ayúdame a dejar Kads funcionando completo,
+sin comprar dominio y sin perder mis datos». Sustituye Vercel como destino principal; conservar su adaptación.
+Después preguntó por el SSD gratis: se recomendó y dejó preparado **300 GB SSD**, con más espacio y sin el extra NVMe.
+
+- Configurador real preparado en el navegador: Cloud VPS 8, 8 vCPU/24 GB RAM, Unión Europea, Ubuntu 24.04,
+  **un mes**, 300 GB SSD incluido, una IPv4, sin paneles ni otros extras. Base 14 €/mes; Auto Backup 5 €/mes:
+  resumen **19 €/mes y 19 € a pagar ahora**, antes de los impuestos que correspondan. No comprado, no hay IP
+  ni servidor creado/acceso SSH. El usuario debe completar contraseña del servidor, cuenta y pago en Contabo.
+  No pedir contraseñas, tarjetas ni tokens por chat. Fuente: https://contabo.com/en/vps/cloud-vps-core-8.
+- Instalación REAL identificada por el proceso que escucha 4455: `~/Anuncios con IA`, versión 2026-11-28a.
+  Sigue funcionando; no se detuvo, actualizó ni modificaron sus archivos. No ejecutar Git en la biblioteca.
+- Nuevo respaldo REAL, distinto al de desarrollo: `outputs/respaldo-real-contabo-2026-11-27`, fuera del repo.
+  Datos cifrados con llave aparte `outputs/llave-respaldo-real-contabo-2026-11-27.txt` (0600; nunca en Git).
+  **11.304 archivos / 7.775.489.073 bytes lógicos**, 9.645 bloques únicos, cero pendientes. Se autenticó/descifró
+  y verificó SHA-256 de TODOS los bloques sin imprimir contenido. Restauración de muestra: 10 archivos / 15.216 bytes,
+  comparados byte a byte en carpeta temporal privada, eliminada después. Informe privado `VERIFICACION.json`.
+  Se conservó también `codigo-instalado.tar.gz.kads` (470.118.428 bytes): código real instalado, cifrado y
+  descifrado/verificado como tar.gz, sin extraerlo. Formato compatible con `descifrar(bytes,key,'codigo-contabo-v1')`:
+  IV 12 bytes + tag 16 bytes + ciphertext. Es una copia inicial; falta corte final y cambios posteriores.
+- Drive configurado para el archivo: unos 7,3 GB lógicos / 3.340 archivos, casi todos solo en nube (unos 123 MiB
+  residentes). Quince marcas `en-la-nube.json`: **1.613 referencias**, todas resolvieron mediante metadatos de archivo;
+  todas requieren recuperar el medio desde el archivo, y **225 apuntan a otras ubicaciones de Drive**, no a la carpeta
+  actualmente seleccionada. Se incluyen rutas antiguas en un inventario PRIVADO, fuera del repo:
+  `outputs/inventario-migracion-contabo.json`. No se verificó todavía el contenido ni se copiaron esos medios.
+- No descargar todo Drive a la Mac: queda poco espacio (unos 9 GB tras el respaldo). Al tener el servidor, copiar
+  allí los medios de TODAS las ubicaciones referenciadas y la carpeta Kads de Drive, verificando SHA-256 registrados.
+  Reubicar rutas Mac→Linux solamente en la copia del servidor, conservando registros/originales para volver atrás.
+- Plan de instalación: motor Docker ya validado en Linux (PR #248, 148/148 y MP4 1080×1920), volumen persistente,
+  Caddy/HTTPS con `<IP-con-guiones>.sslip.io`. No comprar dominio; la versión local se conserva hasta validar todo.
+  `deploy/instalar.sh` es anterior (Node 22 y preparación parcial de Python); preferir el contenedor probado con
+  Node 24/Python completo. Preparar protección de acceso antes de exponer la app y reautorizar IA/GitHub según haga falta.
+- Autenticación: revisar qué usa realmente la instalación antes de migrarla. Google/permisos necesitan su backend
+  de cuentas configurado. Los dos proyectos administrados existentes siguen intactos y el cupo Free sigue ocupado.
+  Elegir Contabo no autoriza borrar/pausar Effi ni contratar Supabase Pro. No anunciar Kads completo hasta comprobar
+  acceso, carpetas/productos/investigación, biblioteca/avatares, imágenes/video/audio/Sketch, Embudo, edición,
+  landings/publicación Shopify, archivo/restauración, reinicio y respaldo. La IA de pago requiere presupuesto y sí.
 
 ## Adaptación solicitada: Vercel + Supabase, con respaldo Contabo (2026-11-27; versión 2026-11-28c)
 
