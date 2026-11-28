@@ -1,0 +1,13 @@
+{
+  "id": "3373edb3-ea35-4c09-93cb-41b8e7cea5f5",
+  "uuid": "3373edb3-ea35-4c09-93cb-41b8e7cea5f5",
+  "estado": "investigando",
+  "pais": null,
+  "progreso": [
+    "Claude está investigando tu mercado"
+  ],
+  "intentos": 1,
+  "inicio": "2026-11-28T11:11:07.705Z",
+  "error": null,
+  "actualizado": "2026-11-28T11:11:08.268Z"
+}
