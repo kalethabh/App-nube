@@ -15,6 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Landings con personas, Google y acceso por secciones (2026-11-27l)
 
+Implementación: [PR #243](https://github.com/kalethabh/App-nube/pull/243).
+Distribución prevista al completar la publicación: [v2026-11-27l](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-27l).
+
 Pedidos vigentes: generar también las imágenes de personas, profesionales, testimonios y opiniones de las landings,
 con realismo y coherencia; añadir Google y que el administrador elija secciones por persona. Después pidió recomendar
 un deploy que mantenga todas las funciones. No canceló las mejoras anteriores.
