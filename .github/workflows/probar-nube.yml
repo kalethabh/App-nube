@@ -36,6 +36,7 @@ jobs:
           done
           grep -qi 'google' /tmp/entrada.html
           docker exec kads-prueba /opt/python/bin/python -c 'import rembg, onnxruntime, PIL, numpy, faster_whisper'
+          docker exec -w /srv/kads kads-prueba node --input-type=module -e "import {entornoListo} from './produccion/sketch-entorno.js'; if(!entornoListo())process.exit(1)"
           docker exec kads-prueba ffmpeg -hide_banner -encoders 2>&1 | grep libwebp
           docker exec kads-prueba /opt/kads/app/inicio/codex/node_modules/.bin/codex --version
           docker exec kads-prueba claude --version

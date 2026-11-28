@@ -12,6 +12,8 @@ for(const n of await fs.readdir('/opt/kads')) {
   for(const f of await fs.readdir('/opt/kads/app'))if(f!=='config.json' && (!f.startsWith('.') || f==='.npmrc'))await fs.cp(`/opt/kads/app/${f}`,path.join(raiz,'app',f),{recursive:true,force:true});
  }else await fs.cp(`/opt/kads/${n}`,path.join(raiz,n),{recursive:true,force:true});
 }
+// Sketch busca su entorno propio. Los paquetes ya están en la imagen: no reinstalarlos en cada arranque.
+try{await fs.lstat(path.join(raiz,'.venv-sketch'));}catch(e){if(e.code!=='ENOENT')throw e;await fs.symlink('/opt/python',path.join(raiz,'.venv-sketch'));}
 const nube=process.env.KADS_MODO!=='contabo';
 if(nube)await (await import('./motor.mjs')).iniciarMotor();
 else {

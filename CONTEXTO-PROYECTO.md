@@ -52,6 +52,8 @@ Pedido: «adapta Kads para desplegarlo con Vercel y Supabase, sin dominio y mant
 - Pendiente de producción: resolver el límite Free y elegir presupuesto antes de crear/activar servicios de pago;
   configurar variables privadas, migración, retorno de Google y datos reales. Vercel Pro necesario para 8 GiB; Storage Free limita objetos
   a 50 MB, insuficiente para todos los videos. El consumo de memoria del Daemon se cobra aun estando en espera.
+  Tarifa inicial de memoria consultada: US$0,0212/GB-hora; 8 GiB durante 730 h ≈ US$123,81 antes de créditos,
+  CPU, plan y otros consumos. No es una tarifa plana ni cotización para la cuenta. No se autorizó activar pagos.
 - Antes de decir que está desplegado y conserva calidad: probar generación real de imagen/video, estilos/Sketch/audio,
   Embudo, edición, biblioteca, landings, clonación/publicación Shopify y restauración. Costos de IA requieren aprobación.
   La adaptación local NO certifica por sí sola funcionamiento, capacidad, costo ni acabado en producción.
