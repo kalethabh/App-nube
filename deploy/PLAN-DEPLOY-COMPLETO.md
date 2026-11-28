@@ -2,26 +2,31 @@
 
 Recomendación técnica para el pedido del 2026-11-27. No se ha contratado ni desplegado un servidor.
 
-| Parte | Propuesta | Función |
-|---|---|---|
-| App y motor | VPS x86-64, Ubuntu 24.04, 8 vCPU y 16 GB RAM | Node, agentes Claude/Codex, Chrome, Python, FFmpeg y Remotion, con procesos largos |
-| Cuentas | Supabase propio de Kads | Google, cuentas pendientes, administrador y secciones permitidas |
-| Proyectos y medios | Disco persistente, con respaldo automático y copia fuera del servidor | temp, output, biblioteca, avatares, ajustes y restauración |
-| Dirección | Subdominio propio con HTTPS y Caddy | Acceso directo a Kads, sesiones y callback de Google |
+## Prioridad vigente: lo mismo, ya desplegado, sin comprar dominio
 
-Para este caso, la recomendación concreta es DigitalOcean con 8 vCPU, 16 GiB de RAM y 320 GiB de disco,
-con Supabase Pro para las cuentas en producción. Las tarifas publicadas suman desde US$121/mes
-(US$96 + US$25), antes de respaldos, dominio, impuestos y consumo de IA. El tamaño es un punto de partida
-para probar el motor completo; no es una garantía de capacidad con varios usuarios. No se ha contratado.
+El usuario aclaró que solo necesita las herramientas necesarias para conservar los mismos o mejores resultados.
+La propuesta anterior de US$121/mes no es un mínimo necesario ni un gasto aprobado.
 
-Para empezar con costo bajo se puede evaluar Hetzner CX43 (8 vCPU, 16 GB, 160 GB). Su página pública lo marca
-sin disponibilidad al revisar; no asumir stock. La tarifa publicada para Europa es €15,99/mes sin IPv4 ni IVA.
-Para trabajo diario, evaluar CPX42 (8 vCPU, 16 GB, 320 GB), con una tarifa publicada de €69,49/mes en Europa,
-o un Droplet equivalente de DigitalOcean (8 vCPU, 16 GiB, 320 GiB) de US$96/mes. El CPX usa hardware más nuevo
-que CX; no se ha medido Kads en ninguno. Confirmar precio y disponibilidad en el panel antes de contratar.
+| Necesario | Cómo se resuelve |
+|---|---|
+| Un servidor Ubuntu x86-64 con disco persistente | Ejecuta la app y el motor juntos: agentes, Chrome, Python, FFmpeg y Remotion |
+| Las cuentas que ya tiene Kads | Reutilizar el proyecto Supabase de Kads para Google y permisos; Pro no es obligatorio para empezar |
+| Una dirección pública HTTPS sin comprar dominio | El instalador ya usa `<IP-con-guiones>.sslip.io` cuando se deja el dominio vacío; Caddy obtiene el certificado |
+| Las conexiones actuales de generación | Volver a autorizar ChatGPT/Claude y los proveedores que ya usa; no cambiar modelos por el despliegue |
+| Proyectos, biblioteca y medios | Migrar al disco persistente y conservar una copia de respaldo |
 
-Supabase Free permite arrancar; para producción continua considerar Pro, desde US$25/mes. IP, impuestos,
-dominio, respaldos, almacenamiento adicional y consumo de IA van aparte. Son precios consultados, no una cotización.
+No hace falta añadir Vercel ni contratar otro frontend, otro almacenamiento de medios o un dominio propio.
+El tamaño del servidor se ajustará al uso real: 8 vCPU/16 GB era una propuesta inicial, no un requisito comprobado.
+No se puede prometer más velocidad sin medir. Los resultados dependen de conservar modelos, prompts, investigación,
+referencias y configuraciones. Menos recursos pueden requerir reducir la concurrencia.
+
+Supabase Free tiene límites y pausa por inactividad: sirve para arrancar si encaja en su uso; Pro es una mejora opcional.
+La dirección sslip.io depende de un DNS de terceros y de que la IP pública se mantenga. Los puertos 80/443 deben estar
+abiertos para obtener HTTPS. Antes de habilitar Google hay que registrar la dirección exacta de Kads en Supabase
+según `GOOGLE-Y-PERMISOS.md`; el callback del proveedor Google es el de Supabase. Verificar el acceso real al desplegar.
+
+Pendiente: disponer de un servidor y acceso seguro para instalar. No hay servidor contratado ni despliegue real;
+no se han pedido claves por el chat. La compra requiere precio concreto aceptado por el usuario.
 
 ## Qué se mantiene y qué se traslada
 
@@ -53,9 +58,6 @@ Esta arquitectura se elige porque Kads ejecuta procesos largos, archivos y progr
 serverless de Vercel no encajan con alojar todo ese motor como funciones; el repositorio conserva la puerta opcional en Vercel.
 
 Fuentes consultadas el 2026-11-27:
-- https://www.hetzner.com/cloud/cost-optimized/
-- https://www.hetzner.com/cloud/regular-performance/
-- https://docs.hetzner.com/general/infrastructure-and-availability/price-adjustment/
-- https://www.digitalocean.com/pricing/droplets
+- https://sslip.io/
 - https://supabase.com/pricing
 - https://vercel.com/docs/functions/limitations
