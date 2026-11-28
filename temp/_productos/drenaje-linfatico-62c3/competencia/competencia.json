@@ -283,6 +283,120 @@
         "«Toxinas», «desinflama», «reduce la inflamación» y el signo de la marca hundida en la espinilla son temas de salud; esa señal en particular debe verla un médico.",
         "«No compres en Amazon» y ataques a imitaciones pueden traer reclamos si se nombra a otra marca."
       ]
+    },
+    {
+      "titulo": "Mapa de saturación de ángulos",
+      "contexto": "Se midió el mercado colombiano: anuncios activos que dicen «drenaje linfático» y cada ángulo en el texto (28-nov-2026). Ojo: la búsqueda lee el texto escrito, no lo que se dice en el video.",
+      "bloques": [
+        { "tipo": "metricas", "items": [
+          { "etiqueta": "Anuncios activos con «drenaje linfático» (Colombia)", "valor": "1.105", "nota": "Dato", "tono": "rojo" },
+          { "etiqueta": "Con 3 o más versiones", "valor": "263", "nota": "Dato: los que alguien está duplicando", "tono": "ambar" },
+          { "etiqueta": "Con «retención de líquidos» (sin drenaje)", "valor": "639", "nota": "Dato", "tono": "ambar" },
+          { "etiqueta": "Que nombran «Sunshine»", "valor": "147", "nota": "Dato: el mismo frasco que vende la red", "tono": "rojo" }
+        ] },
+        { "tipo": "barras", "titulo": "Anuncios activos en Colombia por ángulo («drenaje linfático» + palabra)", "unidad": "anuncios", "items": [
+          { "etiqueta": "Piernas", "valor": 326, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "Cara", "valor": 240, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "Toxinas", "valor": 202, "nota": "Saturado (y promesa de salud)", "tono": "rojo" },
+          { "etiqueta": "Sunshine (marca del frasco)", "valor": 147, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "WhatsApp (en el texto)", "valor": 71, "nota": "Medio", "tono": "ambar" },
+          { "etiqueta": "Vientre", "valor": 40, "nota": "Medio", "tono": "ambar" },
+          { "etiqueta": "Trabajo", "valor": 33, "nota": "Bajo", "tono": "verde" },
+          { "etiqueta": "Pastillas", "valor": 31, "nota": "Bajo", "tono": "verde" },
+          { "etiqueta": "Cirugía", "valor": 20, "nota": "Bajo (casi todo aparatos)", "tono": "verde" },
+          { "etiqueta": "Celulitis", "valor": 18, "nota": "Bajo", "tono": "verde" },
+          { "etiqueta": "No es grasa", "valor": 14, "nota": "Bajo en el texto, pero alto en titulares de la red", "tono": "ambar" },
+          { "etiqueta": "Jean", "valor": 7, "nota": "Virgen", "tono": "verde" },
+          { "etiqueta": "Período", "valor": 3, "nota": "Virgen (y la red lo escala)", "tono": "verde" },
+          { "etiqueta": "Diurético", "valor": 3, "nota": "Virgen", "tono": "verde" },
+          { "etiqueta": "Menopausia", "valor": 2, "nota": "Virgen", "tono": "verde" },
+          { "etiqueta": "Bajar de peso", "valor": 2, "nota": "Casi nadie lo dice (bien: es riesgoso)", "tono": "verde" },
+          { "etiqueta": "Várices", "valor": 0, "nota": "Nadie", "tono": "verde" },
+          { "etiqueta": "Posparto", "valor": 0, "nota": "Nadie", "tono": "verde" }
+        ] },
+        { "tipo": "tabla", "columnas": ["Qué se identifica", "Hallazgo", "Saturación", "Evidencia"], "filas": [
+          ["Ángulos sobreusados", "Piernas pesadas, cara hinchada, toxinas", "Alta", "Dato: 326, 240 y 202 anuncios"],
+          ["Ángulos frescos", "Semana antes del período, diurético que te manda al baño, jean que cierra en la mañana y no en la tarde, trabajo de pie", "Baja", "Dato: 3, 3, 7 y 33 anuncios"],
+          ["Impulsores emocionales poco usados", "Alivio de culpa con humor, merecimiento de la cuidadora, la vergüenza de la foto de diciembre", "Baja", "Dato: solo Ecobasket (cuidadora) y VitalBio (diciembre), con días de vida"],
+          ["Avatares sin explotar", "Menopausia, posparto, trabajadora de pie (vendedora, enfermera, peluquera), clienta de centros de estética", "Baja", "Dato: 2, 0, 33 y 1 anuncio"],
+          ["Claims sobreusados", "«Elimina toxinas», «100 % natural», «reduce la inflamación», «PRODUCTO GARANTIZADO»", "Alta", "Dato: 202 con toxinas; los otros en casi todos los anuncios leídos"],
+          ["Posicionamiento débil que todos repiten", "«Unas gotas en el agua» + 5 checks + paga al recibir; nadie dice qué tiene de distinto su frasco", "Alta", "Inferencia: 147 anuncios venden el mismo Nature's Sunshine"],
+          ["Estilos visuales que se gastan", "Estático de texto largo con checks; video de testimonio genérico con textos en pantalla", "Media", "Inferencia: es el formato de G3, G4 y de la mayoría de revendedores"]
+        ], "nota": "La búsqueda lee el texto escrito, no el video: «no es grasa» está mucho más en los videos y titulares de lo que muestran los 14 anuncios." },
+        { "tipo": "subtitulo", "texto": "Oportunidades contrarias" },
+        { "tipo": "vinetas", "items": [
+          "**Contra el diurético:** «Si te deshincha haciéndote orinar, mañana vuelve. Esto no es eso.» (Inferencia; base: Mayaverra farmacéutica +2.055 en 7 días).",
+          "**Contra el masaje de camilla:** «La sesión de drenaje te dura 8 horas. ¿Y el resto del día?» (base: anuncio de la esteticista de Cali).",
+          "**Contra «tomar más agua»:** «Tomas 3 litros y sigues hinchada. El agua entra; el problema es que no sale.»",
+          "**Contra la edad:** «No es la edad. Es algo que se movía y ya no se mueve igual.» (base: Rosalica, 166 días).",
+          "**Contra la promesa de adelgazar:** «No vas a bajar de peso. Te vas a deshinchar. Y se nota más.»"
+        ] },
+        { "tipo": "caja", "estilo": "oportunidad", "titulo": "Posicionamiento de océano azul", "texto": "**Inferencia:** «las gotas de la tarde, no de la mañana»: todo el mercado vende la cara al despertar; casi nadie le habla a la hinchazón que crece durante el día (jean que no cierra a las 5, medias marcadas a las 7, trabajo de pie). Es el mismo producto con otro momento de uso y otro avatar." },
+        { "tipo": "caja", "estilo": "hipotesis", "titulo": "Mecanismos nuevos (hipótesis que hay que sustentar)", "items": [
+          "**La linfa no tiene bomba:** se mueve cuando te mueves; por eso empeora sentada o de pie todo el día. (Lo usan Rosalica y la esteticista de Cali; hay que sustentarlo con fuentes y sin prometer cura.)",
+          "**Drenar no es orinar:** el diurético saca agua por el riñón; estas plantas se presentan como apoyo al drenaje del tejido. (Hipótesis de marketing: la etiqueta de Nature's Sunshine habla de «apoyo», no de eficacia probada.)",
+          "**Ciclo hormonal y retención:** la semana premenstrual se hincha más. (Hecho común; el papel de las gotas hay que sustentarlo.)"
+        ] },
+        { "tipo": "vinetas", "items": [
+          "**Estructuras narrativas nuevas:** diario de 14 días con la misma foto a la misma hora; «lo que me dijo mi clienta» desde la camilla; los ingredientes que hablan (ya lo usa la red con gordolobo); el antes y después de un mismo día (7 a. m. contra 7 p. m.).",
+          "**Direcciones visuales nuevas:** medias marcadas en el tobillo, el botón del jean, el anillo que aprieta; tomas reales de reloj o celular con la hora; frasco en el puesto de trabajo, no en el baño.",
+          "**Arquetipos de creador nuevos:** esteticista o masajista de barrio; enfermera o vendedora que pasa el día de pie; mamá de 50 que cuida a la familia; mujer en menopausia que habla sin pena."
+        ] },
+        { "tipo": "caja", "estilo": "clave", "titulo": "Lectura crítica: las mejores apuestas", "items": [
+          "**1. La hinchazón de la tarde (trabajo de pie):** mucho público, 33 anuncios, mismo producto. Riesgo bajo si se habla de «sentirte más liviana».",
+          "**2. Semana antes del período:** la red ya probó que escala (139 versiones) y en Colombia casi nadie lo usa. Riesgo: no prometer alivio del síndrome premenstrual.",
+          "**3. Contra el diurético con autoridad real:** la farmacéutica de Mayaverra crece rápido. Riesgo: solo con una experta real y verificable."
+        ] },
+        { "tipo": "caja", "estilo": "riesgo", "titulo": "Lo que no haría", "items": [
+          "Páginas con nombre de médico inventado o «verificado por Facebook».",
+          "Prometer «elimina toxinas», «desinflama» o bajar de peso.",
+          "Competir en «cara al despertar» con el mismo frasco Sunshine: 240 anuncios y 147 revendedores del mismo producto.",
+          "Posparto y várices: no hay competencia, pero son temas médicos (cesárea, trombosis) donde el riesgo es alto."
+        ] }
+      ],
+      "limitaciones": [
+        "Los conteos son del texto de anuncios activos con destino a Colombia; no incluyen lo que se dice en los videos.",
+        "Algunas palabras traen ruido (por ejemplo, «trabajo» y «cirugía» incluyen cursos y aparatos): tómalos como orden de magnitud."
+      ],
+      "riesgos": [
+        "Los mecanismos son hipótesis de comunicación: no hay estudio del producto que los respalde.",
+        "En Colombia los suplementos no pueden anunciarse con propiedades terapéuticas."
+      ]
+    },
+    {
+      "titulo": "Avatares",
+      "contexto": "8 avatares del mercado de gotas de drenaje, deducidos del texto de los anuncios, los ganchos y los destinos. TrendTrack no da edad ni sexo de la audiencia para estos anuncios: no hay demografía real.",
+      "bloques": [
+        { "tipo": "avatares", "items": [
+          { "nombre": "La de la cara hinchada al despertar", "frase": "Me miro al espejo a las 6 y no me reconozco; a mediodía ya se me baja, pero ya me arruinó la mañana.", "perfil": "Mujer de 30 a 50, trabaja, se toma fotos; dolor: párpados y mejillas abotargadas; deseo: verse definida y descansada.", "angulo": "Cara al despertar; «no es tu cara, es líquido»", "ganchos": ["¿Amaneces con la cara hinchada y no la reconoces en el espejo?", "Your pillow isn't causing the puffiness.", "¡Desinflama tu rostro y resalta tus facciones!"], "evidencia": "G1: 123 versiones, 88 días desde 1-sep-2026 (facebook_1814362043343026); Rosalica 30.349 de alcance", "volumen": "240 anuncios activos en Colombia", "momento": "estable", "saturacion": "alta" },
+          { "nombre": "La de las piernas pesadas", "frase": "Llego a la noche con los tobillos marcados de las medias.", "perfil": "Mujer de 35 a 60; dolor: piernas y tobillos pesados al final del día; deseo: piernas livianas.", "angulo": "Piernas y tobillos", "ganchos": ["«…terminaba el día con los tobillos inflados.»", "Libera las toxinas y recupera la comodidad en tus piernas."], "evidencia": "NutriNatural 6 videos desde 18-nov-2026; VitalBio; Mayaverra", "volumen": "326 anuncios activos en Colombia", "momento": "estable", "saturacion": "alta" },
+          { "nombre": "La que cree que engordó", "frase": "Hago dieta, tomo agua y la balanza no se mueve, pero el jean no me cierra.", "perfil": "Mujer de 25 a 50 que cuida lo que come; dolor: se ve más gruesa de lo que pesa; deseo: que la ropa vuelva a quedar.", "angulo": "No es grasa, es líquido", "ganchos": ["Durante meses pensé que estaba engordando.", "No es grasa. Es líquido atascado.", "¿Sientes que no bajas nada aunque hagas dieta y ejercicio?"], "evidencia": "G2: 199 versiones desde 23-sep-2026; Natura Boost 11 versiones; Aurelys", "volumen": "Alto en la red; 14 anuncios con la frase en el texto", "momento": "creciendo", "saturacion": "media" },
+          { "nombre": "La que ya probó de todo", "frase": "Tés, pastillas, fajas, masajes… nada me duró.", "perfil": "Mujer de 30 a 55 que ya gastó en soluciones; dolor: frustración y desconfianza; deseo: algo que sí dure.", "angulo": "Fracaso de las alternativas y contra el diurético", "ganchos": ["Ya había probado tés, pastillas y hasta fajas.", "Probaste las pastillas de agua… y terminaste pegada al baño.", "Soy farmacéutica… y voy a recomendarte un producto que no se vende en mi farmacia."], "evidencia": "G3 104 versiones; G4 187 versiones desde sep-2026; farmacéutica +2.055 en 7 días desde 6-nov", "volumen": "31 anuncios con «pastillas», 3 con «diurético»", "momento": "creciendo", "saturacion": "media" },
+          { "nombre": "La de la semana antes del período", "frase": "Hay una semana al mes en la que nada me queda y me siento otra.", "perfil": "Mujer de 20 a 45; dolor: hinchazón de vientre y cara cada mes; deseo: que esos días no la controlen.", "angulo": "Hinchazón cíclica", "ganchos": ["La semana antes de mi período me convertía en otra persona.", "Los días previos a mi período me transformaban por completo."], "evidencia": "G5: 85 + 54 versiones desde 23-sep-2026; copia de Innova Life Store el 20-nov", "volumen": "3 anuncios en Colombia", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "La que trabaja de pie (o sentada) todo el día", "frase": "A las 5 de la tarde el pantalón me aprieta y los zapatos me matan.", "perfil": "Mujer de 30 a 55: vendedora, enfermera, peluquera, esteticista, oficinista; dolor: hinchazón que crece en el día; deseo: llegar liviana a la casa.", "angulo": "La hinchazón de la tarde", "ganchos": ["Llevo 18 años haciendo drenaje linfático con mis manos…", "¿En la mañana la barriga plana y en la tarde el jean ya no cierra?", "Después de cuidar a todos, también te toca a ti."], "evidencia": "Novedades Colombia (Yolanda, Cali) desde 23-nov; Nad + Resveratrol desde 13-nov; Ecobasket desde 20-nov", "volumen": "33 anuncios con «trabajo», 7 con «jean»", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "La clienta de centros de estética", "frase": "Me hago drenaje cada semana y a las horas estoy igual.", "perfil": "Mujer de 25 a 50 que paga sesiones de drenaje manual, maderoterapia o presoterapia; dolor: el efecto no dura; deseo: mantener el resultado.", "angulo": "Complemento del drenaje manual", "ganchos": ["Llevo 18 años haciendo drenaje linfático con mis manos. Una clienta de 29 años me dijo algo que me dejó fría.", "Antes de agendar una cirugía…"], "evidencia": "Un solo anuncio de gotas (facebook_1153770103678651); en paralelo, cursos de drenaje manual con 191 días (Renata França)", "volumen": "Casi nulo en gotas", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "La mujer en la menopausia", "frase": "Desde que empezó la menopausia me hincho y nada me queda igual.", "perfil": "Mujer de 45 a 60; dolor: cambios del cuerpo e hinchazón; deseo: sentirse ella otra vez.", "angulo": "Cambios hormonales y retención", "ganchos": ["That's not aging. That's your lymphatic system running slow.", "Después de los 35 tu sistema linfático se ralentiza (Mayaverra)."], "evidencia": "Solo menciones dentro de otros textos (Mayaverra, Rosalica)", "volumen": "2 anuncios en Colombia", "momento": "emergente", "saturacion": "baja" }
+        ] },
+        { "tipo": "tabla", "columnas": ["Avatar", "Señal", "Volumen", "Saturación", "Momento"], "filas": [
+          ["Cara al despertar", "G1 con 123 versiones; 240 anuncios", "Alto", "Alta", "Estable"],
+          ["Piernas pesadas", "326 anuncios", "Alto", "Alta", "Estable"],
+          ["La que cree que engordó", "G2 con 199 versiones; reciclaje en testimonios", "Alto en la red", "Media", "Creciendo"],
+          ["La que ya probó de todo", "G3 + G4 = 291 versiones; farmacéutica sube", "Medio", "Media", "Creciendo"],
+          ["Semana antes del período", "139 versiones en la red, 3 en el mercado", "Bajo", "Baja", "Emergente"],
+          ["Trabaja de pie", "3 anuncios nuevos en noviembre", "Bajo", "Baja", "Emergente"],
+          ["Clienta de estética", "1 anuncio desde 23-nov", "Muy bajo", "Baja", "Emergente"],
+          ["Menopausia", "2 menciones", "Muy bajo", "Baja", "Emergente"]
+        ], "nota": "" },
+        { "tipo": "caja", "estilo": "clave", "titulo": "Por dónde entrar", "texto": "**Inferencia:** entraría por «la que cree que engordó» (probado por la red y todavía no saturado en el texto) y lo abriría hacia dos vírgenes que comparten producto y momento: «la de la semana antes del período» y «la que trabaja de pie». La cara al despertar y las piernas pesadas sirven como ganchos secundarios, no como entrada: ahí está todo el mercado." }
+      ],
+      "limitaciones": [
+        "TrendTrack no da edad ni sexo de la audiencia en Colombia: todo perfil es deducido.",
+        "El volumen se mide en el texto de anuncios activos, no en ventas."
+      ],
+      "riesgos": [
+        "Menopausia y ciclo menstrual son temas de salud: hablar de sensación, no de tratamiento.",
+        "No segmentar por condición de salud ni usar frases como «¿tienes retención por tu enfermedad?»."
+      ]
     }
   ]
 }
