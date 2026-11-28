@@ -13,6 +13,19 @@ cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponib
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
 
+## Candidato económico verificado en configurador (2026-11-27)
+
+El usuario pidió uno disponible para Kads completo. Candidato: Contabo Cloud VPS 8, 8 vCPU/24 GB RAM.
+En el configurador público, región Unión Europea, plazo de 1 mes, Ubuntu y 150 GB NVMe: 15,50 €/mes;
+con Auto Backup: 20,50 €/mes y primer pago del mismo importe, sin alta. IPv4 incluida.
+La publicidad de 11,20 €/mes requiere prepagar 24 meses; no se recomienda ese compromiso antes de probar.
+Solo es contratación configurable observada, no stock reservado ni entrega garantizada. No se compró,
+creó cuenta ni ingresaron credenciales. Precio final/impuestos se confirman al pagar.
+Reutilizar Supabase y proveedores de IA actuales; sin dominio propio. Compatibilidad técnica inferida,
+no medida: falta instalar y probar imágenes, video, Embudo, landing, publicación y recuperación con los mismos
+modelos/datos. No garantizar velocidad o resultados idénticos. CPU compartida; medir concurrencia y disco.
+Fuente: https://contabo.com/en/vps/cloud-vps-core-8
+
 ## Aclaración vigente: despliegue mínimo sin dominio propio (2026-11-27)
 
 Documentación: [PR #245](https://github.com/kalethabh/App-nube/pull/245).
