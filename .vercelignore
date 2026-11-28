@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+temp
+output
+mis_archivos
+outputs
+**/node_modules
+app/config.json
+app/.*.json
+**/.cache
+**/.venv*
+*.zip
+*.tar.gz

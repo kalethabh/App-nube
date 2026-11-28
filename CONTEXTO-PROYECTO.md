@@ -13,6 +13,38 @@ cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponib
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
 
+## Adaptación solicitada: Vercel + Supabase, con respaldo Contabo (2026-11-27; versión 2026-11-28b)
+
+Pedido: «adapta Kads para desplegarlo con Vercel y Supabase, sin dominio y manteniendo todas las funciones y la misma calidad; respaldo por si quiero Contabo». La versión sigue después de la 2026-11-28a ya existente; no se retrocede el número para las apps instaladas.
+
+- `vercel.json`: frontend + función Node `api/puerta.mjs` + un Daemon Linux de 8 GiB/4 vCPU, sin ingreso público.
+  El motor Express y los scripts existentes se conservan; no se cambiaron prompts, modelos ni resolución.
+- `deploy/nube/`: cola HTTP mediante Supabase, solicitudes/respuestas/cookies cifradas AES-GCM; PostgreSQL con
+  arrendamiento y fencing. Al perder una ejecución se marca incierta, sin repetir ciegamente acciones cobrables.
+  Transporta cookies, redirects, eventos y archivos grandes en streaming/Range. Las subidas grandes van directo al bucket
+  privado con ticket de un uso vinculado a usuario/ruta/método y permiso de sección antes de firmar.
+- Estado cifrado por bloques de 8 MiB y manifiestos. Copia cada 5 s y antes de respuestas de escritura; conservar la llave
+  fuera del proyecto. Un cierre forzoso puede perder cambios aún no confirmados. Hay que vigilar el historial/espacio.
+  El supervisor conserva secretos de administración y el servidor/CLI ejecuta como UID 10001, sin esos secretos en su entorno.
+- `supabase-motor.sql` es aditivo y solo para el Supabase de Kads. RLS/tablas/RPC del motor sin acceso anon/authenticated.
+  Mantiene Google y permisos existentes. No aplicado al proyecto real en esta sesión.
+- Actualizar en nube pasa al Deploy Hook de Vercel, validando owner y trabajos activos. ZIP local sigue en Mac/Contabo.
+  Cierre supervisado con drenaje consultando estado interno de procesos; gracia de hasta 1 h al redeploy.
+- `Dockerfile`, compose de Contabo, `respaldo.mjs` y guía `deploy/VERCEL-SUPABASE.md`. El instalador Ubuntu anterior sigue.
+- Respaldo REAL de esta copia: `outputs/respaldo-contabo/kads-antes-de-vercel.tar.gz` fuera del repo (código de 2e0ce1f3),
+  datos cifrados en `datos-verificados`, SHA256 y LEEME. Llave aparte, nunca en GitHub. Restauración real probada en carpeta
+  temporal y eliminada después. NO es un respaldo de la instalación personal en ~/Anuncios con IA, que no se tocó.
+- Validación local: nueve pruebas de nube con PostgreSQL real aislado, prueba de subida en Chrome con progreso, acceso
+  58/58 y build de la interfaz. Esquema oficial Vercel validado omitiendo su declaración draft-04 incompatible con algunos
+  campos modernos. CI Linux/Docker añadido; pendiente de su resultado al abrir el PR.
+- Pendiente de producción: instalar/conectar Vercel y Supabase (se localizaron plugins oficiales disponibles, no instalados),
+  identificar proyectos y configurar variables privadas, migración, retorno de Google y datos reales. No se han creado
+  servicios, comprado planes ni ejecutado generaciones de pago. Vercel Pro necesario para 8 GiB; Storage Free limita objetos
+  a 50 MB, insuficiente para todos los videos. El consumo de memoria del Daemon se cobra aun estando en espera.
+- Antes de decir que está desplegado y conserva calidad: probar generación real de imagen/video, estilos/Sketch/audio,
+  Embudo, edición, biblioteca, landings, clonación/publicación Shopify y restauración. Costos de IA requieren aprobación.
+  La adaptación local NO certifica por sí sola funcionamiento, capacidad, costo ni acabado en producción.
+
 ## Candidato económico verificado en configurador (2026-11-27)
 
 Documentación: [PR #247](https://github.com/kalethabh/App-nube/pull/247).

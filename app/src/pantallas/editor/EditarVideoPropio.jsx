@@ -15,6 +15,7 @@ const ES_VIDEO = /\.(mp4|m4v|mov|webm|mkv|avi|3gp|mpe?g)$/i;
 
 /** Sube el video con su avance (fetch no lo da). -> { slug } */
 function subir(archivo, subtitulos, alAvanzar) {
+  if (window.kadsNube) return window.kadsNube.enviar(`/api/videos-propios?${new URLSearchParams({ nombre: archivo.name.slice(0,160), subtitulos: subtitulos?'1':'0' })}`,{method:'POST',headers:{'Content-Type':archivo.type || 'video/mp4',Accept:'application/json'},body:archivo,onprogress:alAvanzar}).then(async r=>{const d=await r.json();if(!r.ok || !d.slug)throw new Error(d.error || 'No se pudo preparar el video.');return d;});
   return new Promise((resolver, rechazar) => {
     const x = new XMLHttpRequest();
     x.open('POST', `/api/videos-propios?${new URLSearchParams({ nombre: archivo.name.slice(0, 160), subtitulos: subtitulos ? '1' : '0' })}`);

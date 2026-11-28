@@ -1,0 +1,19 @@
+services:
+  kads:
+    build:
+      context: ../..
+      dockerfile: deploy/nube/Dockerfile
+    environment:
+      KADS_MODO: contabo
+      KADS_URL_PUBLICA: ${KADS_URL_PUBLICA:?Configura la dirección HTTPS}
+      ANUNCIOS_DOMINIO: ${KADS_HOST_PUBLICO:?Configura el hostname}
+      KADS_SUPABASE_URL: ${KADS_SUPABASE_URL:?Configura el Supabase propio}
+      KADS_SUPABASE_ANON: ${KADS_SUPABASE_ANON:?Configura la clave pública}
+    volumes:
+      - datos:/srv
+    ports:
+      - "127.0.0.1:4455:4455"
+    restart: unless-stopped
+    stop_grace_period: 15m
+volumes:
+  datos:
