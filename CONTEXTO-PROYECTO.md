@@ -13,6 +13,27 @@ cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponib
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
 
+## Aclaración vigente: despliegue mínimo sin dominio propio (2026-11-27)
+
+Documentación: [PR #245](https://github.com/kalethabh/App-nube/pull/245).
+
+El usuario aclaró: «Solo quiero hacer lo mismo con los mismos o mejores resultados pero ya deployado,
+sin dominio, solo las herramientas necesarias para que funcione». Sustituye la propuesta previa que tomaba
+DigitalOcean de US$96 + Supabase Pro como punto de partida; no es un presupuesto aceptado ni un mínimo necesario.
+
+- Conservar la app y el motor juntos en un servidor Ubuntu x86-64 persistente, el Supabase propio existente
+  y sus conexiones actuales de IA. No cambiar modelos, prompts ni datos para abaratar el alojamiento.
+- Sin compra de dominio: `deploy/instalar.sh` YA propone `<IP-con-guiones>.sslip.io` y Caddy para HTTPS.
+  Revisado el código y contrastado con la documentación oficial de sslip.io (certificados por HTTP-01).
+  No se ejecutó el instalador ni se emitió un certificado real. IP estable y puertos 80/443 necesarios.
+- Supabase Pro no es obligatorio para arrancar; Free tiene cuotas y pausa por inactividad.
+  No añadir Vercel, servicios ni suscripciones sin una necesidad comprobada. Dimensionar tras probar.
+- Los mismos resultados requieren trasladar investigación, referencias, biblioteca, avatares, medios y ajustes,
+  y reautorizar los proveedores. Más velocidad o mejor calidad no se pueden garantizar sin pruebas reales.
+- Se preguntó si ya tiene servidor o cuenta de hosting; pendiente de respuesta/acceso seguro. No se contrataron
+  servicios ni se solicitaron claves por chat. Guía actualizada: `deploy/PLAN-DEPLOY-COMPLETO.md`.
+- Solo documentación en esta aclaración: revisión de diferencias; no cambió código ni VERSION.
+
 ## Landings con personas, Google y acceso por secciones (2026-11-27l)
 
 Implementación: [PR #243](https://github.com/kalethabh/App-nube/pull/243).
