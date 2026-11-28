@@ -44,6 +44,15 @@ test('restaurar rechaza rutas fuera de Kads y padres con enlaces',async()=>{
  assert.deepEqual(await fs.readdir(path.join(tmp,'fuera')),[]);
  }finally{await fs.rm(tmp,{recursive:true,force:true});}
 });
+test('respaldar mientras se produce un archivo no bloquea otras secciones ni publica bytes a medio escribir',async()=>{
+ const tmp=await temporal();try{
+ const raiz=path.join(tmp,'a');await fs.mkdir(path.join(raiz,'temp'),{recursive:true});await fs.writeFile(path.join(raiz,'temp/clip.mp4'),'primer trozo');
+ const objetos=new Map();let cambiar=true,actual;
+ const almacen={put:async(n,b)=>{objetos.set(n,b);if(cambiar && n.startsWith('bloques/')){cambiar=false;await fs.appendFile(path.join(raiz,'temp/clip.mp4'),' segundo trozo');}},get:async n=>objetos.get(n)};
+ const e=crearEstado({raiz,key,almacen,publicar:async n=>{actual=n;}});await e.guardar();let m=JSON.parse(descifrar(objetos.get(actual),key,'manifiesto'));assert.deepEqual(m.pendientes,['raiz/temp/clip.mp4']);assert.equal(m.entradas.length,0);
+ await e.guardar();m=JSON.parse(descifrar(objetos.get(actual),key,'manifiesto'));assert.equal(m.pendientes.length,0);assert.equal(m.entradas[0].bytes,26);
+ }finally{await fs.rm(tmp,{recursive:true,force:true});}
+});
 test('respaldo Contabo local: llave separada, permisos y restauración sin pisar datos',async()=>{
  const tmp=await temporal();try{
  const raiz=path.join(tmp,'app'),destino=path.join(tmp,'respaldo'),archivoLlave=path.join(tmp,'llave');await fs.mkdir(path.join(raiz,'mis_archivos'),{recursive:true});await fs.writeFile(path.join(raiz,'mis_archivos/avatar.json'),'avatar ficticio');

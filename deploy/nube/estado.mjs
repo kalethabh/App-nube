@@ -23,24 +23,30 @@ export function crearEstado({raiz,hogar,key,almacen,publicar=async()=>{},leerAct
  async function capturar() {
   const lista=[];for(const n of PERSISTENTES){if(n==='.git'){if(!incluirGit)continue;try{if(!(await fs.lstat(path.join(destinos.raiz,n))).isDirectory())continue;}catch{continue;}}await archivos(path.join(destinos.raiz,n),`raiz/${n}`,lista);}
   if(destinos.hogar)for(const n of HOGAR)await archivos(path.join(destinos.hogar,n),`hogar/${n}`,lista);
-  const entradas=[];
+  const entradas=[],pendientes=[];
   for(const {dir,rel,st} of lista) {
+   try {
    const firma=`${st.size}:${st.mtimeMs}:${st.ctimeMs}`,prev=conocidos.get(rel);
    if(prev?.firma===firma){entradas.push(prev.entrada);continue;}
    const fd=await fs.open(dir,'r'),partes=[];let pos=0;
    try{do {
     const b=Buffer.alloc(Math.min(BLOQUE,Math.max(0,st.size-pos)));let bytesRead=0;
     while(bytesRead<b.length){const r=await fd.read(b,bytesRead,b.length-bytesRead,pos+bytesRead);if(!r.bytesRead)break;bytesRead+=r.bytesRead;}
-    if(bytesRead!==b.length)throw new Error('Un archivo cambió durante el respaldo. Se reintentará.');
+    if(bytesRead!==b.length)throw Object.assign(new Error('Archivo en escritura.'),{code:'KADS_CAMBIO'});
     const hash=crypto.createHash('sha256').update(b).digest('hex'),obj=`bloques/${hash}`;
     if(!conocidos.has(obj)){await almacen.put(obj,cifrar(b,key,hash));conocidos.set(obj,true);}
     partes.push({obj,hash,bytes:bytesRead});pos+=bytesRead;
    }while(pos<st.size);}finally{await fd.close();}
    const despues=await fs.stat(dir);
-   if(`${despues.size}:${despues.mtimeMs}:${despues.ctimeMs}`!==firma)throw new Error('Un archivo cambió durante el respaldo. Se reintentará.');
+   if(`${despues.size}:${despues.mtimeMs}:${despues.ctimeMs}`!==firma)throw Object.assign(new Error('Archivo en escritura.'),{code:'KADS_CAMBIO'});
    const entrada={ruta:rel,bytes:st.size,modo:st.mode&0o777,partes};entradas.push(entrada);conocidos.set(rel,{firma,entrada});
+   }catch(e){
+    if(!['KADS_CAMBIO','ENOENT'].includes(e.code))throw e;
+    pendientes.push(rel);const anterior=conocidos.get(rel)?.entrada;
+    if(anterior && e.code!=='ENOENT')entradas.push(anterior);
+   }
   }
-  const datos=Buffer.from(JSON.stringify({formato:1,entradas})),firma=crypto.createHash('sha256').update(datos).digest('hex');
+  const datos=Buffer.from(JSON.stringify({formato:1,entradas,pendientes})),firma=crypto.createHash('sha256').update(datos).digest('hex');
   if(firma===firmaAnterior)return null;
   const obj=`versiones/${Date.now()}-${crypto.randomUUID()}.kads`;
   await almacen.put(obj,cifrar(datos,key,'manifiesto'));await publicar(obj);firmaAnterior=firma;
@@ -74,7 +80,7 @@ export function crearEstado({raiz,hogar,key,almacen,publicar=async()=>{},leerAct
    for(const n of resto.slice(0,-1)){padre=path.join(padre,n);try{const st=await fs.lstat(padre);if(st.isSymbolicLink() || !st.isDirectory())throw new Error('Destino inseguro.');}catch(err){if(err.code!=='ENOENT')throw err;await fs.mkdir(padre,{mode:0o700});}}
    await fs.mkdir(path.dirname(dest),{recursive:true,mode:0o700});
    const fd=await fs.open(temporal,'wx',0o600);let bytes=0;
-   try{for(const b of e.partes){const x=descifrar(await almacen.get(b.obj),key,b.hash);await fd.write(x);bytes+=x.length;}if(bytes!==e.bytes)throw new Error('Tamaño incorrecto.');}finally{await fd.close();}
+   try{for(const b of e.partes){const x=descifrar(await almacen.get(b.obj),key,b.hash);let pos=0;while(pos<x.length){const {bytesWritten}=await fd.write(x,pos,x.length-pos);if(!bytesWritten)throw new Error('No se pudo escribir el respaldo.');pos+=bytesWritten;}bytes+=pos;}if(bytes!==e.bytes)throw new Error('Tamaño incorrecto.');}finally{await fd.close();}
    await fs.chmod(temporal,e.ruta.startsWith('hogar/')?(e.modo&0o100?0o700:0o600):/\.env$/.test(e.ruta)?0o600:e.modo&0o777);await fs.rename(temporal,dest);
   }
   return true;

@@ -15,6 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Adaptación solicitada: Vercel + Supabase, con respaldo Contabo (2026-11-27; versión 2026-11-28b)
 
+Implementación en revisión: [PR #248](https://github.com/kalethabh/App-nube/pull/248).
+
 Pedido: «adapta Kads para desplegarlo con Vercel y Supabase, sin dominio y manteniendo todas las funciones y la misma calidad; respaldo por si quiero Contabo». La versión sigue después de la 2026-11-28a ya existente; no se retrocede el número para las apps instaladas.
 
 - `vercel.json`: frontend + función Node `api/puerta.mjs` + un Daemon Linux de 8 GiB/4 vCPU, sin ingreso público.
@@ -34,12 +36,21 @@ Pedido: «adapta Kads para desplegarlo con Vercel y Supabase, sin dominio y mant
 - Respaldo REAL de esta copia: `outputs/respaldo-contabo/kads-antes-de-vercel.tar.gz` fuera del repo (código de 2e0ce1f3),
   datos cifrados en `datos-verificados`, SHA256 y LEEME. Llave aparte, nunca en GitHub. Restauración real probada en carpeta
   temporal y eliminada después. NO es un respaldo de la instalación personal en ~/Anuncios con IA, que no se tocó.
-- Validación local: nueve pruebas de nube con PostgreSQL real aislado, prueba de subida en Chrome con progreso, acceso
+- Validación local: diez pruebas de nube con PostgreSQL real aislado, prueba de subida en Chrome con progreso, acceso
   58/58 y build de la interfaz. Esquema oficial Vercel validado omitiendo su declaración draft-04 incompatible con algunos
   campos modernos. CI Linux/Docker añadido; pendiente de su resultado al abrir el PR.
-- Pendiente de producción: instalar/conectar Vercel y Supabase (se localizaron plugins oficiales disponibles, no instalados),
-  identificar proyectos y configurar variables privadas, migración, retorno de Google y datos reales. No se han creado
-  servicios, comprado planes ni ejecutado generaciones de pago. Vercel Pro necesario para 8 GiB; Storage Free limita objetos
+- Vercel y Supabase YA conectados y el acceso al equipo de Vercel ya fue autorizado. Equipo de Vercel:
+  `team_nUEpzGKbbdlNPJLRYAHbbhVc` (`kalethabhs-projects`). Supabase: organización `Control EFFI`,
+  `giwfscxnkdyoelgesaby`. El usuario autorizó consultar el costo de un proyecto separado de Kads allí.
+  get_cost cotizó 0; se intentó crear `kads-studio`, pero Supabase lo rechazó por el máximo de dos proyectos Free.
+  No se creó ningún proyecto, ni se pagó, pausó, eliminó o modificó uno existente.
+- Comprobación separada solicitada por el usuario: Supabase `centro-de-control` (`uicsvderlsqqqgtrqvar`) es el que
+  usa producción de `centro-control-klickshoppe.vercel.app`, verificado SOLO mediante su URL pública de Supabase,
+  sin leer claves. El otro proyecto es `effi-dashboard` (`hcbbagfabxrjtjjtoxid`), con tres tablas públicas:
+  `effi_registros`, `effi_sync_estado`, `effi_webhook_events`; también existe una app Vercel `effi-dashboard`.
+  NO se ha confirmado si el proyecto adicional está en desuso; no eliminarlo ni pausarlo sin autorización.
+- Pendiente de producción: resolver el límite Free y elegir presupuesto antes de crear/activar servicios de pago;
+  configurar variables privadas, migración, retorno de Google y datos reales. Vercel Pro necesario para 8 GiB; Storage Free limita objetos
   a 50 MB, insuficiente para todos los videos. El consumo de memoria del Daemon se cobra aun estando en espera.
 - Antes de decir que está desplegado y conserva calidad: probar generación real de imagen/video, estilos/Sketch/audio,
   Embudo, edición, biblioteca, landings, clonación/publicación Shopify y restauración. Costos de IA requieren aprobación.

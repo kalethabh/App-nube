@@ -15,10 +15,11 @@ COPY remotion/package*.json remotion/
 COPY app/inicio/codex/package*.json app/inicio/codex/
 RUN npm ci --prefix app --no-audit --no-fund && npm ci --prefix remotion --no-audit --no-fund \
  && npm ci --prefix app/inicio/codex --no-audit --no-fund
+COPY .claude/skills/anuncios-sketch/scripts/requirements.txt /tmp/kads-sketch-requirements.txt
+RUN python3 -m venv /opt/python && /opt/python/bin/pip install 'rembg[cpu]' onnxruntime pillow numpy faster-whisper librosa yt-dlp \
+ && /opt/python/bin/pip install -r /tmp/kads-sketch-requirements.txt
 COPY . .
 RUN npm run build --prefix app && cd remotion && npx remotion browser ensure
-RUN python3 -m venv /opt/python && /opt/python/bin/pip install 'rembg[cpu]' onnxruntime pillow numpy faster-whisper librosa yt-dlp \
- && /opt/python/bin/pip install -r /opt/kads/.claude/skills/anuncios-sketch/scripts/requirements.txt
 ENV PATH="/opt/python/bin:/opt/kads/app/inicio/codex/node_modules/.bin:${PATH}" \
  HOME=/srv/home KADS_HOME=/srv/home KADS_RAIZ=/srv/kads
 RUN mkdir -p /srv/home /srv/kads

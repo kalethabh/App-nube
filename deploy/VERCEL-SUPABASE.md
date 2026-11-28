@@ -49,6 +49,8 @@ corresponde a la copia de desarrollo del chat: no sustituye un respaldo de otra 
 - Datos persistentes cifrados por bloques de 8 MiB y manifiestos inmutables. El puntero del estado se confirma
   después de subir los bloques. Se conserva el historial; revisar su crecimiento y el espacio contratado.
 - Copia periódica cada 5 segundos y confirmación del estado antes de entregar respuestas de escritura.
+  Los archivos que cambian durante la lectura quedan pendientes o conservan su última versión estable, para no
+  bloquear otras secciones mientras se renderiza. Un archivo pendiente se vuelve a copiar en la siguiente pasada.
   Un cierre forzoso puede perder cambios todavía no confirmados. No sustituye una copia independiente.
 - Un arrendamiento con número de fencing evita que dos motores procesen o publiquen estado simultáneamente.
   Un pedido reclamado que pierde el motor queda «incierto»: se revisa antes de repetir acciones que puedan cobrar.

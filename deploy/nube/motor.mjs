@@ -69,6 +69,7 @@ export async function iniciarMotor() {
  const control=crypto.randomBytes(32).toString('hex');
  const entorno={...process.env,HOME:hogar || process.env.HOME,KADS_NUBE:'1',KADS_CONTROL_MOTOR:control,AIA_SUPERVISADO:'1',ANUNCIOS_DOMINIO:new URL(origen).host,KADS_URL_PUBLICA:origen};
  for(const k of ['KADS_CIFRADO','KADS_SUPABASE_SERVICE_ROLE','VERCEL_OIDC_TOKEN','KADS_DEPLOY_HOOK'])delete entorno[k];
+ for(const k of Object.keys(entorno))if(k.startsWith('VERCEL_'))delete entorno[k];
  hijo=spawn(process.execPath,['app/server/index.js'],{cwd:raiz,detached:true,stdio:'inherit',...(process.getuid?.()===0?{uid:10001,gid:10001}:{}),env:entorno});
  hijo.once('exit',()=>{if(!saliendo)process.exit(1);});
  // El host del servidor sigue protegido aunque la prueba interna use loopback.
