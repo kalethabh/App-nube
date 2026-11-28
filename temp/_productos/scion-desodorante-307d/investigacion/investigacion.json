@@ -169,6 +169,274 @@
           "**Resultados lentos o nulos:** quien no notó nada después de meses se siente engañada."
         ] }
       ]
+    },
+    {
+      "titulo": "Impulso de compra",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Detonante", "Momento real", "Cómo activarlo en el anuncio"], "filas": [
+          ["Una foto con el brazo arriba", "Ve la foto del paseo o del cumpleaños y se nota la axila oscura", "Abre con la foto de grupo y la mano tapando la axila"],
+          ["Plan de piscina o playa", "La invitan a Melgar, Girardot, Santa Marta o a la piscina del conjunto en diciembre", "«¿Ya tienes paseo en diciembre? Empieza hoy y llega con las axilas más parejas»"],
+          ["El bus lleno", "Se agarra de la baranda en TransMilenio, el MIO o el Metro y siente que la miran", "Escena de bus con el brazo arriba y el gesto de bajarlo rápido"],
+          ["Comprar ropa de temporada", "Se mide una blusa de tiras y la devuelve", "Probador: «Me encantó la blusa, pero no me la puedo poner»"],
+          ["Después de rasurar", "Se rasura en la ducha y al secarse ve la sombra gris", "Demostración en el baño con el roll-on al salir de la ducha"],
+          ["Se le acaba el desodorante", "Va a comprar el de siempre", "«Si igual vas a comprar desodorante, que te cuide la axila»"],
+          ["La prima de diciembre", "Llega la plata extra y se quiere consentir", "Combo x3 como regalo propio o para la mamá y la hermana"]
+        ], "nota": "" }
+      ]
+    },
+    {
+      "titulo": "Beneficios que evalúa el cliente (en orden de prioridad)",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["#", "Beneficio", "Por qué le importa", "Cómo comunicarlo"], "filas": [
+          ["1", "Axila de tono más parejo", "Es la razón de compra: poder mostrar los brazos", "«Muchas personas notan la axila más pareja desde la semana 4»"],
+          ["2", "Olor controlado todo el día", "No quiere cambiar dos cosas: necesita que también sea buen desodorante", "«Protección del olor desde la primera aplicación»"],
+          ["3", "No arde después de rasurar", "Muchas sienten ardor con desodorantes con alcohol", "«Sin alcohol, con alantoína que calma la piel»"],
+          ["4", "Un solo paso, sin cremas extra", "No tiene tiempo para rutinas", "«Lo aplicas después del baño y listo»"],
+          ["5", "Textura más suave, menos puntitos", "La axila áspera también le da pena", "«Ácido láctico que exfolia suave»"],
+          ["6", "Marca reconocida e importada", "Desconfía de cremas sin marca", "«Nu Skin, probado dermatológicamente» (si se puede demostrar)"],
+          ["7", "Para hombre y mujer", "Lo puede compartir la pareja", "«Unisex: para ti y para él»"],
+          ["8", "Rinde", "Quiere sentir que pagó bien", "«Frasco de 75 ml» (duración exacta pendiente)"]
+        ], "nota": "" }
+      ]
+    },
+    {
+      "titulo": "Los 5 resultados deseados",
+      "bloques": [
+        { "tipo": "numerada", "items": [
+          "**Levantar los brazos sin pena** en el bus, en fotos, en el gimnasio y con la pareja.",
+          "**Volver a usar la ropa que le gusta:** blusas de tiras, esqueletos, vestido de baño.",
+          "**Una axila que se vea limpia y pareja** aunque se rasure todos los días.",
+          "**Oler rico todo el día** sin preocuparse por el calor.",
+          "**Dejar de gastar en remedios** que no funcionan y tener algo fácil que sí use todos los días."
+        ] },
+        { "tipo": "cita", "estilo": "deseo", "texto": "Quiero ponerme mi blusa de tiras y levantar el brazo en la foto sin estar pendiente de que se me vea la axila" }
+      ]
+    },
+    {
+      "titulo": "Tiempos de transformación",
+      "bloques": [
+        { "tipo": "tabla", "columnas": ["Resultado", "Cuándo lo notan muchas personas", "De dónde sale"], "filas": [
+          ["Olor controlado y sensación de frescura", "Desde la primera aplicación", "Función de desodorante; reseñas de Female Daily"],
+          ["Sin ardor al aplicar tras rasurar", "Desde los primeros días", "Fórmula sin alcohol con alantoína (marca); experiencia reportada"],
+          ["Textura más suave", "Primeras 2 a 4 semanas", "Estimación por el ácido láctico; no confirmado por la marca"],
+          ["Axila de tono más parejo", "Desde la semana 4 de uso diario", "Promesa de la marca (Nu Skin Australia)"],
+          ["Cambio más notorio y estable", "Entre 8 y 12 semanas de constancia", "Reseñas (1 a 3 meses) y estudios de aclarantes en axila (8 a 12 semanas)"]
+        ], "nota": "Son experiencias reportadas, no garantías. Hay personas que no notan cambios en el tono. El plazo que se puede usar en los anuncios es «desde 4 semanas»; la textura más suave es una estimación y no va en los anuncios." }
+      ]
+    },
+    {
+      "titulo": "Avatar principal",
+      "bloques": [
+        { "tipo": "caja", "estilo": "avatar", "titulo": "Leidy Johana, la que levanta el brazo con pena", "texto": "Tiene 31 años, vive en Barranquilla, se rasura con cuchilla casi a diario y hace dos años que no se pone una blusa de tiras.", "items": [], "pie": "" },
+        { "tipo": "tabla", "columnas": ["Dato", "Leidy Johana"], "filas": [
+          ["Edad", "24 a 38 años (centro: 31)"],
+          ["Sexo", "Mujer"],
+          ["Ciudades", "Barranquilla, Cartagena, Cali, Medellín, Bucaramanga, Montería, Villavicencio, Bogotá"],
+          ["Estrato", "2 a 4"],
+          ["Estado civil", "En unión libre o casada; también soltera que sale mucho"],
+          ["Hijos", "1 o 2, pequeños"],
+          ["Ocupación", "Asesora comercial, auxiliar administrativa, estilista, vendedora por catálogo, emprendedora"],
+          ["Ingresos", "1 a 3 salarios mínimos"],
+          ["Educación", "Bachiller, técnica o tecnóloga"],
+          ["Hábitos y momento de vida", "Se arregla para salir los fines de semana, va al gimnasio a ratos, vive con calor, usa transporte público"],
+          ["Historial", "Probó limón, bicarbonato, Nivea o Dove aclarante y alguna crema de Mercado Libre, sin el resultado que quería"],
+          ["Medios", "Instagram, TikTok, Facebook, WhatsApp; ve videos de belleza y de remedios caseros"],
+          ["Cómo compra", "Por anuncios de Instagram y Facebook que llevan a WhatsApp; paga contra entrega porque desconfía de pagar antes"]
+        ], "nota": "" },
+        { "tipo": "cita", "estilo": "dolor", "texto": "Me da una pena horrible levantar el brazo: siento que todo el mundo me ve la axila negra y que creen que soy descuidada" },
+        { "tipo": "subtitulo", "texto": "Puntos de dolor" },
+        { "tipo": "vinetas", "items": [
+          "Se tapa con la mano o baja el brazo en todas las fotos.",
+          "En el bus se agarra de la silla y no de la baranda de arriba.",
+          "Se rasura todos los días y la axila sigue gris.",
+          "El desodorante le arde después de rasurarse.",
+          "En la piscina del paseo se queda con camiseta."
+        ] },
+        { "tipo": "subtitulo", "texto": "Puntos débiles y objeciones" },
+        { "tipo": "vinetas", "items": [
+          "«Ya probé de todo y nada me sirve.»",
+          "«Eso es muy caro para ser un desodorante.»",
+          "«¿Y si me irrita o me mancha la ropa?»",
+          "«¿Es original? ¿Tiene registro?»",
+          "«¿En cuánto tiempo se ve? No tengo paciencia.»"
+        ] },
+        { "tipo": "subtitulo", "texto": "Motivaciones" },
+        { "tipo": "vinetas", "items": [
+          "Verse bien en las fotos de diciembre y en el paseo.",
+          "Sentirse segura con la pareja.",
+          "Volver a usar la ropa que le gusta.",
+          "Cuidarse sin una rutina complicada."
+        ] },
+        { "tipo": "subtitulo", "texto": "Resultado deseado en sus palabras" },
+        { "tipo": "cita", "estilo": "deseo", "texto": "Quiero ponerme lo que me dé la gana y levantar los brazos sin estar pendiente de nada" },
+        { "tipo": "subtitulo", "texto": "Lenguaje que usa" },
+        { "tipo": "vinetas", "items": [
+          "«Axilas negras», «axilas oscuras», «manchitas», «se ve como sombra», «como sucia».",
+          "«Me da pena», «me da cosa», «qué oso».",
+          "«Esqueleto», «blusa de tiras», «top», «vestido de baño».",
+          "«Cuchilla», «depilar», «me arde», «me pica».",
+          "«Ya probé de todo», «nada me sirve», «eso es pura carreta».",
+          "«¿Pago cuando me llegue?», «¿es original?»"
+        ] },
+        { "tipo": "subtitulo", "texto": "Avatares secundarios" },
+        { "tipo": "ficha", "filas": [
+          ["Andrés Felipe, el del gimnasio en esqueleto", "Hombre de 22 a 35 años, va al gimnasio y usa camisetas sin mangas; se rasura o recorta la axila; le importa el olor y verse bien en fotos. Le habla el ángulo «unisex, sin alcohol, olor controlado»."],
+          ["Doña Gloria, la mamá que compra para su hija", "Mujer de 42 a 55 años que compra para ella y para su hija adolescente, que ya está acomplejada con las axilas. Le habla «algo suave y de marca, sin alcohol, para toda la familia»."],
+          ["Valentina, la de las fotos y el paseo", "Mujer de 18 a 25 años, universitaria, vive en redes y en planes de piscina; quiere resultados para una fecha (grado, vacaciones, diciembre). Le habla «empieza hoy y llega lista»."]
+        ], "nota": "" }
+      ]
+    },
+    {
+      "titulo": "Recomendaciones estratégicas",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "Posicionamiento" },
+        { "tipo": "ficha", "filas": [
+          ["Promesa", "Levanta los brazos sin pena: protección del olor desde el primer día y una axila que se ve más pareja desde la semana 4."],
+          ["Mecanismo único", "Desodorante y cuidado de la axila en un solo paso: niacinamida, gayuba y regaliz para el tono; ácido láctico para la textura; alantoína para calmar; sin alcohol."],
+          ["Diferenciador", "Marca internacional importada, unisex, con varios componentes aclarantes juntos, frente a los aclarantes de supermercado que la gente ya probó."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "Oferta escalonada" },
+        { "tipo": "tabla", "columnas": ["Oferta", "Precio sugerido", "Mensaje"], "filas": [
+          ["1 unidad", "$69.900", "Para probarlo"],
+          ["2 unidades", "$119.900", "Para ti y tu pareja o tu hija"],
+          ["3 unidades (recomendada)", "$149.900", "Tratamiento de 3 meses: el tiempo en que más personas notan el cambio"]
+        ], "nota": "Precios de estimación: ajústalos a tu costo real, al envío y a la tasa de devolución. Envío gratis y pago contra entrega en todas." },
+        { "tipo": "subtitulo", "texto": "Plan de entrada de 30 días" },
+        { "tipo": "ficha", "filas": [
+          ["Días 1 a 3", "Confirmar NSO del INVIMA, rotulado en español y costo final. Preparar landing, guion de WhatsApp y 8 conceptos de la matriz."],
+          ["Días 4 a 10", "Lanzar un conjunto amplio (Colombia, mujeres y hombres de 20 a 45) con 6 a 8 conceptos distintos. Medir confirmación y entrega, no solo mensajes."],
+          ["Días 11 a 20", "Mirar a qué faceta le invierte Meta y crear conceptos vecinos. Grabar UGC propios con clientas reales (con permiso)."],
+          ["Días 21 a 30", "Empujar diciembre: piscina, paseos, fotos y prima. Subir el combo x3. Empezar a recoger fotos de antes y después reales a las 4 semanas."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "Canales" },
+        { "tipo": "ficha", "filas": [
+          ["Meta Ads", "Canal principal. Videos UGC, testimonios y estáticos de antes y después con plazo."],
+          ["WhatsApp", "Cierre de venta, preguntas de seguridad, seguimiento a la semana 2 y a la semana 4 para pedir fotos y recompra."],
+          ["TikTok", "Contenido orgánico de rutina «sal de la ducha y aplica» y desmentir remedios caseros."],
+          ["Mercado Libre", "Solo si tienes la NSO: capta la búsqueda «scion desodorante»."],
+          ["Alianzas", "Salones de belleza y centros de depilación: lo recomiendan después de depilar."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "5 hooks" },
+        { "tipo": "numerada", "items": [
+          "«¿Te da pena levantar el brazo en el bus?»",
+          "«Probé limón, bicarbonato y el aclarante del súper. Esto fue lo que sí me cambió la rutina.»",
+          "«Si igual vas a comprar desodorante, que te cuide la axila.»",
+          "«Empieza hoy y llega a diciembre con las axilas más parejas.»",
+          "«No te compres esto si no vas a ser constante 4 semanas.»"
+        ] },
+        { "tipo": "subtitulo", "texto": "Cumplimiento" },
+        { "tipo": "tabla", "columnas": ["Evita", "Usa en su lugar"], "filas": [
+          ["Blanquea las axilas", "Ayuda a que la axila se vea más pareja"],
+          ["Elimina las manchas para siempre", "Muchas personas notan un tono más parejo desde la semana 4"],
+          ["Cura la hiperpigmentación o la acantosis", "Cuida la piel de la axila todos los días"],
+          ["100 % natural / sin aluminio", "Con extractos de gayuba y regaliz, sin alcohol"],
+          ["No mancha la ropa, garantizado", "No digas nada sobre manchas en la ropa hasta probarlo tú"],
+          ["Clínicamente probado", "Solo si tienes el documento del estudio; si no, «probado dermatológicamente» con soporte de la marca"],
+          ["Resultados garantizados", "Los resultados varían de persona a persona"],
+          ["Suplemento, tratamiento, medicamento", "Desodorante, cosmético, cuidado diario"]
+        ], "nota": "", "estilo": "evita" },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Advertencias de seguridad y preguntas para WhatsApp", "texto": "Es un cosmético: no reemplaza la consulta con el dermatólogo. Algunas manchas en la axila tienen otras causas; si la mancha apareció de repente, también está en el cuello o las ingles, o la piel se ve gruesa o aterciopelada, lo correcto es consultar al médico.", "items": [
+          "¿Tienes la piel con heridas, cortaditas o irritada? Espera a que sane antes de aplicarlo.",
+          "¿Te han dado alergia otros desodorantes o cremas? Haz primero una prueba en una zona pequeña.",
+          "¿Estás embarazada o lactando? Consulta con tu médico antes de usarlo.",
+          "¿La mancha también la tienes en el cuello o en las ingles? Vale la pena consultarlo con tu médico.",
+          "Si arde, pica o enrojece, suspéndelo.",
+          "Mantenlo fuera del alcance de los niños."
+        ], "pie": "" }
+      ]
+    },
+    {
+      "titulo": "Deseo central, propuestas de valor y copy para la landing",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "14.1 Deseo central" },
+        { "tipo": "cita", "estilo": "central", "texto": "Poder levantar los brazos sin pena, con las axilas parejitas y oliendo rico todo el día, sin tener que esconderme" },
+        { "tipo": "parrafo", "texto": "El deseo de superficie es que la axila no se vea oscura ni huela a mitad del día. El deseo profundo es dejar de esconderse: no sentir que la juzgan como descuidada, volver a ponerse la ropa que le gusta y salir en las fotos sin pensar en el brazo. Es un tema de identidad y de confianza, más que de higiene." },
+        { "tipo": "subtitulo", "texto": "14.2 Seis propuestas de valor" },
+        { "tipo": "propuesta", "titulo": "1. Axilas oscuras", "dolor": "«Tengo las axilas negras aunque me rasure todos los días.»", "propuesta": "«Scion es tu desodorante con niacinamida, gayuba y regaliz: cada vez que lo aplicas ayuda a que la axila se vea más pareja.»", "tiempo": "Muchas personas notan la axila más pareja desde la semana 4 de uso diario." },
+        { "tipo": "propuesta", "titulo": "2. Ardor después de rasurar", "dolor": "«Los desodorantes me arden apenas me rasuro.»", "propuesta": "«Sin alcohol y con alantoína, que calma la piel: lo aplicas unos minutos después de rasurarte, sin ese ardor de siempre.»", "tiempo": "Muchas personas sienten la diferencia desde los primeros días." },
+        { "tipo": "propuesta", "titulo": "3. Olor con el calor", "dolor": "«A las 2 de la tarde ya estoy pendiente de cómo huelo.»", "propuesta": "«Desodorante y antitranspirante en un solo paso: controla el olor para que pases el día tranquila, aunque haga calor.»", "tiempo": "Muchas personas lo notan desde la primera aplicación." },
+        { "tipo": "propuesta", "titulo": "4. El hábito de la cuchilla", "dolor": "«Me rasuro y al otro día se ve como sombra gris.»", "propuesta": "«Su ácido láctico exfolia suave para que la axila se sienta más lisa, mientras los aclarantes trabajan con el uso diario.»", "tiempo": "Muchas personas notan la axila más pareja desde la semana 4." },
+        { "tipo": "propuesta", "titulo": "5. Esconderse y no usar la ropa que le gusta", "dolor": "«Ya no me pongo blusas de tiras ni voy a la piscina.»", "propuesta": "«Una rutina de un paso después del baño para volver a levantar los brazos y ponerte lo que quieras.»", "tiempo": "Con constancia, muchas personas notan el cambio más claro entre 8 y 12 semanas." },
+        { "tipo": "propuesta", "titulo": "6. Desconfianza", "dolor": "«Ya probé de todo y nada me sirve. ¿Y si es otro engaño?»", "propuesta": "«Es Scion de Nu Skin, una marca internacional, y lo pagas cuando te llega a la casa. Si tienes dudas, te asesoramos por WhatsApp.»", "tiempo": "Pagas al recibir: no arriesgas nada antes de tenerlo en tus manos." },
+        { "tipo": "vinetas", "items": [
+          "**Cómo usarlas:** prueba en Meta Ads la 1 (axilas oscuras, mujeres de 22 a 40 en clima caliente), la 5 (esconderse y la ropa, mujeres de 18 a 35 con planes de diciembre) y la 2 (ardor después de rasurar, hombres y mujeres de 20 a 40 que se rasuran).",
+          "La 6, de desconfianza, va como cierre de todos los anuncios y de la conversación en WhatsApp.",
+          "**Aviso legal:** «Cosmético. Los resultados varían. No reemplaza la consulta médica.»"
+        ] },
+        { "tipo": "subtitulo", "texto": "14.3 Propuesta de valor encapsulada" },
+        { "tipo": "caja", "estilo": "encapsulada", "titulo": "", "texto": "Scion es tu desodorante de un solo paso para controlar el olor, cuidar la piel después de rasurarte y ayudar a que la axila se vea más pareja, mientras vuelves a levantar los brazos sin pena. De Nu Skin, sin alcohol y lo pagas al recibir.", "items": [], "pie": "" },
+        { "tipo": "vinetas", "items": [
+          "**Controlar el olor:** propuesta 3.",
+          "**Cuidar la piel después de rasurarte:** propuestas 2 y 4.",
+          "**Axila más pareja:** propuesta 1.",
+          "**Levantar los brazos sin pena:** propuesta 5.",
+          "**De Nu Skin, pagas al recibir:** propuesta 6."
+        ] },
+        { "tipo": "subtitulo", "texto": "14.4 Títulos para el hero" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Axilas más parejas desde la semana 4 y protección desde el primer día", "subtitulo": "El desodorante sin alcohol que te cuida la axila para que vuelvas a levantar los brazos sin pena" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2 (más emocional)", "titulo": "Vuelve a levantar los brazos sin pena: axilas más parejas desde la semana 4", "subtitulo": "Niacinamida, gayuba y regaliz en tu desodorante de todos los días" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3 (avatar secundario: Andrés Felipe)", "titulo": "Olor controlado desde el primer día y axila más pareja desde la semana 4", "subtitulo": "Para él y para ella: sin alcohol, no arde después de rasurar" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 4 (corta, para celular)", "titulo": "Axilas parejas, sin pena, desde la semana 4", "subtitulo": "Tu desodorante que también te cuida" },
+        { "tipo": "nota", "texto": "Texto legal bajo el hero: «Muchas personas notan cambios desde la semana 4 de uso diario. Los resultados varían. No reemplaza tratamiento médico.»" },
+        { "tipo": "subtitulo", "texto": "14.5 Títulos para la sección de dolor (sección 2 de la landing)" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 1 (recomendada, identificación directa)", "titulo": "¿Te rasuras en la mañana y en el bus ya te da pena levantar el brazo?", "subtitulo": "La sombra gris no es falta de aseo: es la piel que se irrita con la cuchilla y el roce" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 2 (la sensación física)", "titulo": "¿El desodorante te arde cada vez que te rasuras?", "subtitulo": "Tu piel necesita algo sin alcohol que la calme mientras te protege" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 3 (quien compra para otra persona)", "titulo": "¿Tu hija ya no quiere ponerse blusas sin mangas?", "subtitulo": "Un desodorante suave, de marca, que la acompaña todos los días" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 4 (la culpa o el hábito)", "titulo": "¿Te rasuras todos los días y la axila sigue gris?", "subtitulo": "Rasurar no basta: la piel también necesita cuidado después" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 5 (la limitación diaria)", "titulo": "¿Hace cuánto no te pones una blusa de tiras?", "subtitulo": "No tienes que seguir escogiendo la ropa por tus axilas" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 6 (el entorno)", "titulo": "Con este calor, ¿a mitad del día ya estás pendiente de tus axilas?", "subtitulo": "Sudor, roce y ropa apretada: la mezcla que oscurece y hace oler la axila" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 7 (lo que ya probó)", "titulo": "¿Ya probaste limón, bicarbonato y el aclarante del súper?", "subtitulo": "Lo casero irrita y lo de siempre solo perfuma; tu axila necesita algo más completo" },
+        { "tipo": "nota", "texto": "Cómo armar la sección: usa la opción 1 como título principal y debajo el bloque «¿Te pasa esto?»." },
+        { "tipo": "caja", "estilo": "te-pasa", "titulo": "¿Te pasa esto?", "texto": "", "items": [
+          "Bajas el brazo o te tapas en las fotos",
+          "Te rasuras y al otro día se ve la sombra gris",
+          "El desodorante te arde después de rasurarte",
+          "A mitad del día ya estás pendiente del olor",
+          "Dejaste de usar blusas de tiras o esqueletos",
+          "Probaste remedios caseros y sigues igual"
+        ], "pie": "Si marcaste 2 o más, tu axila te está pidiendo cuidado. Y la respuesta puede estar en tu desodorante de todos los días." },
+        { "tipo": "caja", "estilo": "cuidado", "titulo": "Cuidado", "texto": "No nombres enfermedades (acantosis, hiperpigmentación, diabetes, hongos) ni digas que la axila oscura es un problema de salud. Habla solo de lo que la persona ve y siente: sombra, tono disparejo, ardor, olor.", "items": [], "pie": "" },
+        { "tipo": "subtitulo", "texto": "14.6 Sección de beneficios (texto corto para la imagen)" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Levanta los brazos sin pena desde la semana 4", "subtitulo": "Niacinamida, gayuba y regaliz en tu desodorante de todos los días" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2", "titulo": "Tu desodorante ahora también te cuida la axila", "subtitulo": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3", "titulo": "Axila pareja, fresca y sin ardor en un solo paso", "subtitulo": "" },
+        { "tipo": "tabla", "columnas": ["#", "Beneficio (grande)", "Frase (mediana)"], "filas": [
+          ["1", "Axila más pareja", "Muchas personas lo notan desde la semana 4"],
+          ["2", "Olor controlado", "Protección desde la primera aplicación"],
+          ["3", "Sin ardor", "Sin alcohol, con alantoína que calma"],
+          ["4", "Piel más suave", "Ácido láctico que exfolia suave"],
+          ["5", "Un solo paso", "Después del baño, y listo"]
+        ], "nota": "" },
+        { "tipo": "franja", "etiqueta": "Franja inferior:", "texto": "Sin alcohol · Probado dermatológicamente · Unisex · Pagas al recibir", "nota": "«Probado dermatológicamente» solo si tienes el soporte de la marca." },
+        { "tipo": "nota", "texto": "Nota de diseño: el beneficio va grande y la frase mediana; si la imagen queda cargada, deja solo los 5 títulos con íconos. Fondo limpio, sin follaje, texto grande y legible en celular. No uses «100 % natural»: el producto lleva un antitranspirante con aluminio." },
+        { "tipo": "subtitulo", "texto": "14.7 Modo de uso" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Una sola aplicación al día para una axila fresca y más pareja", "subtitulo": "Tu rutina después del baño en menos de 1 minuto" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2", "titulo": "Sal de la ducha, aplícalo y olvídate del olor todo el día", "subtitulo": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3", "titulo": "1 paso al día, 4 semanas de constancia", "subtitulo": "" },
+        { "tipo": "tabla", "columnas": ["Momento", "Cómo usarlo", "Valor de cada paso"], "filas": [
+          ["🚿 Después del baño", "Seca bien la axila", "La piel limpia y seca recibe mejor el producto"],
+          ["🪒 Si te rasuraste", "Espera unos minutos antes de aplicar", "Así la piel se calma y no se irrita"],
+          ["✋ Al aplicar", "Pasa el roll-on por toda la axila", "Controla el olor y empieza a cuidar el tono"],
+          ["📅 Todos los días, sin falta", "Una vez al día, siempre", "La constancia es la que hace que muchas personas noten la axila más pareja desde la semana 4"]
+        ], "nota": "Cosmético de uso externo. No aplicar sobre heridas ni piel irritada. Si estás embarazada o lactando, consulta a tu médico. Mantener fuera del alcance de los niños. No reemplaza la consulta médica." },
+        { "tipo": "franja", "etiqueta": "Franja inferior:", "texto": "Sin alcohol · Secado rápido · Menos de 1 minuto · Para él y para ella", "nota": "Confirma el «secado rápido» con el producto en la mano antes de usarlo." },
+        { "tipo": "nota", "texto": "Variante: la marca no indica una segunda aplicación al día. Si el producto que vendes lo indica en la etiqueta (por ejemplo, para días de mucho calor), agrega una toma «antes de salir en la tarde» y cambia el título a «1 o 2 aplicaciones al día…»." },
+        { "tipo": "subtitulo", "texto": "14.8 Guía visual de la estructura de 4 mensajes" },
+        { "tipo": "tabla", "columnas": ["Mensaje", "Objetivo", "Título"], "filas": [
+          ["1 · Hero", "Qué es, para quién y su valor", "Axilas más parejas desde la semana 4 y protección desde el primer día"],
+          ["2 · Punto de dolor", "Conectar y mostrar la solución", "¿Te rasuras en la mañana y en el bus ya te da pena levantar el brazo?"],
+          ["3 · Beneficios", "Mostrar el valor para su vida", "Levanta los brazos sin pena desde la semana 4"],
+          ["4 · Modo de uso", "Explicar cómo usarlo, sin dudas", "Una sola aplicación al día para una axila fresca y más pareja"]
+        ], "nota": "", "estilo": "azul" },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Antes de diseñar", "texto": "", "items": [
+          "La calificación y el número de clientes van como [calificación] y [N] hasta que tengas reseñas reales tuyas.",
+          "Confirma los componentes con la etiqueta del lote que vas a vender.",
+          "Los sellos deben ser verificables: sin alcohol, probado dermatológicamente (con soporte), unisex y pagas al recibir.",
+          "Las fotos de personas: piel trigueña, axilas reales, nada de piel blanqueada con filtro.",
+          "Fondo limpio, sin follaje, texto grande y legible en celular."
+        ], "pie": "" },
+        { "tipo": "guia-visual" }
+      ]
     }
   ],
   "fuentes": []
