@@ -1,0 +1,21 @@
+{
+  "id": "c3661648-7ad9-4071-b732-e7a91a3c892b",
+  "uuid": "c3661648-7ad9-4071-b732-e7a91a3c892b",
+  "estado": "investigando",
+  "enlace": "https://foreverfilipinousa.com/collections/nu-skin/products/nu-skin-scion-brightening-roll-on",
+  "producto": "",
+  "pais": "Colombia",
+  "brandtracker": false,
+  "progreso": [
+    "Esperando turno: Claude está terminando otra tarea",
+    "Claude está investigando a tu competencia en TrendTrack",
+    "Leyendo las instrucciones del estilo",
+    "Buscando en los archivos",
+    "Leyendo lo que contaste de tu producto",
+    "Buscando en los archivos"
+  ],
+  "intentos": 1,
+  "inicio": "2026-11-28T11:23:31.068Z",
+  "error": null,
+  "actualizado": "2026-11-28T11:24:32.423Z"
+}

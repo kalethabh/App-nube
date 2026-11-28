@@ -12,7 +12,7 @@
     "La operación es una red: TrendTrack liga los mismos creativos a varias tiendas (naturalfittco.online para Colombia, naturalfittecu.online para Ecuador, naturalfitt.shop «Distrishop Guatemala», tiendas myshopify para Costa Rica y Perú) y a varias páginas con nombres de médico. Los anuncios más fuertes de la red mandan a WhatsApp, no a la tienda.",
     "La red es nueva en este producto: sus anuncios más viejos de drenaje empezaron el 1 de septiembre de 2026 (88 días). «El más longevo» tiene ese techo.",
     "La página del producto no se pudo abrir (el servidor rechazó la visita). No se vio el precio en pesos, los paquetes ni la garantía de la tienda: no se inventan.",
-    "La búsqueda por domino trae anuncios de otras tiendas ligadas (por ejemplo kr1cud-u0.myshopify.com). Se usaron, pero marcados como de la red, no de la tienda exacta."
+    "La búsqueda por dominio trae anuncios de otras tiendas ligadas (por ejemplo kr1cud-u0.myshopify.com). Se usaron, pero marcados como de la red, no de la tienda exacta."
   ],
   "creditos": { "antes": 9457, "despues": 9249 },
   "etapas": [
@@ -396,6 +396,136 @@
       "riesgos": [
         "Menopausia y ciclo menstrual son temas de salud: hablar de sensación, no de tratamiento.",
         "No segmentar por condición de salud ni usar frases como «¿tienes retención por tu enfermedad?»."
+      ]
+    },
+    {
+      "titulo": "Validación en Colombia",
+      "contexto": "Se buscaron anuncios con destino a Colombia, en español, con los términos del problema (retención, hinchazón, «no es grasa»), la solución (gotas de drenaje linfático), el mecanismo (diurético, linfa) y los ganchos principales, con tres órdenes: más duplicados, más nuevos y más de 30 días al aire. Solo se valida si ya existen ofertas con ángulos parecidos.",
+      "bloques": [
+        { "tipo": "metricas", "items": [
+          { "etiqueta": "Anuncios activos de drenaje linfático", "valor": "1.105", "nota": "Dato: texto con «drenaje linfático», destino Colombia", "tono": "rojo" },
+          { "etiqueta": "Con más de 30 días al aire", "valor": "57", "nota": "Dato: los que se quedan", "tono": "ambar" },
+          { "etiqueta": "Con 3 o más versiones", "valor": "263", "nota": "Dato", "tono": "ambar" },
+          { "etiqueta": "Del mismo frasco Sunshine", "valor": "147", "nota": "Dato: competencia idéntica", "tono": "rojo" }
+        ] },
+        { "tipo": "subtitulo", "texto": "1. Cruce completo" },
+        { "tipo": "tabla", "columnas": ["Elemento de la investigación", "En Colombia", "Quién lo ocupa", "Permanencia"], "filas": [
+          ["G1 · Cara hinchada al despertar", "Ya existe", "La propia red (Dr. Esteban León) y Novedades Colombia, VitalBio, BalanceVie", "Consolidado"],
+          ["G2 · Pensé que estaba engordando / no es grasa", "Ya existe", "La red (Dra Nancy), Aurelys, Dr. Jesús Ramírez", "Sostenido"],
+          ["G3 · Ya probé tés, pastillas y fajas", "Ya existe", "La red (Dra Nancy)", "Sostenido"],
+          ["G4 · Pastillas de agua = pegada al baño", "Ya existe", "La red; Mayaverra (farmacéutica) con otro enfoque", "Sostenido"],
+          ["G5 · Semana antes del período", "Parecido", "La red y una copia de Innova Life Store (20-nov)", "Prueba"],
+          ["G6 · Calendario de 4 semanas (Mayaverra)", "Ya existe", "Mayaverra (Miniconsola, Dr. Emiliano Horas) con destino a Colombia", "Consolidado"],
+          ["G7 · No es la almohada / linfa lenta (Rosalica)", "No existe", "Nadie en español con ese gancho", "Sin verificar"],
+          ["Hook: farmacéutica que no lo vende en su farmacia", "Ya existe", "Mayaverra, desde 6-nov", "Prueba"],
+          ["Hook: esteticista con 18 años de drenaje manual", "Ya existe", "Novedades Colombia, desde 23-nov", "Prueba"],
+          ["Hook: no compres en Amazon / anti-imitación", "Parecido", "Mayaverra (en España y Latinoamérica, incluye Colombia en la segmentación)", "Consolidado"],
+          ["Hook: barriga plana en la mañana, jean que no cierra en la tarde", "Ya existe", "Nad + Resveratrol, desde 13-nov", "Prueba"],
+          ["Estilo: ingredientes que hablan", "No existe", "Solo la red, en gordolobo; nadie en drenaje", "Sin verificar"],
+          ["Estilo: testimonio con nombre, edad y ciudad", "Ya existe", "La red (Rosa M., Quito; Patricia L., Cuenca), Novedades Colombia (Yolanda, Cali)", "Sostenido"],
+          ["Ángulo: hinchazón de la tarde / trabajo de pie", "Parecido", "Ecobasket (cuidadora), Novedades Colombia (esteticista), Nad + Resveratrol", "Prueba"],
+          ["Ángulo: contra el diurético", "Parecido", "La red (G4) y Mayaverra", "Sostenido"],
+          ["Ángulo: contra el masaje de camilla", "Parecido", "Solo Novedades Colombia", "Prueba"],
+          ["Ángulo: contra «tomar más agua»", "No existe", "Nadie lo usa como gancho", "Sin verificar"],
+          ["Ángulo: no vas a bajar de peso, te vas a deshinchar", "Parecido", "La red lo dice dentro del texto de G2, no como gancho", "Sostenido"],
+          ["Avatar: cara al despertar", "Ya existe", "Saturado (240 anuncios)", "Consolidado"],
+          ["Avatar: piernas pesadas", "Ya existe", "Saturado (326 anuncios)", "Consolidado"],
+          ["Avatar: la que cree que engordó", "Ya existe", "La red y Aurelys", "Sostenido"],
+          ["Avatar: la que ya probó de todo", "Ya existe", "La red", "Sostenido"],
+          ["Avatar: semana antes del período", "Parecido", "La red + 1 copia", "Prueba"],
+          ["Avatar: trabaja de pie", "Parecido", "3 anuncios nuevos de noviembre", "Prueba"],
+          ["Avatar: clienta de centros de estética", "Parecido", "1 anuncio", "Prueba"],
+          ["Avatar: menopausia", "No existe", "Solo menciones sueltas", "Sin verificar"],
+          ["Local: combo gotas + cápsulas Linfovit + regalo de magnesio", "Ya existe", "Nad + Resveratrol (WhatsApp)", "Prueba"],
+          ["Local: regalo de guía «Protocolo Drena & Moldea» con 2 o 3 frascos", "Ya existe", "Isa Recomienda (Aurelys)", "Prueba"],
+          ["Local: drenaje linfático como regalo de otro producto (Black Friday)", "Ya existe", "Evil Goods / Kura Natural", "Prueba"]
+        ], "nota": "Solo la competencia directa (gotas o suplementos de drenaje) cuenta para decir «ya existe»." },
+        { "tipo": "subtitulo", "texto": "2. Competencia directa frente a alternativas" },
+        { "tipo": "tabla", "columnas": ["Tipo", "Quién", "Qué vende", "Lectura"], "filas": [
+          ["Directa", "Red NaturalFitt (Dra Nancy, Dr. Esteban, NutriNatural, Natura Boost)", "Gotas Sunshine por WhatsApp y tienda", "El jugador con más volumen en el texto de los anuncios."],
+          ["Directa", "Mayaverra (Miniconsola, Mayaverra linfatic, revendedores como Gooutletstore y Novedades Colombia)", "Gotas Mayaverra", "La marca con más alcance; ya tiene revendedores en Colombia."],
+          ["Directa", "Revendedores de Nature's Sunshine (Novedades Colombia, Ecobasket, Nad + Resveratrol, Veloxia)", "El mismo frasco", "Pelean por precio; mensajes genéricos."],
+          ["Directa", "Aurelys (myaurelys.com, Isa Recomienda, kr1cud-u0)", "Gotas Aurelys", "Copia el ángulo «no es grasa»."],
+          ["Directa", "Lymphoria / Rosanova / Bio Equilibrium", "Gotas sabor a miel", "Copy traducido del inglés, muy genérico."],
+          ["Alternativa", "Vibro Sculpt", "Aparato de vibración y masaje", "Compite con la cirugía; sirve para el ángulo «antes de pensar en lipo, descarta que sea agua»."],
+          ["Alternativa", "Renata França y centros de estética", "Drenaje manual y cursos", "El público ya paga por drenaje; sirve para el ángulo «lo que te dura la camilla»."],
+          ["Alternativa", "Kura Natural (Cutting Mix)", "Mezcla para antojos con drenaje de regalo", "Convierte el drenaje en accesorio de bajar de peso."],
+          ["Alternativa", "Diuréticos y tés de farmacia, fajas", "Otras soluciones", "Mencionados como enemigos por la red y Mayaverra."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "3. Evidencia de cada caso que existe" },
+        { "tipo": "anuncios", "items": [
+          { "id": "facebook_1595774155424069", "marca": "Mayaverra linfatic", "nombre": "Mayaverra en Colombia", "formato": "video", "gancho": "¿Te sientes hinchada, inflamada, con retención de líquidos, cansada o sin energía constantemente?", "traduccion": "", "angulo": "Lista de síntomas + toxinas", "avatar": "General", "pasos": ["Lista de síntomas", "4 beneficios", "Ingredientes", "Comprar ahora"], "cifras": { "dias": 90, "anuncios": 58, "alcance": "", "impresiones": "", "desde": "2026-08-30", "hasta": "activo" }, "por_que": "Dato: competidor directo consolidado en Colombia. Tipo de vendedor: marca probable.", "ganchos": ["La oferta termina hoy. Compra dos y llévate uno gratis. (facebook_4717597781807275, 54 versiones)"], "url": "https://medias.trendtrack.io/facebook/video/2bda8c43414e135d73ec45603f055fc47d230efd18f186ec6d5286846acffcb2.mp4", "landing": "https://www.expedii.com/products/drenaje-linfatico-mayaverra-gotas-naturales" },
+          { "id": "facebook_1153770103678651", "marca": "Novedades Colombia", "nombre": "Yolanda, esteticista de Cali", "formato": "imagen", "gancho": "Llevo 18 años haciendo drenaje linfático con mis manos. Una clienta de 29 años me dijo algo que me dejó fría.", "traduccion": "", "angulo": "Contra el masaje de camilla / trabajo de pie", "avatar": "Clienta de estética y trabajadora de pie", "pasos": ["Experta local", "La ironía: ella también se hinchaba", "Todo lo que probó", "La clienta y las goticas", "La linfa no tiene bomba", "Semana 1, 2, 3, mes 2", "Aviso honesto: no es medicamento", "Paga al recibir"], "cifras": { "dias": 5, "anuncios": 0, "alcance": "", "impresiones": "", "desde": "2026-11-23", "hasta": "activo" }, "por_que": "Dato: prueba de 5 días. Tipo de vendedor: dropshipping probable (vende Nature's Sunshine y Maya Verra en la misma tienda).", "ganchos": ["Todos le decían que era la edad… hasta que entendió qué le estaba pasando a su cuerpo. (facebook_1814940056424164)"], "url": "https://medias.trendtrack.io/facebook/image/581ab7557e0f85f866adf3bc1e2e2b793c45a1b26e1a39d31c34c5da6183ba35.jpg", "landing": "https://tusojoslindos.shop/products/lymphatic-drainage-apoyo-linfatico" },
+          { "id": "facebook_1858670278497180", "marca": "Innova Life Store", "nombre": "Copia: días previos al período", "formato": "video", "gancho": "📅 Los días previos a mi período me transformaban por completo.", "traduccion": "", "angulo": "Hinchazón premenstrual", "avatar": "Semana antes del período", "pasos": ["Mismo guion de G5 reescrito"], "cifras": { "dias": 8, "anuncios": 1, "alcance": "", "impresiones": "", "desde": "2026-11-20", "hasta": "activo" }, "por_que": "Dato: copia del ganador G5 de la red. Tipo de vendedor: no se puede saber.", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/video/508f9fff3f8bd0d6513ff591c31d907b77b450afe9d16d2a1140b3adf119edf0.mp4", "landing": "https://innovalifestore.com/products/drenaje-linfatico-1" },
+          { "id": "facebook_1161945832922519", "marca": "Nad + Resveratrol", "nombre": "Combo gotas + cápsulas + magnesio", "formato": "imagen", "gancho": "¿En la mañana la barriga plana y en la tarde el jean ya no cierra? 😩", "traduccion": "", "angulo": "Hinchazón de la tarde", "avatar": "Trabaja de pie / vientre", "pasos": ["Contraste mañana–tarde", "No siempre es grasa", "Combo Nature's Sunshine + Linfovit", "Regalo de citrato de magnesio", "Envío gratis y pago al recibir", "WhatsApp"], "cifras": { "dias": 15, "anuncios": 1, "alcance": "", "impresiones": "", "desde": "2026-11-13", "hasta": "activo" }, "por_que": "Dato: prueba. Tipo de vendedor: dropshipping probable (nombre de página sin relación con el producto).", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/image/dbce4ab170f55b05e48ceb681db6d294c75002ac353c4f35c5e3ab38c8200c33.png", "landing": "WhatsApp, sin página" },
+          { "id": "facebook_3164262157298640", "marca": "Ecobasket", "nombre": "Cuidadora", "formato": "imagen", "gancho": "DESPUÉS DE CUIDAR A TODOS, TAMBIÉN TE TOCA A TI 💚", "traduccion": "", "angulo": "Merecimiento", "avatar": "Mamá o cuidadora", "pasos": ["Identidad", "Lymphatic Drainage de Nature's Sunshine", "Envío gratis y contraentrega"], "cifras": { "dias": 8, "anuncios": 1, "alcance": "", "impresiones": "", "desde": "2026-11-20", "hasta": "activo" }, "por_que": "Dato: prueba. Tipo de vendedor: dropshipping probable (tienda myshopify genérica).", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/image/9195bfeb47d6aef7ce93aecf22419a05e526ba68a289e923be2a6aeacf4899cd.webp", "landing": "https://9q0cgj-wx.myshopify.com/products/drenaje-linfatico-natural-en-gotas-apoyo-herbal-para-tu-bienestar-diario" },
+          { "id": "facebook_2534984380245870", "marca": "Isa Recomienda (Aurelys)", "nombre": "La misma ropa se siente diferente", "formato": "video", "gancho": "👖 ¿Por qué hay días en los que la misma ropa se siente diferente?", "traduccion": "", "angulo": "Hinchazón abdominal sin prometer peso", "avatar": "La que cree que engordó", "pasos": ["Pregunta cotidiana", "No siempre es aumentar de peso", "Fórmula de 4 extractos", "Regalo: Protocolo Drena & Moldea con 2 o 3 frascos"], "cifras": { "dias": 12, "anuncios": 1, "alcance": "", "impresiones": "", "desde": "2026-11-16", "hasta": "activo" }, "por_que": "Dato: prueba con el copy más cuidadoso del mercado local. Tipo de vendedor: dropshipping probable.", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/video/46398b35f2f3d9e9248b372d691146acaf6f9a02b5384f3ea7542f38b09c881f.mp4", "landing": "https://compra-yaexpress.com/products/drenaje-linfatico" },
+          { "id": "facebook_1149586174200152", "marca": "Dr. Jesús Ramírez", "nombre": "No bajas aunque hagas dieta", "formato": "video", "gancho": "¿Sientes que no bajas nada aunque hagas dieta y ejercicio? 💧", "traduccion": "", "angulo": "No es grasa", "avatar": "La que cree que engordó", "pasos": ["Pregunta", "Puede que no sea grasa", "Extracto en gotas", "Pago contra entrega"], "cifras": { "dias": 3, "anuncios": 0, "alcance": "", "impresiones": "", "desde": "2026-11-25", "hasta": "activo" }, "por_que": "Dato: prueba. Tipo de vendedor: dropshipping probable (página con nombre de médico).", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/video/eed9ae7c2f7a939e585ccd5049253d75e17bbbf204aab3fcc0470d1f831e0164.mp4", "landing": "https://salud-y-bienestar.store/products/drenaje-linfatico" }
+        ] },
+        { "tipo": "subtitulo", "texto": "4. Permanencia y 5. tipo de vendedor" },
+        { "tipo": "tabla", "columnas": ["Competidor", "Inicio y días", "Versiones", "Permanencia", "Tipo de vendedor", "¿Se queda?"], "filas": [
+          ["Red NaturalFitt (G1, G2, G3, G4)", "1 a 23-sep-2026; 66 a 88 días", "98 a 123 por creativo", "Consolidado", "Dropshipping probable (páginas con nombre de persona, varias tiendas myshopify, varios productos)", "Sí: es el jugador a vencer."],
+          ["Mayaverra", "29-may-2026; hasta 193 días", "31 a 58", "Consolidado", "Marca probable", "Sí."],
+          ["Natura Boost (red)", "29-oct-2026; 30 días", "11", "Sostenido", "Dropshipping probable", "Probable."],
+          ["NutriNatural (red, a naturalfittco.online)", "18-nov-2026; 10 días", "3 a 5 por video", "Prueba", "Dropshipping probable", "Todavía no se sabe."],
+          ["Novedades Colombia", "23 a 25-nov-2026; 3 a 5 días", "1", "Prueba", "Dropshipping probable", "No se sabe."],
+          ["Nad + Resveratrol", "13-nov-2026; 15 días", "1", "Prueba", "Dropshipping probable", "No se sabe."],
+          ["Innova Life Store", "20-nov-2026; 8 días", "1", "Prueba", "No se puede saber", "No se sabe."],
+          ["Ecobasket", "20-nov-2026; 8 días", "1", "Prueba", "Dropshipping probable", "No se sabe."],
+          ["Isa Recomienda (Aurelys)", "16-nov-2026; 12 días", "1", "Prueba", "Dropshipping probable", "No se sabe."],
+          ["Dr. Jesús Ramírez", "25-nov-2026; 3 días", "Sin dato", "Prueba", "Dropshipping probable", "No se sabe."],
+          ["Bio Equilibrium (Lymphoria)", "26-nov-2026; 2 días", "Sin dato", "Prueba", "Dropshipping probable (tienda «Encuentra todo a un solo clic»)", "No se sabe."],
+          ["Veloxia Store", "27-nov-2026; 1 día", "Sin dato", "Prueba", "Dropshipping probable (myshopify genérica)", "No se sabe."],
+          ["Gooutletstore (Maya Verra)", "24-nov-2026; 4 días", "6", "Prueba", "Dropshipping probable", "No se sabe."],
+          ["Renata França (alternativa)", "21-may-2026; 191 días", "13", "Consolidado", "Marca probable", "Sí (alternativa)."],
+          ["Vibro Sculpt (alternativa)", "22-nov-2026; 6 días", "1", "Prueba", "No se puede saber", "No se sabe."]
+        ], "nota": "La clasificación de vendedor es probable, por señales; no se abrieron fichas de tienda." },
+        { "tipo": "caja", "estilo": "veredicto", "titulo": "Viable con condiciones", "texto": "El mercado de gotas de drenaje en Colombia está lleno en los ángulos de cara, piernas y toxinas (dos competidores consolidados y 147 anuncios del mismo frasco), pero los ángulos de la tarde, el período, el contra-diurético con autoridad real y la clienta de estética solo están ocupados por pruebas de días: hay hueco si entras por ahí, con promesas defendibles y sin páginas de médico falsas." },
+        { "tipo": "tabla", "columnas": ["Sigue libre (o solo con pruebas)", "Ya ocupado por consolidados"], "filas": [
+          ["Hinchazón de la tarde / trabajo de pie", "Cara hinchada al despertar (red, Mayaverra)"],
+          ["Semana antes del período (solo la red + 1 copia)", "Piernas pesadas"],
+          ["Contra el masaje de camilla", "«No es grasa, es líquido» (red)"],
+          ["Contra «tomar más agua»", "Lista de síntomas + toxinas (Mayaverra)"],
+          ["Menopausia", "«Ya probé de todo» y «pastillas de agua» (red)"],
+          ["Ingredientes que hablan (en drenaje)", "Calendario de 4 semanas (Mayaverra)"],
+          ["«No es la almohada» / linfa lenta", "Oferta 2+1 con urgencia (Mayaverra)"]
+        ], "nota": "" },
+        { "tipo": "escala", "titulo": "Sofisticación en Colombia por subcategoría (frente al mercado original)", "items": [
+          { "nombre": "Gotas de drenaje en Colombia (líderes)", "nivel": 4, "nota": "Inferencia: mecanismo y anti-imitación ya presentes (Mayaverra)." },
+          { "nombre": "Revendedores del frasco Sunshine", "nivel": 3, "nota": "Inferencia: «no es grasa» + beneficios; sin mecanismo propio." },
+          { "nombre": "Alternativas (aparatos, drenaje manual)", "nivel": 3, "nota": "Inferencia: «sin cirugía», «técnica reconocida»." },
+          { "nombre": "Mercado original en inglés", "nivel": 5, "nota": "Inferencia: falsificaciones, color del líquido, dosis." }
+        ] },
+        { "tipo": "caja", "estilo": "hipotesis", "titulo": "Hipótesis de hueco", "items": [
+          "**H1 — La hinchazón de la tarde.** Evidencia: 33 anuncios con «trabajo» y 7 con «jean»; 3 pruebas de noviembre. Riesgo: que el público no sienta que es «retención» y no haga clic.",
+          "**H2 — La semana antes del período.** Evidencia: la red lo escaló a 139 versiones y en Colombia solo hay 3 anuncios. Riesgo: la red ya lo tiene y una copia apareció el 20-nov; prometer alivio menstrual es promesa de salud.",
+          "**H3 — La clienta de estética.** Evidencia: el público ya paga drenaje manual (Renata França 191 días) y solo un anuncio de gotas le habla. Riesgo: necesitas una esteticista real que lo cuente.",
+          "**H4 — Contra «tomar más agua».** Evidencia: ningún anuncio lo usa como gancho. Riesgo: sin dato de que funcione; es una hipótesis pura.",
+          "**Dónde no entrar:** «cara hinchada al despertar» con el frasco Sunshine y la lista de síntomas con «toxinas»: 240 y 202 anuncios, dos consolidados y 147 revendedores del mismo producto."
+        ] },
+        { "tipo": "caja", "estilo": "clave", "titulo": "La combinación para llegar primero", "items": [
+          "**Ángulo:** la hinchazón que crece durante el día («no es grasa, es agua que no se mueve»).",
+          "**Mecanismo (un paso adelante, no dos):** «tu linfa no tiene bomba: se mueve cuando te mueves; si pasas el día de pie o sentada, se queda». Sin hablar de toxinas ni de curas.",
+          "**Avatar:** la que trabaja de pie o sentada todo el día y cree que engordó.",
+          "**Gancho:** «Barriga plana a las 7 de la mañana, jean que no cierra a las 5 de la tarde. No es grasa.»"
+        ] },
+        { "tipo": "caja", "estilo": "limite", "titulo": "Ventana de tiempo", "texto": "**Inferencia:** de 3 a 6 semanas. En noviembre ya aparecieron pruebas en tus huecos: la farmacéutica de Mayaverra (6-nov), el combo de la tarde (13-nov), la copia del período (20-nov), la cuidadora (20-nov) y la esteticista de Cali (23-nov). Si alguna pasa de prueba a sostenida en diciembre, el hueco se cierra." },
+        { "tipo": "plan", "titulo": "Secuencia de prueba de 3 semanas en Colombia", "items": [
+          { "cuando": "Semana 1", "que": "H1 con 3 ganchos (barriga 7 a. m. contra jean 5 p. m.; medias marcadas a las 7 de la noche; «no es grasa, es agua que no se mueve») sobre el mismo cuerpo, en video y estático." },
+          { "cuando": "Semana 2", "que": "Sumar H2 (semana antes del período) y H3 (esteticista real) sobre el cuerpo ganador. Probar WhatsApp contra página propia." },
+          { "cuando": "Semana 3", "que": "Escalar el ganador con 5 ganchos nuevos y una oferta de 2 o 3 frascos con regalo; preparar el contra-imitación por si llegan más revendedores del mismo frasco." }
+        ] }
+      ],
+      "limitaciones": [
+        "Fuera de la UE no hay alcance ni gasto: todo lo de Colombia se lee por versiones y días.",
+        "La búsqueda lee el texto del anuncio, no el video.",
+        "La clasificación de vendedores es probable, sin abrir fichas de tienda.",
+        "No se pudieron ver precios en pesos de los competidores colombianos."
+      ],
+      "riesgos": [
+        "En Colombia los suplementos necesitan registro sanitario del INVIMA y no pueden anunciarse como medicamento; verifica el del frasco que vendas.",
+        "Vender bajo la marca Nature's Sunshine sin autorización puede traer reclamos de marca.",
+        "Páginas con nombre de médico o «verificado por Facebook»: es lo que hace la red y es lo que más arriesga la cuenta publicitaria."
       ]
     }
   ]
