@@ -28,6 +28,19 @@ según `GOOGLE-Y-PERMISOS.md`; el callback del proveedor Google es el de Supabas
 Pendiente: disponer de un servidor y acceso seguro para instalar. No hay servidor contratado ni despliegue real;
 no se han pedido claves por el chat. La compra requiere precio concreto aceptado por el usuario.
 
+## Candidato económico verificado en configurador (2026-11-27)
+
+El usuario pidió uno disponible para Kads completo. Candidato: Contabo Cloud VPS 8, 8 vCPU/24 GB RAM.
+En el configurador público, región Unión Europea, plazo de 1 mes, Ubuntu y 150 GB NVMe: 15,50 €/mes;
+con Auto Backup: 20,50 €/mes y primer pago del mismo importe, sin alta. IPv4 incluida.
+La publicidad de 11,20 €/mes requiere prepagar 24 meses; no se recomienda ese compromiso antes de probar.
+Solo es contratación configurable observada, no stock reservado ni entrega garantizada. No se compró,
+creó cuenta ni ingresaron credenciales. Precio final/impuestos se confirman al pagar.
+Reutilizar Supabase y proveedores de IA actuales; sin dominio propio. Compatibilidad técnica inferida,
+no medida: falta instalar y probar imágenes, video, Embudo, landing, publicación y recuperación con los mismos
+modelos/datos. No garantizar velocidad o resultados idénticos. CPU compartida; medir concurrencia y disco.
+Fuente: https://contabo.com/en/vps/cloud-vps-core-8
+
 ## Qué se mantiene y qué se traslada
 
 - La app y el motor se ejecutan juntos en un servicio siempre encendido, con su disco. Supabase no sustituye el motor.
