@@ -30,6 +30,7 @@ import { leerJSON } from '../archivos.js';
 import { escribirJSON, leerFicha, listarProductos, rutaFoto } from '../productos.js';
 import { modoPrueba } from '../procesos.js';
 import { execFileSync } from 'node:child_process';
+import { publicoVisual, direccionPersona, consultaDe, slotsResenas, conFotosResenas, procesarImagenes,marcarRevisionImagenes } from './personas.js';
 import { medidas } from './clonar.js';
 import { rutaFfmpeg } from '../miniaturas.js';
 
@@ -258,8 +259,8 @@ export function prepararSecciones(raiz, resenas = []) {
     care.setAttribute('data-seccion', 'cuidado');
     for (const n of care.querySelectorAll('.care-badge')) n.parentNode?.removeChild(n);
     for (const im of care.querySelectorAll('img')) {
-      im.setAttribute('data-tipo', 'estilo');
-      im.setAttribute('alt', 'Una clienta con el producto en su día a día');
+      im.setAttribute('data-tipo', 'consulta');
+      im.setAttribute('alt', 'Escena profesional ilustrativa');
     }
   }
   const rv = raiz.querySelector('[data-seccion="resenas"]');
@@ -276,11 +277,12 @@ export function prepararSecciones(raiz, resenas = []) {
 /** Las reseñas reales, tal cual (después del equipo: nadie las reescribe). */
 export function ponerResenas(raiz, resenas = []) {
   if (!resenas.length) return;
+  const fotoResena=r=>r.foto?`<figure class="foto-resena"><img src="${esc(r.foto)}" alt="${r.fotoNota?esc(r.fotoNota):'Foto adjunta a la reseña'}" loading="lazy" style="max-width:100%;height:auto">${r.fotoNota?`<figcaption style="font-size:12px;line-height:1.5">${esc(r.fotoNota)}</figcaption>`:''}</figure>`:'';
   const cajas = (n) => `<div class="boxes" aria-label="${n} de 5">${'<span>★</span>'.repeat(n)}${'<span class="off">★</span>'.repeat(5 - n)}</div>`;
-  raiz.querySelector('[data-seccion="resenas"] .rail')?.set_content(resenas.map((r) => `<article class="rcard">${cajas(r.estrellas)}<p class="who"><b>${esc(r.nombre)}</b>${r.ciudad ? `, ${esc(r.ciudad)}` : ''}</p>${r.titulo ? `<h3>${esc(r.titulo)}</h3>` : ''}<p>${esc(r.texto)}</p></article>`).join(''));
+  raiz.querySelector('[data-seccion="resenas"] .rail')?.set_content(resenas.map((r) => `<article class="rcard">${fotoResena(r)}${cajas(r.estrellas)}<p class="who"><b>${esc(r.nombre)}</b>${r.ciudad ? `, ${esc(r.ciudad)}` : ''}</p>${r.titulo ? `<h3>${esc(r.titulo)}</h3>` : ''}<p>${esc(r.texto)}</p></article>`).join(''));
   const r = resenas[0];
   const iniciales = r.nombre.split(/\s+/).map((x) => x[0] || '').slice(0, 2).join('').toUpperCase();
-  raiz.querySelector('[data-seccion="testimonio-destacado"]')?.set_content(`<div class="ph ph-ini" aria-hidden="true">${esc(iniciales)}</div><div><b>${esc(r.nombre)}</b> <span class="stars">${'★'.repeat(r.estrellas)}</span><p>${esc(r.texto)}</p></div>`);
+  raiz.querySelector('[data-seccion="testimonio-destacado"]')?.set_content(`<div>${r.foto?fotoResena(r):`<div class="ph ph-ini" aria-hidden="true">${esc(iniciales)}</div>`}</div><div><b>${esc(r.nombre)}</b> <span class="stars">${'★'.repeat(r.estrellas)}</span><p>${esc(r.texto)}</p></div>`);
   const estilo = raiz.querySelectorAll('style').find((x) => /--accent:/.test(x.rawText));
   const t = estilo?.childNodes.find((c) => c.nodeType === 3);
   if (t) t.rawText += '\n.testi .ph-ini{display:grid;place-items:center;color:#fff;font-weight:800;font-size:17px;background:var(--accent)}\n.rcard .boxes span.off{opacity:.25}\n';
@@ -479,11 +481,12 @@ export function aplicarDiseno(raiz, d) {
  * Arma la landing en `carpeta` con el equipo. `guardar(cambios)` y `avanzar(texto)` son los de landings/index.js.
  * -> { titulo, agentes, imagenes }
  */
-export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, guardar, avanzar, precios = null, registro = '', resenas = [] }) {
+export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, guardar, avanzar, precios = null, registro = '', resenas = [], profesional = null }) {
   // (2026-11-27d) los precios son obligatorios: sin ellos la página quedaba con «Precio por definir»
   const p = limpiarPrecios(precios);
   if (!p) throw Object.assign(new Error('precios'), { publico: 'Pon los precios de tus combos (1, 2 y 3 unidades) para crear la landing.' });
   const reales = limpiarResenas(resenas);
+  const pro = profesional && /^assets\/profesional\.(jpg|png)$/.test(profesional.foto || '') && fs.existsSync(path.join(carpeta, profesional.foto)) ? profesional : null;
   const prod = listarProductos().find((p) => p.id === productoId);
   const ficha = leerFicha(productoId) || {};
   let investigacion = '';
@@ -505,6 +508,14 @@ export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, 
   const reg = String(registro || '').trim().slice(0, 60);
   prepararPlantilla(raiz, reg);
   prepararSecciones(raiz, reales);
+  if (pro) {
+    const care = raiz.querySelector('[data-seccion="cuidado"]');
+    for (const im of care?.querySelectorAll('img') || []) {
+      im.setAttribute('src', pro.foto);
+      im.setAttribute('data-tipo', 'profesional-real');
+      im.setAttribute('alt', 'Profesional autorizado');
+    }
+  }
   const { textos, imagenes } = piezasDe(raiz);
   // (2026-11-25h) cada imagen de la plantilla con su archivo, su tamaño y su aspecto: el equipo las MIRA (Read) y las
   // nuevas salen con la misma proporción
@@ -520,6 +531,7 @@ export async function crearConEquipo({ carpeta, productoId, pedido = '', motor, 
   const listaImgs = imagenes.map((im, k) => `img${k}\ttipo: ${im.tipo}\t${im.alt || '(sin alt)'}\t${im.w || '?'}x${im.h || '?'} (${im.aspecto})\tarchivo: ${path.relative(RAIZ, im.ruta).replace(/\\/g, '/')}\tsecciones: ${im.usos.join(', ')}`).join('\n');
   const preciosTxt = `\nPRECIOS DEL DUEÑO (fijos, úsalos tal cual): 1 unidad ${cop(p.uno)}, 2 unidades ${cop(p.dos)}, 3 unidades ${cop(p.tres)}${p.antes ? `; precio normal de 1 unidad (tachado) ${cop(p.antes)}` : ''}. trio = 3 unidades, duo = 2, uno = 1.\n`;
   const datosTxt = `${reg ? `REGISTRO SANITARIO DEL PRODUCTO: ${reg} (úsalo tal cual en el sello).` : 'El dueño NO dio registro sanitario: no menciones INVIMA, registro sanitario ni sellos oficiales en ningún texto.'}
+${pro ? `PROFESIONAL REAL AUTORIZADO: ${pro.nombre} · ${pro.especialidad}. La app conserva su foto y coloca estos datos literalmente; no escribas su identidad en otros textos ni inventes declaraciones, recomendaciones o avales.` : 'Sin profesional real autorizado: cualquier escena de consulta es ilustrativa, sin nombres ni avales.'}
 SIN VARIABLES NI RELLENO: cada texto queda terminado y verdadero, listo para publicar. Nunca escribas «Nombre Apellido», «XX», «X,X», «Aquí va…», «por definir», «de ejemplo» ni nada para que el dueño complete después.
 ${reales.length ? `RESEÑAS: el dueño dio ${reales.length} reseña(s) REAL(ES) de sus clientas; la app las pone tal cual en «resenas» y en «testimonio-destacado». Tú solo escribes el título de la sección de reseñas (sin cifras de clientas ni calificaciones).` : 'RESEÑAS: el dueño no dio reseñas reales, así que la página no lleva reseñas, testimonios ni opiniones.'} Nunca escribas reseñas, testimonios ni opiniones de clientas o de profesionales, ni nombres de médicos o expertos, ni cantidades de clientas («+40.000 mujeres»), calificaciones o resultados de encuestas: serían inventados (la ley de protección al consumidor y Meta lo castigan).
 CÓMO FUNCIONA (sección «como-funciona»): cada número (1, 2, 3, 4) es un paso de uso o un beneficio real de la ficha, con su título corto. Sin porcentajes.
@@ -561,6 +573,8 @@ Lee la investigación como un estratega de respuesta directa y decide la estrate
   "objeciones": ["las dudas que hay que responder, de la más fuerte a la más débil"], "prueba_disponible": ["solo la prueba que SÍ existe en la ficha o la investigación"], "palabras_del_cliente": ["frases textuales de la investigación"], "tono": "", "oferta": "qué combos y precios usar (de la ficha; si no hay, dilo)", "resumen": "" }`,
   });
   marcar('estratega', { estado: 'listo', resumen: T(estrategia.resumen, 800) });
+  const publico=publicoVisual({estrategia,ficha,producto:prod?.nombre || productoId,pedido});
+  const consulta=consultaDe(publico,ficha);
 
   // 2. Simón: la intención de cada sección, título e imagen
   marcar('conversion', { estado: 'trabajando' });
@@ -779,7 +793,11 @@ ${(() => {
   // las imágenes: ChatGPT con la foto del producto; el tarro, la foto tal cual
   const correcciones = new Map((Array.isArray(revision.imagenes) ? revision.imagenes : []).map((x) => [String(x?.imagen), T(x?.prompt, 3000)]));
   const pedidas = (imgs.imagenes || []).filter((x) => /^img\d+$/.test(String(x?.imagen)) && imagenes[Number(String(x.imagen).slice(3))]);
+  imagenes.forEach((im,k)=>{if(['creativo','persona','estilo','consulta'].includes(im.tipo) && !pedidas.some(p=>p.imagen===`img${k}`))pedidas.push({imagen:`img${k}`,prompt:im.tipo==='creativo'?`A clear graphic for ${im.usos.join(', ')} using only the real product information and this approved page copy: ${textos.filter(t=>im.usos.includes(t.seccion)).map(t=>t.nodo?.rawText || t.texto).join(' ').slice(0,2200)}`:direccionPersona({publico,escena:im.usos.join(', '),indice:k})});});
   let hechas = 0;
+  const extrasResenas=slotsResenas(reales);
+  const estados=extrasResenas.map(s=>({id:s.id,estado:'en-cola'}));
+  const actualizar=(id,c)=>{const e=estados.find(s=>s.id===id);if(e)Object.assign(e,c);guardar({imagenesEstado:estados.map(s=>({...s}))});};
   const cambiarSrc = (de, a) => {
     for (const n of raiz.querySelectorAll('img')) if (n.getAttribute('src') === de) n.setAttribute('src', a);
     for (const n of raiz.querySelectorAll('[data-src]')) if (n.getAttribute('data-src') === de) n.setAttribute('data-src', a);
@@ -790,13 +808,15 @@ ${(() => {
     for (const im of imagenes) if (/tarro/i.test(im.src)) cambiarSrc(im.src, destino);
   }
   // (2026-11-27d) sin retratos de profesionales: las personas son fotos de estilo de vida
-  const generar = pedidas.filter((x) => !x.usar_foto && ['creativo', 'persona', 'estilo'].includes(imagenes[Number(String(x.imagen).slice(3))].tipo));
+  const generar = pedidas.filter((x) => (!x.usar_foto || ['persona','estilo','consulta'].includes(imagenes[Number(String(x.imagen).slice(3))].tipo)) && ['creativo', 'persona', 'estilo', 'consulta'].includes(imagenes[Number(String(x.imagen).slice(3))].tipo));
+  estados.push(...generar.map(p=>({id:p.imagen,estado:'en-cola'})));guardar({imagenesEstado:estados});
   const bordes = [];
   const enviados = [];
   if (generar.length) {
     avanzar(`ChatGPT está haciendo ${generar.length} imágenes con tu producto…`);
     const { motorDeImagenes, codexParaImagenes } = await import('../motor-imagenes.js');
-    for (const p of generar) {
+    const hacerImagen=async(p)=>{
+      actualizar(p.imagen,{estado:'generando'});
       const im = imagenes[Number(String(p.imagen).slice(3))];
       const destino = path.join(carpeta, 'assets', `ia-${p.imagen}-${crypto.randomBytes(3).toString('hex')}.png`);
       const base = correcciones.get(String(p.imagen)) || T(p.prompt, 3000);
@@ -804,31 +824,35 @@ ${(() => {
       const prompt =
         im.tipo === 'creativo'
           ? `${foto ? 'Reference image 1 is the REAL PRODUCT: show it exactly as it is (same packaging, label and colors). ' : ''}The ${foto ? 'second' : 'first'} reference image is ONLY a LAYOUT guide from another brand: copy its composition, block layout and visual hierarchy, but NEVER its brand, product, packaging, people or texts.\n\n${base}\n\nBACKGROUND: flat solid ${diseno.bg} from edge to edge (no gradient, no vignette, no frame, no border shadow), so the image blends with the web page.\n\n${ANTI_EFECTOS}`
-          : `${foto ? 'Reference image 1 is the REAL PRODUCT: if it appears, show it exactly as it is (same packaging, label and colors). ' : ''}${base}\n\nRealistic lifestyle photo of a Colombian woman, as if taken with a good phone, natural light, light and soft tones that match ${diseno.bg}. Never a doctor, lab coat or clinic. No text, no logos, no watermark, no name tag.\n\n${ANTI_EFECTOS}`;
-      const refs = im.tipo === 'creativo' ? [...(foto ? [foto] : []), ...(guia ? [guia] : [])] : foto ? [foto] : [];
+          : im.tipo==='consulta' ? `${consulta.prompt}\n\n${ANTI_EFECTOS}` : `${foto ? 'Reference image 1 is the REAL PRODUCT: if it appears, preserve packaging, proportions, label and colors exactly. ' : ''}${base}\n\n${direccionPersona({publico,escena:im.usos.join(', '),indice:Number(String(p.imagen).slice(3))})}\n\n${ANTI_EFECTOS}`;
+      const refs = im.tipo === 'creativo' ? [...(foto ? [foto] : []), ...(guia ? [guia] : [])] : im.tipo==='consulta'?[]:foto ? [foto] : [];
       try {
         if (modoPrueba()) {
-          if (!foto) continue;
+          if (!foto){actualizar(p.imagen,{estado:'error',error:'Falta foto de producto para simular.'});return;}
           fs.copyFileSync(foto, destino);
-          enviados.push({ imagen: p.imagen, tipo: im.tipo, aspecto: im.aspecto, guia: Boolean(guia), prompt });
         } else {
           const codex = motorDeImagenes() === 'chatgpt' ? codexParaImagenes() : null;
           if (!codex) {
-            avanzar('Las imágenes se hacen con tu ChatGPT: conéctalo en Ajustes › Conexiones (quedaron las de la plantilla).');
-            break;
+            actualizar(p.imagen,{estado:'error',error:'Conecta ChatGPT en Ajustes.'});
+            avanzar('Las imágenes se hacen con tu ChatGPT: conéctalo en Ajustes › Conexiones.');
+            return;
           }
           const { generarConChatGPT } = await import('../../../../produccion/chatgpt-imagen.js');
           await generarConChatGPT({ prompt, referencias: refs, aspecto: im.aspecto, rutaDestino: destino, codex });
         }
+        if(im.tipo==='consulta'){const care=raiz.querySelector('[data-seccion="cuidado"]');care?.insertAdjacentHTML('beforeend',`<p style="font-size:12px;line-height:1.5">${consulta.nota}</p>`);}
         if (im.tipo === 'creativo') bordes.push(await colorDeBorde(destino));
         cambiarSrc(im.src, `assets/${path.basename(destino)}`);
         if (T(p.funcion)) for (const n of raiz.querySelectorAll(`img[src="assets/${path.basename(destino)}"]`)) if (n.getAttribute('alt')) n.setAttribute('alt', T(p.funcion, 300));
-        hechas++;
+        enviados.push({imagen:p.imagen,tipo:im.tipo,aspecto:im.aspecto,guia:Boolean(guia),prompt,archivo:`assets/${path.basename(destino)}`});
+        hechas++;actualizar(p.imagen,{estado:'lista'});
         avanzar(`Imagen ${hechas} de ${generar.length} lista.`);
       } catch (e) {
+        actualizar(p.imagen,{estado:'error',error:String(e.message).slice(0,160)});
         avanzar(`Una imagen no salió (${String(e?.message || e).slice(0, 100)}): quedó la de la plantilla.`);
       }
-    }
+    };
+    await procesarImagenes(generar,hacerImagen);
   }
   // (2026-11-27d) «Color de fondo siempre el mismo que el de las imágenes»: el fondo de la página pasa a ser el color que
   // de verdad quedó en los bordes de las imágenes (el que más se repite, si es claro y el texto se sigue leyendo)
@@ -848,7 +872,7 @@ ${(() => {
     }
   }
   // (2026-11-25g) ninguna imagen de la plantilla queda: la principal pasa a ser la foto del producto; las demás se quitan
-  const restos = imagenes.filter((im) => im.tipo !== 'registro' && raiz.querySelectorAll('img').some((n) => n.getAttribute('src') === im.src));
+  const restos = imagenes.filter((im) => !['registro','profesional-real'].includes(im.tipo) && raiz.querySelectorAll('img').some((n) => n.getAttribute('src') === im.src));
   for (const im of restos) {
     if (foto && im.usos.includes('galeria') && im === imagenes[0]) {
       cambiarSrc(im.src, `assets/producto${path.extname(foto) || '.png'}`);
@@ -860,6 +884,20 @@ ${(() => {
       (boton || n).remove();
     }
   }
+  const fotosOpiniones={};
+  const codexResenas=modoPrueba()?null:(await import('../motor-imagenes.js')).codexParaImagenes();
+  await procesarImagenes(extrasResenas,async(slot)=>{
+    actualizar(slot.id,{estado:'generando'});
+    const archivo=`assets/${slot.id}-${crypto.randomBytes(3).toString('hex')}.png`;
+    try {
+      const prompt=direccionPersona({publico,escena:slot.que,indice:20+slot.indiceResena});
+      if(modoPrueba()){if(!foto)throw new Error('Falta foto de producto.');fs.copyFileSync(foto,path.join(carpeta,archivo));}
+      else {if(!codexResenas)throw new Error('Conecta ChatGPT en Ajustes.');await (await import('../../../../produccion/chatgpt-imagen.js')).generarConChatGPT({prompt,referencias:foto?[foto]:[],aspecto:'2:3',rutaDestino:path.join(carpeta,archivo),codex:codexResenas});}
+      fotosOpiniones[slot.id]=archivo;hechas++;actualizar(slot.id,{estado:'lista'});enviados.push({imagen:slot.id,tipo:'resena',prompt,aspecto:'2:3',guia:false,archivo});
+    }catch(e){actualizar(slot.id,{estado:'error',error:String(e.message).slice(0,160)});avanzar(`No salió la escena de la opinión ${slot.indiceResena+1}; se conserva el texto real sin foto.`);}
+  });
+  ponerResenas(raiz,conFotosResenas(reales,fotosOpiniones));
+  if (pro) raiz.querySelector('[data-seccion="cuidado"]')?.insertAdjacentHTML('beforeend', `<p class="care-badge">${esc(pro.nombre)} · ${esc(pro.especialidad)}</p>`);
   // y ningún texto alternativo con la marca de la plantilla
   for (const n of raiz.querySelectorAll('img[alt]')) if (RE_PLANTILLA.test(n.getAttribute('alt'))) n.setAttribute('alt', sinPlantilla(n.getAttribute('alt'), prod?.nombre || 'el producto'));
   if (restos.length) avanzar(`Quité ${restos.length} imagen(es) de la plantilla que no se pudieron rehacer (la galería usa la foto de tu producto).`);
@@ -897,10 +935,14 @@ ${(() => {
 Las capturas de la BASE, una por sección (nombre del archivo = sección): ${baseCapturas.map((f) => path.relative(RAIZ, f).replace(/\\/g, '/')).join(', ')}
 Las capturas de la landing TERMINADA, en orden: ${nuevas.map((f) => path.relative(RAIZ, f).replace(/\\/g, '/')).join(', ')}
 Ábrelas con Read y compara sección por sección: ¿cada sección cumple la misma función que en la base, se lee bien, tiene sentido para este producto, no quedó nada de la otra marca, nada cortado ni vacío ni en el lugar equivocado? ¿El fondo de cada imagen se funde con el de la página (sin cortes, marcos ni franjas de otro color)? ¿Hay imágenes con efectos recargados (letras con brillo o sombras, destellos, colores saturados)? ¿Quedó alguna variable o texto de relleno («Nombre Apellido», «XX», «Aquí va»)? Si ves una, quítala con "" en su texto.
+Revisa también piel, manos, anatomía, escala del empaque y coherencia de cada persona con el público y el mensaje. Las opiniones deben conservar su texto real y su nota ilustrativa. Señala solo defectos visibles.
+Mapa de imágenes: ${enviados.map(i=>`${i.imagen}: ${i.archivo || ''}`).join(', ')}.
+${baseCapturas.length?'Las capturas base están disponibles para comparar.':'No hay capturas base: evalúa la nueva página, sin afirmar una comparación visual que no hiciste.'}
 Los textos de la página (índice<TAB>sección<TAB>texto):
 ${textos.map((t, k) => (vivos(k) ? `${k}\t${t.seccion}\t${t.texto.slice(0, 200)}` : null)).filter(Boolean).join('\n')}
-Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<índice>": "<texto corregido>" }, "quitar": ["<sección que sobra>"], "problemas": ["lo que viste y no se arregla con texto (p. ej. una imagen que no sirve)"], "resumen": "" }`,
+Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<índice>": "<texto corregido>" }, "quitar": ["<sección que sobra>"], "problemas": ["lo que viste y no se arregla con texto (p. ej. una imagen que no sirve)"], "imagenes_con_problemas": [{"imagen":"<id del mapa>","motivo":"defecto visible"}], "resumen": "" }`,
       });
+      marcarRevisionImagenes(estados,visual.imagenes_con_problemas);guardar({imagenesEstado:estados.map(s=>({...s}))});
       let n2 = 0;
       for (const [k, v] of Object.entries(visual.cambios || {})) if (poner(k, v)) n2++;
       for (const sec of (Array.isArray(visual.quitar) ? visual.quitar : []).map(String).filter((x) => !SECCIONES_FIJAS.has(x))) for (const n of raiz.querySelectorAll(`[data-seccion="${sec}"]`)) n.parentNode?.removeChild(n);
@@ -917,5 +959,6 @@ Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<índice>": "<text
     escribirJSON(path.join(carpeta, 'prueba-imagenes.json'), enviados);
     escribirJSON(path.join(carpeta, 'prueba-fondo.json'), fondo);
   }
-  return { titulo, agentes, cambiados, diseno, fondo, resenas: reales.length, imagenes: { hechas, pedidas: generar.length, quitadas: restos.length } };
+  escribirJSON(path.join(carpeta,'imagenes-estado.json'),estados);
+  return { titulo, agentes, cambiados, diseno, fondo, resenas: reales.length, imagenes: { hechas, pedidas: generar.length+extrasResenas.length, faltantes:estados.filter(s=>s.estado!=='lista').map(s=>s.id), quitadas: restos.length } };
 }

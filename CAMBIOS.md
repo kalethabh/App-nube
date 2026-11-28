@@ -2,6 +2,15 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-27l · Personas en landings, Google y permisos por sección
+
+- Las imágenes de personas se adaptan al público de la investigación, con dirección de fotografía natural, variación de rostros y entornos, anatomía y empaque coherentes. Los combos muestran solo el producto.
+- Las opiniones reales sin foto pueden llevar una escena generada e identificada como ilustrativa. Las fotos reales y los profesionales autorizados se conservan. Las consultas generadas no inventan nombres ni avales.
+- Al adaptar una URL se cubren también personas, profesionales y opiniones, sin el límite anterior de ocho imágenes. Se actualizan las variantes de imagen y la carga diferida. Los trabajos se procesan de a tres.
+- La landing muestra el avance por imagen, los fallos y las imágenes que la revisión visual pide revisar. No se anuncia como completa si quedan imágenes pendientes.
+- Inicio de sesión con Google preparado en el sistema de cuentas de Kads. Requiere activar el proveedor Google y autorizar la dirección de retorno en el Supabase propio de la app.
+- En Usuarios, el administrador puede aprobar una cuenta y elegir sus secciones. Los permisos se aplican al menú, los enlaces directos y las solicitudes al servidor. La actualización de la base se descarga desde el panel; hasta aplicarla se mantiene el acceso anterior de las cuentas aprobadas.
+
 ## 2026-11-27k · Landings AMUNA tal cual y el profesional de la salud en «cuidado»
 
 - **Las landings vuelven al orden y el título de tu página de AMUNA**, como en el artefacto: los combos arriba, justo después del nombre del producto. Se quitaron el titular de resultado, el bloque de dolor y el auditor de la versión anterior.

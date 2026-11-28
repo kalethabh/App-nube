@@ -607,7 +607,7 @@ function etapaCorta(c, a) {
 // ---------------------------------------------------------------- actividad (GET /api/tablero)
 
 /** { actividad: { [slug]: { ultima, activo } } }: si nada cambió en 15 min, el anuncio quedó a medio camino. */
-export const useActividad = (opciones) => useDatos('tablero', () => pedirJSON('/api/tablero'), opciones);
+export const useActividad = (opciones) => useDatos(opciones?.habilitado===false?null:'tablero', () => pedirJSON('/api/tablero'), opciones);
 
 // Los estados de la lista de anuncios que tienen conductor (los de la app). 'en-produccion' es el de las
 // carpetas hechas desde la terminal: esas no tienen conductor.
@@ -619,11 +619,11 @@ export const tieneConductor = (a) => CON_CONDUCTOR.has(a?.estado);
  * sin `cadaMs` (la barra de arriba) mira cada 15 s, así la píldora no se queda con un número viejo.
  * Los conductores se miran más seguido (5 a 10 s): son archivos chicos.
  */
-export function useEnProduccion({ cadaMs } = {}) {
+export function useEnProduccion({ cadaMs,habilitado=true } = {}) {
   const ms = cadaMs || 15000;
-  const { datos, cargando } = useAnuncios({ cadaMs: ms });
-  const { datos: tablero } = useActividad({ cadaMs: ms });
-  const anuncios = datos?.anuncios || [];
+  const { datos, cargando } = useAnuncios({ cadaMs: ms,habilitado });
+  const { datos: tablero } = useActividad({ cadaMs: ms,habilitado });
+  const anuncios = habilitado?(datos?.anuncios || []):[];
   // (los que siguen en el paso del guion no se producen todavía: van como "Tu guion está listo" o con su error)
   const deLaApp = anuncios.filter((a) => tieneConductor(a) && !a.enGuion);
   const esperanGuion = anuncios.filter((a) => a.enGuion && (a.teNecesita || a.estado === 'error'));
@@ -634,7 +634,7 @@ export function useEnProduccion({ cadaMs } = {}) {
     deLaApp.map((a) => a.slug),
     { cadaMs: cadaMs ? Math.min(cadaMs, 5000) : 10000 }
   );
-  const actividad = tablero?.actividad || null;
+  const actividad = habilitado?(tablero?.actividad || null):null;
 
   const activos = [];
   const necesitan = [];

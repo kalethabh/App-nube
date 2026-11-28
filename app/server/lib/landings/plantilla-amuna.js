@@ -24,8 +24,9 @@ import { leerJSON } from '../archivos.js';
 import { escribirJSON, leerFicha, listarProductos, rutaFoto } from '../productos.js';
 import { modoPrueba } from '../procesos.js';
 import { agente, disenoFinal, limpiarPrecios, limpiarResenas, RE_VARIABLE, RE_CIFRA_CLIENTES, ANTI_EFECTOS, colorDeBorde, contraste, mezclar, leible, esHex, lum, aHex, aRgb, cop } from './plantilla.js';
+import { REALISMO, publicoVisual, personaDe, direccionPersona, consultaDe, slotsResenas, conFotosResenas,marcarRevisionImagenes,procesarImagenes } from './personas.js';
 import { AMUNA } from './plantillas/amuna/datos.js';
-import { GUIA, SLOTS, VARIEDAD } from './plantillas/amuna/guia.js';
+import { GUIA, SLOTS } from './plantillas/amuna/guia.js';
 import { htmlDeLanding } from './plantillas/amuna/render.js';
 
 const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), 'plantillas', 'amuna');
@@ -228,23 +229,24 @@ export async function tocaElBorde(ruta, fondo) {
 }
 
 /** El prompt final de una imagen: el de Mateo + las reglas fijas (producto, referencia, fondo, sin efectos, medida). */
-export function promptDeImagen(slot, base, { bg, accent, conFoto, persona = null }) {
+export function promptDeImagen(slot, base, { bg, accent, conFoto, persona = null, publico = '', conGuia = true }) {
   const pieza = slot.tipo === 'pieza';
-  if (slot.tipo === 'consulta') return [base, ANTI_EFECTOS, `Final size ${slot.w}×${slot.h} px: keep both faces inside the central area, never near the edges.`].join('\n\n');
+  if (slot.tipo === 'consulta') return [base, REALISMO, ANTI_EFECTOS, `Final size ${slot.w}×${slot.h} px: keep both faces inside the central area, never near the edges.`].join('\n\n');
   const g = RATIO_GPT[aspectoGpt(slot.w, slot.h)];
   const r = slot.w / slot.h;
   // lo que se ve de la foto después de llevarla a su medida (de lado o de alto)
   const visible = r < g ? `the central ${Math.round((100 * r) / g)}% of the width` : r > g ? `the central ${Math.round((100 * g) / r)}% of the height` : 'the whole image';
   return [
-    `${conFoto ? 'Reference image 1 is the REAL PRODUCT: show it exactly as it is (same packaging, label, colors and proportions); never redesign it. Reference image 2' : 'Reference image 1'} is ONLY a LAYOUT and STYLE guide from another brand: copy its composition, block layout, visual hierarchy and how it uses one brand color, but NEVER its brand, product, packaging, people, numbers or texts.`,
+    conGuia ? `${conFoto ? 'Reference image 1 is the REAL PRODUCT: show it exactly as it is (same packaging, label, colors and proportions); never redesign it. Reference image 2' : 'Reference image 1'} is ONLY a LAYOUT and STYLE guide from another brand: copy its composition, block layout, visual hierarchy and how it uses one brand color, but NEVER its brand, product, packaging, people, numbers or texts.` : (conFoto ? 'Reference image 1 is only the REAL PRODUCT. Preserve packaging, label, dimensions and colors exactly; never use it as a reference for a person or a face.' : 'Create an original scene following the product and audience brief.'),
     base,
     pieza
       ? `BACKGROUND: flat solid ${bg} from edge to edge (no gradient, no vignette, no frame), so it blends with the web page. Every text in Spanish (Colombia), perfectly spelled, large and readable on a phone; headlines in a heavy geometric sans serif (like Inter Black or Montserrat Black) in near-black, with the highlighted words in ${accent}. Never invent seals, guarantees, registrations, numbers of customers or ratings that are not in this prompt.`
-      : `HOMEMADE PHOTO: a real, casual phone photo taken at home or in daily life (not a studio, not a professional shoot, no retouching), natural light only, real skin texture and small everyday imperfections, a real lived-in background. ${persona ? `The person and place: ${persona}. ` : ''}Every photo of this page shows a DIFFERENT woman in a DIFFERENT place. No text, no logos, no watermark, no user interface, no phone screen. Any woman is Colombian, like the target customer; never a doctor, lab coat or clinic.`,
+      : slot.id.startsWith('combo-') ? `PRODUCT PHOTOGRAPHY: exactly ${slot.id.slice(-1)} identical units of the real product, credible scale and label, clean soft lighting on ${bg}. No people, hands, extra packages, text or testimonial elements.` : `HOMEMADE PHOTO: a casual phone photograph, natural light only, no studio retouching. ${persona || ''} ${direccionPersona({publico,escena:slot.tipo==='resena'?slot.que:slot.id.startsWith('paso-')?'Demonstrate this specific step of the approved mode of use, with credible hands and only label-supported actions':slot.id.startsWith('historia-') || slot.id.startsWith('ugc-')?'A natural moment in the actual product routine, in an appropriate everyday setting': 'Present the real product naturally to its intended adult audience',indice:slot.indiceVisual ?? slot.indiceResena ?? 0})}`,
+    pieza ? `${REALISMO} Any person inside the design must match this audience: ${publico}. The reference's gender, body, clothes and setting do not define this product's audience. Do not depict a physical transformation as proof. Body areas, example timelines, sportswear and props in the layout reference are NOT product facts; adapt them to the approved copy and category.` : '',
     ANTI_EFECTOS,
     pieza
       ? `CANVAS: this image is generated as ${aspectoGpt(slot.w, slot.h)} (${aspectoGpt(slot.w, slot.h) === '2:3' ? '1024×1536' : aspectoGpt(slot.w, slot.h) === '3:2' ? '1536×1024' : '1024×1024'} px). Compose the WHOLE design for THIS canvas: the layout reference may be taller or wider, so shrink and rearrange its blocks until everything fits. Leave at least 8% EMPTY background at the top and at the bottom and 6% on each side: the headline must start well below the top edge and the last line must end well above the bottom edge. Nothing may touch or be cut by any edge.`
-      : `Final size ${slot.w}×${slot.h} px: only ${visible} will be shown, so keep the person's whole head, the hands and the product inside that central area, never near the edges.`,
+      : `Final size ${slot.w}×${slot.h} px: only ${visible} will be shown, so keep the whole head when visible, relevant hands and the product inside that central area, never near the edges.`,
   ].join('\n\n');
 }
 
@@ -257,24 +259,25 @@ export function pruebaSocialReal(reales, marca, fotoProducto = null) {
   const prom = reales.reduce((a, r) => a + r.estrellas, 0) / n;
   const nota = (Math.round(prom * 10) / 10).toFixed(1).replace('.', ',');
   const conFoto = reales.filter((r) => r.foto);
+  const notaFoto=r=>r.fotoNota?{fotoNota:r.fotoNota}:{};
   const barras = [5, 4, 3, 2, 1].map((e) => reales.filter((r) => r.estrellas === e).length);
   return {
-    pruebaSocial: { avatares: conFoto.slice(0, 4).map((r) => r.foto), texto: 'Opiniones de clientas', enlace: `${nota} de 5 · ${n} ${n === 1 ? 'opinión' : 'opiniones'}`, nota },
-    testimonio: { nombre: reales[0].nombre, texto: reales[0].texto, estrellas: reales[0].estrellas, ...(reales[0].foto ? { foto: reales[0].foto } : {}) },
+    pruebaSocial: { avatares: conFoto.filter(r=>!r.fotoNota).slice(0, 4).map((r) => r.foto), texto: 'Opiniones de clientas', enlace: `${nota} de 5 · ${n} ${n === 1 ? 'opinión' : 'opiniones'}`, nota },
+    testimonio: { nombre: reales[0].nombre, texto: reales[0].texto, estrellas: reales[0].estrellas, ...notaFoto(reales[0]), ...(reales[0].foto ? { foto: reales[0].foto } : {}) },
     // (2026-11-27h) con 1 sola reseña real ya salen todas las secciones de AMUNA: primero las que tienen foto; sin foto, la
     // del producto (nunca una persona inventada). Experiencias: las que no salieron en «Ellas cuentan» y, si no hay, las mismas
-    ellasItems: [...conFoto, ...reales.filter((r) => !r.foto)].slice(0, 5).map((r) => ({ nombre: r.nombre, ciudad: r.ciudad, texto: r.texto, foto: r.foto || fotoProducto, estrellas: r.estrellas })).filter((x) => x.foto),
+    ellasItems: [...conFoto, ...reales.filter((r) => !r.foto)].slice(0, 5).map((r) => ({ nombre: r.nombre, ciudad: r.ciudad, texto: r.texto, foto: r.foto || fotoProducto, ...notaFoto(r), estrellas: r.estrellas })).filter((x) => x.foto),
     experienciasItems: (() => {
       const orden = [...conFoto, ...reales.filter((r) => !r.foto)];
       const resto = orden.slice(5);
-      return (resto.length ? resto : orden).slice(0, 3).map((r) => ({ nombre: r.nombre, texto: r.texto, foto: r.foto || fotoProducto, estrellas: r.estrellas })).filter((x) => x.foto);
+      return (resto.length ? resto : orden).slice(0, 3).map((r) => ({ nombre: r.nombre, texto: r.texto, foto: r.foto || fotoProducto, ...notaFoto(r), estrellas: r.estrellas })).filter((x) => x.foto);
     })(),
     resenas: {
       nota,
       cuantas: `${n} ${n === 1 ? 'opinión' : 'opiniones'} de clientas`,
       barras,
-      fotos: conFoto.map((r) => r.foto),
-      items: reales.map((r) => ({ nombre: r.nombre, titulo: r.titulo, texto: r.texto, lugar: r.ciudad, estrellas: r.estrellas, ...(r.foto ? { foto: r.foto } : {}) })),
+      fotos: conFoto.filter(r=>!r.fotoNota).map((r) => r.foto),
+      items: reales.map((r) => ({ nombre: r.nombre, titulo: r.titulo, texto: r.texto, lugar: r.ciudad, ...notaFoto(r), estrellas: r.estrellas, ...(r.foto ? { foto: r.foto } : {}) })),
       tituloPorDefecto: `La comunidad ${marca} opina`,
     },
     pieCuidado: `${n} ${n === 1 ? 'testimonio compartido' : 'testimonios compartidos'} por nuestras clientas`,
@@ -282,7 +285,7 @@ export function pruebaSocialReal(reales, marca, fotoProducto = null) {
 }
 
 /** Los datos de la página: los textos + precios + imágenes + reseñas reales + colores. */
-export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas = [], profesional = null }) {
+export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas = [], profesional = null, notaCuidado = null }) {
   const t = sinVariables(textos);
   const P = { ...t.producto };
   const img = (id) => imagenes[id] || (() => {
@@ -322,7 +325,7 @@ export function armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, ca
     comparacion: t.comparacion,
     compraClara: t.compraClara,
     // (2026-11-27k) el profesional real (con su placa) o la consulta ilustrativa con su nota
-    cuidado: { titulo: t.cuidado?.titulo, parrafos: t.cuidado?.parrafos, ...(profesional ? { foto: profesional.foto, profesional: { nombre: profesional.nombre, especialidad: profesional.especialidad } } : { foto: img('cuidado'), nota: 'Imagen ilustrativa. No representa una recomendación médica del producto.' }), ...(social.pieCuidado ? { pie: social.pieCuidado } : {}) },
+    cuidado: { titulo: t.cuidado?.titulo, parrafos: t.cuidado?.parrafos, ...(profesional ? { foto: profesional.foto, profesional: { nombre: profesional.nombre, especialidad: profesional.especialidad } } : { foto: img('cuidado'), nota: notaCuidado || 'Imagen ilustrativa. No representa una recomendación médica del producto.' }), ...(social.pieCuidado ? { pie: social.pieCuidado } : {}) },
     ...(social.resenas ? { resenas: { titulo: T(t.resenas?.titulo) || social.resenas.tituloPorDefecto, ...social.resenas } } : {}),
     faq: t.faq,
     pie: t.pie,
@@ -338,11 +341,10 @@ export async function crearConAmuna({ carpeta, productoId, pedido = '', motor, g
   const pro = profesional && /^assets\/profesional\.(jpg|png)$/.test(String(profesional.foto || '')) && T(profesional.nombre) && T(profesional.especialidad) ? { foto: profesional.foto, nombre: T(profesional.nombre, 60), especialidad: T(profesional.especialidad, 60) } : null;
   // (2026-11-27g) las capturas REALES de clientas (chats, mensajes) que subió el dueño: van tal cual en el carrusel
   const reales2 = (Array.isArray(capturasReales) ? capturasReales : []).filter((c) => /^assets\/[\w.-]+\.(jpg|jpeg|png|webp)$/i.test(String(c))).slice(0, 9);
-  const slots = SLOTS.filter((s) => !(reales2.length && s.id.startsWith('ugc-')) && !(pro && s.id === 'cuidado'));
-  const persona = Object.fromEntries(slots.filter((s) => s.tipo === 'foto' && !s.id.startsWith('combo-')).map((s, k) => [s.id, VARIEDAD[k % VARIEDAD.length]]));
+  const reales = limpiarResenas(resenas);
+  const slots = [...SLOTS.filter((s) => !(reales2.length && s.id.startsWith('ugc-')) && !(pro && s.id === 'cuidado')), ...slotsResenas(reales)].map((s,k)=>({...s,indiceVisual:k}));
   const p = limpiarPrecios(precios);
   if (!p) throw Object.assign(new Error('precios'), { publico: 'Pon los precios de tus combos (1, 2 y 3 unidades) para crear la landing.' });
-  const reales = limpiarResenas(resenas);
   const prod = listarProductos().find((x) => x.id === productoId);
   const ficha = leerFicha(productoId) || {};
   let investigacion = '';
@@ -391,6 +393,9 @@ Lee la investigación como un estratega de respuesta directa y decide la estrate
 En suplementos, bienestar y nunca cura.${anuncios ? `\nLa promesa de los anuncios de este producto (sus ajustes): ${anuncios}` : ''}`,
   });
   marcar('estratega', { estado: 'listo', resumen: T(estrategia.resumen, 800) });
+  const publico=publicoVisual({estrategia,ficha,producto:prod?.nombre || productoId,pedido});
+  const consulta=consultaDe(publico,ficha);
+  const persona=Object.fromEntries(slots.filter(s=>['foto','resena'].includes(s.tipo) && !s.id.startsWith('combo-')).map((s,k)=>[s.id,personaDe(k,publico)]));
 
   // 2. Antonia: solo los colores
   let kit = null;
@@ -437,15 +442,15 @@ EJEMPLO>>>`,
       return d;
     }),
     agente({
-      carpeta, motor, quien: Q('imagenes'), avanzar, maxTurnos: 30, leer: [...Object.values(refs), ...(foto ? [foto] : [])],
-      valida: (d) => d && T(d.resumen) && slots.filter((s) => s.tipo !== 'consulta').every((s) => lista(d.imagenes).some((x) => x?.slot === s.id && T(x.prompt))),
-      errores: (d) => slots.filter((s) => s.tipo !== 'consulta' && !lista(d?.imagenes).some((x) => x?.slot === s.id && T(x.prompt))).map((s) => `Falta el prompt de «${s.id}».`),
+      carpeta, motor, quien: Q('imagenes'), avanzar, maxTurnos: 30, leer: [...Object.values(refs).filter(r=>fs.existsSync(r)), ...(foto ? [foto] : [])],
+      valida: (d) => d && T(d.resumen) && slots.filter((s) => !['consulta','resena'].includes(s.tipo)).every((s) => lista(d.imagenes).some((x) => x?.slot === s.id && T(x.prompt))),
+      errores: (d) => slots.filter((s) => !['consulta','resena'].includes(s.tipo) && !lista(d?.imagenes).some((x) => x?.slot === s.id && T(x.prompt))).map((s) => `Falta el prompt de «${s.id}».`),
       prompt: `${comun}
 Colores: el de la marca ${tema.amarillo}, el fondo de la página ${tema.fondo}, texto casi negro.
 ${foto ? `La foto del producto: ${delRepo(foto)} (ábrela con Read).` : ''}
-Escribe el prompt de CADA imagen de la landing. Cada una tiene su referencia de AMUNA (ábrela con Read: mira su composición, sus bloques, sus textos, la persona y con qué intención sale) y su medida exacta. La de este producto es una TRADUCCIÓN de esa imagen: la misma composición e intención, con el producto real, su avatar (mujeres colombianas), su promesa y su tiempo, y sus textos en español (los de las piezas, escritos completos entre comillas, cortos y grandes). Nunca copies la marca, el frasco, las personas ni los textos de AMUNA.
-Las fotos son CASERAS (de celular, luz natural, sin estudio) y cada una con una mujer y un lugar distintos: usa la persona y la escena que trae cada una.
-${slots.filter((s) => s.tipo !== 'consulta').map((s) => `SLOT ${s.id} · ${s.w}×${s.h} px · ${s.tipo === 'pieza' ? 'pieza gráfica con textos' : 'foto casera sin textos'} · referencia ${delRepo(refs[s.id])}\n  ${s.que}${persona[s.id] ? `\n  Persona y escena: ${persona[s.id]}` : ''}`).join('\n')}
+Escribe el prompt de CADA imagen de la landing. Cada una tiene su referencia de AMUNA (ábrela con Read: mira su composición, sus bloques, sus textos, la persona y con qué intención sale) y su medida exacta. La de este producto es una TRADUCCIÓN de esa imagen: la misma composición e intención, con el producto real, su avatar de la investigación (edad, género, entorno y mercado del producto), su promesa y su tiempo, y sus textos en español (los de las piezas, escritos completos entre comillas, cortos y grandes). Nunca copies la marca, el frasco, las personas ni los textos de AMUNA.
+DIRECCIÓN DE PERSONAS (manda sobre el género y la ropa del ejemplo AMUNA): ${publico}. Las fotos son naturales, distintas y acordes al mensaje de cada sección. Los combos son fotos de producto SIN personas. ${REALISMO}
+${slots.filter((s) => !['consulta','resena'].includes(s.tipo)).map((s) => `SLOT ${s.id} · ${s.w}×${s.h} px · ${s.tipo === 'pieza' ? 'pieza gráfica con textos' : 'foto casera sin textos'} · referencia ${delRepo(refs[s.id])}\n  ${s.que}${persona[s.id] ? `\n  Persona y escena: ${persona[s.id]}` : ''}`).join('\n')}
 Escribe ${rel(carpeta, Q('imagenes').archivo)}: { "imagenes": [ { "slot": "<id>", "prompt": "<en inglés, detallado; los textos que van dentro, en español y entre comillas>" } ], "resumen": "" }`,
     }).then((d) => {
       marcar('imagenes', { estado: 'listo', resumen: T(d.resumen, 800) });
@@ -482,16 +487,22 @@ Escribe ${rel(carpeta, Q('revision').archivo)}:
   const enviados = [];
   const bordes = [];
   let hechas = 0;
+  const estados=slots.map(s=>({id:s.id,estado:'en-cola',tipo:s.tipo}));
+  const actualizar=(id,c)=>{Object.assign(estados.find(s=>s.id===id),c);guardar({imagenesEstado:estados.map(s=>({...s}))});};
+  guardar({imagenesEstado:estados});
   avanzar(`ChatGPT está haciendo ${slots.length} imágenes con tu producto, 3 a la vez (cada una con la medida de la plantilla)…`);
   const { motorDeImagenes, codexParaImagenes } = await import('../motor-imagenes.js');
   const codex = modoPrueba() ? null : motorDeImagenes() === 'chatgpt' ? codexParaImagenes() : null;
   if (!modoPrueba() && !codex) avanzar('Las imágenes se hacen con tu ChatGPT: conéctalo en Ajustes › Conexiones (quedaron los recuadros grises con su medida).');
   const hacer = async (s) => {
-    const base = s.tipo === 'consulta' ? CONSULTA : prompts.get(s.id);
-    if (!base || (!modoPrueba() && !codex)) return;
-    const prompt = promptDeImagen(s, base, { bg: tema.fondo, accent: tema.fuerte, conFoto: Boolean(foto) && s.tipo !== 'consulta', persona: persona[s.id] || null });
+    const base = s.tipo === 'consulta' ? consulta.prompt : s.tipo === 'resena' ? direccionPersona({publico,escena:s.que,indice:s.indiceResena+20}) : prompts.get(s.id);
+    if (!base || (!modoPrueba() && !codex)){actualizar(s.id,{estado:'error',error:!base?'Falta la dirección de esta imagen.':'Conecta ChatGPT para generar esta imagen.'});return;}
+    actualizar(s.id,{estado:'generando'});
+    const seccion=s.id.startsWith('paso-')?textos.pasos:s.id.startsWith('historia-')?textos.historias:s.id==='cuidado'?textos.cuidado:s.id.startsWith('resena-')?{uso:ficha.modo_de_uso || ficha.uso}:s.id==='galeria-08'?textos.comparacion:{producto:textos.producto,propuesta:textos.titulo};
+    const mensaje=`${base}\n\nAPPROVED SECTION COPY (use as source of truth; never invent a stronger claim): ${JSON.stringify(seccion).slice(0,2500)}`;
+    const prompt = promptDeImagen(s, mensaje, { bg: tema.fondo, accent: tema.fuerte, conFoto: Boolean(foto) && s.tipo !== 'consulta', persona: persona[s.id] || null, publico, conGuia:s.tipo === 'pieza' });
     // (la consulta médica: sin el producto ni referencia: nada que la vuelva un aval)
-    const referencias = s.tipo === 'consulta' ? [] : [...(foto ? [foto] : []), refs[s.id]].filter((r) => r && fs.existsSync(r));
+    const referencias = s.tipo === 'consulta' ? [] : [...(foto ? [foto] : []), ...(s.tipo === 'pieza'?[refs[s.id]]:[])].filter((r) => r && fs.existsSync(r));
     const archivo = `assets/${s.id}-${crypto.randomBytes(3).toString('hex')}.jpg`;
     const crudo = path.join(carpeta, '_crudo', `${s.id}.png`);
     try {
@@ -513,18 +524,17 @@ Escribe ${rel(carpeta, Q('revision').archivo)}:
       enviados.push({ slot: s.id, w: s.w, h: s.h, archivo, prompt, aspecto: aspectoGpt(s.w, s.h), referencias: referencias.map(delRepo) });
       if (s.tipo === 'pieza') bordes.push(await colorDeBorde(path.join(carpeta, archivo)));
       hechas++;
+      actualizar(s.id,{estado:'lista',archivo});
       avanzar(`Imagen ${hechas} de ${slots.length} lista (${s.id}).`);
     } catch (e) {
+      actualizar(s.id,{estado:'error',error:String(e?.message || e).slice(0,160)});
       avanzar(`La imagen ${s.id} no salió (${String(e?.message || e).slice(0, 100)}): queda el recuadro gris con su medida.`);
     } finally {
       fs.rmSync(crudo, { force: true });
     }
   };
   // (2026-11-27g) «lo más rápido posible»: 3 imágenes a la vez
-  const cola = [...slots];
-  await Promise.all([0, 1, 2].map(async () => {
-    while (cola.length) await hacer(cola.shift());
-  }));
+  await procesarImagenes(slots,hacer);
   fs.rmSync(path.join(carpeta, '_crudo'), { recursive: true, force: true });
 
   // el fondo de la página = el que quedó en los bordes de las piezas (si es claro y el texto se lee)
@@ -540,7 +550,7 @@ Escribe ${rel(carpeta, Q('revision').archivo)}:
   }
 
   // armar la página
-  let D = armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas: reales2, profesional: pro });
+  let D = armarDatos({ textos, p, imagenes, reales:conFotosResenas(reales,imagenes), tema, fotoProducto, capturas: reales2, profesional: pro, notaCuidado:consulta.nota });
   const escribir = () => fs.writeFileSync(path.join(carpeta, 'index.html'), htmlDeLanding(D));
   escribirJSON(path.join(carpeta, 'datos-landing.json'), D);
   escribir();
@@ -567,13 +577,17 @@ Escribe ${rel(carpeta, Q('revision').archivo)}:
 Las capturas de AMUNA, una por sección (nombre del archivo = sección): ${base.map(delRepo).join(', ')}
 Las capturas de la landing TERMINADA, en orden: ${nuevas.map(delRepo).join(', ')}
 Ábrelas con Read y compara sección por sección: ¿tiene la misma estructura e intención que la de AMUNA, se lee bien, el fondo de las imágenes se funde con la página, no hay recuadros grises (imágenes que no salieron), efectos recargados, textos cortados, nada inventado ni variables?
+Revisa también el realismo de las personas (piel, manos, dientes, anatomía, escala), que sean acordes al público y al mensaje, que no se repitan todas las caras y que el empaque no haya cambiado. Las opiniones deben conservar su texto real y las fotos generadas su nota ilustrativa. No inventes problemas que no puedas ver.
+Mapa de imágenes generadas: ${enviados.map(i=>`${i.slot}: ${i.archivo}`).join(', ')}.
+${base.length?'Las capturas base están disponibles para comparar.':'No hay capturas base disponibles: evalúa la nueva página con la guía, sin afirmar una comparación visual que no hiciste.'}
 Los textos (JSON): ${JSON.stringify(textos).slice(0, 16000)}
-Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<ruta en el JSON>": "<texto corregido>" }, "problemas": ["lo que viste y no se arregla con texto"], "resumen": "" }`,
+Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<ruta en el JSON>": "<texto corregido>" }, "problemas": ["lo que viste y no se arregla con texto"], "imagenes_con_problemas": [{ "slot": "<id del mapa>", "motivo": "defecto visible o discordancia" }], "resumen": "" }`,
       });
+      marcarRevisionImagenes(estados,visual.imagenes_con_problemas);guardar({imagenesEstado:estados.map(s=>({...s}))});
       let n2 = 0;
       for (const [r, v] of Object.entries(visual.cambios || {})) if (typeof v === 'string' && ponerRuta(textos, r, v.trim())) n2++;
       if (n2) {
-        D = armarDatos({ textos, p, imagenes, reales, tema, fotoProducto, capturas: reales2, profesional: pro });
+        D = armarDatos({ textos, p, imagenes, reales:conFotosResenas(reales,imagenes), tema, fotoProducto, capturas: reales2, profesional: pro, notaCuidado:consulta.nota });
         escribirJSON(path.join(carpeta, 'datos-landing.json'), D);
         escribir();
         avanzar(`Renata corrigió ${n2} texto(s) al ver la página terminada.`);
@@ -588,7 +602,8 @@ Escribe ${rel(carpeta, Q('visual').archivo)}: { "cambios": { "<ruta en el JSON>"
     escribirJSON(path.join(carpeta, 'prueba-imagenes.json'), enviados);
     escribirJSON(path.join(carpeta, 'prueba-fondo.json'), fondo);
   }
+  escribirJSON(path.join(carpeta,'imagenes-estado.json'),estados);
   const faltan = slots.length - hechas;
   if (faltan) avanzar(`${faltan} imagen(es) quedaron como recuadro gris con su medida: vuelve a crear la landing cuando ChatGPT esté conectado.`);
-  return { titulo: D.tituloPagina, agentes, cambiados, diseno, fondo, resenas: reales.length, imagenes: { hechas, pedidas: slots.length, quitadas: 0 }, capturas: reales2.length };
+  return { titulo: D.tituloPagina, agentes, cambiados, diseno, fondo, resenas: reales.length, imagenes: { hechas, pedidas: slots.length, quitadas: 0, faltantes:estados.filter(s=>s.estado!=='lista').map(s=>s.id) }, capturas: reales2.length };
 }

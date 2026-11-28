@@ -19,7 +19,7 @@ Son 6 pasos, unos 40 minutos.
    - Inventa una **Database Password** y guárdala (Kads no la usa, pero Supabase la pide).
 2. **Authentication › Sign In / Providers › Email:** apaga **Confirm email** (así quien crea su cuenta entra enseguida;
    igual queda «pendiente» hasta que tú la apruebes).
-3. Menú **SQL Editor** › **New query**. Pega TODO el archivo `deploy/supabase-kads.sql` y toca **Run**.
+3. Menú **SQL Editor** › **New query**. Ejecuta `deploy/supabase-kads.sql` y después `deploy/supabase-permisos-google.sql`. Para Google y asignar secciones, sigue [la guía de acceso](deploy/GOOGLE-Y-PERMISOS.md).
 4. En **Project Settings › API** copia la **Project URL** (`https://xxxx.supabase.co`) y la clave **anon public**.
    Las vas a pegar en el servidor en el paso 5 (es la clave pública; la `service_role` NO se usa nunca).
 

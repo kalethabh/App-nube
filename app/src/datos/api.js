@@ -197,7 +197,7 @@ export function useDatos(clave, cargar, { cadaMs } = {}) {
   return { ...resto, recargar, leido: suya && !resto.cargando, alDia: suya && fresco };
 }
 
-export const useAnuncios = (opciones) => useDatos('anuncios', api.anuncios, opciones);
+export const useAnuncios = (opciones) => useDatos(opciones?.habilitado===false?null:'anuncios', api.anuncios, opciones);
 export const useAnuncio = (slug, opciones) => useDatos(slug ? `anuncio:${slug}` : null, () => api.anuncio(slug), opciones);
 export const useEstilos = () => useDatos('estilos', api.estilos);
 export const useEstado = (opciones) => useDatos('estado', api.estado, opciones);

@@ -1,3 +1,4 @@
+import { useCuenta,tienePermiso } from '../datos/cuenta.js';
 import { ChevronRight, Eye, Plus } from 'lucide-react';
 import { Boton } from '../componentes/Boton.jsx';
 import { PuntoEstado } from '../componentes/Insignia.jsx';
@@ -14,7 +15,9 @@ import { SaludPlataformas } from './SaludPlataformas.jsx';
  * viejas sin terminar no son "en producción". Si no hay nada andando, no se muestra.
  */
 export function BarraArriba({ migas = [], ocultarNuevo = false }) {
-  const p = useEnProduccion();
+  const cuenta=useCuenta();
+  const p = useEnProduccion({habilitado:tienePermiso(cuenta,'videos','anuncios','tablero')});
+  ocultarNuevo=ocultarNuevo || !tienePermiso(cuenta,'videos');
   // lo que te necesita (saldo, un error o un guion para aprobar) se ve desde cualquier pantalla
   const teNecesitan = p.necesitan.length + (p.guiones || []).length;
   const pildoraNecesita = teNecesitan ? (
@@ -65,7 +68,7 @@ export function BarraArriba({ migas = [], ocultarNuevo = false }) {
         )}
         <SaludPlataformas />
         <BotonTema />
-        <BotonActualizar />
+        {tienePermiso(cuenta)?<BotonActualizar />:null}
         {/* «Nuevo anuncio» vive una sola vez: en el menú (el botón lima de arriba) */}
       </div>
     </header>

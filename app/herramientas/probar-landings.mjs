@@ -29,7 +29,9 @@ async function pedir(ruta, o = {}) {
   const cuerpo = o.json !== undefined ? JSON.stringify(o.json) : o.cuerpo;
   const headers = { Accept: 'application/json', ...(o.json !== undefined ? { 'Content-Type': 'application/json' } : {}), ...(o.headers || {}) };
   const r = await fetch(BASE + ruta, { method: o.metodo || (cuerpo !== undefined ? 'POST' : 'GET'), headers, body: cuerpo, signal: AbortSignal.timeout(60000) });
-  return { st: r.status, datos: await r.json().catch(() => null) };
+  const datos=await r.json().catch(()=>null);
+  if(r.ok && datos?.id && o.metodo!=='DELETE'){if(['/api/landings','/api/landings/crear'].includes(ruta) && cuerpo!==undefined)creados.landings.push(datos.id);if(ruta==='/api/landings/fotos')creados.fotos.push(datos.id);}
+  return { st: r.status, datos };
 }
 async function esperar(seg, leer, listo) {
   const hasta = Date.now() + seg * 1000;
@@ -124,7 +126,7 @@ const app = cp.spawn(process.execPath, ['server/index.js'], { cwd: APP, env, std
 app.stdout.pipe(log);
 app.stderr.pipe(log);
 const t0 = Date.now();
-const creados = { producto: null, landings: [] };
+const creados = { producto: null, landings: [],fotos:[] };
 const leerLanding = async (id) => (await pedir(`/api/landings/${id}`)).datos;
 const terminada = (d) => ['lista', 'error'].includes(d?.estado);
 const html = (id) => fs.readFileSync(path.join(RAIZ, 'temp', '_landings', id, 'index.html'), 'utf8');
@@ -274,11 +276,13 @@ async function principal() {
   check('La imagen principal sale con el aspecto de la plantilla (9:16) y su guía de composición', env.some((e) => e.imagen === 'img0' && e.aspecto === '9:16' && e.guia), env);
   r = await pedir('/api/landings/crear', { json: { productoId: prod } });
   check('(2026-11-27d) Crear sin precios: los pide (ya no queda «Precio por definir»)', r.st === 400 && /precios/i.test(r.datos?.error || ''), r);
-  r = await pedir('/api/landings/crear', { json: { productoId: prod, plantilla: 'cen', precios: { uno: '89900', dos: '152900', tres: '199900' } } });
+  const proCen = (await pedir('/api/landings/fotos', { cuerpo: fs.readFileSync(path.join(TMP, 'producto.png')), headers: { 'Content-Type': 'image/png' } })).datos?.id;
+  r = await pedir('/api/landings/crear', { json: { productoId: prod, plantilla: 'cen', profesional: { foto: proCen, nombre: 'Dra. Laura Gómez', especialidad: 'Nutrición clínica', autorizado: true }, precios: { uno: '89900', dos: '152900', tres: '199900' } } });
   const id5 = r.datos?.id;
   if (id5) creados.landings.push(id5);
   const l5 = await esperar(300, () => leerLanding(id5), terminada);
   const h5 = id5 && fs.existsSync(path.join(RAIZ, 'temp', '_landings', id5, 'index.html')) ? html(id5) : '';
+  check('(CEN) Conserva la foto y los datos del profesional autorizado sin reescribir su identidad', /data-tipo="profesional-real"/.test(h5) && /assets\/profesional\.(jpg|png)/.test(h5) && /<p class="care-badge">Dra\. Laura Gómez · Nutrición clínica<\/p>/.test(h5), h5.match(/<p class="care-badge">[^<]*/)?.[0]);
   check('Sin registro: no sale el sello', !/data-seccion="registro-sanitario"|invima-logo/.test(h5), (h5.match(/registro[^<]{0,60}/gi) || []).slice(0, 4));
   check('Sin precio normal: sin tachados ni «Ahorras» de la plantilla', l5?.estado === 'lista' && !/<s>\$/.test(h5) && !/Ahorras/.test(h5) && !/Precio por definir/.test(h5), [l5?.estado, (h5.match(/<s>[^<]*|Ahorras[^<]*/g) || []).slice(0, 4)]);
   check('(2026-11-27d) Sin reseñas reales: no hay reseñas, testimonio ni prueba social', !/data-seccion="(resenas|testimonio-destacado|prueba-social)"/.test(h5) && !/class="rcard"/.test(h5), [...new Set([...h5.matchAll(/data-seccion="([^"]+)"/g)].map((m) => m[1]))]);
@@ -289,8 +293,8 @@ async function principal() {
   check('(2026-11-27d) «Cómo funciona» en pasos (1, 2, 3), sin porcentajes ni citas inventadas', /<div class="n">1<\/div>/.test(h4) && /<div class="n">2<\/div>/.test(h4) && !/<div class="n">[^<]*%/.test(h4) && !/Encuesta a clientas/.test(h4), (h4.match(/<div class="n">[^<]*/g) || []).slice(0, 4));
   check('Sin médicos ni profesionales (ni nombres, ni fotos con bata, ni opiniones)', !/Valentina B\.|R\. Camargo|Camila S\.|Carlos O\.|Fabián C\.|Nombre Apellido|class="care-badge"|Opinión profesional/.test(h4.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>/g, '')) && !/\b(Dra?|Nut)\. [A-ZÁÉÍÓÚ]/.test(h4.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>/g, '')), (h4.match(/(Dra?|Nut)\. [^<]{0,24}/g) || []).slice(0, 6));
   check('(2026-11-27d) Ninguna variable ni texto «de ejemplo» en la página', !/Nombre Apellido|Nombre de clienta|Título de la reseña|\bXX\b|X,X|Aquí va|Por definir|de ejemplo/i.test(h4.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>/g, '')), (h4.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>/g, '').match(/[^<>]{0,40}(Nombre Apellido|\bXX\b|X,X|Aquí va|Por definir|de ejemplo)[^<>]{0,40}/gi) || []).slice(0, 6));
-  check('(2026-11-27d) Las reseñas son las reales que dio el dueño, tal cual (la vacía no entra)', /<article class="rcard">[\s\S]*?<b>Luz Marina R\.<\/b>, Medellín[\s\S]*?Desde la segunda semana duermo de corrido, y eso que no creía\./.test(h4) && (h4.match(/<article class="rcard">/g) || []).length === 1 && /class="ph ph-ini"[^>]*>LM</.test(h4) && l4?.resenas?.length === 1, (h4.match(/<article class="rcard">[\s\S]{0,300}/) || [''])[0]);
-  check('Fotos nuevas de estilo de vida (ninguna de la plantilla, ninguna de profesionales)', !/assets\/(cen-|av-clienta|clienta-testimonio|doctor-|dra?-|nut-)/.test(h4) && env.some((e) => e.tipo === 'estilo') && !env.some((e) => e.tipo === 'profesional'), [...new Set(h4.match(/assets\/[\w.-]+/g) || [])].slice(0, 30));
+  check('(2026-11-27d) Las reseñas son las reales que dio el dueño, tal cual (la vacía no entra)', /<article class="rcard">[\s\S]*?<b>Luz Marina R\.<\/b>, Medellín[\s\S]*?Desde la segunda semana duermo de corrido, y eso que no creía\./.test(h4) && (h4.match(/<article class="rcard">/g) || []).length === 1 && /Escena ilustrativa generada con IA; no es la persona de la reseña/.test(h4) && l4?.resenas?.length === 1, (h4.match(/<article class="rcard">[\s\S]{0,300}/) || [''])[0]);
+  check('Fotos nuevas y consulta ilustrativa, sin identidades ni avales de profesionales', !/assets\/(cen-|av-clienta|clienta-testimonio|doctor-|dra?-|nut-)/.test(h4) && env.some((e) => e.tipo === 'consulta') && !env.some((e) => e.tipo === 'profesional'), [...new Set(h4.match(/assets\/[\w.-]+/g) || [])].slice(0, 30));
   {
     const bg = (/--bg:(#[0-9a-f]{6})/i.exec(h4) || [])[1];
     const fondo = JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', '_landings', id4, 'prueba-fondo.json'), 'utf8'));
@@ -306,7 +310,7 @@ async function principal() {
   console.log(`        (revisión visual: ${vis?.resumen || '-'})`);
   check('Renata revisó la página terminada (o avisó que no pudo capturarla)', vis?.estado === 'listo' && vis.resumen, vis);
   const capt = fs.existsSync(path.join(RAIZ, 'temp', '_landings', id4, 'registro-visual.log')) ? fs.readFileSync(path.join(RAIZ, 'temp', '_landings', id4, 'registro-visual.log'), 'utf8') : '';
-  check('Con capturas: recibió las de la base y las de la nueva', !capt || (/plantillas\/cen\/capturas\/encuesta\.webp/.test(capt) && /analisis-capturas\//.test(capt)), capt.slice(0, 300));
+  check('Con capturas: recibió las de la base y las de la nueva', !capt || (/analisis-capturas\//.test(capt) && (!fs.existsSync(path.join(APP,'server/lib/landings/plantillas/cen/capturas/encuesta.webp')) || /plantillas\/cen\/capturas\/encuesta\.webp/.test(capt))), capt.slice(0, 300));
   // quitar lo que no aplica (directo sobre la plantilla)
   {
     const pl = await import(path.join(APP, 'server', 'lib', 'landings', 'plantilla.js'));
@@ -358,7 +362,7 @@ async function principal() {
       const m = medidas(fs.readFileSync(path.join(RAIZ, 'temp', '_landings', idA, e.archivo)));
       return !m || m.w !== e.w || m.h !== e.h;
     });
-    check('(AMUNA) Con capturas reales y profesional real: 25 imágenes de GPT (las fotos del carrusel y la de «cuidado» no se hacen) y las capturas tal cual en «Experiencias con…»', envA.length === 25 && !envA.some((e) => e.slot.startsWith('ugc-')) && /data-seccion="experiencias-fotos"[\s\S]*?assets\/captura-1\.(png|jpg)[\s\S]*?assets\/captura-2\.(png|jpg)[\s\S]*?Experiencias con /.test(hA), envA.length);
+    check('(AMUNA) Con capturas reales y profesional real: 26 imágenes de GPT (incluye la opinión sin foto; conserva fotos y profesional reales) y las capturas tal cual en «Experiencias con…»', envA.length === 26 && !envA.some((e) => e.slot.startsWith('ugc-')) && /data-seccion="experiencias-fotos"[\s\S]*?assets\/captura-1\.(png|jpg)[\s\S]*?assets\/captura-2\.(png|jpg)[\s\S]*?Experiencias con /.test(hA), envA.length);
     check('(2026-11-27h) Con reseñas reales: las estrellas bajo «Experiencias con…» y el selector para ordenar las reseñas (y funciona sin JS: el orden es el de las reseñas)', /data-seccion="experiencias-fotos"[\s\S]*?<div class="estrellas" aria-hidden="true">★★★★★<\/div>/.test(hA) && /<select id="orden" aria-label="Ordenar reseñas">/.test(hA), (hA.match(/<div class="ordenar">[\s\S]{0,200}/) || [''])[0]);
     {
       const { resenasPegadas } = await import(path.join(APP, 'src', 'datos', 'resenas-pegadas.js'));
@@ -404,11 +408,11 @@ async function principal() {
     check('(AMUNA) Una pieza alta no se recorta: entra entera y se rellena con el color del fondo de la página', filaArriba, { fondoA, primeros: px && [...px.slice(0, 12)] });
     }
     {
-      const personas = envA.filter((e) => /^historia|^paso|^galeria-05/.test(e.slot)).map((e) => (/The person and place: ([^.]+)/.exec(e.prompt) || [])[1]);
-      check('(AMUNA) Fotos caseras y variadas: cada una con otra mujer y otro lugar, luz natural', personas.length === 10 && personas.every(Boolean) && new Set(personas).size === personas.length && envA.filter((e) => /^historia/.test(e.slot)).every((e) => /HOMEMADE PHOTO/.test(e.prompt) && /natural light only/.test(e.prompt)), personas);
+      const personas = envA.filter((e) => /^historia|^paso|^galeria-05/.test(e.slot)).map((e) => (/Casting (\d+)/.exec(e.prompt) || [])[1]);
+      check('(AMUNA) Fotos caseras y variadas: público del producto, personas y escenarios distintos, luz natural', personas.length === 10 && personas.every(Boolean) && new Set(personas).size === personas.length && envA.filter((e) => /^historia/.test(e.slot)).every((e) => /HOMEMADE PHOTO/.test(e.prompt) && /natural light only/.test(e.prompt)), personas);
     }
-    check('(AMUNA) Las imágenes, cada una con la medida exacta de la de AMUNA (p. ej. la primera de la galería 942×1670)', envA.length === 25 && !malas.length && envA.some((e) => e.slot === 'galeria-01' && e.w === 942 && e.h === 1670) && envA.every((e) => hA.includes(e.archivo)), { n: envA.length, malas: malas.map((e) => e.slot) });
-    check('(AMUNA) Cada imagen va a ChatGPT con la foto del producto y su referencia de AMUNA; las piezas con el fondo liso de la página y sin efectos; las fotos, sin médicos', envA.length && envA.filter((e) => e.slot !== 'cuidado').every((e) => e.referencias.length === 2 && e.referencias[1] === `app/server/lib/landings/plantillas/amuna/referencias/${e.slot}.jpg` && /Reference image 2 is ONLY a LAYOUT/.test(e.prompt) && /No typical AI-image effects/.test(e.prompt)) && envA.filter((e) => /^galeria-0[1-4]$|^creativo$|^ingredientes$/.test(e.slot)).every((e) => /BACKGROUND: flat solid #/.test(e.prompt)) && envA.filter((e) => /^historia|^ugc/.test(e.slot)).every((e) => /never a doctor/.test(e.prompt)), envA.slice(0, 2).map((e) => e.prompt.slice(0, 300)));
+    check('(AMUNA) Las imágenes, cada una con la medida exacta de la de AMUNA (p. ej. la primera de la galería 942×1670)', envA.length === 26 && !malas.length && envA.some((e) => e.slot === 'galeria-01' && e.w === 942 && e.h === 1670) && envA.every((e) => hA.includes(e.archivo)), { n: envA.length, malas: malas.map((e) => e.slot) });
+    check('(AMUNA) Las piezas usan guía de AMUNA; las fotos solo el producto y público, sin copiar personas; fondo y realismo compartidos', envA.length && envA.filter((e) => e.slot !== 'cuidado').every((e) => /No typical AI-image effects/.test(e.prompt) && (e.referencias.length===2 ? e.referencias[1]===`app/server/lib/landings/plantillas/amuna/referencias/${e.slot}.jpg` && /Reference image 2 is ONLY a LAYOUT/.test(e.prompt) : e.referencias.length===1 && /REAL PRODUCT/.test(e.prompt))) && envA.filter((e) => /^galeria-0[1-4]$|^creativo$|^ingredientes$/.test(e.slot)).every((e) => /BACKGROUND: flat solid #/.test(e.prompt)) && envA.filter((e) => /^historia|^ugc/.test(e.slot)).every((e) => /No medical uniform/.test(e.prompt)), envA.slice(0, 2).map((e) => e.prompt.slice(0, 300)));
     check('(AMUNA) Sin variables, sin la marca del ejemplo y sin cifras de clientas inventadas', !/Nombre Apellido|\bXX\b|Aquí va|Por definir|Producto X|TU MARCA|AMUNA|AMUA|Vital ?Drops|\+\s?\d{1,3}\.\d{3}/i.test(visibleA) && /Sueño Profundo/.test(visibleA), (visibleA.match(/[^<>]{0,40}(Producto X|TU MARCA|AMUNA|AMUA|Vital ?Drops|\+\d{1,3}\.\d{3})[^<>]{0,40}/gi) || []).slice(0, 5));
     const trioA = (hA.match(/<button type="button" class="combo"[^>]*data-combo="tres"[\s\S]*?<\/button>/) || [''])[0];
     check('(2026-11-27k) AMUNA tal cual: H1 = el nombre del producto, sin titular de resultado ni bloque de dolor', /<h1>Sueño Profundo<\/h1>/.test(hA) && !/data-seccion="dolor"|class="t-producto"/.test(hA), (hA.match(/<div class="titulo"[\s\S]{0,200}/) || [''])[0]);
@@ -449,7 +453,7 @@ async function principal() {
     const envB = idB && fs.existsSync(path.join(RAIZ, 'temp', '_landings', idB, 'prueba-imagenes.json')) ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', '_landings', idB, 'prueba-imagenes.json'), 'utf8')) : [];
     {
       const cB = envB.find((e) => e.slot === 'cuidado');
-      check('(2026-11-27k) Sin profesional real: «cuidado» es una consulta médica ilustrativa (sin el producto, sin nombre, sin referencias) con su nota en la página', cB && /medical consultation/.test(cB.prompt) && /NO product/.test(cB.prompt) && /no name tag/.test(cB.prompt) && cB.referencias.length === 0 && /class="nota-img">Imagen ilustrativa\. No representa una recomendación médica del producto\./.test(hB) && !/care-badge"/.test(hB), cB && { prompt: cB.prompt.slice(0, 200), refs: cB.referencias });
+      check('(2026-11-27k) Sin profesional real: «cuidado» es una consulta médica ilustrativa (sin el producto, sin nombre, sin referencias) con su nota en la página', cB && /fictional professional scene/i.test(cB.prompt) && /No names, readable badges/.test(cB.prompt) && cB.referencias.length === 0 && /class="nota-img">(?:Imagen ilustrativa generada con IA|Escena profesional ilustrativa generada con IA)/.test(hB) && !/care-badge"/.test(hB), cB && { prompt: cB.prompt.slice(0, 200), refs: cB.referencias });
     }
     {
       // sin marcar la autorización, el profesional no se usa
@@ -487,7 +491,8 @@ try {
   // (COPIAR_LANDINGS=<carpeta>: guarda una copia de las landings creadas, para mirarlas)
   if (process.env.COPIAR_LANDINGS) for (const id of creados.landings) if (fs.existsSync(path.join(RAIZ, 'temp', '_landings', id))) fs.cpSync(path.join(RAIZ, 'temp', '_landings', id), path.join(process.env.COPIAR_LANDINGS, id), { recursive: true });
   for (const id of creados.landings) fs.rmSync(path.join(RAIZ, 'temp', '_landings', id), { recursive: true, force: true });
-  if (!landingsExistia) fs.rmSync(path.join(RAIZ, 'temp', '_landings'), { recursive: true, force: true });
+  for(const f of creados.fotos)if(/^[a-f0-9]{12}\.(png|jpg)$/.test(f))fs.rmSync(path.join(RAIZ,'temp/_landings/_fotos',f),{force:true});
+  for(const d of [path.join(RAIZ,'temp/_landings/_fotos'),path.join(RAIZ,'temp/_landings')])try{fs.rmdirSync(d);}catch{}
   if (creados.producto) fs.rmSync(path.join(RAIZ, 'temp', '_productos', creados.producto), { recursive: true, force: true });
   fs.rmSync(path.join(RAIZ, 'temp', `_modo-prueba-${PUERTO}`), { recursive: true, force: true });
   if (envPropio) fs.rmSync(ENV, { force: true });
