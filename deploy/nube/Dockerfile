@@ -10,6 +10,7 @@ RUN npm install -g @anthropic-ai/claude-code @shopify/cli
 RUN useradd --uid 10001 --create-home --home-dir /srv/home kads
 WORKDIR /opt/kads
 COPY app/package*.json app/
+COPY app/.npmrc app/.npmrc
 COPY remotion/package*.json remotion/
 COPY app/inicio/codex/package*.json app/inicio/codex/
 RUN npm ci --prefix app --no-audit --no-fund && npm ci --prefix remotion --no-audit --no-fund \
