@@ -23,6 +23,17 @@ check('Las salas traen su lugar (sin repetir), las 3 de «Próximamente» y los 
 check('Cada agente está en un departamento de la planta, con su estación y su aviso de IA caída (o null)', d.agentes.every((a) => d.zonas.some((z) => z.id === a.dep) && (a.dep === 'coordinacion' || a.estacion) && 'caida' in a && a.enEstacion), d.agentes.filter((a) => !d.zonas.some((z) => z.id === a.dep)).map((a) => a.id));
 check('Las cadenas de producción: seis departamentos y cada estación con su agente', d.produccion.departamentos.length === 6 && d.produccion.departamentos.every((dep) => dep.estaciones.every((e) => d.agentes.some((a) => a.id === e.agente))));
 check('Los departamentos en construcción tienen a sus agentes quietos («pronto»)', d.agentes.filter((a) => ['landing', 'whatsapp', 'analisis'].includes(a.dep)).every((a) => a.enEstacion === 'pronto'));
+// (2026-11-28a) la oficina usa el diseño de la app: sin el lima de la marca vieja en sus archivos de pantalla
+{
+  const carpeta = new URL('../src/pantallas/oficina/', import.meta.url);
+  const limas = /#(a3e635|a3ff12|9df626|bef264|84cc16)\b|163,\s*(255,\s*18|230,\s*53)/i;
+  const conLima = fs.readdirSync(carpeta).filter((f) => /\.(jsx?|css)$/.test(f) && limas.test(fs.readFileSync(new URL(f, carpeta), 'utf8')));
+  check('Los archivos de la oficina no traen el lima de la marca vieja (todo sale del tema)', !conLima.length, conLima);
+  const css = fs.readFileSync(new URL('oficina.css', carpeta), 'utf8');
+  check('Los paneles ya no se fuerzan a oscuro y la escena lee su paleta del tema', !/color-scheme:\s*dark/.test(css) && /--of-panel/.test(css) && fs.readFileSync(new URL('Oficina3D.jsx', carpeta), 'utf8').includes('paletaDeEscena'), null);
+  const tj = fs.readFileSync(new URL('../src/estilos/tema-juego.css', import.meta.url), 'utf8');
+  check('Los parches de la oficina salieron de tema-juego.css (viven en oficina.css)', !/\.(of|o3)-/.test(tj), null);
+}
 // la pantalla grande: el último clip o imagen (el más nuevo, sin los vacíos)
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'oficina-'));
 fs.mkdirSync(path.join(dir, 'img'));

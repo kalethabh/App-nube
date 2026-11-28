@@ -5,6 +5,7 @@
 //   <EstacionDeAgente>   en el panel de un agente: su estación, de quién recibe, a quién entrega y su trabajo actual.
 // Todo sale de /api/oficina → produccion (lib/oficina-produccion.js): lo que registra la app, sin inventar nada.
 import { ArrowRight, Briefcase, CornerDownLeft, X } from 'lucide-react';
+import { Boton } from '../../componentes/index.js';
 import { fechaRelativa } from '../../datos/formato.js';
 import { svgIcono } from './Oficina3D.jsx';
 
@@ -61,9 +62,9 @@ export function PanelDepartamento({ dep, agentes, resaltar, onResaltar, onAgente
         </button>
       </header>
       {!dep.pronto && onEncargar ? (
-        <button type="button" className="of-boton of-boton--primario of-encargar" onClick={() => onEncargar(dep)}>
-          <Briefcase size={15} aria-hidden="true" /> {dep.id === 'imagen' ? 'Encargar variaciones de un ganador' : dep.id === 'investigacion' ? 'Encargar una investigación' : 'Encargar un video'}
-        </button>
+        <Boton variante="primario" bloque icono={Briefcase} className="of-encargar" onClick={() => onEncargar(dep)}>
+          {dep.id === 'imagen' ? 'Encargar variaciones de un ganador' : dep.id === 'investigacion' ? 'Encargar una investigación' : 'Encargar un video'}
+        </Boton>
       ) : null}
       <section className="of-panel__seccion">
         <h3 className="of-panel__titulo">{sel ? `El recorrido de «${sel.titulo}»` : 'Su cadena de producción'}</h3>
@@ -95,9 +96,9 @@ export function PanelDepartamento({ dep, agentes, resaltar, onResaltar, onAgente
           })}
         </ol>
         {sel ? (
-          <a className="of-boton of-boton--chico" href={sel.href}>
+          <Boton variante="secundario" tamano="chico" href={sel.href} className="of-abrir">
             Abrir «{sel.titulo}»
-          </a>
+          </Boton>
         ) : null}
       </section>
       {dep.pronto ? (

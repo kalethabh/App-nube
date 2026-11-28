@@ -4,7 +4,7 @@
 // Servidor: PUT /api/oficina/zonas (lib/oficina.js guardarZonas).
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { LayoutGrid, Plus, Trash2 } from 'lucide-react';
-import { Boton, CampoTexto, Modal, useAvisos } from '../../componentes/index.js';
+import { Boton, CampoTexto, Logo, Modal, useAvisos } from '../../componentes/index.js';
 import { pedirNuevo } from '../../datos/api.js';
 
 // cómo se dibuja cada lugar en el plano (fila, columna, cuántas columnas ocupa); 'logo' es el centro
@@ -13,7 +13,7 @@ const PLANO = [
   [0, 5, 4], [2, 5, 4],
   [3, 1, 3], [3, 4, 3], [3, 7, 3], [3, 10, 3],
 ];
-const COLORES = ['#a3e635', '#22c55e', '#2dd4bf', '#38bdf8', '#60a5fa', '#a78bfa', '#c084fc', '#f472b6', '#fb7185', '#fb923c', '#f59e0b', '#facc15'];
+const COLORES = ['#ffc774', '#22c55e', '#2dd4bf', '#38bdf8', '#60a5fa', '#a78bfa', '#c084fc', '#f472b6', '#fb7185', '#fb923c', '#f59e0b', '#facc15'];
 
 export function Disenar({ abierto, datos, onCerrar }) {
   const { aviso } = useAvisos();
@@ -69,7 +69,7 @@ export function Disenar({ abierto, datos, onCerrar }) {
     <Modal abierto={abierto} onCerrar={() => onCerrar(false)} titulo="Diseñar tu oficina" descripcion="Toca una oficina y después el lugar donde la quieres (si está ocupado, se intercambian). Crea las tuyas y personalízalas." icono={LayoutGrid} tamano="grande">
       <div className="of-disenar">
         <div className="of-plano" role="grid" aria-label="El plano de la oficina">
-          <span className="of-plano__logo" style={{ gridRow: 2, gridColumn: '5 / span 4' }} aria-hidden="true">K</span>
+          <span className="of-plano__logo" style={{ gridRow: 2, gridColumn: '5 / span 4' }} aria-hidden="true"><Logo tamano={56} /></span>
           {PLANO.map(([fila, col, span], n) => {
             const x = enLugar[n];
             return (

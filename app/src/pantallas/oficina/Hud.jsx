@@ -5,6 +5,7 @@
 //   <Vistas>     general, desde arriba, modo cine y de día o de noche
 import { useMemo } from 'react';
 import { ArrowLeft, ArrowRight, Clapperboard, Compass, Map as MapaIcono, Moon, Orbit, Presentation, Sun, X } from 'lucide-react';
+import { Boton } from '../../componentes/index.js';
 import { fechaRelativa } from '../../datos/formato.js';
 import { LUGAR } from './Oficina3D.jsx';
 
@@ -51,13 +52,11 @@ export function Recorrido({ pasos, paso, onPaso, onCerrar }) {
         </div>
         <div className="of-recorrido__botones">
           {paso > 0 ? (
-            <button type="button" className="of-boton" onClick={() => onPaso(paso - 1)}>
-              <ArrowLeft size={14} aria-hidden="true" /> Anterior
-            </button>
+            <Boton variante="secundario" tamano="chico" icono={ArrowLeft} onClick={() => onPaso(paso - 1)}>Anterior</Boton>
           ) : null}
-          <button type="button" className="of-boton of-boton--primario" onClick={() => (ultimo ? onCerrar() : onPaso(paso + 1))}>
-            {ultimo ? '¡Listo!' : 'Siguiente'} {ultimo ? null : <ArrowRight size={14} aria-hidden="true" />}
-          </button>
+          <Boton variante="primario" tamano="chico" iconoDerecha={ultimo ? undefined : ArrowRight} onClick={() => (ultimo ? onCerrar() : onPaso(paso + 1))}>
+            {ultimo ? '¡Listo!' : 'Siguiente'}
+          </Boton>
         </div>
       </div>
     </div>
@@ -90,7 +89,7 @@ export function Minimapa({ zonas, agentes, posiciones, onZona }) {
           );
         })}
         {Object.entries(posiciones || {}).map(([id, [x, z]]) => (
-          <circle key={id} cx={x} cy={z} r="0.6" className={`of-minimapa__agente of-minimapa__agente--${color[id]?.estado || 'libre'}`} style={{ '--color': color[id]?.color || '#94a3b8' }}>
+          <circle key={id} cx={x} cy={z} r="0.6" className={`of-minimapa__agente of-minimapa__agente--${color[id]?.estado || 'libre'}`} style={{ '--color': color[id]?.color || 'var(--neutro)' }}>
             <title>{color[id]?.nombre}</title>
           </circle>
         ))}

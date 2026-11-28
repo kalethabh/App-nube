@@ -310,7 +310,7 @@ export function Chat({ coordinadora, onCerrar, inicial = '' }) {
   return (
     <aside
       className={`of-chat${encima ? ' of-chat--encima' : ''}`}
-      style={{ '--color': coordinadora?.color || '#a3e635' }}
+      style={{ '--color': coordinadora?.color || 'var(--acento)' }}
       aria-label={`Chat con ${nombre}`}
       onDragOver={(e) => {
         if (![...e.dataTransfer.types].includes('Files')) return;
