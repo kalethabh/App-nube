@@ -9,7 +9,7 @@ for(const n of await fs.readdir('/opt/kads')) {
  if(n==='.claude') {try{await fs.access(path.join(raiz,n));continue;}catch{}}
  if(n==='app') {
   await fs.mkdir(path.join(raiz,n),{recursive:true});
-  for(const f of await fs.readdir('/opt/kads/app'))if(f!=='config.json' && !f.startsWith('.'))await fs.cp(`/opt/kads/app/${f}`,path.join(raiz,'app',f),{recursive:true,force:true});
+  for(const f of await fs.readdir('/opt/kads/app'))if(f!=='config.json' && (!f.startsWith('.') || f==='.npmrc'))await fs.cp(`/opt/kads/app/${f}`,path.join(raiz,'app',f),{recursive:true,force:true});
  }else await fs.cp(`/opt/kads/${n}`,path.join(raiz,n),{recursive:true,force:true});
 }
 const nube=process.env.KADS_MODO!=='contabo';

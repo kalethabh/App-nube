@@ -31,7 +31,7 @@ jobs:
         run: |
           docker run -d --name kads-prueba -p 127.0.0.1:4499:4455 -e KADS_MODO=contabo -e ANUNCIOS_MODO_PRUEBA=1 -e KADS_SUPABASE_URL=https://example.invalid -e KADS_SUPABASE_ANON=falsa kads-prueba
           for i in $(seq 1 120); do
-            if curl -fsS http://127.0.0.1:4499/entrar -o /tmp/entrada.html; then break; fi
+            if curl -fsS -H 'Host: 127.0.0.1:4455' http://127.0.0.1:4499/entrar -o /tmp/entrada.html; then break; fi
             sleep 2
           done
           rg -i 'google' /tmp/entrada.html

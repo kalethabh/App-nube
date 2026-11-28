@@ -43,7 +43,7 @@ export function crearPuerta({sb=supabase(),key=llave(),origen=origenPublico(),fe
     return json(res,200,{id,url:await sb.subirFirmado('kads-transferencias',obj)});
    }
    // Los enlaces MCP/importación conservan su portero propio dentro del motor.
-   if(!LIBRE.test(ruta) && !sesion(req)) {
+   if(!LIBRE.test(ruta) && !sesion(req) && !/(?:^|;\s*)kads_refresco=[^;]+/.test(String(req.headers.cookie || ''))) {
     if(ruta.startsWith('/api/') || ruta.startsWith('/archivos/'))return json(res,401,{error:'Entra en Kads.'});
     res.statusCode=303;res.setHeader('Location','/entrar');res.end();return;
    }
