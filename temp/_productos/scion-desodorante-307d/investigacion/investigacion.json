@@ -437,7 +437,229 @@
         ], "pie": "" },
         { "tipo": "guia-visual" }
       ]
+    },
+    {
+      "titulo": "Conceptos para Meta (Andromeda)",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "15.1 Lo que cambió" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Lo que cambió en Meta", "texto": "", "items": [
+          "**El creativo es la segmentación:** usa segmentación amplia y deja que el anuncio filtre. Quién aparece, qué dice y qué problema muestra le dice a Meta a quién mostrárselo.",
+          "**Diversidad real de conceptos:** de 6 a 10 conceptos distintos por conjunto, no variaciones de un ganador. Cambiar el color o el texto es el mismo anuncio.",
+          "**La señal de compra real:** en contra entrega, reporta la compra confirmada y la entrega, no solo el mensaje de WhatsApp."
+        ], "pie": "" },
+        { "tipo": "subtitulo", "texto": "15.2 Facetas del cliente" },
+        { "tipo": "tabla", "columnas": ["Persona base", "Faceta", "Dolor en sus palabras", "Escenario visual"], "filas": [
+          ["Leidy Johana", "Mamá trabajadora en bus", "Me da pena agarrarme de la baranda de arriba", "TransMilenio o el MIO lleno a las 6 a.m., brazo arriba"],
+          ["Leidy Johana", "La del paseo de diciembre", "En la piscina me quedo con camiseta", "Piscina en Melgar o Girardot, familia en vestido de baño"],
+          ["Leidy Johana", "La que ya probó todo", "Limón, bicarbonato, de todo, y sigo igual", "Baño con limones, bicarbonato y cremas a medio usar"],
+          ["Leidy Johana", "La de la pareja", "Me da cosa que mi pareja me vea las axilas", "Habitación de noche, ella se pone la pijama de espaldas"],
+          ["Leidy Johana", "Asesora en clima caliente", "A las 2 de la tarde ya estoy pendiente de cómo huelo", "Almacén en Barranquilla a mediodía, ventilador, uniforme"],
+          ["Andrés Felipe", "El del gimnasio", "Me rasuro y el desodorante me quema", "Gimnasio de barrio a las 7 p.m., camiseta esqueleto"],
+          ["Doña Gloria", "Mamá de la adolescente", "Mi hija ya no quiere ponerse blusas sin mangas", "Probador de un almacén en diciembre, la hija con la blusa"],
+          ["Valentina", "La de las fotos de grado", "En todas las fotos salgo con el brazo abajo", "Foto de grado o de fin de año con los amigos abrazados"]
+        ], "nota": "Las facetas reales se confirman con los chats de WhatsApp de las asesoras: exporta 100 chats cerrados como venta y clasifica para quién compraba, qué frase usó y qué objeción puso. Salen de 4 a 7 facetas." },
+        { "tipo": "subtitulo", "texto": "15.3 Momentos y contexto" },
+        { "tipo": "tabla", "columnas": ["Momento", "Cómo está la persona", "Mensaje que conecta", "Formato"], "filas": [
+          ["Madrugada, antes de salir (5 a 7 a.m.)", "Saliendo de la ducha, afán, recién rasurada", "Un paso después del baño, sin ardor", "Demostración o UGC selfie en el baño"],
+          ["Mediodía con calor (12 a 3 p.m.)", "Sudada, pendiente del olor", "Fresca todo el día", "Realista con narrador o imagen de beneficios"],
+          ["Noche (9 a 11 p.m.)", "Scroll largo, se compara, piensa en sus complejos", "Historia emocional: volver a levantar los brazos", "Historia narrada o testimonio"],
+          ["Quincena (15 y 30)", "Con plata, con ganas de consentirse", "Combo x3: tratamiento de 3 meses", "Imagen estática con oferta en WhatsApp"],
+          ["Mitad de mes", "Plata apretada, desconfiada", "Pagas cuando te llegue", "UGC con la caja llegando a la casa"],
+          ["Diciembre (prima, paseos, fotos)", "Planes de piscina, playa, novenas y fotos", "Empieza hoy y llega a tu paseo con las axilas más parejas", "Antes y después con plazo, sketch de comedia"],
+          ["Enero (vacaciones y propósitos)", "En la playa o volviendo a la rutina", "Este año, sin esconder los brazos", "Testimonio o imagen de propósito"]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "15.4 Matriz de conceptos" },
+        { "tipo": "tabla", "columnas": ["#", "Faceta", "Problema", "Contexto", "Formato", "Hook"], "filas": [
+          ["1", "Mamá trabajadora en bus", "Síntoma visible", "TransMilenio a las 6 a.m.", "UGC selfie", "«Me daba pena agarrarme de la baranda del bus»"],
+          ["2", "La del paseo de diciembre", "Consecuencia social", "Piscina en Melgar en diciembre", "Antes y después (imagen estática)", "«¿Ya tienes paseo en diciembre? Empieza hoy»"],
+          ["3", "La que ya probó todo", "Frustración con lo que ya probó", "Noche, scroll en la cama", "Sketch de comedia", "«Limón, bicarbonato, papa… y yo con las axilas igual»"],
+          ["4", "El del gimnasio", "Sensación física (ardor)", "Gimnasio a las 7 p.m.", "Demostración", "«Me rasuro la axila y el desodorante me quemaba»"],
+          ["5", "Mamá de la adolescente", "Miedo a futuro", "Probador de ropa en diciembre", "Testimonio", "«Mi hija no se quería medir blusas sin mangas»"],
+          ["6", "La de las fotos de grado", "Consecuencia social", "Fotos de grado y fin de año", "Pregunta y revelación (imagen estática)", "«¿Por qué siempre sales con el brazo abajo en las fotos?»"],
+          ["7", "La de la pareja", "Consecuencia íntima", "Noche en casa", "Historia narrada", "«Me daba cosa que mi pareja me viera las axilas»"],
+          ["8", "Asesora en clima caliente", "No tiene tiempo", "2 p.m. en el almacén con calor", "Realista con narrador", "«A las 2 de la tarde ya estaba pendiente de cómo olía»"]
+        ], "nota": "" },
+        { "tipo": "nota", "texto": "Los 3 para probar primero: el 1 (el síntoma visible en una escena que toda colombiana reconoce), el 2 (aprovecha diciembre, la prima y la urgencia de una fecha) y el 3 (la frustración con lo casero es la objeción más común y el sketch da alcance barato)." },
+        { "tipo": "subtitulo", "texto": "15.5 Estructura y señal" },
+        { "tipo": "ficha", "filas": [
+          ["Estructura", "Menos campañas y conjuntos; segmentación amplia por país y edad (20 a 45); de 6 a 10 conceptos por conjunto; escala el conjunto que funciona en vez de duplicarlo."],
+          ["Leer el gasto", "Si Meta no le invierte a un anuncio, es un veredicto: no apagues el que gasta ni saques el olvidado a otro conjunto. Mira a qué faceta y situación le habla el que se lleva más del 50 % del gasto y crea conceptos vecinos."],
+          ["Señal", "Envía a Meta la compra cuando el pedido se confirma en WhatsApp, con la API de Conversiones, e idealmente marca los entregados. En la landing, píxel más API de Conversiones con el pedido confirmado."],
+          ["Qué medir por anuncio", "Porcentaje de confirmación y porcentaje de entrega, no solo el costo por mensaje."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "15.6 Prompt con contexto para la IA" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Plantilla llena para Scion", "texto": "Eres un copywriter de respuesta directa para Colombia. Vendes con pago contra entrega y cierras por WhatsApp. Producto: Scion Brightening Roll-On de Nu Skin, desodorante antitranspirante de 75 ml, sin alcohol, con niacinamida, gayuba, regaliz, ácido láctico y alantoína; muchas personas notan la axila más pareja desde la semana 4 de uso diario. Faceta: [mamá trabajadora que va en bus a las 6 a.m.]. Contexto: [TransMilenio lleno, brazo arriba]. Objeción principal: «ya probé de todo y nada me sirve». Formato: [UGC selfie de 30 segundos]. Reglas: lenguaje natural colombiano, sin promesas de cura ni de blanquear, beneficios como experiencia («muchas personas notan»), menciona el pago contra entrega y cierra con invitación a WhatsApp. Entrega: 3 hooks, un guion y el texto principal del anuncio.", "items": [
+          "Frases de clientes: «Me da pena levantar el brazo en el bus.»",
+          "«Me rasuro y al otro día se ve la sombra gris.»",
+          "«El desodorante me arde después de rasurarme.»",
+          "«Ya no me pongo blusas de tiras.»",
+          "«Probé limón y bicarbonato y nada.»",
+          "«A mitad del día ya estoy pendiente del olor.»",
+          "«En las fotos siempre salgo con el brazo abajo.»"
+        ], "pie": "Estas frases están parafraseadas de la investigación: reemplázalas por las de tus chats de WhatsApp." },
+        { "tipo": "caja", "estilo": "cuidado", "titulo": "Cuidado", "texto": "Los conceptos hablan de cuidado diario, rutina y experiencia, nunca de curar enfermedades, de blanquear ni de resultados garantizados. Además del riesgo legal, Meta rechaza o limita esos anuncios, y los antes y después deben ser reales.", "items": [], "pie": "" }
+      ]
     }
   ],
-  "fuentes": []
+  "guia": {
+    "mensajes": [
+      {
+        "seccion": "Hero · Producto e ingredientes",
+        "titulo": "Axilas más parejas desde la semana 4 y protección desde el primer día",
+        "subtitulo": "El desodorante sin alcohol que te cuida la axila para que vuelvas a levantar los brazos sin pena",
+        "franja": { "beneficio": "Axila más pareja y olor controlado", "tiempo": "Desde la semana 4", "deseo": "Levantar los brazos sin pena" },
+        "objetivo": "Mostrar qué es Scion, para quién es y por qué vale más que un desodorante normal.",
+        "elementos": [
+          { "titulo": "Título principal", "texto": "Axilas más parejas desde la semana 4 y protección desde el primer día" },
+          { "titulo": "Subtítulo", "texto": "El desodorante sin alcohol que te cuida la axila para que vuelvas a levantar los brazos sin pena" },
+          { "titulo": "Avatar del producto", "texto": "Mujer trigueña de 30 años, con blusa de tiras, sonriendo con los brazos arriba" },
+          { "titulo": "Producto + validación", "texto": "[calificación] · [N] clientes en Colombia, encima del roll-on" },
+          { "titulo": "Componentes", "texto": "Niacinamida · Gayuba · Regaliz · Ácido láctico · Alantoína · Antitranspirante" },
+          { "titulo": "4 sellos", "texto": "Sin alcohol · Probado dermatológicamente · Unisex · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "foto": "Mujer trigueña de 30 años con blusa de tiras, brazos arriba, sonriendo, fondo limpio",
+          "validacion": "[calificación] · [N] clientes",
+          "ingredientes": ["Niacinamida", "Gayuba", "Regaliz", "Ácido láctico", "Alantoína", "Antitranspirante"],
+          "sellos": ["Sin alcohol", "Probado dermatológicamente", "Unisex", "Pagas al recibir"],
+          "oferta": "Tratamiento completo x3 $[precio]"
+        }
+      },
+      {
+        "seccion": "Punto de dolor",
+        "titulo": "¿Te rasuras en la mañana y en el bus ya te da pena levantar el brazo?",
+        "subtitulo": "Muchas personas notan la axila más pareja desde la semana 4",
+        "franja": { "beneficio": "Axila más pareja", "tiempo": "Desde la semana 4", "deseo": "Dejar de esconder los brazos" },
+        "objetivo": "Que se reconozca en la escena y vea a Scion como la salida.",
+        "elementos": [
+          { "titulo": "Título", "texto": "¿Te rasuras en la mañana y en el bus ya te da pena levantar el brazo?" },
+          { "titulo": "Subtítulo", "texto": "Muchas personas notan la axila más pareja desde la semana 4" },
+          { "titulo": "Imagen del dolor", "texto": "Mujer en un bus lleno bajando el brazo de la baranda, incómoda" },
+          { "titulo": "Título secundario", "texto": "No es falta de aseo: es la piel irritada por la cuchilla" },
+          { "titulo": "Mensaje descriptivo", "texto": "Scion controla el olor y, con niacinamida, gayuba y regaliz, ayuda a que tu axila se vea más pareja con el uso diario. Sin alcohol, para que no arda." },
+          { "titulo": "Producto", "texto": "El roll-on Scion grande y visible" },
+          { "titulo": "4 sellos", "texto": "Sin alcohol · Probado dermatológicamente · Unisex · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "foto": "Mujer trigueña en un bus lleno bajando el brazo de la baranda, incómoda",
+          "titulo2": "No es falta de aseo: es la piel irritada por la cuchilla",
+          "descripcion": "Scion controla el olor y ayuda a que tu axila se vea más pareja con el uso diario. Sin alcohol, para que no arda.",
+          "sellos": ["Sin alcohol", "Probado dermatológicamente", "Unisex", "Pagas al recibir"]
+        }
+      },
+      {
+        "seccion": "Beneficios",
+        "titulo": "Levanta los brazos sin pena desde la semana 4",
+        "subtitulo": "Niacinamida, gayuba y regaliz en tu desodorante de todos los días",
+        "franja": { "beneficio": "Pareja, fresca y sin ardor", "tiempo": "Desde la semana 4", "deseo": "Ponerte lo que quieras" },
+        "objetivo": "Mostrar lo que cambia en su día a día con Scion.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Levanta los brazos sin pena desde la semana 4" },
+          { "titulo": "Subtítulo", "texto": "Niacinamida, gayuba y regaliz en tu desodorante de todos los días" },
+          { "titulo": "Cinco beneficios", "texto": "Axila más pareja · Olor controlado · Sin ardor · Piel más suave · Un solo paso" },
+          { "titulo": "Imágenes de beneficios", "texto": "Brazo arriba en foto de grupo, blusa de tiras, aplicación después de la ducha, axila recién rasurada sin rojez, la mano pasando el roll-on" },
+          { "titulo": "Producto central", "texto": "El roll-on Scion en el centro uniendo los beneficios" },
+          { "titulo": "4 sellos", "texto": "Sin alcohol · Probado dermatológicamente · Unisex · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "beneficios": [
+            { "titulo": "Axila más pareja", "frase": "Muchas personas lo notan desde la semana 4" },
+            { "titulo": "Olor controlado", "frase": "Protección desde la primera aplicación" },
+            { "titulo": "Sin ardor", "frase": "Sin alcohol, con alantoína que calma" },
+            { "titulo": "Piel más suave", "frase": "Ácido láctico que exfolia suave" },
+            { "titulo": "Un solo paso", "frase": "Después del baño, y listo" }
+          ],
+          "sellos": ["Sin alcohol", "Probado dermatológicamente", "Unisex", "Pagas al recibir"]
+        }
+      },
+      {
+        "seccion": "Modo de uso",
+        "titulo": "Una sola aplicación al día para una axila fresca y más pareja",
+        "subtitulo": "Tu rutina después del baño en menos de 1 minuto",
+        "franja": { "beneficio": "Fresca y más pareja", "tiempo": "Desde la semana 4", "deseo": "Cuidarte sin complicarte" },
+        "objetivo": "Que quede claro lo fácil que es y que la constancia es la clave.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Una sola aplicación al día para una axila fresca y más pareja" },
+          { "titulo": "Subtítulo", "texto": "Tu rutina después del baño en menos de 1 minuto" },
+          { "titulo": "Mensaje descriptivo", "texto": "Úsalo todos los días después del baño. Si te rasuraste, espera unos minutos. La constancia es lo que hace la diferencia." },
+          { "titulo": "Tres pasos", "texto": "1. Báñate y seca bien la axila · 2. Pasa el roll-on por toda la axila · 3. Repite todos los días" },
+          { "titulo": "Producto", "texto": "El roll-on Scion grande y reconocible" },
+          { "titulo": "4 sellos", "texto": "Sin alcohol · Probado dermatológicamente · Unisex · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "descripcion": "Úsalo todos los días después del baño. Si te rasuraste, espera unos minutos. La constancia hace la diferencia.",
+          "pasos": ["Báñate y seca la axila", "Pasa el roll-on por toda la axila", "Repite todos los días"],
+          "sellos": ["Sin alcohol", "Probado dermatológicamente", "Unisex", "Pagas al recibir"]
+        }
+      }
+    ]
+  },
+  "embudo": {
+    "hero": [
+      { "titulo": "Axilas más parejas desde la semana 4 y protección desde el primer día", "subtitulo": "El desodorante sin alcohol que te cuida la axila para que vuelvas a levantar los brazos sin pena", "elementos": ["Sin alcohol", "Probado dermatológicamente", "Unisex", "Pagas al recibir", "Niacinamida, gayuba y regaliz", "Roll-on de 75 ml"], "etiqueta": "Opción 1" },
+      { "titulo": "Vuelve a levantar los brazos sin pena: axilas más parejas desde la semana 4", "subtitulo": "Niacinamida, gayuba y regaliz en tu desodorante de todos los días", "elementos": ["Sin alcohol", "Olor controlado", "Un solo paso", "Pagas al recibir"], "etiqueta": "Opción 2" },
+      { "titulo": "Olor controlado desde el primer día y axila más pareja desde la semana 4", "subtitulo": "Para él y para ella: sin alcohol, no arde después de rasurar", "elementos": ["Unisex", "Sin alcohol", "Para después de rasurar", "Pagas al recibir"], "etiqueta": "Opción 3" },
+      { "titulo": "Axilas parejas, sin pena, desde la semana 4", "subtitulo": "Tu desodorante que también te cuida", "elementos": ["Sin alcohol", "Un solo paso", "Pagas al recibir"], "etiqueta": "Opción 4" }
+    ],
+    "dolor": [
+      { "titulo": "¿Te rasuras en la mañana y en el bus ya te da pena levantar el brazo?", "subtitulo": "La sombra gris no es falta de aseo: es la piel que se irrita con la cuchilla y el roce", "elementos": ["Bajas el brazo o te tapas en las fotos", "Te rasuras y al otro día se ve la sombra gris", "El desodorante te arde después de rasurarte", "A mitad del día ya estás pendiente del olor", "Dejaste de usar blusas de tiras o esqueletos", "Probaste remedios caseros y sigues igual"], "etiqueta": "Opción 1" },
+      { "titulo": "¿El desodorante te arde cada vez que te rasuras?", "subtitulo": "Tu piel necesita algo sin alcohol que la calme mientras te protege", "elementos": ["Sin alcohol", "Con alantoína que calma"], "etiqueta": "Opción 2" },
+      { "titulo": "¿Tu hija ya no quiere ponerse blusas sin mangas?", "subtitulo": "Un desodorante suave, de marca, que la acompaña todos los días", "elementos": ["Sin alcohol", "Unisex", "Pagas al recibir"], "etiqueta": "Opción 3" },
+      { "titulo": "¿Te rasuras todos los días y la axila sigue gris?", "subtitulo": "Rasurar no basta: la piel también necesita cuidado después", "elementos": ["Niacinamida, gayuba y regaliz", "Ácido láctico que exfolia suave"], "etiqueta": "Opción 4" },
+      { "titulo": "¿Hace cuánto no te pones una blusa de tiras?", "subtitulo": "No tienes que seguir escogiendo la ropa por tus axilas", "elementos": ["Muchas personas notan la axila más pareja desde la semana 4"], "etiqueta": "Opción 5" },
+      { "titulo": "Con este calor, ¿a mitad del día ya estás pendiente de tus axilas?", "subtitulo": "Sudor, roce y ropa apretada: la mezcla que oscurece y hace oler la axila", "elementos": ["Olor controlado desde la primera aplicación", "Antitranspirante"], "etiqueta": "Opción 6" },
+      { "titulo": "¿Ya probaste limón, bicarbonato y el aclarante del súper?", "subtitulo": "Lo casero irrita y lo de siempre solo perfuma; tu axila necesita algo más completo", "elementos": ["Niacinamida", "Gayuba", "Regaliz", "Sin alcohol"], "etiqueta": "Opción 7" }
+    ],
+    "beneficios": [
+      { "titulo": "Levanta los brazos sin pena desde la semana 4", "subtitulo": "Niacinamida, gayuba y regaliz en tu desodorante de todos los días", "elementos": ["Axila más pareja: muchas personas lo notan desde la semana 4", "Olor controlado: protección desde la primera aplicación", "Sin ardor: sin alcohol, con alantoína que calma", "Piel más suave: ácido láctico que exfolia suave", "Un solo paso: después del baño, y listo", "Sin alcohol · Probado dermatológicamente · Unisex · Pagas al recibir"], "etiqueta": "Opción 1" },
+      { "titulo": "Tu desodorante ahora también te cuida la axila", "subtitulo": "Olor controlado desde el primer día y axila más pareja desde la semana 4", "elementos": ["Axila más pareja", "Olor controlado", "Sin ardor", "Piel más suave", "Un solo paso"], "etiqueta": "Opción 2" },
+      { "titulo": "Axila pareja, fresca y sin ardor en un solo paso", "subtitulo": "Sin alcohol, con alantoína que calma la piel después de rasurar", "elementos": ["Axila más pareja", "Olor controlado", "Sin ardor", "Piel más suave", "Un solo paso"], "etiqueta": "Opción 3" }
+    ],
+    "ingredientes": [
+      { "titulo": "Lo que lleva tu desodorante para cuidarte la axila", "subtitulo": "Componentes de la fórmula de Nu Skin: confírmalos con la etiqueta de tu lote", "elementos": ["Niacinamida: ayuda a emparejar el tono", "Gayuba: aclarante de origen vegetal", "Regaliz: ayuda con la apariencia de las manchas", "Ácido láctico: exfolia suave", "Alantoína: calma la piel", "Clorhidrato de aluminio: controla el sudor", "Sin alcohol"], "etiqueta": "Opción 1" }
+    ],
+    "uso": [
+      { "titulo": "Una sola aplicación al día para una axila fresca y más pareja", "subtitulo": "Tu rutina después del baño en menos de 1 minuto", "elementos": ["Báñate y seca bien la axila", "Si te rasuraste, espera unos minutos", "Pasa el roll-on por toda la axila", "Repite todos los días, sin falta"], "etiqueta": "Opción 1" },
+      { "titulo": "Sal de la ducha, aplícalo y olvídate del olor todo el día", "subtitulo": "Un paso después del baño que también cuida el tono de tu axila", "elementos": ["Después del baño", "Por toda la axila", "Todos los días"], "etiqueta": "Opción 2" },
+      { "titulo": "1 paso al día, 4 semanas de constancia", "subtitulo": "Muchas personas notan la axila más pareja desde la semana 4 de uso diario", "elementos": ["Después del baño", "Por toda la axila", "Todos los días"], "etiqueta": "Opción 3" }
+    ]
+  },
+  "anuncios_imagen": [
+    { "plantilla": "antes-despues-plazo", "concepto": 1, "faceta": "Mamá trabajadora en bus", "angulo": "beneficio", "contexto": "TransMilenio a las 6 a.m.", "textos": { "titular": "AXILAS MÁS PAREJAS", "plazo": "DESDE LA SEMANA 4", "marca": "SCION · NU SKIN", "antes": "ANTES", "despues": "SEMANA 4 DE USO DIARIO", "legal": "Cosmético. Los resultados varían de persona a persona." } },
+    { "plantilla": "dos-mitades", "concepto": 2, "faceta": "La del paseo de diciembre", "angulo": "deseo", "contexto": "Piscina en Melgar en diciembre", "textos": { "titular": "De esconder los brazos a *levantarlos* en la piscina", "pildora": "Muchas lo notan desde la semana 4", "boton": "Quiero el mío", "marca": "SCION", "legal": "Cosmético. Los resultados varían." } },
+    { "plantilla": "no-compres", "concepto": 3, "faceta": "La que ya probó todo", "angulo": "objeción", "contexto": "Noche, scroll en la cama", "textos": { "titular": "No compres Scion si…", "texto": "…no vas a ser constante. Es un desodorante que usas una vez al día después del baño, y muchas personas notan la axila más pareja desde la semana 4. Si buscas magia de un día, esto no es.", "legal": "Cosmético. Los resultados varían." } },
+    { "plantilla": "pregunta-revelacion", "concepto": 6, "faceta": "La de las fotos de grado", "angulo": "mecanismo", "contexto": "Fotos de grado y fin de año", "textos": { "pregunta": "¿Te rasuras todos los días y la axila sigue gris?", "revelacion": "No es falta de aseo: es la piel irritada", "cierre": "Cuídala con niacinamida, gayuba y regaliz", "legal": "Cosmético. No reemplaza la consulta médica." } },
+    { "plantilla": "historia", "concepto": 7, "faceta": "La de la pareja", "angulo": "deseo", "contexto": "Noche en casa", "textos": { "antes": "ANTES", "despues": "SEMANA 4", "frase": "Me daba cosa que mi pareja me viera las axilas… hasta que descubrí Scion.", "remate": "Ahora ni me acuerdo de taparme", "iconos": ["Sin alcohol", "Olor controlado", "Un solo paso"], "legal": "Experiencia de uso. Los resultados varían." } },
+    { "plantilla": "nosotros-vs-ellos", "concepto": 3, "faceta": "La que ya probó todo", "angulo": "mecanismo", "contexto": "Comprando desodorante en la droguería", "textos": { "titular": "Lo de siempre solo perfuma", "subtitulo": "Scion también te cuida la axila", "nuestro": "Scion", "ellos": "Limón y aclarante del súper", "nuestros": ["Niacinamida, gayuba y regaliz", "Sin alcohol, con alantoína", "Más pareja desde la semana 4"], "suyos": ["Limón que arde e irrita", "Bicarbonato que reseca", "Solo perfume y nada más"], "legal": "Cosmético. Los resultados varían." } },
+    { "plantilla": "estado-vs-estado", "concepto": 4, "faceta": "El del gimnasio", "angulo": "dolor", "contexto": "Gimnasio a las 7 p.m.", "textos": { "zona": "AXILA", "mal": "RASURADA Y ARDIDA", "bien": "FRESCA Y CALMADA", "sub_mal": "El desodorante con alcohol quema", "sub_bien": "Sin alcohol, con alantoína que calma", "legal": "Si te rasuraste, espera unos minutos antes de aplicar." } },
+    { "plantilla": "beneficios-lados", "concepto": 8, "faceta": "Asesora en clima caliente", "angulo": "beneficio", "contexto": "2 p.m. en el almacén con calor", "textos": { "titular": "Fresca todo el día", "subtitulo": "y con la axila más pareja", "antes": "ANTES", "despues": "DESPUÉS", "males": ["Olor a mitad del día", "Sombra gris tras rasurar", "Ardor con el desodorante", "Brazos pegados al cuerpo"], "bienes": ["Olor controlado desde el día 1", "Tono más parejo desde la semana 4", "Sin alcohol, sin ardor", "Brazos arriba sin pena"], "sello": "Desde la semana 4", "atributos": ["Sin alcohol", "Unisex", "Un solo paso"], "legal": "Cosmético. Los resultados varían." } },
+    { "plantilla": "dias-producto", "concepto": 6, "faceta": "La de las fotos de grado", "angulo": "beneficio", "contexto": "Cuenta regresiva al grado", "textos": { "marca": "SCION", "etapas": ["DÍA 1", "SEMANA 4", "SEMANA 8"], "legal": "Uso diario. Los resultados varían de persona a persona." } },
+    { "plantilla": "solo-vs-con", "concepto": 5, "faceta": "Mamá de la adolescente", "angulo": "beneficio", "contexto": "Probador de ropa en diciembre", "textos": { "sin": "Solo rasurar", "con": "Rasurar + Scion", "titular": "Que tu hija vuelva a usar sus blusas sin mangas", "subtitulo": "Suave, sin alcohol y de marca: un paso después del baño que ayuda a que la axila se vea más pareja desde la semana 4.", "boton": "Pídelo por WhatsApp", "legal": "Cosmético. Los resultados varían." } },
+    { "plantilla": "cuadricula-tiempo", "concepto": 4, "faceta": "El del gimnasio", "angulo": "beneficio", "contexto": "Después de la ducha del gimnasio", "textos": { "titular": "Tu axila, *más pareja* semana a semana", "etapas": ["Antes", "Día 1", "Semana 4", "Semana 8"], "legal": "Uso diario. Los resultados varían de persona a persona." } },
+    { "plantilla": "rotulos-anatomia", "concepto": 8, "faceta": "Asesora en clima caliente", "angulo": "dolor", "contexto": "Saliendo de la ducha a las 5 a.m.", "textos": { "titular": "¿Tu axila todavía se ve así?", "subtitulo": "No es falta de aseo: la cuchilla y el roce la irritan. Scion la cuida mientras te protege del olor.", "ahora": "Cómo se ve ahora", "despues": "Desde la semana 4", "izquierda": ["Sombra gris después de rasurar", "Tono disparejo"], "derecha": ["Tono más parejo", "Fresca y sin ardor"], "iconos": ["Niacinamida", "Gayuba y regaliz", "Sin alcohol"], "legal": "Cosmético. No reemplaza la consulta médica." } },
+    { "plantilla": "zonas-semanas", "concepto": 5, "faceta": "Mamá de la adolescente", "angulo": "mecanismo", "contexto": "Quincena del 15: combo para las dos", "textos": { "titular": "Lo que pasa cuando eres constante", "pasos": [ { "ingrediente": "Día 1", "beneficio": "Olor controlado, sin ardor" }, { "ingrediente": "Semana 4", "beneficio": "Muchas notan la axila más pareja" }, { "ingrediente": "Semana 8 a 12", "beneficio": "El cambio se nota más" } ], "legal": "Experiencias reportadas. Los resultados varían." } },
+    { "plantilla": "foto-iconos", "concepto": 2, "faceta": "La del paseo de diciembre", "angulo": "mecanismo", "contexto": "Probándose el vestido de baño", "textos": { "titular": "No solo huele rico: *también cuida* tu axila", "iconos": ["Niacinamida", "Gayuba y regaliz", "Sin alcohol"], "nota": "¡Desde la semana 4!", "legal": "Cosmético. Los resultados varían." } }
+  ],
+  "fuentes": [
+    { "titulo": "Nu Skin Australia · ficha oficial de Scion Brightening Roll-On", "url": "https://nuskin.com/catalog/au/en/product/scion-brightening-roll-on-deodorant" },
+    { "titulo": "Nu Skin Filipinas · ficha de Scion Brightening Roll-on", "url": "https://www.nuskin.com/catalog/ph/en/product/24004368" },
+    { "titulo": "Female Daily · reseñas de Scion Whitening Roll-On (678 usuarios)", "url": "https://reviews.femaledaily.com/products/grooming/deodorants/Nu-Skin/scion-whitening-roll-on-deodorant" },
+    { "titulo": "Beauty Insider · mejores desodorantes aclarantes en Singapur", "url": "https://beautyinsider.sg/?p=84709" },
+    { "titulo": "eBay · reventa de Scion en Estados Unidos", "url": "https://ebay.com/itm/176353180537" },
+    { "titulo": "PubMed Central · revisión sistemática del tratamiento de las axilas oscuras (2025)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12371607/" },
+    { "titulo": "HuffPost · por qué las axilas se oscurecen al rasurarse", "url": "https://huffingtonpost.co.uk/entry/so-thats-why-your-armpits-look-dark-after-shaving_uk_6706435ce4b006047915ce5c" },
+    { "titulo": "Dove · Tomadas del brazo, encuesta sobre la presión por las axilas", "url": "https://www.dove.com/us/es/stories/campaigns/arm-in-arm/the-pressure-of-underarm-perfection.html" },
+    { "titulo": "Milenio · encuesta de manchas en las axilas en México", "url": "https://www.milenio.com/estilo/sabes-cual-es-el-origen-de-las-manchas-en-las-axilas" },
+    { "titulo": "El Observador · axilas manchadas en mujeres uruguayas", "url": "https://www.elobservador.com.uy/nota/dos-de-tres-mujeres-uruguayas-tiene-las-axilas-manchadas-2018105215233/amp" },
+    { "titulo": "Falabella Colombia · desodorantes (Yanbal Effective, Nivea)", "url": "https://www.falabella.com.co/falabella-co/category/cat14591240/desodorantes" },
+    { "titulo": "Farmatodo Colombia · Nivea Aclarado Natural spray", "url": "https://www.farmatodo.com.co/producto/1047496-antitranspirante-spray-nivea-aclarado-natural-efecto-satin-48h-x-150-ml" },
+    { "titulo": "Rappi Colombia · desodorantes en Cafam (Dove, Rexona, Nivea)", "url": "https://www.rappi.com.co/tiendas/900082772-cafam/cuidado-personal/desodorantes" },
+    { "titulo": "Mercado Libre Colombia · Desodorante Effective Aclarante", "url": "https://www.mercadolibre.com.co/shorts/clips/e9flXz/desodorante-effective-aclarante-50g" },
+    { "titulo": "INVIMA · alerta sanitaria por desodorante sin notificación sanitaria (2026)", "url": "https://www.invima.gov.co/alertas-sanitarias/desodorante-natural-marca-alufresh" },
+    { "titulo": "INVIMA · preguntas frecuentes de cosméticos", "url": "https://www.invima.gov.co/cosmeticos-aseo-plaguicidas/preguntas-frecuentes" },
+    { "titulo": "Cámara Colombiana de Comercio Electrónico · informe de cierre 2025", "url": "https://ccce.org.co/wp-content/uploads/2017/06/V2-1-PUBLICO-INFORME-DE-CIERRE-2025.pdf" },
+    { "titulo": "Tiendanube · e-commerce en Colombia 2026", "url": "https://www.tiendanube.com/co/blog/ecommerce-colombia" },
+    { "titulo": "Portafolio · belleza y cuidado personal en tiendas de emprendedores", "url": "https://www.portafolio.co/negocios/emprendimiento/emprendedores-experimentan-alza-de-136-en-ventas-online-574865" }
+  ],
+  "nota_fuentes": "No se encontraron hilos de Reddit, reseñas en Amazon ni videos de TikTok sobre Scion, y Mercado Libre Colombia no permitió la consulta directa. Las frases de clientes están parafraseadas. Los precios en Colombia son de referencia y varían por tienda."
 }

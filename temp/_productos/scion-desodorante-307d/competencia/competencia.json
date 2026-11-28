@@ -1,0 +1,162 @@
+{
+  "marca": "Nu Skin (Scion), vendido por Forever Filipino USA",
+  "tienda": "foreverfilipinousa.com",
+  "producto": "Nu Skin Scion Brightening Roll-On (desodorante roll-on que dice controlar olor y aclarar la axila)",
+  "pais": "Colombia",
+  "fecha": "28 de noviembre de 2026",
+  "explicacion": "Scion es un desodorante roll-on de Nu Skin (marca de venta por catálogo y distribuidoras) que promete dos cosas a la vez: controlar el olor y aclarar la piel oscura de la axila con el uso diario.",
+  "advertencias": [
+    "Dato: la tienda indicada (foreverfilipinousa.com) es un revendedor pequeño de productos filipinos y asiáticos: 1.211 visitas al mes, 100 % del tráfico desde Filipinas, cero anuncios en Meta, sin correos y sin ventas estimadas. No es la marca dueña del producto. Por eso la investigación mide el MERCADO del desodorante aclarante, no a esta tienda.",
+    "Dato: Nu Skin casi no pauta este producto en Meta. Solo apareció 1 anuncio en el mundo que nombra «Nu Skin Scion» (una página de Vietnam que lo pone en una lista de 9 roll-ons). En Colombia, los 4 anuncios que dicen «Nu Skin» son para reclutar distribuidoras, no para vender el desodorante.",
+    "Dato: la búsqueda por el dominio nuskin.com trae anuncios de otra marca (Banuskin, tratamiento para granos). Se descartaron.",
+    "Sin transcripciones del seguimiento de marcas: la tienda no está en tu lista de marcas seguidas y no se pudo agregar. Los guiones citados salen de la transcripción que trae cada anuncio, no del seguimiento completo.",
+    "Dato: el alcance y el gasto solo existen para anuncios que también se ven en Europa. Para Estados Unidos, Filipinas, Colombia y el resto, el alcance sale vacío o muy bajo. Por eso se ordena sobre todo por número de anuncios del mismo creativo y por días al aire.",
+    "Las búsquedas leen el texto escrito del anuncio, no lo que se dice en el video. Un ángulo puede estar en muchos más videos de los que muestran los conteos.",
+    "No se pudo confirmar la lista de ingredientes ni el precio oficial de Scion: solo hay precios de reventa (US$36,49 por unidad en eBay). Cualquier ingrediente que se nombre en un anuncio tuyo debe salir de la etiqueta del producto que tienes en la mano.",
+    "Muchas de las marcas «competidoras» que más escalan son tiendas de dropshipping que copian el mismo video (desodorante de ácido kójico y cúrcuma con olor a vainilla y pistacho). Sus cifras de anuncios duplicados están infladas por copias masivas."
+  ],
+  "creditos": { "antes": 9249, "despues": 8965 },
+  "etapas": [
+    {
+      "titulo": "Investigación maestra",
+      "contexto": "Se revisó la tienda indicada, a Nu Skin, las tiendas parecidas y, sobre todo, el mercado mundial del desodorante que aclara la axila (en inglés y español), que es donde está la competencia real.",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "1. Panorama competitivo" },
+        { "tipo": "metricas", "items": [
+          { "etiqueta": "Visitas al mes (tienda)", "valor": "1.211", "nota": "+47,9 % en 30 días, base muy pequeña", "tono": "ambar" },
+          { "etiqueta": "Origen del tráfico", "valor": "100 % Filipinas", "nota": "Tienda en EE. UU. para filipinos", "tono": "azul" },
+          { "etiqueta": "Anuncios activos de la tienda", "valor": "0", "nota": "Nunca pautó en Meta según los datos", "tono": "rojo" },
+          { "etiqueta": "Ingresos y unidades 30 d", "valor": "Sin dato", "nota": "La tienda no está en el medidor de ventas", "tono": "rojo" },
+          { "etiqueta": "Correos de marketing", "valor": "0", "nota": "No envía correos registrados" },
+          { "etiqueta": "Precio de Scion (reventa)", "valor": "US$36,49", "nota": "eBay; no hay precio oficial verificado", "tono": "ambar" },
+          { "etiqueta": "Anuncios que nombran «Nu Skin Scion»", "valor": "1", "nota": "Vietnam, 1 día al aire", "tono": "rojo" },
+          { "etiqueta": "Anuncios activos «underarm + dark»", "valor": "643", "nota": "Mercado mundial en inglés, hoy", "tono": "verde" }
+        ] },
+        { "tipo": "parrafo", "texto": "Dato: el catálogo más vendido de la tienda es de cremas y jabones aclarantes filipinos: Brilliant Skin set facial (US$17,50), jabón Alada Whitening (US$11,99), Hexatidine Bactidol (US$30), café MX3 (US$11,99), loción A Bonne aclarante con colágeno (US$20,99), Spa Milk Salt (US$8,99), Meiyi Purplene (US$8,99), GT Bleaching Cream (US$19,99), Q-Nic Care (US$8) y champú Luxe Organix (US$9). Scion no está entre los 10 más vendidos de la tienda. **Inferencia:** el comprador de esta tienda es la mujer filipina en EE. UU. que ya compra «whitening»; el producto se vende por costumbre y nombre de marca, no por publicidad." },
+        { "tipo": "tabla", "columnas": ["Competidor", "Qué vende", "Visitas/mes", "Ventas 30 d", "Anuncios activos", "Lectura"], "filas": [
+          ["Lifector (Pakistán)", "Cosmética importada", "178.749 (+194 %)", "Sin dato", "1", "Tienda parecida, no compite en desodorante"],
+          ["Project Vanity (Filipinas)", "Blog y tienda de belleza", "61.415 (−30 %)", "Sin dato", "0", "Parecida en público filipino"],
+          ["Veeha Beauty (EE. UU.)", "Cosmética india", "52.064 (+24 %)", "US$13.731 · 606 u", "2", "Revendedor parecido"],
+          ["D Nelson Enterprises (EE. UU.)", "Productos filipinos aclarantes (glutatión, jabones)", "24.465 (+32 %)", "US$44.334 · 2.094 u", "2", "El revendedor más parecido y más grande"],
+          ["Le Store (Emiratos)", "Cosmética; vende crema 88 Total White para axilas", "24.259", "Sin dato", "Sin dato", "Mismo problema, otro formato"],
+          ["Naturalumi (España, pauta en 70+ países)", "Desodorante ácido kójico + cúrcuma y parches aclarantes", "Sin dato", "Sin dato", "727 en la página", "Competidor directo y presente en Colombia"],
+          ["Verbelle (página «Cierra Mandy»)", "Desodorante ácido kójico + cúrcuma + niacinamida", "Sin dato", "Sin dato", "231 en la página", "El que más escala hoy, en inglés y español"],
+          ["Copias del desodorante «vainilla y pistacho» (Flameday, Heyisail, Wishhouse, Complimenk…)", "Desodorante en barra que aclara", "Sin dato", "Sin dato", "Hasta 6.441 en una página", "El formato que domina el mercado"]
+        ], "nota": "Dato: tiendas parecidas salen de la búsqueda de similares; los últimos tres salen de buscar el ángulo en el texto de los anuncios." },
+        { "tipo": "caja", "estilo": "clave", "titulo": "Quién es el competidor real", "texto": "Inferencia: el competidor real de Scion no es otro roll-on de marca de catálogo. Es la ola del **desodorante «skincare»**: barras sin aluminio con ácido kójico y cúrcuma, olor a vainilla y pistacho, vendidas con video de testimonio. En segundo lugar compiten las otras soluciones al mismo problema: jabones de kójico, cremas y sérums para zonas oscuras, parches, láser y antitranspirantes clínicos (DrOff en Colombia)." },
+        { "tipo": "subtitulo", "texto": "2. Familias de creativos ganadores (del mercado)" },
+        { "tipo": "barras", "titulo": "Pico de volumen por familia (anuncios en su creativo más copiado)", "unidad": "anuncios", "items": [
+          { "etiqueta": "A. «Tu hombre» y «30 años» (kójico + cúrcuma, vainilla y pistacho)", "valor": 2636, "nota": "Flameday, 22 jun–4 jul 2026", "tono": "rojo" },
+          { "etiqueta": "B. Gel o spray exfoliante para «zonas oscuras»", "valor": 1740, "nota": "Predominantk, ago 2025", "tono": "ambar" },
+          { "etiqueta": "C. Celebridad o K-pop («las idols coreanas»)", "valor": 867, "nota": "Vibeourplus, jun 2026", "tono": "ambar" },
+          { "etiqueta": "D. Prueba en vivo de una sola axila", "valor": 384, "nota": "Wishhouse, 190 días al aire", "tono": "verde" },
+          { "etiqueta": "E. «Deja el láser»", "valor": 109, "nota": "Tryourplus, jun 2026", "tono": "azul" },
+          { "etiqueta": "F. Jabón de kójico para zonas oscuras", "valor": 104, "nota": "The Sassy Co, India, 464 días", "tono": "azul" },
+          { "etiqueta": "G. «Te amo, pero…» con carta de testimonio (Verbelle)", "valor": 52, "nota": "99 días, sigue activo y creciendo", "tono": "verde" }
+        ] },
+        { "tipo": "vinetas", "items": [
+          "**A. «Tu hombre» y «30 años»** — Dato: la misma base de video (una chica muestra el antes y después y dice que el aluminio mancha) se publicó con dos ganchos: «If your man can't do this to your armpits…» (2.636 anuncios) y «Let me know why it took the girls 30 freaking years…» (1.935 anuncios). Inferencia: es el cuerpo ganador del mercado; se copia en España y Latinoamérica palabra por palabra.",
+          "**B. Zonas oscuras en general** — Dato: geles y sprays que prometen aclarar axila, rodillas, cuello y entrepierna (1.740 y 400 anuncios del mismo video en dos tiendas). Inferencia: compite por el mismo dolor, sin la parte de olor.",
+          "**C. Autoridad prestada** — Dato: «K-pop idols have some really beautiful armpits» (867 anuncios) y «la marca favorita de Kylie Kardashian» dentro del guion A. Inferencia: autoridad no verificable; funciona pero es riesgosa.",
+          "**D. Prueba en vivo** — Dato: «this is way too viral for y'all to not be testing this in real time», una axila tratada y la otra no (384 anuncios, 190 días). Inferencia: la demostración visible es lo que sostiene en el tiempo.",
+          "**E. Contra el láser** — Dato: «please stop doing that to get rid of the dark spots under your arms» (109 anuncios): llama al producto «laser in a bottle».",
+          "**F. Jabón** — Dato: jabón de kójico y cúrcuma en India, 104 anuncios y 464 días. En Colombia lo hace Árvore en dúo con desodorante.",
+          "**G. Carta de testimonio** — Dato: Verbelle, copy largo en voz de clienta («I love you. But if you can't lift your arms to put your hair up…»), 52 anuncios, 99 días, +1.921 de alcance en 7 días; ya lo tradujo al español."
+        ] },
+        { "tipo": "subtitulo", "texto": "3. Desglose de 6 anuncios top" },
+        { "tipo": "anuncios", "items": [
+          { "id": "facebook_1000074609583289", "marca": "Flameday (dropshipping)", "nombre": "«Tu hombre» — desodorante vainilla y pistacho", "formato": "video", "gancho": "If your man can't do this to your armpits, you need to get a new deodorant.", "traduccion": "Si tu hombre no puede hacerle esto a tus axilas, necesitas un desodorante nuevo.", "angulo": "Deseo y pareja + aluminio como culpable + aclarado con kójico y cúrcuma", "avatar": "Mujer joven con pareja, que va al gimnasio", "pasos": ["Gancho de pareja oliendo la axila", "Antes y después de la axila", "Culpable: el desodorante con aluminio", "Ingredientes: ácido kójico y cúrcuma «en un desodorante»", "Autoridad prestada: «la marca favorita de Kylie Kardashian»", "Olor: piña, pistacho, vainilla, «huele a la chica más rica»", "Prueba de duración: 24 horas aun entrenando", "Oferta de verano y urgencia"], "cifras": { "dias": 12, "anuncios": 2636, "alcance": "67.670 (Europa)", "impresiones": "", "desde": "22 jun 2026", "hasta": "4 jul 2026" }, "por_que": "Junta tres deseos en una escena (verse bien, oler rico, gustarle a la pareja) y le da un culpable externo (el aluminio), que quita la vergüenza.", "ganchos": ["Let me know why it took the girls 30 freaking years to figure out how to lighten their armpits", "Hombre no puede hacerle esto a tus axilas, necesitas un desodorante nuevo (versión en español de Naturalumi)"], "url": "https://medias.trendtrack.io/facebook/video/f42f1e3b74c77b4b3e25cd02c2eca921ba335c3327f11aa3af758ab39f75be1d.mp4", "landing": "https://m.newsparkings.com/funnel/news-deodorant---antiperspirant-balm---vanilla---pistachio" },
+          { "id": "facebook_1183122723894842", "marca": "Heyisail (dropshipping)", "nombre": "«30 años» — no es láser", "formato": "video", "gancho": "Let me know why it took the girls 30 freaking years to figure out how to lighten their armpits — and no, it's not laser.", "traduccion": "Díganme por qué nos tomó 30 malditos años descubrir cómo aclarar las axilas — y no, no es láser.", "angulo": "Descubrimiento tardío + alternativa barata al láser", "avatar": "Mujer 25–40 que ya probó de todo", "pasos": ["Pregunta retórica con indignación", "Transformación en 2 semanas", "Ingrediente «metido en un desodorante»", "Marca famosa «siempre agotada en esta app»", "Olor de lujo, no necesita perfume", "Escasez: se agotó al día 2 o 3", "Regalo: mini de viaje al comprar 2"], "cifras": { "dias": 10, "anuncios": 1935, "alcance": "", "impresiones": "La página pasó de ~200 a 8.000 impresiones diarias en abril–junio y volvió a 4.000–8.000 diarias del 12 al 27 de noviembre de 2026", "desde": "21 may 2026", "hasta": "31 may 2026" }, "por_que": "Convierte un problema vergonzoso en un «secreto que nadie te dijo»; el regalo pequeño sube el ticket a 2 unidades.", "ganchos": ["If your man can't do this to your armpits…", "¿Por qué tuvimos que esperar 30 años para descubrir cómo aclarar las axilas? (Naturalumi y Verbelle en español)"], "url": "https://medias.trendtrack.io/facebook/video/ef6179f8c5541dea9d7c5a294f4b5b07f2067fb13ebbb0e4a93592856ac8ba71.mp4", "landing": "https://m.arichbox.com/funnel/news-deodorant---antiperspirant-balm---vanilla---pistachio" },
+          { "id": "facebook_1000549732478460", "marca": "Vibeourplus (dropshipping)", "nombre": "Axilas de idol coreana", "formato": "video", "gancho": "If you guys haven't noticed, K-pop idols have some really beautiful armpits.", "traduccion": "Si no se han dado cuenta, las idols del K-pop tienen unas axilas muy bonitas.", "angulo": "Belleza coreana + mecanismo (el ácido kójico frena la melanina)", "avatar": "Mujer joven fan del skincare coreano", "pasos": ["Observación curiosa sobre idols", "«No soy rara»: humor", "Secreto de una marca coreana", "Mecanismo: frena la tirosinasa, menos melanina", "Sin aluminio que irrita", "Olor a resort de Bora Bora", "Pack de 2 con mini en llavero"], "cifras": { "dias": 3, "anuncios": 867, "alcance": "20.715 (página, total)", "impresiones": "", "desde": "2 jun 2026", "hasta": "5 jun 2026" }, "por_que": "La curiosidad abre, y el mecanismo simple (menos melanina) le da lógica a la promesa.", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/video/af9f44f00fc1b4d90630e65ecbad0bbd268860e89ffeaa67a301a4c1e787dd7f.mp4", "landing": "https://vibeourplus.com/pages/antiperspirant-deodorant-stick" },
+          { "id": "facebook_1495530278728530", "marca": "Wishhouse", "nombre": "Prueba en vivo de una axila", "formato": "video", "gancho": "This is way too viral for y'all to not be testing this in real time.", "traduccion": "Esto es demasiado viral como para que no lo estén probando en tiempo real.", "angulo": "Demostración: una axila tratada y otra sin tratar", "avatar": "Mujer que se rasura y tiene puntitos y sombra", "pasos": ["Promesa de probarlo en vivo", "Muestra la axila tratada y la no tratada", "Admite que queda «un poco de sombra»", "Sin aluminio, con kójico y cúrcuma", "Dos veces al día", "Olor a vainilla y pistacho", "Fecha límite: el verano"], "cifras": { "dias": 190, "anuncios": 384, "alcance": "2.844 (Reino Unido e Irlanda)", "impresiones": "", "desde": "22 may 2026", "hasta": "activo" }, "por_que": "La comparación lado a lado y la honestidad («todavía queda sombra») dan credibilidad; por eso dura más que los demás.", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/video/3e1498ac80c93397d049257e41e09a6670f9b7b4f09ef17758028703499ca715.mp4", "landing": "https://m.allwish.co.uk/products/deodorant---antiperspirant-balm---vanilla---pistachio" },
+          { "id": "facebook_1095116336191383", "marca": "Verbelle (página Cierra Mandy)", "nombre": "«Te amo, pero…» — carta de clienta", "formato": "video", "gancho": "I love you. But if you can't lift your arms to put your hair up because your underarms are too dark — I need to put you on.", "traduccion": "Te amo. Pero si no puedes levantar los brazos para hacerte un moño porque tus axilas están muy oscuras, te tengo que contar.", "angulo": "Amiga que te confiesa + aluminio culpable + coreano", "avatar": "Mujer que solo usa ropa oscura y baja los brazos en fotos", "pasos": ["Frase de amiga que confronta con cariño", "«Esa era yo hace 3 meses»: ropa oscura, brazos pegados", "Skincare DENTRO del desodorante", "Ingredientes de facial de US$200", "Lista de cambios en 14 días", "No arde al rasurar, no mancha la ropa", "«No necesitas perfume: ES el perfume»", "Agotado la semana pasada: corre"], "cifras": { "dias": 99, "anuncios": 52, "alcance": "12.596 (Europa)", "impresiones": "+1.921 de alcance en 7 días", "desde": "21 ago 2026", "hasta": "activo" }, "por_que": "La voz de amiga baja la vergüenza y la lista de 14 días hace la promesa concreta; además cubre la objeción de ardor al rasurar.", "ganchos": ["Word on the street is your girl got some pretty underarms (guion del video)", "Si tu mamá nunca te lo dijo, deja el limón, deja el bicarbonato… (versión en español)"], "url": "https://medias.trendtrack.io/facebook/video/4651705133f4c8acb1b16dfdbf7c75302525d5ad055ae764d98ae68909934b10.mp4", "landing": "https://tryverbelle.com/products/kojic-acid-turmeric-deoderant" },
+          { "id": "facebook_1000273639219806", "marca": "Tryourplus (dropshipping)", "nombre": "«Deja el láser»", "formato": "video", "gancho": "Please stop doing that to get rid of the dark spots under your arms.", "traduccion": "Por favor deja de hacer eso para quitarte las manchas de las axilas.", "angulo": "Contra el láser: caro, duele y vuelve", "avatar": "Mujer que pensó en láser o ya lo hizo", "pasos": ["Orden directa: deja de hacer eso", "El láser duele, es caro y no es permanente", "«Yo también tenía las axilas oscuras»", "«Laser in a bottle»: kójico y cúrcuma", "Niacinamida para poros", "Una o dos veces al día", "Se agota"], "cifras": { "dias": 0, "anuncios": 109, "alcance": "32.770 (página, total)", "impresiones": "", "desde": "9 jun 2026", "hasta": "9 jun 2026" }, "por_que": "Compara contra la alternativa cara y deja el producto como la opción sensata.", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/video/00dcb334247ac93379a5c308846851c53ebe13f204aecd3b98b536bfcb0c4344.mp4", "landing": "https://tryourplus.com/pages/antiperspirant-deodorant-stick" }
+        ] },
+        { "tipo": "subtitulo", "texto": "4. Patrones" },
+        { "tipo": "vinetas", "items": [
+          "Dato: estructura repetida en los guiones transcritos: (1) gancho de vergüenza o deseo → (2) antes y después de la axila → (3) culpable externo: el aluminio, el limón o el bicarbonato → (4) ingrediente «metido en un desodorante» → (5) olor de lujo → (6) prueba de duración (gimnasio, mudanza, 24 h) → (7) escasez y regalo mini al comprar 2.",
+          "Dato: frases que se repiten: «30 freaking years», «it's not laser», «aluminum is causing the darkness», «Bora Bora», «rich girl», «sold out», «mini on a keychain», «you don't need perfume».",
+          "Dato: en español ya circulan las mismas frases: «¿Por qué tuvimos que esperar 30 años…?», «el aluminio es lo que te está manchando las axilas», «huele a mujer empoderada… vacaciones en Bora Bora».",
+          "Inferencia: casi todo el mercado vende el mismo producto chino con distinta etiqueta; la diferencia está en el gancho, no en el producto."
+        ] },
+        { "tipo": "subtitulo", "texto": "5. Sofisticación del mercado" },
+        { "tipo": "escala", "titulo": "Sofisticación del mercado (Schwartz)", "items": [
+          { "nombre": "La marca (Nu Skin Scion)", "nivel": 2, "nota": "Inferencia: se vende con la promesa simple «aclara y protege»; no tiene mecanismo comunicado en anuncios porque casi no pauta." },
+          { "nombre": "El mercado en inglés", "nivel": 4, "nota": "Dato: todos dicen lo mismo y compiten por mecanismo (kójico frena la melanina, el aluminio mancha) y por experiencia (olor de lujo)." },
+          { "nombre": "El mercado en español", "nivel": 3, "nota": "Dato: copia directa del inglés desde agosto de 2026; todavía hay espacio para un mecanismo propio." }
+        ] },
+        { "tipo": "subtitulo", "texto": "6. Estáticos" },
+        { "tipo": "barras", "titulo": "Proporción imagen frente a total", "unidad": "anuncios", "items": [
+          { "etiqueta": "Inglés, activos «underarm + dark»: total", "valor": 643 },
+          { "etiqueta": "Inglés, activos «underarm + dark»: imagen", "valor": 130, "nota": "20 %", "tono": "azul" },
+          { "etiqueta": "Colombia, «axilas oscuras»: total", "valor": 550 },
+          { "etiqueta": "Colombia, «axilas oscuras»: imagen", "valor": 57, "nota": "10 %", "tono": "azul" }
+        ] },
+        { "tipo": "anuncios", "items": [
+          { "id": "facebook_2125271348330870", "marca": "Janet Sri Lanka", "nombre": "Sérum seco aclarante para axilas", "formato": "imagen", "gancho": "Underarm darkness එකටම solution එකක්…", "traduccion": "¿Buscas una solución para la axila oscura? Aquí está.", "angulo": "Solución directa con precio", "avatar": "Mujer de Sri Lanka", "pasos": ["Pregunta por el problema", "Producto y precio (975 rupias)", "Escribir por mensaje"], "cifras": { "dias": 204, "anuncios": 2, "alcance": "", "impresiones": "", "desde": "8 may 2026", "hasta": "activo" }, "por_que": "Estático simple con precio, sostenido 204 días.", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/image/722d5cc4252c3720152962a52213b0ecda800cb439f2eb487635101a851f87aa.png", "landing": "Va a mensajes, sin landing" },
+          { "id": "facebook_2131963734038725", "marca": "Blank Beauty", "nombre": "Bálsamo + roll-on de ácido kójico", "formato": "imagen", "gancho": "Darkening in sensitive areas? It's more common than you think.", "traduccion": "¿Oscurecimiento en zonas sensibles? Es más común de lo que crees.", "angulo": "Rutina de 2 productos para zonas sensibles", "avatar": "Mujer del Golfo, bilingüe", "pasos": ["Normaliza el problema", "Bálsamo para zonas sensibles", "Roll-on con kójico sin aluminio", "Pide compartir con una amiga"], "cifras": { "dias": 78, "anuncios": 1, "alcance": "", "impresiones": "", "desde": "15 may 2026", "hasta": "1 ago 2026" }, "por_que": "El «compártelo con quien lo necesite» empuja difusión orgánica.", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/image/4aeb94eb85acf31666d5238d0688d229135104b417135250cba755978c9b7025.jpg", "landing": "Sin landing; busca por código en su tienda" },
+          { "id": "facebook_1833675550749688", "marca": "Kirah Glow", "nombre": "Intense Glow Whitening Deodorant", "formato": "imagen", "gancho": "NEW INTENSE GLOW WHITENING DEODORANT", "traduccion": "Nuevo desodorante blanqueador Intense Glow", "angulo": "Blanqueo directo", "avatar": "Mujer afro en África y EE. UU.", "pasos": ["Nombre del producto", "Ingredientes y modo de uso en la descripción"], "cifras": { "dias": 539, "anuncios": 1, "alcance": "208 (Europa)", "impresiones": "", "desde": "11 mar 2025", "hasta": "1 sep 2026" }, "por_que": "No es ganador: 539 días encendido con alcance casi nulo (gasto estimado US$2). Se cita como ejemplo de anuncio longevo sin gasto.", "ganchos": [], "url": "https://medias.trendtrack.io/facebook/image/7005b14c550d528c76ddfda1f4ed12919a7ff29528a8d74555ddae4087d2b53d.jpg", "landing": "https://www.kirahglow.com/product/whitening-deodorant/" }
+        ] },
+        { "tipo": "subtitulo", "texto": "7. Embudo y landings" },
+        { "tipo": "tabla", "columnas": ["Destino", "Promesa (traducida)", "Ángulo"], "filas": [
+          ["m.newsparkings.com/funnel/news-deodorant… (Flameday)", "«Venta caliente de festival + garantía de 90 días»", "Página tipo noticia antes del producto"],
+          ["m.arichbox.com/funnel/news-deodorant… (Heyisail)", "Página tipo noticia del bálsamo vainilla y pistacho", "Prelanding de noticia"],
+          ["tryverbelle.com/products/kojic-acid-turmeric-deoderant", "«US$17,99 solo hoy», calificado 4,8/5", "Producto directo con descuento"],
+          ["tryverbelle.com/products/kojic-acid-turmeric-deodorant-sp", "«Lleva 1 gratis solo hoy», «Black Friday»", "Versión en español del mismo producto"],
+          ["niptic.com/pages/listicle-deodorant-7-reasons", "«7 razones» por las que el kójico y la cúrcuma aclaran", "Lista educativa antes de vender"],
+          ["vibeourplus.com/pages/antiperspirant-deodorant-stick", "«Desodorante en barra que ama tu piel»", "Producto directo"],
+          ["naturalumi.com/products/desodorante-con-acido-kojico-y-curcuma", "«Aclara y desmancha visiblemente las axilas»", "Producto directo en español"],
+          ["vivendiistore.com/products/desodorante (Colombia)", "«Desodorante aclarante de axila», pagas al recibir", "Producto directo, contra entrega"]
+        ], "nota": "Dato: no se abrió el contenido de las landings; se reportan URL y titular del anuncio." },
+        { "tipo": "subtitulo", "texto": "8. Oferta, precio y retención" },
+        { "tipo": "vinetas", "items": [
+          "Dato: Scion se revende a US$36,49 por unidad (eBay) y en paquetes de 3; la tienda indicada no muestra el precio en los datos.",
+          "Dato: el mercado vende la barra de kójico a US$17,99 «solo hoy» (Verbelle) con regalo de un mini en llavero al comprar 2, «2x1» (Naturalumi, Polynae) o «compra 2, lleva 1 gratis».",
+          "Dato: garantías de 90 días (Flameday) y 30 días (MAGS); en Colombia, pago contra entrega y envío gratis (Vivendii, Árvore, DrOff).",
+          "Dato: la tienda indicada no tiene correos; Nu Skin vende por distribuidoras (los anuncios de Nu Skin en Colombia reclutan vendedoras).",
+          "Inferencia: el precio de Scion es el doble del mercado de dropshipping. Para venderlo hay que justificar el precio con la marca y la calidad, o competir en paquete.",
+          "Contraste con la etiqueta: no se pudo verificar la etiqueta oficial de Scion. Los anuncios del mercado nombran kójico, cúrcuma, niacinamida y vitamina C; no hay que atribuirle a Scion esos ingredientes sin leer su caja."
+        ] },
+        { "tipo": "subtitulo", "texto": "9. Mapa de oportunidades" },
+        { "tipo": "caja", "estilo": "oportunidad", "titulo": "Oportunidades con evidencia", "items": [
+          "1. **Roll-on frente a barra**: Dato: solo 8 anuncios activos dicen «Korean deodorant» y el formato dominante es barra; el roll-on aparece en Asia y África sin escalar. Hay espacio para «el roll-on que se seca rápido y no deja pasta blanca».",
+          "2. **Marca reconocida frente a copias**: Dato: los que escalan son tiendas genéricas con el mismo video. Una marca conocida (Nu Skin) da confianza que el dropshipping no tiene.",
+          "3. **Después de rasurarse**: Dato: 224 anuncios activos unen desodorante y rasurado; Verbelle y Ryvalia lo usan como objeción («no arde»). Es un momento concreto y repetido.",
+          "4. **Hombres**: Dato: Melano Pharma for Men (Egipto) y Organic Skin Japan Men's (Filipinas) prueban aclarante para hombre; casi nadie lo hace en inglés ni en Colombia.",
+          "5. **Ropa y manchas**: Dato: 270 anuncios activos unen desodorante y manchas en la ropa; DrOff en Colombia vende con «dejé de comprar ropa de color». Une el aclarado con no manchar la camisa.",
+          "6. **Honestidad en tiempos**: Dato: el anuncio más longevo (Wishhouse, 190 días) admite «todavía queda sombra». Prometer «poco a poco, con constancia» es diferenciador frente a «en 14 días»."
+        ] },
+        { "tipo": "subtitulo", "texto": "10. Plan de ejecución" },
+        { "tipo": "tabla", "columnas": ["#", "Hook en inglés (fuente)", "En español para tu anuncio"], "filas": [
+          ["1", "If your man can't do this to your armpits… (Flameday)", "Si levantas el brazo y piensas primero en cómo se ve tu axila, esto es para ti."],
+          ["2", "It took the girls 30 years to figure out how to lighten their armpits (Heyisail)", "Llevaba años escondiendo las axilas y el cambio estaba en el desodorante."],
+          ["3", "This is way too viral not to test it in real time (Wishhouse)", "Lo probé en una sola axila durante semanas. Mira la diferencia."],
+          ["4", "I love you. But if you can't lift your arms… (Verbelle)", "Amiga, si no te recoges el pelo por tus axilas, tengo que contarte algo."],
+          ["5", "Please stop doing that to get rid of dark spots (Tryourplus)", "Antes de pagar láser, prueba cambiar el desodorante que usas todos los días."],
+          ["6", "I thought my underarms were just naturally dark (Ava Condie)", "Creí que mis axilas eran oscuras de nacimiento. No era así."],
+          ["7", "I asked four friends if their underarms were darker (Ryvalia)", "Les pregunté a cuatro amigas si tenían las axilas más oscuras. Las cuatro dijeron que sí."],
+          ["8", "Hot yoga + a 10 mile hike and I still smelled good (Polynae)", "Calor de Barranquilla, bus lleno y sigo oliendo bien."],
+          ["9", "Your underarms deserve skincare too (Tryourplus)", "Tus axilas también merecen cuidado, no solo perfume."],
+          ["10", "You don't need perfume when you wear this (Verbelle)", "Un roll-on que cuida la piel mientras te protege del olor."]
+        ] },
+        { "tipo": "plan", "titulo": "Secuencia de prueba de 3 semanas", "items": [
+          { "cuando": "Semana 1", "que": "3 conceptos en video con el mismo cuerpo: (a) prueba en una sola axila, (b) amiga que te confiesa, (c) antes de pagar láser. 3 ganchos por concepto. Medir retención a 3 segundos y costo por clic." },
+          { "cuando": "Semana 2", "que": "Escalar los 2 cuerpos ganadores; agregar 2 estáticos (antes y después honesto, y comparación roll-on frente a barra). Probar el ángulo de hombres con un solo creativo." },
+          { "cuando": "Semana 3", "que": "Relanzar el ganador con 4 ganchos nuevos sobre el mismo cuerpo, probar oferta de 2 unidades y un mensaje de «después de rasurarte». Apagar lo que no pasó de prueba." }
+        ] }
+      ],
+      "limitaciones": [
+        "La tienda indicada no tiene anuncios ni ventas medidas: la ficha describe al mercado, no a la marca.",
+        "El alcance solo es confiable en anuncios que se ven en Europa; Flameday (67.670) y Verbelle (12.596) son los únicos con alcance real.",
+        "Los conteos de duplicados (2.636, 1.935) incluyen copias de muchas tiendas con el mismo video.",
+        "No se verificó la etiqueta ni el precio oficial de Scion."
+      ],
+      "riesgos": [
+        "«Whitening» o «blanquea» es una promesa cosmética fuerte y sensible en Colombia: usa «ayuda a mejorar la apariencia de la axila oscura» o «aclara visiblemente con el uso constante».",
+        "«El aluminio mancha la axila» es la creencia que usa todo el mercado, pero no está probada: decirlo como hecho es riesgoso.",
+        "Autoridades no verificables («la marca favorita de Kylie Kardashian», «dermatólogos están hablando de esto») son riesgo de política y de credibilidad.",
+        "Plazos absolutos («en 14 días», «una sola tonalidad a la semana 4») no son defendibles."
+      ]
+    }
+  ]
+}
